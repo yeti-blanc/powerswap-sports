@@ -1,0 +1,436 @@
+{
+  "season": 2025,
+  "phase": "postseason",
+  "games": [
+    {
+      "winner": "Kutztown University",
+      "loser": "Bentley",
+      "date": "2025-11-22T17:00:00.000Z"
+    },
+    {
+      "winner": "Muhlenberg",
+      "loser": "Union (NY)",
+      "date": "2025-11-22T17:00:00.000Z"
+    },
+    {
+      "winner": "Lagrange College",
+      "loser": "Framingham State",
+      "date": "2025-11-22T17:00:00.000Z"
+    },
+    {
+      "winner": "Springfield",
+      "loser": "Cortland",
+      "date": "2025-11-22T17:00:00.000Z"
+    },
+    {
+      "winner": "Hanover College",
+      "loser": "Grove City College",
+      "date": "2025-11-22T17:00:00.000Z"
+    },
+    {
+      "winner": "Susquehanna",
+      "loser": "Washington & Jefferson",
+      "date": "2025-11-22T17:00:00.000Z"
+    },
+    {
+      "winner": "Assumption",
+      "loser": "Indiana-Pennsylvania",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Coe College",
+      "loser": "Concordia-Wisconsin",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Ashland",
+      "loser": "Minnesota Duluth",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Minnesota State Mankato",
+      "loser": "Findlay",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Frostburg State",
+      "loser": "Johnson C Smith",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Ferris State",
+      "loser": "Northwood (MI)",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Wheaton",
+      "loser": "Crown College",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Newberry",
+      "loser": "Kentucky State",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Albany State GA",
+      "loser": "Valdosta State",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "PennWest California",
+      "loser": "Virginia Union",
+      "date": "2025-11-22T18:00:00.000Z"
+    },
+    {
+      "winner": "Harding University",
+      "loser": "Northwest Missouri St",
+      "date": "2025-11-22T19:00:00.000Z"
+    },
+    {
+      "winner": "West Florida",
+      "loser": "North Greenville",
+      "date": "2025-11-22T19:00:00.000Z"
+    },
+    {
+      "winner": "Benedict College",
+      "loser": "Wingate",
+      "date": "2025-11-22T19:00:00.000Z"
+    },
+    {
+      "winner": "Indianapolis",
+      "loser": "Truman State",
+      "date": "2025-11-22T19:00:00.000Z"
+    },
+    {
+      "winner": "Pittsburg St",
+      "loser": "Chadron St",
+      "date": "2025-11-22T19:00:00.000Z"
+    },
+    {
+      "winner": "Chapman",
+      "loser": "Whitworth",
+      "date": "2025-11-22T20:00:00.000Z"
+    },
+    {
+      "winner": "UT Permian Basin",
+      "loser": "CSU Pueblo",
+      "date": "2025-11-22T20:00:00.000Z"
+    },
+    {
+      "winner": "Western Colorado",
+      "loser": "Central Washington",
+      "date": "2025-11-22T21:00:00.000Z"
+    },
+    {
+      "winner": "Salisbury",
+      "loser": "Endicott College",
+      "date": "2025-11-29T17:00:00.000Z"
+    },
+    {
+      "winner": "John Carroll University",
+      "loser": "Randolph-Macon",
+      "date": "2025-11-29T17:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-Lacrosse",
+      "loser": "Hope College",
+      "date": "2025-11-29T17:00:00.000Z"
+    },
+    {
+      "winner": "Eastern University",
+      "loser": "Franklin & Marshall",
+      "date": "2025-11-29T17:00:00.000Z"
+    },
+    {
+      "winner": "Depauw",
+      "loser": "Wisconsin-Whitewater",
+      "date": "2025-11-29T18:00:00.000Z"
+    },
+    {
+      "winner": "Trinity University TX",
+      "loser": "Hardin-Simmons",
+      "date": "2025-11-29T18:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-Platteville",
+      "loser": "Alma",
+      "date": "2025-11-29T18:00:00.000Z"
+    },
+    {
+      "winner": "Saint John's (MN)",
+      "loser": "Monmouth (IL)",
+      "date": "2025-11-29T18:00:00.000Z"
+    },
+    {
+      "winner": "South Carolina State",
+      "loser": "Prairie View A&M",
+      "date": "2025-12-13T17:00:00.000Z"
+    },
+    {
+      "winner": "Washington",
+      "loser": "Boise State",
+      "date": "2025-12-14T01:00:00.000Z"
+    },
+    {
+      "winner": "Jacksonville State",
+      "loser": "Troy",
+      "date": "2025-12-17T02:00:00.000Z"
+    },
+    {
+      "winner": "Old Dominion",
+      "loser": "South Florida",
+      "date": "2025-12-17T22:00:00.000Z"
+    },
+    {
+      "winner": "Delaware",
+      "loser": "Louisiana",
+      "date": "2025-12-18T01:30:00.000Z"
+    },
+    {
+      "winner": "Arkansas State",
+      "loser": "Missouri State",
+      "date": "2025-12-19T02:00:00.000Z"
+    },
+    {
+      "winner": "Western Michigan",
+      "loser": "Kennesaw State",
+      "date": "2025-12-19T16:00:00.000Z"
+    },
+    {
+      "winner": "NC State",
+      "loser": "Memphis",
+      "date": "2025-12-19T19:30:00.000Z"
+    },
+    {
+      "winner": "Alabama",
+      "loser": "Oklahoma",
+      "date": "2025-12-20T01:00:00.000Z"
+    },
+    {
+      "winner": "Miami",
+      "loser": "Texas A&M",
+      "date": "2025-12-20T17:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-River Falls",
+      "loser": "Johns Hopkins University",
+      "date": "2025-12-20T18:00:00.000Z"
+    },
+    {
+      "winner": "Mississippi",
+      "loser": "Tulane",
+      "date": "2025-12-20T20:30:00.000Z"
+    },
+    {
+      "winner": "Montana State",
+      "loser": "Montana",
+      "date": "2025-12-20T21:00:00.000Z"
+    },
+    {
+      "winner": "Ferris State",
+      "loser": "Harding University",
+      "date": "2025-12-20T21:00:00.000Z"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "John Carroll University",
+      "date": "2025-12-20T21:30:00.000Z"
+    },
+    {
+      "winner": "Oregon",
+      "loser": "James Madison",
+      "date": "2025-12-21T00:30:00.000Z"
+    },
+    {
+      "winner": "Illinois State",
+      "loser": "Villanova",
+      "date": "2025-12-21T00:30:00.000Z"
+    },
+    {
+      "winner": "Washington State",
+      "loser": "Utah State",
+      "date": "2025-12-22T19:00:00.000Z"
+    },
+    {
+      "winner": "Louisville",
+      "loser": "Toledo",
+      "date": "2025-12-23T19:00:00.000Z"
+    },
+    {
+      "winner": "Western Kentucky",
+      "loser": "Southern Miss",
+      "date": "2025-12-23T22:30:00.000Z"
+    },
+    {
+      "winner": "Ohio",
+      "loser": "Nevada-Las Vegas",
+      "date": "2025-12-24T02:00:00.000Z"
+    },
+    {
+      "winner": "Hawaii",
+      "loser": "California",
+      "date": "2025-12-25T01:00:00.000Z"
+    },
+    {
+      "winner": "Northwestern",
+      "loser": "Central Michigan",
+      "date": "2025-12-26T18:00:00.000Z"
+    },
+    {
+      "winner": "Minnesota",
+      "loser": "New Mexico",
+      "date": "2025-12-26T21:30:00.000Z"
+    },
+    {
+      "winner": "UT San Antonio",
+      "loser": "Florida International",
+      "date": "2025-12-27T01:00:00.000Z"
+    },
+    {
+      "winner": "East Carolina",
+      "loser": "Pittsburgh",
+      "date": "2025-12-27T16:00:00.000Z"
+    },
+    {
+      "winner": "Penn State",
+      "loser": "Clemson",
+      "date": "2025-12-27T17:00:00.000Z"
+    },
+    {
+      "winner": "Army",
+      "loser": "Connecticut",
+      "date": "2025-12-27T19:15:00.000Z"
+    },
+    {
+      "winner": "BYU",
+      "loser": "Georgia Tech",
+      "date": "2025-12-27T20:30:00.000Z"
+    },
+    {
+      "winner": "Fresno State",
+      "loser": "Miami (Ohio)",
+      "date": "2025-12-27T21:30:00.000Z"
+    },
+    {
+      "winner": "North Texas",
+      "loser": "San Diego State",
+      "date": "2025-12-27T22:45:00.000Z"
+    },
+    {
+      "winner": "Virginia",
+      "loser": "Missouri",
+      "date": "2025-12-28T00:30:00.000Z"
+    },
+    {
+      "winner": "Houston",
+      "loser": "LSU",
+      "date": "2025-12-28T02:15:00.000Z"
+    },
+    {
+      "winner": "Georgia Southern",
+      "loser": "Appalachian State",
+      "date": "2025-12-29T19:00:00.000Z"
+    },
+    {
+      "winner": "Louisiana Tech",
+      "loser": "Coastal Carolina",
+      "date": "2025-12-30T19:00:00.000Z"
+    },
+    {
+      "winner": "Illinois",
+      "loser": "Tennessee",
+      "date": "2025-12-30T22:30:00.000Z"
+    },
+    {
+      "winner": "TCU",
+      "loser": "USC",
+      "date": "2025-12-31T02:00:00.000Z"
+    },
+    {
+      "winner": "Iowa",
+      "loser": "Vanderbilt",
+      "date": "2025-12-31T17:00:00.000Z"
+    },
+    {
+      "winner": "Duke",
+      "loser": "Arizona State",
+      "date": "2025-12-31T19:00:00.000Z"
+    },
+    {
+      "winner": "Texas",
+      "loser": "Michigan",
+      "date": "2025-12-31T20:00:00.000Z"
+    },
+    {
+      "winner": "Utah",
+      "loser": "Nebraska",
+      "date": "2025-12-31T20:30:00.000Z"
+    },
+    {
+      "winner": "Miami",
+      "loser": "Ohio State",
+      "date": "2026-01-01T00:30:00.000Z"
+    },
+    {
+      "winner": "Oregon",
+      "loser": "Texas Tech",
+      "date": "2026-01-01T17:00:00.000Z"
+    },
+    {
+      "winner": "Indiana",
+      "loser": "Alabama",
+      "date": "2026-01-01T21:00:00.000Z"
+    },
+    {
+      "winner": "Mississippi",
+      "loser": "Georgia",
+      "date": "2026-01-02T01:00:00.000Z"
+    },
+    {
+      "winner": "Texas State",
+      "loser": "Rice",
+      "date": "2026-01-02T18:00:00.000Z"
+    },
+    {
+      "winner": "Navy",
+      "loser": "Cincinnati",
+      "date": "2026-01-02T21:30:00.000Z"
+    },
+    {
+      "winner": "Wake Forest",
+      "loser": "Mississippi State",
+      "date": "2026-01-03T01:00:00.000Z"
+    },
+    {
+      "winner": "SMU",
+      "loser": "Arizona",
+      "date": "2026-01-03T01:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-River Falls",
+      "loser": "North Central College",
+      "date": "2026-01-05T01:00:00.000Z"
+    },
+    {
+      "winner": "Montana State",
+      "loser": "Illinois State",
+      "date": "2026-01-06T00:30:00.000Z"
+    },
+    {
+      "winner": "Miami",
+      "loser": "Mississippi",
+      "date": "2026-01-09T00:30:00.000Z"
+    },
+    {
+      "winner": "Indiana",
+      "loser": "Oregon",
+      "date": "2026-01-10T00:30:00.000Z"
+    },
+    {
+      "winner": "Indiana",
+      "loser": "Miami",
+      "date": "2026-01-20T00:30:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "season": 2023,
+  "week": 14,
+  "games": [
+    {
+      "winner": "Liberty",
+      "loser": "New Mexico State"
+    },
+    {
+      "winner": "Washington",
+      "loser": "Oregon"
+    },
+    {
+      "winner": "Texas",
+      "loser": "Oklahoma State"
+    },
+    {
+      "winner": "Miami (Ohio)",
+      "loser": "Toledo"
+    },
+    {
+      "winner": "Boise State",
+      "loser": "Nevada-Las Vegas"
+    },
+    {
+      "winner": "Alabama",
+      "loser": "Georgia"
+    },
+    {
+      "winner": "SMU",
+      "loser": "Tulane"
+    },
+    {
+      "winner": "Troy",
+      "loser": "Appalachian State"
+    },
+    {
+      "winner": "Michigan",
+      "loser": "Iowa"
+    },
+    {
+      "winner": "Florida State",
+      "loser": "Louisville"
+    }
+  ]
+}

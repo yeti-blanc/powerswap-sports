@@ -25,8 +25,6 @@ def test_same_team_plays_twice_in_one_week():
 
     rankings = PowerSwapRankings.from_preseason_poll(teams, "preseason")
 
-    # Tuesday: unranked Davidson... wait, Davidson IS ranked (#20) in this
-    # setup. Use an unranked team for the first upset instead.
     # Tuesday: unranked "Cinderella" beats #1 Duke -> Cinderella takes #1
     # Saturday, same week: #10 Gonzaga beats Cinderella (now #1) -> swap,
     # since Gonzaga (worse-ranked, #10) beat the better-ranked team (#1)
@@ -37,9 +35,6 @@ def test_same_team_plays_twice_in_one_week():
 
     events = rankings.apply_week(games_this_week, "week1")
 
-    # After game 1: Cinderella is #1, Duke is unranked
-    # After game 2: Gonzaga (was #10, worse than #1) beat Cinderella (#1)
-    #               -> swap: Gonzaga takes #1, Cinderella drops to #10
     assert rankings.team_rank("Gonzaga") == 1, f"Expected Gonzaga at #1, got {rankings.team_rank('Gonzaga')}"
     assert rankings.team_rank("Cinderella") == 10, f"Expected Cinderella at #10, got {rankings.team_rank('Cinderella')}"
     assert rankings.team_rank("Duke") is None, f"Expected Duke unranked, got {rankings.team_rank('Duke')}"
@@ -47,9 +42,6 @@ def test_same_team_plays_twice_in_one_week():
     assert len(events) == 2
     assert events[0].kind == "dethrone"
     assert events[1].kind == "swap"
-    # critically: the second event's loser_old_rank must be 1 (Cinderella's
-    # rank AFTER game 1), not 10 (where Cinderella started the week) -
-    # this is the actual thing being tested
     assert events[1].loser_old_rank == 1, (
         f"Second event used a stale rank for Cinderella: expected 1, got {events[1].loser_old_rank}. "
         f"This means games aren't being processed in chronological order within the week."
@@ -70,8 +62,6 @@ def test_chronological_order_matters():
 
     rankings = PowerSwapRankings.from_preseason_poll(teams, "preseason")
 
-    # Same two games, reversed order - simulating a fetch bug where the
-    # API didn't return games in date order and nobody sorted them
     games_wrong_order = [
         {"winner": "Gonzaga", "loser": "Cinderella", "date": "2024-11-09"},  # processed first - wrong
         {"winner": "Cinderella", "loser": "Duke", "date": "2024-11-05"},     # processed second - wrong
@@ -79,13 +69,6 @@ def test_chronological_order_matters():
 
     events = rankings.apply_week(games_wrong_order, "week1")
 
-    # In wrong order: game 1 (Gonzaga beats Cinderella) - but Cinderella
-    # isn't ranked yet at this point, so this game is ignored entirely.
-    # Then game 2 (Cinderella beats Duke) proceeds as a normal dethrone.
-    # End state: Cinderella is #1, Duke unranked, Gonzaga untouched at #10.
-    # This is DIFFERENT from the correct chronological result above, which
-    # is exactly the point - it demonstrates why fetch_results.py sorting
-    # by date before calling apply_week() is not optional.
     assert rankings.team_rank("Cinderella") == 1
     assert rankings.team_rank("Gonzaga") == 10  # untouched - wrong!
     assert rankings.team_rank("Duke") is None
@@ -94,8 +77,43 @@ def test_chronological_order_matters():
           "fetch_results.py MUST sort by date before calling apply_week().\n")
 
 
+def test_cfb_postseason_multi_round():
+    print("TEST: CFB postseason - a team advancing through multiple playoff "
+          "rounds must have each round see the result of the round before it")
+
+    teams = [f"Team{n}" for n in range(1, 26)]
+    teams[0] = "Texas"        # rank 1
+    teams[14] = "Notre Dame"  # rank 15
+
+    rankings = PowerSwapRankings.from_preseason_poll(teams, "preseason")
+
+    # This is the exact shape fetch_postseason_games() saves to disk after
+    # its own chronological sort - backtest.py trusts this order as-is.
+    postseason_games = [
+        {"winner": "Cinderella", "loser": "Texas", "date": "2024-12-20"},        # round 1: dethrone
+        {"winner": "Notre Dame", "loser": "Cinderella", "date": "2025-01-10"},    # round 2: swap (ND was #15, worse than Cinderella's #1)
+    ]
+
+    events = rankings.apply_week(postseason_games, "postseason")
+
+    assert rankings.team_rank("Notre Dame") == 1, f"Expected Notre Dame at #1, got {rankings.team_rank('Notre Dame')}"
+    assert rankings.team_rank("Cinderella") == 15, f"Expected Cinderella dropped to #15, got {rankings.team_rank('Cinderella')}"
+    assert rankings.team_rank("Texas") is None, "Texas should be fully unranked after round 1"
+    assert len(events) == 2
+    assert events[0].kind == "dethrone"
+    assert events[1].kind == "swap"
+    assert events[1].loser_old_rank == 1, (
+        f"Round 2 used a stale rank: expected 1, got {events[1].loser_old_rank}. "
+        f"fetch_postseason_games() MUST sort by date before saving."
+    )
+
+    print("  PASS - postseason rounds resolved in correct chronological order: "
+          "Texas -> Cinderella -> Notre Dame at #1, Cinderella correctly dropped to #15\n")
+
+
 if __name__ == "__main__":
     test_same_team_plays_twice_in_one_week()
     test_chronological_order_matters()
+    test_cfb_postseason_multi_round()
     print("=" * 50)
     print("ALL MULTI-GAME-WEEK TESTS PASSED")

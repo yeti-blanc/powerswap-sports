@@ -172,6 +172,36 @@ python tests/generate_fake_season.py --sport cbb
 python scripts/backtest.py --sport cbb --season 9999 --weeks 5
 ```
 
+## Conference Championships, Bowls, and the CFP
+
+No special-casing, by design: a currently-ranked team playing in a
+conference championship game, a bowl game, or the CFP is on the table to
+swap or be dethroned exactly like any other game. A ranked team whose
+conference has no championship game, or that isn't in a bowl/the
+playoff, simply has no game that week and freezes - the same bye-week
+rule that already applies everywhere else. Confirmed against real 2024
+data: Georgia beating Texas in the SEC Championship is what makes Georgia
+the correct final #1, not an edge case to filter out.
+
+Conference championships need no special fetch step - CFBD already
+returns them as the final week of the regular season (`seasonType:
+"regular"`), so they come through the normal `--week 15` (or whatever the
+final week number is) fetch automatically.
+
+Bowls and the CFP DO need a separate fetch step, since they're a
+different `seasonType` ("postseason") with no week-numbered structure:
+
+```bash
+python3 sports/cfb/fetch_results.py --season 2024 --postseason
+python3 scripts/backtest.py --sport cfb --season 2024 --weeks 15 --include-postseason
+```
+
+A team can legitimately play multiple postseason games (advancing through
+CFP rounds), so `fetch_postseason_games()` sorts everything chronologically
+by date before saving - same reasoning, and same risk if skipped, as
+basketball's multi-game weeks. `tests/test_multigame_week.py` has a
+dedicated test for this exact scenario.
+
 ## Known Unverified Assumptions — Check These on First Real Use
 
 Several details couldn't be confirmed against the live APIs from this
@@ -250,6 +280,7 @@ in the real IDs once the show exists. No backend, no API key, no cost -
 this works the moment real IDs go in.
 
 ## Lessons Carried Over From the Cote Cup Project
+
 **Team name normalization is non-negotiable.** football-data.org returned
 inconsistent country name variants for the Cote Cup World Cup tracker, and
 the fix was a `norm()` layer applied before any name touches the core data

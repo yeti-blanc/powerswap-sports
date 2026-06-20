@@ -88,6 +88,7 @@ function populateWeekSelect() {
 
 function formatWeekLabel(weekKey) {
   if (weekKey === "preseason") return "Preseason";
+  if (weekKey === "postseason") return "Bowls & Playoff";
   const num = weekKey.replace("week", "");
   return `Week ${num}`;
 }

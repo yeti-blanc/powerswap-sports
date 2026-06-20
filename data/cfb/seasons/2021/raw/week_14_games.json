@@ -1,0 +1,98 @@
+{
+  "season": 2021,
+  "week": 14,
+  "games": [
+    {
+      "winner": "UT San Antonio",
+      "loser": "Western Kentucky"
+    },
+    {
+      "winner": "Villanova",
+      "loser": "Holy Cross"
+    },
+    {
+      "winner": "Utah",
+      "loser": "Oregon"
+    },
+    {
+      "winner": "Montana",
+      "loser": "Eastern Washington"
+    },
+    {
+      "winner": "Northern Illinois",
+      "loser": "Kent State"
+    },
+    {
+      "winner": "Baylor",
+      "loser": "Oklahoma State"
+    },
+    {
+      "winner": "Shepherd",
+      "loser": "Kutztown University"
+    },
+    {
+      "winner": "Ferris State",
+      "loser": "Northwest Missouri St"
+    },
+    {
+      "winner": "Valdosta State",
+      "loser": "Bowie State"
+    },
+    {
+      "winner": "East Tennessee State",
+      "loser": "Kennesaw State"
+    },
+    {
+      "winner": "Colorado School Of Mines",
+      "loser": "Angelo State"
+    },
+    {
+      "winner": "Sam Houston State",
+      "loser": "Incarnate Word"
+    },
+    {
+      "winner": "Utah State",
+      "loser": "San Diego State"
+    },
+    {
+      "winner": "North Dakota State",
+      "loser": "Southern Illinois"
+    },
+    {
+      "winner": "Louisiana",
+      "loser": "Appalachian State"
+    },
+    {
+      "winner": "Cincinnati",
+      "loser": "Houston"
+    },
+    {
+      "winner": "Montana State",
+      "loser": "UT Martin"
+    },
+    {
+      "winner": "Alabama",
+      "loser": "Georgia"
+    },
+    {
+      "winner": "Jackson State",
+      "loser": "Prairie View A&M"
+    },
+    {
+      "winner": "Michigan",
+      "loser": "Iowa"
+    },
+    {
+      "winner": "Pittsburgh",
+      "loser": "Wake Forest"
+    },
+    {
+      "winner": "South Dakota State",
+      "loser": "Sacramento State"
+    },
+    {
+      "winner": "California",
+      "loser": "USC"
+    }
+  ]
+}

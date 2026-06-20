@@ -1,0 +1,134 @@
+{
+  "season": 2025,
+  "week": 15,
+  "games": [
+    {
+      "winner": "James Madison",
+      "loser": "Troy"
+    },
+    {
+      "winner": "Kennesaw State",
+      "loser": "Jacksonville State"
+    },
+    {
+      "winner": "Tulane",
+      "loser": "North Texas"
+    },
+    {
+      "winner": "Boise State",
+      "loser": "Nevada-Las Vegas"
+    },
+    {
+      "winner": "Johns Hopkins University",
+      "loser": "Salisbury"
+    },
+    {
+      "winner": "Susquehanna",
+      "loser": "Eastern University"
+    },
+    {
+      "winner": "South Dakota",
+      "loser": "Mercer"
+    },
+    {
+      "winner": "Villanova",
+      "loser": "Lehigh"
+    },
+    {
+      "winner": "Kutztown University",
+      "loser": "Frostburg State"
+    },
+    {
+      "winner": "John Carroll University",
+      "loser": "University of Mount Union"
+    },
+    {
+      "winner": "Berry College",
+      "loser": "Trinity University TX"
+    },
+    {
+      "winner": "Wheaton",
+      "loser": "Depauw"
+    },
+    {
+      "winner": "Texas Tech",
+      "loser": "BYU"
+    },
+    {
+      "winner": "Western Michigan",
+      "loser": "Miami (Ohio)"
+    },
+    {
+      "winner": "West Texas A&M",
+      "loser": "Arkansas Tech"
+    },
+    {
+      "winner": "Tarleton State",
+      "loser": "North Dakota"
+    },
+    {
+      "winner": "Ferris State",
+      "loser": "Minnesota State Mankato"
+    },
+    {
+      "winner": "Newberry",
+      "loser": "Albany State GA"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "Wisconsin-Lacrosse"
+    },
+    {
+      "winner": "Wisconsin-River Falls",
+      "loser": "Saint John's (MN)"
+    },
+    {
+      "winner": "Illinois State",
+      "loser": "North Dakota State"
+    },
+    {
+      "winner": "Bethel (MN)",
+      "loser": "Wisconsin-Platteville"
+    },
+    {
+      "winner": "Prairie View A&M",
+      "loser": "Jackson State"
+    },
+    {
+      "winner": "Montana State",
+      "loser": "Yale"
+    },
+    {
+      "winner": "Montana",
+      "loser": "South Dakota State"
+    },
+    {
+      "winner": "Stephen F. Austin",
+      "loser": "Abilene Christian"
+    },
+    {
+      "winner": "Harding University",
+      "loser": "UT Permian Basin"
+    },
+    {
+      "winner": "Upper Iowa University",
+      "loser": "Hillsdale"
+    },
+    {
+      "winner": "Georgia",
+      "loser": "Alabama"
+    },
+    {
+      "winner": "Indiana",
+      "loser": "Ohio State"
+    },
+    {
+      "winner": "Duke",
+      "loser": "Virginia"
+    },
+    {
+      "winner": "UC Davis",
+      "loser": "Rhode Island"
+    }
+  ]
+}

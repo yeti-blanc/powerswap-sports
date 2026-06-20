@@ -1,0 +1,701 @@
+{
+  "season": 2023,
+  "phase": "postseason",
+  "games": [
+    {
+      "winner": "Framingham State",
+      "loser": "Worcester St",
+      "date": "2023-11-11T17:00:00.000Z"
+    },
+    {
+      "winner": "Benedict College",
+      "loser": "Albany State GA",
+      "date": "2023-11-11T18:00:00.000Z"
+    },
+    {
+      "winner": "Bethel (MN)",
+      "loser": "Gustavus Adolphus",
+      "date": "2023-11-11T19:00:00.000Z"
+    },
+    {
+      "winner": "Macalester",
+      "loser": "St. Scholastica",
+      "date": "2023-11-11T19:00:00.000Z"
+    },
+    {
+      "winner": "Saint John's (MN)",
+      "loser": "Concordia Moorhead",
+      "date": "2023-11-11T19:00:00.000Z"
+    },
+    {
+      "winner": "Carleton",
+      "loser": "Augsburg",
+      "date": "2023-11-11T19:00:00.000Z"
+    },
+    {
+      "winner": "St. Olaf",
+      "loser": "Hamline University",
+      "date": "2023-11-11T19:00:00.000Z"
+    },
+    {
+      "winner": "Virginia Union",
+      "loser": "Fayetteville State",
+      "date": "2023-11-11T20:00:00.000Z"
+    },
+    {
+      "winner": "Claremont-Mudd-Scripps College",
+      "loser": "Redlands",
+      "date": "2023-11-11T21:00:00.000Z"
+    },
+    {
+      "winner": "Chapman",
+      "loser": "Pomona Pitzer",
+      "date": "2023-11-11T21:00:00.000Z"
+    },
+    {
+      "winner": "La Verne",
+      "loser": "California Lutheran University",
+      "date": "2023-11-11T21:00:00.000Z"
+    },
+    {
+      "winner": "Union (NY)",
+      "loser": "Delaware Valley",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "Ithaca College",
+      "loser": "Springfield",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "Alma",
+      "loser": "Depauw",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "Grove City College",
+      "loser": "Susquehanna",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "Johns Hopkins University",
+      "loser": "Western Connecticut St",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "Cortland",
+      "loser": "Endicott College",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "Randolph-Macon",
+      "loser": "Christopher Newport",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "University of Mount Union",
+      "loser": "Alfred State",
+      "date": "2023-11-18T17:00:00.000Z"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "Belhaven",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Wheaton",
+      "loser": "Mount St. Joseph",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Wartburg",
+      "loser": "Illinois College",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Trinity (CT)",
+      "loser": "Bowdoin",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-Lacrosse",
+      "loser": "Minnesota Morris",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Williams",
+      "loser": "Bates",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "University Of Charleston (WV)",
+      "loser": "New Haven",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Slippery Rock",
+      "loser": "East Stroudsburg University",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Kutztown University",
+      "loser": "Virginia Union",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-Whitewater",
+      "loser": "Bethel (MN)",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Valdosta State",
+      "loser": "Limestone",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Grand Valley State University",
+      "loser": "Ferris State",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Middlebury",
+      "loser": "Colby College",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Lenoir-Rhyne",
+      "loser": "Shepherd",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Trinity University TX",
+      "loser": "Hardin-Simmons",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Aurora",
+      "loser": "Coe College",
+      "date": "2023-11-18T18:00:00.000Z"
+    },
+    {
+      "winner": "Delta State",
+      "loser": "West Florida",
+      "date": "2023-11-18T19:00:00.000Z"
+    },
+    {
+      "winner": "Augustana University (SD)",
+      "loser": "Minnesota State Mankato",
+      "date": "2023-11-18T19:00:00.000Z"
+    },
+    {
+      "winner": "Central Missouri",
+      "loser": "Henderson State",
+      "date": "2023-11-18T19:00:00.000Z"
+    },
+    {
+      "winner": "Bemidji State",
+      "loser": "UT Permian Basin",
+      "date": "2023-11-18T19:00:00.000Z"
+    },
+    {
+      "winner": "Pittsburg St",
+      "loser": "Indianapolis",
+      "date": "2023-11-18T19:00:00.000Z"
+    },
+    {
+      "winner": "Whitworth",
+      "loser": "Chapman",
+      "date": "2023-11-18T20:00:00.000Z"
+    },
+    {
+      "winner": "Central Washington",
+      "loser": "Western Colorado",
+      "date": "2023-11-18T20:00:00.000Z"
+    },
+    {
+      "winner": "Slippery Rock",
+      "loser": "Tiffin",
+      "date": "2023-11-25T17:00:00.000Z"
+    },
+    {
+      "winner": "Randolph-Macon",
+      "loser": "Ithaca College",
+      "date": "2023-11-25T17:00:00.000Z"
+    },
+    {
+      "winner": "Johns Hopkins University",
+      "loser": "Union (NY)",
+      "date": "2023-11-25T17:00:00.000Z"
+    },
+    {
+      "winner": "Cortland",
+      "loser": "Grove City College",
+      "date": "2023-11-25T17:00:00.000Z"
+    },
+    {
+      "winner": "Alma",
+      "loser": "University of Mount Union",
+      "date": "2023-11-25T17:00:00.000Z"
+    },
+    {
+      "winner": "Grand Valley State University",
+      "loser": "Pittsburg St",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "Sacramento State",
+      "loser": "North Dakota",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-Whitewater",
+      "loser": "Wheaton",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "Wartburg",
+      "loser": "Whitworth",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "Trinity University TX",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "Kutztown University",
+      "loser": "University Of Charleston (WV)",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "Wisconsin-Lacrosse",
+      "loser": "Aurora",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "Lenoir-Rhyne",
+      "loser": "Benedict College",
+      "date": "2023-11-25T18:00:00.000Z"
+    },
+    {
+      "winner": "Central Washington",
+      "loser": "Bemidji State",
+      "date": "2023-11-25T19:00:00.000Z"
+    },
+    {
+      "winner": "Delaware",
+      "loser": "Lafayette",
+      "date": "2023-11-25T19:00:00.000Z"
+    },
+    {
+      "winner": "Valdosta State",
+      "loser": "Delta State",
+      "date": "2023-11-25T19:00:00.000Z"
+    },
+    {
+      "winner": "Colorado School Of Mines",
+      "loser": "Augustana University (SD)",
+      "date": "2023-11-25T19:00:00.000Z"
+    },
+    {
+      "winner": "Richmond",
+      "loser": "North Carolina Central",
+      "date": "2023-11-25T19:00:00.000Z"
+    },
+    {
+      "winner": "Harding University",
+      "loser": "Central Missouri",
+      "date": "2023-11-25T19:00:00.000Z"
+    },
+    {
+      "winner": "Mercer",
+      "loser": "Gardner-Webb",
+      "date": "2023-11-25T20:00:00.000Z"
+    },
+    {
+      "winner": "Chattanooga",
+      "loser": "Austin Peay",
+      "date": "2023-11-25T20:00:00.000Z"
+    },
+    {
+      "winner": "Southern Illinois",
+      "loser": "Nicholls",
+      "date": "2023-11-25T20:00:00.000Z"
+    },
+    {
+      "winner": "North Dakota State",
+      "loser": "Drake",
+      "date": "2023-11-25T20:30:00.000Z"
+    },
+    {
+      "winner": "Youngstown State",
+      "loser": "Duquesne",
+      "date": "2023-11-25T22:00:00.000Z"
+    },
+    {
+      "winner": "Kutztown University",
+      "loser": "Slippery Rock",
+      "date": "2023-12-02T17:00:00.000Z"
+    },
+    {
+      "winner": "Villanova",
+      "loser": "Youngstown State",
+      "date": "2023-12-02T17:00:00.000Z"
+    },
+    {
+      "winner": "Randolph-Macon",
+      "loser": "Johns Hopkins University",
+      "date": "2023-12-02T17:00:00.000Z"
+    },
+    {
+      "winner": "Cortland",
+      "loser": "Alma",
+      "date": "2023-12-02T17:00:00.000Z"
+    },
+    {
+      "winner": "UAlbany",
+      "loser": "Richmond",
+      "date": "2023-12-02T17:00:00.000Z"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "Wisconsin-Lacrosse",
+      "date": "2023-12-02T18:00:00.000Z"
+    },
+    {
+      "winner": "Furman",
+      "loser": "Chattanooga",
+      "date": "2023-12-02T18:00:00.000Z"
+    },
+    {
+      "winner": "Lenoir-Rhyne",
+      "loser": "Valdosta State",
+      "date": "2023-12-02T18:00:00.000Z"
+    },
+    {
+      "winner": "Wartburg",
+      "loser": "Wisconsin-Whitewater",
+      "date": "2023-12-02T18:00:00.000Z"
+    },
+    {
+      "winner": "South Dakota",
+      "loser": "Sacramento State",
+      "date": "2023-12-02T19:00:00.000Z"
+    },
+    {
+      "winner": "Harding University",
+      "loser": "Grand Valley State University",
+      "date": "2023-12-02T19:00:00.000Z"
+    },
+    {
+      "winner": "South Dakota State",
+      "loser": "Mercer",
+      "date": "2023-12-02T19:00:00.000Z"
+    },
+    {
+      "winner": "Colorado School Of Mines",
+      "loser": "Central Washington",
+      "date": "2023-12-02T19:00:00.000Z"
+    },
+    {
+      "winner": "North Dakota State",
+      "loser": "Montana State",
+      "date": "2023-12-02T20:00:00.000Z"
+    },
+    {
+      "winner": "Florida A&M",
+      "loser": "Prairie View A&M",
+      "date": "2023-12-02T21:00:00.000Z"
+    },
+    {
+      "winner": "Montana",
+      "loser": "Delaware",
+      "date": "2023-12-03T02:00:00.000Z"
+    },
+    {
+      "winner": "Idaho",
+      "loser": "Southern Illinois",
+      "date": "2023-12-03T03:00:00.000Z"
+    },
+    {
+      "winner": "Montana",
+      "loser": "Furman",
+      "date": "2023-12-09T02:00:00.000Z"
+    },
+    {
+      "winner": "South Dakota State",
+      "loser": "Villanova",
+      "date": "2023-12-09T17:00:00.000Z"
+    },
+    {
+      "winner": "Cortland",
+      "loser": "Randolph-Macon",
+      "date": "2023-12-09T17:00:00.000Z"
+    },
+    {
+      "winner": "Harding University",
+      "loser": "Lenoir-Rhyne",
+      "date": "2023-12-09T17:00:00.000Z"
+    },
+    {
+      "winner": "North Dakota State",
+      "loser": "South Dakota",
+      "date": "2023-12-09T19:30:00.000Z"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "Wartburg",
+      "date": "2023-12-09T20:30:00.000Z"
+    },
+    {
+      "winner": "Colorado School Of Mines",
+      "loser": "Kutztown University",
+      "date": "2023-12-09T20:30:00.000Z"
+    },
+    {
+      "winner": "UAlbany",
+      "loser": "Idaho",
+      "date": "2023-12-10T03:00:00.000Z"
+    },
+    {
+      "winner": "Cortland",
+      "loser": "North Central College",
+      "date": "2023-12-16T00:00:00.000Z"
+    },
+    {
+      "winner": "South Dakota State",
+      "loser": "UAlbany",
+      "date": "2023-12-16T00:00:00.000Z"
+    },
+    {
+      "winner": "Ohio",
+      "loser": "Georgia Southern",
+      "date": "2023-12-16T16:00:00.000Z"
+    },
+    {
+      "winner": "Florida A&M",
+      "loser": "Howard",
+      "date": "2023-12-16T17:00:00.000Z"
+    },
+    {
+      "winner": "Harding University",
+      "loser": "Colorado School Of Mines",
+      "date": "2023-12-16T18:00:00.000Z"
+    },
+    {
+      "winner": "Jacksonville State",
+      "loser": "Louisiana",
+      "date": "2023-12-16T19:15:00.000Z"
+    },
+    {
+      "winner": "Appalachian State",
+      "loser": "Miami (Ohio)",
+      "date": "2023-12-16T20:30:00.000Z"
+    },
+    {
+      "winner": "Montana",
+      "loser": "North Dakota State",
+      "date": "2023-12-16T21:30:00.000Z"
+    },
+    {
+      "winner": "Fresno State",
+      "loser": "New Mexico State",
+      "date": "2023-12-16T22:45:00.000Z"
+    },
+    {
+      "winner": "UCLA",
+      "loser": "Boise State",
+      "date": "2023-12-17T00:30:00.000Z"
+    },
+    {
+      "winner": "Texas Tech",
+      "loser": "California",
+      "date": "2023-12-17T02:15:00.000Z"
+    },
+    {
+      "winner": "Western Kentucky",
+      "loser": "Old Dominion",
+      "date": "2023-12-18T19:30:00.000Z"
+    },
+    {
+      "winner": "UT San Antonio",
+      "loser": "Marshall",
+      "date": "2023-12-20T02:00:00.000Z"
+    },
+    {
+      "winner": "South Florida",
+      "loser": "Syracuse",
+      "date": "2023-12-22T01:00:00.000Z"
+    },
+    {
+      "winner": "Georgia Tech",
+      "loser": "Central Florida",
+      "date": "2023-12-22T23:30:00.000Z"
+    },
+    {
+      "winner": "Duke",
+      "loser": "Troy",
+      "date": "2023-12-23T17:00:00.000Z"
+    },
+    {
+      "winner": "Northern Illinois",
+      "loser": "Arkansas State",
+      "date": "2023-12-23T17:00:00.000Z"
+    },
+    {
+      "winner": "Air Force",
+      "loser": "James Madison",
+      "date": "2023-12-23T20:30:00.000Z"
+    },
+    {
+      "winner": "Georgia State",
+      "loser": "Utah State",
+      "date": "2023-12-23T20:30:00.000Z"
+    },
+    {
+      "winner": "South Alabama",
+      "loser": "Eastern Michigan",
+      "date": "2023-12-24T00:00:00.000Z"
+    },
+    {
+      "winner": "Northwestern",
+      "loser": "Utah",
+      "date": "2023-12-24T00:30:00.000Z"
+    },
+    {
+      "winner": "Coastal Carolina",
+      "loser": "San Jos\u00e9 State",
+      "date": "2023-12-24T03:30:00.000Z"
+    },
+    {
+      "winner": "Minnesota",
+      "loser": "Bowling Green",
+      "date": "2023-12-26T19:00:00.000Z"
+    },
+    {
+      "winner": "Texas State",
+      "loser": "Rice",
+      "date": "2023-12-26T22:30:00.000Z"
+    },
+    {
+      "winner": "Kansas",
+      "loser": "Nevada-Las Vegas",
+      "date": "2023-12-27T02:00:00.000Z"
+    },
+    {
+      "winner": "Virginia Tech",
+      "loser": "Tulane",
+      "date": "2023-12-27T19:00:00.000Z"
+    },
+    {
+      "winner": "West Virginia",
+      "loser": "North Carolina",
+      "date": "2023-12-27T22:30:00.000Z"
+    },
+    {
+      "winner": "USC",
+      "loser": "Louisville",
+      "date": "2023-12-28T01:00:00.000Z"
+    },
+    {
+      "winner": "Oklahoma State",
+      "loser": "Texas A&M",
+      "date": "2023-12-28T02:00:00.000Z"
+    },
+    {
+      "winner": "Boston College",
+      "loser": "SMU",
+      "date": "2023-12-28T16:00:00.000Z"
+    },
+    {
+      "winner": "Rutgers",
+      "loser": "Miami",
+      "date": "2023-12-28T19:15:00.000Z"
+    },
+    {
+      "winner": "Kansas State",
+      "loser": "NC State",
+      "date": "2023-12-28T22:45:00.000Z"
+    },
+    {
+      "winner": "Arizona",
+      "loser": "Oklahoma",
+      "date": "2023-12-29T02:15:00.000Z"
+    },
+    {
+      "winner": "Clemson",
+      "loser": "Kentucky",
+      "date": "2023-12-29T17:00:00.000Z"
+    },
+    {
+      "winner": "Notre Dame",
+      "loser": "Oregon State",
+      "date": "2023-12-29T19:00:00.000Z"
+    },
+    {
+      "winner": "Memphis",
+      "loser": "Iowa State",
+      "date": "2023-12-29T20:30:00.000Z"
+    },
+    {
+      "winner": "Missouri",
+      "loser": "Ohio State",
+      "date": "2023-12-30T01:00:00.000Z"
+    },
+    {
+      "winner": "Mississippi",
+      "loser": "Penn State",
+      "date": "2023-12-30T17:00:00.000Z"
+    },
+    {
+      "winner": "Maryland",
+      "loser": "Auburn",
+      "date": "2023-12-30T19:00:00.000Z"
+    },
+    {
+      "winner": "Georgia",
+      "loser": "Florida State",
+      "date": "2023-12-30T21:00:00.000Z"
+    },
+    {
+      "winner": "Wyoming",
+      "loser": "Toledo",
+      "date": "2023-12-30T21:30:00.000Z"
+    },
+    {
+      "winner": "LSU",
+      "loser": "Wisconsin",
+      "date": "2024-01-01T17:00:00.000Z"
+    },
+    {
+      "winner": "Oregon",
+      "loser": "Liberty",
+      "date": "2024-01-01T18:00:00.000Z"
+    },
+    {
+      "winner": "Tennessee",
+      "loser": "Iowa",
+      "date": "2024-01-01T18:00:00.000Z"
+    },
+    {
+      "winner": "Michigan",
+      "loser": "Alabama",
+      "date": "2024-01-01T22:00:00.000Z"
+    },
+    {
+      "winner": "Washington",
+      "loser": "Texas",
+      "date": "2024-01-02T01:45:00.000Z"
+    },
+    {
+      "winner": "South Dakota State",
+      "loser": "Montana",
+      "date": "2024-01-07T19:00:00.000Z"
+    },
+    {
+      "winner": "Michigan",
+      "loser": "Washington",
+      "date": "2024-01-09T00:30:00.000Z"
+    }
+  ]
+}

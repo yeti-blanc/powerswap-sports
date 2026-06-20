@@ -69,4 +69,9 @@ def normalize_team_list(teams: list[str]) -> list[str]:
 
 
 def normalize_games(games: list[dict]) -> list[dict]:
-    return [{"winner": norm(g["winner"]), "loser": norm(g["loser"])} for g in games]
+    # **g preserves any extra fields (like "date") - needed for postseason
+    # games, which can have a team playing multiple rounds and therefore
+    # need chronological sorting, same reasoning as basketball's multi-game
+    # weeks. Existing regular-season weekly fetches only ever build
+    # winner/loser dicts with no extra fields, so this is a no-op for them.
+    return [{**g, "winner": norm(g["winner"]), "loser": norm(g["loser"])} for g in games]

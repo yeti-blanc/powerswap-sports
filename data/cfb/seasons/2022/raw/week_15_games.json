@@ -1,0 +1,42 @@
+{
+  "season": 2022,
+  "week": 15,
+  "games": [
+    {
+      "winner": "North Dakota State",
+      "loser": "Samford"
+    },
+    {
+      "winner": "Montana State",
+      "loser": "William & Mary"
+    },
+    {
+      "winner": "Incarnate Word",
+      "loser": "Sacramento State"
+    },
+    {
+      "winner": "South Dakota State",
+      "loser": "Holy Cross"
+    },
+    {
+      "winner": "University of Mount Union",
+      "loser": "Wartburg"
+    },
+    {
+      "winner": "Ferris State",
+      "loser": "West Florida"
+    },
+    {
+      "winner": "Army",
+      "loser": "Navy"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "Mary Hardin-Baylor"
+    },
+    {
+      "winner": "Colorado School Of Mines",
+      "loser": "Shepherd"
+    }
+  ]
+}

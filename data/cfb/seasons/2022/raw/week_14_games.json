@@ -1,0 +1,122 @@
+{
+  "season": 2022,
+  "week": 14,
+  "games": [
+    {
+      "winner": "Buffalo",
+      "loser": "Akron"
+    },
+    {
+      "winner": "UT San Antonio",
+      "loser": "North Texas"
+    },
+    {
+      "winner": "Utah",
+      "loser": "USC"
+    },
+    {
+      "winner": "Kansas State",
+      "loser": "TCU"
+    },
+    {
+      "winner": "Toledo",
+      "loser": "Ohio"
+    },
+    {
+      "winner": "University of Mount Union",
+      "loser": "Delaware Valley"
+    },
+    {
+      "winner": "Holy Cross",
+      "loser": "New Hampshire"
+    },
+    {
+      "winner": "Shepherd",
+      "loser": "Indiana-Pennsylvania"
+    },
+    {
+      "winner": "Ferris State",
+      "loser": "Grand Valley State University"
+    },
+    {
+      "winner": "Wartburg",
+      "loser": "Aurora"
+    },
+    {
+      "winner": "North Central College",
+      "loser": "Ithaca College"
+    },
+    {
+      "winner": "Mary Hardin-Baylor",
+      "loser": "Bethel (MN)"
+    },
+    {
+      "winner": "West Florida",
+      "loser": "Wingate"
+    },
+    {
+      "winner": "Incarnate Word",
+      "loser": "Furman"
+    },
+    {
+      "winner": "Colorado School Of Mines",
+      "loser": "Angelo State"
+    },
+    {
+      "winner": "William & Mary",
+      "loser": "Gardner-Webb"
+    },
+    {
+      "winner": "Montana State",
+      "loser": "Weber State"
+    },
+    {
+      "winner": "Samford",
+      "loser": "SE Louisiana"
+    },
+    {
+      "winner": "South Dakota State",
+      "loser": "Delaware"
+    },
+    {
+      "winner": "New Mexico State",
+      "loser": "Valparaiso"
+    },
+    {
+      "winner": "Troy",
+      "loser": "Coastal Carolina"
+    },
+    {
+      "winner": "North Dakota State",
+      "loser": "Montana"
+    },
+    {
+      "winner": "Georgia",
+      "loser": "LSU"
+    },
+    {
+      "winner": "Fresno State",
+      "loser": "Boise State"
+    },
+    {
+      "winner": "Jackson State",
+      "loser": "Southern"
+    },
+    {
+      "winner": "Tulane",
+      "loser": "Central Florida"
+    },
+    {
+      "winner": "Sacramento State",
+      "loser": "Richmond"
+    },
+    {
+      "winner": "Michigan",
+      "loser": "Purdue"
+    },
+    {
+      "winner": "Clemson",
+      "loser": "North Carolina"
+    }
+  ]
+}
