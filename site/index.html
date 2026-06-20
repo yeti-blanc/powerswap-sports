@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PowerSwap Sports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="scoreboard-bar">
+    <div class="scoreboard-inner">
+      <span class="wordmark">POWERSWAP<span class="wordmark-accent">SPORTS</span></span>
+      <div class="controls">
+        <select id="sport-select" aria-label="Sport"></select>
+        <select id="season-select" aria-label="Season"></select>
+        <select id="week-select" aria-label="Week"></select>
+      </div>
+    </div>
+  </div>
+
+  <div id="ticker" class="ticker" hidden>
+    <span class="ticker-label">THIS WEEK</span>
+    <span id="ticker-text" class="ticker-text"></span>
+  </div>
+
+  <main>
+    <section class="rankings-col">
+      <h1 id="week-heading" class="section-title">Rankings</h1>
+      <ol id="rankings-list" class="belt-list"></ol>
+    </section>
+
+    <aside class="events-col">
+      <h2 class="section-title">Fight Card</h2>
+      <p class="section-sub">Every rank that changed hands this week.</p>
+      <ul id="events-list" class="event-list"></ul>
+    </aside>
+  </main>
+
+  <section class="show-section">
+    <div class="show-inner">
+      <h2 class="section-title">Watch &amp; Listen</h2>
+      <p class="section-sub">This week's chaos, recapped on the show.</p>
+
+      <div class="show-grid">
+        <div class="show-card">
+          <h3 class="show-card-label">Latest Episode</h3>
+          <!-- Swap VIDEO_ID for the real YouTube video ID once the show is live.
+               Using youtube-nocookie.com for privacy-enhanced embedding. -->
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+              title="PowerSwap Sports - Latest Episode"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="show-card">
+          <h3 class="show-card-label">Listen to the Podcast</h3>
+          <!-- Spotify's embed player works without any API key or auth.
+               Swap EPISODE_OR_SHOW_ID for the real Spotify show/episode ID.
+               For an Apple Podcasts embed instead, swap this iframe's src for
+               an embed.podcasts.apple.com URL - same pattern, no key needed. -->
+          <div class="podcast-embed">
+            <iframe
+              src="https://open.spotify.com/embed/show/EPISODE_OR_SHOW_ID"
+              title="PowerSwap Sports Podcast"
+              frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <p class="show-subscribe">
+        <a href="#" id="youtube-link">Subscribe on YouTube</a>
+        &middot;
+        <a href="#" id="podcast-link">Follow the Podcast</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>PowerSwap Sports — beat a ranked team, take their rank. Beat an unranked team, change nothing.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
