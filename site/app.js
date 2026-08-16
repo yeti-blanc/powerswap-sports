@@ -1,17 +1,7 @@
 // PowerSwap Sports - site/app.js
-//
-// Loads /data/<sport>/seasons/<season>/season_history.json and renders:
-//   - the rankings as expandable "belt cards" with lineage history
-//   - the selected week's swap/dethrone events as a "fight card" list
-//
-// Update SPORTS and AVAILABLE_SEASONS below as backtested data is added.
 
-// ============================================================
-// FEATURE FLAGS - both start OFF. Flip to true to activate.
-// Nothing below these flags runs or makes a network call while off.
-// ============================================================
-const LIVE_SCORES_ENABLED = false;   // see live/README.md before flipping this
-const BASKETBALL_ENABLED = false;    // football gets sorted out first
+const LIVE_SCORES_ENABLED = false;
+const BASKETBALL_ENABLED = false;
 
 const SPORTS = [
   { key: "cfb", label: "College Football", enabled: true },
@@ -28,8 +18,12 @@ const rankingsList = document.getElementById("rankings-list");
 const eventsList = document.getElementById("events-list");
 const ticker = document.getElementById("ticker");
 const tickerText = document.getElementById("ticker-text");
+const weekNavDisplay = document.getElementById("week-nav-display");
+const weekPrev = document.getElementById("week-prev");
+const weekNext = document.getElementById("week-next");
 
 let currentSeasonData = null;
+let currentWeekIndex = 0;
 
 function populateSportSelect() {
   sportSelect.innerHTML = "";
@@ -40,7 +34,6 @@ function populateSportSelect() {
     opt.disabled = !sport.enabled;
     sportSelect.appendChild(opt);
   }
-  // default to the first ENABLED sport, not necessarily the first in the list
   sportSelect.value = SPORTS.find(s => s.enabled)?.key || SPORTS[0].key;
 }
 
@@ -65,6 +58,10 @@ async function loadSeason(sport, year) {
     currentSeasonData = null;
     console.error(`Could not load ${sport} season data for ${year}:`, err);
   }
+  // Default to the last week
+  currentWeekIndex = currentSeasonData
+    ? currentSeasonData.snapshots.length - 1
+    : 0;
   populateWeekSelect();
   renderWeek();
 }
@@ -83,7 +80,7 @@ function populateWeekSelect() {
     opt.textContent = formatWeekLabel(snapshot.week);
     weekSelect.appendChild(opt);
   }
-  weekSelect.value = currentSeasonData.snapshots[currentSeasonData.snapshots.length - 1].week;
+  weekSelect.value = currentSeasonData.snapshots[currentWeekIndex].week;
 }
 
 function formatWeekLabel(weekKey) {
@@ -98,13 +95,25 @@ function renderWeek() {
     rankingsList.innerHTML = `<li class="no-events">No backtested data for this sport/season yet.</li>`;
     eventsList.innerHTML = "";
     ticker.hidden = true;
+    tickerText.textContent = "";
     weekHeading.textContent = "Rankings";
+    weekNavDisplay.textContent = "—";
+    weekPrev.disabled = true;
+    weekNext.disabled = true;
     return;
   }
 
-  const weekKey = weekSelect.value;
-  const snapshot = currentSeasonData.snapshots.find(s => s.week === weekKey);
+  const snapshot = currentSeasonData.snapshots[currentWeekIndex];
+  const weekKey = snapshot.week;
   const weekEvents = currentSeasonData.events.filter(e => e.week === weekKey);
+
+  // Sync the dropdown
+  weekSelect.value = weekKey;
+
+  // Update nav display and arrow states
+  weekNavDisplay.textContent = formatWeekLabel(weekKey);
+  weekPrev.disabled = currentWeekIndex <= 0;
+  weekNext.disabled = currentWeekIndex >= currentSeasonData.snapshots.length - 1;
 
   const sportLabel = SPORTS.find(s => s.key === currentSeasonData.sport)?.label || currentSeasonData.sport;
   weekHeading.textContent = `${sportLabel} ${currentSeasonData.season} — ${formatWeekLabel(weekKey)}`;
@@ -169,13 +178,13 @@ function renderEvents(weekEvents) {
 
     if (e.kind === "swap") {
       li.innerHTML = `
-        <span class="event-tag">SWAP</span>
+        <span class="event-tag">Swap</span>
         <strong>${e.winner}</strong> (#${e.winner_old_rank}) beat <strong>${e.loser}</strong> (#${e.loser_old_rank})
         <div class="event-detail">${e.winner} → #${e.winner_new_rank} · ${e.loser} → #${e.loser_new_rank}</div>
       `;
     } else {
       li.innerHTML = `
-        <span class="event-tag">DETHRONE</span>
+        <span class="event-tag">Dethrone</span>
         Unranked <strong>${e.winner}</strong> beat #${e.loser_old_rank} <strong>${e.loser}</strong>
         <div class="event-detail">${e.winner} → #${e.winner_new_rank} · ${e.loser} is OUT</div>
       `;
@@ -187,6 +196,7 @@ function renderEvents(weekEvents) {
 function renderTicker(weekEvents) {
   if (weekEvents.length === 0) {
     ticker.hidden = true;
+    tickerText.textContent = "";
     return;
   }
   let headline = weekEvents.find(e => e.kind === "dethrone");
@@ -206,39 +216,39 @@ function renderTicker(weekEvents) {
   ticker.hidden = false;
 }
 
-// ============================================================
-// LIVE TICKER (DORMANT - LIVE_SCORES_ENABLED is false above)
-// ============================================================
-// This is a SCAFFOLD, not a working feature. It's wired up structurally
-// so the design is captured, but initLiveTicker() is never called while
-// the flag above is false, and every function here is a no-op shell
-// until the live/worker.js Cloudflare Worker actually exists and is
-// deployed. See live/README.md before touching any of this.
-//
-// Distinct from the "ticker" element above, which is the FREE weekly
-// recap ticker (already active, no cost, no live data). This live
-// ticker is a separate concept: in-progress game scores + clock, with
-// computed "if this holds" PowerSwap stakes, requiring the paid CFBD
-// Patreon tier discussed in README.md's "Live Scores" section.
+// ── Week navigation arrows ──
+weekPrev.addEventListener("click", () => {
+  if (currentWeekIndex > 0) {
+    currentWeekIndex--;
+    renderWeek();
+  }
+});
 
+weekNext.addEventListener("click", () => {
+  if (currentSeasonData && currentWeekIndex < currentSeasonData.snapshots.length - 1) {
+    currentWeekIndex++;
+    renderWeek();
+  }
+});
+
+// ── Dropdown changes ──
+sportSelect.addEventListener("change", () => loadSeason(sportSelect.value, seasonSelect.value));
+seasonSelect.addEventListener("change", () => loadSeason(sportSelect.value, seasonSelect.value));
+weekSelect.addEventListener("change", () => {
+  const idx = currentSeasonData?.snapshots.findIndex(s => s.week === weekSelect.value);
+  if (idx !== undefined && idx >= 0) {
+    currentWeekIndex = idx;
+    renderWeek();
+  }
+});
+
+// ── Live ticker scaffold (dormant) ──
 function initLiveTicker() {
-  // UNBUILT: would poll live/worker.js's /live endpoint every 30-60s
-  // and render a scrolling ticker of in-progress games + stakes.
-  // Also UNBUILT: the client-side clock interpolation between polls
-  // (count down locally in JS, resync on each poll) discussed as the
-  // way to get a convincing "live" feel without aggressive backend
-  // polling.
-  console.log("Live ticker is dormant. Set LIVE_SCORES_ENABLED = true and " +
-              "build out live/worker.js first - see live/README.md.");
+  console.log("Live ticker is dormant. See live/README.md.");
 }
-
 if (LIVE_SCORES_ENABLED) {
   initLiveTicker();
 }
-
-sportSelect.addEventListener("change", () => loadSeason(sportSelect.value, seasonSelect.value));
-seasonSelect.addEventListener("change", () => loadSeason(sportSelect.value, seasonSelect.value));
-weekSelect.addEventListener("change", renderWeek);
 
 populateSportSelect();
 populateSeasonSelect();
