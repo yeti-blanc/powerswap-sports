@@ -14,6 +14,7 @@ const sportSelect = document.getElementById("sport-select");
 const seasonSelect = document.getElementById("season-select");
 const weekSelect = document.getElementById("week-select");
 const weekHeading = document.getElementById("week-heading");
+const sportBanner = document.getElementById("sport-banner");
 const rankingsList = document.getElementById("rankings-list");
 const eventsList = document.getElementById("events-list");
 const ticker = document.getElementById("ticker");
@@ -116,7 +117,8 @@ function renderWeek() {
   weekNext.disabled = currentWeekIndex >= currentSeasonData.snapshots.length - 1;
 
   const sportLabel = SPORTS.find(s => s.key === currentSeasonData.sport)?.label || currentSeasonData.sport;
-  weekHeading.innerHTML = `${sportLabel} ${currentSeasonData.season}:<br>${formatWeekLabel(weekKey)}`;
+  sportBanner.textContent = sportLabel;
+  weekHeading.textContent = `${currentSeasonData.season}: ${formatWeekLabel(weekKey)}`;
 
   renderRankings(snapshot, weekEvents);
   renderEvents(weekEvents);
