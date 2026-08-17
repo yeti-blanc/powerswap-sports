@@ -66,6 +66,26 @@ def _apply_and_log(rankings, games, week_label, consecutive_absences=None, check
     return events
 
 
+def _build_team_histories(rankings) -> dict:
+    """
+    Builds a dict of team_name -> that team's full season history, for
+    every team that appears anywhere in rankings.all_events (as a winner
+    or a loser, ranked or unranked at the time). This is distinct from a
+    rank slot's lineage, which only tracks who has held one specific
+    numbered slot - this tracks one team's actual path across every slot
+    they've ever occupied, including stretches unranked.
+    """
+    all_team_names = set()
+    for event in rankings.all_events:
+        all_team_names.add(event.winner)
+        all_team_names.add(event.loser)
+
+    return {
+        team: rankings.team_history(team)
+        for team in sorted(all_team_names)
+    }
+
+
 def run_season_backtest(sport: str, season: int, max_week: int, include_postseason: bool = False):
     season_dir = REPO_ROOT / "data" / sport / "seasons" / str(season)
     raw_dir = season_dir / "raw"
@@ -104,6 +124,8 @@ def run_season_backtest(sport: str, season: int, max_week: int, include_postseas
             all_snapshots.append(rankings.to_dict("postseason"))
             all_events.extend([e.to_dict() for e in events])
 
+    team_histories = _build_team_histories(rankings)
+
     output_path = season_dir / "season_history.json"
     with open(output_path, "w") as f:
         json.dump({
@@ -111,12 +133,14 @@ def run_season_backtest(sport: str, season: int, max_week: int, include_postseas
             "season": season,
             "snapshots": all_snapshots,
             "events": all_events,
+            "team_histories": team_histories,
         }, f, indent=2)
 
     final_label = "postseason" if include_postseason else f"week {max_week}"
     print(f"\nFinal {sport.upper()} rankings after {final_label}:")
     print(rankings.pretty_print())
-    print(f"\nWrote full season history to {output_path}")
+    print(f"\nTeam histories captured for {len(team_histories)} teams.")
+    print(f"Wrote full season history to {output_path}")
 
 
 def main():

@@ -9359,5 +9359,1713 @@
       "winner_new_rank": 4,
       "loser_new_rank": null
     }
-  ]
+  ],
+  "team_histories": {
+    "Alabama": [
+      {
+        "kind": "swap",
+        "week": "week7",
+        "winner": "Tennessee",
+        "loser": "Alabama",
+        "winner_old_rank": 17,
+        "loser_old_rank": 1,
+        "winner_new_rank": 1,
+        "loser_new_rank": 17
+      },
+      {
+        "kind": "swap",
+        "week": "postseason",
+        "winner": "Alabama",
+        "loser": "Kansas State",
+        "winner_old_rank": 17,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": 17
+      }
+    ],
+    "Appalachian State": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Appalachian State",
+        "loser": "Texas A&M",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week4",
+        "winner": "James Madison",
+        "loser": "Appalachian State",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      }
+    ],
+    "Arizona": [
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Arizona",
+        "loser": "UCLA",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week12",
+        "winner": "Washington State",
+        "loser": "Arizona",
+        "winner_old_rank": 15,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": 15
+      }
+    ],
+    "Arkansas": [
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Liberty",
+        "loser": "Arkansas",
+        "winner_old_rank": null,
+        "loser_old_rank": 19,
+        "winner_new_rank": 19,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Arkansas",
+        "loser": "Mississippi",
+        "winner_old_rank": null,
+        "loser_old_rank": 20,
+        "winner_new_rank": 20,
+        "loser_new_rank": null
+      }
+    ],
+    "Army": [
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Army",
+        "loser": "Connecticut",
+        "winner_old_rank": null,
+        "loser_old_rank": 19,
+        "winner_new_rank": 19,
+        "loser_new_rank": null
+      }
+    ],
+    "BYU": [
+      {
+        "kind": "swap",
+        "week": "week2",
+        "winner": "BYU",
+        "loser": "Baylor",
+        "winner_old_rank": 25,
+        "loser_old_rank": 10,
+        "winner_new_rank": 10,
+        "loser_new_rank": 25
+      },
+      {
+        "kind": "swap",
+        "week": "week3",
+        "winner": "Oregon",
+        "loser": "BYU",
+        "winner_old_rank": 11,
+        "loser_old_rank": 10,
+        "winner_new_rank": 10,
+        "loser_new_rank": 11
+      },
+      {
+        "kind": "dethrone",
+        "week": "week6",
+        "winner": "Notre Dame",
+        "loser": "BYU",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      }
+    ],
+    "Baylor": [
+      {
+        "kind": "swap",
+        "week": "week2",
+        "winner": "BYU",
+        "loser": "Baylor",
+        "winner_old_rank": 25,
+        "loser_old_rank": 10,
+        "winner_new_rank": 10,
+        "loser_new_rank": 25
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "West Virginia",
+        "loser": "Baylor",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Baylor",
+        "loser": "Texas Tech",
+        "winner_old_rank": null,
+        "loser_old_rank": 24,
+        "winner_new_rank": 24,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Kansas State",
+        "loser": "Baylor",
+        "winner_old_rank": null,
+        "loser_old_rank": 24,
+        "winner_new_rank": 24,
+        "loser_new_rank": null
+      }
+    ],
+    "Bowling Green": [
+      {
+        "kind": "dethrone",
+        "week": "week3",
+        "winner": "Bowling Green",
+        "loser": "Marshall",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week4",
+        "winner": "Mississippi State",
+        "loser": "Bowling Green",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      }
+    ],
+    "Central Florida": [
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Central Florida",
+        "loser": "Cincinnati",
+        "winner_old_rank": null,
+        "loser_old_rank": 23,
+        "winner_new_rank": 23,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Navy",
+        "loser": "Central Florida",
+        "winner_old_rank": null,
+        "loser_old_rank": 23,
+        "winner_new_rank": 23,
+        "loser_new_rank": null
+      }
+    ],
+    "Cincinnati": [
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Central Florida",
+        "loser": "Cincinnati",
+        "winner_old_rank": null,
+        "loser_old_rank": 23,
+        "winner_new_rank": 23,
+        "loser_new_rank": null
+      }
+    ],
+    "Clemson": [
+      {
+        "kind": "swap",
+        "week": "week10",
+        "winner": "Notre Dame",
+        "loser": "Clemson",
+        "winner_old_rank": 13,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": 13
+      }
+    ],
+    "Connecticut": [
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Connecticut",
+        "loser": "Liberty",
+        "winner_old_rank": null,
+        "loser_old_rank": 19,
+        "winner_new_rank": 19,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Army",
+        "loser": "Connecticut",
+        "winner_old_rank": null,
+        "loser_old_rank": 19,
+        "winner_new_rank": 19,
+        "loser_new_rank": null
+      }
+    ],
+    "Florida": [
+      {
+        "kind": "dethrone",
+        "week": "week1",
+        "winner": "Florida",
+        "loser": "Utah",
+        "winner_old_rank": null,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week2",
+        "winner": "Kentucky",
+        "loser": "Florida",
+        "winner_old_rank": 20,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": 20
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "LSU",
+        "loser": "Florida",
+        "winner_old_rank": null,
+        "loser_old_rank": 20,
+        "winner_new_rank": 20,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Florida",
+        "loser": "Texas A&M",
+        "winner_old_rank": null,
+        "loser_old_rank": 21,
+        "winner_new_rank": 21,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Florida State",
+        "loser": "Florida",
+        "winner_old_rank": null,
+        "loser_old_rank": 21,
+        "winner_new_rank": 21,
+        "loser_new_rank": null
+      }
+    ],
+    "Florida State": [
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Florida State",
+        "loser": "Florida",
+        "winner_old_rank": null,
+        "loser_old_rank": 21,
+        "winner_new_rank": 21,
+        "loser_new_rank": null
+      }
+    ],
+    "Fresno State": [
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Fresno State",
+        "loser": "Washington State",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      }
+    ],
+    "Georgia": [
+      {
+        "kind": "swap",
+        "week": "week10",
+        "winner": "Georgia",
+        "loser": "Tennessee",
+        "winner_old_rank": 3,
+        "loser_old_rank": 1,
+        "winner_new_rank": 1,
+        "loser_new_rank": 3
+      }
+    ],
+    "Georgia Southern": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Georgia Southern",
+        "loser": "James Madison",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "South Alabama",
+        "loser": "Georgia Southern",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      }
+    ],
+    "Houston": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Texas Tech",
+        "loser": "Houston",
+        "winner_old_rank": null,
+        "loser_old_rank": 24,
+        "winner_new_rank": 24,
+        "loser_new_rank": null
+      }
+    ],
+    "Iowa": [
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Iowa",
+        "loser": "Kentucky",
+        "winner_old_rank": null,
+        "loser_old_rank": 22,
+        "winner_new_rank": 22,
+        "loser_new_rank": null
+      }
+    ],
+    "Iowa State": [
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Iowa State",
+        "loser": "West Virginia",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Oklahoma State",
+        "loser": "Iowa State",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      }
+    ],
+    "James Madison": [
+      {
+        "kind": "dethrone",
+        "week": "week4",
+        "winner": "James Madison",
+        "loser": "Appalachian State",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Georgia Southern",
+        "loser": "James Madison",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      }
+    ],
+    "Kansas State": [
+      {
+        "kind": "dethrone",
+        "week": "week4",
+        "winner": "Kansas State",
+        "loser": "Oklahoma",
+        "winner_old_rank": null,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week8",
+        "winner": "TCU",
+        "loser": "Kansas State",
+        "winner_old_rank": 12,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": 12
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Texas",
+        "loser": "Kansas State",
+        "winner_old_rank": null,
+        "loser_old_rank": 12,
+        "winner_new_rank": 12,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Kansas State",
+        "loser": "Baylor",
+        "winner_old_rank": null,
+        "loser_old_rank": 24,
+        "winner_new_rank": 24,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week14",
+        "winner": "Kansas State",
+        "loser": "TCU",
+        "winner_old_rank": 24,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": 24
+      },
+      {
+        "kind": "swap",
+        "week": "postseason",
+        "winner": "Alabama",
+        "loser": "Kansas State",
+        "winner_old_rank": 17,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": 17
+      }
+    ],
+    "Kentucky": [
+      {
+        "kind": "swap",
+        "week": "week2",
+        "winner": "Kentucky",
+        "loser": "Florida",
+        "winner_old_rank": 20,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": 20
+      },
+      {
+        "kind": "swap",
+        "week": "week5",
+        "winner": "Mississippi",
+        "loser": "Kentucky",
+        "winner_old_rank": 21,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": 21
+      },
+      {
+        "kind": "dethrone",
+        "week": "week6",
+        "winner": "South Carolina",
+        "loser": "Kentucky",
+        "winner_old_rank": null,
+        "loser_old_rank": 21,
+        "winner_new_rank": 21,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Kentucky",
+        "loser": "Mississippi State",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Vanderbilt",
+        "loser": "Kentucky",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Kentucky",
+        "loser": "Louisville",
+        "winner_old_rank": null,
+        "loser_old_rank": 22,
+        "winner_new_rank": 22,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Iowa",
+        "loser": "Kentucky",
+        "winner_old_rank": null,
+        "loser_old_rank": 22,
+        "winner_new_rank": 22,
+        "loser_new_rank": null
+      }
+    ],
+    "LSU": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "LSU",
+        "loser": "Florida",
+        "winner_old_rank": null,
+        "loser_old_rank": 20,
+        "winner_new_rank": 20,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week8",
+        "winner": "LSU",
+        "loser": "Mississippi",
+        "winner_old_rank": 20,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": 20
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Texas A&M",
+        "loser": "LSU",
+        "winner_old_rank": null,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": null
+      }
+    ],
+    "Liberty": [
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Liberty",
+        "loser": "Arkansas",
+        "winner_old_rank": null,
+        "loser_old_rank": 19,
+        "winner_new_rank": 19,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Connecticut",
+        "loser": "Liberty",
+        "winner_old_rank": null,
+        "loser_old_rank": 19,
+        "winner_new_rank": 19,
+        "loser_new_rank": null
+      }
+    ],
+    "Louisville": [
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Louisville",
+        "loser": "Wake Forest",
+        "winner_old_rank": null,
+        "loser_old_rank": 22,
+        "winner_new_rank": 22,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Kentucky",
+        "loser": "Louisville",
+        "winner_old_rank": null,
+        "loser_old_rank": 22,
+        "winner_new_rank": 22,
+        "loser_new_rank": null
+      }
+    ],
+    "Marshall": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Marshall",
+        "loser": "Notre Dame",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week3",
+        "winner": "Bowling Green",
+        "loser": "Marshall",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      }
+    ],
+    "Miami": [
+      {
+        "kind": "dethrone",
+        "week": "week3",
+        "winner": "Texas A&M",
+        "loser": "Miami",
+        "winner_old_rank": null,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": null
+      }
+    ],
+    "Michigan": [
+      {
+        "kind": "swap",
+        "week": "week13",
+        "winner": "Michigan",
+        "loser": "Ohio State",
+        "winner_old_rank": 8,
+        "loser_old_rank": 2,
+        "winner_new_rank": 2,
+        "loser_new_rank": 8
+      },
+      {
+        "kind": "swap",
+        "week": "postseason",
+        "winner": "TCU",
+        "loser": "Michigan",
+        "winner_old_rank": 24,
+        "loser_old_rank": 2,
+        "winner_new_rank": 2,
+        "loser_new_rank": 24
+      }
+    ],
+    "Michigan State": [
+      {
+        "kind": "dethrone",
+        "week": "week3",
+        "winner": "Washington",
+        "loser": "Michigan State",
+        "winner_old_rank": null,
+        "loser_old_rank": 15,
+        "winner_new_rank": 15,
+        "loser_new_rank": null
+      }
+    ],
+    "Mississippi": [
+      {
+        "kind": "swap",
+        "week": "week5",
+        "winner": "Mississippi",
+        "loser": "Kentucky",
+        "winner_old_rank": 21,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": 21
+      },
+      {
+        "kind": "swap",
+        "week": "week8",
+        "winner": "LSU",
+        "loser": "Mississippi",
+        "winner_old_rank": 20,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": 20
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Arkansas",
+        "loser": "Mississippi",
+        "winner_old_rank": null,
+        "loser_old_rank": 20,
+        "winner_new_rank": 20,
+        "loser_new_rank": null
+      }
+    ],
+    "Mississippi State": [
+      {
+        "kind": "dethrone",
+        "week": "week4",
+        "winner": "Mississippi State",
+        "loser": "Bowling Green",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Kentucky",
+        "loser": "Mississippi State",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      }
+    ],
+    "Missouri": [
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Missouri",
+        "loser": "South Carolina",
+        "winner_old_rank": null,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Wake Forest",
+        "loser": "Missouri",
+        "winner_old_rank": null,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": null
+      }
+    ],
+    "NC State": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Syracuse",
+        "loser": "NC State",
+        "winner_old_rank": null,
+        "loser_old_rank": 13,
+        "winner_new_rank": 13,
+        "loser_new_rank": null
+      }
+    ],
+    "Navy": [
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Navy",
+        "loser": "Central Florida",
+        "winner_old_rank": null,
+        "loser_old_rank": 23,
+        "winner_new_rank": 23,
+        "loser_new_rank": null
+      }
+    ],
+    "Notre Dame": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Marshall",
+        "loser": "Notre Dame",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week6",
+        "winner": "Notre Dame",
+        "loser": "BYU",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Stanford",
+        "loser": "Notre Dame",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Notre Dame",
+        "loser": "Syracuse",
+        "winner_old_rank": null,
+        "loser_old_rank": 13,
+        "winner_new_rank": 13,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week10",
+        "winner": "Notre Dame",
+        "loser": "Clemson",
+        "winner_old_rank": 13,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": 13
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "USC",
+        "loser": "Notre Dame",
+        "winner_old_rank": null,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Notre Dame",
+        "loser": "South Carolina",
+        "winner_old_rank": null,
+        "loser_old_rank": 3,
+        "winner_new_rank": 3,
+        "loser_new_rank": null
+      }
+    ],
+    "Ohio State": [
+      {
+        "kind": "swap",
+        "week": "week13",
+        "winner": "Michigan",
+        "loser": "Ohio State",
+        "winner_old_rank": 8,
+        "loser_old_rank": 2,
+        "winner_new_rank": 2,
+        "loser_new_rank": 8
+      }
+    ],
+    "Oklahoma": [
+      {
+        "kind": "dethrone",
+        "week": "week4",
+        "winner": "Kansas State",
+        "loser": "Oklahoma",
+        "winner_old_rank": null,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Oklahoma",
+        "loser": "Oklahoma State",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Texas Tech",
+        "loser": "Oklahoma",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      }
+    ],
+    "Oklahoma State": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "TCU",
+        "loser": "Oklahoma State",
+        "winner_old_rank": null,
+        "loser_old_rank": 12,
+        "winner_new_rank": 12,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Oklahoma State",
+        "loser": "Iowa State",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "Oklahoma",
+        "loser": "Oklahoma State",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      }
+    ],
+    "Oregon": [
+      {
+        "kind": "swap",
+        "week": "week3",
+        "winner": "Oregon",
+        "loser": "BYU",
+        "winner_old_rank": 11,
+        "loser_old_rank": 10,
+        "winner_new_rank": 10,
+        "loser_new_rank": 11
+      },
+      {
+        "kind": "swap",
+        "week": "week11",
+        "winner": "Washington",
+        "loser": "Oregon",
+        "winner_old_rank": 18,
+        "loser_old_rank": 10,
+        "winner_new_rank": 10,
+        "loser_new_rank": 18
+      },
+      {
+        "kind": "swap",
+        "week": "week12",
+        "winner": "Oregon",
+        "loser": "Utah",
+        "winner_old_rank": 18,
+        "loser_old_rank": 14,
+        "winner_new_rank": 14,
+        "loser_new_rank": 18
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Oregon State",
+        "loser": "Oregon",
+        "winner_old_rank": null,
+        "loser_old_rank": 14,
+        "winner_new_rank": 14,
+        "loser_new_rank": null
+      }
+    ],
+    "Oregon State": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Oregon State",
+        "loser": "Washington State",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Washington",
+        "loser": "Oregon State",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Oregon State",
+        "loser": "Oregon",
+        "winner_old_rank": null,
+        "loser_old_rank": 14,
+        "winner_new_rank": 14,
+        "loser_new_rank": null
+      }
+    ],
+    "Penn State": [
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Penn State",
+        "loser": "Utah",
+        "winner_old_rank": null,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": null
+      }
+    ],
+    "Pittsburgh": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Tennessee",
+        "loser": "Pittsburgh",
+        "winner_old_rank": null,
+        "loser_old_rank": 17,
+        "winner_new_rank": 17,
+        "loser_new_rank": null
+      }
+    ],
+    "South Alabama": [
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "South Alabama",
+        "loser": "Georgia Southern",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Western Kentucky",
+        "loser": "South Alabama",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      }
+    ],
+    "South Carolina": [
+      {
+        "kind": "dethrone",
+        "week": "week6",
+        "winner": "South Carolina",
+        "loser": "Kentucky",
+        "winner_old_rank": null,
+        "loser_old_rank": 21,
+        "winner_new_rank": 21,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week8",
+        "winner": "South Carolina",
+        "loser": "Texas A&M",
+        "winner_old_rank": 21,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": 21
+      },
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Missouri",
+        "loser": "South Carolina",
+        "winner_old_rank": null,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "South Carolina",
+        "loser": "Tennessee",
+        "winner_old_rank": null,
+        "loser_old_rank": 3,
+        "winner_new_rank": 3,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Notre Dame",
+        "loser": "South Carolina",
+        "winner_old_rank": null,
+        "loser_old_rank": 3,
+        "winner_new_rank": 3,
+        "loser_new_rank": null
+      }
+    ],
+    "Stanford": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Stanford",
+        "loser": "Notre Dame",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week9",
+        "winner": "UCLA",
+        "loser": "Stanford",
+        "winner_old_rank": 15,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": 15
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Washington State",
+        "loser": "Stanford",
+        "winner_old_rank": null,
+        "loser_old_rank": 15,
+        "winner_new_rank": 15,
+        "loser_new_rank": null
+      }
+    ],
+    "Syracuse": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Syracuse",
+        "loser": "NC State",
+        "winner_old_rank": null,
+        "loser_old_rank": 13,
+        "winner_new_rank": 13,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Notre Dame",
+        "loser": "Syracuse",
+        "winner_old_rank": null,
+        "loser_old_rank": 13,
+        "winner_new_rank": 13,
+        "loser_new_rank": null
+      }
+    ],
+    "TCU": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "TCU",
+        "loser": "Oklahoma State",
+        "winner_old_rank": null,
+        "loser_old_rank": 12,
+        "winner_new_rank": 12,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week8",
+        "winner": "TCU",
+        "loser": "Kansas State",
+        "winner_old_rank": 12,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": 12
+      },
+      {
+        "kind": "swap",
+        "week": "week14",
+        "winner": "Kansas State",
+        "loser": "TCU",
+        "winner_old_rank": 24,
+        "loser_old_rank": 9,
+        "winner_new_rank": 9,
+        "loser_new_rank": 24
+      },
+      {
+        "kind": "swap",
+        "week": "postseason",
+        "winner": "TCU",
+        "loser": "Michigan",
+        "winner_old_rank": 24,
+        "loser_old_rank": 2,
+        "winner_new_rank": 2,
+        "loser_new_rank": 24
+      }
+    ],
+    "Tennessee": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Tennessee",
+        "loser": "Pittsburgh",
+        "winner_old_rank": null,
+        "loser_old_rank": 17,
+        "winner_new_rank": 17,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week7",
+        "winner": "Tennessee",
+        "loser": "Alabama",
+        "winner_old_rank": 17,
+        "loser_old_rank": 1,
+        "winner_new_rank": 1,
+        "loser_new_rank": 17
+      },
+      {
+        "kind": "swap",
+        "week": "week10",
+        "winner": "Georgia",
+        "loser": "Tennessee",
+        "winner_old_rank": 3,
+        "loser_old_rank": 1,
+        "winner_new_rank": 1,
+        "loser_new_rank": 3
+      },
+      {
+        "kind": "dethrone",
+        "week": "week12",
+        "winner": "South Carolina",
+        "loser": "Tennessee",
+        "winner_old_rank": null,
+        "loser_old_rank": 3,
+        "winner_new_rank": 3,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Tennessee",
+        "loser": "Vanderbilt",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      }
+    ],
+    "Texas": [
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Texas",
+        "loser": "Kansas State",
+        "winner_old_rank": null,
+        "loser_old_rank": 12,
+        "winner_new_rank": 12,
+        "loser_new_rank": null
+      }
+    ],
+    "Texas A&M": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Appalachian State",
+        "loser": "Texas A&M",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week3",
+        "winner": "Texas A&M",
+        "loser": "Miami",
+        "winner_old_rank": null,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week8",
+        "winner": "South Carolina",
+        "loser": "Texas A&M",
+        "winner_old_rank": 21,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": 21
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Florida",
+        "loser": "Texas A&M",
+        "winner_old_rank": null,
+        "loser_old_rank": 21,
+        "winner_new_rank": 21,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Texas A&M",
+        "loser": "LSU",
+        "winner_old_rank": null,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": null
+      }
+    ],
+    "Texas Tech": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Texas Tech",
+        "loser": "Houston",
+        "winner_old_rank": null,
+        "loser_old_rank": 24,
+        "winner_new_rank": 24,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Baylor",
+        "loser": "Texas Tech",
+        "winner_old_rank": null,
+        "loser_old_rank": 24,
+        "winner_new_rank": 24,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Texas Tech",
+        "loser": "Oklahoma",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      }
+    ],
+    "Tulane": [
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Tulane",
+        "loser": "USC",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      }
+    ],
+    "UCLA": [
+      {
+        "kind": "dethrone",
+        "week": "week5",
+        "winner": "UCLA",
+        "loser": "Washington",
+        "winner_old_rank": null,
+        "loser_old_rank": 15,
+        "winner_new_rank": 15,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week9",
+        "winner": "UCLA",
+        "loser": "Stanford",
+        "winner_old_rank": 15,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": 15
+      },
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Arizona",
+        "loser": "UCLA",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      }
+    ],
+    "USC": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Utah",
+        "loser": "USC",
+        "winner_old_rank": null,
+        "loser_old_rank": 14,
+        "winner_new_rank": 14,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "USC",
+        "loser": "Notre Dame",
+        "winner_old_rank": null,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week14",
+        "winner": "Utah",
+        "loser": "USC",
+        "winner_old_rank": 18,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": 18
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Tulane",
+        "loser": "USC",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      }
+    ],
+    "Utah": [
+      {
+        "kind": "dethrone",
+        "week": "week1",
+        "winner": "Florida",
+        "loser": "Utah",
+        "winner_old_rank": null,
+        "loser_old_rank": 7,
+        "winner_new_rank": 7,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Utah",
+        "loser": "USC",
+        "winner_old_rank": null,
+        "loser_old_rank": 14,
+        "winner_new_rank": 14,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week12",
+        "winner": "Oregon",
+        "loser": "Utah",
+        "winner_old_rank": 18,
+        "loser_old_rank": 14,
+        "winner_new_rank": 14,
+        "loser_new_rank": 18
+      },
+      {
+        "kind": "swap",
+        "week": "week14",
+        "winner": "Utah",
+        "loser": "USC",
+        "winner_old_rank": 18,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": 18
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Penn State",
+        "loser": "Utah",
+        "winner_old_rank": null,
+        "loser_old_rank": 4,
+        "winner_new_rank": 4,
+        "loser_new_rank": null
+      }
+    ],
+    "Vanderbilt": [
+      {
+        "kind": "dethrone",
+        "week": "week11",
+        "winner": "Vanderbilt",
+        "loser": "Kentucky",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week13",
+        "winner": "Tennessee",
+        "loser": "Vanderbilt",
+        "winner_old_rank": null,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": null
+      }
+    ],
+    "Wake Forest": [
+      {
+        "kind": "dethrone",
+        "week": "week9",
+        "winner": "Louisville",
+        "loser": "Wake Forest",
+        "winner_old_rank": null,
+        "loser_old_rank": 22,
+        "winner_new_rank": 22,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Wake Forest",
+        "loser": "Missouri",
+        "winner_old_rank": null,
+        "loser_old_rank": 16,
+        "winner_new_rank": 16,
+        "loser_new_rank": null
+      }
+    ],
+    "Washington": [
+      {
+        "kind": "dethrone",
+        "week": "week3",
+        "winner": "Washington",
+        "loser": "Michigan State",
+        "winner_old_rank": null,
+        "loser_old_rank": 15,
+        "winner_new_rank": 15,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week5",
+        "winner": "UCLA",
+        "loser": "Washington",
+        "winner_old_rank": null,
+        "loser_old_rank": 15,
+        "winner_new_rank": 15,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Washington",
+        "loser": "Oregon State",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week11",
+        "winner": "Washington",
+        "loser": "Oregon",
+        "winner_old_rank": 18,
+        "loser_old_rank": 10,
+        "winner_new_rank": 10,
+        "loser_new_rank": 18
+      }
+    ],
+    "Washington State": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Washington State",
+        "loser": "Wisconsin",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "Oregon State",
+        "loser": "Washington State",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Washington State",
+        "loser": "Stanford",
+        "winner_old_rank": null,
+        "loser_old_rank": 15,
+        "winner_new_rank": 15,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "swap",
+        "week": "week12",
+        "winner": "Washington State",
+        "loser": "Arizona",
+        "winner_old_rank": 15,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": 15
+      },
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Fresno State",
+        "loser": "Washington State",
+        "winner_old_rank": null,
+        "loser_old_rank": 11,
+        "winner_new_rank": 11,
+        "loser_new_rank": null
+      }
+    ],
+    "West Virginia": [
+      {
+        "kind": "dethrone",
+        "week": "week7",
+        "winner": "West Virginia",
+        "loser": "Baylor",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      },
+      {
+        "kind": "dethrone",
+        "week": "week10",
+        "winner": "Iowa State",
+        "loser": "West Virginia",
+        "winner_old_rank": null,
+        "loser_old_rank": 25,
+        "winner_new_rank": 25,
+        "loser_new_rank": null
+      }
+    ],
+    "Western Kentucky": [
+      {
+        "kind": "dethrone",
+        "week": "postseason",
+        "winner": "Western Kentucky",
+        "loser": "South Alabama",
+        "winner_old_rank": null,
+        "loser_old_rank": 6,
+        "winner_new_rank": 6,
+        "loser_new_rank": null
+      }
+    ],
+    "Wisconsin": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Washington State",
+        "loser": "Wisconsin",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null
+      }
+    ]
+  }
 }
