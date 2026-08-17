@@ -116,7 +116,7 @@ function renderWeek() {
   weekNext.disabled = currentWeekIndex >= currentSeasonData.snapshots.length - 1;
 
   const sportLabel = SPORTS.find(s => s.key === currentSeasonData.sport)?.label || currentSeasonData.sport;
-  weekHeading.textContent = `${sportLabel} ${currentSeasonData.season} — ${formatWeekLabel(weekKey)}`;
+  weekHeading.innerHTML = `${sportLabel} ${currentSeasonData.season}:<br>${formatWeekLabel(weekKey)}`;
 
   renderRankings(snapshot, weekEvents);
   renderEvents(weekEvents);
