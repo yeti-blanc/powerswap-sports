@@ -85,6 +85,11 @@ class PowerSwapRankings:
     def __init__(self, slots: list[RankSlot]):
         # slots must be exactly ranks 1-25, no gaps
         self.slots: dict[int, RankSlot] = {s.rank: s for s in slots}
+        # Running log of every SwapEvent across the whole season, in
+        # order. Used by team_history() to reconstruct one team's path
+        # across every rank slot they've ever occupied, as opposed to a
+        # single slot's lineage, which only tracks that one slot.
+        self.all_events: list[SwapEvent] = []
 
     @classmethod
     def from_preseason_poll(cls, ranked_teams: list[str], week_label: str = "preseason") -> "PowerSwapRankings":
@@ -132,7 +137,7 @@ class PowerSwapRankings:
                     slot.lineage[-1].held_until = week_label
                 slot.team = winner
                 slot.lineage.append(LineageEntry(team=winner, held_from=week_label))
-                events.append(SwapEvent(
+                event = SwapEvent(
                     kind="dethrone",
                     week=week_label,
                     winner=winner,
@@ -141,7 +146,9 @@ class PowerSwapRankings:
                     loser_old_rank=loser_rank,
                     winner_new_rank=loser_rank,
                     loser_new_rank=None,
-                ))
+                )
+                events.append(event)
+                self.all_events.append(event)
                 continue
 
             # Case: both ranked
@@ -162,7 +169,7 @@ class PowerSwapRankings:
                 self.slots[loser_rank].lineage.append(LineageEntry(team=winner, held_from=week_label))
                 self.slots[winner_rank].lineage.append(LineageEntry(team=loser, held_from=week_label))
 
-                events.append(SwapEvent(
+                event = SwapEvent(
                     kind="swap",
                     week=week_label,
                     winner=winner,
@@ -171,7 +178,9 @@ class PowerSwapRankings:
                     loser_old_rank=loser_rank,
                     winner_new_rank=loser_rank,
                     loser_new_rank=winner_rank,
-                ))
+                )
+                events.append(event)
+                self.all_events.append(event)
             # else: better-ranked team won (chalk) -> no movement, no event
 
         return events
@@ -186,6 +195,19 @@ class PowerSwapRankings:
     def from_dict(cls, d: dict) -> "PowerSwapRankings":
         slots = [RankSlot.from_dict(s) for s in d["rankings"]]
         return cls(slots)
+
+    def team_history(self, team_name: str) -> list[dict]:
+        """
+        Every event involving this team across the whole season, in
+        chronological order, whether they were the winner or the loser.
+        This is distinct from a rank slot's lineage, which only tracks
+        who has occupied one specific numbered slot. This tracks one
+        team's actual path across every slot they've ever held.
+        """
+        return [
+            e.to_dict() for e in self.all_events
+            if e.winner == team_name or e.loser == team_name
+        ]
 
     def pretty_print(self) -> str:
         lines = []
