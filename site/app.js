@@ -8,7 +8,7 @@ const SPORTS = [
   { key: "cbb", label: "College Basketball", enabled: BASKETBALL_ENABLED },
 ];
 
-const AVAILABLE_SEASONS = [2021, 2022, 2023, 2024, 2025];
+const AVAILABLE_SEASONS = [2021, 2022, 2023, 2024, 2025, 2026];
 
 const sportSelect = document.getElementById("sport-select");
 const seasonSelect = document.getElementById("season-select");
@@ -22,6 +22,12 @@ const tickerText = document.getElementById("ticker-text");
 const weekNavDisplay = document.getElementById("week-nav-display");
 const weekPrev = document.getElementById("week-prev");
 const weekNext = document.getElementById("week-next");
+
+const teamCardOverlay = document.getElementById("team-card-overlay");
+const teamCardClose = document.getElementById("team-card-close");
+const teamCardName = document.getElementById("team-card-name");
+const teamCardCurrent = document.getElementById("team-card-current");
+const teamCardTimeline = document.getElementById("team-card-timeline");
 
 let currentSeasonData = null;
 let currentWeekIndex = 0;
@@ -143,7 +149,7 @@ function renderRankings(snapshot, weekEvents) {
     row.className = "belt-row";
     row.innerHTML = `
       <span class="belt-rank">#${slot.rank}</span>
-      <span class="belt-team">${slot.team}</span>
+      <span class="belt-team" data-team="${slot.team}">${slot.team}</span>
       <span class="belt-toggle">LINEAGE ▾</span>
     `;
 
@@ -156,6 +162,16 @@ function renderRankings(snapshot, weekEvents) {
         return i === 0 ? chip : `<span class="lineage-arrow">→</span>${chip}`;
       })
       .join("");
+
+    // Clicking the team NAME specifically opens the "how we got here" card.
+    // Clicking anywhere else on the row still opens the rank-slot lineage,
+    // same as before - the two interactions are kept separate so they
+    // don't compete for the same click.
+    const teamNameSpan = row.querySelector(".belt-team");
+    teamNameSpan.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openTeamCard(slot.team);
+    });
 
     row.addEventListener("click", () => {
       lineageDiv.classList.toggle("open");
@@ -217,6 +233,105 @@ function renderTicker(weekEvents) {
   }
   ticker.hidden = false;
 }
+
+// ── Team card ("How We Got Here") ──
+//
+// Reads a team's path across the whole season from
+// currentSeasonData.team_histories[teamName], which is a flat list of
+// every swap/dethrone event that team was involved in, in chronological
+// order, whether they won or lost. Distinct from the small inline
+// "LINEAGE" toggle on each rank card, which only shows who has held that
+// one specific numbered slot.
+//
+// Renders each event as one line in a timeline: what happened, who was
+// involved, and what rank resulted. If a team has no events at all
+// (they held one rank the entire season with zero movement either way),
+// team_histories won't have an entry for them, so we show a simple
+// message instead of an empty timeline.
+
+function openTeamCard(teamName) {
+  teamCardName.textContent = teamName;
+
+  const viewedWeekLabel = formatWeekLabel(currentSeasonData.snapshots[currentWeekIndex].week);
+  const currentRank = findCurrentRank(teamName);
+  teamCardCurrent.textContent = currentRank
+    ? `${viewedWeekLabel}: #${currentRank}`
+    : `${viewedWeekLabel}: Unranked`;
+
+  // Only show events up through the week currently being viewed, so a
+  // team's card reflects what was actually known at that point in the
+  // season, not the full-season future the person hasn't "reached" yet
+  // if they're browsing an earlier week.
+  const viewedWeekKey = currentSeasonData.snapshots[currentWeekIndex].week;
+  const viewedWeekIndex = currentSeasonData.snapshots.findIndex(s => s.week === viewedWeekKey);
+  const fullHistory = currentSeasonData?.team_histories?.[teamName] || [];
+  const history = fullHistory.filter(event => {
+    const eventWeekIndex = currentSeasonData.snapshots.findIndex(s => s.week === event.week);
+    return eventWeekIndex <= viewedWeekIndex;
+  });
+
+  teamCardTimeline.innerHTML = "";
+
+  if (history.length === 0) {
+    teamCardTimeline.innerHTML = `
+      <li class="team-card-event no-events">
+        No rank changes recorded for ${teamName} this season.
+      </li>
+    `;
+  } else {
+    for (const event of history) {
+      const wasWinner = event.winner === teamName;
+      const li = document.createElement("li");
+      li.className = "team-card-event" + (wasWinner ? " win" : " loss");
+
+      const weekLabel = formatWeekLabel(event.week);
+
+      if (wasWinner) {
+        const resultText = event.kind === "dethrone"
+          ? `Unranked, beat #${event.loser_old_rank} ${event.loser} → entered at #${event.winner_new_rank}`
+          : `#${event.winner_old_rank}, beat #${event.loser_old_rank} ${event.loser} → moved to #${event.winner_new_rank}`;
+        li.innerHTML = `
+          <span class="team-card-week">${weekLabel}</span>
+          <span class="team-card-result win-text">WON</span>
+          <span class="team-card-detail">${resultText}</span>
+        `;
+      } else {
+        const resultText = event.kind === "dethrone"
+          ? `#${event.loser_old_rank}, lost to unranked ${event.winner} → OUT of the rankings`
+          : `#${event.loser_old_rank}, lost to #${event.winner_old_rank} ${event.winner} → dropped to #${event.loser_new_rank}`;
+        li.innerHTML = `
+          <span class="team-card-week">${weekLabel}</span>
+          <span class="team-card-result loss-text">LOST</span>
+          <span class="team-card-detail">${resultText}</span>
+        `;
+      }
+
+      teamCardTimeline.appendChild(li);
+    }
+  }
+
+  teamCardOverlay.hidden = false;
+}
+
+function findCurrentRank(teamName) {
+  if (!currentSeasonData) return null;
+  const snapshot = currentSeasonData.snapshots[currentWeekIndex];
+  const slot = snapshot.rankings.find(s => s.team === teamName);
+  return slot ? slot.rank : null;
+}
+
+function closeTeamCard() {
+  teamCardOverlay.hidden = true;
+}
+
+teamCardClose.addEventListener("click", closeTeamCard);
+teamCardOverlay.addEventListener("click", (e) => {
+  // Only close if the click landed on the overlay itself, not inside the card
+  if (e.target === teamCardOverlay) closeTeamCard();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !teamCardOverlay.hidden) closeTeamCard();
+});
 
 // ── Week navigation arrows ──
 weekPrev.addEventListener("click", () => {
