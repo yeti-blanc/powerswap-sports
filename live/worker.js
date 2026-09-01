@@ -1,119 +1,189 @@
 /**
- * PowerSwap Sports - Live Scores Worker (DORMANT - NOT DEPLOYED)
- * =================================================================
+ * PowerSwap Sports - Live Scores Worker
+ * ======================================
  *
- * This file is a SCAFFOLD, not a running service. Nothing in this repo
- * deploys it, references it, or depends on it. It exists so the design
- * discussed is captured and ready to activate later, instead of having
- * to rebuild it from scratch.
+ * Additive, display-only layer. Does NOT touch rankings: a game reaching
+ * "finished" in BBS's feed never triggers a rank swap on its own - that
+ * only ever happens through the existing, separate CFBD weekly pipeline
+ * (core/swap_engine.py / scripts/backtest.py), which this Worker never
+ * calls or imports.
  *
- * DO NOT DEPLOY THIS until:
- *   1. A CFBD Patreon tier is purchased (Tier 1, $1/mo, unlocks the
- *      /scoreboard endpoint - see README.md "Live Scores" section for
- *      the full cost breakdown).
- *   2. The exact response shape of /scoreboard at that tier has been
- *      confirmed against a real API call (clock/period fields are a
- *      reasonable guess right now, not a verified fact).
+ * Shape (same pattern as the PFPI project): one Worker polls the upstream
+ * API on a cron trigger, filters to games involving currently-ranked
+ * teams, and writes one consolidated JSON payload to KV. The static site
+ * (GitHub Pages) reads that payload from this Worker's /live endpoint -
+ * visitor traffic never touches BBS's rate limit, only this Worker's own
+ * polling does ("Bird Feeder" principle, same as the rest of this repo).
  *
- * What this is meant to do, once activated:
- *   - Poll CFBD's /scoreboard endpoint roughly once a minute, but ONLY
- *     for games involving teams currently in the PowerSwap top 25 (pull
- *     that list from the current season_history.json, not all games).
- *   - Cache the result in ONE consolidated KV key (mirrors the Cote Cup
- *     "payload" key pattern - one write per poll, not one per game).
- *   - For each live game, compute the "PowerSwap stakes": what swap or
- *     dethrone would happen if the current score held. This is the
- *     actual differentiator for the ticker - not just the score, but
- *     what it means for the rankings.
- *   - Serve all of this from a single /live endpoint that the site polls
- *     every 30-60 seconds. The site is expected to interpolate the game
- *     clock locally between polls rather than needing sub-minute backend
- *     polling - see site/app.js's (also dormant) liveTicker code.
- *   - Hold CFBD_API_KEY as a Cloudflare secret, never expose it to the
- *     client - same non-negotiable rule as everywhere else in this
- *     project that touches a key.
+ * Cron schedule lives in wrangler.toml's [triggers] block (see that file
+ * for why - it's set there deliberately, not in the dashboard).
  *
- * KV key used: "live_payload" (single key, consolidated, low write volume)
+ * Secrets (wrangler secret put, never committed):
+ *   BBS_API_KEY  - required
+ *   CFBD_API_KEY - optional, only used for the finality cross-check below
+ *
+ * KV binding: LIVE_KV (see wrangler.toml). Single key: "live_payload".
  */
 
-// ============================================================
-// EVERYTHING BELOW IS SCAFFOLD CODE - NOT WIRED UP, NOT TESTED
-// AGAINST A REAL CFBD RESPONSE. TREAT AS A STARTING POINT ONLY.
-// ============================================================
+import { norm, resolveBbsTeamName } from "./team_norm.js";
+import { fetchBbsMatches, parseBbsMatch } from "./bbs_client.js";
 
-const CFBD_SCOREBOARD_URL = "https://api.collegefootballdata.com/scoreboard";
+const RANKED_TEAMS_URL =
+  "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/season_history.json";
+
+const LIVE_KV_KEY = "live_payload";
+// Must comfortably exceed the outer cron interval (5 min) or the key
+// expires between ticks and /live falls back to its empty default even
+// though polling is working fine - confirmed happening in production
+// with the previous 180s value (shorter than the 300s cron gap) during
+// overnight testing on 2026-09-01.
+const KV_TTL_SECONDS = 600;
+
+// How long a game window is considered "active" around a ranked team's
+// kickoff: from 15 min before kickoff to 4 hours after (typical CFB game
+// length, generously padded - real duration is unverified per-game).
+const PRE_KICKOFF_WINDOW_MS = 15 * 60 * 1000;
+const POST_KICKOFF_WINDOW_MS = 4 * 60 * 60 * 1000;
+
+// Sub-minute polling approximation: Cloudflare Cron Triggers can't fire
+// more often than once a minute, so the cron below fires every 5 minutes
+// and this Worker internally re-polls every SUBPOLL_INTERVAL_MS while a
+// game window is active, for up to SUBPOLL_BUDGET_MS of wall-clock time
+// (kept under the 5-minute cron period so ticks never overlap).
+//
+// Deliberately more conservative than the originally-requested "~15s":
+// every real /v1/matches response observed so far (across NCAAF, NCAAF-FCS,
+// MLB, and EPL) carries meta.note = "... no live adapter covers this
+// sport/league; refreshed by ingest", suggesting the free tier serves
+// this from a periodically-refreshed stored table rather than a true
+// live feed - sub-minute polling may not buy any real freshness. Once a
+// real in-progress game is observed (first chance ~2026-09-03), check
+// how often the score/status actually changes between polls and tighten
+// or loosen this accordingly.
+const SUBPOLL_INTERVAL_MS = 20 * 1000;
+const SUBPOLL_BUDGET_MS = 4 * 60 * 1000;
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    };
 
     if (url.pathname === "/live") {
-      const cached = await env.LIVE_KV.get("live_payload");
-      return new Response(cached || JSON.stringify({ games: [] }), {
-        headers: { "Content-Type": "application/json" },
+      const cached = await env.LIVE_KV.get(LIVE_KV_KEY);
+      return new Response(cached || JSON.stringify({ updated_at: null, games: [] }), {
+        headers: corsHeaders,
       });
     }
 
     if (url.pathname === "/health") {
-      return new Response(JSON.stringify({ ok: true, status: "dormant - not actively polling" }));
+      return new Response(JSON.stringify({ ok: true }), { headers: corsHeaders });
     }
 
     return new Response("Not found", { status: 404 });
   },
 
-  // Cron trigger - NOT configured in any wrangler.toml right now, since
-  // this Worker isn't deployed. When activated, set this in the
-  // Cloudflare dashboard Triggers tab, not in code (same lesson as Cote
-  // Cup: cron schedule comments in code drift and mislead).
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(pollAndCache(env));
+    ctx.waitUntil(runPollLoop(env));
   },
 };
 
+async function runPollLoop(env) {
+  const deadline = Date.now() + SUBPOLL_BUDGET_MS;
+  let firstPass = true;
+
+  while (firstPass || Date.now() < deadline) {
+    firstPass = false;
+    const activeWindow = await pollAndCache(env);
+    if (!activeWindow) break; // nothing worth re-polling this tick
+    await sleep(SUBPOLL_INTERVAL_MS);
+  }
+}
+
 async function pollAndCache(env) {
-  // 1. Get the current PowerSwap top 25 for the active sport/season.
-  //    UNBUILT: this would need to read from wherever season_history.json
-  //    ends up being reachable from a Worker - likely a fetch to the
-  //    raw GitHub Pages URL for the current week's snapshot, since
-  //    Workers can't read the repo filesystem directly.
   const rankedTeams = await getCurrentRankedTeams(env);
+  if (rankedTeams.length === 0) {
+    await env.LIVE_KV.put(
+      LIVE_KV_KEY,
+      JSON.stringify({ updated_at: new Date().toISOString(), games: [], note: "no ranked teams yet" }),
+      { expirationTtl: KV_TTL_SECONDS }
+    );
+    return false;
+  }
 
-  // 2. Poll CFBD's live scoreboard - UNVERIFIED query shape and response
-  //    fields, confirm against a real call before trusting this.
-  const resp = await fetch(CFBD_SCOREBOARD_URL, {
-    headers: { Authorization: `Bearer ${env.CFBD_API_KEY}` },
-  });
-  const allLiveGames = await resp.json();
+  let rawMatches;
+  try {
+    rawMatches = await fetchBbsMatches(env.BBS_API_KEY);
+  } catch (err) {
+    console.error("BBS fetch failed:", err.message);
+    return false;
+  }
 
-  // 3. Filter to only games involving a currently-ranked team.
-  const relevantGames = allLiveGames.filter(
-    (g) => rankedTeams.has(g.homeTeam) || rankedTeams.has(g.awayTeam)
+  const now = Date.now();
+  const relevantGames = [];
+  let anyActiveWindow = false;
+
+  for (const raw of rawMatches) {
+    const homeCanonical = resolveBbsTeamName(raw.home?.name, rankedTeams);
+    const awayCanonical = resolveBbsTeamName(raw.away?.name, rankedTeams);
+    if (!homeCanonical && !awayCanonical) continue;
+
+    const parsed = parseBbsMatch(raw);
+    const kickoffMs = parsed.kickoff_utc ? Date.parse(parsed.kickoff_utc) : null;
+    const inWindow =
+      kickoffMs !== null &&
+      now >= kickoffMs - PRE_KICKOFF_WINDOW_MS &&
+      now <= kickoffMs + POST_KICKOFF_WINDOW_MS;
+
+    if (inWindow && parsed.status !== "finished") anyActiveWindow = true;
+
+    relevantGames.push({
+      id: parsed.id,
+      home_team: homeCanonical ?? norm(raw.home?.name ?? ""),
+      away_team: awayCanonical ?? norm(raw.away?.name ?? ""),
+      home_score: parsed.home_score,
+      away_score: parsed.away_score,
+      status: parsed.status,
+      raw_status: parsed.raw_status,
+      period: parsed.period,
+      clock: parsed.clock,
+      possession: parsed.possession,
+      kickoff_utc: parsed.kickoff_utc,
+    });
+  }
+
+  await env.LIVE_KV.put(
+    LIVE_KV_KEY,
+    JSON.stringify({ updated_at: new Date().toISOString(), games: relevantGames }),
+    { expirationTtl: KV_TTL_SECONDS }
   );
 
-  // 4. Compute PowerSwap stakes for each relevant game - the actual
-  //    differentiator. UNBUILT: needs the swap engine's logic available
-  //    in JS, or a call out to a small endpoint that runs the Python
-  //    engine's logic. Worth deciding which approach when this gets built.
-  const withStakes = relevantGames.map((g) => ({
-    ...g,
-    powerswap_stakes: computeStakes(g, rankedTeams), // UNBUILT
-  }));
-
-  // 5. One consolidated write, not one per game.
-  await env.LIVE_KV.put("live_payload", JSON.stringify({ games: withStakes }), {
-    expirationTtl: 120, // stale after 2 minutes if polling stops
-  });
+  return anyActiveWindow;
 }
 
 async function getCurrentRankedTeams(env) {
-  // UNBUILT placeholder
-  return new Set();
+  let resp;
+  try {
+    resp = await fetch(RANKED_TEAMS_URL, { cf: { cacheTtl: 60 } });
+  } catch (err) {
+    console.error("Ranked-teams fetch failed:", err.message);
+    return [];
+  }
+  if (!resp.ok) {
+    // Expected for now: data/cfb/seasons/2026/season_history.json doesn't
+    // exist yet (2026 backtest pipeline hasn't produced its first
+    // snapshot). Not an error - just means nothing is ranked yet.
+    return [];
+  }
+  const data = await resp.json();
+  const snapshots = data.snapshots ?? [];
+  if (snapshots.length === 0) return [];
+  const latest = snapshots[snapshots.length - 1];
+  return (latest.rankings ?? []).map((slot) => slot.team);
 }
 
-function computeStakes(game, rankedTeams) {
-  // UNBUILT placeholder - this is where "if this holds, #4 swaps with
-  // #15" gets calculated, using the same rank-comparison logic as
-  // core/swap_engine.py, just re-expressed for a live/in-progress score
-  // rather than a final result.
-  return null;
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

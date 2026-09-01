@@ -274,6 +274,17 @@ main {
   color: var(--text-muted);
   letter-spacing: 1px;
 }
+.belt-live {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.belt-live.is-live {
+  color: #111;
+}
+.belt-live.is-final {
+  color: var(--text-muted);
+}
 .lineage {
   margin: 0 14px 10px;
   padding-top: 8px;

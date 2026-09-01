@@ -17,11 +17,15 @@ dormant until football is sorted out:
   it doesn't get tested or shown before football is solid. All the
   backend code still runs fine via CLI if you want to poke at it - the
   flag only affects the site.
-- **Live scores / ticker (`live/`)** - a scaffold, not a running service.
-  `LIVE_SCORES_ENABLED = false` in `site/app.js` keeps the (otherwise
-  inert) live-ticker code from doing anything. Has a real recurring cost
-  attached ($1-5/month CFBD Patreon tier) that hasn't been decided on -
-  see the "Live Scores" section further down before touching this.
+- **Live scores (`live/`)** - deployed and active as of 2026-09-01.
+  `LIVE_SCORES_ENABLED = true` in `site/app.js`. A Cloudflare Worker
+  polls Big Balls Sports Data (BBS, a separate vendor from CFBD - free
+  tier, no recurring cost) for games involving currently-ranked teams
+  and publishes to KV for the site to read. CFBD is untouched - still
+  final-results-only via the existing pipeline. See the "Live Scores"
+  section further down and `live/README.md` for the full verified vs.
+  still-UNVERIFIED breakdown (real in-progress game field names haven't
+  been observed yet - no game was live when this was built).
 
 Both flags live at the top of `site/app.js`. Flipping either to `true`
 is the entire activation step on the site side - everything else needed
@@ -113,7 +117,17 @@ powerswap-sports/
     cfb/seasons/<year>/...
     cbb/seasons/<year>/...
   site/                      Static site, sport + season + week selectors
+  live/                      Live-scores Cloudflare Worker (deployed) - see live/README.md
+  index.html                 Redirects GitHub Pages' root to site/index.html
+  .nojekyll                  Stops GitHub Pages from Jekyll-processing this repo
 ```
+
+**Season selector auto-rolls forward.** `site/app.js`'s `AVAILABLE_SEASONS`
+is computed as a range (2021 through the current season, June 1 cutover)
+rather than a hardcoded list, so the site defaults to the current season
+every year with no code change needed - a season with no backtested data
+yet just falls through to the existing "No backtested data for this
+sport/season yet" state.
 
 ## Setup
 
@@ -224,52 +238,42 @@ first real run catches them instead of trusting them blindly:
   (CA)" in `sports/cbb/team_norm.py` are guesses at how CBBD might
   disambiguate similarly-named schools. Verify against real data.
 
-## Live Scores (Not Built Yet — Research Done, Cost Confirmed)
+## Live Scores (Deployed 2026-09-01)
 
-Live in-game scores and a ticking clock are wanted for the eventual public
-site, alongside a "Watch & Listen" section for the companion show. Neither
-is built yet. Here's what's confirmed so far:
+Live in-game scores and a status/score badge inline with the rankings,
+for any currently-ranked team's game. Built, deployed, and smoke-tested
+against real API data. Full detail (confirmed vs. still-UNVERIFIED
+fields, what to check once a real game is live, next steps) lives in
+`live/README.md` - this section is the short version.
 
-**Live scores are NOT free.** CFBD's free tier (1,000 calls/month) doesn't
-include the `/scoreboard` endpoint at all - live game data requires a paid
-Patreon tier:
-- **Tier 1, $1/month, 5,000 calls/month** - unlocks the Live Scoreboard
-  (real-time scores and updates). This is almost certainly enough for a
-  score-and-clock ticker.
-- **Tier 2, $5/month, 30,000 calls/month** - adds Live Play-by-Play, only
-  needed if the ticker should show individual plays, not just score/clock.
+**Vendor split:** CFBD stays exactly as before - final results only, via
+the existing `fetch_results.py` → `backtest.py` pipeline, free tier, no
+new cost. Live scores come from a separate vendor, **Big Balls Sports
+Data (BBS)** (`bigballsdata.com`), also free tier (1,000 req/day, 2,000
+on this GitHub-linked account) - no recurring cost for this layer either.
 
-This is a real recurring cost, however small - confirm comfort with an
-ongoing $1-5/month subscription before building this layer, since it's a
-different cost shape than everything else in this project (which is
-either free or one-time).
-
-**Whether the $1 tier's REST response includes clock/period fields
-specifically is unconfirmed.** The GraphQL schema (Tier 3+) clearly has
-`currentClock`, `currentPeriod`, `currentPossession` - very likely the
-same underlying data is in the cheaper REST tier's response too, since
-it's the same data model, but this needs to be checked against a real
-response once a Patreon key exists.
-
-**Planned architecture for this layer, once the above is confirmed:**
+**Architecture:**
 
 - Everything already built (engine, weekly backtest, GitHub Actions,
   GitHub Pages) stays exactly as-is. This is a separate, additive layer.
-- A small Cloudflare Worker - the one piece of this whole project that
-  would actually use Cloudflare - holds the Patreon-tier `CFBD_API_KEY`
-  and polls `/scoreboard` roughly once a minute for games involving
-  currently-ranked teams only (not the whole slate), caching one
-  consolidated payload. This should comfortably fit Cloudflare's free
-  Workers tier given the low write volume.
-- The client polls that Worker every 30-60 seconds and locally
-  interpolates the game clock between syncs (count down in JS, correct on
-  the next sync) for a convincingly "live" feel without needing
-  aggressive backend polling.
-- The same Worker computes the "PowerSwap stakes" for each live game -
-  what rank-swap would happen if the current score held - since it
-  already has both the live score and the current rankings in hand. This
-  is the actual differentiator for the ticker: not just "Bama is up 14,"
-  but "if this holds, Bama swaps places with Oklahoma."
+- A Cloudflare Worker (`live/worker.js`, deployed as
+  `powerswap-live-scores`) polls BBS on a cron trigger (schedule lives in
+  `live/wrangler.toml`, deliberately not the dashboard) for games
+  involving currently-ranked teams only, filtered by reading the latest
+  snapshot from `data/cfb/seasons/<year>/season_history.json` and
+  matching BBS's team names against it via `live/team_norm.js` (a JS port
+  of `sports/cfb/team_norm.py`'s normalization). Publishes one
+  consolidated payload to Cloudflare KV.
+- The site (`site/app.js`) polls that Worker's `/live` endpoint every 45s
+  and renders an inline `● LIVE score vs opponent` / `FINAL score`
+  badge on any ranked team's row. It never calls BBS directly - same
+  "Bird Feeder" principle as everywhere else in this project.
+
+**Still open:** BBS's real in-progress status string and where
+clock/period/possession actually live on its response are UNVERIFIED -
+no live game existed to check against when this was built (2026 season
+week 1 starts ~2026-09-03). `live/bbs_client.js`'s `parseBbsMatch()` is
+the one function to correct once a real game is observed.
 
 ## Watch & Listen (Embeds Section)
 
