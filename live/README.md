@@ -90,6 +90,12 @@ key names there - that's the only function that should need to change.
   with a synthetic in-progress/finished pair and loading the actual site
   JS/CSS against it in a browser. Confirmed visually, then let the next
   cron tick overwrite the test data with the real (empty) state.
+- Caught and fixed a real bug during overnight unattended running: the
+  KV entry's TTL (180s) was shorter than the cron interval (5 min), so
+  `/live` briefly fell back to an empty default between ticks even though
+  polling was working correctly. Fixed by raising `KV_TTL_SECONDS` to 600
+  and confirmed the fix in production - watched a real KV write survive
+  past the point (~3 min in) where the old TTL would have expired it.
 - **Not yet possible:** end-to-end verification against a real live game,
   since the 2026 season hasn't started. Re-run
   `python live/fetch_live_scores.py --diagnose` once games are live

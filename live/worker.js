@@ -32,7 +32,12 @@ const RANKED_TEAMS_URL =
   "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/season_history.json";
 
 const LIVE_KV_KEY = "live_payload";
-const KV_TTL_SECONDS = 180; // stale after 3 min if polling stops entirely
+// Must comfortably exceed the outer cron interval (5 min) or the key
+// expires between ticks and /live falls back to its empty default even
+// though polling is working fine - confirmed happening in production
+// with the previous 180s value (shorter than the 300s cron gap) during
+// overnight testing on 2026-09-01.
+const KV_TTL_SECONDS = 600;
 
 // How long a game window is considered "active" around a ranked team's
 // kickoff: from 15 min before kickoff to 4 hours after (typical CFB game
