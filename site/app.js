@@ -22,7 +22,29 @@ const SPORTS = [
   { key: "cbb", label: "College Basketball", enabled: BASKETBALL_ENABLED },
 ];
 
-const AVAILABLE_SEASONS = [2021, 2022, 2023, 2024, 2025];
+// First season this project has real backtested data for. Never changes.
+const FIRST_SEASON = 2021;
+
+// CFB's season "year" turns over well before the calendar year does -
+// preseason polls and week 1 typically land in August. Using June 1 as
+// the cutover (rather than Jan 1) means the site starts defaulting to a
+// new season's (initially empty, until that season's backtest is run)
+// view as soon as that season is realistically underway, not five-plus
+// months early on New Year's Day.
+function getCurrentSeasonYear(now = new Date()) {
+  const CUTOVER_MONTH_INDEX = 5; // June (0-indexed)
+  return now.getMonth() >= CUTOVER_MONTH_INDEX ? now.getFullYear() : now.getFullYear() - 1;
+}
+
+// FIRST_SEASON..currentSeasonYear, e.g. [2021, 2022, ..., 2026]. Computed
+// as a range (not a hardcoded list) so next June 1st's rollover to 2027
+// needs no app.js edit - the dropdown and its default just follow the
+// calendar. If a season's data isn't backtested yet, renderWeek()'s
+// existing "No backtested data for this sport/season yet" state handles it.
+const AVAILABLE_SEASONS = Array.from(
+  { length: getCurrentSeasonYear() - FIRST_SEASON + 1 },
+  (_, i) => FIRST_SEASON + i
+);
 
 const sportSelect = document.getElementById("sport-select");
 const seasonSelect = document.getElementById("season-select");
