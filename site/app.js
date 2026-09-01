@@ -1,14 +1,40 @@
 // PowerSwap Sports - site/app.js
 
-const LIVE_SCORES_ENABLED = false;
+const LIVE_SCORES_ENABLED = true;
 const BASKETBALL_ENABLED = false;
+
+// live/worker.js's own /live endpoint - the site never calls BBS directly.
+const LIVE_WORKER_URL = "https://powerswap-live-scores.yeti-f3c.workers.dev/live";
+const LIVE_POLL_MS = 45000; // within the 30-60s range noted in README.md
 
 const SPORTS = [
   { key: "cfb", label: "College Football", enabled: true },
   { key: "cbb", label: "College Basketball", enabled: BASKETBALL_ENABLED },
 ];
 
-const AVAILABLE_SEASONS = [2021, 2022, 2023, 2024, 2025, 2026];
+// First season this project has real backtested data for. Never changes.
+const FIRST_SEASON = 2021;
+
+// CFB's season "year" turns over well before the calendar year does -
+// preseason polls and week 1 typically land in August. Using June 1 as
+// the cutover (rather than Jan 1) means the site starts defaulting to a
+// new season's (initially empty, until that season's backtest is run)
+// view as soon as that season is realistically underway, not five-plus
+// months early on New Year's Day.
+function getCurrentSeasonYear(now = new Date()) {
+  const CUTOVER_MONTH_INDEX = 5; // June (0-indexed)
+  return now.getMonth() >= CUTOVER_MONTH_INDEX ? now.getFullYear() : now.getFullYear() - 1;
+}
+
+// FIRST_SEASON..currentSeasonYear, e.g. [2021, 2022, ..., 2026]. Computed
+// as a range (not a hardcoded list) so next June 1st's rollover to 2027
+// needs no app.js edit - the dropdown and its default just follow the
+// calendar. If a season's data isn't backtested yet, renderWeek()'s
+// existing "No backtested data for this sport/season yet" state handles it.
+const AVAILABLE_SEASONS = Array.from(
+  { length: getCurrentSeasonYear() - FIRST_SEASON + 1 },
+  (_, i) => FIRST_SEASON + i
+);
 
 const sportSelect = document.getElementById("sport-select");
 const seasonSelect = document.getElementById("season-select");
@@ -144,12 +170,14 @@ function renderRankings(snapshot, weekEvents) {
   for (const slot of snapshot.rankings) {
     const li = document.createElement("li");
     li.className = "belt-card" + (changedTeams.has(slot.team) ? " just-changed" : "");
+    li.dataset.team = slot.team;
 
     const row = document.createElement("div");
     row.className = "belt-row";
     row.innerHTML = `
       <span class="belt-rank">#${slot.rank}</span>
       <span class="belt-team" data-team="${slot.team}">${slot.team}</span>
+      <span class="belt-live" hidden></span>
       <span class="belt-toggle">LINEAGE ▾</span>
     `;
 
@@ -181,6 +209,8 @@ function renderRankings(snapshot, weekEvents) {
     li.appendChild(lineageDiv);
     rankingsList.appendChild(li);
   }
+
+  if (LIVE_SCORES_ENABLED) renderLiveBadges();
 }
 
 function renderEvents(weekEvents) {
@@ -359,9 +389,71 @@ weekSelect.addEventListener("change", () => {
   }
 });
 
-// ── Live ticker scaffold (dormant) ──
+// ── Live scores (reads live/worker.js's /live endpoint - see live/README.md) ──
+// Renders an inline badge on any currently-ranked team's belt-card when
+// BBS has a game for them in progress or just finished. Rankings
+// themselves are never touched here - this is purely a display layer on
+// top of whatever renderRankings() already drew.
+
+// team name -> live game info, keyed from both sides of each game.
+let liveGamesByTeam = {};
+
+function formatLiveBadge(game, isHome) {
+  const teamScore = isHome ? game.home_score : game.away_score;
+  const oppScore = isHome ? game.away_score : game.home_score;
+  const opponent = isHome ? game.away_team : game.home_team;
+  const scoreText = teamScore !== null && oppScore !== null ? `${teamScore}-${oppScore}` : "";
+
+  if (game.status === "in_progress") {
+    // period/clock are UNVERIFIED against a real in-progress BBS game as
+    // of 2026-09-01 (see live/bbs_client.js) - shown only if present.
+    const clockPart = [game.period ? `Q${game.period}` : null, game.clock]
+      .filter(Boolean)
+      .join(" ");
+    return `● LIVE ${scoreText} vs ${opponent}${clockPart ? " · " + clockPart : ""}`;
+  }
+  if (game.status === "finished") {
+    return `FINAL ${scoreText} vs ${opponent}`;
+  }
+  return null;
+}
+
+function renderLiveBadges() {
+  for (const li of rankingsList.children) {
+    const badge = li.querySelector(".belt-live");
+    if (!badge) continue;
+    const game = liveGamesByTeam[li.dataset.team];
+    const text = game ? formatLiveBadge(game, game.home_team === li.dataset.team) : null;
+    if (text) {
+      badge.textContent = text;
+      badge.hidden = false;
+      badge.className = "belt-live" + (game.status === "in_progress" ? " is-live" : " is-final");
+    } else {
+      badge.hidden = true;
+    }
+  }
+}
+
+async function fetchLiveScores() {
+  try {
+    const resp = await fetch(LIVE_WORKER_URL);
+    if (!resp.ok) return;
+    const payload = await resp.json();
+    const byTeam = {};
+    for (const game of payload.games ?? []) {
+      byTeam[game.home_team] = game;
+      byTeam[game.away_team] = game;
+    }
+    liveGamesByTeam = byTeam;
+    renderLiveBadges();
+  } catch (err) {
+    console.error("Live score fetch failed:", err.message);
+  }
+}
+
 function initLiveTicker() {
-  console.log("Live ticker is dormant. See live/README.md.");
+  fetchLiveScores();
+  setInterval(fetchLiveScores, LIVE_POLL_MS);
 }
 if (LIVE_SCORES_ENABLED) {
   initLiveTicker();
