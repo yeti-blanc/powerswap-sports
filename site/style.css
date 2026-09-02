@@ -348,7 +348,7 @@ main {
   margin-top: 3px;
 }
 .no-events {
-  color: var(--text-muted);
+  color: #111;
   font-size: 13px;
   font-style: italic;
 }
@@ -363,7 +363,7 @@ main {
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 2px;
-  color: var(--text-muted);
+  color: #111;
   margin: 0 0 8px;
   text-transform: uppercase;
 }

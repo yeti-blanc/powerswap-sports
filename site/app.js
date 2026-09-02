@@ -130,7 +130,15 @@ function populateWeekSelect() {
 }
 
 function formatWeekLabel(weekKey) {
-  if (weekKey === "preseason") return "Preseason";
+  if (weekKey === "preseason") {
+    // Once real Week 1 results exist as their own snapshot, "preseason"
+    // goes back to meaning exactly that. Until then, it's the only view
+    // there is for Week 1 - and once those games are actually kicking
+    // off (with live scores on these same cards), a "Preseason" label
+    // reads as stale/wrong, so call it "Week 1" until the real one lands.
+    const hasRealWeek1 = currentSeasonData?.snapshots?.some(s => s.week === "week1");
+    return hasRealWeek1 ? "Preseason" : "Week 1";
+  }
   if (weekKey === "postseason") return "Bowls & Playoff";
   const num = weekKey.replace("week", "");
   return `Week ${num}`;
