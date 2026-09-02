@@ -109,15 +109,34 @@ key names there - that's the only function that should need to change.
 committed file. `CFBD_API_KEY` is currently unused by the Worker (no
 finality cross-check wired up yet - see "Next steps").
 
+## Update (2026-09-02): 2026 season_history.json now exists
+
+`data/cfb/seasons/2026/season_history.json` was seeded the same day
+this was written (real preseason AP Top 25, no `week1` snapshot yet -
+games haven't been played). The Worker's cron should now actually be
+polling BBS for these 25 teams instead of skipping (it was skipping
+entirely before, correctly, since nothing was ranked). Not yet
+re-verified against a real BBS response for these specific teams -
+next session should check `/live` reflects something once games start
+Wednesday/Thursday.
+
+Also worth knowing: a manual `git merge` the same night briefly dropped
+`site/app.js`'s live-score JS entirely (kept the other branch's version
+wholesale). It was re-added on top of the current `app.js` and re-
+verified in a real browser, but if `LIVE_SCORES_ENABLED`/`fetchLiveScores`/
+`renderLiveBadges` ever look missing from `site/app.js` again, check
+recent merge commits first before assuming the Worker side broke - see
+the main `README.md`'s "Lesson From 2026-09-01" section.
+
 ## Next steps for the next session
 
-1. Once `data/cfb/seasons/2026/season_history.json` exists (after the
-   2026 backtest pipeline runs for the first time), watch `/live` during
-   a real ranked-team game and fix `bbs_client.js`'s UNVERIFIED guesses.
+1. Watch `/live` during a real ranked-team game (starts ~2026-09-03) and
+   fix `bbs_client.js`'s UNVERIFIED guesses (in-progress status string,
+   clock/period/possession field names) based on what actually comes back.
 2. Consider whether the CFBD finality cross-check (README/handoff
    mentioned this as an optional extra safety check before treating a
    game as truly final) is worth adding - `CFBD_API_KEY` is already set
-   as a Worker secret, just unused.
+   as a Worker secret (rotated 2026-09-02), just unused.
 3. Re-evaluate `SUBPOLL_INTERVAL_MS`/`SUBPOLL_BUDGET_MS` in `worker.js`
    once real in-progress-game refresh behavior is observed - they're
    currently a conservative guess (see "Confirmed vs. UNVERIFIED" above).

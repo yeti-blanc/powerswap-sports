@@ -7,9 +7,13 @@ branches of the same brand, sharing one engine.
 
 ## Current Status (read this first)
 
-**Active focus: football backtesting against real 2021-2025 seasons.**
-Everything else below is built and present in the repo, but deliberately
-dormant until football is sorted out:
+**Active focus: football backtesting against real 2021-2025 seasons,
+plus 2026 underway.** 2026's preseason AP Top 25 is seeded (real data,
+`data/cfb/seasons/2026/`) - week 1 itself hasn't been played yet (starts
+~2026-09-03), so there's no `week1` snapshot for 2026 until that's
+fetched and backtested after the games finish. Everything else below is
+built and present in the repo, but deliberately dormant until football
+is sorted out:
 
 - **Basketball (`sports/cbb/`)** - fully scaffolded, untouched by real
   data yet. `BASKETBALL_ENABLED = false` in `site/app.js` keeps it out of
@@ -26,6 +30,13 @@ dormant until football is sorted out:
   section further down and `live/README.md` for the full verified vs.
   still-UNVERIFIED breakdown (real in-progress game field names haven't
   been observed yet - no game was live when this was built).
+- **Week 1 opponent preview (2026-09-02)** - each ranked team's rank
+  card shows its Week 1 opponent and home/away (`vs. Team` / `@ Team`),
+  from real CFBD schedule data. See "Week 1 Matchups" further down.
+- **The current season's baseline displays as "Week 1," not
+  "Preseason,"** until that season's real `week1` snapshot exists (see
+  "Week 1 Matchups" below) - otherwise a "Preseason" label next to live
+  in-game scores reads as stale.
 
 Both flags live at the top of `site/app.js`. Flipping either to `true`
 is the entire activation step on the site side - everything else needed
@@ -103,6 +114,7 @@ powerswap-sports/
       config.py              CFBD base URL, poll name, division filter
       team_norm.py            CFB-specific name normalization
       fetch_results.py        Week-number based fetching
+      fetch_week1_matchups.py Week 1 opponent/home-away, display-only (see below)
     cbb/
       config.py               CBBD base URL, poll name (some fields UNVERIFIED - see below)
       team_norm.py             CBB-specific name normalization (separate team universe)
@@ -275,6 +287,43 @@ no live game existed to check against when this was built (2026 season
 week 1 starts ~2026-09-03). `live/bbs_client.js`'s `parseBbsMatch()` is
 the one function to correct once a real game is observed.
 
+## Week 1 Matchups (Added 2026-09-02)
+
+Purely additive display data sitting alongside the rankings - never
+touches `core/swap_engine.py` or the rankings pipeline. For each
+currently-ranked team, shows their Week 1 opponent and whether they're
+home or away, right on their rank card, in smaller text under the team
+name (`.belt-opponent` in `site/style.css`). A team with no scheduled
+game (bye) just shows its name, no broken/blank line.
+
+```bash
+export CFBD_API_KEY="your_key_here"
+python sports/cfb/fetch_week1_matchups.py --season 2026
+```
+
+Follows the same pattern as `fetch_results.py` (same `cfbd_get` helper,
+same `config.py`), reading ranked teams from the latest snapshot in
+`data/cfb/seasons/<season>/season_history.json` and writing
+`data/cfb/seasons/<season>/week1_matchups.json` for `site/app.js` to
+fetch alongside `season_history.json` (best-effort - a missing file,
+e.g. for basketball, just means no opponent line).
+
+**Team-name normalization is load-bearing here, confirmed with a real
+case, not just defensive boilerplate:** CFBD's `/games` schedule spells
+it "Ole Miss," not the canonical "Mississippi." Without running it
+through `team_norm.norm()` first, "Ole Miss vs Louisville" - an actual
+ranked-vs-ranked game - would have silently looked like two byes
+instead. Each team's card reflects its own home/away perspective
+independently (Mississippi's card: `vs. Louisville`; Louisville's card:
+`@ Mississippi`), computed straight from CFBD's real `homeTeam`/
+`awayTeam` fields, not inferred.
+
+Also confirmed against a real call: CFBD's `/games` `division=fbs`
+query param does **not** actually filter the response (FCS/D-II/D-III
+games came back mixed in with FBS). Didn't matter here - a ranked team
+is always FBS regardless of what else is in the list - but don't assume
+that param filters anything if you reuse this pattern elsewhere.
+
 ## Watch & Listen (Embeds Section)
 
 `site/index.html` now has a "Watch & Listen" section with a YouTube embed
@@ -303,3 +352,31 @@ Actions + static JSON instead of a Cloudflare Worker + KV.
 variable for now, and a GitHub Actions repo secret once this moves to
 automated weekly runs. `.gitignore` and `.env.example` are set up to make
 committing a real key by accident harder.
+
+## Lesson From 2026-09-01: Isolate Your Own Edits From Pending Local WIP
+
+Real incident, not a hypothetical: a commit meant to add ~15 lines of
+live-score CSS/JS instead swept in ~450 unrelated, uncommitted local
+lines already sitting in `site/style.css`/`site/app.js` (a whole
+color/typography redesign and a removed nav feature) - because the edit
+was made directly on top of files that already had pending local
+changes, then the whole file got committed. Got worse a few hours later:
+a manual `git merge` combining that same local work with a separate
+push kept one side's `app.js` entirely, silently dropping the live-score
+JS and auto-season-range logic that had just been re-committed - and
+separately exposed a pre-existing gap (a team-card feature whose JS and
+CSS were both committed, but whose HTML markup never was), which broke
+the site outright (empty dropdowns, one uncaught exception halting the
+rest of `app.js`).
+
+Two things to always confirm on it are worth it:
+1. Before editing a file for one specific change, check
+   `git diff origin/main -- <file>` - if it's already dirty with
+   something unrelated, isolate your edit (e.g. reset to the last
+   commit, make the edit, commit, then reapply the pending work) rather
+   than committing the combined state.
+2. After any merge - manual or automated - that touches `site/app.js`
+   or `site/index.html`, actually load the site in a browser and check
+   the console before trusting it. A clean `git merge` with no conflict
+   markers is not the same as a working site: it just means git found
+   no *textual* overlap, not that the result still runs.
