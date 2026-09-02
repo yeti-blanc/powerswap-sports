@@ -268,6 +268,16 @@ main {
   text-transform: uppercase;
   text-shadow: 1px 1px 0 rgba(0,0,0,0.6);
 }
+.belt-opponent {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  text-shadow: none;
+  margin-top: 2px;
+}
 .belt-toggle {
   font-family: var(--font-mono);
   font-size: 9px;

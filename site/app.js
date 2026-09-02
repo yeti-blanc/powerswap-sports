@@ -57,6 +57,7 @@ const teamCardTimeline = document.getElementById("team-card-timeline");
 
 let currentSeasonData = null;
 let currentWeekIndex = 0;
+let currentWeek1Matchups = null;
 
 function populateSportSelect() {
   sportSelect.innerHTML = "";
@@ -95,6 +96,18 @@ async function loadSeason(sport, year) {
   currentWeekIndex = currentSeasonData
     ? currentSeasonData.snapshots.length - 1
     : 0;
+
+  // Optional, display-only - a season/sport with no Week 1 matchup data
+  // yet (or none at all, e.g. basketball) just shows no opponent line.
+  // Never affects rankings/backtest loading either way.
+  currentWeek1Matchups = null;
+  try {
+    const resp = await fetch(`../data/${sport}/seasons/${year}/week1_matchups.json`);
+    if (resp.ok) currentWeek1Matchups = await resp.json();
+  } catch (err) {
+    // ignored - purely decorative data
+  }
+
   populateWeekSelect();
   renderWeek();
 }
@@ -172,11 +185,16 @@ function renderRankings(snapshot, weekEvents) {
     li.className = "belt-card" + (changedTeams.has(slot.team) ? " just-changed" : "");
     li.dataset.team = slot.team;
 
+    const matchup = currentWeek1Matchups?.matchups?.[slot.team];
+    const opponentLine = matchup
+      ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}</span>`
+      : "";
+
     const row = document.createElement("div");
     row.className = "belt-row";
     row.innerHTML = `
       <span class="belt-rank">#${slot.rank}</span>
-      <span class="belt-team" data-team="${slot.team}">${slot.team}</span>
+      <span class="belt-team" data-team="${slot.team}">${slot.team}${opponentLine}</span>
       <span class="belt-live" hidden></span>
       <span class="belt-toggle">LINEAGE ▾</span>
     `;

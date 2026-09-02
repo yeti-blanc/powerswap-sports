@@ -1,0 +1,106 @@
+{
+  "season": 2026,
+  "week": 1,
+  "matchups": {
+    "USC": {
+      "opponent": "Fresno State",
+      "home_away": "home"
+    },
+    "Missouri": {
+      "opponent": "Arkansas-Pine Bluff",
+      "home_away": "home"
+    },
+    "Utah": {
+      "opponent": "Idaho",
+      "home_away": "home"
+    },
+    "Oklahoma": {
+      "opponent": "UTEP",
+      "home_away": "home"
+    },
+    "Miami": {
+      "opponent": "Stanford",
+      "home_away": "away"
+    },
+    "Houston": {
+      "opponent": "Oregon State",
+      "home_away": "home"
+    },
+    "Alabama": {
+      "opponent": "East Carolina",
+      "home_away": "home"
+    },
+    "Indiana": {
+      "opponent": "North Texas",
+      "home_away": "home"
+    },
+    "Ohio State": {
+      "opponent": "Ball State",
+      "home_away": "home"
+    },
+    "Georgia": {
+      "opponent": "Tennessee State",
+      "home_away": "home"
+    },
+    "Tennessee": {
+      "opponent": "Furman",
+      "home_away": "home"
+    },
+    "Penn State": {
+      "opponent": "Marshall",
+      "home_away": "home"
+    },
+    "Texas": {
+      "opponent": "Texas State",
+      "home_away": "home"
+    },
+    "Oregon": {
+      "opponent": "Boise State",
+      "home_away": "home"
+    },
+    "Iowa": {
+      "opponent": "Northern Illinois",
+      "home_away": "home"
+    },
+    "Texas A&M": {
+      "opponent": "Missouri State",
+      "home_away": "home"
+    },
+    "Texas Tech": {
+      "opponent": "Abilene Christian",
+      "home_away": "home"
+    },
+    "LSU": {
+      "opponent": "Clemson",
+      "home_away": "home"
+    },
+    "Michigan": {
+      "opponent": "Western Michigan",
+      "home_away": "home"
+    },
+    "BYU": {
+      "opponent": "Utah Tech",
+      "home_away": "home"
+    },
+    "Washington": {
+      "opponent": "Washington State",
+      "home_away": "home"
+    },
+    "Mississippi": {
+      "opponent": "Louisville",
+      "home_away": "home"
+    },
+    "Louisville": {
+      "opponent": "Mississippi",
+      "home_away": "away"
+    },
+    "Notre Dame": {
+      "opponent": "Wisconsin",
+      "home_away": "home"
+    },
+    "SMU": {
+      "opponent": "Florida State",
+      "home_away": "away"
+    }
+  }
+}
