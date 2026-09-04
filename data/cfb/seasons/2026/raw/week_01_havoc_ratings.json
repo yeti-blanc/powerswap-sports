@@ -1,0 +1,3554 @@
+{
+  "season": 2026,
+  "week": 1,
+  "games": [
+    {
+      "home_team": "Florida State",
+      "away_team": "SMU",
+      "havoc_rating": 85.7,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.914,
+        "moneyline_closeness": 0.81,
+        "over_under": 0.666
+      },
+      "raw_averages": {
+        "avg_abs_spread": 3.0,
+        "avg_over_under": 53.25,
+        "avg_home_implied_prob": 0.40515335172724287,
+        "avg_away_implied_prob": 0.594846648272757
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Mississippi",
+      "away_team": "Louisville",
+      "havoc_rating": 67.3,
+      "not_swap_eligible": false,
+      "components": {
+        "powerswap_rank_gap": 0.625,
+        "ap_rank_gap": 0.625,
+        "vegas_closeness": 0.814,
+        "moneyline_closeness": 0.6,
+        "over_under": 0.684
+      },
+      "raw_averages": {
+        "avg_abs_spread": 6.5,
+        "avg_over_under": 54.75,
+        "avg_home_implied_prob": 0.7001620745542949,
+        "avg_away_implied_prob": 0.299837925445705
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "LSU",
+      "away_team": "Clemson",
+      "havoc_rating": 63.5,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.714,
+        "moneyline_closeness": 0.44,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.0,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.7799132721136488,
+        "avg_away_implied_prob": 0.22008672788635114
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Houston",
+      "away_team": "Oregon State",
+      "havoc_rating": 38.0,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.4,
+        "moneyline_closeness": 0.203,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 21.0,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.8984892393937953,
+        "avg_away_implied_prob": 0.10151076060620456
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Notre Dame",
+      "away_team": "Wisconsin",
+      "havoc_rating": 37.5,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.414,
+        "moneyline_closeness": 0.174,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.5,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.9130318293859179,
+        "avg_away_implied_prob": 0.0869681706140821
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "USC",
+      "away_team": "Fresno State",
+      "havoc_rating": 36.3,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.386,
+        "moneyline_closeness": 0.167,
+        "over_under": 0.641
+      },
+      "raw_averages": {
+        "avg_abs_spread": 21.5,
+        "avg_over_under": 51.25,
+        "avg_home_implied_prob": 0.9167475139461556,
+        "avg_away_implied_prob": 0.08325248605384429
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Washington",
+      "away_team": "Washington State",
+      "havoc_rating": 32.9,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.336,
+        "moneyline_closeness": 0.156,
+        "over_under": 0.641
+      },
+      "raw_averages": {
+        "avg_abs_spread": 23.25,
+        "avg_over_under": 51.25,
+        "avg_home_implied_prob": 0.9221619683592523,
+        "avg_away_implied_prob": 0.07783803164074754
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Penn State",
+      "away_team": "Marshall",
+      "havoc_rating": 32.4,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.329,
+        "moneyline_closeness": 0.153,
+        "over_under": 0.647
+      },
+      "raw_averages": {
+        "avg_abs_spread": 23.5,
+        "avg_over_under": 51.75,
+        "avg_home_implied_prob": 0.9234343276589099,
+        "avg_away_implied_prob": 0.07656567234109012
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Oregon",
+      "away_team": "Boise State",
+      "havoc_rating": 29.9,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.293,
+        "moneyline_closeness": 0.143,
+        "over_under": 0.644
+      },
+      "raw_averages": {
+        "avg_abs_spread": 24.75,
+        "avg_over_under": 51.5,
+        "avg_home_implied_prob": 0.9283013735890113,
+        "avg_away_implied_prob": 0.0716986264109887
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Stanford",
+      "away_team": "Miami",
+      "havoc_rating": 29.4,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.3,
+        "moneyline_closeness": 0.136,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 24.5,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.06790641652675378,
+        "avg_away_implied_prob": 0.9320935834732462
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Michigan",
+      "away_team": "Western Michigan",
+      "havoc_rating": 24.1,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.214,
+        "moneyline_closeness": 0.119,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 27.5,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.9407481196253793,
+        "avg_away_implied_prob": 0.05925188037462062
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Alabama",
+      "away_team": "East Carolina",
+      "havoc_rating": 23.9,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.207,
+        "moneyline_closeness": 0.109,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 27.75,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": 0.9452989036040895,
+        "avg_away_implied_prob": 0.05470109639591046
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Texas",
+      "away_team": "Texas State",
+      "havoc_rating": 21.1,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.157,
+        "moneyline_closeness": 0.08,
+        "over_under": 0.747
+      },
+      "raw_averages": {
+        "avg_abs_spread": 29.5,
+        "avg_over_under": 59.75,
+        "avg_home_implied_prob": 0.9602204516383062,
+        "avg_away_implied_prob": 0.03977954836169379
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Iowa",
+      "away_team": "Northern Illinois",
+      "havoc_rating": 14.2,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.093,
+        "moneyline_closeness": 0.056,
+        "over_under": 0.556
+      },
+      "raw_averages": {
+        "avg_abs_spread": 31.75,
+        "avg_over_under": 44.5,
+        "avg_home_implied_prob": 0.9718388345870576,
+        "avg_away_implied_prob": 0.028161165412942456
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Tennessee",
+      "away_team": "Furman",
+      "havoc_rating": 13.9,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.831
+      },
+      "raw_averages": {
+        "avg_abs_spread": 48.25,
+        "avg_over_under": 66.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Missouri",
+      "away_team": "Arkansas-Pine Bluff",
+      "havoc_rating": 13.0,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.781
+      },
+      "raw_averages": {
+        "avg_abs_spread": 55.5,
+        "avg_over_under": 62.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "BYU",
+      "away_team": "Utah Tech",
+      "havoc_rating": 12.8,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.766
+      },
+      "raw_averages": {
+        "avg_abs_spread": 51.5,
+        "avg_over_under": 61.25,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Texas Tech",
+      "away_team": "Abilene Christian",
+      "havoc_rating": 12.4,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 42.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Indiana",
+      "away_team": "North Texas",
+      "havoc_rating": 11.8,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.709
+      },
+      "raw_averages": {
+        "avg_abs_spread": 40.75,
+        "avg_over_under": 56.75,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Ohio State",
+      "away_team": "Ball State",
+      "havoc_rating": 11.8,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 50.25,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Georgia",
+      "away_team": "Tennessee State",
+      "havoc_rating": 11.4,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.681
+      },
+      "raw_averages": {
+        "avg_abs_spread": 47.75,
+        "avg_over_under": 54.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Texas A&M",
+      "away_team": "Missouri State",
+      "havoc_rating": 11.1,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 40.5,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "USC",
+      "away_team": "San Jos\u00e9 State",
+      "havoc_rating": 10.7,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "moneyline_closeness": 0.046,
+        "over_under": 0.765
+      },
+      "raw_averages": {
+        "avg_abs_spread": 37.333333333333336,
+        "avg_over_under": 61.166666666666664,
+        "avg_home_implied_prob": 0.9768485236510117,
+        "avg_away_implied_prob": 0.023151476348988283
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Oklahoma",
+      "away_team": "UTEP",
+      "havoc_rating": 10.6,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.634
+      },
+      "raw_averages": {
+        "avg_abs_spread": 40.75,
+        "avg_over_under": 50.75,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Utah",
+      "away_team": "Idaho",
+      "havoc_rating": 10.4,
+      "not_swap_eligible": false,
+      "components": {
+        "vegas_closeness": 0.0,
+        "moneyline_closeness": 0.038,
+        "over_under": 0.756
+      },
+      "raw_averages": {
+        "avg_abs_spread": 38.0,
+        "avg_over_under": 60.5,
+        "avg_home_implied_prob": 0.9807503701851887,
+        "avg_away_implied_prob": 0.01924962981481125
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Bowling Green",
+      "away_team": "Tarleton State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.95,
+        "moneyline_closeness": 0.916,
+        "over_under": 0.603
+      },
+      "raw_averages": {
+        "avg_abs_spread": 1.75,
+        "avg_over_under": 48.25,
+        "avg_home_implied_prob": 0.5419543235920408,
+        "avg_away_implied_prob": 0.45804567640795923
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Temple",
+      "away_team": "Rhode Island",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.586,
+        "moneyline_closeness": 0.326,
+        "over_under": 0.641
+      },
+      "raw_averages": {
+        "avg_abs_spread": 14.5,
+        "avg_over_under": 51.25,
+        "avg_home_implied_prob": 0.837098445595855,
+        "avg_away_implied_prob": 0.16290155440414505
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Arkansas",
+      "away_team": "North Alabama",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.791
+      },
+      "raw_averages": {
+        "avg_abs_spread": 40.5,
+        "avg_over_under": 63.25,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "James Madison",
+      "away_team": "Liberty",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.829,
+        "moneyline_closeness": 0.647,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 6.0,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.6762685065401753,
+        "avg_away_implied_prob": 0.3237314934598246
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Syracuse",
+      "away_team": "New Hampshire",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.014,
+        "moneyline_closeness": 0.038,
+        "over_under": 0.691
+      },
+      "raw_averages": {
+        "avg_abs_spread": 34.5,
+        "avg_over_under": 55.25,
+        "avg_home_implied_prob": 0.9807503701851887,
+        "avg_away_implied_prob": 0.01924962981481125
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Iowa State",
+      "away_team": "Southeast Missouri State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.129,
+        "moneyline_closeness": 0.048,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 30.5,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": 0.9761439931431837,
+        "avg_away_implied_prob": 0.023856006856816343
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Central Florida",
+      "away_team": "Bethune-Cookman",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.731
+      },
+      "raw_averages": {
+        "avg_abs_spread": 43.5,
+        "avg_over_under": 58.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Connecticut",
+      "away_team": "Lafayette",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.443,
+        "moneyline_closeness": 0.222,
+        "over_under": 0.644
+      },
+      "raw_averages": {
+        "avg_abs_spread": 19.5,
+        "avg_over_under": 51.5,
+        "avg_home_implied_prob": 0.8889592177077016,
+        "avg_away_implied_prob": 0.11104078229229836
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Cincinnati",
+      "away_team": "Boston College",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.786,
+        "moneyline_closeness": 0.578,
+        "over_under": 0.628
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.5,
+        "avg_over_under": 50.25,
+        "avg_home_implied_prob": 0.7111206667161594,
+        "avg_away_implied_prob": 0.28887933328384063
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Air Force",
+      "away_team": "Duquesne",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.171,
+        "moneyline_closeness": 0.084,
+        "over_under": 0.719
+      },
+      "raw_averages": {
+        "avg_abs_spread": 29.0,
+        "avg_over_under": 57.5,
+        "avg_home_implied_prob": 0.9578344612181156,
+        "avg_away_implied_prob": 0.042165538781884435
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Kentucky",
+      "away_team": "Youngstown State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.35,
+        "moneyline_closeness": 0.179,
+        "over_under": 0.781
+      },
+      "raw_averages": {
+        "avg_abs_spread": 22.75,
+        "avg_over_under": 62.5,
+        "avg_home_implied_prob": 0.9107322139518782,
+        "avg_away_implied_prob": 0.08926778604812187
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Army",
+      "away_team": "Bryant",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 36.75,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Buffalo",
+      "away_team": "UAlbany",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.471,
+        "moneyline_closeness": 0.256,
+        "over_under": 0.594
+      },
+      "raw_averages": {
+        "avg_abs_spread": 18.5,
+        "avg_over_under": 47.5,
+        "avg_home_implied_prob": 0.8720930232558138,
+        "avg_away_implied_prob": 0.12790697674418605
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Navy",
+      "away_team": "Towson",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.129,
+        "moneyline_closeness": 0.048,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 30.5,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.9761439931431837,
+        "avg_away_implied_prob": 0.023856006856816343
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Georgia State",
+      "away_team": "North Carolina A&T",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.193,
+        "moneyline_closeness": 0.114,
+        "over_under": 0.747
+      },
+      "raw_averages": {
+        "avg_abs_spread": 28.25,
+        "avg_over_under": 59.75,
+        "avg_home_implied_prob": 0.9431345353675451,
+        "avg_away_implied_prob": 0.056865464632454926
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Minnesota",
+      "away_team": "Eastern Illinois",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 42.5,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Delaware",
+      "away_team": "Merrimack",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.1,
+        "moneyline_closeness": 0.084,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 31.5,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.9578344612181156,
+        "avg_away_implied_prob": 0.042165538781884435
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Purdue",
+      "away_team": "Indiana State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.697
+      },
+      "raw_averages": {
+        "avg_abs_spread": 35.0,
+        "avg_over_under": 55.75,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Charlotte",
+      "away_team": "The Citadel",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.421,
+        "moneyline_closeness": 0.204,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.25,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.8981582911132412,
+        "avg_away_implied_prob": 0.10184170888675886
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Kennesaw State",
+      "away_team": "West Georgia",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.357,
+        "moneyline_closeness": 0.121,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 22.5,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.9396411092985318,
+        "avg_away_implied_prob": 0.06035889070146819
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Kansas",
+      "away_team": "Long Island University",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 42.75,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "UT San Antonio",
+      "away_team": "UT Rio Grande Valley",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.186,
+        "moneyline_closeness": 0.075,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 28.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": 0.9625668449197861,
+        "avg_away_implied_prob": 0.0374331550802139
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "North Dakota State",
+      "away_team": "Fordham",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.703
+      },
+      "raw_averages": {
+        "avg_abs_spread": 41.5,
+        "avg_over_under": 56.25,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Appalachian State",
+      "away_team": "Maine",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.443,
+        "moneyline_closeness": 0.235,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 19.5,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": 0.8822680412371133,
+        "avg_away_implied_prob": 0.11773195876288661
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Jacksonville State",
+      "away_team": "Eastern Kentucky",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.407,
+        "moneyline_closeness": 0.197,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.75,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": 0.9013334093110719,
+        "avg_away_implied_prob": 0.09866659068892814
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Sacramento State",
+      "away_team": "Mississippi Valley State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 37.5,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Rice",
+      "away_team": "Houston Christian",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.357,
+        "moneyline_closeness": 0.151,
+        "over_under": 0.594
+      },
+      "raw_averages": {
+        "avg_abs_spread": 22.5,
+        "avg_over_under": 47.5,
+        "avg_home_implied_prob": 0.9243660091947206,
+        "avg_away_implied_prob": 0.07563399080527955
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Virginia Tech",
+      "away_team": "VMI",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.778
+      },
+      "raw_averages": {
+        "avg_abs_spread": 55.5,
+        "avg_over_under": 62.25,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Kansas State",
+      "away_team": "Nicholls",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.681
+      },
+      "raw_averages": {
+        "avg_abs_spread": 40.5,
+        "avg_over_under": 54.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Arizona",
+      "away_team": "Northern Arizona",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.1,
+        "moneyline_closeness": 0.084,
+        "over_under": 0.731
+      },
+      "raw_averages": {
+        "avg_abs_spread": 31.5,
+        "avg_over_under": 58.5,
+        "avg_home_implied_prob": 0.9578344612181156,
+        "avg_away_implied_prob": 0.042165538781884435
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Old Dominion",
+      "away_team": "Norfolk State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 40.75,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Louisiana Tech",
+      "away_team": "Northwestern State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 44.5,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Maryland",
+      "away_team": "Hampton",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 45.5,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Arizona State",
+      "away_team": "Morgan State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 44.75,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Georgia Southern",
+      "away_team": "Charleston Southern",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.271,
+        "moneyline_closeness": 0.127,
+        "over_under": 0.644
+      },
+      "raw_averages": {
+        "avg_abs_spread": 25.5,
+        "avg_over_under": 51.5,
+        "avg_home_implied_prob": 0.9365889516384295,
+        "avg_away_implied_prob": 0.06341104836157063
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "San Diego State",
+      "away_team": "Portland State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.772
+      },
+      "raw_averages": {
+        "avg_abs_spread": 40.5,
+        "avg_over_under": 61.75,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Louisiana",
+      "away_team": "Lamar",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.421,
+        "moneyline_closeness": 0.225,
+        "over_under": 0.606
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.25,
+        "avg_over_under": 48.5,
+        "avg_home_implied_prob": 0.8875081116158339,
+        "avg_away_implied_prob": 0.11249188838416611
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Southern Miss",
+      "away_team": "Alcorn State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.436,
+        "moneyline_closeness": 0.225,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 19.75,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.8875081116158339,
+        "avg_away_implied_prob": 0.11249188838416611
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Vanderbilt",
+      "away_team": "Austin Peay",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.179,
+        "moneyline_closeness": 0.107,
+        "over_under": 0.756
+      },
+      "raw_averages": {
+        "avg_abs_spread": 28.75,
+        "avg_over_under": 60.5,
+        "avg_home_implied_prob": 0.9462616822429908,
+        "avg_away_implied_prob": 0.053738317757009345
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Utah State",
+      "away_team": "Idaho State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.6,
+        "moneyline_closeness": 0.37,
+        "over_under": 0.778
+      },
+      "raw_averages": {
+        "avg_abs_spread": 14.0,
+        "avg_over_under": 62.25,
+        "avg_home_implied_prob": 0.8150243389027759,
+        "avg_away_implied_prob": 0.18497566109722408
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Middle Tennessee",
+      "away_team": "Murray State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.407,
+        "moneyline_closeness": 0.188,
+        "over_under": 0.719
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.75,
+        "avg_over_under": 57.5,
+        "avg_home_implied_prob": 0.906221198156682,
+        "avg_away_implied_prob": 0.09377880184331798
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Northwestern",
+      "away_team": "South Dakota State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.643,
+        "moneyline_closeness": 0.396,
+        "over_under": 0.578
+      },
+      "raw_averages": {
+        "avg_abs_spread": 12.5,
+        "avg_over_under": 46.25,
+        "avg_home_implied_prob": 0.8019460638448614,
+        "avg_away_implied_prob": 0.19805393615513855
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "South Alabama",
+      "away_team": "SE Louisiana",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.629,
+        "moneyline_closeness": 0.395,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 13.0,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": 0.8026485531745162,
+        "avg_away_implied_prob": 0.19735144682548372
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Youngstown State",
+      "away_team": "Mercyhurst",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.129,
+        "over_under": 0.719
+      },
+      "raw_averages": {
+        "avg_abs_spread": 30.5,
+        "avg_over_under": 57.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "New Mexico State",
+      "away_team": "Mercyhurst",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.186,
+        "moneyline_closeness": 0.084,
+        "over_under": 0.653
+      },
+      "raw_averages": {
+        "avg_abs_spread": 28.5,
+        "avg_over_under": 52.25,
+        "avg_home_implied_prob": 0.9578344612181156,
+        "avg_away_implied_prob": 0.042165538781884435
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Rutgers",
+      "away_team": "Massachusetts",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.162,
+        "moneyline_closeness": 0.084,
+        "over_under": 0.685
+      },
+      "raw_averages": {
+        "avg_abs_spread": 29.333333333333332,
+        "avg_over_under": 54.833333333333336,
+        "avg_home_implied_prob": 0.9578344612181156,
+        "avg_away_implied_prob": 0.042165538781884435
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Northern Colorado",
+      "away_team": "Weber State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.914,
+        "moneyline_closeness": 0.829,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 3.0,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.5855103304800775,
+        "avg_away_implied_prob": 0.4144896695199225
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Merrimack",
+      "away_team": "Rhode Island",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.407,
+        "moneyline_closeness": 0.192,
+        "over_under": 0.594
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.75,
+        "avg_over_under": 47.5,
+        "avg_home_implied_prob": 0.09597465523667537,
+        "avg_away_implied_prob": 0.9040253447633246
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Alabama State",
+      "away_team": "Southern",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.443,
+        "moneyline_closeness": 0.204,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 19.5,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.8979591836734695,
+        "avg_away_implied_prob": 0.10204081632653061
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "UAlbany",
+      "away_team": "New Hampshire",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.714,
+        "moneyline_closeness": 0.516,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.0,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.2580812758363641,
+        "avg_away_implied_prob": 0.741918724163636
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Villanova",
+      "away_team": "William & Mary",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.643,
+        "moneyline_closeness": 0.338,
+        "over_under": 0.594
+      },
+      "raw_averages": {
+        "avg_abs_spread": 12.5,
+        "avg_over_under": 47.5,
+        "avg_home_implied_prob": 0.8310097169412758,
+        "avg_away_implied_prob": 0.16899028305872413
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "South Dakota",
+      "away_team": "Central Connecticut",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.4,
+        "moneyline_closeness": 0.148,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 21.0,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.9258160237388723,
+        "avg_away_implied_prob": 0.07418397626112759
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Wagner",
+      "away_team": "Robert Morris",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.843,
+        "moneyline_closeness": 0.688,
+        "over_under": 0.506
+      },
+      "raw_averages": {
+        "avg_abs_spread": 5.5,
+        "avg_over_under": 40.5,
+        "avg_home_implied_prob": 0.6558264427585031,
+        "avg_away_implied_prob": 0.3441735572414969
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Stanford",
+      "away_team": "Hawaii",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.867,
+        "moneyline_closeness": 0.749,
+        "over_under": 0.606
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.666666666666667,
+        "avg_over_under": 48.5,
+        "avg_home_implied_prob": 0.6257149171495702,
+        "avg_away_implied_prob": 0.3742850828504297
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Tulsa",
+      "away_team": "Oklahoma State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.614,
+        "moneyline_closeness": 0.377,
+        "over_under": 0.741
+      },
+      "raw_averages": {
+        "avg_abs_spread": 13.5,
+        "avg_over_under": 59.25,
+        "avg_home_implied_prob": 0.1885304985849021,
+        "avg_away_implied_prob": 0.8114695014150979
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "East Tennessee State",
+      "away_team": "Campbell",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.8,
+        "moneyline_closeness": 0.619,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.0,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.6907364181041384,
+        "avg_away_implied_prob": 0.3092635818958616
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Idaho State",
+      "away_team": "VMI",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.014,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 34.5,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Tennessee Tech",
+      "away_team": "Monmouth",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.757,
+        "moneyline_closeness": 0.532,
+        "over_under": 0.731
+      },
+      "raw_averages": {
+        "avg_abs_spread": 8.5,
+        "avg_over_under": 58.5,
+        "avg_home_implied_prob": 0.7339460636110774,
+        "avg_away_implied_prob": 0.26605393638892244
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Stonehill",
+      "away_team": "Bryant",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.879,
+        "moneyline_closeness": 0.751,
+        "over_under": 0.569
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.25,
+        "avg_over_under": 45.5,
+        "avg_home_implied_prob": 0.37543715284920803,
+        "avg_away_implied_prob": 0.624562847150792
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Wofford",
+      "away_team": "The Citadel",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.786,
+        "moneyline_closeness": 0.469,
+        "over_under": 0.569
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.5,
+        "avg_over_under": 45.5,
+        "avg_home_implied_prob": 0.7654559945348971,
+        "avg_away_implied_prob": 0.23454400546510307
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Duke",
+      "away_team": "Tulane",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.779,
+        "moneyline_closeness": 0.478,
+        "over_under": 0.637
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.75,
+        "avg_over_under": 51.0,
+        "avg_home_implied_prob": 0.760931743816214,
+        "avg_away_implied_prob": 0.23906825618378602
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Northern Arizona",
+      "away_team": "Eastern Washington",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.843,
+        "moneyline_closeness": 0.657,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 5.5,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": 0.6715896214638268,
+        "avg_away_implied_prob": 0.3284103785361731
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Holy Cross",
+      "away_team": "Lehigh",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.6,
+        "moneyline_closeness": 0.312,
+        "over_under": 0.594
+      },
+      "raw_averages": {
+        "avg_abs_spread": 14.0,
+        "avg_over_under": 47.5,
+        "avg_home_implied_prob": 0.15592515592515593,
+        "avg_away_implied_prob": 0.844074844074844
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Indiana State",
+      "away_team": "Southeast Missouri State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.929,
+        "moneyline_closeness": 0.883,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 2.5,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": 0.5585430102643292,
+        "avg_away_implied_prob": 0.44145698973567077
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "North Carolina A&T",
+      "away_team": "Morgan State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.8,
+        "moneyline_closeness": 0.613,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.0,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.30654515327257664,
+        "avg_away_implied_prob": 0.6934548467274233
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Virginia",
+      "away_team": "NC State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.886,
+        "moneyline_closeness": 0.806,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.0,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.596791262801484,
+        "avg_away_implied_prob": 0.403208737198516
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Nevada-Las Vegas",
+      "away_team": "Memphis",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.871,
+        "moneyline_closeness": 0.756,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.5,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": 0.6218024185965149,
+        "avg_away_implied_prob": 0.37819758140348514
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Texas Southern",
+      "away_team": "North Carolina Central",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.7,
+        "moneyline_closeness": 0.444,
+        "over_under": 0.644
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.5,
+        "avg_over_under": 51.5,
+        "avg_home_implied_prob": 0.2219243611146783,
+        "avg_away_implied_prob": 0.7780756388853217
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Georgia Tech",
+      "away_team": "Colorado",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.814,
+        "moneyline_closeness": 0.608,
+        "over_under": 0.665
+      },
+      "raw_averages": {
+        "avg_abs_spread": 6.5,
+        "avg_over_under": 53.166666666666664,
+        "avg_home_implied_prob": 0.6958005072186708,
+        "avg_away_implied_prob": 0.3041994927813292
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Richmond",
+      "away_team": "Bucknell",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.643,
+        "moneyline_closeness": 0.365,
+        "over_under": 0.606
+      },
+      "raw_averages": {
+        "avg_abs_spread": 12.5,
+        "avg_over_under": 48.5,
+        "avg_home_implied_prob": 0.8174442190669371,
+        "avg_away_implied_prob": 0.18255578093306288
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Lamar",
+      "away_team": "Abilene Christian",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.786,
+        "moneyline_closeness": 0.572,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.5,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.2860265727912787,
+        "avg_away_implied_prob": 0.7139734272087213
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Howard",
+      "away_team": "Alabama A&M",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.957,
+        "moneyline_closeness": 0.949,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 1.5,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.5254237288135594,
+        "avg_away_implied_prob": 0.4745762711864407
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Montana",
+      "away_team": "Southern Utah",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.557,
+        "moneyline_closeness": 0.264,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 15.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": 0.8682447521214829,
+        "avg_away_implied_prob": 0.1317552478785172
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Tarleton State",
+      "away_team": "Prairie View A&M",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.443,
+        "moneyline_closeness": 0.218,
+        "over_under": 0.681
+      },
+      "raw_averages": {
+        "avg_abs_spread": 19.5,
+        "avg_over_under": 54.5,
+        "avg_home_implied_prob": 0.8909429445404974,
+        "avg_away_implied_prob": 0.10905705545950259
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Mercer",
+      "away_team": "East Texas A&M",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.357,
+        "moneyline_closeness": 0.158,
+        "over_under": 0.719
+      },
+      "raw_averages": {
+        "avg_abs_spread": 22.5,
+        "avg_over_under": 57.5,
+        "avg_home_implied_prob": 0.920863309352518,
+        "avg_away_implied_prob": 0.07913669064748201
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Western Carolina",
+      "away_team": "Eastern Kentucky",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.914,
+        "moneyline_closeness": 0.855,
+        "over_under": 0.681
+      },
+      "raw_averages": {
+        "avg_abs_spread": 3.0,
+        "avg_over_under": 54.5,
+        "avg_home_implied_prob": 0.5724755700325733,
+        "avg_away_implied_prob": 0.42752442996742673
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "South Dakota State",
+      "away_team": "Stetson",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.731
+      },
+      "raw_averages": {
+        "avg_abs_spread": 50.5,
+        "avg_over_under": 58.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "North Alabama",
+      "away_team": "Samford",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.8,
+        "moneyline_closeness": 0.56,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.0,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": 0.7198233462454293,
+        "avg_away_implied_prob": 0.2801766537545707
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "McNeese",
+      "away_team": "Stephen F. Austin",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.643,
+        "moneyline_closeness": 0.444,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 12.5,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.2219243611146783,
+        "avg_away_implied_prob": 0.7780756388853217
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Utah Tech",
+      "away_team": "Montana State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.071,
+        "over_under": 0.719
+      },
+      "raw_averages": {
+        "avg_abs_spread": 32.5,
+        "avg_over_under": 57.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Portland State",
+      "away_team": "UC Davis",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.271,
+        "moneyline_closeness": 0.136,
+        "over_under": 0.756
+      },
+      "raw_averages": {
+        "avg_abs_spread": 25.5,
+        "avg_over_under": 60.5,
+        "avg_home_implied_prob": 0.06781750924784216,
+        "avg_away_implied_prob": 0.9321824907521578
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Tennessee State",
+      "away_team": "Jackson State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.643,
+        "moneyline_closeness": 0.355,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 12.5,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.17740981667652275,
+        "avg_away_implied_prob": 0.8225901833234772
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "New Haven",
+      "away_team": "Marist",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.929,
+        "moneyline_closeness": 0.878,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 2.5,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.5610892153350053,
+        "avg_away_implied_prob": 0.4389107846649946
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Fordham",
+      "away_team": "Colgate",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.757,
+        "moneyline_closeness": 0.555,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 8.5,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": 0.27763755678950025,
+        "avg_away_implied_prob": 0.7223624432104998
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Cal Poly",
+      "away_team": "Idaho",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.843,
+        "moneyline_closeness": 0.698,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 5.5,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": 0.34875584904010143,
+        "avg_away_implied_prob": 0.6512441509598985
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "North Dakota State",
+      "away_team": "Jacksonville State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.81,
+        "moneyline_closeness": 0.567,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 6.666666666666667,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.7163462791874851,
+        "avg_away_implied_prob": 0.28365372081251505
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "TCU",
+      "away_team": "North Carolina",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.786,
+        "moneyline_closeness": 0.6,
+        "over_under": 0.579
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.5,
+        "avg_over_under": 46.333333333333336,
+        "avg_home_implied_prob": 0.699978126293415,
+        "avg_away_implied_prob": 0.30002187370658495
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Eastern Michigan",
+      "away_team": "Sacramento State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.743,
+        "moneyline_closeness": 0.515,
+        "over_under": 0.658
+      },
+      "raw_averages": {
+        "avg_abs_spread": 9.0,
+        "avg_over_under": 52.666666666666664,
+        "avg_home_implied_prob": 0.7423526557006999,
+        "avg_away_implied_prob": 0.2576473442993002
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Florida State",
+      "away_team": "New Mexico State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.114,
+        "moneyline_closeness": 0.076,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 31.0,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": 0.9622344533682992,
+        "avg_away_implied_prob": 0.037765546631700855
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Delaware State",
+      "away_team": "Stony Brook",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.871,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.5,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Murray State",
+      "away_team": "Eastern Illinois",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.871,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.5,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Austin Peay",
+      "away_team": "Gardner-Webb",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.586,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 14.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "West Georgia",
+      "away_team": "Chattanooga",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.9,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 3.5,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "SE Louisiana",
+      "away_team": "Houston Christian",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.3,
+        "over_under": 0.644
+      },
+      "raw_averages": {
+        "avg_abs_spread": 24.5,
+        "avg_over_under": 51.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "UT Martin",
+      "away_team": "Central Arkansas",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.914,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 3.0,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Nicholls",
+      "away_team": "Mississippi Valley State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.186,
+        "over_under": 0.644
+      },
+      "raw_averages": {
+        "avg_abs_spread": 28.5,
+        "avg_over_under": 51.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "North Dakota",
+      "away_team": "Long Island University",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.214,
+        "over_under": 0.556
+      },
+      "raw_averages": {
+        "avg_abs_spread": 27.5,
+        "avg_over_under": 44.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "West Florida",
+      "away_team": "Southern Illinois",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.443,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 19.5,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Lindenwood",
+      "away_team": "Charleston Southern",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.786,
+        "over_under": 0.569
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.5,
+        "avg_over_under": 45.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Towson",
+      "away_team": "Maine",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.929,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 2.5,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Auburn",
+      "away_team": "Baylor",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.786,
+        "moneyline_closeness": 0.59,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": 0.7048528215095126,
+        "avg_away_implied_prob": 0.2951471784904873
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Illinois",
+      "away_team": "UAB",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.262,
+        "moneyline_closeness": 0.124,
+        "over_under": 0.677
+      },
+      "raw_averages": {
+        "avg_abs_spread": 25.833333333333332,
+        "avg_over_under": 54.166666666666664,
+        "avg_home_implied_prob": 0.9382046295907179,
+        "avg_away_implied_prob": 0.061795370409282104
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Nebraska",
+      "away_team": "Ohio",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.329,
+        "moneyline_closeness": 0.148,
+        "over_under": 0.578
+      },
+      "raw_averages": {
+        "avg_abs_spread": 23.5,
+        "avg_over_under": 46.25,
+        "avg_home_implied_prob": 0.9258321673770864,
+        "avg_away_implied_prob": 0.07416783262291347
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Samford",
+      "away_team": "Southern Illinois",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.414,
+        "moneyline_closeness": 0.229,
+        "over_under": 0.681
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.5,
+        "avg_over_under": 54.5,
+        "avg_home_implied_prob": 0.11432926829268293,
+        "avg_away_implied_prob": 0.8856707317073171
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Stony Brook",
+      "away_team": "Lindenwood",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.886,
+        "moneyline_closeness": 0.759,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.0,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.6204858831254104,
+        "avg_away_implied_prob": 0.3795141168745897
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Wake Forest",
+      "away_team": "Akron",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.214,
+        "moneyline_closeness": 0.139,
+        "over_under": 0.631
+      },
+      "raw_averages": {
+        "avg_abs_spread": 27.5,
+        "avg_over_under": 50.5,
+        "avg_home_implied_prob": 0.9303468704387396,
+        "avg_away_implied_prob": 0.06965312956126041
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "New Mexico",
+      "away_team": "Central Michigan",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.7,
+        "moneyline_closeness": 0.408,
+        "over_under": 0.584
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.5,
+        "avg_over_under": 46.75,
+        "avg_home_implied_prob": 0.7958827277071151,
+        "avg_away_implied_prob": 0.20411727229288495
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Hawaii",
+      "away_team": "Nevada-Las Vegas",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.914,
+        "moneyline_closeness": 0.837,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 3.0,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": 0.41858771309014203,
+        "avg_away_implied_prob": 0.5814122869098579
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "South Carolina",
+      "away_team": "Kent State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "moneyline_closeness": 0.519,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 36.0,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": 0.7403751850925944,
+        "avg_away_implied_prob": 0.25962481490740563
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "South Florida",
+      "away_team": "Florida International",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.586,
+        "moneyline_closeness": 0.38,
+        "over_under": 0.647
+      },
+      "raw_averages": {
+        "avg_abs_spread": 14.5,
+        "avg_over_under": 51.75,
+        "avg_home_implied_prob": 0.8101905253071164,
+        "avg_away_implied_prob": 0.18980947469288348
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "California",
+      "away_team": "UCLA",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.929,
+        "moneyline_closeness": 0.906,
+        "over_under": 0.669
+      },
+      "raw_averages": {
+        "avg_abs_spread": 2.5,
+        "avg_over_under": 53.5,
+        "avg_home_implied_prob": 0.4529076732580277,
+        "avg_away_implied_prob": 0.5470923267419723
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Florida",
+      "away_team": "Florida Atlantic",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.243,
+        "moneyline_closeness": 0.137,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 26.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": 0.9317467193645107,
+        "avg_away_implied_prob": 0.06825328063548927
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Colorado State",
+      "away_team": "Wyoming",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.914,
+        "moneyline_closeness": 0.796,
+        "over_under": 0.581
+      },
+      "raw_averages": {
+        "avg_abs_spread": 3.0,
+        "avg_over_under": 46.5,
+        "avg_home_implied_prob": 0.6020511243122073,
+        "avg_away_implied_prob": 0.3979488756877927
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Troy",
+      "away_team": "Sam Houston State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.529,
+        "moneyline_closeness": 0.258,
+        "over_under": 0.672
+      },
+      "raw_averages": {
+        "avg_abs_spread": 16.5,
+        "avg_over_under": 53.75,
+        "avg_home_implied_prob": 0.8712400038539359,
+        "avg_away_implied_prob": 0.12875999614606418
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "New Haven",
+      "away_team": "Stonehill",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.8,
+        "moneyline_closeness": 0.609,
+        "over_under": 0.519
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.0,
+        "avg_over_under": 41.5,
+        "avg_home_implied_prob": 0.6954505372481139,
+        "avg_away_implied_prob": 0.3045494627518861
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Monmouth",
+      "away_team": "Sacred Heart",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.557,
+        "moneyline_closeness": 0.327,
+        "over_under": 0.731
+      },
+      "raw_averages": {
+        "avg_abs_spread": 15.5,
+        "avg_over_under": 58.5,
+        "avg_home_implied_prob": 0.8365567965132116,
+        "avg_away_implied_prob": 0.16344320348678834
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "North Dakota",
+      "away_team": "St. Thomas (MN)",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.214,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 27.5,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Colgate",
+      "away_team": "Holy Cross",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.871,
+        "moneyline_closeness": 0.778,
+        "over_under": 0.594
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.5,
+        "avg_over_under": 47.5,
+        "avg_home_implied_prob": 0.6111480128418023,
+        "avg_away_implied_prob": 0.3888519871581977
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Mercer",
+      "away_team": "Presbyterian",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.386,
+        "moneyline_closeness": 0.2,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 21.5,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.9000520562207184,
+        "avg_away_implied_prob": 0.09994794377928162
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Chattanooga",
+      "away_team": "Tennessee Tech",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.7,
+        "moneyline_closeness": 0.419,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.5,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.20964655560558307,
+        "avg_away_implied_prob": 0.790353444394417
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Howard",
+      "away_team": "Richmond",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.586,
+        "moneyline_closeness": 0.325,
+        "over_under": 0.569
+      },
+      "raw_averages": {
+        "avg_abs_spread": 14.5,
+        "avg_over_under": 45.5,
+        "avg_home_implied_prob": 0.16252390057361377,
+        "avg_away_implied_prob": 0.8374760994263862
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "UT Martin",
+      "away_team": "Chicago State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.769
+      },
+      "raw_averages": {
+        "avg_abs_spread": 44.5,
+        "avg_over_under": 61.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Eastern Washington",
+      "away_team": "Northern Iowa",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.814,
+        "moneyline_closeness": 0.613,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 6.5,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": 0.6936669143753613,
+        "avg_away_implied_prob": 0.3063330856246388
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Northern Colorado",
+      "away_team": "South Dakota",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.414,
+        "moneyline_closeness": 0.186,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 20.5,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.09314140558848433,
+        "avg_away_implied_prob": 0.9068585944115156
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Southern Utah",
+      "away_team": "Weber State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.586,
+        "moneyline_closeness": 0.306,
+        "over_under": 0.731
+      },
+      "raw_averages": {
+        "avg_abs_spread": 14.5,
+        "avg_over_under": 58.5,
+        "avg_home_implied_prob": 0.8467688207861425,
+        "avg_away_implied_prob": 0.15323117921385743
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Montana State",
+      "away_team": "Butler",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 45.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "San Diego",
+      "away_team": "UC Davis",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.557,
+        "moneyline_closeness": 0.336,
+        "over_under": 0.719
+      },
+      "raw_averages": {
+        "avg_abs_spread": 15.5,
+        "avg_over_under": 57.5,
+        "avg_home_implied_prob": 0.16824526420737787,
+        "avg_away_implied_prob": 0.8317547357926222
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Stephen F. Austin",
+      "away_team": "East Texas A&M",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.271,
+        "moneyline_closeness": 0.148,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 25.5,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.9258160237388723,
+        "avg_away_implied_prob": 0.07418397626112759
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Florida A&M",
+      "away_team": "South Carolina State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.5,
+        "moneyline_closeness": 0.257
+      },
+      "raw_averages": {
+        "avg_abs_spread": 17.5,
+        "avg_over_under": null,
+        "avg_home_implied_prob": 0.12831299957930165,
+        "avg_away_implied_prob": 0.8716870004206984
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Montana",
+      "away_team": "Drake",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.719
+      },
+      "raw_averages": {
+        "avg_abs_spread": 35.5,
+        "avg_over_under": 57.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Prairie View A&M",
+      "away_team": "Texas Southern",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.7,
+        "moneyline_closeness": 0.427,
+        "over_under": 0.681
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.5,
+        "avg_over_under": 54.5,
+        "avg_home_implied_prob": 0.7866305561146998,
+        "avg_away_implied_prob": 0.2133694438853002
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Davidson",
+      "away_team": "Elon",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.071,
+        "over_under": 0.731
+      },
+      "raw_averages": {
+        "avg_abs_spread": 32.5,
+        "avg_over_under": 58.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Bucknell",
+      "away_team": "Villanova",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.243,
+        "moneyline_closeness": 0.142,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 26.5,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.07091080995902929,
+        "avg_away_implied_prob": 0.9290891900409706
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Central Arkansas",
+      "away_team": "West Florida",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.786,
+        "moneyline_closeness": 0.581,
+        "over_under": 0.694
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.5,
+        "avg_over_under": 55.5,
+        "avg_home_implied_prob": 0.7096603906387472,
+        "avg_away_implied_prob": 0.29033960936125286
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Campbell",
+      "away_team": "Western Carolina",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.886,
+        "moneyline_closeness": 0.778,
+        "over_under": 0.844
+      },
+      "raw_averages": {
+        "avg_abs_spread": 4.0,
+        "avg_over_under": 67.5,
+        "avg_home_implied_prob": 0.3888519871581977,
+        "avg_away_implied_prob": 0.6111480128418023
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "West Virginia",
+      "away_team": "Coastal Carolina",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.4,
+        "moneyline_closeness": 0.615,
+        "over_under": 0.684
+      },
+      "raw_averages": {
+        "avg_abs_spread": 21.0,
+        "avg_over_under": 54.75,
+        "avg_home_implied_prob": 0.6925116241508317,
+        "avg_away_implied_prob": 0.3074883758491683
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Wofford",
+      "away_team": "Gardner-Webb",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.8,
+        "moneyline_closeness": 0.583,
+        "over_under": 0.594
+      },
+      "raw_averages": {
+        "avg_abs_spread": 7.0,
+        "avg_over_under": 47.5,
+        "avg_home_implied_prob": 0.708674691668392,
+        "avg_away_implied_prob": 0.2913253083316081
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "William & Mary",
+      "away_team": "Delaware State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.714,
+        "moneyline_closeness": 0.458,
+        "over_under": 0.706
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.0,
+        "avg_over_under": 56.5,
+        "avg_home_implied_prob": 0.7711631108052305,
+        "avg_away_implied_prob": 0.22883688919476944
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Eastern Michigan",
+      "away_team": "San Jos\u00e9 State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.957,
+        "moneyline_closeness": 0.882,
+        "over_under": 0.691
+      },
+      "raw_averages": {
+        "avg_abs_spread": 1.5,
+        "avg_over_under": 55.25,
+        "avg_home_implied_prob": 0.5587674458426282,
+        "avg_away_implied_prob": 0.4412325541573718
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Pittsburgh",
+      "away_team": "Miami (Ohio)",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.536,
+        "moneyline_closeness": 0.3,
+        "over_under": 0.591
+      },
+      "raw_averages": {
+        "avg_abs_spread": 16.25,
+        "avg_over_under": 47.25,
+        "avg_home_implied_prob": 0.8499583217560434,
+        "avg_away_implied_prob": 0.15004167824395667
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Western Illinois",
+      "away_team": "Illinois State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.329,
+        "moneyline_closeness": 0.136,
+        "over_under": 0.744
+      },
+      "raw_averages": {
+        "avg_abs_spread": 23.5,
+        "avg_over_under": 59.5,
+        "avg_home_implied_prob": 0.06783919597989949,
+        "avg_away_implied_prob": 0.9321608040201005
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Nevada",
+      "away_team": "Western Kentucky",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.964,
+        "moneyline_closeness": 0.942,
+        "over_under": 0.656
+      },
+      "raw_averages": {
+        "avg_abs_spread": 1.25,
+        "avg_over_under": 52.5,
+        "avg_home_implied_prob": 0.47114297922476545,
+        "avg_away_implied_prob": 0.5288570207752346
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Georgetown",
+      "away_team": "Lehigh",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.357,
+        "moneyline_closeness": 0.19,
+        "over_under": 0.619
+      },
+      "raw_averages": {
+        "avg_abs_spread": 22.5,
+        "avg_over_under": 49.5,
+        "avg_home_implied_prob": 0.09482758620689655,
+        "avg_away_implied_prob": 0.9051724137931034
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Mississippi State",
+      "away_team": "UL Monroe",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.186,
+        "moneyline_closeness": 0.094,
+        "over_under": 0.684
+      },
+      "raw_averages": {
+        "avg_abs_spread": 28.5,
+        "avg_over_under": 54.75,
+        "avg_home_implied_prob": 0.9530309171782357,
+        "avg_away_implied_prob": 0.04696908282176429
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Michigan State",
+      "away_team": "Toledo",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.714,
+        "moneyline_closeness": 0.469,
+        "over_under": 0.606
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.0,
+        "avg_over_under": 48.5,
+        "avg_home_implied_prob": 0.7654666016707948,
+        "avg_away_implied_prob": 0.23453339832920517
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
+      "home_team": "Memphis",
+      "away_team": "Arkansas State",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.693,
+        "moneyline_closeness": 0.468,
+        "over_under": 0.653
+      },
+      "raw_averages": {
+        "avg_abs_spread": 10.75,
+        "avg_over_under": 52.25,
+        "avg_home_implied_prob": 0.7661166267437187,
+        "avg_away_implied_prob": 0.23388337325628117
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    }
+  ]
+}
