@@ -471,6 +471,16 @@ function renderLiveBadges() {
   }
 }
 
+// BBS's stored data has real duplicate/near-duplicate records for the
+// same matchup (confirmed 2026-09-04: e.g. three separate "Georgia vs
+// Colorado" entries with different ids/kickoff times alongside Georgia's
+// actual in-progress game vs North Carolina A&T). A team can therefore
+// appear in more than one entry in payload.games - without a priority
+// order, whichever happened to be last in the array silently won, which
+// was observed live hiding Georgia's real in_progress badge behind a
+// "scheduled" duplicate for an unrelated placeholder game.
+const LIVE_STATUS_PRIORITY = { in_progress: 3, finished: 2, scheduled: 1 };
+
 async function fetchLiveScores() {
   try {
     const resp = await fetch(LIVE_WORKER_URL);
@@ -478,8 +488,12 @@ async function fetchLiveScores() {
     const payload = await resp.json();
     const byTeam = {};
     for (const game of payload.games ?? []) {
-      byTeam[game.home_team] = game;
-      byTeam[game.away_team] = game;
+      for (const team of [game.home_team, game.away_team]) {
+        const existing = byTeam[team];
+        if (!existing || (LIVE_STATUS_PRIORITY[game.status] ?? 0) >= (LIVE_STATUS_PRIORITY[existing.status] ?? 0)) {
+          byTeam[team] = game;
+        }
+      }
     }
     liveGamesByTeam = byTeam;
     renderLiveBadges();
