@@ -4,103 +4,153 @@
   "matchups": {
     "USC": {
       "opponent": "Fresno State",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T01:00:00.000Z",
+      "start_time_tbd": false
     },
     "Missouri": {
       "opponent": "Arkansas-Pine Bluff",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-04T00:00:00.000Z",
+      "start_time_tbd": false
     },
     "Utah": {
       "opponent": "Idaho",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-04T01:00:00.000Z",
+      "start_time_tbd": false
     },
     "Oklahoma": {
       "opponent": "UTEP",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T00:00:00.000Z",
+      "start_time_tbd": false
     },
     "Miami": {
       "opponent": "Stanford",
-      "home_away": "away"
+      "home_away": "away",
+      "kickoff_utc": "2026-09-05T01:00:00.000Z",
+      "start_time_tbd": false
     },
     "Houston": {
       "opponent": "Oregon State",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T16:00:00.000Z",
+      "start_time_tbd": false
     },
     "Alabama": {
       "opponent": "East Carolina",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T16:00:00.000Z",
+      "start_time_tbd": false
     },
     "Indiana": {
       "opponent": "North Texas",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T16:00:00.000Z",
+      "start_time_tbd": false
     },
     "Ohio State": {
       "opponent": "Ball State",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T16:30:00.000Z",
+      "start_time_tbd": false
     },
     "Georgia": {
       "opponent": "Tennessee State",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T19:00:00.000Z",
+      "start_time_tbd": false
     },
     "Tennessee": {
       "opponent": "Furman",
-      "home_away": "home"
-    },
-    "Penn State": {
-      "opponent": "Marshall",
-      "home_away": "home"
-    },
-    "Texas": {
-      "opponent": "Texas State",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T19:30:00.000Z",
+      "start_time_tbd": false
     },
     "Oregon": {
       "opponent": "Boise State",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T19:30:00.000Z",
+      "start_time_tbd": false
+    },
+    "Penn State": {
+      "opponent": "Marshall",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T19:30:00.000Z",
+      "start_time_tbd": false
+    },
+    "Texas": {
+      "opponent": "Texas State",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T19:30:00.000Z",
+      "start_time_tbd": false
     },
     "Iowa": {
       "opponent": "Northern Illinois",
-      "home_away": "home"
-    },
-    "Texas A&M": {
-      "opponent": "Missouri State",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T20:15:00.000Z",
+      "start_time_tbd": false
     },
     "Texas Tech": {
       "opponent": "Abilene Christian",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T23:00:00.000Z",
+      "start_time_tbd": false
+    },
+    "Texas A&M": {
+      "opponent": "Missouri State",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T23:00:00.000Z",
+      "start_time_tbd": false
     },
     "LSU": {
       "opponent": "Clemson",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T23:30:00.000Z",
+      "start_time_tbd": false
     },
     "Michigan": {
       "opponent": "Western Michigan",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-05T23:30:00.000Z",
+      "start_time_tbd": false
     },
     "BYU": {
       "opponent": "Utah Tech",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-06T00:00:00.000Z",
+      "start_time_tbd": false
     },
     "Washington": {
       "opponent": "Washington State",
-      "home_away": "home"
-    },
-    "Mississippi": {
-      "opponent": "Louisville",
-      "home_away": "home"
-    },
-    "Louisville": {
-      "opponent": "Mississippi",
-      "home_away": "away"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-06T20:00:00.000Z",
+      "start_time_tbd": false
     },
     "Notre Dame": {
       "opponent": "Wisconsin",
-      "home_away": "home"
+      "home_away": "home",
+      "kickoff_utc": "2026-09-06T23:30:00.000Z",
+      "start_time_tbd": false
+    },
+    "Mississippi": {
+      "opponent": "Louisville",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-06T23:30:00.000Z",
+      "start_time_tbd": false
+    },
+    "Louisville": {
+      "opponent": "Mississippi",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-06T23:30:00.000Z",
+      "start_time_tbd": false
     },
     "SMU": {
       "opponent": "Florida State",
-      "home_away": "away"
+      "home_away": "away",
+      "kickoff_utc": "2026-09-07T23:30:00.000Z",
+      "start_time_tbd": false
     }
   }
 }

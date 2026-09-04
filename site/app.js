@@ -194,8 +194,9 @@ function renderRankings(snapshot, weekEvents) {
     li.dataset.team = slot.team;
 
     const matchup = currentWeek1Matchups?.matchups?.[slot.team];
+    const kickoffText = matchup ? formatKickoff(matchup) : "";
     const opponentLine = matchup
-      ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}</span>`
+      ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}${kickoffText ? " · " + kickoffText : ""}</span>`
       : "";
 
     const row = document.createElement("div");
@@ -423,6 +424,16 @@ weekSelect.addEventListener("change", () => {
 
 // team name -> live game info, keyed from both sides of each game.
 let liveGamesByTeam = {};
+
+function formatKickoff(matchup) {
+  if (matchup.start_time_tbd) return "TBD";
+  if (!matchup.kickoff_utc) return "";
+  const d = new Date(matchup.kickoff_utc);
+  if (isNaN(d)) return "";
+  return d.toLocaleString(undefined, {
+    weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short",
+  });
+}
 
 function formatLiveBadge(game, isHome) {
   const teamScore = isHome ? game.home_score : game.away_score;

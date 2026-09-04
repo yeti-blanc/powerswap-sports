@@ -93,11 +93,15 @@ def fetch_week1_matchups(season: int) -> dict[str, dict]:
     for g in games:
         home = norm(g.get("homeTeam", ""))
         away = norm(g.get("awayTeam", ""))
+        kickoff = {
+            "kickoff_utc": g.get("startDate"),
+            "start_time_tbd": g.get("startTimeTBD", False),
+        }
 
         if home in ranked_teams:
-            matchups[home] = {"opponent": away, "home_away": "home"}
+            matchups[home] = {"opponent": away, "home_away": "home", **kickoff}
         if away in ranked_teams:
-            matchups[away] = {"opponent": home, "home_away": "away"}
+            matchups[away] = {"opponent": home, "home_away": "away", **kickoff}
 
     missing = ranked_teams - matchups.keys()
     if missing:
