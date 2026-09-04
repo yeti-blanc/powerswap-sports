@@ -51,15 +51,31 @@ const POST_KICKOFF_WINDOW_MS = 4 * 60 * 60 * 1000;
 // game window is active, for up to SUBPOLL_BUDGET_MS of wall-clock time
 // (kept under the 5-minute cron period so ticks never overlap).
 //
-// Deliberately more conservative than the originally-requested "~15s":
-// every real /v1/matches response observed so far (across NCAAF, NCAAF-FCS,
-// MLB, and EPL) carries meta.note = "... no live adapter covers this
-// sport/league; refreshed by ingest", suggesting the free tier serves
-// this from a periodically-refreshed stored table rather than a true
-// live feed - sub-minute polling may not buy any real freshness. Once a
-// real in-progress game is observed (first chance ~2026-09-03), check
-// how often the score/status actually changes between polls and tighten
-// or loosen this accordingly.
+// IMPORTANT as of the 2026-09-04 bbs_client.js fix: before that fix,
+// fetchBbsMatches() called /v1/matches, whose response never carried a
+// kickoff_utc field - so `kickoffMs` below was always null, `inWindow`
+// was always false, and this subpoll loop never actually fired in
+// production (it always broke after one pollAndCache() call per cron
+// tick, regardless of these constants). Now that fetchBbsMatches() calls
+// /v1/stored/matches and kickoff_utc is real, this loop will genuinely
+// activate during a ranked team's game window for the first time. Two
+// consequences worth watching, not yet observed in production:
+//   - Each pollAndCache() call now costs 2 BBS requests (today + yesterday
+//     UTC dates), not 1, since /v1/stored/matches needs an explicit date.
+//   - A full Saturday with back-to-back ranked-team games could plausibly
+//     approach the 2,000/day account cap once subpolling is genuinely
+//     active for several hours - rough math: ~6hrs of active window *
+//     12 subpolls/tick * 2 requests, plus baseline ticks, lands close to
+//     the cap. Not yet load-tested against a real game day - watch
+//     /v1/usage-equivalent (BBS doesn't expose one; watch for 429s in
+//     Worker logs) on the first real Saturday after this fix.
+// Deliberately still conservative vs. the originally-requested "~15s":
+// /v1/stored/matches is explicitly documented as DB-backed ("read
+// directly from Postgres"), so the real refresh cadence behind it is
+// still unverified - sub-minute polling may not buy any real freshness
+// even now. Check how often score/status actually changes between polls
+// once a real in-progress game is observed and tighten or loosen this
+// accordingly.
 const SUBPOLL_INTERVAL_MS = 20 * 1000;
 const SUBPOLL_BUDGET_MS = 4 * 60 * 1000;
 

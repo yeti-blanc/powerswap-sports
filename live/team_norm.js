@@ -55,6 +55,26 @@ function foldDiacritics(s) {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
+// Words that mean "this is a DIFFERENT school", not "this is the ranked
+// team's mascot" - e.g. BBS's "Georgia Tech Yellow Jackets" must NOT
+// match ranked "Georgia" just because "Georgia" is a literal string
+// prefix. CONFIRMED REAL, not a hypothetical: on 2026-09-04, with real
+// live games in progress, "Georgia Tech Yellow Jackets" (playing Colorado)
+// and "Georgia State Panthers" (playing North Carolina A&T) both
+// false-matched ranked "Georgia" before this guard existed - neither
+// game involved Georgia at all, and this would have overwritten Georgia's
+// live-score badge with an unrelated school's score. This bug was inert
+// until the /v1/stored/matches switch above started supplying real team
+// names - /v1/matches never did, so this path was never actually
+// exercised in production before now. Same collision class threatens
+// Texas (Texas A&M/Tech/State), Florida (State/Atlantic/International),
+// and any other ranked team whose name is a legitimate word-prefix of
+// another school's full name.
+const DIFFERENT_SCHOOL_QUALIFIERS = new Set([
+  "tech", "state", "a&m", "southern", "international", "atlantic",
+  "central", "western", "eastern", "northern", "commonwealth", "christian",
+]);
+
 /**
  * Given a BBS full team name (e.g. "Rutgers Scarlet Knights") and the list
  * of currently-ranked canonical team names (from season_history.json),
@@ -63,8 +83,9 @@ function foldDiacritics(s) {
  *
  * UNVERIFIED beyond the handful of real examples pulled on 2026-09-01
  * (Rutgers, Massachusetts, Wake Forest, Akron, Kennesaw State, West
- * Georgia, Buffalo, UAlbany, UCF, Bethune-Cookman). Revisit if a ranked
- * team stops matching once real games are live.
+ * Georgia, Buffalo, UAlbany, UCF, Bethune-Cookman) plus the real
+ * in-progress/finished games observed on 2026-09-04 (see bbs_client.js).
+ * Revisit if a ranked team stops matching once more real games are live.
  */
 export function resolveBbsTeamName(bbsName, rankedCanonicalNames) {
   if (!bbsName) return null;
@@ -74,7 +95,13 @@ export function resolveBbsTeamName(bbsName, rankedCanonicalNames) {
     const candidates = REVERSE[canonical] ? [...REVERSE[canonical]] : [canonical];
     for (const candidate of candidates) {
       const foldedCandidate = foldDiacritics(candidate).toLowerCase();
-      if (folded === foldedCandidate || folded.startsWith(foldedCandidate + " ")) {
+      if (folded === foldedCandidate) return canonical;
+      if (folded.startsWith(foldedCandidate + " ")) {
+        const remainder = folded.slice(foldedCandidate.length + 1);
+        const nextWord = remainder.split(" ")[0];
+        // "(" catches parenthetical-qualifier collisions the same way
+        // NORM's "Miami (FL)"/"Miami (OH)" entries already do explicitly.
+        if (remainder.startsWith("(") || DIFFERENT_SCHOOL_QUALIFIERS.has(nextWord)) continue;
         return canonical;
       }
     }
