@@ -394,3 +394,31 @@ full 2,000/day budget. Session set an internal one-shot reminder for
 4:30 PM ET (2026-09-05) to check back in on this in case the user's own
 usage ran out mid-task; if everything above still holds by then, no
 further action is needed at that checkpoint either.
+
+**4:30 PM ET checkpoint (2026-09-05T20:29 UTC) - re-verified all 5 items
+with fresh evidence, not recalled from earlier in the session:**
+1. `BBS_API_KEY_BACKUP` still present (`wrangler secret list`).
+2. Stopgap code confirmed the currently-*active* deployment, not just
+   deployed at some point: `wrangler deployments list` shows version
+   `34e217fb-d108-4b6a-920f-0763a82225a5` at 100% traffic, most recent.
+3. `0 7 * * *` still live per Cloudflare's schedules API (unchanged from
+   this morning's check) and still present in `wrangler.toml`.
+4. This section confirmed present via a fresh `grep`, not assumed.
+5. `git fetch` + `git log` confirms local `main` and `origin/main` both
+   at `920f142`, no drift.
+
+New real data point from this checkpoint, not previously known: today's
+usage count is `852/1000` on the backup key (`bbs_key_mode` still
+`"backup"`, `live_payload.updated_at` fresh as of the check, confirming
+active polling, no `bbs_paused_until` key present - no pause triggered
+yet). This is closer to the 950-request safety margin than this morning,
+because Saturday afternoon's games have kept subpolling genuinely active
+for hours - expected given the real math from the original incident.
+Tonight's later kickoffs (23:00+ UTC) could plausibly push past 950
+before the 3 AM ET revert. If that happens, the safety net documented
+above is expected to engage exactly as designed: polling backs off
+silently, `/live` keeps serving its last-known payload (not an error
+state), and the primary key's full 2,000/day budget returns automatically
+at 3 AM ET. This is the intended degraded-but-safe outcome of a 1,000/day
+stopgap key on a full game day, not a bug - flagging it here so it isn't
+mistaken for one if `/live` looks stale later tonight.
