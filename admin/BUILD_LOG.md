@@ -174,3 +174,91 @@ CI run), not instant.
 None outstanding. Everything in the original task list has been built,
 deployed, and verified with real evidence (the user's own confirmation,
 in the reset-password case).
+
+---
+
+## 2026-09-05: live-scores Worker — BBS quota incident (subpoll false-triggering on placeholder kickoff times)
+
+Unrelated to the admin portal above - logged here since it's the repo's
+active build log. `live/worker.js` (the `powerswap-live-scores` Worker,
+see `live/README.md`) triggered a real BBS usage warning this morning:
+1,602 of 2,000 daily requests used by 6:45 AM, well before any real Week 1
+game had kicked off.
+
+**Diagnosis, from real telemetry, not code inspection:**
+- Pulled `powerswap-live-scores`'s own subrequest counts from Cloudflare's
+  GraphQL Analytics API (`workersInvocationsAdaptive`, real account data,
+  not simulated): 2,421 total subrequests today through ~15:00 UTC. Each
+  `pollAndCache()` call makes 3 (1 GitHub ranked-teams fetch + 2 BBS
+  `/v1/stored/matches` calls, today + yesterday UTC date). BBS-specific
+  share: 2,421 x 2/3 ~= 1,614 - within ~1% of BBS's own reported 1,602.
+- Hour 03:00 UTC alone hit 468 subrequests - the mathematical maximum for
+  that hour (12 cron ticks x the full 13-iteration subpoll budget x 3
+  requests each). `wallTimeP50` that hour was ~244s, meaning the *median*
+  tick ran the entire 4-minute subpoll budget, not just outliers.
+- Root cause found directly in the live KV payload (`live_payload`, real
+  production data, not a guess): ~14 Week 1 games carried a
+  `kickoff_utc: "2026-09-05T00:00:00.000Z"` placeholder from BBS's
+  `/v1/stored/matches` before BBS had the real scheduled time - e.g.
+  Washington vs Washington State showed that midnight placeholder while
+  CFBD's real kickoff for that game is `2026-09-06T20:00:00Z`, almost a
+  full day off. `POST_KICKOFF_WINDOW_MS` (4h15m) meant every game with
+  that placeholder looked "in progress" from 00:00-04:15 UTC regardless
+  of its real kickoff, driving the subpoll loop to its full budget on
+  every tick in that window. ~86% of the day's volume through 15:00 UTC
+  landed in that single 00:00-04:00 UTC span.
+- Confirmed the cron itself has no time-of-day gating (`wrangler.toml`:
+  `*/5 * * * *`, all 24 hours) - the only game-awareness is the in-worker
+  subpoll gate that the placeholder data was defeating.
+
+**Fix:** `live/worker.js`'s subpoll/window decision (`pollAndCache()`) now
+uses CFBD's real kickoff time - `data/cfb/seasons/2026/week1_matchups.json`,
+produced by `sports/cfb/fetch_week1_matchups.py`, the same file the public
+site's rank cards already trust (`site/app.js`) - via a new
+`getRealKickoffTimes()` helper, instead of BBS's own `kickoff_utc`. No
+CFBD entry, or `start_time_tbd: true`, now defaults to *not in window*
+(safe default: skip subpoll rather than guess). BBS's `kickoff_utc` is
+untouched everywhere else - still published in the live payload, still
+the source for score/status once a game is genuinely in-window.
+
+**Tested against real data before deploying:** replayed today's actual 34
+recorded games (pulled fresh from production KV, BBS `kickoff_utc` and
+all) through both the old and new window formulas at 2026-09-05T03:00Z -
+the real observed 468-subrequest hour:
+- OLD logic (BBS `kickoff_utc`): 13 games false-triggered in-window.
+- NEW logic (CFBD `kickoff_utc`): 0 games triggered.
+All 13 false triggers were exactly the placeholder-carrying games listed
+above. Cross-checked against the current real time (15:51 UTC) to confirm
+the fix doesn't suppress real triggers: both old and new logic correctly
+flagged Indiana/Alabama/Houston as in-window (real kickoff 16:00 UTC,
+inside the 15-min pre-kickoff window) - the fix narrows false positives,
+it doesn't blind the Worker to real ones. `node --check live/worker.js`
+passed.
+
+**Deployed:** `wrangler deploy` from `live/`, version ID
+`0e731870-de0f-4470-8cb5-0631cc049869`. `/health` returned `{"ok":true}`
+and `/live` served fresh data immediately after.
+
+**Post-deploy confirmation, real telemetry (not simulated):** pulled
+Cloudflare's GraphQL Analytics API again for the 15:00-16:00 UTC hour,
+which straddles the deploy and the real 16:00 UTC kickoff of
+Indiana/Alabama/Houston's games:
+- `requests: 12, subrequests: 96` for the hour - `wallTimeP50` ~815ms
+  (most ticks in this hour stayed fast/baseline, correctly, since no real
+  game was in-window for most of it) but `wallTimeP99` ~245s (full
+  subpoll budget), consistent with only the last tick(s) approaching
+  15:45-16:00 UTC correctly entering the real pre-kickoff window as those
+  three games' actual kickoff approached.
+- This is the intended shape: subpoll ramps up right at a real kickoff,
+  not for hours beforehand on placeholder data. Confirmed via a
+  background poll against the live KV record that a fresh tick (34 games,
+  `updated_at: 2026-09-05T15:58:49.343Z`) landed cleanly post-deploy with
+  no errors (`errors: 0` in the same telemetry).
+
+Net result: the fix is live and its first real-world exercise (an actual
+noon-ET kickoff window) shows exactly the pattern the replayed-data test
+predicted - no false all-night subpolling, correct subpolling right at a
+real kickoff.
+
+Not committed to git yet - `live/worker.js` changes are deployed to
+production but the working tree is dirty; commit on request.
