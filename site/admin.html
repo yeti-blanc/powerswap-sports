@@ -72,13 +72,15 @@
 
   <!-- Login -->
   <div id="login-card" class="card">
-    <div id="login-form">
+    <form id="login-form" autocomplete="on">
+      <label for="username-input">Username</label>
+      <input type="text" id="username-input" name="username" autocomplete="username">
       <label for="password-input">Password</label>
-      <input type="password" id="password-input" autocomplete="current-password">
-      <button id="login-btn">Log In</button>
+      <input type="password" id="password-input" name="password" autocomplete="current-password">
+      <button type="submit" id="login-btn">Log In</button>
       <div id="login-error" class="error" hidden></div>
       <p class="muted"><a href="#" id="forgot-link">Forgot password?</a></p>
-    </div>
+    </form>
 
     <div id="forgot-form" hidden>
       <p class="muted">A reset link will be emailed to the admin address on file.</p>
@@ -214,8 +216,15 @@ el("forgot-submit-btn").addEventListener("click", async () => {
 // Login / session
 // ---------------------------------------------------------------------
 
-el("login-btn").addEventListener("click", doLogin);
-el("password-input").addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); });
+// A real <form> + submit event (not just a button click handler) is what
+// browsers actually key off of to offer "save password" - the username
+// field itself isn't sent to or checked by the API (there's no
+// multi-user backend here), it exists purely so the browser recognizes
+// this as a normal username+password login and offers to remember it.
+el("login-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  doLogin();
+});
 
 async function doLogin() {
   el("login-error").hidden = true;
