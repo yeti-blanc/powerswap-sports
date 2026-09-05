@@ -546,3 +546,9 @@ it just means the backup key stays in use longer than intended and the
 primary key's un-hit 2,000/day capacity goes unused until someone runs
 the swap manually (copy the `.permanent.*` files over the active ones in
 `live/`, `wrangler deploy` from `live/`).
+
+Committed and pushed to `origin/main` as `0e28bf9`. The scheduled 3 AM ET
+session job will append its own dated entry directly below this one once
+the swap runs - real deploy version ID, real Cloudflare schedules-API
+confirmation, and real post-swap tick evidence (or a plain incident note
+if any step fails) - not a status flip on this same entry.
