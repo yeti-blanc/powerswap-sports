@@ -2,22 +2,27 @@
 
 ## Current status (2026-09-04, session in progress)
 
-**Built, deployed, and verified live for everything except the actual
-reset-password link itself** (sent for real via Resend; I don't have
-access to the inbox it went to, so completing that one flow needs the
-user). Everything else - login, session persistence across a real
-refresh, the Havoc digest, Recompute through the real GitHub Actions
-dispatch with the Worker's own token, versioned snapshots, logout/
-revocation - confirmed with real evidence, in a real browser where
-applicable. See the log below for exactly what was checked and how.
+**Built, deployed, and fully verified - including the one flow that
+needed the user.** Login, session persistence across a real refresh,
+the Havoc digest, Recompute through the real GitHub Actions dispatch
+with the Worker's own token, versioned snapshots, logout/revocation,
+and now the real reset-password email link end-to-end - all confirmed
+with real evidence, in a real browser where applicable. See the log
+below for exactly what was checked and how.
 
-Temp password was set at the user's request (`Delta-Falcon-4987!` -
-they'll change it via the forgot-password flow they specifically asked
-to have built for this). `ADMIN_EMAIL` ended up needing to be
-`yeti@yetiblanc.com`, not the address I'd defaulted to - Resend's free
-tier can only send to the account's own verified address without a
-verified sending domain, which the 403 response made concrete rather
-than theoretical.
+Temp password was set at the user's request (`Delta-Falcon-4987!`, now
+superseded). The user has since used the real emailed reset link
+themselves and confirmed their real password is in place -
+`password_hash_override` existing in KV corroborates this independently
+(this session did not choose or see the new password). `ADMIN_EMAIL`
+ended up needing to be `yeti@yetiblanc.com`, not the address originally
+defaulted to - Resend's free tier can only send to the account's own
+verified address without a verified sending domain, which a real 403
+response made concrete rather than theoretical.
+
+A username field was added to the login form after the fact, at the
+user's request, purely so browsers reliably offer to save/autofill the
+credentials - see the log below.
 
 Architecture reference: PFPI's single-admin-portal playbook (pasted into
 chat 2026-09-04), simplified for one login instead of PFPI's two-tier
@@ -142,10 +147,30 @@ CI run), not instant.
     login (failure count resets on success, per design).
 - 2026-09-04: Cleaned up test KV entries (stale session token) created
   during this testing pass.
+- 2026-09-04: Added a username field to the login form
+  (`site/admin.html`), at the user's request, so their browser reliably
+  offers to save/autofill the login. Restructured the login markup into
+  a real `<form>` with a `submit` event handler - browsers key off actual
+  form submission (not a bare button-click JS handler) to decide whether
+  to offer credential saving. The username value is cosmetic only: not
+  sent to or checked by the API, since there's exactly one password and
+  no multi-user concept here. Tested locally first (Enter-to-submit
+  fires correctly, error handling intact), then pushed and confirmed
+  live.
+- 2026-09-04: While testing the username field with the (by-then-stale)
+  temp password, got a real "Incorrect password" - checked
+  `password_hash_override` in KV and found it now populated, meaning the
+  user had already clicked the real emailed reset link and set a real
+  password on their own. **User then explicitly confirmed in chat**
+  ("it works... i already updated the PW") that login with their own
+  password succeeds. This closes the one flow this session couldn't
+  complete itself (no access to the inbox the reset link was sent to) -
+  the full self-service password-reset path (request -> real email ->
+  real link -> new password -> real login) is now confirmed working
+  end-to-end, by the user, for real, not inferred.
 
-## Open item
+## Open items
 
-The reset-password link itself (click the emailed link -> set a new
-password -> log in with it) needs the user to actually check
-yeti@yetiblanc.com and either complete it themselves or hand back the
-token from the URL so this session can finish that one test.
+None outstanding. Everything in the original task list has been built,
+deployed, and verified with real evidence (the user's own confirmation,
+in the reset-password case).
