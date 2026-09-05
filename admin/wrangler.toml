@@ -1,0 +1,14 @@
+name = "powerswap-admin"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+kv_namespaces = [
+  { binding = "ADMIN_KV", id = "f44d3d06a05f4e18a970a72694142b84" }
+]
+
+# Non-secret config. Everything else the Worker needs (ADMIN_PASSWORD_HASH,
+# SESSION_HMAC_KEY, RESEND_API_KEY, ADMIN_EMAIL, GITHUB_TOKEN) is a
+# `wrangler secret put` value - see admin/README.md.
+[vars]
+ADMIN_PAGE_URL = "https://yetiblanc.com/powerswap-sports/site/admin.html"
+RESEND_FROM = "PowerSwap Admin <onboarding@resend.dev>"

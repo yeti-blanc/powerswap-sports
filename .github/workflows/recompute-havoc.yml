@@ -1,0 +1,61 @@
+name: Recompute Havoc Ratings
+
+# Manually dispatched only - either by hand from the Actions tab, or by
+# admin/worker.js's "Recompute" button via the GitHub API. Runs the real
+# sports/cfb/fetch_lines.py + havoc_rating.py (same code the CLI uses,
+# no duplicate implementation) and commits the refreshed output.
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season year, e.g. 2026"
+        required: true
+      week:
+        description: "Week number, e.g. 1"
+        required: true
+
+jobs:
+  recompute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Fetch lines and compute Havoc Ratings
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python sports/cfb/fetch_lines.py --season "${{ inputs.season }}" --week "${{ inputs.week }}"
+          python sports/cfb/havoc_rating.py --season "${{ inputs.season }}" --week "${{ inputs.week }}"
+
+      - name: Write recompute marker
+        # Always changes, even if the recomputed lines/ratings are
+        # byte-identical to last time (plausible if nothing moved between
+        # two recomputes minutes apart) - admin/worker.js polls THIS
+        # file's git blob SHA to detect completion, not the data file's,
+        # so a no-op-looking recompute still reports back as "done"
+        # instead of the admin page waiting forever for a SHA that will
+        # never change.
+        run: |
+          WEEK_PADDED=$(printf "%02d" "${{ inputs.week }}")
+          mkdir -p "data/cfb/seasons/${{ inputs.season }}/raw"
+          python -c "import json, sys, datetime; json.dump({'recomputed_at': datetime.datetime.now(datetime.timezone.utc).isoformat()}, open(sys.argv[1], 'w'))" \
+            "data/cfb/seasons/${{ inputs.season }}/raw/week_${WEEK_PADDED}_recompute_marker.json"
+
+      - name: Commit refreshed output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          WEEK_PADDED=$(printf "%02d" "${{ inputs.week }}")
+          git add "data/cfb/seasons/${{ inputs.season }}/raw/week_${WEEK_PADDED}_lines.json" \
+                  "data/cfb/seasons/${{ inputs.season }}/raw/week_${WEEK_PADDED}_havoc_ratings.json" \
+                  "data/cfb/seasons/${{ inputs.season }}/raw/week_${WEEK_PADDED}_recompute_marker.json"
+          git commit -m "Recompute Havoc Ratings: season ${{ inputs.season }} week ${{ inputs.week }} (admin portal)"
+          git push

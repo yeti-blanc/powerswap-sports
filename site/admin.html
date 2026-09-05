@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PowerSwap Admin</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #14181c;
+    color: #e8e8e8;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+  h1 { font-size: 20px; letter-spacing: 1px; }
+  .card {
+    background: #1f252b;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  input[type="password"], input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    background: #0e1114;
+    border: 1px solid #444;
+    color: #e8e8e8;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  button {
+    background: #3a6ea5;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  button:hover { background: #4a7eb5; }
+  button:disabled { background: #444; cursor: not-allowed; }
+  button.secondary { background: #333; }
+  button.secondary:hover { background: #444; }
+  a { color: #6ea5e0; }
+  .error { color: #ff6b6b; font-size: 13px; margin-top: 4px; }
+  .muted { color: #999; font-size: 12px; }
+  [hidden] { display: none !important; }
+
+  .tab-bar { display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid #333; padding-bottom: 8px; }
+  .tab-bar button { background: none; color: #999; }
+  .tab-bar button.active { color: #fff; background: #2a3138; }
+
+  .game-row { border-bottom: 1px solid #2a2a2a; padding: 12px 0; }
+  .game-row:last-child { border-bottom: none; }
+  .game-title { font-weight: bold; font-size: 15px; }
+  .game-rating { float: right; font-size: 18px; color: #ffd166; font-weight: bold; }
+  .game-bullets { margin: 6px 0 0 18px; padding: 0; font-size: 13px; color: #ccc; }
+  .toolbar { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+  .status-pill { font-size: 12px; padding: 3px 8px; border-radius: 10px; background: #333; }
+  .status-pill.running { background: #6b5a1e; color: #ffd166; }
+  .status-pill.done { background: #1e5a2e; color: #6bff8f; }
+  .status-pill.failed { background: #5a1e1e; color: #ff6b6b; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>POWERSWAP ADMIN</h1>
+
+  <!-- Login -->
+  <div id="login-card" class="card">
+    <div id="login-form">
+      <label for="password-input">Password</label>
+      <input type="password" id="password-input" autocomplete="current-password">
+      <button id="login-btn">Log In</button>
+      <div id="login-error" class="error" hidden></div>
+      <p class="muted"><a href="#" id="forgot-link">Forgot password?</a></p>
+    </div>
+
+    <div id="forgot-form" hidden>
+      <p class="muted">A reset link will be emailed to the admin address on file.</p>
+      <button id="forgot-submit-btn">Send Reset Link</button>
+      <button class="secondary" id="forgot-cancel-btn">Cancel</button>
+      <div id="forgot-status" class="muted" hidden></div>
+    </div>
+
+    <div id="reset-form" hidden>
+      <label for="new-password-input">New password (min 12 characters)</label>
+      <input type="password" id="new-password-input" autocomplete="new-password">
+      <label for="confirm-password-input">Confirm</label>
+      <input type="password" id="confirm-password-input" autocomplete="new-password">
+      <button id="reset-submit-btn">Set New Password</button>
+      <div id="reset-error" class="error" hidden></div>
+      <div id="reset-success" class="muted" hidden>Password updated - you can log in now.</div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" hidden>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="digest">Havoc Digest</button>
+      <button class="secondary" id="logout-btn" style="margin-left: auto;">Log Out</button>
+    </div>
+
+    <div id="tab-digest" class="tab-panel card">
+      <div class="toolbar">
+        <label for="season-select" class="muted">Season</label>
+        <select id="season-select" style="width: auto; margin-bottom: 0;"></select>
+        <label for="week-select" class="muted">Week</label>
+        <select id="week-select" style="width: auto; margin-bottom: 0;"></select>
+        <button id="recompute-btn">Recompute</button>
+        <span id="recompute-status" class="status-pill" hidden></span>
+        <button class="secondary" id="copy-digest-btn" style="margin-left: auto;">Copy Digest as HTML</button>
+      </div>
+      <div id="digest-meta" class="muted"></div>
+      <div id="digest-games"></div>
+      <div id="digest-error" class="error" hidden></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const API_BASE = "https://powerswap-admin.yeti-f3c.workers.dev";
+const TOKEN_KEY = "powerswap_admin_token";
+
+const el = (id) => document.getElementById(id);
+
+function getToken() { return localStorage.getItem(TOKEN_KEY); }
+function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
+function clearToken() { localStorage.removeItem(TOKEN_KEY); }
+
+async function api(path, options = {}) {
+  const token = getToken();
+  const resp = await fetch(`${API_BASE}${path}`, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(options.headers ?? {}),
+    },
+  });
+  const body = await resp.json().catch(() => ({}));
+  if (!resp.ok) throw new Error(body.error ?? `Request failed (${resp.status})`);
+  return body;
+}
+
+// ---------------------------------------------------------------------
+// Reset-password flow (URL: admin.html?reset_token=...)
+// ---------------------------------------------------------------------
+
+const urlParams = new URLSearchParams(location.search);
+const resetToken = urlParams.get("reset_token");
+
+if (resetToken) {
+  el("login-form").hidden = true;
+  el("reset-form").hidden = false;
+}
+
+el("reset-submit-btn").addEventListener("click", async () => {
+  const newPassword = el("new-password-input").value;
+  const confirm = el("confirm-password-input").value;
+  el("reset-error").hidden = true;
+  if (newPassword !== confirm) {
+    el("reset-error").textContent = "Passwords do not match.";
+    el("reset-error").hidden = false;
+    return;
+  }
+  try {
+    await api("/api/reset-password", {
+      method: "POST",
+      body: JSON.stringify({ token: resetToken, new_password: newPassword }),
+    });
+    el("reset-form").hidden = true;
+    el("reset-success").hidden = false;
+    el("login-form").hidden = false;
+    history.replaceState(null, "", location.pathname);
+  } catch (err) {
+    el("reset-error").textContent = err.message;
+    el("reset-error").hidden = false;
+  }
+});
+
+// ---------------------------------------------------------------------
+// Forgot-password flow
+// ---------------------------------------------------------------------
+
+el("forgot-link").addEventListener("click", (e) => {
+  e.preventDefault();
+  el("login-form").hidden = true;
+  el("forgot-form").hidden = false;
+});
+
+el("forgot-cancel-btn").addEventListener("click", () => {
+  el("forgot-form").hidden = true;
+  el("login-form").hidden = false;
+});
+
+el("forgot-submit-btn").addEventListener("click", async () => {
+  el("forgot-submit-btn").disabled = true;
+  try {
+    await api("/api/forgot-password", { method: "POST", body: JSON.stringify({}) });
+    el("forgot-status").textContent = "If the admin address is configured, a reset link was sent.";
+    el("forgot-status").hidden = false;
+  } catch (err) {
+    el("forgot-status").textContent = "Error: " + err.message;
+    el("forgot-status").hidden = false;
+  }
+});
+
+// ---------------------------------------------------------------------
+// Login / session
+// ---------------------------------------------------------------------
+
+el("login-btn").addEventListener("click", doLogin);
+el("password-input").addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); });
+
+async function doLogin() {
+  el("login-error").hidden = true;
+  el("login-btn").disabled = true;
+  try {
+    const { token } = await api("/api/login", {
+      method: "POST",
+      body: JSON.stringify({ password: el("password-input").value }),
+    });
+    setToken(token);
+    showDashboard();
+  } catch (err) {
+    el("login-error").textContent = err.message;
+    el("login-error").hidden = false;
+  } finally {
+    el("login-btn").disabled = false;
+  }
+}
+
+el("logout-btn").addEventListener("click", async () => {
+  try { await api("/api/logout", { method: "POST" }); } catch {}
+  clearToken();
+  location.reload();
+});
+
+async function checkExistingSession() {
+  if (!getToken()) return false;
+  try {
+    await api("/api/session");
+    return true;
+  } catch {
+    clearToken();
+    return false;
+  }
+}
+
+function showDashboard() {
+  el("login-card").hidden = true;
+  el("dashboard").hidden = false;
+  initDigest();
+}
+
+// ---------------------------------------------------------------------
+// Havoc Digest panel
+// ---------------------------------------------------------------------
+
+const CURRENT_SEASON = 2026;
+const AVAILABLE_WEEKS = Array.from({ length: 15 }, (_, i) => i + 1);
+let currentDigest = null;
+let pollTimer = null;
+
+function initDigest() {
+  const seasonSelect = el("season-select");
+  seasonSelect.innerHTML = `<option value="${CURRENT_SEASON}">${CURRENT_SEASON}</option>`;
+
+  const weekSelect = el("week-select");
+  weekSelect.innerHTML = AVAILABLE_WEEKS.map((w) => `<option value="${w}">Week ${w}</option>`).join("");
+  weekSelect.value = "1";
+
+  seasonSelect.addEventListener("change", loadDigest);
+  weekSelect.addEventListener("change", loadDigest);
+  el("recompute-btn").addEventListener("click", triggerRecompute);
+  el("copy-digest-btn").addEventListener("click", copyDigestHtml);
+
+  loadDigest();
+}
+
+function currentSeasonWeek() {
+  return { season: el("season-select").value, week: el("week-select").value };
+}
+
+async function loadDigest() {
+  if (pollTimer) { clearTimeout(pollTimer); pollTimer = null; }
+  el("digest-error").hidden = true;
+  el("digest-games").innerHTML = "<p class=\"muted\">Loading...</p>";
+  const { season, week } = currentSeasonWeek();
+  try {
+    currentDigest = await api(`/api/digest?season=${season}&week=${week}`);
+    renderDigest(currentDigest);
+  } catch (err) {
+    el("digest-games").innerHTML = "";
+    el("digest-error").textContent = err.message;
+    el("digest-error").hidden = false;
+  }
+}
+
+function renderDigest(digest) {
+  el("digest-meta").textContent =
+    `Version ${digest.version} - generated ${new Date(digest.generated_at).toLocaleString()} (${digest.source}). ${digest.injury_note}`;
+
+  if (digest.games.length === 0) {
+    el("digest-games").innerHTML = "<p class=\"muted\">No swap-eligible games this week.</p>";
+    return;
+  }
+
+  el("digest-games").innerHTML = digest.games.map((g) => `
+    <div class="game-row">
+      <span class="game-rating">${g.havoc_rating}</span>
+      <div class="game-title">${g.away_team} @ ${g.home_team}</div>
+      <ul class="game-bullets">${g.bullets.map((b) => `<li>${escapeHtml(b)}</li>`).join("")}</ul>
+    </div>
+  `).join("");
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+async function triggerRecompute() {
+  const { season, week } = currentSeasonWeek();
+  el("recompute-btn").disabled = true;
+  setStatusPill("running", "Dispatching...");
+  try {
+    const result = await api("/api/recompute", {
+      method: "POST",
+      body: JSON.stringify({ season, week }),
+    });
+    if (result.status === "already_running") {
+      setStatusPill("running", "Already running...");
+    }
+    pollRecomputeStatus(season, week);
+  } catch (err) {
+    setStatusPill("failed", "Error: " + err.message);
+    el("recompute-btn").disabled = false;
+  }
+}
+
+function setStatusPill(kind, text) {
+  const pill = el("recompute-status");
+  pill.hidden = false;
+  pill.className = "status-pill " + kind;
+  pill.textContent = text;
+}
+
+async function pollRecomputeStatus(season, week) {
+  try {
+    const status = await api(`/api/recompute-status?season=${season}&week=${week}`);
+    if (status.status === "running") {
+      setStatusPill("running", "Running (GitHub Actions)...");
+      pollTimer = setTimeout(() => pollRecomputeStatus(season, week), 5000);
+      return;
+    }
+    if (status.status === "done") {
+      setStatusPill("done", `Done - v${status.snapshot.version}`);
+      currentDigest = status.snapshot;
+      renderDigest(currentDigest);
+      el("recompute-btn").disabled = false;
+      return;
+    }
+    if (status.status === "slow_or_failed") {
+      setStatusPill("failed", `Still not done after ${status.elapsed_seconds}s - check GitHub Actions`);
+      el("recompute-btn").disabled = false;
+      return;
+    }
+    // idle - nothing pending (shouldn't normally happen right after dispatch)
+    el("recompute-btn").disabled = false;
+  } catch (err) {
+    setStatusPill("failed", "Error: " + err.message);
+    el("recompute-btn").disabled = false;
+  }
+}
+
+function copyDigestHtml() {
+  if (!currentDigest) return;
+  // Genuinely self-contained: real <br> tags, inline styles, no
+  // dependency on this page's <style> block - so formatting survives
+  // being pasted into an email/CMS/wherever, per the playbook (PFPI hit
+  // this exact bug: on-page preview looked right, pasted version didn't).
+  const html = [
+    `<div style="font-family: Arial, sans-serif;">`,
+    `<h2 style="margin:0 0 4px;">Havoc Rating Digest - Season ${currentDigest.season}, Week ${currentDigest.week}</h2>`,
+    `<p style="color:#666; font-size:12px; margin:0 0 12px;">Generated ${new Date(currentDigest.generated_at).toLocaleString()} (v${currentDigest.version}, ${currentDigest.source}). ${escapeHtml(currentDigest.injury_note)}</p>`,
+    ...currentDigest.games.map((g) => [
+      `<div style="margin:0 0 14px; padding:0 0 10px; border-bottom:1px solid #ddd;">`,
+      `<div style="font-weight:bold; font-size:15px;">${escapeHtml(g.away_team)} @ ${escapeHtml(g.home_team)} `,
+      `<span style="color:#b8860b; font-weight:bold;">${g.havoc_rating}</span></div>`,
+      g.bullets.map((b) => `&bull; ${escapeHtml(b)}<br>`).join(""),
+      `</div>`,
+    ].join("")),
+    `</div>`,
+  ].join("");
+
+  navigator.clipboard.writeText(html).then(() => {
+    const btn = el("copy-digest-btn");
+    const original = btn.textContent;
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  });
+}
+
+// ---------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------
+
+(async () => {
+  if (resetToken) return; // stay on the reset form, don't also try session check
+  if (await checkExistingSession()) showDashboard();
+})();
+</script>
+</body>
+</html>
