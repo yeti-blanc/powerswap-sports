@@ -53,8 +53,13 @@ there was nothing to invent here).
 Resend's free tier sends from `onboarding@resend.dev` without any domain
 verification, as long as the recipient is the account's own verified
 email - which is exactly this use case (single admin, resetting their
-own password). If you want to send from your own domain instead, verify
-it in the Resend dashboard and update `RESEND_FROM` in `wrangler.toml`.
+own password). **Confirmed real, not just documented**: a real
+`/forgot-password` call 403'd with `"You can only send testing emails to
+your own email address"` until `ADMIN_EMAIL` was set to the exact address
+the Resend account itself is registered under (`yeti@yetiblanc.com` here)
+- a different, more general-purpose email address failed. If you want to
+send to a different address, verify a domain in the Resend dashboard and
+update `RESEND_FROM` in `wrangler.toml`.
 
 ### 4. GitHub token (for the Recompute button)
 

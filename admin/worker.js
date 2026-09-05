@@ -374,7 +374,7 @@ const BULLET_LABELS = {
   over_under: (g) => {
     const ou = g.raw_averages.avg_over_under;
     if (ou === null || ou === undefined) return null;
-    return `Over/under set at ${ou}`;
+    return `Over/under set at ${ou.toFixed(1)}`;
   },
   powerswap_rank_gap: (g) => {
     const { home, away } = g.ranks.powerswap;
