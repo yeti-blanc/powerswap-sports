@@ -225,23 +225,23 @@
     {
       "home_team": "Washington",
       "away_team": "Washington State",
-      "havoc_rating": 32.9,
+      "havoc_rating": 33.0,
       "not_swap_eligible": false,
       "components": {
         "vegas_closeness": 0.336,
-        "moneyline_closeness": 0.156,
+        "moneyline_closeness": 0.161,
         "over_under": 0.641
       },
       "weighted_contributions": {
         "vegas_closeness": 20.98,
-        "moneyline_closeness": 3.89,
+        "moneyline_closeness": 4.02,
         "over_under": 8.01
       },
       "raw_averages": {
         "avg_abs_spread": 23.25,
         "avg_over_under": 51.25,
-        "avg_home_implied_prob": 0.9221619683592523,
-        "avg_away_implied_prob": 0.07783803164074754
+        "avg_home_implied_prob": 0.9195117854543419,
+        "avg_away_implied_prob": 0.08048821454565815
       },
       "ranks": {
         "powerswap": {
@@ -5205,6 +5205,38 @@
       ]
     },
     {
+      "home_team": "Nevada",
+      "away_team": "Western Kentucky",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.964,
+        "moneyline_closeness": 0.942,
+        "over_under": 0.644
+      },
+      "weighted_contributions": {},
+      "raw_averages": {
+        "avg_abs_spread": 1.25,
+        "avg_over_under": 51.5,
+        "avg_home_implied_prob": 0.47114297922476545,
+        "avg_away_implied_prob": 0.5288570207752346
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
       "home_team": "Wofford",
       "away_team": "Gardner-Webb",
       "havoc_rating": null,
@@ -5348,38 +5380,6 @@
         "avg_over_under": 59.5,
         "avg_home_implied_prob": 0.06783919597989949,
         "avg_away_implied_prob": 0.9321608040201005
-      },
-      "ranks": {
-        "powerswap": {
-          "home": null,
-          "away": null
-        },
-        "ap": {
-          "home": null,
-          "away": null
-        }
-      },
-      "injury_factor": null,
-      "pending_factors": [
-        "injury_report"
-      ]
-    },
-    {
-      "home_team": "Nevada",
-      "away_team": "Western Kentucky",
-      "havoc_rating": null,
-      "not_swap_eligible": true,
-      "components": {
-        "vegas_closeness": 0.964,
-        "moneyline_closeness": 0.942,
-        "over_under": 0.65
-      },
-      "weighted_contributions": {},
-      "raw_averages": {
-        "avg_abs_spread": 1.25,
-        "avg_over_under": 52.0,
-        "avg_home_implied_prob": 0.47114297922476545,
-        "avg_away_implied_prob": 0.5288570207752346
       },
       "ranks": {
         "powerswap": {

@@ -1336,6 +1336,26 @@
       ]
     },
     {
+      "home_team": "Washington",
+      "away_team": "Washington State",
+      "lines": [
+        {
+          "provider": "DraftKings",
+          "spread": -23.5,
+          "over_under": 51.5,
+          "home_moneyline": -2400,
+          "away_moneyline": 1200
+        },
+        {
+          "provider": "Bovada",
+          "spread": -23,
+          "over_under": 51,
+          "home_moneyline": -2200,
+          "away_moneyline": 1000
+        }
+      ]
+    },
+    {
       "home_team": "Indiana",
       "away_team": "North Texas",
       "lines": [
@@ -1412,26 +1432,6 @@
           "over_under": 46.5,
           "home_moneyline": 1100,
           "away_moneyline": -3500
-        }
-      ]
-    },
-    {
-      "home_team": "Washington",
-      "away_team": "Washington State",
-      "lines": [
-        {
-          "provider": "DraftKings",
-          "spread": -23.5,
-          "over_under": 51.5,
-          "home_moneyline": -2800,
-          "away_moneyline": 1300
-        },
-        {
-          "provider": "Bovada",
-          "spread": -23,
-          "over_under": 51,
-          "home_moneyline": -2200,
-          "away_moneyline": 1000
         }
       ]
     },
@@ -2962,6 +2962,26 @@
       ]
     },
     {
+      "home_team": "Nevada",
+      "away_team": "Western Kentucky",
+      "lines": [
+        {
+          "provider": "DraftKings",
+          "spread": 1.5,
+          "over_under": 51.5,
+          "home_moneyline": -112,
+          "away_moneyline": -108
+        },
+        {
+          "provider": "Bovada",
+          "spread": -1,
+          "over_under": 51.5,
+          "home_moneyline": 120,
+          "away_moneyline": -140
+        }
+      ]
+    },
+    {
       "home_team": "Wofford",
       "away_team": "Gardner-Webb",
       "lines": [
@@ -3037,26 +3057,6 @@
           "over_under": 59.5,
           "home_moneyline": 1300,
           "away_moneyline": -5300
-        }
-      ]
-    },
-    {
-      "home_team": "Nevada",
-      "away_team": "Western Kentucky",
-      "lines": [
-        {
-          "provider": "DraftKings",
-          "spread": 1.5,
-          "over_under": 52.5,
-          "home_moneyline": -112,
-          "away_moneyline": -108
-        },
-        {
-          "provider": "Bovada",
-          "spread": -1,
-          "over_under": 51.5,
-          "home_moneyline": 120,
-          "away_moneyline": -140
         }
       ]
     },
