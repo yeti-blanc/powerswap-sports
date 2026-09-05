@@ -47,7 +47,9 @@ async function fetchStoredMatchesForDate(apiKey, date) {
     headers: { Authorization: `Bearer ${apiKey}` },
   });
   if (!resp.ok) {
-    throw new Error(`BBS /v1/stored/matches (date=${date}) returned ${resp.status}`);
+    const err = new Error(`BBS /v1/stored/matches (date=${date}) returned ${resp.status}`);
+    err.status = resp.status; // let callers detect 429 without string-matching the message
+    throw err;
   }
   const body = await resp.json();
   const matches = body.data ?? [];
@@ -61,10 +63,15 @@ async function fetchStoredMatchesForDate(apiKey, date) {
   return matches;
 }
 
+// Result array carries a non-enumerable-in-JSON but readable `.hitRateLimit`
+// flag (true if any of the 2 date requests came back 429) so worker.js's
+// BBS quota safety net can react without string-matching error messages.
+// Same flag is attached to the thrown error in the total-failure case.
 export async function fetchBbsMatches(apiKey) {
   const dates = [utcDateString(0), utcDateString(-1)];
   const byId = new Map();
   let lastError = null;
+  let hitRateLimit = false;
 
   for (const date of dates) {
     try {
@@ -74,11 +81,17 @@ export async function fetchBbsMatches(apiKey) {
     } catch (err) {
       console.error(err.message);
       lastError = err;
+      if (err.status === 429) hitRateLimit = true;
     }
   }
 
-  if (byId.size === 0 && lastError) throw lastError;
-  return [...byId.values()];
+  if (byId.size === 0 && lastError) {
+    lastError.hitRateLimit = hitRateLimit;
+    throw lastError;
+  }
+  const result = [...byId.values()];
+  result.hitRateLimit = hitRateLimit;
+  return result;
 }
 
 // ============================================================

@@ -108,6 +108,43 @@ const SUBPOLL_BUDGET_MS = 4 * 60 * 1000;
 // in the published payload and still drives score/status once a game is
 // confirmed in-window - only the window decision itself changed.
 
+// STOPGAP (2026-09-05, remove after the 3 AM ET revert below fires):
+// today's primary BBS_API_KEY account hit its 2,000/day cap. A second,
+// non-GitHub-linked BBS account (1,000/day) was created same-day as a
+// same-day-only fallback. Which key is "active" lives in KV
+// (BBS_KEY_MODE_KV_KEY), not in code, so no redeploy is needed to switch:
+//   - unset/"primary" (default) -> env.BBS_API_KEY (2,000/day)
+//   - "backup"                  -> env.BBS_API_KEY_BACKUP (1,000/day)
+// Two independent mechanisms revert this to primary without any human
+// action - see revertToPrimaryBbsKey() and its cron branch below:
+//   1. The KV flag itself is written with an expirationTtl timed to
+//      3 AM ET, so it self-expires (getBbsKeyMode() defaults to
+//      "primary" when the key is absent) even if #2 never fires.
+//   2. A second Cloudflare Cron Trigger, "0 7 * * *" in wrangler.toml
+//      (07:00 UTC = 3 AM EDT), explicitly deletes the KV flag - belt and
+//      suspenders, and it's idempotent (harmless if it fires on a day
+//      the flag was never set, e.g. every day after today).
+// This whole STOPGAP block - the key-mode switch, not the safety net
+// below it - should be deleted once back on a single 2,000/day key
+// permanently; the 429/quota backoff net is worth keeping regardless of
+// which key is active.
+const BBS_KEY_MODE_KV_KEY = "bbs_key_mode";
+
+// SAFETY NET (2026-09-05): added alongside the stopgap above, but not
+// stopgap itself - worth keeping for whichever key is active going
+// forward. Today's placeholder-kickoff bug (see FIX comment above) proved
+// a single bad signal can burn most of a day's quota fast; this backstops
+// against that class of failure directly, independent of the kickoff-time
+// fix, by tracking actual BBS request counts and backing off BEFORE
+// hitting the cap, or immediately on an actual 429. Backoff is silent by
+// design (console.warn only, no external notification) - Worker cron jobs
+// have no human watching them in real time, so "safe by default and
+// resumes on its own" beats "loud but still fails" here.
+const BBS_DAILY_CAP = { primary: 2000, backup: 1000 };
+const BBS_SAFE_MARGIN = 50; // stop this many requests short of the cap
+const BBS_USAGE_KV_KEY = "bbs_usage_count";
+const BBS_PAUSE_KV_KEY = "bbs_paused_until";
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -131,9 +168,16 @@ export default {
   },
 
   async scheduled(event, env, ctx) {
+    if (event.cron === REVERT_CRON) {
+      ctx.waitUntil(revertToPrimaryBbsKey(env));
+      return;
+    }
     ctx.waitUntil(runPollLoop(env));
   },
 };
+
+// Must match wrangler.toml's second [triggers] entry exactly.
+const REVERT_CRON = "0 7 * * *";
 
 async function runPollLoop(env) {
   const deadline = Date.now() + SUBPOLL_BUDGET_MS;
@@ -158,11 +202,24 @@ async function pollAndCache(env) {
     return false;
   }
 
+  const keyMode = await getBbsKeyMode(env);
+  const apiKey = keyMode === "backup" ? env.BBS_API_KEY_BACKUP : env.BBS_API_KEY;
+
+  const backoff = await checkBbsBackoff(env, keyMode);
+  if (backoff.paused) {
+    console.warn(`BBS polling backed off (${keyMode} key): ${backoff.reason}`);
+    return false; // silent no-op: last-known payload keeps serving from KV, no BBS call made
+  }
+
   let rawMatches;
   try {
-    rawMatches = await fetchBbsMatches(env.BBS_API_KEY);
+    rawMatches = await fetchBbsMatches(apiKey);
+    await recordBbsUsage(env, 2); // fetchBbsMatches always attempts exactly 2 requests (today + yesterday)
+    if (rawMatches.hitRateLimit) await pauseBbsForToday(env, `429 from BBS (${keyMode} key)`);
   } catch (err) {
     console.error("BBS fetch failed:", err.message);
+    await recordBbsUsage(env, 2);
+    if (err.status === 429 || err.hitRateLimit) await pauseBbsForToday(env, `429 from BBS (${keyMode} key)`);
     return false;
   }
 
@@ -267,6 +324,84 @@ async function getRealKickoffTimes(env) {
     });
   }
   return byTeam;
+}
+
+// Named exports below are test-only (Cloudflare only uses the `export
+// default` object above) - lets tests exercise the real deployed logic
+// instead of a reimplementation of it.
+export async function getBbsKeyMode(env) {
+  const mode = await env.LIVE_KV.get(BBS_KEY_MODE_KV_KEY);
+  return mode === "backup" ? "backup" : "primary";
+}
+
+// Explicit revert: called by the 07:00 UTC (3 AM ET) cron branch above.
+// Deleting the KV flag is enough - getBbsKeyMode() already defaults to
+// "primary" when it's absent. Also clears any pause so the primary key
+// starts the day unthrottled rather than inheriting a backup-key pause.
+export async function revertToPrimaryBbsKey(env) {
+  await env.LIVE_KV.delete(BBS_KEY_MODE_KV_KEY);
+  await env.LIVE_KV.delete(BBS_PAUSE_KV_KEY);
+  console.log("BBS key mode reverted to primary (3 AM ET scheduled revert).");
+}
+
+function utcDateStringToday() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+// Usage counter resets itself whenever the stored date != today - no TTL
+// dependency for the reset itself (the KV entry does carry a short TTL
+// purely as housekeeping so a stale record doesn't linger forever).
+export async function getBbsUsageToday(env) {
+  const today = utcDateStringToday();
+  const raw = await env.LIVE_KV.get(BBS_USAGE_KV_KEY);
+  if (!raw) return { date: today, count: 0 };
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed.date !== today) return { date: today, count: 0 };
+    return parsed;
+  } catch {
+    return { date: today, count: 0 };
+  }
+}
+
+export async function recordBbsUsage(env, n) {
+  const usage = await getBbsUsageToday(env);
+  usage.count += n;
+  await env.LIVE_KV.put(BBS_USAGE_KV_KEY, JSON.stringify(usage), { expirationTtl: 2 * 24 * 60 * 60 });
+  return usage;
+}
+
+// Pauses BBS polling until the next UTC day. BBS's own quota-reset
+// boundary is unverified (see live/README.md's Confirmed/UNVERIFIED
+// split) - UTC midnight is this codebase's existing convention
+// (bbs_client.js's utcDateString()), used here as the best available
+// proxy, not a confirmed fact about BBS's billing day.
+export async function pauseBbsForToday(env, reason) {
+  const nextUtcMidnight = new Date();
+  nextUtcMidnight.setUTCHours(24, 0, 0, 0);
+  const ttlSeconds = Math.max(60, Math.ceil((nextUtcMidnight.getTime() - Date.now()) / 1000) + 60);
+  await env.LIVE_KV.put(BBS_PAUSE_KV_KEY, nextUtcMidnight.toISOString(), { expirationTtl: ttlSeconds });
+  console.warn(`BBS polling paused until ${nextUtcMidnight.toISOString()}: ${reason}`);
+}
+
+// Checked before every BBS call. Two independent triggers, either one
+// pauses for the rest of the day: an explicit pause already in effect
+// (set by a prior 429), or today's tracked usage within BBS_SAFE_MARGIN
+// of the active key's daily cap.
+export async function checkBbsBackoff(env, keyMode) {
+  const pausedUntilRaw = await env.LIVE_KV.get(BBS_PAUSE_KV_KEY);
+  if (pausedUntilRaw && Date.now() < Date.parse(pausedUntilRaw)) {
+    return { paused: true, reason: `explicit pause until ${pausedUntilRaw}` };
+  }
+
+  const usage = await getBbsUsageToday(env);
+  const cap = BBS_DAILY_CAP[keyMode] ?? BBS_DAILY_CAP.primary;
+  if (usage.count >= cap - BBS_SAFE_MARGIN) {
+    await pauseBbsForToday(env, `usage ${usage.count}/${cap} within ${BBS_SAFE_MARGIN}-request safety margin`);
+    return { paused: true, reason: `usage ${usage.count}/${cap} at safety margin` };
+  }
+
+  return { paused: false };
 }
 
 function sleep(ms) {

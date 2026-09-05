@@ -18,5 +18,13 @@ kv_namespaces = [
 # actual game window. Cloudflare Cron Triggers can't fire more than once a
 # minute, which is why "every 5 min + in-worker sub-polling" is used
 # instead of trying to express "every 15s" directly here.
+#
+# Second entry (2026-09-05, STOPGAP - see worker.js's STOPGAP comment):
+# "0 7 * * *" = 07:00 UTC = 3 AM EDT, dispatched to
+# revertToPrimaryBbsKey() via worker.js's scheduled() handler (branches on
+# event.cron). Reverts the BBS_API_KEY_BACKUP stopgap back to the primary
+# key with no human action needed. Recurring daily rather than one-shot -
+# Cloudflare Cron Triggers don't support one-shot - but the revert is
+# idempotent (no-op if already on primary), so that's harmless.
 [triggers]
-crons = ["*/5 * * * *"]
+crons = ["*/5 * * * *", "0 7 * * *"]

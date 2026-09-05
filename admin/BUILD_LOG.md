@@ -260,5 +260,137 @@ noon-ET kickoff window) shows exactly the pattern the replayed-data test
 predicted - no false all-night subpolling, correct subpolling right at a
 real kickoff.
 
-Not committed to git yet - `live/worker.js` changes are deployed to
-production but the working tree is dirty; commit on request.
+Committed (`f8a9d16`) and pushed to `origin/main` on request shortly
+after this entry was written.
+
+---
+
+## 2026-09-05 (afternoon/evening): BBS backup-key stopgap - primary account hit its cap
+
+**Why:** the primary `BBS_API_KEY` account (2,000/day, GitHub-linked) hit
+its daily cap again this afternoon. User created a second BBS account
+(1,000/day, NOT GitHub-linked - free tier without the GitHub-link bonus)
+as a same-day-only fallback and then went unreachable for the rest of the
+day ("I'm about to leave for the day and need this to run fully
+unattended, no check-ins possible"). Everything below was built, tested,
+and deployed without further user input, per that instruction - the user
+said to ask immediately if the new API key was needed (it was, and was
+provided in-chat) and otherwise to leave nothing unresolved.
+
+**What "stopgap" means here, precisely:** only the *which BBS key is
+active* switch is temporary/same-day. The 429/quota safety net built
+alongside it is NOT stopgap - it's a permanent addition worth keeping
+regardless of which key is active, because today's placeholder-kickoff
+incident (previous log entry) already proved a single bad signal can burn
+a day's quota fast, and that class of failure isn't specific to which key
+is in use.
+
+**Built (`live/worker.js`, `live/bbs_client.js`, `live/wrangler.toml`):**
+
+1. **Key-mode switch, driven by KV, not code:** `BBS_KEY_MODE_KV_KEY`
+   ("bbs_key_mode") in `LIVE_KV` selects `env.BBS_API_KEY` (primary,
+   default when unset) vs `env.BBS_API_KEY_BACKUP` (backup). Switching
+   keys needs no redeploy - just a KV write. `BBS_API_KEY_BACKUP` was set
+   via `wrangler secret put` from the key the user pasted in chat;
+   confirmed via `wrangler secret list` that both `BBS_API_KEY` (primary,
+   untouched) and `BBS_API_KEY_BACKUP` exist as separate secrets.
+
+2. **429/quota safety net (`checkBbsBackoff`, `recordBbsUsage`,
+   `pauseBbsForToday` in `worker.js`):** before every BBS call, checks (a)
+   an explicit pause already in effect, or (b) today's tracked request
+   count within `BBS_SAFE_MARGIN` (50) of the *active* key's real cap
+   (`BBS_DAILY_CAP`: primary 2000, backup 1000 - the two keys are tracked
+   against their own correct caps, not a single hardcoded number). Either
+   condition silently skips the BBS call for the rest of the day (no
+   console output beyond a `console.warn` - nothing external, per the
+   "no human needs to notice" requirement) rather than continuing to hit
+   a capped or rate-limited key. A real 429 response (checked via
+   `err.status`/`.hitRateLimit`, not string-matching) triggers the same
+   pause immediately, regardless of the tracked count. "Today" for this
+   tracking is UTC-day, matching this codebase's existing convention
+   (`bbs_client.js`'s `utcDateString()`) - BBS's own quota-reset boundary
+   is unverified, flagged as such in the code comment, same honesty
+   standard as the rest of this Worker's UNVERIFIED-tagging convention.
+
+3. **Automatic revert to primary, two independent mechanisms, neither
+   needing a human:**
+   - The `bbs_key_mode=backup` KV entry was written with a TTL timed to
+     expire exactly at 3 AM ET (`getBbsKeyMode()` defaults to "primary"
+     when the key is absent, so expiry alone reverts it).
+   - A second Cloudflare Cron Trigger, `"0 7 * * *"` (07:00 UTC = 3 AM
+     EDT), added to `wrangler.toml`'s `[triggers]` block alongside the
+     existing `*/5 * * * *`. `worker.js`'s `scheduled()` handler now
+     branches on `event.cron`, dispatching this one to
+     `revertToPrimaryBbsKey()` (deletes both the key-mode flag and any
+     pause flag) instead of the normal poll loop. Recurring, not
+     one-shot, since Cloudflare Cron Triggers don't support one-shot -
+     harmless since the revert is idempotent.
+
+**Tested before deploying, real code not a reimplementation:** added
+test-only named exports to `worker.js`'s new helper functions (Cloudflare
+still only uses `export default`, this changes no runtime behavior), then
+ran verbatim copies of `worker.js`/`bbs_client.js` (copied into a scratch
+dir with a local `package.json` so Node would load them as ESM - this
+repo has no `package.json` of its own) through 17 checks against a mocked
+KV and mocked `fetch`, all passing:
+- Key-mode defaults to primary when unset; explicit backup mode reads
+  back correctly; revert deletes both the mode and pause flags.
+- Usage counter accumulates correctly and resets when the stored date
+  isn't today.
+- 940/1000 (below the 50-request margin) does not pause; 951/1000 (within
+  margin) does pause AND writes a real pause record to the mock KV.
+- The primary key's 2,000 cap is not mistakenly applied when checking the
+  backup key's usage (960 requests, correctly not paused under the 2,000
+  cap check).
+- An explicit pause blocks polling even with usage=0 (covers the 429
+  case, which sets a pause independent of the counter).
+- `bbs_client.js`'s real `fetchBbsMatches()` against mocked HTTP: both
+  dates returning 429 throws with `.status===429` and
+  `.hitRateLimit===true`; one date 429 + one date succeeding does NOT
+  throw (partial success still returns real data) but still surfaces
+  `.hitRateLimit===true` so the caller backs off anyway.
+
+**Deployed and independently confirmed live (not just deploy output):**
+- `wrangler deploy` succeeded; version ID
+  `34e217fb-d108-4b6a-920f-0763a82225a5`.
+- Queried Cloudflare's own API directly
+  (`GET .../scripts/powerswap-live-scores/schedules`) - confirmed both
+  cron schedules are really registered:
+  `[{"cron":"0 7 * * *", ...}, {"cron":"*/5 * * * *", ...}]`.
+- `wrangler secret list` confirmed `BBS_API_KEY`, `BBS_API_KEY_BACKUP`,
+  `CFBD_API_KEY` all present as separate secrets.
+- Set `bbs_key_mode=backup` via `wrangler kv key put ... --ttl 49743`.
+  Read the key back via the raw Cloudflare KV REST API (not just
+  `wrangler kv key get`) to confirm the real stored expiration timestamp:
+  `1788678009` epoch seconds = `2026-09-06T07:00:09Z` - matches 3 AM EDT,
+  confirming the TTL-based revert is real, not just requested.
+- Waited for a real post-switch cron tick (backgrounded poll against the
+  live KV record) rather than trust the deploy alone. Confirmed: a fresh
+  tick landed at `2026-09-05T17:16:07.037Z` with 34 real games and no
+  `"note"` field (i.e. not the empty/no-ranked-teams fallback path) -
+  proves `BBS_API_KEY_BACKUP` actually authenticates against BBS
+  end-to-end, not just that the secret was accepted by `wrangler`.
+  `bbs_usage_count` read `{"date":"2026-09-05","count":4}` - two real
+  polls already recorded, consistent with the subpoll loop genuinely
+  running (Indiana/Alabama/Houston kicked off at 16:00 UTC and are still
+  inside their real active window at 17:16 UTC, so ongoing subpolling
+  there is correct behavior, not a bug). Queried the raw Cloudflare KV
+  list API directly (not `wrangler kv key get`, which errors - not fails
+  the way that sounds; it exits non-zero when a key is simply absent -
+  on a missing key) for every `bbs_*` key: only `bbs_key_mode` and
+  `bbs_usage_count` exist, `bbs_paused_until` is absent - confirms no
+  429 or margin-triggered pause has fired, correctly, this far below both
+  the 950-request margin and any real rate limit.
+
+**Status as of this entry: fully deployed, tested, and independently
+confirmed live.** Nothing outstanding that needs the user before the 3 AM
+ET revert. If the backup key's usage does approach 1,000 later today
+(realistic on a full Saturday of games, per the earlier incident's own
+math), the safety net above is what's expected to catch it - silently,
+without paging anyone - and `/live` will keep serving its last-known
+payload rather than erroring, until either usage counting confirms room
+again tomorrow or the 3 AM ET revert switches back to the primary key's
+full 2,000/day budget. Session set an internal one-shot reminder for
+4:30 PM ET (2026-09-05) to check back in on this in case the user's own
+usage ran out mid-task; if everything above still holds by then, no
+further action is needed at that checkpoint either.
