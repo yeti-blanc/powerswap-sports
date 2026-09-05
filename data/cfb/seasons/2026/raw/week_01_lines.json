@@ -269,7 +269,7 @@
         {
           "provider": "Bovada",
           "spread": -48,
-          "over_under": 66.5,
+          "over_under": 67,
           "home_moneyline": null,
           "away_moneyline": null
         }
@@ -350,6 +350,26 @@
           "provider": "DraftKings",
           "spread": -42.5,
           "over_under": 52.5,
+          "home_moneyline": null,
+          "away_moneyline": null
+        }
+      ]
+    },
+    {
+      "home_team": "Kansas",
+      "away_team": "Long Island University",
+      "lines": [
+        {
+          "provider": "DraftKings",
+          "spread": -44.5,
+          "over_under": 57.5,
+          "home_moneyline": null,
+          "away_moneyline": null
+        },
+        {
+          "provider": "Bovada",
+          "spread": -42,
+          "over_under": 54.5,
           "home_moneyline": null,
           "away_moneyline": null
         }
@@ -450,26 +470,6 @@
           "provider": "DraftKings",
           "spread": -22.5,
           "over_under": 50.5,
-          "home_moneyline": null,
-          "away_moneyline": null
-        }
-      ]
-    },
-    {
-      "home_team": "Kansas",
-      "away_team": "Long Island University",
-      "lines": [
-        {
-          "provider": "DraftKings",
-          "spread": -43.5,
-          "over_under": 56.5,
-          "home_moneyline": null,
-          "away_moneyline": null
-        },
-        {
-          "provider": "Bovada",
-          "spread": -42,
-          "over_under": 54.5,
           "home_moneyline": null,
           "away_moneyline": null
         }
@@ -596,6 +596,26 @@
       ]
     },
     {
+      "home_team": "Kansas State",
+      "away_team": "Nicholls",
+      "lines": [
+        {
+          "provider": "DraftKings",
+          "spread": -41.5,
+          "over_under": 54.5,
+          "home_moneyline": null,
+          "away_moneyline": null
+        },
+        {
+          "provider": "Bovada",
+          "spread": -40.5,
+          "over_under": 54.5,
+          "home_moneyline": null,
+          "away_moneyline": null
+        }
+      ]
+    },
+    {
       "home_team": "Sacramento State",
       "away_team": "Mississippi Valley State",
       "lines": [
@@ -643,26 +663,6 @@
           "provider": "Bovada",
           "spread": -55.5,
           "over_under": 62,
-          "home_moneyline": null,
-          "away_moneyline": null
-        }
-      ]
-    },
-    {
-      "home_team": "Kansas State",
-      "away_team": "Nicholls",
-      "lines": [
-        {
-          "provider": "DraftKings",
-          "spread": -40.5,
-          "over_under": 54.5,
-          "home_moneyline": null,
-          "away_moneyline": null
-        },
-        {
-          "provider": "Bovada",
-          "spread": -40.5,
-          "over_under": 54.5,
           "home_moneyline": null,
           "away_moneyline": null
         }
@@ -1228,7 +1228,7 @@
         },
         {
           "provider": "Bovada",
-          "spread": -21.5,
+          "spread": -22.5,
           "over_under": 51,
           "home_moneyline": -3500,
           "away_moneyline": 1100
@@ -2259,18 +2259,18 @@
       "away_team": "Western Michigan",
       "lines": [
         {
-          "provider": "DraftKings",
-          "spread": -27.5,
-          "over_under": 49.5,
-          "home_moneyline": -5000,
-          "away_moneyline": 1800
-        },
-        {
           "provider": "Bovada",
           "spread": -27.5,
           "over_under": 49.5,
           "home_moneyline": -7000,
           "away_moneyline": 1300
+        },
+        {
+          "provider": "DraftKings",
+          "spread": -27.5,
+          "over_under": 49.5,
+          "home_moneyline": -6500,
+          "away_moneyline": 2000
         }
       ]
     },
@@ -2629,26 +2629,6 @@
       ]
     },
     {
-      "home_team": "Houston",
-      "away_team": "Oregon State",
-      "lines": [
-        {
-          "provider": "Bovada",
-          "spread": -21,
-          "over_under": 50.5,
-          "home_moneyline": -1300,
-          "away_moneyline": 725
-        },
-        {
-          "provider": "DraftKings",
-          "spread": -21,
-          "over_under": 50.5,
-          "home_moneyline": -1800,
-          "away_moneyline": 1000
-        }
-      ]
-    },
-    {
       "home_team": "Troy",
       "away_team": "Sam Houston State",
       "lines": [
@@ -2665,6 +2645,26 @@
           "over_under": 53.5,
           "home_moneyline": -850,
           "away_moneyline": 575
+        }
+      ]
+    },
+    {
+      "home_team": "Houston",
+      "away_team": "Oregon State",
+      "lines": [
+        {
+          "provider": "Bovada",
+          "spread": -20.5,
+          "over_under": 50.5,
+          "home_moneyline": -1300,
+          "away_moneyline": 725
+        },
+        {
+          "provider": "DraftKings",
+          "spread": -21,
+          "over_under": 50.5,
+          "home_moneyline": -1800,
+          "away_moneyline": 1000
         }
       ]
     },
@@ -2956,8 +2956,8 @@
           "provider": "DraftKings",
           "spread": -21,
           "over_under": 54.5,
-          "home_moneyline": -1450,
-          "away_moneyline": 850
+          "home_moneyline": -1600,
+          "away_moneyline": 900
         }
       ]
     },
@@ -3046,7 +3046,7 @@
       "lines": [
         {
           "provider": "DraftKings",
-          "spread": -1.5,
+          "spread": 1.5,
           "over_under": 52.5,
           "home_moneyline": -112,
           "away_moneyline": -108
@@ -3054,7 +3054,7 @@
         {
           "provider": "Bovada",
           "spread": -1,
-          "over_under": 52.5,
+          "over_under": 51.5,
           "home_moneyline": 120,
           "away_moneyline": -140
         }
@@ -3070,26 +3070,6 @@
           "over_under": 49.5,
           "home_moneyline": 900,
           "away_moneyline": -2100
-        }
-      ]
-    },
-    {
-      "home_team": "LSU",
-      "away_team": "Clemson",
-      "lines": [
-        {
-          "provider": "Bovada",
-          "spread": -10,
-          "over_under": 50.5,
-          "home_moneyline": -480,
-          "away_moneyline": 350
-        },
-        {
-          "provider": "DraftKings",
-          "spread": -10,
-          "over_under": 50.5,
-          "home_moneyline": -410,
-          "away_moneyline": 320
         }
       ]
     },
@@ -3134,26 +3114,6 @@
       ]
     },
     {
-      "home_team": "Michigan State",
-      "away_team": "Toledo",
-      "lines": [
-        {
-          "provider": "DraftKings",
-          "spread": -10,
-          "over_under": 48.5,
-          "home_moneyline": -395,
-          "away_moneyline": 310
-        },
-        {
-          "provider": "Bovada",
-          "spread": -10,
-          "over_under": 48.5,
-          "home_moneyline": -410,
-          "away_moneyline": 305
-        }
-      ]
-    },
-    {
       "home_team": "Memphis",
       "away_team": "Arkansas State",
       "lines": [
@@ -3170,6 +3130,46 @@
           "over_under": 52.5,
           "home_moneyline": -470,
           "away_moneyline": 360
+        }
+      ]
+    },
+    {
+      "home_team": "Michigan State",
+      "away_team": "Toledo",
+      "lines": [
+        {
+          "provider": "Bovada",
+          "spread": -10,
+          "over_under": 48.5,
+          "home_moneyline": -410,
+          "away_moneyline": 305
+        },
+        {
+          "provider": "DraftKings",
+          "spread": -10,
+          "over_under": 48.5,
+          "home_moneyline": -410,
+          "away_moneyline": 320
+        }
+      ]
+    },
+    {
+      "home_team": "LSU",
+      "away_team": "Clemson",
+      "lines": [
+        {
+          "provider": "Bovada",
+          "spread": -9.5,
+          "over_under": 50.5,
+          "home_moneyline": -480,
+          "away_moneyline": 350
+        },
+        {
+          "provider": "DraftKings",
+          "spread": -10,
+          "over_under": 50.5,
+          "home_moneyline": -410,
+          "away_moneyline": 320
         }
       ]
     },
@@ -3194,26 +3194,6 @@
       ]
     },
     {
-      "home_team": "Oklahoma",
-      "away_team": "UTEP",
-      "lines": [
-        {
-          "provider": "Bovada",
-          "spread": -41,
-          "over_under": 50,
-          "home_moneyline": null,
-          "away_moneyline": null
-        },
-        {
-          "provider": "DraftKings",
-          "spread": -40.5,
-          "over_under": 51.5,
-          "home_moneyline": null,
-          "away_moneyline": null
-        }
-      ]
-    },
-    {
       "home_team": "Mississippi",
       "away_team": "Louisville",
       "lines": [
@@ -3230,6 +3210,26 @@
           "over_under": 54.5,
           "home_moneyline": -270,
           "away_moneyline": 220
+        }
+      ]
+    },
+    {
+      "home_team": "Oklahoma",
+      "away_team": "UTEP",
+      "lines": [
+        {
+          "provider": "Bovada",
+          "spread": -41,
+          "over_under": 51,
+          "home_moneyline": null,
+          "away_moneyline": null
+        },
+        {
+          "provider": "DraftKings",
+          "spread": -40.5,
+          "over_under": 51.5,
+          "home_moneyline": null,
+          "away_moneyline": null
         }
       ]
     }

@@ -81,20 +81,20 @@
     {
       "home_team": "LSU",
       "away_team": "Clemson",
-      "havoc_rating": 63.5,
+      "havoc_rating": 64.0,
       "not_swap_eligible": false,
       "components": {
-        "vegas_closeness": 0.714,
+        "vegas_closeness": 0.721,
         "moneyline_closeness": 0.44,
         "over_under": 0.631
       },
       "weighted_contributions": {
-        "vegas_closeness": 44.64,
+        "vegas_closeness": 45.09,
         "moneyline_closeness": 11.0,
         "over_under": 7.89
       },
       "raw_averages": {
-        "avg_abs_spread": 10.0,
+        "avg_abs_spread": 9.75,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.7799132721136488,
         "avg_away_implied_prob": 0.22008672788635114
@@ -117,20 +117,20 @@
     {
       "home_team": "Houston",
       "away_team": "Oregon State",
-      "havoc_rating": 38.0,
+      "havoc_rating": 38.4,
       "not_swap_eligible": false,
       "components": {
-        "vegas_closeness": 0.4,
+        "vegas_closeness": 0.407,
         "moneyline_closeness": 0.203,
         "over_under": 0.631
       },
       "weighted_contributions": {
-        "vegas_closeness": 25.0,
+        "vegas_closeness": 25.45,
         "moneyline_closeness": 5.08,
         "over_under": 7.89
       },
       "raw_averages": {
-        "avg_abs_spread": 21.0,
+        "avg_abs_spread": 20.75,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.8984892393937953,
         "avg_away_implied_prob": 0.10151076060620456
@@ -189,20 +189,20 @@
     {
       "home_team": "USC",
       "away_team": "Fresno State",
-      "havoc_rating": 36.3,
+      "havoc_rating": 35.4,
       "not_swap_eligible": false,
       "components": {
-        "vegas_closeness": 0.386,
+        "vegas_closeness": 0.371,
         "moneyline_closeness": 0.167,
         "over_under": 0.641
       },
       "weighted_contributions": {
-        "vegas_closeness": 24.11,
+        "vegas_closeness": 23.21,
         "moneyline_closeness": 4.16,
         "over_under": 8.01
       },
       "raw_averages": {
-        "avg_abs_spread": 21.5,
+        "avg_abs_spread": 22.0,
         "avg_over_under": 51.25,
         "avg_home_implied_prob": 0.9167475139461556,
         "avg_away_implied_prob": 0.08325248605384429
@@ -369,23 +369,23 @@
     {
       "home_team": "Michigan",
       "away_team": "Western Michigan",
-      "havoc_rating": 24.1,
+      "havoc_rating": 24.0,
       "not_swap_eligible": false,
       "components": {
         "vegas_closeness": 0.214,
-        "moneyline_closeness": 0.119,
+        "moneyline_closeness": 0.114,
         "over_under": 0.619
       },
       "weighted_contributions": {
         "vegas_closeness": 13.39,
-        "moneyline_closeness": 2.96,
+        "moneyline_closeness": 2.84,
         "over_under": 7.73
       },
       "raw_averages": {
         "avg_abs_spread": 27.5,
         "avg_over_under": 49.5,
-        "avg_home_implied_prob": 0.9407481196253793,
-        "avg_away_implied_prob": 0.05925188037462062
+        "avg_home_implied_prob": 0.9431618484542026,
+        "avg_away_implied_prob": 0.05683815154579745
       },
       "ranks": {
         "powerswap": {
@@ -517,15 +517,15 @@
       "not_swap_eligible": false,
       "components": {
         "vegas_closeness": 0.0,
-        "over_under": 0.831
+        "over_under": 0.834
       },
       "weighted_contributions": {
         "vegas_closeness": 0.0,
-        "over_under": 13.85
+        "over_under": 13.91
       },
       "raw_averages": {
         "avg_abs_spread": 48.25,
-        "avg_over_under": 66.5,
+        "avg_over_under": 66.75,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
       },
@@ -821,19 +821,19 @@
     {
       "home_team": "Oklahoma",
       "away_team": "UTEP",
-      "havoc_rating": 10.6,
+      "havoc_rating": 10.7,
       "not_swap_eligible": false,
       "components": {
         "vegas_closeness": 0.0,
-        "over_under": 0.634
+        "over_under": 0.641
       },
       "weighted_contributions": {
         "vegas_closeness": 0.0,
-        "over_under": 10.57
+        "over_under": 10.68
       },
       "raw_averages": {
         "avg_abs_spread": 40.75,
-        "avg_over_under": 50.75,
+        "avg_over_under": 51.25,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
       },
@@ -1397,6 +1397,37 @@
       ]
     },
     {
+      "home_team": "Kansas",
+      "away_team": "Long Island University",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.7
+      },
+      "weighted_contributions": {},
+      "raw_averages": {
+        "avg_abs_spread": 43.25,
+        "avg_over_under": 56.0,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
       "home_team": "Delaware",
       "away_team": "Merrimack",
       "havoc_rating": null,
@@ -1507,37 +1538,6 @@
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.9396411092985318,
         "avg_away_implied_prob": 0.06035889070146819
-      },
-      "ranks": {
-        "powerswap": {
-          "home": null,
-          "away": null
-        },
-        "ap": {
-          "home": null,
-          "away": null
-        }
-      },
-      "injury_factor": null,
-      "pending_factors": [
-        "injury_report"
-      ]
-    },
-    {
-      "home_team": "Kansas",
-      "away_team": "Long Island University",
-      "havoc_rating": null,
-      "not_swap_eligible": true,
-      "components": {
-        "vegas_closeness": 0.0,
-        "over_under": 0.694
-      },
-      "weighted_contributions": {},
-      "raw_averages": {
-        "avg_abs_spread": 42.75,
-        "avg_over_under": 55.5,
-        "avg_home_implied_prob": null,
-        "avg_away_implied_prob": null
       },
       "ranks": {
         "powerswap": {
@@ -1682,6 +1682,37 @@
       ]
     },
     {
+      "home_team": "Kansas State",
+      "away_team": "Nicholls",
+      "havoc_rating": null,
+      "not_swap_eligible": true,
+      "components": {
+        "vegas_closeness": 0.0,
+        "over_under": 0.681
+      },
+      "weighted_contributions": {},
+      "raw_averages": {
+        "avg_abs_spread": 41.0,
+        "avg_over_under": 54.5,
+        "avg_home_implied_prob": null,
+        "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
+      },
+      "injury_factor": null,
+      "pending_factors": [
+        "injury_report"
+      ]
+    },
+    {
       "home_team": "Sacramento State",
       "away_team": "Mississippi Valley State",
       "havoc_rating": null,
@@ -1757,37 +1788,6 @@
       "raw_averages": {
         "avg_abs_spread": 55.5,
         "avg_over_under": 62.25,
-        "avg_home_implied_prob": null,
-        "avg_away_implied_prob": null
-      },
-      "ranks": {
-        "powerswap": {
-          "home": null,
-          "away": null
-        },
-        "ap": {
-          "home": null,
-          "away": null
-        }
-      },
-      "injury_factor": null,
-      "pending_factors": [
-        "injury_report"
-      ]
-    },
-    {
-      "home_team": "Kansas State",
-      "away_team": "Nicholls",
-      "havoc_rating": null,
-      "not_swap_eligible": true,
-      "components": {
-        "vegas_closeness": 0.0,
-        "over_under": 0.681
-      },
-      "weighted_contributions": {},
-      "raw_averages": {
-        "avg_abs_spread": 40.5,
-        "avg_over_under": 54.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
       },
@@ -5179,15 +5179,15 @@
       "not_swap_eligible": true,
       "components": {
         "vegas_closeness": 0.4,
-        "moneyline_closeness": 0.615,
+        "moneyline_closeness": 0.61,
         "over_under": 0.684
       },
       "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 21.0,
         "avg_over_under": 54.75,
-        "avg_home_implied_prob": 0.6925116241508317,
-        "avg_away_implied_prob": 0.3074883758491683
+        "avg_home_implied_prob": 0.6950599877603836,
+        "avg_away_implied_prob": 0.30494001223961636
       },
       "ranks": {
         "powerswap": {
@@ -5372,12 +5372,12 @@
       "components": {
         "vegas_closeness": 0.964,
         "moneyline_closeness": 0.942,
-        "over_under": 0.656
+        "over_under": 0.65
       },
       "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 1.25,
-        "avg_over_under": 52.5,
+        "avg_over_under": 52.0,
         "avg_home_implied_prob": 0.47114297922476545,
         "avg_away_implied_prob": 0.5288570207752346
       },
@@ -5461,21 +5461,21 @@
       ]
     },
     {
-      "home_team": "Michigan State",
-      "away_team": "Toledo",
+      "home_team": "Memphis",
+      "away_team": "Arkansas State",
       "havoc_rating": null,
       "not_swap_eligible": true,
       "components": {
-        "vegas_closeness": 0.714,
-        "moneyline_closeness": 0.469,
-        "over_under": 0.606
+        "vegas_closeness": 0.693,
+        "moneyline_closeness": 0.468,
+        "over_under": 0.653
       },
       "weighted_contributions": {},
       "raw_averages": {
-        "avg_abs_spread": 10.0,
-        "avg_over_under": 48.5,
-        "avg_home_implied_prob": 0.7654666016707948,
-        "avg_away_implied_prob": 0.23453339832920517
+        "avg_abs_spread": 10.75,
+        "avg_over_under": 52.25,
+        "avg_home_implied_prob": 0.7661166267437187,
+        "avg_away_implied_prob": 0.23388337325628117
       },
       "ranks": {
         "powerswap": {
@@ -5493,21 +5493,21 @@
       ]
     },
     {
-      "home_team": "Memphis",
-      "away_team": "Arkansas State",
+      "home_team": "Michigan State",
+      "away_team": "Toledo",
       "havoc_rating": null,
       "not_swap_eligible": true,
       "components": {
-        "vegas_closeness": 0.693,
-        "moneyline_closeness": 0.468,
-        "over_under": 0.653
+        "vegas_closeness": 0.714,
+        "moneyline_closeness": 0.463,
+        "over_under": 0.606
       },
       "weighted_contributions": {},
       "raw_averages": {
-        "avg_abs_spread": 10.75,
-        "avg_over_under": 52.25,
-        "avg_home_implied_prob": 0.7661166267437187,
-        "avg_away_implied_prob": 0.23388337325628117
+        "avg_abs_spread": 10.0,
+        "avg_over_under": 48.5,
+        "avg_home_implied_prob": 0.7682682375846208,
+        "avg_away_implied_prob": 0.2317317624153792
       },
       "ranks": {
         "powerswap": {
