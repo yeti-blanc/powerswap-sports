@@ -422,3 +422,127 @@ state), and the primary key's full 2,000/day budget returns automatically
 at 3 AM ET. This is the intended degraded-but-safe outcome of a 1,000/day
 stopgap key on a full game day, not a bug - flagging it here so it isn't
 mistaken for one if `/live` looks stale later tonight.
+
+---
+
+## 2026-09-05 (evening): full redesign - flat polling replaces the kickoff-window/safety-net architecture entirely
+
+**Why this happened:** the user asked directly why usage had already hit
+852/1,000 by mid-afternoon despite this morning's kickoff-time fix. Real
+answer (confirmed by checking what was actually in-window): it wasn't a
+recurrence of the placeholder bug - 6 distinct real ranked-team games
+were genuinely overlapping in their real CFBD-verified windows that
+afternoon, so the "poll every 20s while any game looks live" subpoll loop
+had been legitimately active for ~5 straight hours. The user then made
+the key observation that reframed the whole design: BBS's
+`/v1/stored/matches` returns the WHOLE day's slate in one call regardless
+of how many teams are playing (confirmed - a single call returns 30+
+games at once), so **request volume never needed to depend on game count
+or kickoff timing at all** - only on how often we poll, which we control
+directly. The kickoff-window/subpoll architecture was solving a problem
+(freshness during live games) in a way that made total daily volume
+unpredictable, when a fixed interval makes it exact and provable instead.
+
+**What changed - `live/worker.js`, `live/bbs_client.js`, `live/wrangler.toml`:**
+Deleted entirely: the in-Worker subpoll loop (`runPollLoop`,
+`SUBPOLL_INTERVAL_MS`/`SUBPOLL_BUDGET_MS`), all kickoff-window logic
+(`PRE_KICKOFF_WINDOW_MS`/`POST_KICKOFF_WINDOW_MS`, `getRealKickoffTimes()`,
+the CFBD `week1_matchups.json` fetch - this data is unaffected and still
+used separately by `site/app.js` for the site's own "vs Team" rank-card
+display, just no longer fetched by this Worker), the KV-based key-mode
+switch and the entire proactive usage-counter/margin safety net
+(`checkBbsBackoff`, `recordBbsUsage`, `getBbsUsageToday`,
+`pauseBbsForToday`, `BBS_DAILY_CAP`, `BBS_SAFE_MARGIN`, the `bbs_key_mode`/
+`bbs_usage_count`/`bbs_paused_until` KV keys - all deleted from KV after
+deploy, confirmed via the KV list API), and `bbs_client.js`'s
+`hitRateLimit` tracking (nothing consumes it anymore). `scheduled()` now
+does exactly one thing: `pollAndCache(env)`, no loop, no branching on
+`event.cron`.
+
+**Why the safety net was removed, not just left as a backstop:** the user
+was explicit that a design shouldn't need safeguards against a class of
+failure (unpredictable extra pulls) if the design itself can't produce
+that failure. Walked through, precisely, what could actually cause
+"extra pulls" under the OLD design (overlapping invocations from a
+multi-minute subpoll loop; a stray duplicate cron trigger left registered;
+a code bug adding retries) versus the flat design (none of those apply -
+a single `pollAndCache()` call finishes in a fraction of a second, there's
+exactly one registered cron trigger, and there's no retry logic). An
+earlier claim about "timezone edge cases" causing extra pulls was
+incorrect and retracted in-conversation - the UTC date math in
+`bbs_client.js` has no timezone dependency at all; DST only affects the
+*separate* question of whether an absolute-hour trigger like "3 AM ET"
+fires at the intended wall-clock moment, not how many pulls happen.
+
+**The math, exact and provable, not estimated:** `fetchBbsMatches()`
+always makes exactly 2 requests per call (today's UTC date + yesterday's),
+confirmed unconditional on game count or ranked-team count.
+- Temp (today, `BBS_API_KEY_BACKUP`, 1,000/day cap): `*/3 * * * *` = 480
+  ticks/day x 2 = 960 requests/day (96% of cap, 40 headroom).
+- Permanent (from tonight, `BBS_API_KEY`, 2,000/day cap): `*/2 * * * *` =
+  720 ticks/day x 2 = 1,440 requests/day (72% of cap, 560 headroom, 28%).
+"Every 1.5 minutes" (the user's original aspirational number for the
+permanent key) isn't valid cron syntax - Cloudflare Cron Triggers, like
+standard crontab, only support whole-minute granularity - so 2 minutes is
+the nearest clean equivalent without adding an in-Worker double-pull
+pattern back in.
+
+**Deployed and independently confirmed (temp version, live now):**
+- `wrangler deploy` succeeded, version `56e1fd1a-d7b0-46a9-86eb-efe672c45e1e`.
+- Queried Cloudflare's schedules API directly: exactly one cron trigger
+  registered, `"*/3 * * * *"` - confirms the old `*/5` and `0 7 * * *`
+  entries were genuinely replaced, not left running alongside the new one
+  (the single most concrete way today's "extra pulls" question could
+  actually happen again).
+- Deleted the three now-orphaned KV keys (`bbs_key_mode`,
+  `bbs_usage_count`, `bbs_paused_until`) and confirmed via the KV list API
+  that all three are gone.
+- Waited for a real post-deploy tick: `live_payload` updated at
+  `2026-09-05T21:36:26.891Z` with 34 real games, no `note` field - the
+  simplified single-call `pollAndCache()` is fetching and filtering real
+  BBS data correctly under the new architecture.
+
+**The 3 AM ET swap - real constraint, real mechanism, not glossed over:**
+a Cloudflare Worker cannot redeploy itself; swapping the actual cron
+schedule (not a KV flag this time, a literal config change) needs an
+external actor with Cloudflare deploy credentials to run `wrangler deploy`
+at that moment. Two real options were on the table:
+1. GitHub Actions (matches this repo's existing `recompute-havoc.yml`
+   pattern, fully session-independent) - blocked on needing a Cloudflare
+   API token scoped to Workers-edit as a new GitHub secret. This session's
+   own Cloudflare access is a `wrangler login` OAuth grant, confirmed via
+   a real API call (`GET /user/tokens/permission_groups` returned "Invalid
+   access token") to NOT have permission to mint new API tokens - would
+   need the user to create one via the Cloudflare dashboard.
+2. This session's own scheduled continuation (`CronCreate`), using the
+   Cloudflare credentials already authenticated here, to run the actual
+   `wrangler deploy` at 3 AM ET directly.
+**User chose option 2 explicitly** ("Do it through your own session. I'm
+keeping this open.") - the tradeoff (this only fires if the session/
+terminal stays open) was stated plainly before that choice was made.
+
+**How the swap is set up to actually work, robustly:** rather than rely
+on this conversation's context still holding the exact file contents at
+3 AM (context can get summarized over a long session), the PERMANENT
+version's real, deploy-ready files are committed to the repo right now:
+`live/worker.permanent.js` (uses `BBS_API_KEY`, otherwise identical
+architecture) and `live/wrangler.permanent.toml` (`crons =
+["*/2 * * * *"]`). The 3 AM ET job just needs to copy these over the
+active `worker.js`/`wrangler.toml`, run `wrangler deploy`, verify via the
+Cloudflare schedules API, delete the `.permanent.*` files (no longer
+needed once they're the live version), and commit/push - it does not need
+to reconstruct anything from memory. A `CronCreate` one-shot job is
+scheduled in this session for 3 AM ET (2026-09-06) to do exactly this;
+an earlier one from before this redesign (written for the old KV-flag
+revert mechanism, now obsolete) was replaced.
+
+**Status:** temp version live and confirmed working. Permanent version
+committed and ready but not yet deployed - deploys automatically via this
+session at 3 AM ET, contingent on this terminal staying open per the
+user's explicit choice above. If it doesn't fire for any reason, the temp
+version (`*/3 * * * *` on the backup key) keeps running safely under its
+own 1,000/day cap indefinitely - nothing breaks by the swap being late,
+it just means the backup key stays in use longer than intended and the
+primary key's un-hit 2,000/day capacity goes unused until someone runs
+the swap manually (copy the `.permanent.*` files over the active ones in
+`live/`, `wrangler deploy` from `live/`).

@@ -20,46 +20,41 @@
  *
  * Secrets (wrangler secret put, never committed):
  *   BBS_API_KEY         - required (primary, 2,000/day, GitHub-linked)
- *   BBS_API_KEY_BACKUP  - same-day stopgap only, see wrangler.toml
+ *   BBS_API_KEY_BACKUP  - unused by this (permanent) version; kept as a
+ *                         Worker secret only in case a future same-day
+ *                         stopgap needs it again
  *   CFBD_API_KEY        - optional, unused by this file
  *
  * KV binding: LIVE_KV (see wrangler.toml). Single key: "live_payload".
  *
- * ARCHITECTURE (rewritten 2026-09-05, replacing the kickoff-window/subpoll
- * design from earlier the same day): every cron tick does exactly ONE
- * poll - fetch the ranked-teams list, fetch BBS's full day's slate (2
- * requests - see bbs_client.js), filter to ranked teams, write to KV.
- * That's it. No in-Worker loop, no "poll faster during a live game"
- * logic, no per-game kickoff-time awareness.
+ * ARCHITECTURE (rewritten 2026-09-05, see admin/BUILD_LOG.md for the full
+ * history): every cron tick does exactly ONE poll - fetch the
+ * ranked-teams list, fetch BBS's full day's slate (2 requests - see
+ * bbs_client.js), filter to ranked teams, write to KV. No in-Worker loop,
+ * no "poll faster during a live game" logic, no per-game kickoff-time
+ * awareness.
  *
  * Why: BBS's /v1/stored/matches is a flat "whole day's slate" call - one
  * request returns every game for that date/league regardless of how many
- * ranked teams are playing (confirmed: a single call today returned 34
- * games at once). So request volume is a pure function of HOW OFTEN we
- * poll, never of how many games are live. The earlier design instead
- * tried to poll faster (every 20s, via an in-Worker sleep loop) whenever
- * ANY ranked team's game was judged "in progress" - which (a) required
- * knowing real kickoff times to judge that correctly (BBS's own
- * kickoff_utc turned out to sometimes be a placeholder, which is what
- * caused the first incident this morning), and (b) even once fixed, made
- * total daily volume depend on how many hours of the day had an
- * overlapping ranked-team game - unpredictable and, on a real Saturday,
- * large (852/1,000 by mid-afternoon on the backup key, see build log).
+ * ranked teams are playing (confirmed: a single call returned 34 games at
+ * once on 2026-09-05). So request volume is a pure function of HOW OFTEN
+ * we poll, never of how many games are live. An earlier same-day design
+ * instead tried to poll faster (every 20s, via an in-Worker sleep loop)
+ * whenever ANY ranked team's game was judged "in progress" - which (a)
+ * required knowing real kickoff times to judge that correctly (BBS's own
+ * kickoff_utc turned out to sometimes be a placeholder), and (b) even
+ * once fixed, made total daily volume depend on how many hours of the
+ * day had an overlapping ranked-team game - unpredictable, and large on
+ * a real Saturday.
  *
- * The fix is architectural, not a tighter safeguard: pick a fixed poll
- * interval low enough that requests/day is comfortably under whichever
- * key's daily cap, for ANY possible number of concurrent games (0 or 30,
- * doesn't matter - it's still exactly 2 requests per tick). At a flat
- * interval, the math is exact and doesn't need a runtime usage counter,
- * a 429 backoff, or kickoff-time data at all:
- *   - every 3 minutes = 480 pulls/day x 2 = 960 requests/day
- *   - every 2 minutes = 720 pulls/day x 2 = 1,440 requests/day
- * Both cases below their respective daily caps.
- *
- * Whichever BBS key is active is a straight literal in this file, not a
- * runtime KV flag - see wrangler.toml's [triggers] comment for how and
- * when this file gets swapped between the temp (backup key) and
- * permanent (primary key) versions.
+ * The fix is architectural, not a tighter safeguard: a fixed poll
+ * interval low enough that requests/day is comfortably under the daily
+ * cap, for ANY possible number of concurrent games (0 or 30, doesn't
+ * matter - it's still exactly 2 requests per tick):
+ *   - every 2 minutes = 720 pulls/day x 2 = 1,440 requests/day, under the
+ *     primary key's 2,000/day cap with real headroom (560/day, 28%).
+ * That makes the daily total exact and provable, not a runtime guess
+ * needing a usage-counter safety net.
  */
 
 import { norm, resolveBbsTeamName } from "./team_norm.js";
@@ -75,11 +70,8 @@ const LIVE_KV_KEY = "live_payload";
 // during overnight testing on 2026-09-01.
 const KV_TTL_SECONDS = 600;
 
-// STOPGAP, TODAY ONLY (2026-09-05): primary BBS_API_KEY account hit its
-// 2,000/day cap. This literal will be swapped back to env.BBS_API_KEY at
-// the 3 AM ET config swap described in wrangler.toml - see that file for
-// the real mechanism (an actual redeploy, not a runtime flag).
-const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY_BACKUP";
+// Permanent key: primary BBS_API_KEY account (2,000/day, GitHub-linked).
+const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
 
 export default {
   async fetch(request, env, ctx) {
