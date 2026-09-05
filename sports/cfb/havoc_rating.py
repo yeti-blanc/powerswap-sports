@@ -219,8 +219,16 @@ def compute_havoc_rating(game: dict, powerswap_ranks: dict, ap_ranks: dict) -> d
     total_weight = sum(used_weights.values())
     if not_swap_eligible or total_weight <= 0:
         rating = None
+        weighted_contributions = {}
     else:
         rating = 100 * sum(components[k] * used_weights[k] for k in used_weights) / total_weight
+        # Each component's share of the final 0-100 score - lets a
+        # consumer (e.g. admin/worker.js's digest) pick the components
+        # that actually moved this game's rating the most, without
+        # re-deriving or duplicating HAVOC_WEIGHTS elsewhere.
+        weighted_contributions = {
+            k: round(100 * components[k] * used_weights[k] / total_weight, 2) for k in used_weights
+        }
 
     return {
         "home_team": home,
@@ -228,7 +236,12 @@ def compute_havoc_rating(game: dict, powerswap_ranks: dict, ap_ranks: dict) -> d
         "havoc_rating": round(rating, 1) if rating is not None else None,
         "not_swap_eligible": not_swap_eligible,
         "components": {k: round(v, 3) for k, v in components.items()},
+        "weighted_contributions": weighted_contributions,
         "raw_averages": avg,
+        "ranks": {
+            "powerswap": {"home": powerswap_ranks.get(home), "away": powerswap_ranks.get(away)},
+            "ap": {"home": ap_ranks.get(home), "away": ap_ranks.get(away)},
+        },
         "injury_factor": None,
         "pending_factors": ["injury_report"],
     }

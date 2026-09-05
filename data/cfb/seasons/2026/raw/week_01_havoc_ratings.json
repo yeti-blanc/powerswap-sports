@@ -12,11 +12,26 @@
         "moneyline_closeness": 0.81,
         "over_under": 0.666
       },
+      "weighted_contributions": {
+        "vegas_closeness": 57.14,
+        "moneyline_closeness": 20.26,
+        "over_under": 8.32
+      },
       "raw_averages": {
         "avg_abs_spread": 3.0,
         "avg_over_under": 53.25,
         "avg_home_implied_prob": 0.40515335172724287,
         "avg_away_implied_prob": 0.594846648272757
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": 19
+        },
+        "ap": {
+          "home": null,
+          "away": 19
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -35,11 +50,28 @@
         "moneyline_closeness": 0.6,
         "over_under": 0.684
       },
+      "weighted_contributions": {
+        "powerswap_rank_gap": 21.88,
+        "ap_rank_gap": 15.62,
+        "vegas_closeness": 20.36,
+        "moneyline_closeness": 6.0,
+        "over_under": 3.42
+      },
       "raw_averages": {
         "avg_abs_spread": 6.5,
         "avg_over_under": 54.75,
         "avg_home_implied_prob": 0.7001620745542949,
         "avg_away_implied_prob": 0.299837925445705
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 9,
+          "away": 24
+        },
+        "ap": {
+          "home": 9,
+          "away": 24
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -56,11 +88,26 @@
         "moneyline_closeness": 0.44,
         "over_under": 0.631
       },
+      "weighted_contributions": {
+        "vegas_closeness": 44.64,
+        "moneyline_closeness": 11.0,
+        "over_under": 7.89
+      },
       "raw_averages": {
         "avg_abs_spread": 10.0,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.7799132721136488,
         "avg_away_implied_prob": 0.22008672788635114
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 11,
+          "away": null
+        },
+        "ap": {
+          "home": 11,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -77,11 +124,26 @@
         "moneyline_closeness": 0.203,
         "over_under": 0.631
       },
+      "weighted_contributions": {
+        "vegas_closeness": 25.0,
+        "moneyline_closeness": 5.08,
+        "over_under": 7.89
+      },
       "raw_averages": {
         "avg_abs_spread": 21.0,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.8984892393937953,
         "avg_away_implied_prob": 0.10151076060620456
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 23,
+          "away": null
+        },
+        "ap": {
+          "home": 23,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -98,11 +160,26 @@
         "moneyline_closeness": 0.174,
         "over_under": 0.581
       },
+      "weighted_contributions": {
+        "vegas_closeness": 25.89,
+        "moneyline_closeness": 4.35,
+        "over_under": 7.27
+      },
       "raw_averages": {
         "avg_abs_spread": 20.5,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.9130318293859179,
         "avg_away_implied_prob": 0.0869681706140821
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 4,
+          "away": null
+        },
+        "ap": {
+          "home": 4,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -119,11 +196,26 @@
         "moneyline_closeness": 0.167,
         "over_under": 0.641
       },
+      "weighted_contributions": {
+        "vegas_closeness": 24.11,
+        "moneyline_closeness": 4.16,
+        "over_under": 8.01
+      },
       "raw_averages": {
         "avg_abs_spread": 21.5,
         "avg_over_under": 51.25,
         "avg_home_implied_prob": 0.9167475139461556,
         "avg_away_implied_prob": 0.08325248605384429
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 14,
+          "away": null
+        },
+        "ap": {
+          "home": 14,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -140,11 +232,26 @@
         "moneyline_closeness": 0.156,
         "over_under": 0.641
       },
+      "weighted_contributions": {
+        "vegas_closeness": 20.98,
+        "moneyline_closeness": 3.89,
+        "over_under": 8.01
+      },
       "raw_averages": {
         "avg_abs_spread": 23.25,
         "avg_over_under": 51.25,
         "avg_home_implied_prob": 0.9221619683592523,
         "avg_away_implied_prob": 0.07783803164074754
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 17,
+          "away": null
+        },
+        "ap": {
+          "home": 17,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -161,11 +268,26 @@
         "moneyline_closeness": 0.153,
         "over_under": 0.647
       },
+      "weighted_contributions": {
+        "vegas_closeness": 20.54,
+        "moneyline_closeness": 3.83,
+        "over_under": 8.09
+      },
       "raw_averages": {
         "avg_abs_spread": 23.5,
         "avg_over_under": 51.75,
         "avg_home_implied_prob": 0.9234343276589099,
         "avg_away_implied_prob": 0.07656567234109012
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 18,
+          "away": null
+        },
+        "ap": {
+          "home": 18,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -182,11 +304,26 @@
         "moneyline_closeness": 0.143,
         "over_under": 0.644
       },
+      "weighted_contributions": {
+        "vegas_closeness": 18.3,
+        "moneyline_closeness": 3.58,
+        "over_under": 8.05
+      },
       "raw_averages": {
         "avg_abs_spread": 24.75,
         "avg_over_under": 51.5,
         "avg_home_implied_prob": 0.9283013735890113,
         "avg_away_implied_prob": 0.0716986264109887
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 2,
+          "away": null
+        },
+        "ap": {
+          "home": 2,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -203,11 +340,26 @@
         "moneyline_closeness": 0.136,
         "over_under": 0.581
       },
+      "weighted_contributions": {
+        "vegas_closeness": 18.75,
+        "moneyline_closeness": 3.4,
+        "over_under": 7.27
+      },
       "raw_averages": {
         "avg_abs_spread": 24.5,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.06790641652675378,
         "avg_away_implied_prob": 0.9320935834732462
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": 7
+        },
+        "ap": {
+          "home": null,
+          "away": 7
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -224,11 +376,26 @@
         "moneyline_closeness": 0.119,
         "over_under": 0.619
       },
+      "weighted_contributions": {
+        "vegas_closeness": 13.39,
+        "moneyline_closeness": 2.96,
+        "over_under": 7.73
+      },
       "raw_averages": {
         "avg_abs_spread": 27.5,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.9407481196253793,
         "avg_away_implied_prob": 0.05925188037462062
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 16,
+          "away": null
+        },
+        "ap": {
+          "home": 16,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -245,11 +412,26 @@
         "moneyline_closeness": 0.109,
         "over_under": 0.656
       },
+      "weighted_contributions": {
+        "vegas_closeness": 12.95,
+        "moneyline_closeness": 2.74,
+        "over_under": 8.2
+      },
       "raw_averages": {
         "avg_abs_spread": 27.75,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": 0.9452989036040895,
         "avg_away_implied_prob": 0.05470109639591046
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 13,
+          "away": null
+        },
+        "ap": {
+          "home": 13,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -266,11 +448,26 @@
         "moneyline_closeness": 0.08,
         "over_under": 0.747
       },
+      "weighted_contributions": {
+        "vegas_closeness": 9.82,
+        "moneyline_closeness": 1.99,
+        "over_under": 9.34
+      },
       "raw_averages": {
         "avg_abs_spread": 29.5,
         "avg_over_under": 59.75,
         "avg_home_implied_prob": 0.9602204516383062,
         "avg_away_implied_prob": 0.03977954836169379
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 5,
+          "away": null
+        },
+        "ap": {
+          "home": 5,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -287,11 +484,26 @@
         "moneyline_closeness": 0.056,
         "over_under": 0.556
       },
+      "weighted_contributions": {
+        "vegas_closeness": 5.8,
+        "moneyline_closeness": 1.41,
+        "over_under": 6.95
+      },
       "raw_averages": {
         "avg_abs_spread": 31.75,
         "avg_over_under": 44.5,
         "avg_home_implied_prob": 0.9718388345870576,
         "avg_away_implied_prob": 0.028161165412942456
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 22,
+          "away": null
+        },
+        "ap": {
+          "home": 22,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -307,11 +519,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.831
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 13.85
+      },
       "raw_averages": {
         "avg_abs_spread": 48.25,
         "avg_over_under": 66.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 20,
+          "away": null
+        },
+        "ap": {
+          "home": 20,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -327,11 +553,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.781
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 13.02
+      },
       "raw_averages": {
         "avg_abs_spread": 55.5,
         "avg_over_under": 62.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 25,
+          "away": null
+        },
+        "ap": {
+          "home": 25,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -347,11 +587,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.766
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 12.76
+      },
       "raw_averages": {
         "avg_abs_spread": 51.5,
         "avg_over_under": 61.25,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 15,
+          "away": null
+        },
+        "ap": {
+          "home": 14,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -367,11 +621,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.744
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 12.4
+      },
       "raw_averages": {
         "avg_abs_spread": 42.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 12,
+          "away": null
+        },
+        "ap": {
+          "home": 12,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -387,11 +655,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.709
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 11.82
+      },
       "raw_averages": {
         "avg_abs_spread": 40.75,
         "avg_over_under": 56.75,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 6,
+          "away": null
+        },
+        "ap": {
+          "home": 6,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -407,11 +689,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.706
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 11.77
+      },
       "raw_averages": {
         "avg_abs_spread": 50.25,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 1,
+          "away": null
+        },
+        "ap": {
+          "home": 1,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -427,11 +723,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.681
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 11.35
+      },
       "raw_averages": {
         "avg_abs_spread": 47.75,
         "avg_over_under": 54.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 3,
+          "away": null
+        },
+        "ap": {
+          "home": 3,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -447,11 +757,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.669
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 11.15
+      },
       "raw_averages": {
         "avg_abs_spread": 40.5,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 8,
+          "away": null
+        },
+        "ap": {
+          "home": 8,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -468,11 +792,26 @@
         "moneyline_closeness": 0.046,
         "over_under": 0.765
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "moneyline_closeness": 1.16,
+        "over_under": 9.56
+      },
       "raw_averages": {
         "avg_abs_spread": 37.333333333333336,
         "avg_over_under": 61.166666666666664,
         "avg_home_implied_prob": 0.9768485236510117,
         "avg_away_implied_prob": 0.023151476348988283
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 14,
+          "away": null
+        },
+        "ap": {
+          "home": 14,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -488,11 +827,25 @@
         "vegas_closeness": 0.0,
         "over_under": 0.634
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "over_under": 10.57
+      },
       "raw_averages": {
         "avg_abs_spread": 40.75,
         "avg_over_under": 50.75,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 10,
+          "away": null
+        },
+        "ap": {
+          "home": 10,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -509,11 +862,26 @@
         "moneyline_closeness": 0.038,
         "over_under": 0.756
       },
+      "weighted_contributions": {
+        "vegas_closeness": 0.0,
+        "moneyline_closeness": 0.96,
+        "over_under": 9.45
+      },
       "raw_averages": {
         "avg_abs_spread": 38.0,
         "avg_over_under": 60.5,
         "avg_home_implied_prob": 0.9807503701851887,
         "avg_away_implied_prob": 0.01924962981481125
+      },
+      "ranks": {
+        "powerswap": {
+          "home": 21,
+          "away": null
+        },
+        "ap": {
+          "home": 21,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -530,11 +898,22 @@
         "moneyline_closeness": 0.916,
         "over_under": 0.603
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 1.75,
         "avg_over_under": 48.25,
         "avg_home_implied_prob": 0.5419543235920408,
         "avg_away_implied_prob": 0.45804567640795923
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -551,11 +930,22 @@
         "moneyline_closeness": 0.326,
         "over_under": 0.641
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 14.5,
         "avg_over_under": 51.25,
         "avg_home_implied_prob": 0.837098445595855,
         "avg_away_implied_prob": 0.16290155440414505
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -571,11 +961,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.791
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 40.5,
         "avg_over_under": 63.25,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -592,11 +993,22 @@
         "moneyline_closeness": 0.647,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 6.0,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.6762685065401753,
         "avg_away_implied_prob": 0.3237314934598246
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -613,11 +1025,22 @@
         "moneyline_closeness": 0.038,
         "over_under": 0.691
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 34.5,
         "avg_over_under": 55.25,
         "avg_home_implied_prob": 0.9807503701851887,
         "avg_away_implied_prob": 0.01924962981481125
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -634,11 +1057,22 @@
         "moneyline_closeness": 0.048,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 30.5,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": 0.9761439931431837,
         "avg_away_implied_prob": 0.023856006856816343
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -654,11 +1088,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.731
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 43.5,
         "avg_over_under": 58.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -675,11 +1120,22 @@
         "moneyline_closeness": 0.222,
         "over_under": 0.644
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 19.5,
         "avg_over_under": 51.5,
         "avg_home_implied_prob": 0.8889592177077016,
         "avg_away_implied_prob": 0.11104078229229836
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -696,11 +1152,22 @@
         "moneyline_closeness": 0.578,
         "over_under": 0.628
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.5,
         "avg_over_under": 50.25,
         "avg_home_implied_prob": 0.7111206667161594,
         "avg_away_implied_prob": 0.28887933328384063
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -717,11 +1184,22 @@
         "moneyline_closeness": 0.084,
         "over_under": 0.719
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 29.0,
         "avg_over_under": 57.5,
         "avg_home_implied_prob": 0.9578344612181156,
         "avg_away_implied_prob": 0.042165538781884435
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -738,11 +1216,22 @@
         "moneyline_closeness": 0.179,
         "over_under": 0.781
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 22.75,
         "avg_over_under": 62.5,
         "avg_home_implied_prob": 0.9107322139518782,
         "avg_away_implied_prob": 0.08926778604812187
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -758,11 +1247,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 36.75,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -779,11 +1279,22 @@
         "moneyline_closeness": 0.256,
         "over_under": 0.594
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 18.5,
         "avg_over_under": 47.5,
         "avg_home_implied_prob": 0.8720930232558138,
         "avg_away_implied_prob": 0.12790697674418605
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -800,11 +1311,22 @@
         "moneyline_closeness": 0.048,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 30.5,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.9761439931431837,
         "avg_away_implied_prob": 0.023856006856816343
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -821,11 +1343,22 @@
         "moneyline_closeness": 0.114,
         "over_under": 0.747
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 28.25,
         "avg_over_under": 59.75,
         "avg_home_implied_prob": 0.9431345353675451,
         "avg_away_implied_prob": 0.056865464632454926
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -841,11 +1374,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 42.5,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -862,11 +1406,22 @@
         "moneyline_closeness": 0.084,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 31.5,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.9578344612181156,
         "avg_away_implied_prob": 0.042165538781884435
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -882,11 +1437,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.697
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 35.0,
         "avg_over_under": 55.75,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -903,11 +1469,22 @@
         "moneyline_closeness": 0.204,
         "over_under": 0.581
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 20.25,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.8981582911132412,
         "avg_away_implied_prob": 0.10184170888675886
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -924,11 +1501,22 @@
         "moneyline_closeness": 0.121,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 22.5,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.9396411092985318,
         "avg_away_implied_prob": 0.06035889070146819
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -944,11 +1532,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 42.75,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -965,11 +1564,22 @@
         "moneyline_closeness": 0.075,
         "over_under": 0.744
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 28.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": 0.9625668449197861,
         "avg_away_implied_prob": 0.0374331550802139
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -985,11 +1595,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.703
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 41.5,
         "avg_over_under": 56.25,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1006,11 +1627,22 @@
         "moneyline_closeness": 0.235,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 19.5,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": 0.8822680412371133,
         "avg_away_implied_prob": 0.11773195876288661
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1027,11 +1659,22 @@
         "moneyline_closeness": 0.197,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 20.75,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": 0.9013334093110719,
         "avg_away_implied_prob": 0.09866659068892814
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1047,11 +1690,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 37.5,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1068,11 +1722,22 @@
         "moneyline_closeness": 0.151,
         "over_under": 0.594
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 22.5,
         "avg_over_under": 47.5,
         "avg_home_implied_prob": 0.9243660091947206,
         "avg_away_implied_prob": 0.07563399080527955
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1088,11 +1753,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.778
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 55.5,
         "avg_over_under": 62.25,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1108,11 +1784,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.681
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 40.5,
         "avg_over_under": 54.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1129,11 +1816,22 @@
         "moneyline_closeness": 0.084,
         "over_under": 0.731
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 31.5,
         "avg_over_under": 58.5,
         "avg_home_implied_prob": 0.9578344612181156,
         "avg_away_implied_prob": 0.042165538781884435
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1149,11 +1847,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 40.75,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1169,11 +1878,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 44.5,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1189,11 +1909,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 45.5,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1209,11 +1940,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 44.75,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1230,11 +1972,22 @@
         "moneyline_closeness": 0.127,
         "over_under": 0.644
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 25.5,
         "avg_over_under": 51.5,
         "avg_home_implied_prob": 0.9365889516384295,
         "avg_away_implied_prob": 0.06341104836157063
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1250,11 +2003,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.772
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 40.5,
         "avg_over_under": 61.75,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1271,11 +2035,22 @@
         "moneyline_closeness": 0.225,
         "over_under": 0.606
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 20.25,
         "avg_over_under": 48.5,
         "avg_home_implied_prob": 0.8875081116158339,
         "avg_away_implied_prob": 0.11249188838416611
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1292,11 +2067,22 @@
         "moneyline_closeness": 0.225,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 19.75,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.8875081116158339,
         "avg_away_implied_prob": 0.11249188838416611
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1313,11 +2099,22 @@
         "moneyline_closeness": 0.107,
         "over_under": 0.756
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 28.75,
         "avg_over_under": 60.5,
         "avg_home_implied_prob": 0.9462616822429908,
         "avg_away_implied_prob": 0.053738317757009345
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1334,11 +2131,22 @@
         "moneyline_closeness": 0.37,
         "over_under": 0.778
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 14.0,
         "avg_over_under": 62.25,
         "avg_home_implied_prob": 0.8150243389027759,
         "avg_away_implied_prob": 0.18497566109722408
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1355,11 +2163,22 @@
         "moneyline_closeness": 0.188,
         "over_under": 0.719
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 20.75,
         "avg_over_under": 57.5,
         "avg_home_implied_prob": 0.906221198156682,
         "avg_away_implied_prob": 0.09377880184331798
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1376,11 +2195,22 @@
         "moneyline_closeness": 0.396,
         "over_under": 0.578
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 12.5,
         "avg_over_under": 46.25,
         "avg_home_implied_prob": 0.8019460638448614,
         "avg_away_implied_prob": 0.19805393615513855
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1397,11 +2227,22 @@
         "moneyline_closeness": 0.395,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 13.0,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": 0.8026485531745162,
         "avg_away_implied_prob": 0.19735144682548372
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1417,11 +2258,22 @@
         "vegas_closeness": 0.129,
         "over_under": 0.719
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 30.5,
         "avg_over_under": 57.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1438,11 +2290,22 @@
         "moneyline_closeness": 0.084,
         "over_under": 0.653
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 28.5,
         "avg_over_under": 52.25,
         "avg_home_implied_prob": 0.9578344612181156,
         "avg_away_implied_prob": 0.042165538781884435
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1459,11 +2322,22 @@
         "moneyline_closeness": 0.084,
         "over_under": 0.685
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 29.333333333333332,
         "avg_over_under": 54.833333333333336,
         "avg_home_implied_prob": 0.9578344612181156,
         "avg_away_implied_prob": 0.042165538781884435
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1480,11 +2354,22 @@
         "moneyline_closeness": 0.829,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 3.0,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.5855103304800775,
         "avg_away_implied_prob": 0.4144896695199225
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1501,11 +2386,22 @@
         "moneyline_closeness": 0.192,
         "over_under": 0.594
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 20.75,
         "avg_over_under": 47.5,
         "avg_home_implied_prob": 0.09597465523667537,
         "avg_away_implied_prob": 0.9040253447633246
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1522,11 +2418,22 @@
         "moneyline_closeness": 0.204,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 19.5,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.8979591836734695,
         "avg_away_implied_prob": 0.10204081632653061
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1543,11 +2450,22 @@
         "moneyline_closeness": 0.516,
         "over_under": 0.581
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.0,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.2580812758363641,
         "avg_away_implied_prob": 0.741918724163636
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1564,11 +2482,22 @@
         "moneyline_closeness": 0.338,
         "over_under": 0.594
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 12.5,
         "avg_over_under": 47.5,
         "avg_home_implied_prob": 0.8310097169412758,
         "avg_away_implied_prob": 0.16899028305872413
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1585,11 +2514,22 @@
         "moneyline_closeness": 0.148,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 21.0,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.9258160237388723,
         "avg_away_implied_prob": 0.07418397626112759
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1606,11 +2546,22 @@
         "moneyline_closeness": 0.688,
         "over_under": 0.506
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 5.5,
         "avg_over_under": 40.5,
         "avg_home_implied_prob": 0.6558264427585031,
         "avg_away_implied_prob": 0.3441735572414969
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1627,11 +2578,22 @@
         "moneyline_closeness": 0.749,
         "over_under": 0.606
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.666666666666667,
         "avg_over_under": 48.5,
         "avg_home_implied_prob": 0.6257149171495702,
         "avg_away_implied_prob": 0.3742850828504297
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1648,11 +2610,22 @@
         "moneyline_closeness": 0.377,
         "over_under": 0.741
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 13.5,
         "avg_over_under": 59.25,
         "avg_home_implied_prob": 0.1885304985849021,
         "avg_away_implied_prob": 0.8114695014150979
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1669,11 +2642,22 @@
         "moneyline_closeness": 0.619,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.0,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.6907364181041384,
         "avg_away_implied_prob": 0.3092635818958616
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1689,11 +2673,22 @@
         "vegas_closeness": 0.014,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 34.5,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1710,11 +2705,22 @@
         "moneyline_closeness": 0.532,
         "over_under": 0.731
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 8.5,
         "avg_over_under": 58.5,
         "avg_home_implied_prob": 0.7339460636110774,
         "avg_away_implied_prob": 0.26605393638892244
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1731,11 +2737,22 @@
         "moneyline_closeness": 0.751,
         "over_under": 0.569
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.25,
         "avg_over_under": 45.5,
         "avg_home_implied_prob": 0.37543715284920803,
         "avg_away_implied_prob": 0.624562847150792
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1752,11 +2769,22 @@
         "moneyline_closeness": 0.469,
         "over_under": 0.569
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.5,
         "avg_over_under": 45.5,
         "avg_home_implied_prob": 0.7654559945348971,
         "avg_away_implied_prob": 0.23454400546510307
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1773,11 +2801,22 @@
         "moneyline_closeness": 0.478,
         "over_under": 0.637
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.75,
         "avg_over_under": 51.0,
         "avg_home_implied_prob": 0.760931743816214,
         "avg_away_implied_prob": 0.23906825618378602
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1794,11 +2833,22 @@
         "moneyline_closeness": 0.657,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 5.5,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": 0.6715896214638268,
         "avg_away_implied_prob": 0.3284103785361731
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1815,11 +2865,22 @@
         "moneyline_closeness": 0.312,
         "over_under": 0.594
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 14.0,
         "avg_over_under": 47.5,
         "avg_home_implied_prob": 0.15592515592515593,
         "avg_away_implied_prob": 0.844074844074844
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1836,11 +2897,22 @@
         "moneyline_closeness": 0.883,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 2.5,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": 0.5585430102643292,
         "avg_away_implied_prob": 0.44145698973567077
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1857,11 +2929,22 @@
         "moneyline_closeness": 0.613,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.0,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.30654515327257664,
         "avg_away_implied_prob": 0.6934548467274233
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1878,11 +2961,22 @@
         "moneyline_closeness": 0.806,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.0,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.596791262801484,
         "avg_away_implied_prob": 0.403208737198516
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1899,11 +2993,22 @@
         "moneyline_closeness": 0.756,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.5,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": 0.6218024185965149,
         "avg_away_implied_prob": 0.37819758140348514
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1920,11 +3025,22 @@
         "moneyline_closeness": 0.444,
         "over_under": 0.644
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.5,
         "avg_over_under": 51.5,
         "avg_home_implied_prob": 0.2219243611146783,
         "avg_away_implied_prob": 0.7780756388853217
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1941,11 +3057,22 @@
         "moneyline_closeness": 0.608,
         "over_under": 0.665
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 6.5,
         "avg_over_under": 53.166666666666664,
         "avg_home_implied_prob": 0.6958005072186708,
         "avg_away_implied_prob": 0.3041994927813292
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1962,11 +3089,22 @@
         "moneyline_closeness": 0.365,
         "over_under": 0.606
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 12.5,
         "avg_over_under": 48.5,
         "avg_home_implied_prob": 0.8174442190669371,
         "avg_away_implied_prob": 0.18255578093306288
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -1983,11 +3121,22 @@
         "moneyline_closeness": 0.572,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.5,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.2860265727912787,
         "avg_away_implied_prob": 0.7139734272087213
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2004,11 +3153,22 @@
         "moneyline_closeness": 0.949,
         "over_under": 0.581
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 1.5,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.5254237288135594,
         "avg_away_implied_prob": 0.4745762711864407
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2025,11 +3185,22 @@
         "moneyline_closeness": 0.264,
         "over_under": 0.744
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 15.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": 0.8682447521214829,
         "avg_away_implied_prob": 0.1317552478785172
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2046,11 +3217,22 @@
         "moneyline_closeness": 0.218,
         "over_under": 0.681
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 19.5,
         "avg_over_under": 54.5,
         "avg_home_implied_prob": 0.8909429445404974,
         "avg_away_implied_prob": 0.10905705545950259
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2067,11 +3249,22 @@
         "moneyline_closeness": 0.158,
         "over_under": 0.719
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 22.5,
         "avg_over_under": 57.5,
         "avg_home_implied_prob": 0.920863309352518,
         "avg_away_implied_prob": 0.07913669064748201
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2088,11 +3281,22 @@
         "moneyline_closeness": 0.855,
         "over_under": 0.681
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 3.0,
         "avg_over_under": 54.5,
         "avg_home_implied_prob": 0.5724755700325733,
         "avg_away_implied_prob": 0.42752442996742673
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2108,11 +3312,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.731
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 50.5,
         "avg_over_under": 58.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2129,11 +3344,22 @@
         "moneyline_closeness": 0.56,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.0,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": 0.7198233462454293,
         "avg_away_implied_prob": 0.2801766537545707
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2150,11 +3376,22 @@
         "moneyline_closeness": 0.444,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 12.5,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.2219243611146783,
         "avg_away_implied_prob": 0.7780756388853217
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2170,11 +3407,22 @@
         "vegas_closeness": 0.071,
         "over_under": 0.719
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 32.5,
         "avg_over_under": 57.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2191,11 +3439,22 @@
         "moneyline_closeness": 0.136,
         "over_under": 0.756
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 25.5,
         "avg_over_under": 60.5,
         "avg_home_implied_prob": 0.06781750924784216,
         "avg_away_implied_prob": 0.9321824907521578
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2212,11 +3471,22 @@
         "moneyline_closeness": 0.355,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 12.5,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.17740981667652275,
         "avg_away_implied_prob": 0.8225901833234772
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2233,11 +3503,22 @@
         "moneyline_closeness": 0.878,
         "over_under": 0.581
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 2.5,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.5610892153350053,
         "avg_away_implied_prob": 0.4389107846649946
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2254,11 +3535,22 @@
         "moneyline_closeness": 0.555,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 8.5,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": 0.27763755678950025,
         "avg_away_implied_prob": 0.7223624432104998
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2275,11 +3567,22 @@
         "moneyline_closeness": 0.698,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 5.5,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": 0.34875584904010143,
         "avg_away_implied_prob": 0.6512441509598985
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2296,11 +3599,22 @@
         "moneyline_closeness": 0.567,
         "over_under": 0.581
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 6.666666666666667,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.7163462791874851,
         "avg_away_implied_prob": 0.28365372081251505
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2317,11 +3631,22 @@
         "moneyline_closeness": 0.6,
         "over_under": 0.579
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.5,
         "avg_over_under": 46.333333333333336,
         "avg_home_implied_prob": 0.699978126293415,
         "avg_away_implied_prob": 0.30002187370658495
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2338,11 +3663,22 @@
         "moneyline_closeness": 0.515,
         "over_under": 0.658
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 9.0,
         "avg_over_under": 52.666666666666664,
         "avg_home_implied_prob": 0.7423526557006999,
         "avg_away_implied_prob": 0.2576473442993002
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2359,11 +3695,22 @@
         "moneyline_closeness": 0.076,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 31.0,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": 0.9622344533682992,
         "avg_away_implied_prob": 0.037765546631700855
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2379,11 +3726,22 @@
         "vegas_closeness": 0.871,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.5,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2399,11 +3757,22 @@
         "vegas_closeness": 0.871,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.5,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2419,11 +3788,22 @@
         "vegas_closeness": 0.586,
         "over_under": 0.744
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 14.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2439,11 +3819,22 @@
         "vegas_closeness": 0.9,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 3.5,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2459,11 +3850,22 @@
         "vegas_closeness": 0.3,
         "over_under": 0.644
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 24.5,
         "avg_over_under": 51.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2479,11 +3881,22 @@
         "vegas_closeness": 0.914,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 3.0,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2499,11 +3912,22 @@
         "vegas_closeness": 0.186,
         "over_under": 0.644
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 28.5,
         "avg_over_under": 51.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2519,11 +3943,22 @@
         "vegas_closeness": 0.214,
         "over_under": 0.556
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 27.5,
         "avg_over_under": 44.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2539,11 +3974,22 @@
         "vegas_closeness": 0.443,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 19.5,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2559,11 +4005,22 @@
         "vegas_closeness": 0.786,
         "over_under": 0.569
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.5,
         "avg_over_under": 45.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2579,11 +4036,22 @@
         "vegas_closeness": 0.929,
         "over_under": 0.581
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 2.5,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2600,11 +4068,22 @@
         "moneyline_closeness": 0.59,
         "over_under": 0.744
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": 0.7048528215095126,
         "avg_away_implied_prob": 0.2951471784904873
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2621,11 +4100,22 @@
         "moneyline_closeness": 0.124,
         "over_under": 0.677
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 25.833333333333332,
         "avg_over_under": 54.166666666666664,
         "avg_home_implied_prob": 0.9382046295907179,
         "avg_away_implied_prob": 0.061795370409282104
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2642,11 +4132,22 @@
         "moneyline_closeness": 0.148,
         "over_under": 0.578
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 23.5,
         "avg_over_under": 46.25,
         "avg_home_implied_prob": 0.9258321673770864,
         "avg_away_implied_prob": 0.07416783262291347
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2663,11 +4164,22 @@
         "moneyline_closeness": 0.229,
         "over_under": 0.681
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 20.5,
         "avg_over_under": 54.5,
         "avg_home_implied_prob": 0.11432926829268293,
         "avg_away_implied_prob": 0.8856707317073171
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2684,11 +4196,22 @@
         "moneyline_closeness": 0.759,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.0,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.6204858831254104,
         "avg_away_implied_prob": 0.3795141168745897
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2705,11 +4228,22 @@
         "moneyline_closeness": 0.139,
         "over_under": 0.631
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 27.5,
         "avg_over_under": 50.5,
         "avg_home_implied_prob": 0.9303468704387396,
         "avg_away_implied_prob": 0.06965312956126041
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2726,11 +4260,22 @@
         "moneyline_closeness": 0.408,
         "over_under": 0.584
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.5,
         "avg_over_under": 46.75,
         "avg_home_implied_prob": 0.7958827277071151,
         "avg_away_implied_prob": 0.20411727229288495
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2747,11 +4292,22 @@
         "moneyline_closeness": 0.837,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 3.0,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": 0.41858771309014203,
         "avg_away_implied_prob": 0.5814122869098579
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2768,11 +4324,22 @@
         "moneyline_closeness": 0.519,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 36.0,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": 0.7403751850925944,
         "avg_away_implied_prob": 0.25962481490740563
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2789,11 +4356,22 @@
         "moneyline_closeness": 0.38,
         "over_under": 0.647
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 14.5,
         "avg_over_under": 51.75,
         "avg_home_implied_prob": 0.8101905253071164,
         "avg_away_implied_prob": 0.18980947469288348
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2810,11 +4388,22 @@
         "moneyline_closeness": 0.906,
         "over_under": 0.669
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 2.5,
         "avg_over_under": 53.5,
         "avg_home_implied_prob": 0.4529076732580277,
         "avg_away_implied_prob": 0.5470923267419723
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2831,11 +4420,22 @@
         "moneyline_closeness": 0.137,
         "over_under": 0.744
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 26.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": 0.9317467193645107,
         "avg_away_implied_prob": 0.06825328063548927
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2852,11 +4452,22 @@
         "moneyline_closeness": 0.796,
         "over_under": 0.581
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 3.0,
         "avg_over_under": 46.5,
         "avg_home_implied_prob": 0.6020511243122073,
         "avg_away_implied_prob": 0.3979488756877927
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2873,11 +4484,22 @@
         "moneyline_closeness": 0.258,
         "over_under": 0.672
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 16.5,
         "avg_over_under": 53.75,
         "avg_home_implied_prob": 0.8712400038539359,
         "avg_away_implied_prob": 0.12875999614606418
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2894,11 +4516,22 @@
         "moneyline_closeness": 0.609,
         "over_under": 0.519
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.0,
         "avg_over_under": 41.5,
         "avg_home_implied_prob": 0.6954505372481139,
         "avg_away_implied_prob": 0.3045494627518861
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2915,11 +4548,22 @@
         "moneyline_closeness": 0.327,
         "over_under": 0.731
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 15.5,
         "avg_over_under": 58.5,
         "avg_home_implied_prob": 0.8365567965132116,
         "avg_away_implied_prob": 0.16344320348678834
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2935,11 +4579,22 @@
         "vegas_closeness": 0.214,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 27.5,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2956,11 +4611,22 @@
         "moneyline_closeness": 0.778,
         "over_under": 0.594
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.5,
         "avg_over_under": 47.5,
         "avg_home_implied_prob": 0.6111480128418023,
         "avg_away_implied_prob": 0.3888519871581977
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2977,11 +4643,22 @@
         "moneyline_closeness": 0.2,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 21.5,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.9000520562207184,
         "avg_away_implied_prob": 0.09994794377928162
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -2998,11 +4675,22 @@
         "moneyline_closeness": 0.419,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.5,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.20964655560558307,
         "avg_away_implied_prob": 0.790353444394417
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3019,11 +4707,22 @@
         "moneyline_closeness": 0.325,
         "over_under": 0.569
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 14.5,
         "avg_over_under": 45.5,
         "avg_home_implied_prob": 0.16252390057361377,
         "avg_away_implied_prob": 0.8374760994263862
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3039,11 +4738,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.769
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 44.5,
         "avg_over_under": 61.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3060,11 +4770,22 @@
         "moneyline_closeness": 0.613,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 6.5,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": 0.6936669143753613,
         "avg_away_implied_prob": 0.3063330856246388
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3081,11 +4802,22 @@
         "moneyline_closeness": 0.186,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 20.5,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.09314140558848433,
         "avg_away_implied_prob": 0.9068585944115156
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3102,11 +4834,22 @@
         "moneyline_closeness": 0.306,
         "over_under": 0.731
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 14.5,
         "avg_over_under": 58.5,
         "avg_home_implied_prob": 0.8467688207861425,
         "avg_away_implied_prob": 0.15323117921385743
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3122,11 +4865,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.744
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 45.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3143,11 +4897,22 @@
         "moneyline_closeness": 0.336,
         "over_under": 0.719
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 15.5,
         "avg_over_under": 57.5,
         "avg_home_implied_prob": 0.16824526420737787,
         "avg_away_implied_prob": 0.8317547357926222
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3164,11 +4929,22 @@
         "moneyline_closeness": 0.148,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 25.5,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.9258160237388723,
         "avg_away_implied_prob": 0.07418397626112759
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3184,11 +4960,22 @@
         "vegas_closeness": 0.5,
         "moneyline_closeness": 0.257
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 17.5,
         "avg_over_under": null,
         "avg_home_implied_prob": 0.12831299957930165,
         "avg_away_implied_prob": 0.8716870004206984
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3204,11 +4991,22 @@
         "vegas_closeness": 0.0,
         "over_under": 0.719
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 35.5,
         "avg_over_under": 57.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3225,11 +5023,22 @@
         "moneyline_closeness": 0.427,
         "over_under": 0.681
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.5,
         "avg_over_under": 54.5,
         "avg_home_implied_prob": 0.7866305561146998,
         "avg_away_implied_prob": 0.2133694438853002
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3245,11 +5054,22 @@
         "vegas_closeness": 0.071,
         "over_under": 0.731
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 32.5,
         "avg_over_under": 58.5,
         "avg_home_implied_prob": null,
         "avg_away_implied_prob": null
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3266,11 +5086,22 @@
         "moneyline_closeness": 0.142,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 26.5,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.07091080995902929,
         "avg_away_implied_prob": 0.9290891900409706
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3287,11 +5118,22 @@
         "moneyline_closeness": 0.581,
         "over_under": 0.694
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.5,
         "avg_over_under": 55.5,
         "avg_home_implied_prob": 0.7096603906387472,
         "avg_away_implied_prob": 0.29033960936125286
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3308,11 +5150,22 @@
         "moneyline_closeness": 0.778,
         "over_under": 0.844
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 4.0,
         "avg_over_under": 67.5,
         "avg_home_implied_prob": 0.3888519871581977,
         "avg_away_implied_prob": 0.6111480128418023
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3329,11 +5182,22 @@
         "moneyline_closeness": 0.615,
         "over_under": 0.684
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 21.0,
         "avg_over_under": 54.75,
         "avg_home_implied_prob": 0.6925116241508317,
         "avg_away_implied_prob": 0.3074883758491683
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3350,11 +5214,22 @@
         "moneyline_closeness": 0.583,
         "over_under": 0.594
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 7.0,
         "avg_over_under": 47.5,
         "avg_home_implied_prob": 0.708674691668392,
         "avg_away_implied_prob": 0.2913253083316081
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3371,11 +5246,22 @@
         "moneyline_closeness": 0.458,
         "over_under": 0.706
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.0,
         "avg_over_under": 56.5,
         "avg_home_implied_prob": 0.7711631108052305,
         "avg_away_implied_prob": 0.22883688919476944
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3392,11 +5278,22 @@
         "moneyline_closeness": 0.882,
         "over_under": 0.691
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 1.5,
         "avg_over_under": 55.25,
         "avg_home_implied_prob": 0.5587674458426282,
         "avg_away_implied_prob": 0.4412325541573718
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3413,11 +5310,22 @@
         "moneyline_closeness": 0.3,
         "over_under": 0.591
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 16.25,
         "avg_over_under": 47.25,
         "avg_home_implied_prob": 0.8499583217560434,
         "avg_away_implied_prob": 0.15004167824395667
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3434,11 +5342,22 @@
         "moneyline_closeness": 0.136,
         "over_under": 0.744
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 23.5,
         "avg_over_under": 59.5,
         "avg_home_implied_prob": 0.06783919597989949,
         "avg_away_implied_prob": 0.9321608040201005
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3455,11 +5374,22 @@
         "moneyline_closeness": 0.942,
         "over_under": 0.656
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 1.25,
         "avg_over_under": 52.5,
         "avg_home_implied_prob": 0.47114297922476545,
         "avg_away_implied_prob": 0.5288570207752346
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3476,11 +5406,22 @@
         "moneyline_closeness": 0.19,
         "over_under": 0.619
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 22.5,
         "avg_over_under": 49.5,
         "avg_home_implied_prob": 0.09482758620689655,
         "avg_away_implied_prob": 0.9051724137931034
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3497,11 +5438,22 @@
         "moneyline_closeness": 0.094,
         "over_under": 0.684
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 28.5,
         "avg_over_under": 54.75,
         "avg_home_implied_prob": 0.9530309171782357,
         "avg_away_implied_prob": 0.04696908282176429
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3518,11 +5470,22 @@
         "moneyline_closeness": 0.469,
         "over_under": 0.606
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.0,
         "avg_over_under": 48.5,
         "avg_home_implied_prob": 0.7654666016707948,
         "avg_away_implied_prob": 0.23453339832920517
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
@@ -3539,11 +5502,22 @@
         "moneyline_closeness": 0.468,
         "over_under": 0.653
       },
+      "weighted_contributions": {},
       "raw_averages": {
         "avg_abs_spread": 10.75,
         "avg_over_under": 52.25,
         "avg_home_implied_prob": 0.7661166267437187,
         "avg_away_implied_prob": 0.23388337325628117
+      },
+      "ranks": {
+        "powerswap": {
+          "home": null,
+          "away": null
+        },
+        "ap": {
+          "home": null,
+          "away": null
+        }
       },
       "injury_factor": null,
       "pending_factors": [
