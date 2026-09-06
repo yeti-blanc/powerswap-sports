@@ -77,19 +77,23 @@ const LIVE_KV_KEY = "live_payload";
 // during overnight testing on 2026-09-01.
 const KV_TTL_SECONDS = 600;
 
-// GAME RETENTION (2026-09-06): BBS's /v1/stored/matches only ever
-// returns today's and yesterday's UTC-date games (see bbs_client.js) - a
-// game older than that silently stops appearing in each fresh fetch, even
-// though it finished normally. Confirmed in production: Thursday's games
-// had aged out of the payload by Sunday. Rather than widen the BBS date
-// range (which would cost more requests per poll - the exact thing this
-// morning's redesign was built to avoid), pollAndCache() merges each
-// fresh fetch on top of the PREVIOUS payload already in KV: a finished
-// game that ages out of BBS's 2-day window stays in the published
-// payload (frozen at its last known score) until it's older than
-// GAME_RETENTION_MS, at which point it's dropped for good. No extra BBS
-// requests either way - this is pure KV read+merge.
-const GAME_RETENTION_MS = 7 * 24 * 60 * 60 * 1000; // one full CFB week
+// GAME RETENTION (2026-09-06, made permanent-until-superseded per explicit
+// request): BBS's /v1/stored/matches only ever returns today's and
+// yesterday's UTC-date games (see bbs_client.js) - a game older than that
+// silently stops appearing in each fresh fetch, even though it finished
+// normally. Confirmed in production: Thursday's games had aged out of the
+// payload by Sunday. Rather than widen the BBS date range (which would
+// cost more requests per poll - the exact thing this morning's redesign
+// was built to avoid), pollAndCache() merges each fresh fetch on top of
+// the PREVIOUS payload already in KV: a finished game that ages out of
+// BBS's 2-day window stays in the published payload (frozen at its last
+// known score) INDEFINITELY - no time-based expiry - until that same
+// ranked team's NEXT real game appears in a fresh fetch and supersedes it
+// (see gameIdentityKey()). A team's next real game can't appear in BBS's
+// fetch window before it actually happens, so this can't leak a future
+// week's score early - it only ever replaces a finished entry with a
+// newer finished (or in-progress) one for the same team. No extra BBS
+// requests either way - this is pure KV read+merge, no per-game TTL.
 
 // Permanent key: primary BBS_API_KEY account (2,000/day, GitHub-linked).
 const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
@@ -237,19 +241,16 @@ export function gameIdentityKey(game, rankedSet) {
 
 // Fresh fetch results always win (they're the latest known state for
 // anything still inside BBS's queried date range). Games from the
-// previous payload are kept ONLY if the fresh fetch no longer mentions
-// them (aged out of BBS's 2-day window) AND they're not older than
-// GAME_RETENTION_MS - this is what keeps a finished Thursday game's
-// score visible through the following weekend without costing any extra
-// BBS requests.
+// previous payload are kept PERMANENTLY - no time-based expiry - as long
+// as the fresh fetch doesn't already have a newer entry for the same
+// ranked team (see gameIdentityKey()). A team's next real game can only
+// enter the fresh fetch once it's actually within BBS's 2-day window,
+// i.e. once it's genuinely about to happen or has happened, so this can
+// never show a future week's result early - it only ever replaces one
+// finished/in-progress entry with a newer one for the same team.
 export function mergeGames(freshGames, previousGames, rankedSet) {
   const freshKeys = new Set(freshGames.map((g) => gameIdentityKey(g, rankedSet)));
-  const now = Date.now();
-  const retained = (previousGames ?? []).filter((g) => {
-    if (freshKeys.has(gameIdentityKey(g, rankedSet))) return false; // superseded by fresh data
-    const kickoffMs = g.kickoff_utc ? Date.parse(g.kickoff_utc) : null;
-    return kickoffMs !== null && now - kickoffMs < GAME_RETENTION_MS;
-  });
+  const retained = (previousGames ?? []).filter((g) => !freshKeys.has(gameIdentityKey(g, rankedSet)));
   return [...freshGames, ...retained];
 }
 

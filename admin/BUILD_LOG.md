@@ -776,3 +776,34 @@ a historical season.
 
 Committed and pushed to `origin/main` as the changes directly below this
 entry.
+
+---
+
+## 2026-09-06 (follow-up): retention made permanent, not time-boxed
+
+User's follow-up, precise: wants a completed game's score to stay
+forever, never disappear - the earlier `GAME_RETENTION_MS` (7-day) expiry
+was the wrong mental model, since "the score is old" isn't a reason to
+drop it if nothing newer for that team exists yet.
+
+Removed time-based expiry from `mergeGames()` entirely. A retained game
+now persists indefinitely until - and only until - that same ranked
+team's NEXT real game appears in a fresh BBS fetch and supersedes it via
+`gameIdentityKey()`. This can't leak a future week's result early: BBS
+simply won't return week 2's game for a team until it's actually within
+its 2-day fetch window (i.e. genuinely about to happen or already
+happened), so "permanent until superseded" and "week 2 shows nothing
+until it's real" are the same guarantee, not two separate rules to keep
+in sync. No per-game TTL, no age check - one property (has a fresher
+entry replaced this team's slot yet?) covers both requirements the user
+asked for at once.
+
+Tested against the real exported `mergeGames`/`gameIdentityKey` (not a
+reimplementation): a 200-day-old finished game is retained with no
+expiry; that same team's next real game correctly supersedes it; no
+phantom entries get fabricated for teams with nothing on record - 3/3
+passed. Deployed (version `22150bb8-c75f-4897-8039-4ec98c880aa3`) and
+confirmed live: Thursday's backfilled Missouri and Utah games are still
+present in the payload after a real post-deploy poll.
+
+Committed and pushed as the changes directly below this entry.
