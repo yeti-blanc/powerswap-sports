@@ -596,4 +596,19 @@ secret remains set (untouched, not deleted) in case a future same-day
 stopgap needs it again, but nothing in the deployed Worker references it
 anymore.
 
+**One real hiccup worth recording (fixed immediately, no data at risk):**
+`git commit` succeeded but the first `git push` failed with a 403 -
+`gh auth status` showed the machine's active GitHub CLI account had
+switched to a second logged-in account (`The-Greg-Cote-Show`, no write
+access to this repo) at some point overnight, displacing `yeti-blanc` as
+active. This is a local `gh`/git-credential-helper state change, not
+anything about the Cloudflare deploy or the Worker itself (which was
+already live and verified by this point) - and not something this
+session changed deliberately. Fixed with `gh auth switch --user
+yeti-blanc`, then the push succeeded cleanly on retry
+(`be38793..dcce470`). Flagging it here rather than silently retrying,
+since an unexplained account switch on a machine that's about to sit
+unattended is worth the user knowing about, even though the fix was
+immediate and nothing was lost.
+
 Committed and pushed as the changes below this entry.
