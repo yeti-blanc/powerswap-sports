@@ -12,33 +12,13 @@ kv_namespaces = [
 # (instead of setting it by hand in the dashboard) is what keeps it from
 # silently drifting or getting cleared across deploys.
 #
-# REWRITTEN 2026-09-05 (see admin/BUILD_LOG.md for the full history): the
-# original design polled every 5 min baseline plus an in-Worker "poll
-# every 20s while a ranked team's game looks live" loop keyed off
-# kickoff-time judgments. That caused two incidents in one day (a BBS
-# placeholder-kickoff bug, then simply real overlapping Saturday games
-# driving unpredictable volume) because total requests/day depended on
-# how many hours had an active game, not on a fixed number.
-#
-# The fix is architectural: worker.js now does exactly ONE flat poll per
-# cron tick, no loop, no kickoff-time judgment at all - BBS's
-# /v1/stored/matches returns the WHOLE day's slate in one call regardless
-# of how many teams are playing, so request volume is purely
-# ticks/day x 2 (see worker.js's file-header comment for the confirmed
-# math). That makes the daily total exact and provable, not a runtime
-# guess needing a usage-counter safety net.
-#
-# THIS FILE IS CURRENTLY THE TEMP (same-day stopgap) VERSION:
-#   - "*/3 * * * *" = 480 ticks/day x 2 = 960 requests/day, under the
-#     backup BBS account's 1,000/day cap (see worker.js's
-#     ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY_BACKUP").
-# At 3 AM ET (07:00 UTC) TODAY, this gets swapped - a real redeploy, not
-# a runtime flag - to the PERMANENT version:
-#   - "*/2 * * * *" = 720 ticks/day x 2 = 1,440 requests/day, under the
-#     primary BBS account's 2,000/day cap, with worker.js's
-#     ACTIVE_BBS_KEY_ENV_VAR switched back to "BBS_API_KEY".
-# See admin/BUILD_LOG.md's dated entry for exactly how that swap is
-# triggered (a real deploy from an external actor - a Worker cannot
-# redeploy itself) and whether it has fired yet.
+# PERMANENT VERSION (deployed 2026-09-06 ~3 AM ET, swapped in from the
+# 2026-09-05 same-day stopgap - see admin/BUILD_LOG.md for the full
+# history): every cron tick does exactly ONE flat poll, no in-Worker
+# loop, no kickoff-time judgment - BBS's /v1/stored/matches returns the
+# whole day's slate in one call regardless of game count, so request
+# volume is purely ticks/day x 2, provably fixed:
+#   "*/2 * * * *" = 720 ticks/day x 2 = 1,440 requests/day, under the
+#   primary BBS_API_KEY account's 2,000/day cap (28% headroom).
 [triggers]
-crons = ["*/3 * * * *"]
+crons = ["*/2 * * * *"]

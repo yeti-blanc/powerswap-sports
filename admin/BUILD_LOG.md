@@ -552,3 +552,48 @@ session job will append its own dated entry directly below this one once
 the swap runs - real deploy version ID, real Cloudflare schedules-API
 confirmation, and real post-swap tick evidence (or a plain incident note
 if any step fails) - not a status flip on this same entry.
+
+---
+
+## 2026-09-06, 3 AM ET: permanent-config swap executed - real evidence, no failures
+
+The scheduled session job fired as planned and ran the full swap, not
+just a check-in. Session/terminal stayed open per the user's explicit
+choice the night before, so the swap had a real actor to execute it.
+
+**What happened, in order:**
+1. Read `live/worker.permanent.js` and `live/wrangler.permanent.toml`
+   before touching anything - confirmed `ACTIVE_BBS_KEY_ENV_VAR =
+   "BBS_API_KEY"` (not the backup) and `crons = ["*/2 * * * *"]`, exactly
+   as committed the evening before.
+2. Copied both over the active `worker.js`/`wrangler.toml` and ran
+   `wrangler deploy` from `live/` at `2026-09-06T06:59:51Z`. Deploy
+   output reported `schedule: */2 * * * *` and version ID
+   `e5bb66e7-37cc-4bc2-b074-ffb2313a14d2`.
+3. Did not trust the deploy output alone - queried Cloudflare's
+   schedules API directly (`GET .../scripts/powerswap-live-scores/
+   schedules`). Result: exactly one schedule, `"*/2 * * * *"`, created
+   `06:59:58Z` - confirms the old `*/3 * * * *` was genuinely replaced,
+   not left running alongside it (the specific failure mode this step
+   exists to catch).
+4. Waited for a real post-swap cron tick rather than assume the primary
+   key would work - polled `live_payload` in KV until its `updated_at`
+   moved past the deploy timestamp. A real tick landed at
+   `2026-09-06T07:00:33.858Z` with **37 real games** and no `note`
+   field (i.e. not the empty/fallback path) - proves `BBS_API_KEY`
+   (primary) authenticates and fetches real data end-to-end under the
+   new flat, no-loop architecture, not just that the deploy succeeded.
+5. Deleted `live/worker.permanent.js` and `live/wrangler.permanent.toml`
+   - confirmed gone (`ls` on both returned "No such file or directory")
+   - they're the live version now, no reason to keep separate copies.
+
+**No incident to report.** Every verification step passed on the first
+attempt: the deploy, the schedules-API check, and the real post-swap
+tick all confirm the primary key and the `*/2 * * * *` cadence
+(1,440 requests/day, 28% headroom under the 2,000/day cap) are genuinely
+live in production as of 2026-09-06, ~3 AM ET. The `BBS_API_KEY_BACKUP`
+secret remains set (untouched, not deleted) in case a future same-day
+stopgap needs it again, but nothing in the deployed Worker references it
+anymore.
+
+Committed and pushed as the changes below this entry.
