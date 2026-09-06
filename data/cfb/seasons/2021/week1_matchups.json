@@ -1,0 +1,231 @@
+{
+  "season": 2021,
+  "week": 1,
+  "matchups": {
+    "UAB": {
+      "opponent": "Jacksonville State",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-01T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 31,
+      "opponent_score": 0
+    },
+    "Central Florida": {
+      "opponent": "Boise State",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-02T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 36,
+      "opponent_score": 31
+    },
+    "Boise State": {
+      "opponent": "Central Florida",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-02T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 31,
+      "opponent_score": 36
+    },
+    "Utah": {
+      "opponent": "Weber State",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-02T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 40,
+      "opponent_score": 17
+    },
+    "Minnesota": {
+      "opponent": "Ohio State",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-03T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 31,
+      "opponent_score": 45
+    },
+    "Ohio State": {
+      "opponent": "Minnesota",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-03T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 45,
+      "opponent_score": 31
+    },
+    "Western Kentucky": {
+      "opponent": "UT Martin",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-03T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 59,
+      "opponent_score": 21
+    },
+    "Michigan State": {
+      "opponent": "Northwestern",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-04T01:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 38,
+      "opponent_score": 21
+    },
+    "Oklahoma": {
+      "opponent": "Tulane",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 40,
+      "opponent_score": 35
+    },
+    "Michigan": {
+      "opponent": "Western Michigan",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 47,
+      "opponent_score": 14
+    },
+    "Arkansas": {
+      "opponent": "Rice",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T18:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 38,
+      "opponent_score": 17
+    },
+    "Maryland": {
+      "opponent": "West Virginia",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 30,
+      "opponent_score": 24
+    },
+    "North Dakota State": {
+      "opponent": "UAlbany",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 28,
+      "opponent_score": 6
+    },
+    "Cincinnati": {
+      "opponent": "Miami (Ohio)",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 49,
+      "opponent_score": 14
+    },
+    "Alabama": {
+      "opponent": "Miami",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-04T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 44,
+      "opponent_score": 13
+    },
+    "Mississippi State": {
+      "opponent": "Louisiana Tech",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T20:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 35,
+      "opponent_score": 34
+    },
+    "Louisiana": {
+      "opponent": "Texas",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-04T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 18,
+      "opponent_score": 38
+    },
+    "Purdue": {
+      "opponent": "Oregon State",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 30,
+      "opponent_score": 21
+    },
+    "Baylor": {
+      "opponent": "Texas State",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-04T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 29,
+      "opponent_score": 20
+    },
+    "Oklahoma State": {
+      "opponent": "Missouri State",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-04T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 23,
+      "opponent_score": 16
+    },
+    "Texas Tech": {
+      "opponent": "Houston",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-04T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 38,
+      "opponent_score": 21
+    },
+    "Georgia": {
+      "opponent": "Clemson",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-04T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 10,
+      "opponent_score": 3
+    },
+    "Utah State": {
+      "opponent": "Washington State",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-05T03:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 26,
+      "opponent_score": 23
+    },
+    "Notre Dame": {
+      "opponent": "Florida State",
+      "home_away": "away",
+      "kickoff_utc": "2021-09-05T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 41,
+      "opponent_score": 38
+    },
+    "Mississippi": {
+      "opponent": "Louisville",
+      "home_away": "home",
+      "kickoff_utc": "2021-09-07T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 43,
+      "opponent_score": 24
+    }
+  }
+}

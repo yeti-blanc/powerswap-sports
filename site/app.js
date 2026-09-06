@@ -193,10 +193,25 @@ function renderRankings(snapshot, weekEvents) {
     li.className = "belt-card" + (changedTeams.has(slot.team) ? " just-changed" : "");
     li.dataset.team = slot.team;
 
-    const matchup = currentWeek1Matchups?.matchups?.[slot.team];
-    const kickoffText = matchup ? formatKickoff(matchup) : "";
+    // currentWeek1Matchups is, as the name says, WEEK 1 ONLY data - only
+    // meaningful while viewing week1 (or "preseason", which stands in for
+    // week1 until the real week1 snapshot exists - see formatWeekLabel()).
+    // Bug fixed 2026-09-06: this used to render on every week, so e.g.
+    // browsing week 5 (or a past season) still showed "vs. East Carolina"
+    // - week 1's opponent - stuck on every card regardless of which week
+    // was actually being viewed.
+    const isWeek1View = snapshot.week === "week1" || snapshot.week === "preseason";
+    const matchup = isWeek1View ? currentWeek1Matchups?.matchups?.[slot.team] : null;
+    // For a past, completed game, show the real result (W/L + score) - see
+    // sports/cfb/fetch_week1_matchups.py's completed/team_score/
+    // opponent_score fields, backfilled 2026-09-06 for every past season.
+    // Skipped for the CURRENT live season, where the separate live-badge
+    // (renderLiveBadges) already shows FINAL score - showing it twice
+    // would be redundant.
+    const showResult = matchup?.completed && !isViewingLiveWeek();
+    const detailText = showResult ? formatMatchupResult(matchup) : matchup ? formatKickoff(matchup) : "";
     const opponentLine = matchup
-      ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}${kickoffText ? " · " + kickoffText : ""}</span>`
+      ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}${detailText ? " · " + detailText : ""}</span>`
       : "";
 
     const row = document.createElement("div");
@@ -435,6 +450,12 @@ function formatKickoff(matchup) {
   });
 }
 
+function formatMatchupResult(matchup) {
+  if (matchup.team_score == null || matchup.opponent_score == null) return "";
+  const result = matchup.team_score > matchup.opponent_score ? "W" : "L";
+  return `${result} ${matchup.team_score}-${matchup.opponent_score}`;
+}
+
 function formatLiveBadge(game, isHome) {
   const teamScore = isHome ? game.home_score : game.away_score;
   const oppScore = isHome ? game.away_score : game.home_score;
@@ -455,11 +476,27 @@ function formatLiveBadge(game, isHome) {
   return null;
 }
 
+// Bug fixed 2026-09-06: liveGamesByTeam is keyed purely by team NAME,
+// with no season/week attached, and team names repeat across every
+// season (Alabama exists in 2022's rankings just as much as 2026's). This
+// used to overlay TODAY's real live/final score onto ANY season/week's
+// card for a team currently playing - confirmed live: browsing 2022's
+// Alabama (who actually played Utah State that year) showed today's real
+// 2026 East Carolina score instead. Live badges only mean anything on the
+// season/week that's actually happening right now, so they're gated to
+// that here rather than matched by name alone.
+function isViewingLiveWeek() {
+  if (!currentSeasonData) return false;
+  if (currentSeasonData.season !== getCurrentSeasonYear()) return false;
+  return currentWeekIndex === currentSeasonData.snapshots.length - 1;
+}
+
 function renderLiveBadges() {
+  const showBadges = isViewingLiveWeek();
   for (const li of rankingsList.children) {
     const badge = li.querySelector(".belt-live");
     if (!badge) continue;
-    const game = liveGamesByTeam[li.dataset.team];
+    const game = showBadges ? liveGamesByTeam[li.dataset.team] : null;
     const text = game ? formatLiveBadge(game, game.home_team === li.dataset.team) : null;
     if (text) {
       badge.textContent = text;

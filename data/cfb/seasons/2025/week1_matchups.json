@@ -1,0 +1,231 @@
+{
+  "season": 2025,
+  "week": 1,
+  "matchups": {
+    "Stanford": {
+      "opponent": "Hawaii",
+      "home_away": "away",
+      "kickoff_utc": "2025-08-23T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 20,
+      "opponent_score": 23
+    },
+    "Duke": {
+      "opponent": "Elon",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-28T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 45,
+      "opponent_score": 17
+    },
+    "Minnesota": {
+      "opponent": "Buffalo",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-29T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 23,
+      "opponent_score": 10
+    },
+    "Houston": {
+      "opponent": "Stephen F. Austin",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-29T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 27,
+      "opponent_score": 0
+    },
+    "Tulane": {
+      "opponent": "Northwestern",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 23,
+      "opponent_score": 3
+    },
+    "Ohio State": {
+      "opponent": "Texas",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 14,
+      "opponent_score": 7
+    },
+    "Texas": {
+      "opponent": "Ohio State",
+      "home_away": "away",
+      "kickoff_utc": "2025-08-30T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 7,
+      "opponent_score": 14
+    },
+    "Indiana": {
+      "opponent": "Old Dominion",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T18:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 27,
+      "opponent_score": 14
+    },
+    "Louisville": {
+      "opponent": "Eastern Kentucky",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T19:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 51,
+      "opponent_score": 17
+    },
+    "Penn State": {
+      "opponent": "Nevada",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 46,
+      "opponent_score": 11
+    },
+    "Georgia": {
+      "opponent": "Marshall",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 45,
+      "opponent_score": 7
+    },
+    "Alabama": {
+      "opponent": "Florida State",
+      "home_away": "away",
+      "kickoff_utc": "2025-08-30T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 17,
+      "opponent_score": 31
+    },
+    "Oregon": {
+      "opponent": "Montana State",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T20:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 59,
+      "opponent_score": 13
+    },
+    "Oklahoma": {
+      "opponent": "Illinois State",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T22:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 35,
+      "opponent_score": 3
+    },
+    "Iowa": {
+      "opponent": "UAlbany",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T22:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 34,
+      "opponent_score": 7
+    },
+    "Virginia": {
+      "opponent": "Coastal Carolina",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T22:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 48,
+      "opponent_score": 7
+    },
+    "Texas A&M": {
+      "opponent": "UT San Antonio",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 42,
+      "opponent_score": 24
+    },
+    "Texas Tech": {
+      "opponent": "Arkansas-Pine Bluff",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 67,
+      "opponent_score": 7
+    },
+    "Mississippi": {
+      "opponent": "Georgia State",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-30T23:45:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 63,
+      "opponent_score": 7
+    },
+    "North Texas": {
+      "opponent": "Lamar",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-31T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 51,
+      "opponent_score": 0
+    },
+    "SMU": {
+      "opponent": "East Texas A&M",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-31T01:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 42,
+      "opponent_score": 13
+    },
+    "Utah": {
+      "opponent": "UCLA",
+      "home_away": "away",
+      "kickoff_utc": "2025-08-31T03:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 43,
+      "opponent_score": 10
+    },
+    "Miami": {
+      "opponent": "Notre Dame",
+      "home_away": "home",
+      "kickoff_utc": "2025-08-31T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 27,
+      "opponent_score": 24
+    },
+    "Notre Dame": {
+      "opponent": "Miami",
+      "home_away": "away",
+      "kickoff_utc": "2025-08-31T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 24,
+      "opponent_score": 27
+    },
+    "TCU": {
+      "opponent": "North Carolina",
+      "home_away": "away",
+      "kickoff_utc": "2025-09-02T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 48,
+      "opponent_score": 14
+    }
+  }
+}

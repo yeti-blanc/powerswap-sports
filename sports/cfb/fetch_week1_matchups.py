@@ -97,11 +97,27 @@ def fetch_week1_matchups(season: int) -> dict[str, dict]:
             "kickoff_utc": g.get("startDate"),
             "start_time_tbd": g.get("startTimeTBD", False),
         }
+        # Final score, when the game has actually been played (real for any
+        # past season; homePoints/awayPoints are null for a not-yet-played
+        # game, same as the "Confirmed" note above already established).
+        completed = bool(g.get("completed"))
+        home_points = g.get("homePoints")
+        away_points = g.get("awayPoints")
 
         if home in ranked_teams:
-            matchups[home] = {"opponent": away, "home_away": "home", **kickoff}
+            matchups[home] = {
+                "opponent": away, "home_away": "home", **kickoff,
+                "completed": completed,
+                "team_score": home_points if completed else None,
+                "opponent_score": away_points if completed else None,
+            }
         if away in ranked_teams:
-            matchups[away] = {"opponent": home, "home_away": "away", **kickoff}
+            matchups[away] = {
+                "opponent": home, "home_away": "away", **kickoff,
+                "completed": completed,
+                "team_score": away_points if completed else None,
+                "opponent_score": home_points if completed else None,
+            }
 
     missing = ranked_teams - matchups.keys()
     if missing:

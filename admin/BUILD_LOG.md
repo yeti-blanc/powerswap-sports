@@ -612,3 +612,167 @@ unattended is worth the user knowing about, even though the fix was
 immediate and nothing was lost.
 
 Committed and pushed as the changes below this entry.
+
+---
+
+## 2026-09-06: display bugs - cross-season live-badge leak, mascot names, missing Thursday games, historical opponent/score backfill
+
+User checked BBS usage directly (784/2,000 on the primary account by this
+point - confirms yesterday's redesign is holding) and reported four real
+issues from actually using the site. All four investigated with real
+evidence before touching code, all four fixed and verified live - not
+inspected-and-assumed-fixed.
+
+**1. Live scores overlaying the wrong season/week (priority: opponents
+off historical data).** Reported: browsing 2022's Alabama (rated #1, real
+2022 opponent was Utah State) showed "vs East Carolina" - 2026's actual
+week-1 opponent - and this followed Alabama (and other teams) onto any
+week of any season, not just week 1.
+
+Root cause, confirmed by reading `site/app.js`: `renderLiveBadges()`
+matched `liveGamesByTeam` purely by TEAM NAME, with no season or week
+attached at all. Team names repeat across seasons (Alabama exists in
+every year's rankings), so the CURRENT real 2026 live/final game for a
+team got overlaid onto that same team's card in ANY season/week being
+browsed. Separately, `renderRankings()`'s pre-game "vs. Team" line read
+`currentWeek1Matchups` unconditionally on every week's cards, not just
+week 1's - a second, independent bug with the same symptom shape.
+
+Fixed both: `isViewingLiveWeek()` gates live badges to
+`currentSeasonData.season === getCurrentSeasonYear()` AND the latest week
+snapshot; the pre-game opponent line is now gated to
+`snapshot.week === "week1" || "preseason"`. Verified in a real Chrome tab
+(local static server, `python -m http.server`) via `javascript_tool`:
+2022 week 1 Alabama shows neither a live badge nor an opponent line
+before the historical backfill (item 4) landed real data; 2026 shows both
+correctly, gated to only the live week.
+
+**2. Mascot names in opponent display.** Root cause: `resolveBbsTeamName`
+already returns a clean canonical name for a RANKED opponent, but an
+UNRANKED opponent (most of them) fell through to BBS's raw "School
+Mascot" name (e.g. "East Carolina Pirates"). Checked BBS's own
+`short_name` field as a possible fix via a real API call first - reject
+ed it: for "Utah Tech Trailblazers" it returned "UTU" (an abbreviation
+code), not a clean name, so it's not a safe general substitute. Instead,
+since the OTHER side of any such game is always a ranked team, reused
+`week1_matchups.json`'s already-clean, already-CFBD-sourced `opponent`
+field as the fallback name in `live/worker.js`. Only covers week 1 (that
+file's scope) - noted as a limitation, not silently assumed to generalize.
+
+**Bug found and fixed while deploying #2:** the merge/retention logic
+added for item 3 (below) keyed retained games by the raw home/away name
+pair. The instant the mascot fix changed how an unranked opponent's name
+was computed, old ("BYU Cougars" era) and new ("BYU"/"Utah Tech")
+records no longer matched as the same game, so the "merge" kept BOTH -
+confirmed live: total games jumped from 37 to 72, with duplicate BYU
+entries (one clean, one still mascot-laden). Root-caused by comparing a
+local reproduction of the exact logic (all green) against real
+production data (still broken) and finding the two didn't match up in
+time - the first fix I deployed for item 2 alone hadn't actually
+introduced this; the SECOND fix (merge identity) just hadn't gone live
+yet when I checked. Real fix: `gameIdentityKey()` now keys on whichever
+side is a CURRENTLY-RANKED team (stable across any naming-scheme change),
+not the raw name pair. This has a second benefit: it also collapses BBS's
+own long-known duplicate/near-duplicate records (e.g. two different ids
+for "Missouri vs Arkansas-Pine Bluff Golde/n Lions") into one entry,
+fixing a display quirk that had been visible since the very first
+diagnosis two days ago. Tested with 4 assertions against the real
+exported `gameIdentityKey`/`mergeGames` functions (old-vs-new-name
+collapse, correct-name-wins, Thursday-style retention, retention expiry)
+before redeploying - all passed. Confirmed live: games dropped back from
+72 to 22, zero mascot-looking names remained, single BYU entry with the
+clean name.
+
+**3. Thursday's games not showing (priority).** Root cause: BBS's
+`/v1/stored/matches` only ever returns today's and yesterday's UTC dates
+(existing, deliberate design from the original quota-fix work - widening
+it would cost more requests per poll, the exact thing that redesign
+eliminated). By Sunday, Thursday's games (Missouri 54-14 over
+Arkansas-Pine Bluff, Utah 66-14 over Idaho - confirmed via a direct real
+BBS call for date=2026-09-04) had aged past that window and simply
+stopped appearing in every fresh fetch, even though they'd finished
+normally - confirmed missing from the live production payload before any
+fix. Fixed going forward: `mergeGames()` now merges each fresh fetch on
+top of the previous KV payload rather than overwriting it - a game that
+ages out of BBS's 2-day window stays published (frozen at its last known
+score) for `GAME_RETENTION_MS` (7 days, one full CFB week) before being
+dropped. Costs zero extra BBS requests - pure KV read+merge.
+
+This only prevents FUTURE loss, though - it can't retroactively recover
+Thursday's data that had already been dropped before the fix deployed
+(BBS's 2-day window had already moved past that date too, so a fresh
+poll couldn't get it back either). Backfilled it as a one-time manual
+step: fetched BBS's real `date=2026-09-04` data directly, confirmed the
+real scores, and merged those two games into the live KV payload by
+hand (same shape the Worker itself produces). Verified they survived the
+NEXT real automated poll (retention logic keeping them, not a one-off
+KV write that the next tick would silently erase again).
+
+**Also cleaned up while in there:** a stale phantom BBS record
+("Sacramento State Hornets vs Mississippi" - never happened; Mississippi's
+real week-1 opponent is Louisville, confirmed via `week1_matchups.json`)
+was being kept alive by the new retention logic instead of naturally
+aging out the way it used to under the old overwrite-only design. Removed
+it manually from KV. Flagging the general risk: retention is a real
+tradeoff - it fixes genuine data loss (Thursday's real games) but can
+also preserve a genuinely-bogus one-off BBS record for up to 7 days if it
+only ever appeared once. Not fully solved (would need cross-checking
+against `week1_matchups.json`'s known real opponent, which only covers
+week 1), noted here rather than silently left as a surprise.
+
+**Week 1 persistence, checked (no fix needed).** Read `scripts/
+backtest.py` in full: each run rebuilds a season's ENTIRE snapshot list
+from scratch - preseason, then week 1, week 2, ... up to `--weeks N` -
+deterministically, from each week's own untouched raw game file
+(`week_XX_games.json`). There's no code path where computing week 2
+could overwrite or corrupt week 1's snapshot; running with a higher
+`--weeks` value re-derives the same week-1 result from the same
+unchanged input and simply appends more snapshots after it. Nothing to
+fix here - confirmed by reading the actual loop, not assumed.
+
+**4. Historical opponent/score data (explicitly "if able").** Confirmed
+feasible with a real CFBD call: their `/games` endpoint returns complete
+historical data - `completed: true`, real `homePoints`/`awayPoints` - for
+any past season, not just the current one. Extended
+`sports/cfb/fetch_week1_matchups.py` to capture `completed`/`team_score`/
+`opponent_score` (from the ranked team's own perspective, so "team_score"
+is always THEIR points regardless of home/away) alongside the existing
+opponent/kickoff fields. Ran it for every past season (2021-2025),
+generating each one's own real `week1_matchups.json` for the first time -
+previously only 2026 had one, which is exactly why 2022's Alabama had
+nothing of its own to show and (per bug #1) inherited 2026's instead.
+Also regenerated 2026's for schema consistency now that most of its week
+1 games have finished.
+
+`site/app.js` now shows the real result (`W 55-0`) for a completed
+matchup instead of a kickoff time, EXCEPT while viewing the current live
+season/week, where the separate live badge already shows the final score
+- showing it twice would be redundant. Verified live in Chrome: 2022
+week 1 Alabama now shows "vs. Utah State · W 55-0" (the user's own exact
+example, now correct); 2026 still shows "vs. East Carolina · Sat, 12:00
+PM EDT" for the pre-game line plus "FINAL 48-10 vs East Carolina" (now
+mascot-free) on the live badge, not a duplicated result.
+
+**Known limitation, stated plainly:** this only covers WEEK 1 of each
+past season (the file's own scope, unchanged) - weeks 2+ of any season
+have no opponent-line data source and correctly show nothing, which is
+the same pre-existing scope limit as before, not a new gap. Also,
+`get_ranked_teams()` reads a season's LAST snapshot to decide which teams
+to fetch week-1 opponents for - a team ranked in week 1 but out of the
+rankings by season's end wouldn't get a week1_matchups.json entry. Not
+hit in the one example checked (Alabama, 2022 - stayed ranked all
+season) but worth knowing if a similar team's week-1 card ever shows
+nothing unexpectedly for a past year.
+
+**Everything verified with real evidence, not code-reading alone:**
+Node-level unit tests against the real exported functions (mascot-fix
+identity-key collapse, retention window behavior), real direct BBS API
+calls (Thursday's actual scores, `short_name`'s real unhelpful value),
+a real CFBD call confirming historical data availability, real production
+KV reads before/after every deploy, and a real Chrome browser session
+(local static server + `javascript_tool`) exercising the actual site UI
+for both the bug repro and the fix confirmation, for both the current and
+a historical season.
+
+Committed and pushed to `origin/main` as the changes directly below this
+entry.
