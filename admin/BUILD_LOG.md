@@ -868,3 +868,109 @@ Not yet observed against a REAL in-progress game (none was live at
 check time, Monday) - the injected-data test above exercises the same
 `renderLiveGamesSection()` code path a real poll would, but the first
 real live game is the actual end-to-end confirmation still pending.
+
+---
+
+## Session summary (2026-09-05 to 2026-09-07): live-scores Worker, start to finish
+
+A lot happened across this stretch - condensed here as a map back to the
+detailed dated entries above, not a replacement for them.
+
+**1. BBS quota incident diagnosed with real evidence, not guesswork
+(2026-09-05).** 1,602 of 2,000 daily requests burned by 6:45 AM, before
+any real Week 1 game had kicked off. Pulled real Cloudflare subrequest
+telemetry and the actual production KV payload to find the mechanism:
+~14 games carried a `2026-09-05T00:00:00.000Z` placeholder `kickoff_utc`
+from BBS before it had the real scheduled time, which the Worker's
+subpoll-window logic misread as "kicking off right now" for hours
+overnight - hour 03:00 UTC alone hit the mathematical maximum possible
+subrequest volume for that hour.
+
+**2. Kickoff-window fix (2026-09-05).** Subpoll decisions switched from
+BBS's own (sometimes-wrong) `kickoff_utc` to CFBD's real kickoff time via
+`week1_matchups.json` (same data the site's rank cards already trusted).
+Validated by replaying real recorded data through old vs. new logic at
+the actual observed spike hour: 13 false triggers -> 0.
+
+**3. Same-day BBS backup-key stopgap, with a 429/quota safety net
+(2026-09-05 afternoon).** Primary key hit its cap again mid-day on a real
+Saturday of games. Stood up `BBS_API_KEY_BACKUP`, a KV-flag key-mode
+switch with a self-expiring TTL, a 3 AM ET revert Cloudflare Cron
+Trigger, and a proactive usage-counter/429 backoff net - all tested (17
+checks against the real code) and confirmed live before the user went
+unreachable for the evening.
+
+**4. Full architectural redesign - flat, provable polling replaces all
+of the above (2026-09-05 evening).** User's own insight: BBS's
+`/v1/stored/matches` returns the WHOLE day's slate in one call regardless
+of game count, so request volume never needed to depend on kickoff times
+or how many games were live - only on how often the Worker polls, which
+is fully controllable. Deleted the entire subpoll-loop/kickoff-window/
+usage-counter-safety-net architecture (steps 2-3 above, superseded, not
+layered on top of) and replaced it with exactly one flat poll per cron
+tick: `*/3 min` on the backup key (960 req/day, temp), `*/2 min` on the
+primary key (1,440 req/day, permanent) once reverted. The math is now
+exact and provable - true regardless of game count - not tracked or
+guessed at runtime.
+
+**5. 3 AM ET permanent-key swap, executed for real (2026-09-06).** A
+Worker can't redeploy itself, so this ran through the session's own
+scheduled continuation (user's explicit choice, terminal kept open
+overnight) rather than a session-independent mechanism - the tradeoff
+was stated plainly before that choice was made. Copied the pre-committed
+`worker.permanent.js`/`wrangler.permanent.toml` into place, deployed,
+independently verified via Cloudflare's schedules API (not just deploy
+output), and confirmed a real post-swap tick worked under the primary
+key. One real hiccup along the way (a `git push` 403 from an unexpected
+GitHub CLI account switch, unrelated to the Cloudflare side) - fixed and
+logged, nothing lost.
+
+**6. Display bugs found and fixed from real usage (2026-09-06).** User
+reported: 2022's Alabama showing 2026's live game; mascot names in
+opponent text; Thursday's games missing entirely. Root-caused and fixed
+each: live badges and the opponent line were keyed by team name/
+unconditional on week with no season or week check at all (now gated to
+the live week only); unranked opponents fell through to BBS's raw
+"School Mascot" names (now backed by `week1_matchups.json`'s clean CFBD
+name); BBS's 2-day fetch window meant a finished game aging out simply
+vanished (fixed via a KV merge instead of overwrite). Found and fixed a
+real bug INTRODUCED by the mascot fix along the way - a naming-scheme
+change silently doubled the payload by breaking the merge's identity key
+- caught via real production data disagreeing with a local test, not
+missed. Manually backfilled Thursday's two already-lost games from a
+direct BBS call once the mechanism was fixed. Also confirmed (by actually
+reading `scripts/backtest.py`, not assuming) that week 1's results can't
+be corrupted by a later week's backtest run - it rebuilds deterministically
+from each week's own untouched raw file every time.
+
+**7. Retention made permanent, not time-boxed (2026-09-06 follow-up).**
+User's explicit correction: a completed score should never disappear, and
+a future week shouldn't show anything until it's real. Removed the
+7-day expiry entirely - a game now persists until, and only until,
+that same ranked team's next real game supersedes it, which by
+definition can't happen before it's actually real.
+
+**8. Historical opponent/score backfill, 2021-2025 (2026-09-06).**
+Confirmed feasible with a real CFBD call (full historical data, any past
+season), extended `fetch_week1_matchups.py` to capture final scores, and
+generated real week-1 opponent+score data for every past season for the
+first time - previously only 2026 had this file, which is exactly why a
+past season's cards had nothing of their own and inherited today's data
+instead (item 6). Verified live: 2022's Alabama now correctly shows
+"vs. Utah State · W 55-0."
+
+**9. Live Games section, above HAVOC (2026-09-07).** New middle-column
+section: one card per game currently in progress, styled like the
+rankings cards, auto-removed the moment a game finishes, a slow flash on
+the live info, and red text when the lower-ranked/unranked side is
+currently leading (a real upset in progress). Whole section - header
+included - hides completely when nothing's live, confirmed as the
+intended behavior. Tested live in Chrome with injected data (no real
+live game was in progress at check time); first real in-progress game is
+still the pending real-world confirmation.
+
+**Open, by the user's own choice, not forgotten:** week 2 (and beyond)
+still populates via a manual two-command pipeline
+(`fetch_results.py` + `backtest.py`) - user has said this should become
+automatic and is thinking through the right command/trigger for that
+before it's built.
