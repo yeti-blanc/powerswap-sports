@@ -807,3 +807,64 @@ confirmed live: Thursday's backfilled Missouri and Utah games are still
 present in the payload after a real post-deploy poll.
 
 Committed and pushed as the changes directly below this entry.
+
+---
+
+## 2026-09-07: Live Games section (middle column, above HAVOC) - trial
+
+User asked to try replacing/prefacing the HAVOC section with live-game
+cards: same visual style as the rankings cards, one per game currently
+in progress, auto-removed once that game finishes, status/score/opponent
+on a slow flash, and the font turning red if the lower-ranked or
+unranked side is currently leading (a real upset in progress). HAVOC
+moves directly underneath.
+
+**Also answered:** week 2 populates via the same manual pipeline that
+must have produced week 1 - `sports/cfb/fetch_results.py --week 2` then
+`scripts/backtest.py --season 2026 --weeks 2`, once week 2's games are
+done. Confirmed no scheduled automation exists for this (only the Havoc
+recompute workflow exists, and that's `workflow_dispatch`-only) - it's a
+manual step, not something that happens on its own overnight.
+
+**Built (`site/index.html`, `site/app.js`, `site/style.css`):**
+- New `<section id="live-games-section">` inside the middle column,
+  before the HAVOC section, `hidden` by default.
+- `renderLiveGamesSection()`: filters the live payload to
+  `status === "in_progress"` only (a finished game still shows via its
+  normal FINAL badge on the rankings card - it just leaves this
+  dedicated section, matching "as games conclude, they're removed").
+  Gated by the same `isViewingLiveWeek()` used for the belt-live badges
+  - live game cards only ever render for the current season's latest
+  week, never a historical one.
+- Cards reuse `.belt-card`'s background/border/blur (same visual family
+  as the rankings cards) with their own two-team-row inner layout (rank +
+  name + score per side, plus a status line) - a single-team `.belt-card`
+  couldn't represent a two-team game as-is, so this is a new inner layout
+  on the same card shell, not a literal reuse of `.belt-row`.
+- `isUnderdogLeading()`: compares both sides' current rank (via the
+  existing `findCurrentRank()`) - the leader is "the underdog" if
+  they're unranked while the other side is ranked, or if they're ranked
+  worse (higher rank number) than the other side. Drives the `.upset`
+  class, which turns the score and status text red via CSS.
+- Slow flash: a 2.5s `ease-in-out infinite` opacity pulse
+  (`@keyframes live-game-flash`) on the card's live-info wrapper (both
+  team rows + status line together, not isolated per field).
+
+**Tested live in Chrome** (local static server, `javascript_tool`), not
+just read back: confirmed the section starts correctly hidden with zero
+live games right now (real production data - nothing in progress at
+check time); injected two simulated in-progress games (a #1-ranked team
+trailing an unranked opponent, and a #3-ranked team leading an unranked
+opponent) and confirmed the first correctly got the red `.upset` styling
+and the second didn't; confirmed the flash animation is genuinely applied
+via computed style (`animationName: "live-game-flash"`, 2.5s, infinite);
+confirmed a card disappears the moment its game's status flips to
+`"finished"`, and the whole section re-hides once none remain in
+progress; confirmed the section stays hidden when browsing a past season
+(2022) even with simulated in-progress data present, same season/week
+gating as the existing live badges.
+
+Not yet observed against a REAL in-progress game (none was live at
+check time, Monday) - the injected-data test above exercises the same
+`renderLiveGamesSection()` code path a real poll would, but the first
+real live game is the actual end-to-end confirmation still pending.

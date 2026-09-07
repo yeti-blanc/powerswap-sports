@@ -318,6 +318,72 @@ main {
 .lineage-chip.current { color: #fff; border-color: rgba(255,255,255,0.4); }
 .lineage-arrow { color: var(--text-muted); }
 
+/* ── Live Games (middle column, above HAVOC) ── */
+.live-games-section { margin-bottom: 20px; }
+.live-games-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/* .live-game-card extends .belt-card (same background/border/blur as the
+   rankings cards) with its own inner layout for two teams instead of one. */
+.live-game-card { padding: 10px 14px; }
+.live-game-team-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.live-game-team-row + .live-game-team-row { margin-top: 3px; }
+.live-game-rank {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--text-muted);
+  width: 26px;
+  flex-shrink: 0;
+}
+.live-game-name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  flex: 1;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.6);
+}
+.live-game-score {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 24px;
+  text-align: right;
+}
+.live-game-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+/* Slow flash on the status/score/team info while a game is live. */
+@keyframes live-game-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.live-game-flash {
+  animation: live-game-flash 2.5s ease-in-out infinite;
+}
+
+/* Underdog (lower-ranked or unranked side) currently leading - real
+   upset in progress, called out in red. */
+.live-game-card.upset .live-game-score,
+.live-game-card.upset .live-game-status {
+  color: #ff4444;
+}
+
 /* ── Fight card (middle column) ── */
 .event-list {
   list-style: none;

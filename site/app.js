@@ -43,6 +43,8 @@ const weekHeading = document.getElementById("week-heading");
 const sportBanner = document.getElementById("sport-banner");
 const rankingsList = document.getElementById("rankings-list");
 const eventsList = document.getElementById("events-list");
+const liveGamesSection = document.getElementById("live-games-section");
+const liveGamesList = document.getElementById("live-games-list");
 const ticker = document.getElementById("ticker");
 const tickerText = document.getElementById("ticker-text");
 const weekNavDisplay = document.getElementById("week-nav-display");
@@ -252,7 +254,10 @@ function renderRankings(snapshot, weekEvents) {
     rankingsList.appendChild(li);
   }
 
-  if (LIVE_SCORES_ENABLED) renderLiveBadges();
+  if (LIVE_SCORES_ENABLED) {
+    renderLiveBadges();
+    renderLiveGamesSection();
+  }
 }
 
 function renderEvents(weekEvents) {
@@ -439,6 +444,10 @@ weekSelect.addEventListener("change", () => {
 
 // team name -> live game info, keyed from both sides of each game.
 let liveGamesByTeam = {};
+// Raw games list from the last successful /live fetch, deduped by id -
+// separate from liveGamesByTeam (which is keyed/collapsed per team) since
+// renderLiveGamesSection() needs one card per GAME, not per team.
+let liveGamesRaw = [];
 
 function formatKickoff(matchup) {
   if (matchup.start_time_tbd) return "TBD";
@@ -508,6 +517,69 @@ function renderLiveBadges() {
   }
 }
 
+// ── Live Games section (middle column, above HAVOC) ──
+// One card per game currently in_progress - removed automatically once a
+// game finishes (a finished game still shows via its normal belt-live
+// FINAL badge on the rankings card; it just leaves this dedicated
+// "what's happening right now" section). Gated to isViewingLiveWeek()
+// same as the belt-live badges - live game data only ever means anything
+// for the season/week that's actually happening right now.
+
+function rankLabel(rank) {
+  return rank ? `#${rank}` : "—";
+}
+
+// The lower-ranked (higher rank number) or unranked side of a game is
+// "the underdog." Returns true if the underdog currently has more points
+// - used to flag a real upset-in-progress in red.
+function isUnderdogLeading(game) {
+  if (typeof game.home_score !== "number" || typeof game.away_score !== "number") return false;
+  if (game.home_score === game.away_score) return false;
+
+  const homeRank = findCurrentRank(game.home_team);
+  const awayRank = findCurrentRank(game.away_team);
+  const leaderIsHome = game.home_score > game.away_score;
+  const leaderRank = leaderIsHome ? homeRank : awayRank;
+  const otherRank = leaderIsHome ? awayRank : homeRank;
+
+  if (leaderRank == null && otherRank != null) return true; // unranked leader beating a ranked team
+  if (leaderRank != null && otherRank != null && leaderRank > otherRank) return true; // worse rank leading
+  return false;
+}
+
+function renderLiveGamesSection() {
+  const show = isViewingLiveWeek();
+  const inProgress = show ? liveGamesRaw.filter((g) => g.status === "in_progress") : [];
+
+  liveGamesSection.hidden = inProgress.length === 0;
+  liveGamesList.innerHTML = "";
+
+  for (const game of inProgress) {
+    const clockPart = [game.period ? `Q${game.period}` : null, game.clock].filter(Boolean).join(" ");
+    const statusText = ["● LIVE", clockPart].filter(Boolean).join(" · ");
+    const upset = isUnderdogLeading(game);
+
+    const li = document.createElement("li");
+    li.className = "belt-card live-game-card" + (upset ? " upset" : "");
+    li.innerHTML = `
+      <div class="live-game-flash">
+        <div class="live-game-team-row">
+          <span class="live-game-rank">${rankLabel(findCurrentRank(game.home_team))}</span>
+          <span class="live-game-name">${game.home_team}</span>
+          <span class="live-game-score">${game.home_score ?? ""}</span>
+        </div>
+        <div class="live-game-team-row">
+          <span class="live-game-rank">${rankLabel(findCurrentRank(game.away_team))}</span>
+          <span class="live-game-name">${game.away_team}</span>
+          <span class="live-game-score">${game.away_score ?? ""}</span>
+        </div>
+        <div class="live-game-status">${statusText}</div>
+      </div>
+    `;
+    liveGamesList.appendChild(li);
+  }
+}
+
 // BBS's stored data has real duplicate/near-duplicate records for the
 // same matchup (confirmed 2026-09-04: e.g. three separate "Georgia vs
 // Colorado" entries with different ids/kickoff times alongside Georgia's
@@ -533,7 +605,9 @@ async function fetchLiveScores() {
       }
     }
     liveGamesByTeam = byTeam;
+    liveGamesRaw = payload.games ?? [];
     renderLiveBadges();
+    renderLiveGamesSection();
   } catch (err) {
     console.error("Live score fetch failed:", err.message);
   }
