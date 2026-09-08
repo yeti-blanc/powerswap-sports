@@ -87,7 +87,7 @@ jobs:
           fi
           echo "week=$WEEK" >> "$GITHUB_OUTPUT"
 
-      - name: Fetch week results and run backtest
+      - name: Fetch week results, run backtest, and refresh schedule previews
         if: steps.week.outputs.skip != 'true'
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -95,15 +95,26 @@ jobs:
           WEEK="${{ steps.week.outputs.week }}"
           python sports/cfb/fetch_results.py --season 2026 --week "$WEEK"
           python scripts/backtest.py --sport cfb --season 2026 --weeks "$WEEK"
+          # Re-fetch THIS week's own matchup file to bake in final scores
+          # now that the games are over (was seeded as a schedule-only
+          # preview by last week's run - see the next step below).
+          python sports/cfb/fetch_week_matchups.py --season 2026 --week "$WEEK"
+          # Seed NEXT week's schedule preview, so the site has something
+          # concrete to show for "what's coming" the moment this week
+          # solidifies, instead of stale data from this week lingering.
+          python sports/cfb/fetch_week_matchups.py --season 2026 --week "$((WEEK + 1))" || true
 
       - name: Commit updated season data
         if: steps.week.outputs.skip != 'true'
         run: |
           WEEK="${{ steps.week.outputs.week }}"
           WEEK_PADDED=$(printf "%02d" "$WEEK")
+          NEXT_WEEK_PADDED=$(printf "%02d" "$((WEEK + 1))")
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add "data/cfb/seasons/2026/raw/week_${WEEK_PADDED}_games.json" \
+                  "data/cfb/seasons/2026/raw/week_${WEEK_PADDED}_matchups.json" \
+                  "data/cfb/seasons/2026/raw/week_${NEXT_WEEK_PADDED}_matchups.json" \
                   "data/cfb/seasons/2026/season_history.json"
           git commit -m "Auto-populate CFB 2026 week ${WEEK}" || echo "Nothing to commit"
           git push

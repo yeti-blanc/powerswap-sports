@@ -58,8 +58,10 @@ const teamCardCurrent = document.getElementById("team-card-current");
 const teamCardTimeline = document.getElementById("team-card-timeline");
 
 let currentSeasonData = null;
+let visibleSnapshots = [];
 let currentWeekIndex = 0;
-let currentWeek1Matchups = null;
+let weekMatchups = {};
+let previewWeekKey = null;
 
 function populateSportSelect() {
   sportSelect.innerHTML = "";
@@ -84,6 +86,26 @@ function populateSeasonSelect() {
   seasonSelect.value = AVAILABLE_SEASONS[AVAILABLE_SEASONS.length - 1];
 }
 
+// The preseason AP poll is the swap engine's required baseline, not a
+// real week of games - there's no such thing as a "preseason" game to
+// browse. computeVisibleSnapshots() drops that snapshot from the
+// browsable list the moment a real week1 snapshot exists to replace it;
+// until then, the single preseason snapshot stands in for "Week 1" (see
+// formatWeekLabel) so there's still something to view before week 1's
+// results are backtested in.
+function computeVisibleSnapshots(seasonData) {
+  if (!seasonData) return [];
+  const hasRealWeek1 = seasonData.snapshots.some(s => s.week === "week1");
+  return hasRealWeek1
+    ? seasonData.snapshots.filter(s => s.week !== "preseason")
+    : seasonData.snapshots;
+}
+
+function weekNumber(weekKey) {
+  const match = /^week(\d+)$/.exec(weekKey || "");
+  return match ? parseInt(match[1], 10) : null;
+}
+
 async function loadSeason(sport, year) {
   const path = `../data/${sport}/seasons/${year}/season_history.json`;
   try {
@@ -94,21 +116,69 @@ async function loadSeason(sport, year) {
     currentSeasonData = null;
     console.error(`Could not load ${sport} season data for ${year}:`, err);
   }
-  // Default to the last week
-  currentWeekIndex = currentSeasonData
-    ? currentSeasonData.snapshots.length - 1
-    : 0;
 
-  // Optional, display-only - a season/sport with no Week 1 matchup data
-  // yet (or none at all, e.g. basketball) just shows no opponent line.
-  // Never affects rankings/backtest loading either way.
-  currentWeek1Matchups = null;
+  visibleSnapshots = computeVisibleSnapshots(currentSeasonData);
+  previewWeekKey = null;
+  weekMatchups = {};
+
+  // Week 1's matchup/schedule data lives in its own legacy file
+  // (live/worker.js reads it directly by URL, and every past season
+  // already has one) - keyed under both "week1" and "preseason" so the
+  // pre-week1 placeholder view above still shows Week 1's schedule
+  // before real week1 results exist. Optional, display-only either way.
   try {
     const resp = await fetch(`../data/${sport}/seasons/${year}/week1_matchups.json`);
-    if (resp.ok) currentWeek1Matchups = await resp.json();
+    if (resp.ok) {
+      const data = await resp.json();
+      weekMatchups.week1 = data.matchups;
+      weekMatchups.preseason = data.matchups;
+    }
   } catch (err) {
     // ignored - purely decorative data
   }
+
+  // Weeks 2+ generalize the same idea via
+  // sports/cfb/fetch_week_matchups.py: one file per week, refreshed with
+  // a final score once that week solidifies, and pre-seeded with just
+  // the schedule for whichever week comes right after the latest real
+  // one - so there's always something concrete to show for "what's
+  // next" instead of the previous week's results lingering on screen.
+  // Only meaningful for the live current season; past seasons never
+  // collected this per-week data, so these fetches just fail silently.
+  if (currentSeasonData && Number(year) === getCurrentSeasonYear()) {
+    const realWeekNums = visibleSnapshots.map(s => weekNumber(s.week)).filter(n => n !== null);
+    const latestRealWeek = realWeekNums.length ? Math.max(...realWeekNums) : null;
+
+    if (latestRealWeek !== null) {
+      for (let w = 2; w <= latestRealWeek + 1; w++) {
+        try {
+          const resp = await fetch(`../data/${sport}/seasons/${year}/raw/week_${String(w).padStart(2, "0")}_matchups.json`);
+          if (resp.ok) {
+            const data = await resp.json();
+            weekMatchups[`week${w}`] = data.matchups;
+          }
+        } catch (err) {
+          // ignored - purely decorative data
+        }
+      }
+
+      // The week right after the latest real one: if its schedule is
+      // available but it hasn't been backtested yet, show it as an
+      // upcoming preview - same rankings as the latest real week
+      // (nothing's changed yet, no games played), but that week's own
+      // schedule instead of the last week's now-stale opponent lines.
+      const nextWeekKey = `week${latestRealWeek + 1}`;
+      const alreadyReal = visibleSnapshots.some(s => s.week === nextWeekKey);
+      if (!alreadyReal && weekMatchups[nextWeekKey]) {
+        const latestSnapshot = visibleSnapshots[visibleSnapshots.length - 1];
+        visibleSnapshots = [...visibleSnapshots, { week: nextWeekKey, rankings: latestSnapshot.rankings }];
+        previewWeekKey = nextWeekKey;
+      }
+    }
+  }
+
+  // Default to the last (most current) week
+  currentWeekIndex = visibleSnapshots.length - 1;
 
   populateWeekSelect();
   renderWeek();
@@ -122,28 +192,24 @@ function populateWeekSelect() {
     weekSelect.appendChild(opt);
     return;
   }
-  for (const snapshot of currentSeasonData.snapshots) {
+  for (const snapshot of visibleSnapshots) {
     const opt = document.createElement("option");
     opt.value = snapshot.week;
     opt.textContent = formatWeekLabel(snapshot.week);
     weekSelect.appendChild(opt);
   }
-  weekSelect.value = currentSeasonData.snapshots[currentWeekIndex].week;
+  weekSelect.value = visibleSnapshots[currentWeekIndex].week;
 }
 
 function formatWeekLabel(weekKey) {
-  if (weekKey === "preseason") {
-    // Once real Week 1 results exist as their own snapshot, "preseason"
-    // goes back to meaning exactly that. Until then, it's the only view
-    // there is for Week 1 - and once those games are actually kicking
-    // off (with live scores on these same cards), a "Preseason" label
-    // reads as stale/wrong, so call it "Week 1" until the real one lands.
-    const hasRealWeek1 = currentSeasonData?.snapshots?.some(s => s.week === "week1");
-    return hasRealWeek1 ? "Preseason" : "Week 1";
-  }
+  // Only reachable before a real week1 snapshot exists (see
+  // computeVisibleSnapshots) - "preseason" itself is never a user-facing
+  // week.
+  if (weekKey === "preseason") return "Week 1";
   if (weekKey === "postseason") return "Bowls & Playoff";
   const num = weekKey.replace("week", "");
-  return `Week ${num}`;
+  const suffix = weekKey === previewWeekKey ? " (Upcoming)" : "";
+  return `Week ${num}${suffix}`;
 }
 
 function renderWeek() {
@@ -159,7 +225,7 @@ function renderWeek() {
     return;
   }
 
-  const snapshot = currentSeasonData.snapshots[currentWeekIndex];
+  const snapshot = visibleSnapshots[currentWeekIndex];
   const weekKey = snapshot.week;
   const weekEvents = currentSeasonData.events.filter(e => e.week === weekKey);
 
@@ -169,14 +235,14 @@ function renderWeek() {
   // Update nav display and arrow states
   weekNavDisplay.textContent = formatWeekLabel(weekKey);
   weekPrev.disabled = currentWeekIndex <= 0;
-  weekNext.disabled = currentWeekIndex >= currentSeasonData.snapshots.length - 1;
+  weekNext.disabled = currentWeekIndex >= visibleSnapshots.length - 1;
 
   const sportLabel = SPORTS.find(s => s.key === currentSeasonData.sport)?.label || currentSeasonData.sport;
   sportBanner.textContent = sportLabel;
   weekHeading.textContent = `${currentSeasonData.season}: ${formatWeekLabel(weekKey)}`;
 
   renderRankings(snapshot, weekEvents);
-  renderEvents(weekEvents);
+  renderEvents(weekEvents, weekKey === previewWeekKey);
   renderTicker(weekEvents);
 }
 
@@ -195,15 +261,15 @@ function renderRankings(snapshot, weekEvents) {
     li.className = "belt-card" + (changedTeams.has(slot.team) ? " just-changed" : "");
     li.dataset.team = slot.team;
 
-    // currentWeek1Matchups is, as the name says, WEEK 1 ONLY data - only
-    // meaningful while viewing week1 (or "preseason", which stands in for
-    // week1 until the real week1 snapshot exists - see formatWeekLabel()).
-    // Bug fixed 2026-09-06: this used to render on every week, so e.g.
-    // browsing week 5 (or a past season) still showed "vs. East Carolina"
-    // - week 1's opponent - stuck on every card regardless of which week
-    // was actually being viewed.
-    const isWeek1View = snapshot.week === "week1" || snapshot.week === "preseason";
-    const matchup = isWeek1View ? currentWeek1Matchups?.matchups?.[slot.team] : null;
+    // weekMatchups is keyed per-week (see loadSeason) - week 1 from the
+    // legacy week1_matchups.json, weeks 2+ from fetch_week_matchups.py's
+    // per-week files, looked up by whichever week is actually being
+    // viewed. Bug fixed 2026-09-06 (when this only ever held week 1's
+    // data): browsing week 5, or a past season, used to still show
+    // week 1's opponent stuck on every card regardless of which week was
+    // actually being viewed - generalizing the lookup by week key fixes
+    // that at the source instead of special-casing week 1.
+    const matchup = weekMatchups[snapshot.week]?.[slot.team] ?? null;
     // For a past, completed game, show the real result (W/L + score) - see
     // sports/cfb/fetch_week1_matchups.py's completed/team_score/
     // opponent_score fields, backfilled 2026-09-06 for every past season.
@@ -260,10 +326,12 @@ function renderRankings(snapshot, weekEvents) {
   }
 }
 
-function renderEvents(weekEvents) {
+function renderEvents(weekEvents, isPreview = false) {
   eventsList.innerHTML = "";
   if (weekEvents.length === 0) {
-    eventsList.innerHTML = `<li class="no-events">No rank changes this week. Chalk held.</li>`;
+    eventsList.innerHTML = isPreview
+      ? `<li class="no-events">This week hasn't been played yet - check back once its games wrap up.</li>`
+      : `<li class="no-events">No rank changes this week. Chalk held.</li>`;
     return;
   }
 
@@ -329,7 +397,8 @@ function renderTicker(weekEvents) {
 function openTeamCard(teamName) {
   teamCardName.textContent = teamName;
 
-  const viewedWeekLabel = formatWeekLabel(currentSeasonData.snapshots[currentWeekIndex].week);
+  const viewedWeekKey = visibleSnapshots[currentWeekIndex].week;
+  const viewedWeekLabel = formatWeekLabel(viewedWeekKey);
   const currentRank = findCurrentRank(teamName);
   teamCardCurrent.textContent = currentRank
     ? `${viewedWeekLabel}: #${currentRank}`
@@ -338,9 +407,12 @@ function openTeamCard(teamName) {
   // Only show events up through the week currently being viewed, so a
   // team's card reflects what was actually known at that point in the
   // season, not the full-season future the person hasn't "reached" yet
-  // if they're browsing an earlier week.
-  const viewedWeekKey = currentSeasonData.snapshots[currentWeekIndex].week;
-  const viewedWeekIndex = currentSeasonData.snapshots.findIndex(s => s.week === viewedWeekKey);
+  // if they're browsing an earlier week. A preview week (see loadSeason)
+  // isn't a real backtested snapshot, so it won't be found here - treat
+  // that as "after everything real so far," since a preview week can't
+  // have produced any events of its own yet.
+  let viewedWeekIndex = currentSeasonData.snapshots.findIndex(s => s.week === viewedWeekKey);
+  if (viewedWeekIndex === -1) viewedWeekIndex = currentSeasonData.snapshots.length;
   const fullHistory = currentSeasonData?.team_histories?.[teamName] || [];
   const history = fullHistory.filter(event => {
     const eventWeekIndex = currentSeasonData.snapshots.findIndex(s => s.week === event.week);
@@ -392,8 +464,8 @@ function openTeamCard(teamName) {
 
 function findCurrentRank(teamName) {
   if (!currentSeasonData) return null;
-  const snapshot = currentSeasonData.snapshots[currentWeekIndex];
-  const slot = snapshot.rankings.find(s => s.team === teamName);
+  const snapshot = visibleSnapshots[currentWeekIndex];
+  const slot = snapshot?.rankings.find(s => s.team === teamName);
   return slot ? slot.rank : null;
 }
 
@@ -419,7 +491,7 @@ weekPrev.addEventListener("click", () => {
 });
 
 weekNext.addEventListener("click", () => {
-  if (currentSeasonData && currentWeekIndex < currentSeasonData.snapshots.length - 1) {
+  if (currentSeasonData && currentWeekIndex < visibleSnapshots.length - 1) {
     currentWeekIndex++;
     renderWeek();
   }
@@ -429,7 +501,7 @@ weekNext.addEventListener("click", () => {
 sportSelect.addEventListener("change", () => loadSeason(sportSelect.value, seasonSelect.value));
 seasonSelect.addEventListener("change", () => loadSeason(sportSelect.value, seasonSelect.value));
 weekSelect.addEventListener("change", () => {
-  const idx = currentSeasonData?.snapshots.findIndex(s => s.week === weekSelect.value);
+  const idx = visibleSnapshots.findIndex(s => s.week === weekSelect.value);
   if (idx !== undefined && idx >= 0) {
     currentWeekIndex = idx;
     renderWeek();
@@ -494,19 +566,48 @@ function formatLiveBadge(game, isHome) {
 // 2026 East Carolina score instead. Live badges only mean anything on the
 // season/week that's actually happening right now, so they're gated to
 // that here rather than matched by name alone.
+// The "live" week is whichever week's games are actually being played
+// right now in the real world - that's the upcoming preview week once
+// one exists (see loadSeason), since by the time a week is a real
+// backtested snapshot its games are already over. Falls back to the
+// latest real snapshot when there's no preview (e.g. no schedule data
+// yet, or the season's genuinely finished) - the old behavior, from
+// before preview weeks existed.
+function getLiveWeekKey() {
+  if (previewWeekKey) return previewWeekKey;
+  return visibleSnapshots.length ? visibleSnapshots[visibleSnapshots.length - 1].week : null;
+}
+
 function isViewingLiveWeek() {
   if (!currentSeasonData) return false;
   if (currentSeasonData.season !== getCurrentSeasonYear()) return false;
-  return currentWeekIndex === currentSeasonData.snapshots.length - 1;
+  const liveWeekKey = getLiveWeekKey();
+  return liveWeekKey !== null && visibleSnapshots[currentWeekIndex]?.week === liveWeekKey;
 }
 
 function renderLiveBadges() {
   const showBadges = isViewingLiveWeek();
+  const liveWeekKey = getLiveWeekKey();
   for (const li of rankingsList.children) {
     const badge = li.querySelector(".belt-live");
     if (!badge) continue;
-    const game = showBadges ? liveGamesByTeam[li.dataset.team] : null;
-    const text = game ? formatLiveBadge(game, game.home_team === li.dataset.team) : null;
+    const team = li.dataset.team;
+    let game = showBadges ? liveGamesByTeam[team] : null;
+    // The live feed retains a team's last known result until their NEXT
+    // real game supersedes it (see live/worker.js) - accurate about the
+    // real world, but stale relative to whichever week is being viewed
+    // if that next game hasn't started yet. Only trust it here if its
+    // opponent actually matches what this week's own schedule expects;
+    // otherwise it's last week's leftover result bleeding onto this
+    // week's card, not this week's game.
+    if (game && liveWeekKey) {
+      const expectedOpponent = weekMatchups[liveWeekKey]?.[team]?.opponent;
+      if (expectedOpponent) {
+        const gameOpponent = game.home_team === team ? game.away_team : game.home_team;
+        if (gameOpponent !== expectedOpponent) game = null;
+      }
+    }
+    const text = game ? formatLiveBadge(game, game.home_team === team) : null;
     if (text) {
       badge.textContent = text;
       badge.hidden = false;
