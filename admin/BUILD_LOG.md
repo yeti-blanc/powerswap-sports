@@ -974,3 +974,56 @@ still populates via a manual two-command pipeline
 (`fetch_results.py` + `backtest.py`) - user has said this should become
 automatic and is thinking through the right command/trigger for that
 before it's built.
+
+---
+
+## Season progression automated for weeks 3-13 + championship week (2026-09-08)
+
+**Schedule audit first, real data not media previews.** Before picking a
+trigger time, pulled every 2026 regular-season week (1-15) directly from
+CFBD's `/games` endpoint and flagged every game NOT on Thu/Fri/Sat.
+Found week 1 actually has 4 such FBS games, not the 2 the user already
+knew about (Washington State @ Washington and Wisconsin @ Notre Dame at
+Lambeau Field, both Sunday, in addition to Louisville/Ole Miss Sunday
+and SMU/Florida State Monday). Weeks 2-13 are otherwise clean of
+Sunday/Monday FBS games - weeks 6-13 do have recurring Tuesday/Wednesday
+MACtion and Conference USA games, but those land early in each CFBD
+week, well before the following Sunday, so they don't threaten a
+Sunday-morning trigger. Also discovered CFBD's `division=fbs` filter on
+`/games` does NOT actually restrict to FBS opponents (450+ rows/week
+including FCS/D-II/D-III games) - harmless today since those teams never
+match a ranked team, but the claim to the contrary in `sports/cfb/
+config.py`'s comment is wrong and worth fixing eventually.
+
+**Conference championship week needed real historical data, since 2026's
+matchups aren't set yet.** CFBD had zero games populated for week 14 (too
+far out - participants aren't determined). Checked 2022-2025 instead:
+all four years, the Big Ten and ACC championship games were played on
+**Sunday**, not Saturday (Big 12/SEC/MAC/etc. all stayed Saturday) - a
+consistent 4-year broadcast-window pattern, not a fluke. Based on that,
+championship week gets its own later trigger.
+
+**Result, per the user's explicit choices:**
+- Weeks 1-2 populated by hand this session (`fetch_results.py` +
+  `backtest.py` for both) - turned out neither had actually been run
+  through the real pipeline yet (only the separate Havoc-ratings side
+  pipeline had touched week 1). Zero rank-changing events in either
+  week - preseason poll order holds through week 2, confirming the
+  user's read that SMU (ranked) beating unranked Florida State is chalk,
+  not an upset.
+- New `.github/workflows/season-progression.yml`: weeks 3-13 populate
+  Sunday 6 AM ET (one cron entry per real calendar date this season,
+  since GitHub Actions cron has no year field and this schedule is
+  2026-specific); week 14 populates Monday 6 AM ET instead, for the
+  Sunday-championship-game reason above. Supports a manual
+  `workflow_dispatch` week override for backfills/testing. Bowl
+  season/CFP deliberately NOT covered - user's explicit call, to be
+  tackled separately.
+
+**Same account-switch hiccup as before, same fix.** `git push` 403'd -
+`gh auth status` again showed the active account had switched to
+`The-Greg-Cote-Show` (no write access), displacing `yeti-blanc`. Fixed
+with `gh auth switch --user yeti-blanc`, push succeeded clean on retry
+(`a81ebed..50a748c`). Flagging again since this is now the second
+unexplained occurrence - may be worth checking what's causing the
+account switch if it keeps happening.
