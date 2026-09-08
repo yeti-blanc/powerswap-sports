@@ -1020,10 +1020,13 @@ championship week gets its own later trigger.
   season/CFP deliberately NOT covered - user's explicit call, to be
   tackled separately.
 
-**Same account-switch hiccup as before, same fix.** `git push` 403'd -
-`gh auth status` again showed the active account had switched to
-`The-Greg-Cote-Show` (no write access), displacing `yeti-blanc`. Fixed
-with `gh auth switch --user yeti-blanc`, push succeeded clean on retry
-(`a81ebed..50a748c`). Flagging again since this is now the second
-unexplained occurrence - may be worth checking what's causing the
-account switch if it keeps happening.
+**Same account-switch hiccup as before, same fix - now explained, not a
+mystery.** `git push` 403'd - `gh auth status` again showed the active
+account had switched to `The-Greg-Cote-Show` (no write access),
+displacing `yeti-blanc`. Fixed with `gh auth switch --user yeti-blanc`,
+push succeeded clean on retry (`a81ebed..50a748c`). User confirmed after
+this session: they're the one flipping it, switching `gh`'s active
+account back and forth between two different projects/accounts on this
+machine, and is already aware it drifts. Not a bug, not worth
+investigating further - just check `gh auth status` and switch back to
+`yeti-blanc` before pushing if a push to this repo 403s.
