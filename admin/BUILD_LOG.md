@@ -1030,3 +1030,79 @@ account back and forth between two different projects/accounts on this
 machine, and is already aware it drifts. Not a bug, not worth
 investigating further - just check `gh auth status` and switch back to
 `yeti-blanc` before pushing if a push to this repo 403s.
+
+---
+
+## Preseason dropdown removed; week 2 stopped showing week 1's leftovers (2026-09-08)
+
+**User caught two real bugs from actually using the site:** a "Preseason"
+option in the week dropdown that shouldn't exist ("there's no preseason
+in college football"), and Week 2's cards showing Week 1's final scores
+instead of Week 2's own upcoming slate.
+
+**Root cause of #2 turned out to be upstream of the display layer.**
+Week 2 had genuinely been backtested with ZERO games - its real slate
+hadn't been played yet as of today (2026-09-08; week 2 kicks off
+Thursday). That produced a phantom snapshot identical to week 1
+(0 events, same rankings), stored and displayed as if "Week 2" were a
+real, finished week. Fixed by reverting it (deleted the empty
+`raw/week_02_games.json`, re-ran `backtest.py` through week 1 only) -
+not by patching the display around bad data.
+
+**The actual generalized fix, matching what the user asked for
+("so on for each week as it populates"):** the opponent-line feature
+that already existed for week 1 only (`week1_matchups.json`, fetched
+2026-09-02) is now a real per-week system. New
+`sports/cfb/fetch_week_matchups.py` generalizes that script's logic
+(unchanged itself - `live/worker.js` reads its exact file by URL, and
+5 past seasons already have one) to any week, writing
+`raw/week_{NN}_matchups.json`. `site/app.js`'s `loadSeason()` now:
+- Drops the "preseason" snapshot from the browsable list entirely the
+  moment a real week1 snapshot exists to replace it
+  (`computeVisibleSnapshots()`) - before that, the single preseason
+  snapshot still stands in as "Week 1," same placeholder behavior as
+  before, just no longer mislabeled "Preseason" once it's obsolete.
+- Builds a synthetic "upcoming preview" entry for whatever week comes
+  right after the latest real one, IF that week's schedule has been
+  fetched but it hasn't been backtested yet - same rankings as the
+  latest real week (nothing's changed), but that week's own schedule
+  (opponent, kickoff time) instead of the previous week's now-stale
+  opponent lines. Labeled "Week N (Upcoming)" in the dropdown.
+- Looks up `weekMatchups[snapshot.week]` generically in
+  `renderRankings()` instead of the old `isWeek1View` special case, so
+  the same schedule-before/score-after behavior now applies to every
+  week uniformly, not just week 1.
+
+**One bug surfaced while building this, caught before it shipped:**
+extending `isViewingLiveWeek()` naively to cover the new preview week
+caused stale RETAINED week-1 final scores (see the 2026-09-06
+permanent-retention entry above) to bleed onto week 2's preview cards -
+confirmed live in Chrome (`FINAL 56-3 vs Ball State` showing under Ohio
+State's real Week 2 schedule line). Fixed two ways: (1) the "live" week
+is now whichever week has an upcoming preview, not just "the latest
+snapshot," so a solidified week no longer competes with the live badge
+for the same team: and (2) `renderLiveBadges()` now cross-checks the
+live feed's reported opponent against that week's own expected opponent
+before trusting it, so a retained-but-superseded result can't
+masquerade as this week's game. Verified in Chrome after the fix: badges
+correctly hidden on the Week 2 preview, and Week 1 shows its real final
+scores directly in the opponent line instead (no badge needed once a
+week is no longer "live").
+
+**Also caught and fixed along the way:** `week1_matchups.json` had gone
+stale - Notre Dame vs Wisconsin was still marked incomplete even though
+that game finished days ago, because the file was never re-fetched after
+the games concluded. Re-ran the existing (unmodified)
+`fetch_week1_matchups.py` to refresh it; all 25 ranked teams now show
+`completed: true` with real scores.
+
+**Automation updated to keep this current going forward**
+(`.github/workflows/season-progression.yml`): each week's run now also
+re-fetches that week's own matchup file (baking in the final score) and
+seeds the following week's schedule preview, so a week's cards always
+show real, current data without needing another manual fix like this
+one.
+
+Tested live in Chrome (local static server) before calling this done -
+confirmed the dropdown has no "Preseason" entry, Week 2 shows its own
+real schedule, and Week 1's results are solidified and stay that way.
