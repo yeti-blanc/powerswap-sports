@@ -263,7 +263,25 @@ async function getPreviousPayload(env) {
   }
 }
 
-const STATUS_PRIORITY = { in_progress: 3, finished: 2, scheduled: 1, unknown: 0 };
+// Bug fixed 2026-09-11 (real incident, see admin/BUILD_LOG.md): this used
+// to rank in_progress (3) above finished (2), backwards from the "keeping
+// whichever status is most advanced" intent stated in the comment above
+// freshByKey. BBS confirmed (repeatedly, including live right now for
+// Miami/Florida A&M) to return two separate duplicate records for the same
+// real game under different ids - their own per-record sync isn't
+// guaranteed simultaneous, so one duplicate can still say "in_progress"
+// with a stale score for a while after its sibling record has already
+// flipped to "finished". With the old ordering, that stale in_progress
+// duplicate won on every single poll for as long as BBS's own two rows
+// disagreed - reproduced directly against real data (Miami's actual
+// observed in-progress score, 63-0, beating its own already-final 77-7
+// record) - which is what kept the site showing a genuinely-ended game as
+// still live for over an hour, independent of the Worker/cron/client poll
+// all working correctly. finished is now the highest-priority status: a
+// real game can't un-finish, so once ANY duplicate record reports
+// finished, that's authoritative regardless of what a lagging sibling
+// record still says.
+const STATUS_PRIORITY = { finished: 3, in_progress: 2, scheduled: 1, unknown: 0 };
 
 // Identity is anchored to whichever side is a CURRENTLY-ranked team, not
 // the raw team-name pair. Bug found and fixed same-day: keying by the raw

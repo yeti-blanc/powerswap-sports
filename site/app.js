@@ -723,7 +723,18 @@ function renderLiveGamesSection() {
 // order, whichever happened to be last in the array silently won, which
 // was observed live hiding Georgia's real in_progress badge behind a
 // "scheduled" duplicate for an unrelated placeholder game.
-const LIVE_STATUS_PRIORITY = { in_progress: 3, finished: 2, scheduled: 1 };
+//
+// Ordering fixed 2026-09-11 to match the real root-cause fix in
+// live/worker.js's own STATUS_PRIORITY (see that file's comment for the
+// full incident): finished must outrank in_progress, not the reverse - a
+// real game can't un-finish, so a lagging duplicate that still says
+// in_progress should never beat a sibling record that's already finished.
+// The server-side dedup in worker.js now applies this same corrected
+// order before the payload is even published, so this client-side copy is
+// defense-in-depth, but it needs the identical ordering or it could
+// reintroduce the same staleness bug for any payload shape that still
+// carries more than one entry for a team.
+const LIVE_STATUS_PRIORITY = { finished: 3, in_progress: 2, scheduled: 1 };
 
 // The "(Upcoming)" suffix (see formatWeekLabel/weekHasStarted) depends
 // only on wall-clock time vs. kickoff, not on the live feed itself - but

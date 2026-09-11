@@ -1268,3 +1268,177 @@ unaffected by this change.
 `origin/main` as the changes directly below this entry - `gh auth
 status` was already on `yeti-blanc` this time, no account-switch hiccup
 to fix before pushing.
+
+---
+
+## 2026-09-11 (unattended session): stale live-data root cause found and fixed - real evidence per angle checked; plus Saturday BBS-capacity confirmation
+
+User reported a real symptom from this morning: a game that had genuinely
+finished over an hour earlier was still showing as live (badge + Live
+Games section) with a stale score. Asked to investigate before fixing,
+checking four specific angles with real evidence - all four checked.
+
+**1. Was the cron actually firing every 2 minutes? Confirmed yes.**
+Queried Cloudflare's schedules API directly
+(`GET .../scripts/powerswap-live-scores/schedules`): exactly one
+schedule, `"*/2 * * * *"`, unchanged since the 2026-09-06 permanent
+deploy. Queried the GraphQL Analytics API
+(`workersInvocationsAdaptive`) for every hour from 2026-09-10T18:00Z
+through now: zero-error `status: success` at every hour, quiet-hour
+baseline (no site traffic) landing at ~25-30 requests/hour - consistent
+with 30 cron ticks/hour, exactly as designed. Hours 04:00-08:00 UTC
+spiked to 88-177 requests/hour, but that's real site-visitor `/live`
+polling overlapping the live Miami game overnight, not extra cron
+activity (the schedule itself never changed). Cron is exonerated by real
+telemetry, not assumed innocent.
+
+**2. Did BBS itself report `finished` promptly? Root cause is here -
+BBS's own known duplicate-record quirk, combined with a real bug in how
+this Worker resolves duplicates.** A real BBS call today
+(`/v1/stored/matches?date=2026-09-11`) confirms BBS is *still* returning
+TWO separate records for the one real Miami/Florida A&M game - different
+ids (`0e6f5e13...` "Miami Hurricanes" vs `387b9de7...` "Miami (FL)
+Hurricanes"), both agreeing now (`finished`, 77-7). This exact
+duplicate-record behavior was already flagged as a known BBS quirk in
+`worker.js`'s own 2026-09-06 comments (also reproduced independently
+today across a much wider set: matching tomorrow's real Saturday slate
+against currently-ranked teams turned up the *same* team/game showing
+twice under different ids for at least 6 different matchups - this is a
+routine, pervasive BBS behavior, not a one-off).
+
+`worker.js`'s `freshByKey` dedup logic (used to collapse BBS's duplicate
+records into one entry per real game) picks whichever duplicate has the
+higher `STATUS_PRIORITY`. That constant was `{ in_progress: 3,
+finished: 2, scheduled: 1, unknown: 0 }` - backwards from the comment's
+own stated intent ("keeping whichever status is most advanced"): a real
+game cannot un-finish, so `finished` should always outrank `in_progress`,
+not the reverse. With the old ordering, if BBS's two duplicate rows for
+one real game briefly disagreed - one already synced to `finished`, its
+sibling still serving a stale `in_progress` snapshot (BBS's own refresh
+cadence behind this DB-backed endpoint has been flagged UNVERIFIED since
+`bbs_client.js` was first written) - the STALE `in_progress` duplicate
+won, deterministically, on every single poll, for as long as BBS's own
+two rows kept disagreeing. This isn't a one-time race: `pollAndCache()`
+rebuilds `freshByKey` from scratch every tick by re-running this same
+comparison against BBS's *current* raw duplicates, so a perfectly-firing
+2-minute cron would just keep re-confirming the wrong state, poll after
+poll, for exactly as long as BBS's backend took to fully sync both
+duplicate rows - an externally-controlled interval this repo has no
+visibility into and no control over. That maps precisely onto "over an
+hour of staleness despite everything upstream working correctly."
+
+**Reproduced against the real code, not a reimplementation, using the
+real recorded numbers from this game:** copied `worker.js`/`bbs_client.js`/
+`team_norm.js` verbatim into a scratch dir, extracted the exact
+`freshByKey` loop as a test-only export, and fed it two synthetic BBS
+records shaped exactly like today's real duplicate pair - one
+`status: "finished"` with the real final score (77-7), one
+`status: "in_progress"` with the real in-progress score this repo's own
+build log recorded for this exact game at 2026-09-11T05:06 UTC (63-0).
+Regardless of which record BBS lists first, the old code selected the
+stale `in_progress` 63-0 record every time. Confirms the mechanism is
+real and deterministic, not a guess.
+
+**3. Caching/propagation delay elsewhere in the chain? Checked, ruled
+out as the explanation.** `wrangler kv key get` without `--remote`
+returned 10-day-old local-dev-persisted test data (`updated_at:
+2026-09-01T05:40:00Z`, synthetic `test-1`/`test-2` games) - flagged
+immediately as a false lead and ruled out by re-reading the same key with
+`--remote`, which matched the real production `/live` HTTP response
+exactly (`updated_at: 2026-09-11T14:42:22.970Z`, real games). The genuine
+KV/edge path is fast: the real `/live` response was 1-2 minutes fresh at
+every check, consistent with the 2-minute cron cadence and no meaningful
+propagation lag. Worth flagging as a real trap for next time: `wrangler
+kv key get` defaults to `--local` and will silently hand back stale
+local-dev-persisted data that looks exactly like a real stale-KV bug
+unless `--remote` (or `--namespace-id` isn't enough alone) is passed
+explicitly.
+
+**4. Client-side 45s poll stalled? Checked, ruled out, but found a
+second, currently-latent copy of the same bug.** `site/app.js`'s
+`fetchLiveScores()`/`setInterval(..., 45000)` has no visibility/tab-state
+gating that could stall it, and isn't relevant here anyway since the root
+cause is upstream: the KV payload itself was wrong, so a working 45s poll
+would just faithfully keep redisplaying whatever wrong data the Worker
+published. However, `site/app.js`'s own `LIVE_STATUS_PRIORITY` constant
+(used to dedup a team appearing more than once in `payload.games`, a real
+scenario per its own 2026-09-04 comment) had the *identical* backwards
+ordering (`in_progress: 3, finished: 2, scheduled: 1`). Not the cause of
+last night's incident (the server-side worker.js fix already collapses
+to one entry per team before publishing), but the same class of bug,
+latent, in the one place that would matter if a future payload shape
+ever carried duplicate team entries again.
+
+**Fix (`live/worker.js`, `site/app.js`):** `STATUS_PRIORITY` /
+`LIVE_STATUS_PRIORITY` reordered so `finished` is the highest-priority
+status in both files (`{ finished: 3, in_progress: 2, scheduled: 1,
+unknown: 0 }` server-side; client mirror without `unknown`, matching its
+existing shape). Re-ran the same reproduction against the fixed code:
+both record orderings now correctly resolve to `finished`, 77-7.
+`node --check` passed on both files.
+
+**Deploy status: NOT yet shipped.** The Worker-side fix
+(`live/worker.js`) needs a real `wrangler deploy` from `live/` to take
+effect in production - this session's own production-deploy action was
+blocked by the harness's own auto-mode safety gate (a live Cloudflare
+Worker push is treated as a real production action needing explicit
+approval, same category as any other hard-to-reverse, shared-system
+change). The fix is written, tested against the real code, and verified
+to resolve the reproduction - it just needs `wrangler deploy` run (from
+`live/`) and the usual post-deploy check (poll `/live` for a fresh tick,
+confirm via the schedules API nothing else changed) by the user or in a
+session where that action is approved. `site/app.js`'s matching fix is
+a static-site file change with no deploy step of its own (GitHub Pages
+serves it directly from `main` once committed/pushed) - not yet
+committed either, held back so both halves of the fix ship together.
+
+**Saturday capacity check (part 2 of this session's task) - real CFBD +
+BBS data, not synthetic:**
+
+- Pulled CFBD's real week 2 schedule (`year=2026&week=2`): 71 real FBS
+  games on Saturday 2026-09-12 alone (86 across the full Thu-Sun week 2
+  window).
+- Called BBS's real `/v1/stored/matches?date=2026-09-12` directly (BBS
+  pre-populates scheduled games ahead of the date, confirmed by this
+  call succeeding today, a day ahead): `pagination: {"total":109,
+  "limit":200}` - the real Saturday slate is 109 games in BBS's own
+  count, comfortably under the 200-row page limit (54.5% of it) with no
+  truncation risk, and above the previously-largest-observed 95 games
+  from 2026-09-05 - worth knowing the margin isn't unlimited if the
+  slate keeps growing, though not close to a problem yet.
+- Matched the real current 25-team ranked list (`season_history.json`,
+  still week1's snapshot) against Saturday's real BBS slate using the
+  actual `resolveBbsTeamName()` matcher: **23 of 25 currently-ranked
+  teams play Saturday** (near-worst-case concurrency for this season),
+  including 2 ranked-vs-ranked games (Ohio State @ Texas, Oklahoma @
+  Michigan). BBS's own known duplicate-record behavior showed up here
+  too, independently confirming point 2 above isn't a one-game fluke -
+  at least 6 distinct Saturday matchups came back as two separate BBS
+  records apiece.
+- **The flat-cadence math is architecturally invariant to all of the
+  above, not just probabilistically likely to hold:** `bbs_client.js`'s
+  `fetchBbsMatches()` makes exactly 2 requests per call (today's UTC
+  date + yesterday's) with no loop over ranked teams or games of any
+  kind - confirmed by reading the function, and independently confirmed
+  by the real Saturday call itself returning all 109 games, ranked-team
+  or not, in that same single per-date call. 720 cron ticks/day
+  (`*/2 * * * *`) x 2 requests = exactly 1,440 requests/day = 72% of the
+  primary key's 2,000/day cap, regardless of whether 0 or 23 of 25
+  ranked teams are playing, and regardless of how many of those overlap
+  in kickoff time - there is no code path in the current (post-2026-09-05
+  redesign) architecture where game count or concurrency changes request
+  volume at all. Saturday's real data corroborates this rather than
+  needing to prove it from scratch: the numbers behave exactly as the
+  architecture predicts.
+
+**Not done: a live dry-run against tomorrow's real early games**, per the
+user's own fallback instruction ("otherwise model it against Saturday's
+real schedule data now") - the architectural invariance above doesn't
+depend on tomorrow's actual kickout times to be true, so today's modeled
+check against real CFBD/BBS data is the authoritative answer already;
+flagged to the user as available to double-check against tomorrow's
+telemetry after the fact if wanted.
+
+Not committed/pushed yet - held pending the user's go-ahead on the
+production Worker deploy, so both the KV-side data fix and the display
+code ship together rather than in two mismatched steps.
