@@ -201,6 +201,25 @@ function populateWeekSelect() {
   weekSelect.value = visibleSnapshots[currentWeekIndex].week;
 }
 
+// A preview week (see loadSeason) stays "upcoming" only until its games
+// actually start - once a real kickoff has passed (or a game's already
+// completed), it's inaccurate to keep calling it upcoming even though
+// it's still just a preview snapshot (same rankings as last week) until
+// backtested. Uses weekMatchups' own CFBD-sourced kickoff times, same
+// source of truth the 2026-09-05 live-worker fix established for "has
+// this actually started" questions - not BBS's live-feed status, so this
+// reads correctly even before BBS's feed has picked the game up.
+function weekHasStarted(weekKey) {
+  const matchups = weekMatchups[weekKey];
+  if (!matchups) return false;
+  const now = Date.now();
+  return Object.values(matchups).some(m => {
+    if (m.completed) return true;
+    if (m.start_time_tbd || !m.kickoff_utc) return false;
+    return new Date(m.kickoff_utc).getTime() <= now;
+  });
+}
+
 function formatWeekLabel(weekKey) {
   // Only reachable before a real week1 snapshot exists (see
   // computeVisibleSnapshots) - "preseason" itself is never a user-facing
@@ -208,7 +227,7 @@ function formatWeekLabel(weekKey) {
   if (weekKey === "preseason") return "Week 1";
   if (weekKey === "postseason") return "Bowls & Playoff";
   const num = weekKey.replace("week", "");
-  const suffix = weekKey === previewWeekKey ? " (Upcoming)" : "";
+  const suffix = weekKey === previewWeekKey && !weekHasStarted(weekKey) ? " (Upcoming)" : "";
   return `Week ${num}${suffix}`;
 }
 
@@ -585,6 +604,31 @@ function isViewingLiveWeek() {
   return liveWeekKey !== null && visibleSnapshots[currentWeekIndex]?.week === liveWeekKey;
 }
 
+// The live feed retains a team's last known result until their NEXT real
+// game supersedes it (see live/worker.js) - accurate about the real
+// world, but stale relative to whichever week is being viewed if that
+// next game hasn't started yet. A game is only trusted if its reported
+// opponent actually matches what this week's own schedule expects for
+// whichever side is a currently-ranked team; otherwise it's a previous
+// week's leftover result bleeding onto this week, not this week's game.
+// Shared by renderLiveBadges() and renderLiveGamesSection() (bug fixed
+// 2026-09-11: only the former had this guard, so a naming bug upstream in
+// live/worker.js slipped through on the Live Games section untouched
+// while the belt-badge correctly distrusted the same bad data) so both
+// display paths independently protect themselves rather than one relying
+// on the other having already filtered anything.
+function gameMatchesExpectedWeek(game, liveWeekKey) {
+  if (!liveWeekKey) return true;
+  for (const [team, reportedOpponent] of [
+    [game.home_team, game.away_team],
+    [game.away_team, game.home_team],
+  ]) {
+    const expectedOpponent = weekMatchups[liveWeekKey]?.[team]?.opponent;
+    if (expectedOpponent && reportedOpponent !== expectedOpponent) return false;
+  }
+  return true;
+}
+
 function renderLiveBadges() {
   const showBadges = isViewingLiveWeek();
   const liveWeekKey = getLiveWeekKey();
@@ -593,20 +637,7 @@ function renderLiveBadges() {
     if (!badge) continue;
     const team = li.dataset.team;
     let game = showBadges ? liveGamesByTeam[team] : null;
-    // The live feed retains a team's last known result until their NEXT
-    // real game supersedes it (see live/worker.js) - accurate about the
-    // real world, but stale relative to whichever week is being viewed
-    // if that next game hasn't started yet. Only trust it here if its
-    // opponent actually matches what this week's own schedule expects;
-    // otherwise it's last week's leftover result bleeding onto this
-    // week's card, not this week's game.
-    if (game && liveWeekKey) {
-      const expectedOpponent = weekMatchups[liveWeekKey]?.[team]?.opponent;
-      if (expectedOpponent) {
-        const gameOpponent = game.home_team === team ? game.away_team : game.home_team;
-        if (gameOpponent !== expectedOpponent) game = null;
-      }
-    }
+    if (game && !gameMatchesExpectedWeek(game, liveWeekKey)) game = null;
     const text = game ? formatLiveBadge(game, game.home_team === team) : null;
     if (text) {
       badge.textContent = text;
@@ -650,7 +681,10 @@ function isUnderdogLeading(game) {
 
 function renderLiveGamesSection() {
   const show = isViewingLiveWeek();
-  const inProgress = show ? liveGamesRaw.filter((g) => g.status === "in_progress") : [];
+  const liveWeekKey = getLiveWeekKey();
+  const inProgress = show
+    ? liveGamesRaw.filter((g) => g.status === "in_progress" && gameMatchesExpectedWeek(g, liveWeekKey))
+    : [];
 
   liveGamesSection.hidden = inProgress.length === 0;
   liveGamesList.innerHTML = "";
@@ -691,7 +725,27 @@ function renderLiveGamesSection() {
 // "scheduled" duplicate for an unrelated placeholder game.
 const LIVE_STATUS_PRIORITY = { in_progress: 3, finished: 2, scheduled: 1 };
 
+// The "(Upcoming)" suffix (see formatWeekLabel/weekHasStarted) depends
+// only on wall-clock time vs. kickoff, not on the live feed itself - but
+// nothing else re-renders the dropdown/heading between page loads, so a
+// tab left open across a real kickoff would keep reading "(Upcoming)"
+// indefinitely without this. Piggybacks on the existing live-score poll
+// interval rather than a separate timer; runs even if that poll's fetch
+// fails, since it doesn't depend on it.
+function refreshWeekLabel() {
+  if (!currentSeasonData || !visibleSnapshots.length) return;
+  const weekKey = visibleSnapshots[currentWeekIndex]?.week;
+  if (!weekKey) return;
+  const label = formatWeekLabel(weekKey);
+  weekNavDisplay.textContent = label;
+  weekHeading.textContent = `${currentSeasonData.season}: ${label}`;
+  for (const opt of weekSelect.options) {
+    opt.textContent = formatWeekLabel(opt.value);
+  }
+}
+
 async function fetchLiveScores() {
+  refreshWeekLabel();
   try {
     const resp = await fetch(LIVE_WORKER_URL);
     if (!resp.ok) return;

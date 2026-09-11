@@ -1199,3 +1199,72 @@ data upstream, this section would show it uncontested the same way it
 did tonight. Worth deciding later whether it should get the same
 this-week-opponent guard `renderLiveBadges()` has, or whether "fix the
 data, not every consumer of it" is the intended permanent design here.
+
+---
+
+## 2026-09-11 (same night, follow-up): closed the renderLiveGamesSection() gap + fixed the "(Upcoming)" label lingering after kickoff
+
+Two fixes to `site/app.js`, requested directly off the flagged item above
+and a separate real observation, both tested and verified live while
+Miami's game was still in progress.
+
+**1. `renderLiveGamesSection()` now has the same opponent cross-check
+`renderLiveBadges()` got on 2026-09-08.** Pulled the mismatch check out
+of `renderLiveBadges()` into a shared `gameMatchesExpectedWeek(game,
+liveWeekKey)` - checks BOTH sides of the game against
+`weekMatchups[liveWeekKey]` (not just the side `renderLiveBadges()`
+happens to be iterating), since `renderLiveGamesSection()` renders whole
+games, not one team's badge at a time. Both render functions now call
+it independently rather than one trusting the other to have already
+filtered anything - closes exactly the gap tonight's earlier bug slipped
+through (worker-side naming bug hit both display paths, but only one had
+a guard).
+
+Verified live (local static server, `javascript_tool`) against the real
+in-progress Miami/Florida A&M game: confirmed baseline (badge showing,
+Live Games card showing, both correct) - then injected a fake stale
+game (`Miami vs Stanford`, home_score/away_score set, status
+`in_progress`) directly into `liveGamesByTeam`/`liveGamesRaw` and
+re-rendered: both the belt badge AND the Live Games section correctly
+suppressed it (`badgeHidden: true`, `liveGamesSectionHidden: true`,
+0 cards) - before this fix the Live Games section would have shown it
+uncontested, exactly like tonight's real bug. Re-ran `fetchLiveScores()`
+against the real feed afterward and confirmed both paths correctly
+show the real game again ("Florida A&M", 63-0) - the guard doesn't
+false-positive against genuinely correct data.
+
+**2. "Week N (Upcoming)" was still showing after that week's games had
+actually started.** `previewWeekKey`'s week counts as "upcoming" purely
+because it hasn't been backtested yet (see the 2026-09-08 entry) - true
+before kickoff, false and misleading once real games from that week are
+underway or finished, which can be true for hours/days before the
+season-progression automation backtests it (Sunday morning). Added
+`weekHasStarted(weekKey)`: checks `weekMatchups[weekKey]`'s own
+CFBD-sourced `kickoff_utc`/`completed` fields (the same source of truth
+the 2026-09-05 live-worker fix established for "has this actually
+started" - not BBS's live-feed status, so it reads correctly even before
+BBS's feed has picked a game up) for any entry whose kickoff has passed
+or that's already finished. `formatWeekLabel()` now suppresses the
+"(Upcoming)" suffix once that's true. Also added `refreshWeekLabel()`,
+called every live-score poll tick (45s, piggybacked on the existing
+interval rather than a new one) so a tab left open across a real kickoff
+has its dropdown/heading/nav label flip off "(Upcoming)" on its own,
+without needing a reload - it runs regardless of whether that tick's BBS
+fetch succeeds, since it only depends on wall-clock time vs. kickoff.
+
+Verified live (same local static server session): before any fix, Week 2
+(Miami's game already ~1 hour in) showed "Week 2 (Upcoming)" in the
+dropdown, nav bar, and heading. After the fix, all three read plain
+"Week 2" on load, with no reload needed. Regression-checked
+`weekHasStarted()` directly against three synthetic cases: a future
+kickoff (correctly `false`), a past kickoff (correctly `true`), and a
+`start_time_tbd: true` entry with no real kickoff time (correctly
+`false` - TBD never counts as started). Also confirmed `formatWeekLabel`
+still returns plain "Week 1"/"Week 2" for already-backtested,
+non-preview weeks and "Week 1" for the legacy "preseason" key,
+unaffected by this change.
+
+`node --check site/app.js` passed both times. Committed and pushed to
+`origin/main` as the changes directly below this entry - `gh auth
+status` was already on `yeti-blanc` this time, no account-switch hiccup
+to fix before pushing.
