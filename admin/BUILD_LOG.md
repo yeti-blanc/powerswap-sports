@@ -1106,3 +1106,96 @@ one.
 Tested live in Chrome (local static server) before calling this done -
 confirmed the dropdown has no "Preseason" entry, Week 2 shows its own
 real schedule, and Week 1's results are solidified and stay that way.
+
+---
+
+## 2026-09-11: live worker naming bug - Miami's badge showed Week 1's opponent during a real Week 2 game
+
+**Real bug, reported while Miami was actually playing Florida A&M
+tonight:** the live card showed the correct, updating score but the
+WRONG opponent - Miami's Week 1 opponent (Stanford), not tonight's real
+one (Florida A&M).
+
+**Root cause, confirmed by reading `live/worker.js`, not guessed:** the
+2026-09-06 "MASCOT-FREE NAMING" fix (see that entry above) gives an
+unranked opponent a clean name by looking up the ranked team's opponent
+in a matchups file - but the URL was a hardcoded constant,
+`WEEK1_MATCHUPS_URL`, always. That was invisible while Week 1 was the
+only week with games. The instant Week 2 started, any ranked team
+playing a new unranked opponent (Miami vs. Florida A&M - Stanford was
+Week 1's game) got its **Week 1** opponent's name substituted instead,
+with the real live score still attached correctly (scores come from
+BBS's own parsed fields, untouched by this bug). Confirmed directly
+against the live production endpoint before touching code:
+`GET /live` returned `{"home_team":"Miami","away_team":"Stanford",
+"home_score":63,"away_score":0,"status":"in_progress"}` while the real
+game was Miami 63 - Florida A&M 0.
+
+**Not a timing/staleness bug, checked and ruled out:** the per-week
+matchup system built 2026-09-08 was already working correctly -
+`data/cfb/seasons/2026/raw/week_02_matchups.json` had the real, current
+`Miami -> Florida A&M` entry the whole time (season-progression's
+schedule-preview seeding ran fine). `live/worker.js` just never looked
+at that file - it was hardcoded to Week 1's file regardless of which
+week was actually live, so refreshing the matchup file sooner
+wouldn't have changed anything.
+
+**Two display paths, one root cause, only one of them band-aided
+before now:** the 2026-09-08 fix added a client-side cross-check to
+`renderLiveBadges()` (compare the live feed's opponent against this
+week's expected opponent, hide the badge on mismatch) - that's WHY the
+rank-card's own live badge was silently hidden rather than showing the
+wrong name; it correctly distrusted the bad data. But
+`renderLiveGamesSection()` (the middle-column "Live Games" cards, added
+2026-09-07, one week before that cross-check existed) reads
+`game.home_team`/`away_team` straight from the payload with no
+cross-check at all - so the wrong name reached the screen there
+uncontested. Fixing the real root cause (bad data at the source, in the
+Worker) fixes both paths at once, and also means the rank-card's own
+live badge can now correctly SHOW instead of being suppressed.
+
+**Fix (`live/worker.js`):** replaced the hardcoded `WEEK1_MATCHUPS_URL`
+lookup with `getCurrentWeekNumber()` (mirrors `site/app.js`'s own
+"latest real snapshot + 1" live-week logic, computed from the same
+`season_history.json` this Worker already fetches for the ranked-teams
+list) and `getCurrentWeekMatchupsUrl()` (Week 1 keeps the legacy
+top-level file; Week 2+ reads `fetch_week_matchups.py`'s generalized
+`raw/week_{NN}_matchups.json`). `pollAndCache()` now fetches
+`season_history.json` once (`getSeasonData()`) and shares it between
+the ranked-teams lookup and the current-week lookup, instead of two
+separate assumptions that could drift apart.
+
+**Tested before deploying, real code not a reimplementation:** added
+test-only named exports (`getCurrentWeekNumber`,
+`getCurrentWeekMatchupsUrl`, alongside the existing `gameIdentityKey`/
+`mergeGames`), ran verbatim copies through Node in a scratch dir - 5
+checks on week-number/URL logic (mid-season, preseason-only, multi-week,
+null-seasonData default, URL routing) plus a regression check that
+`gameIdentityKey`/`mergeGames` still collapse and supersede correctly
+regardless of opponent-name changes, all passing. A further end-to-end
+check reproduced tonight's exact real shape (Miami's real week1
+snapshot + real `week_02_matchups.json` content) through the new lookup
+path and confirmed it resolves to "Florida A&M", not "Stanford".
+`node --check live/worker.js` passed.
+
+**Deployed and verified against the real live game, not just
+inspected:** `wrangler deploy` from `live/`, version
+`96ad148a-b110-4c3e-995f-9fc169ad6127`. Polled `/live` for a real
+post-deploy cron tick (landed `2026-09-11T05:06:33.081Z`) and confirmed
+the payload directly: `{"home_team":"Miami","away_team":"Florida A&M",
+"home_score":63,"away_score":0,"status":"in_progress"}` - correct name,
+same real live score. Then loaded the actual production site
+(yetiblanc.com) in a real Chrome tab while the game was still in
+progress: the Live Games card now reads "MIAMI 63 - FLORIDA A&M 0 -
+LIVE", and Miami's rank card now shows its own live badge too ("- LIVE
+63-0 vs Florida A&M"), correctly un-suppressed now that the underlying
+data matches this week's expected opponent.
+
+**Not yet touched, flagged rather than silently left:**
+`renderLiveGamesSection()` in `site/app.js` still has no cross-check of
+its own - it happened to become correct here because the fix was at the
+data source, but if a future bug reintroduces bad naming/stale-retention
+data upstream, this section would show it uncontested the same way it
+did tonight. Worth deciding later whether it should get the same
+this-week-opponent guard `renderLiveBadges()` has, or whether "fix the
+data, not every consumer of it" is the intended permanent design here.

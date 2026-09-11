@@ -67,8 +67,45 @@ const RANKED_TEAMS_URL =
 // free GitHub-raw fetch, doesn't touch BBS's quota. Not used for polling
 // decisions of any kind (that architecture was deliberately removed - see
 // the file header above).
+//
+// Bug fixed 2026-09-11: this used to be a single hardcoded
+// WEEK1_MATCHUPS_URL, always. That was correct only while week 1 was the
+// only week with games - the instant week 2 started (Miami vs Florida
+// A&M, an unranked opponent), the fallback kept reaching for week 1's
+// file and returned Miami's WEEK 1 opponent ("Stanford") instead, with
+// the real live score attached to the wrong name. getCurrentWeekUrl()
+// below picks whichever week's matchups file actually matches the week
+// that's live right now, the same "latest real snapshot + 1" logic
+// site/app.js already uses for its own preview-week display.
 const WEEK1_MATCHUPS_URL =
   "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/week1_matchups.json";
+const RAW_DATA_BASE_URL =
+  "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/raw";
+
+// season_history.json's snapshots are the completed/backtested weeks -
+// the week that's actually being PLAYED right now (where live games and
+// unranked opponents show up) is always one past the latest of those
+// (falls back to week 1 if the season has no real snapshot yet, e.g.
+// preseason). Mirrors site/app.js's getLiveWeekKey()/loadSeason() logic.
+export function getCurrentWeekNumber(seasonData) {
+  const snapshots = seasonData?.snapshots ?? [];
+  const realWeekNums = snapshots
+    .map((s) => /^week(\d+)$/.exec(s.week || ""))
+    .filter(Boolean)
+    .map((m) => parseInt(m[1], 10));
+  const latestRealWeek = realWeekNums.length ? Math.max(...realWeekNums) : null;
+  return latestRealWeek !== null ? latestRealWeek + 1 : 1;
+}
+
+// Week 1 keeps using the legacy top-level file (fetch_week1_matchups.py's
+// output, unchanged - live games already relied on this exact URL). Week
+// 2 onward uses fetch_week_matchups.py's generalized per-week file (see
+// admin/BUILD_LOG.md's 2026-09-08 entry) - this Worker just never looked
+// at it until now.
+export function getCurrentWeekMatchupsUrl(weekNum) {
+  if (weekNum <= 1) return WEEK1_MATCHUPS_URL;
+  return `${RAW_DATA_BASE_URL}/week_${String(weekNum).padStart(2, "0")}_matchups.json`;
+}
 
 const LIVE_KV_KEY = "live_payload";
 // Must comfortably exceed the cron interval or the key expires between
@@ -126,7 +163,8 @@ export default {
 };
 
 async function pollAndCache(env) {
-  const rankedTeams = await getCurrentRankedTeams(env);
+  const seasonData = await getSeasonData(env);
+  const rankedTeams = getCurrentRankedTeams(seasonData);
   if (rankedTeams.length === 0) {
     await env.LIVE_KV.put(
       LIVE_KV_KEY,
@@ -150,7 +188,8 @@ async function pollAndCache(env) {
     return;
   }
 
-  const week1Opponents = await getWeek1Opponents(env);
+  const currentWeekNumber = getCurrentWeekNumber(seasonData);
+  const currentWeekOpponents = await getCurrentWeekOpponents(env, currentWeekNumber);
   const rankedSet = new Set(rankedTeams);
 
   // Keyed by gameIdentityKey(), not pushed to a flat array: BBS's own
@@ -169,21 +208,23 @@ async function pollAndCache(env) {
     const parsed = parseBbsMatch(raw);
     const game = {
       id: parsed.id,
-      // MASCOT-FREE NAMING (2026-09-06): a ranked opponent already comes
-      // out clean via resolveBbsTeamName (matches season_history.json's
-      // school-only names). An UNRANKED opponent has no such match, so it
-      // used to fall straight through to BBS's raw "School Mascot" name
-      // (e.g. "East Carolina Pirates") - confirmed live. BBS's own
-      // `short_name` field is NOT a safe substitute (confirmed via a real
-      // call: it's sometimes an abbreviation like "UTU" for Utah Tech,
-      // not a clean full name). Instead, since the OTHER side of this
-      // game is always a ranked team once we're in this loop, we already
-      // know that ranked team's real week-1 opponent from CFBD (clean,
-      // no mascot) via week1_matchups.json - use that name instead of
-      // guessing at BBS's raw one. Only covers week 1 (that file's own
-      // scope); falls back to the raw BBS name otherwise.
-      home_team: homeCanonical ?? week1Opponents.get(awayCanonical) ?? norm(raw.home?.name ?? ""),
-      away_team: awayCanonical ?? week1Opponents.get(homeCanonical) ?? norm(raw.away?.name ?? ""),
+      // MASCOT-FREE NAMING (2026-09-06, fixed 2026-09-08 to use the
+      // actually-live week's file instead of always week 1's): a ranked
+      // opponent already comes out clean via resolveBbsTeamName (matches
+      // season_history.json's school-only names). An UNRANKED opponent
+      // has no such match, so it used to fall straight through to BBS's
+      // raw "School Mascot" name (e.g. "East Carolina Pirates") -
+      // confirmed live. BBS's own `short_name` field is NOT a safe
+      // substitute (confirmed via a real call: it's sometimes an
+      // abbreviation like "UTU" for Utah Tech, not a clean full name).
+      // Instead, since the OTHER side of this game is always a ranked
+      // team once we're in this loop, we already know that ranked team's
+      // real CURRENT-WEEK opponent from CFBD (clean, no mascot) via
+      // getCurrentWeekOpponents() - use that name instead of guessing at
+      // BBS's raw one. Falls back to the raw BBS name if that week has no
+      // matchups file yet.
+      home_team: homeCanonical ?? currentWeekOpponents.get(awayCanonical) ?? norm(raw.home?.name ?? ""),
+      away_team: awayCanonical ?? currentWeekOpponents.get(homeCanonical) ?? norm(raw.away?.name ?? ""),
       home_score: parsed.home_score,
       away_score: parsed.away_score,
       status: parsed.status,
@@ -254,15 +295,18 @@ export function mergeGames(freshGames, previousGames, rankedSet) {
   return [...freshGames, ...retained];
 }
 
-// Canonical ranked-team name -> their real week-1 opponent's clean name
-// (CFBD-sourced, no mascot - see sports/cfb/fetch_week1_matchups.py).
-// Used only for display naming, never for polling decisions.
-async function getWeek1Opponents(env) {
+// Canonical ranked-team name -> their real CURRENT-WEEK opponent's clean
+// name (CFBD-sourced, no mascot - see fetch_week1_matchups.py /
+// fetch_week_matchups.py). Used only for display naming, never for
+// polling decisions. weekNum picks the file (see getCurrentWeekNumber()/
+// getCurrentWeekMatchupsUrl() above) - fixed 2026-09-11, this used to
+// always read week 1's file regardless of which week was actually live.
+async function getCurrentWeekOpponents(env, weekNum) {
   let resp;
   try {
-    resp = await fetch(WEEK1_MATCHUPS_URL, { cf: { cacheTtl: 60 } });
+    resp = await fetch(getCurrentWeekMatchupsUrl(weekNum), { cf: { cacheTtl: 60 } });
   } catch (err) {
-    console.error("Week1 matchups fetch failed:", err.message);
+    console.error("Current-week matchups fetch failed:", err.message);
     return new Map();
   }
   if (!resp.ok) return new Map();
@@ -271,22 +315,30 @@ async function getWeek1Opponents(env) {
   return new Map(Object.entries(matchups).map(([team, info]) => [team, info.opponent]));
 }
 
-async function getCurrentRankedTeams(env) {
+// Fetches season_history.json once per poll - shared by
+// getCurrentRankedTeams() (which teams to filter BBS's slate to) and
+// getCurrentWeekNumber() (which week is actually live right now), so both
+// read the exact same snapshot instead of two separate fetches that could
+// disagree if the file changed between them.
+async function getSeasonData(env) {
   let resp;
   try {
     resp = await fetch(RANKED_TEAMS_URL, { cf: { cacheTtl: 60 } });
   } catch (err) {
-    console.error("Ranked-teams fetch failed:", err.message);
-    return [];
+    console.error("Season-history fetch failed:", err.message);
+    return null;
   }
   if (!resp.ok) {
     // Expected for now: data/cfb/seasons/2026/season_history.json doesn't
     // exist yet (2026 backtest pipeline hasn't produced its first
     // snapshot). Not an error - just means nothing is ranked yet.
-    return [];
+    return null;
   }
-  const data = await resp.json();
-  const snapshots = data.snapshots ?? [];
+  return resp.json();
+}
+
+function getCurrentRankedTeams(seasonData) {
+  const snapshots = seasonData?.snapshots ?? [];
   if (snapshots.length === 0) return [];
   const latest = snapshots[snapshots.length - 1];
   return (latest.rankings ?? []).map((slot) => slot.team);
