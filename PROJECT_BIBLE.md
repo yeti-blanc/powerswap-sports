@@ -438,15 +438,24 @@ realizing there's a sibling path with the same bug.
 - **No admin-side UI for `data_source` or other live-scores internals** —
   intentionally not built (user's explicit call — KV/`wrangler tail`
   visibility is sufficient for now). Revisit only if asked.
-- **Week 2's real backtest is still pending as of this writing (evening
-  of 2026-09-12).** Automation (§5/§9's `season-progression.yml`) only
-  starts at Week 3 — once week 2's full slate is actually over, someone
-  needs to run `fetch_results.py --season 2026 --week 2` +
-  `backtest.py --sport cfb --season 2026 --weeks 2` by hand (or dispatch
-  `season-progression.yml` with `week: 2`), or the rankings will never
-  move past week 1. §12's HAVOC live-upset cards surface today's upsets
-  in the meantime for visibility only — they are not a substitute for
-  this and don't feed the swap engine.
+- **Week 2's real backtest is now automated too (fixed 2026-09-12,
+  same day as the item above was first written).** User caught that
+  `season-progression.yml`'s cron list started at Week 3
+  (2026-09-20) with no trigger at all for the Sunday right after week
+  2's own games (2026-09-13) — week 2 had only ever been left manual
+  because it hadn't been played yet when the workflow was built
+  2026-09-08, not for any date-safety reason (the schedule audit from
+  that same build already covered week 2 and found it clean of Sunday/
+  Monday games). Added `cron: "0 10 13 9 *"` (Sun 2026-09-13, 6:00 AM
+  EDT) plus the matching `09-13) WEEK=2` case — same mechanics as every
+  other week's trigger. Once it fires, week 2's real results (including
+  today's upsets - unranked Oklahoma State over #2 Oregon, Michigan
+  over #10 Oklahoma) become official `season_history.json` events, and
+  the site's Week 3 preview shows the resulting new rankings. §12's
+  HAVOC live-upset cards still exist for the pre-backtest window (a live
+  upset the moment it goes final, evenings before Sunday) but are no
+  longer covering for a missing automation - they're a genuine "faster
+  than the weekly cadence" preview now, not a stopgap.
 
 ## 10. Where to look for what
 

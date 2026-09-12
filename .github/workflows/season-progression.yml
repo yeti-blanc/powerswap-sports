@@ -4,13 +4,19 @@ name: CFB Season Progression (2026)
 # (fetch_results.py + backtest.py) for the 2026 CFB regular season.
 #
 # Scope, by explicit user decision:
-#   - Weeks 1-2 were populated by hand this session (2026-09-08), not by
-#     this workflow - CFBD had already settled both weeks' results.
-#   - Weeks 3-13 populate Sunday 6 AM ET, the morning after each week's
+#   - Week 1 was populated by hand this session (2026-09-08), not by this
+#     workflow - CFBD had already settled its results, and there's no
+#     "previous week" for a Sunday-after trigger to have fired from.
+#   - Weeks 2-13 populate Sunday 6 AM ET, the morning after each week's
 #     Saturday slate finishes. Verified safe against real CFBD data for
-#     this season: no week 3-13 game falls on a Sunday or Monday (see
+#     this season: no week 2-13 game falls on a Sunday or Monday (see
 #     the schedule audit from 2026-09-08 - MACtion/C-USA midweek games
-#     in weeks 6-13 land Tue/Wed, well before the following Sunday).
+#     in weeks 6-13 land Tue/Wed, well before the following Sunday). Week
+#     2's own trigger (2026-09-13) was added 2026-09-12, a day after the
+#     rest of this workflow shipped - it was originally left manual only
+#     because week 2 hadn't been played yet as of that build, not for any
+#     date-safety reason (the schedule audit above already covered week
+#     2 and found it clean).
 #   - Week 14 (conference championship weekend) populates Monday 6 AM ET
 #     instead, one day later than the rest - real CFBD data for
 #     2022-2025 shows the Big Ten and ACC championship games are played
@@ -27,6 +33,7 @@ name: CFB Season Progression (2026)
 # real CFBD /calendar output, not copied forward.
 on:
   schedule:
+    - cron: "0 10 13 9 *"  # Week 2  - Sun 2026-09-13, 6:00 AM EDT
     - cron: "0 10 20 9 *"  # Week 3  - Sun 2026-09-20, 6:00 AM EDT
     - cron: "0 10 27 9 *"  # Week 4  - Sun 2026-09-27, 6:00 AM EDT
     - cron: "0 10 4 10 *"  # Week 5  - Sun 2026-10-04, 6:00 AM EDT
@@ -66,6 +73,7 @@ jobs:
             WEEK="${{ inputs.week }}"
           else
             case "$(date -u +%m-%d)" in
+              09-13) WEEK=2 ;;
               09-20) WEEK=3 ;;
               09-27) WEEK=4 ;;
               10-04) WEEK=5 ;;

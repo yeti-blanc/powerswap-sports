@@ -2158,3 +2158,48 @@ real "Final: L" scores, no rank movement). Committed and pushed
 entry — someone needs to run the manual pipeline (or dispatch
 `season-progression.yml` with `week: 2`) once week 2's slate is fully
 over, or rankings never move past week 1. Logged in PROJECT_BIBLE.md §9.
+
+---
+
+## 2026-09-12 (yet later): closed the week-2 automation gap - season-progression.yml now covers it too
+
+Follow-up to the open item directly above: user asked for the backtest
+itself to be automated, firing Sunday 6 AM and populating the next
+week's rankings - i.e. don't leave week 2 as a manual step at all.
+
+**Checked `.github/workflows/season-progression.yml`'s actual cron list
+rather than assuming it already covered this:** it starts at Week 3
+(`cron: "0 10 20 9 *"`, Sun 2026-09-20). There is no trigger at all for
+Sun 2026-09-13 - the morning after week 2's own Saturday slate (today).
+The file's own header comment explained why: weeks 1-2 were called out
+as one-off manual backfills done 2026-09-08, before week 2 had even been
+played yet. That reason no longer applies - week 2's games are being
+played today. The 2026-09-08 schedule audit that verified weeks 3-13
+are clean of Sunday/Monday FBS games explicitly said "Weeks 2-13 are
+otherwise clean" - week 2 was already vetted safe for a Sunday trigger,
+it just wasn't wired up yet.
+
+**Fix:** added `cron: "0 10 13 9 *"` (Sun 2026-09-13, 6:00 AM EDT - same
+UTC-4 offset every other week-2-through-13 entry uses) and the matching
+`09-13) WEEK=2 ;;` case in the "Determine which week fired" step - no
+new logic, just extending the existing per-week pattern down by one
+week. Updated the header comment to reflect Week 1 alone as the (still
+correctly) manual exception, and to note week 2's trigger was a
+same-day addition, not part of the original 2026-09-08 build.
+
+Once this fires (tomorrow morning, 2026-09-13), it runs the same
+`fetch_results.py --week 2` + `backtest.py --weeks 2` +
+`fetch_week_matchups.py` (week 2, then week 3) sequence every other
+week's trigger already runs, and commits the result the same way. This
+turns today's real upsets (Oklahoma State over #2 Oregon, Michigan over
+#10 Oklahoma - the same two games HAVOC's live-upset cards, added
+earlier this session, are currently showing provisionally) into real
+`season_history.json` Swap/Dethrone events, and the site's Week 3
+preview will show the resulting new rankings from that point on.
+
+**Not yet verified against a real fired cron tick** (that only happens
+tomorrow morning) - will confirm via a real `season_history.json` commit
+from `github-actions[bot]` after it fires, same as how every other
+week's automation gets verified, not by assuming the YAML is correct
+just because it parses. Updated PROJECT_BIBLE.md §9 to reflect the fix
+instead of the still-manual gap.
