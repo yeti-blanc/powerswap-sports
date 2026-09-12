@@ -84,6 +84,66 @@ export async function fetchBbsMatches(apiKey) {
 }
 
 // ============================================================
+// SECONDARY SOURCE: /v1/matches (the "old" live-feed endpoint this client
+// stopped using on 2026-09-04 - see the file header above). Verified live
+// 2026-09-12 during the /v1/stored/matches outage documented in
+// admin/BUILD_LOG.md, specifically as a candidate for real redundancy
+// (not just "it returns 200"):
+//
+//   - Real response shape is IDENTICAL to /v1/stored/matches for every
+//     field parseBbsMatch() reads: id, home/away.name ("School Mascot",
+//     same convention - confirmed against real games incl. "Kansas
+//     Jayhawks", "UCF Knights", "East Carolina Pirates" vs "App State
+//     Mountaineers"/"Appalachian State Mountaineers" both spellings, both
+//     already covered by team_norm.js's existing NORM table), kickoff_utc,
+//     status, score.{home,away}, linescore.{home,away}. No new norm()
+//     entries needed; resolveBbsTeamName() works unchanged.
+//   - status TRANSITIONS correctly and promptly: watched a real live game
+//     (Kansas @ Missouri, id b5cb50b8-cfb2-4d14-83de-7e3b79574e90) flip
+//     "live" -> "finished" between two 60s-apart polls (03:53:38 ->
+//     03:54:38 UTC 2026-09-12) - well inside this Worker's 2-minute cron
+//     interval, so no meaningfully-stale "still live" badge risk from
+//     this endpoint's own update cadence.
+//   - Does NOT need a `date` param at all (unlike /v1/stored/matches) -
+//     one real call returned a slate spanning yesterday's late kickoffs
+//     through tomorrow's, so fetchLegacyMatches() below is a single
+//     request, not a 2-date loop.
+//   - Has the SAME duplicate-row-under-different-IDs problem as
+//     /v1/stored/matches: confirmed 8 distinct real matchups each
+//     appearing twice under different ids on 2026-09-12 (e.g. Purdue vs
+//     Wake Forest, Michigan vs Oklahoma), one copy carrying a
+//     midnight-UTC placeholder kickoff_utc and the other a real one -
+//     same class of bug as the Miami/Florida A&M incident, needs the
+//     same gameIdentityKey()/STATUS_PRIORITY dedup worker.js already
+//     applies (that logic is source-agnostic - it runs on whatever raw
+//     matches get fed into it, so no new dedup code was needed here).
+//
+// NOT independently confirmed (flagging rather than glossing over, per
+// the "verify with real evidence" rule): no actual in-game SCORE change
+// was observed mid-play - the one live game available during testing
+// (21-38, Q4) didn't score again before finishing, so "does score update
+// near-real-time during a live play" rests on this endpoint sharing the
+// exact same score/linescore fields as /v1/stored/matches (which HAS
+// shown real mid-game score changes historically) rather than on a fresh
+// direct observation. Similarly, no close/back-and-forth game was live
+// during the test window - only blowouts and pre-kickoff games were
+// available. Re-verify against a genuinely close live game before fully
+// trusting this path under real fire.
+export async function fetchLegacyMatches(apiKey) {
+  const url = `${BBS_BASE_URL}/v1/matches?sport=${BBS_SPORT}&league=${BBS_LEAGUE}`;
+  const resp = await fetch(url, {
+    headers: { Authorization: `Bearer ${apiKey}` },
+  });
+  if (!resp.ok) {
+    const err = new Error(`BBS /v1/matches returned ${resp.status}`);
+    err.status = resp.status;
+    throw err;
+  }
+  const body = await resp.json();
+  return body.data ?? [];
+}
+
+// ============================================================
 // EVERYTHING IN THIS FUNCTION IS THE "ISOLATE THE UNVERIFIED PARTS" ZONE.
 // ============================================================
 //

@@ -19,11 +19,20 @@
  * for why - it's set there deliberately, not in the dashboard).
  *
  * Secrets (wrangler secret put, never committed):
- *   BBS_API_KEY         - required (primary, 2,000/day, GitHub-linked)
+ *   BBS_API_KEY         - required (primary AND secondary - both
+ *                         /v1/stored/matches and /v1/matches are the same
+ *                         vendor/account, see REDUNDANCY BUILD below)
  *   BBS_API_KEY_BACKUP  - unused by this (permanent) version; kept as a
  *                         Worker secret only in case a future same-day
  *                         stopgap needs it again
- *   CFBD_API_KEY        - optional, unused by this file
+ *   CFBD_API_KEY        - optional, unused by this file (checked as a
+ *                         candidate independent secondary 2026-09-12 -
+ *                         see REDUNDANCY BUILD below - our tier doesn't
+ *                         have access, so this stays unused for now)
+ *   HIGHLIGHTLY_API_KEY - optional, tertiary. Not currently set (no key
+ *                         exists for this project yet) - the tertiary
+ *                         fallback is fully inert without it. See
+ *                         highlightly_client.js before adding one.
  *
  * KV binding: LIVE_KV (see wrangler.toml). Single key: "live_payload".
  *
@@ -58,7 +67,8 @@
  */
 
 import { norm, resolveBbsTeamName } from "./team_norm.js";
-import { fetchBbsMatches, parseBbsMatch } from "./bbs_client.js";
+import { fetchBbsMatches, fetchLegacyMatches, parseBbsMatch } from "./bbs_client.js";
+import { fetchHighlightlyMatches, parseHighlightlyMatch } from "./highlightly_client.js";
 
 const RANKED_TEAMS_URL =
   "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/season_history.json";
@@ -146,6 +156,120 @@ const KV_TTL_SECONDS = 600;
 // intervention needed once BBS recovers.
 const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
 
+// REDUNDANCY BUILD (2026-09-12, see admin/BUILD_LOG.md for the full
+// diagnostic history and Phase 1/2/3 findings): the 2026-09-11/12 BBS
+// /v1/stored/matches outage above exposed that this Worker had exactly
+// one data source - a failure there meant zero live updates for hours,
+// with no fallback. Three sources now exist, tried in order each tick
+// until one succeeds:
+//   1. PRIMARY:   BBS /v1/stored/matches (fetchBbsMatches)
+//   2. SECONDARY: BBS /v1/matches (fetchLegacyMatches) - verified live
+//      2026-09-12 against a real in-progress game (see bbs_client.js's
+//      SECONDARY SOURCE comment for the evidence). Still the same
+//      vendor as primary - CFBD's live scoreboard (/scoreboard, Tier 1+)
+//      and live play-by-play (/live/plays, Tier 2+) were checked as a
+//      genuinely independent alternative first, but both returned a real
+//      401 "requires a Patreon subscription" against our existing
+//      (free-tier) CFBD_API_KEY - confirmed via a direct call to CFBD's
+//      actual OpenAPI-documented endpoints, not assumed from third-party
+//      docs. So BBS /v1/matches is what's actually available today, with
+//      the known caveat that a BBS-platform-wide outage could take both
+//      primary and secondary down together - CFBD becomes worth revisiting
+//      as secondary if a Patreon Tier 1+ key is ever added.
+//   3. TERTIARY:  Highlightly (fetchHighlightlyMatches) - only tried once
+//      both of the above fail on the SAME tick, and even then only inside
+//      its own throttle (see maybeFetchHighlightly() below) so its 100
+//      req/day free-tier cap can't be blown through by a long outage.
+//      NOT LIVE-VERIFIED - see highlightly_client.js's file header for
+//      why (no API key exists anywhere for this project as of this
+//      build) and exactly what to check first once one is added. Stays
+//      completely inert (this whole branch is skipped) until
+//      HIGHLIGHTLY_API_KEY is set as a Worker secret.
+//
+// Team-name resolution and the gameIdentityKey()/STATUS_PRIORITY dedup
+// below run identically regardless of which source produced this tick's
+// rawMatches - each source's parser (parseBbsMatch / parseHighlightlyMatch)
+// normalizes into the same shape first, so nothing downstream needs to
+// know or care which of the three actually answered.
+const HIGHLIGHTLY_MIN_INTERVAL_MS = 10 * 60 * 1000; // ~1 poll/10min
+const HIGHLIGHTLY_MAX_PER_ROLLING_DAY = 85; // of the free tier's 100/day - 15 held back as slack, see admin/BUILD_LOG.md
+const HIGHLIGHTLY_LOG_KEY = "highlightly_poll_log";
+const HIGHLIGHTLY_BACKOFF_KEY = "highlightly_backoff_until";
+
+// Active window: 12:00 PM - 2:00 AM Eastern (wraps past midnight), per
+// the handoff's poll-schedule instruction. Uses Intl against
+// America/New_York so this stays correct across the EDT/EST transition
+// without a manual offset table.
+export function isHighlightlyActiveWindow(now) {
+  const etHour = parseInt(
+    new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      hour: "numeric",
+      hour12: false,
+    }).format(now),
+    10
+  );
+  return etHour >= 12 || etHour < 2;
+}
+
+// Highlightly's own docs (pulled for this build) don't state whether the
+// 100/day cap resets on a fixed calendar day or a rolling 24h window -
+// unverified, no key to test against. Rather than guess, this tracks a
+// ROLLING 24h count in KV, which is <= either interpretation's real cap
+// (a calendar-day resetter would allow MORE bursts near midnight, never
+// fewer) - safe under both. Also backs off early and independently if a
+// real response's x-ratelimit-requests-remaining header ever comes back
+// low, in case our own count and Highlightly's disagree for any reason.
+async function maybeFetchHighlightly(env) {
+  const apiKey = env.HIGHLIGHTLY_API_KEY;
+  if (!apiKey) return null;
+
+  const now = new Date();
+  if (!isHighlightlyActiveWindow(now)) return null;
+
+  const backoffRaw = await env.LIVE_KV.get(HIGHLIGHTLY_BACKOFF_KEY);
+  if (backoffRaw && new Date(backoffRaw).getTime() > now.getTime()) return null;
+
+  let log = [];
+  try {
+    const logRaw = await env.LIVE_KV.get(HIGHLIGHTLY_LOG_KEY);
+    log = logRaw ? JSON.parse(logRaw) : [];
+  } catch {
+    log = [];
+  }
+  const cutoff = now.getTime() - 24 * 60 * 60 * 1000;
+  log = log.filter((iso) => new Date(iso).getTime() > cutoff);
+
+  if (log.length > 0) {
+    const lastPollMs = new Date(log[log.length - 1]).getTime();
+    if (now.getTime() - lastPollMs < HIGHLIGHTLY_MIN_INTERVAL_MS) return null;
+  }
+  if (log.length >= HIGHLIGHTLY_MAX_PER_ROLLING_DAY) return null;
+
+  let result;
+  try {
+    result = await fetchHighlightlyMatches(apiKey);
+  } catch (err) {
+    console.error("Highlightly fetch failed:", err.message);
+    log.push(now.toISOString());
+    await env.LIVE_KV.put(HIGHLIGHTLY_LOG_KEY, JSON.stringify(log), { expirationTtl: 90000 });
+    return null;
+  }
+
+  log.push(now.toISOString());
+  await env.LIVE_KV.put(HIGHLIGHTLY_LOG_KEY, JSON.stringify(log), { expirationTtl: 90000 });
+
+  if (result.rateLimitRemaining !== null && result.rateLimitRemaining <= 5) {
+    await env.LIVE_KV.put(
+      HIGHLIGHTLY_BACKOFF_KEY,
+      new Date(now.getTime() + 60 * 60 * 1000).toISOString(),
+      { expirationTtl: 3600 }
+    );
+  }
+
+  return result.matches;
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -185,17 +309,49 @@ async function pollAndCache(env) {
     return;
   }
 
-  let rawMatches;
+  // Tried in order until one succeeds - see the REDUNDANCY BUILD comment
+  // above for why each exists and what's confirmed vs. not about each.
+  let rawMatches = null;
+  let parseMatch = null;
+  let dataSource = null;
+
   try {
     rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR]);
+    parseMatch = parseBbsMatch;
+    dataSource = "bbs_stored";
   } catch (err) {
-    // No special 429 handling: a fixed poll interval is already sized to
-    // stay well under the daily cap regardless of game count, so a
-    // transient failure (429 or otherwise) just means this tick's poll
-    // didn't refresh - /live keeps serving its last-known payload from
-    // KV (see the fetch handler above) and the next tick, a couple of
-    // minutes later, tries again. No pause state to track or get wrong.
-    console.error("BBS fetch failed:", err.message);
+    console.error("BBS primary (stored/matches) fetch failed:", err.message);
+  }
+
+  if (!rawMatches) {
+    try {
+      rawMatches = await fetchLegacyMatches(env[ACTIVE_BBS_KEY_ENV_VAR]);
+      parseMatch = parseBbsMatch; // same response shape, see bbs_client.js
+      dataSource = "bbs_legacy";
+      console.warn("BBS primary down this tick - used /v1/matches secondary instead");
+    } catch (err) {
+      console.error("BBS secondary (v1/matches) fetch also failed:", err.message);
+    }
+  }
+
+  if (!rawMatches) {
+    const hlMatches = await maybeFetchHighlightly(env);
+    if (hlMatches) {
+      rawMatches = hlMatches;
+      parseMatch = parseHighlightlyMatch;
+      dataSource = "highlightly";
+      console.warn("Both BBS sources down this tick - used Highlightly tertiary instead");
+    }
+  }
+
+  if (!rawMatches) {
+    // No special 429/outage handling beyond the fallback chain above: a
+    // fixed poll interval is already sized to stay well under any single
+    // source's daily cap regardless of game count, so a failure across
+    // all three just means this tick's poll didn't refresh - /live keeps
+    // serving its last-known payload from KV (see the fetch handler
+    // above) and the next tick, a couple of minutes later, tries again.
+    console.error("All live-score sources failed this tick; keeping last-known KV payload");
     return;
   }
 
@@ -212,13 +368,19 @@ async function pollAndCache(env) {
   // published payload only ever has one entry per real game.
   const freshByKey = new Map();
   for (const raw of rawMatches) {
-    const homeCanonical = resolveBbsTeamName(raw.home?.name, rankedTeams);
-    const awayCanonical = resolveBbsTeamName(raw.away?.name, rankedTeams);
+    // parseMatch() normalizes whichever source answered this tick into a
+    // common {home_name_raw, away_name_raw, ...} shape first (see
+    // bbs_client.js / highlightly_client.js), so team-name resolution
+    // below is source-agnostic - it never reads BBS's raw.home?.name
+    // shape directly.
+    const parsed = parseMatch(raw);
+    const homeCanonical = resolveBbsTeamName(parsed.home_name_raw, rankedTeams);
+    const awayCanonical = resolveBbsTeamName(parsed.away_name_raw, rankedTeams);
     if (!homeCanonical && !awayCanonical) continue;
 
-    const parsed = parseBbsMatch(raw);
     const game = {
       id: parsed.id,
+      data_source: dataSource,
       // MASCOT-FREE NAMING (2026-09-06, fixed 2026-09-08 to use the
       // actually-live week's file instead of always week 1's): a ranked
       // opponent already comes out clean via resolveBbsTeamName (matches
@@ -234,8 +396,8 @@ async function pollAndCache(env) {
       // getCurrentWeekOpponents() - use that name instead of guessing at
       // BBS's raw one. Falls back to the raw BBS name if that week has no
       // matchups file yet.
-      home_team: homeCanonical ?? currentWeekOpponents.get(awayCanonical) ?? norm(raw.home?.name ?? ""),
-      away_team: awayCanonical ?? currentWeekOpponents.get(homeCanonical) ?? norm(raw.away?.name ?? ""),
+      home_team: homeCanonical ?? currentWeekOpponents.get(awayCanonical) ?? norm(parsed.home_name_raw ?? ""),
+      away_team: awayCanonical ?? currentWeekOpponents.get(homeCanonical) ?? norm(parsed.away_name_raw ?? ""),
       home_score: parsed.home_score,
       away_score: parsed.away_score,
       status: parsed.status,

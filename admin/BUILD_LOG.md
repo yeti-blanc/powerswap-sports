@@ -1491,3 +1491,310 @@ Net diff: `live/worker.js`'s `ACTIVE_BBS_KEY_ENV_VAR` comment updated to
 record this incident (constant itself unchanged - back on the primary
 key). Two real `wrangler deploy`s happened during diagnosis (backup key,
 then revert) - both confirmed via `wrangler tail` logs, not assumed.
+
+## 2026-09-11 (night, follow-up): outage confirmed STILL ONGOING at check
+time - broader test suite, all pointing at BBS, none at our code
+
+User reported live scores still missing and asked for more tests to rule
+out our own code before a big Saturday slate. Re-ran the full diagnostic
+with fresh evidence rather than assuming the earlier finding still held:
+
+1. **Real key vs no-auth vs bad-key against `/v1/stored/matches`,
+   right now:** identical pattern to the original incident - real key
+   -> 500 `internal server error` (request_id
+   `7cd7f41e-5aa7-4cec-9f86-309d116ad650`), no `Authorization` header ->
+   clean 401 `missing API key`, deliberately bad key -> clean 401
+   `invalid API key`. Auth layer still fine; only the real authenticated
+   query still errors.
+2. **`wrangler tail powerswap-live-scores` live for ~2 minutes**, caught
+   a real cron tick at 9/11 10:14:19 PM ET failing both dates with 500 -
+   confirms the DEPLOYED Worker's own request (not just a manual curl)
+   hits the identical failure, closing the "maybe our code sends a
+   subtly different request" gap.
+3. **Ranked-teams data isn't the blocker:** `season_history.json` has a
+   real `week1` snapshot with 25 ranked teams, so `pollAndCache()` never
+   even takes the "no ranked teams yet" early-return path - it's really
+   reaching `fetchBbsMatches()` and failing there.
+4. **Both queried dates (today AND yesterday UTC) still 500** -
+   consistent with the original finding, not a one-date fluke.
+5. **NEW: tested endpoint scope.** BBS's own gateway `/health` -> 200
+   `{"status":"ok","redis":true,"adapters":20}` (their infra is up).
+   `/v1/stored/matches` fails identically for a DIFFERENT league too
+   (`sport=basketball&league=ncaab` -> same 500), so it's not an
+   NCAAF-specific data problem - the whole `/v1/stored/matches` endpoint
+   is down across sports. Meanwhile `/v1/matches` (the OLD endpoint this
+   client stopped using back on 2026-09-04) returned a clean 200 with a
+   full 50-game slate, using the SAME real key - so the account/key is
+   fully functional, and BBS's live-feed path still works while their
+   stored/DB-backed path is the one that's broken.
+
+**Notable side finding, not acted on:** `/v1/matches`'s response just
+observed has home/away as full `{id, name, short_name, logo_url}`
+objects plus `kickoff_utc`/`score`/`linescore` - NOT the terse
+"plain integers, no team names" shape `bbs_client.js`'s header comment
+says was confirmed on 2026-09-04. Either BBS changed that endpoint's
+shape since, or the original characterization was wrong. Worth a real
+side-by-side check (does `score`/`status` actually populate correctly
+for an in-progress game on THIS endpoint?) before ever treating it as a
+fallback - not verified here, and swapping the Worker's primary data
+source hours before a big slate on an unverified shape would trade one
+outage for a different, less-understood failure mode. Flagging for a
+deliberate look, not doing it as a reflex fix.
+
+**Conclusion unchanged, now with more independent angles confirming it:**
+this is BBS's `/v1/stored/matches` endpoint down, not our request shape,
+our key, our ranked-teams data, or our Worker's deployed code. Nothing
+to fix on our side; the Worker keeps retrying every 2 minutes
+automatically. Re-check with the same test list if scores are still
+missing once tomorrow's games kick off - if `/v1/stored/matches` is
+still 500ing during real live play, that's the point to seriously
+consider the `/v1/matches` fallback (verified first) or reaching out to
+BBS support (discord.gg/H2WJBQurbq / support@bigballsdata.com) directly.
+
+## 2026-09-12: built real redundancy (secondary + tertiary) while the outage was still live - deployed, verified against real production traffic
+
+Overnight handoff, done autonomously per explicit approval: the
+2026-09-11/12 outage above left the site with zero live-score updates
+for hours because this Worker had exactly one data source. This session
+built and shipped real redundancy - not a retry, an actual second and
+third independent path - and, unusually, got to verify the fallback
+against the SAME outage, live, in production, rather than a simulated
+one.
+
+### Phase 1: BBS `/v1/matches` as candidate secondary - CHECKS OUT, shipped
+
+Confirmed live (03:44-03:55 UTC 2026-09-12, real key, real games, while
+`/v1/stored/matches` was still returning 500 on every call in parallel):
+
+- **Response shape is identical** to `/v1/stored/matches` for every field
+  `parseBbsMatch()` reads - same `id`/`home.name`/`away.name`/
+  `kickoff_utc`/`status`/`score.{home,away}`/`linescore.{home,away}`.
+  No new parsing code needed; reused as-is.
+- **Status transitions correctly and promptly:** watched a real live game
+  (Kansas @ Missouri, `b5cb50b8-cfb2-4d14-83de-7e3b79574e90`) flip
+  `"live"` -> `"finished"` between two polls 60s apart (03:53:38 ->
+  03:54:38 UTC), same score both times (21-38) - a real status
+  transition, not a guess, and well inside this Worker's 2-minute cron
+  interval.
+- **Team naming is the same "School Mascot" convention** as
+  `/v1/stored/matches` (confirmed: "Kansas Jayhawks", "Missouri Tigers",
+  "UCF Knights", "East Carolina Pirates" vs. both "Appalachian State
+  Mountaineers" and "App State Mountaineers" spellings for the same
+  team). `resolveBbsTeamName()`/`norm()` work completely unchanged - the
+  existing `App State -> Appalachian State` NORM entry already covers
+  the variant seen. No new norm() entries needed.
+- **Has the same duplicate-row-under-different-IDs problem:** found 8
+  distinct real matchups on 2026-09-12 each appearing twice under
+  different ids (Purdue/Wake Forest, Georgia/Western Kentucky,
+  Penn State/Temple, Michigan/Oklahoma, Arizona State/Texas A&M,
+  Old Dominion/Virginia Tech, Oklahoma State/Oregon, Kansas State/
+  Washington State) - one copy of each pair carrying a midnight-UTC
+  placeholder `kickoff_utc`, the other a real one. Same class of bug as
+  the Miami/Florida A&M incident (`f7efe84`) - `worker.js`'s existing
+  `gameIdentityKey()`/`STATUS_PRIORITY` dedup is source-agnostic (runs on
+  whatever raw matches get fed to it), so it resolves this without any
+  new code.
+- Does **not** need a `date` param at all (unlike `/v1/stored/matches`) -
+  one call returned a slate spanning yesterday's late kickoffs through
+  tomorrow's, so `fetchLegacyMatches()` is a single request, cheaper than
+  the primary's 2-request-per-tick shape.
+
+**Honestly flagged, not glossed over:** no actual mid-game SCORE CHANGE
+was observed - the one live game available during the test window
+(21-38, Q4) didn't score again before finishing, and no close/
+back-and-forth game was live at all during the window (only blowouts and
+pre-kickoff games). Score-field trust rests on the field being identical
+to the already-proven `/v1/stored/matches` shape, not on a fresh direct
+observation of a score changing on this specific endpoint.
+
+**Verdict: shipped as secondary**, activating only when the primary
+fails on the same tick.
+
+### Phase 2: CFBD live scoreboard - real endpoints found, both blocked by tier, NOT usable today
+
+Third-party docs (correctly not trusted at face value per the handoff
+brief) named a plausible-sounding endpoint; the real one, pulled from
+CFBD's own live OpenAPI spec (`api.collegefootballdata.com/api-docs.json`),
+is different:
+
+- `GET /scoreboard` (`classification`, `conference` params) - "Returns
+  current scoreboard data."
+- `GET /live/plays?gameId=<int>` (required) - "Returns live play-by-play
+  data and advanced metrics for a game."
+
+Both use the same `Authorization: Bearer <key>` scheme this project
+already uses for CFBD elsewhere. Tested both for real against our
+existing `CFBD_API_KEY` (the one used for ranked-teams/results data):
+
+```
+GET /scoreboard?classification=fbs
+-> 401 {"message":"Unauthorized. This endpoint requires a Patreon
+subscription at Tier 1 or higher."}
+
+GET /live/plays?gameId=401856678   (real gameId, Kansas @ Missouri,
+                                     pulled from /games?year=2026&week=2)
+-> 401 {"message":"Unauthorized. This endpoint requires a Patreon
+subscription at Tier 2 or higher."}
+```
+
+**Verdict: real, documented, genuinely independent endpoints - blocked
+by subscription tier, not rate limit or wrong request shape.** Our
+current CFBD key is free-tier; both live endpoints require a paid
+Patreon subscription (Tier 1 for `/scoreboard`, Tier 2 for
+`/live/plays`). Rate-limit behavior is moot until that's resolved - we
+have zero access, not throttled access. Not purchasing a subscription
+autonomously (real recurring cost, the user's decision) - flagging this
+as the one lever that would make CFBD a genuinely BBS-independent
+secondary if picked up later. `CFBD_API_KEY` stays wired as a Worker
+secret but unused by this file for now, same as before.
+
+### Secondary decision
+
+BBS `/v1/matches` ships as secondary. CFBD would have been preferred on
+independence grounds alone (a BBS-platform-wide outage takes down both
+BBS endpoints together - this exact outage already proves that pattern
+for `/v1/stored/matches`, and there is no reason `/v1/matches` is
+immune to a future BBS-wide incident), but it's not currently reachable
+on our tier, and "not reachable" beats "true redundancy" as a ranking
+input, obviously. Revisit if a Patreon Tier 1+ CFBD key is ever added.
+
+### Phase 3: Highlightly as tertiary - built, deployed, NOT live-verified (real blocker, not a shortcut)
+
+**No `HIGHLIGHTLY_API_KEY` exists anywhere for this project** - checked
+`.env`, both Workers' `wrangler secret list` (`powerswap-live-scores`
+and the admin worker), and OS environment variables; none has it. This
+contradicts the handoff brief's assumption that a working key already
+existed. `sports/cfb/havoc_rating.py` independently corroborates this
+from an earlier, unrelated session ("Highlightly's docs show no
+injuries endpoint on any plan, not independently verified live - no key
+available"). Per the "verify with real evidence" rule, this session did
+**not** fabricate a "confirmed working" result for a source it could
+never actually call - built the integration from Highlightly's own real
+docs, wired it in behind the missing secret so it's completely inert
+until a real key exists, and documented every remaining guess loudly
+rather than quietly.
+
+Confirmed from Highlightly's own documentation (`highlightly.net/nfl-api/
+documentation/`, `/sport-api/documentation/` - not third-party marketing
+copy, though see the caveat below about which sport's example was
+actually shown):
+
+- Base URL `https://american-football.highlightly.net`, endpoint
+  `GET /matches` filtered by `leagueName=NCAA` and `date=`.
+- Auth header `x-rapidapi-key` - their own docs state this is used even
+  for direct (non-RapidAPI-marketplace) calls.
+- Response carries `x-ratelimit-requests-limit` /
+  `x-ratelimit-requests-remaining` headers.
+
+**Real gap found mid-research, worth flagging on its own:** the first
+doc pull for the match-object shape returned a SOCCER-shaped example
+(`"state.score.current": "3 - 1"`, `"First half"`/`"Extra time"`/
+`"penalties"`) even though it claimed to be describing the American
+football object - exactly the "don't trust a generic-looking example"
+risk the handoff brief called out for third-party docs, except here it
+showed up inside Highlightly's OWN docs page via an AI summarization
+pass. Re-pulling with an explicit "this is American football, not
+soccer" instruction got a corrected, sport-appropriate example. Lesson
+for next time: always sanity-check a fetched doc's example against the
+sport actually being integrated, even when the source is the vendor's
+own site.
+
+**UNVERIFIED - flagged loudly in `highlightly_client.js`'s file header,
+not glossed over:**
+
+- **The score field is a combined string** (`"score.current": "21 - 7"`),
+  not separate home/away integers like BBS. Which side of the `" - "` is
+  home vs. away is not stated anywhere in the docs pulled - the parser
+  guesses "home - away" but this is exactly the kind of guess that fails
+  SILENTLY (a confidently-wrong score) rather than loudly. **This is the
+  single most important thing to check the moment a real key exists**,
+  ideally against a lopsided score where a flipped order is obvious by
+  eye.
+- Whether `leagueName=NCAA` is really the right filter param (vs.
+  `league=`, used for NFL in the same docs).
+- The full status/description vocabulary for American football
+  specifically (the corrected pull showed `"In progress"` and `"Final"`
+  but not a complete enum).
+- Whether NCAA team names come back as "School Mascot" (matches BBS,
+  `resolveBbsTeamName()` already handles it) or school-only (also fine,
+  takes the exact-match branch) - genuinely unverified either way.
+- Whether the 100/day cap resets on a fixed calendar day or a rolling
+  24h window - not stated in the docs pulled.
+
+Because that last point was unresolvable from docs alone, the poll
+throttle (`maybeFetchHighlightly()` in `worker.js`) was built to be
+correct under EITHER interpretation instead of guessing: it tracks a
+ROLLING 24-hour count in KV (`highlightly_poll_log`), which is always
+<= what either a calendar-day or rolling-day cap would actually allow,
+and separately backs off for an hour if a real response's
+`x-ratelimit-requests-remaining` header ever comes back <= 5, regardless
+of what our own counter thinks. Poll interval: every 10 minutes inside a
+12:00 PM - 2:00 AM ET active window (checked via `Intl` against
+`America/New_York` so it stays correct across the EDT/EST boundary,
+verified with synthetic boundary timestamps - 11:59 AM ET false, 12:00
+PM ET true, 1:59 AM ET true, 2:00 AM ET false). 14h window / 10min =
+84 polls, under the 85-of-100 target with the same margin the handoff
+asked for - no adjustment needed regardless of which reset model turns
+out to be real, since the rolling-window cap enforces the ceiling either
+way.
+
+**Activation logic:** tertiary only - `maybeFetchHighlightly()` is only
+even called after BOTH the BBS primary and secondary fail on the same
+tick, and even then returns `null` immediately if `HIGHLIGHTLY_API_KEY`
+isn't set (true today), so this ships completely harmlessly. **Next
+step for a future session or the user directly: get a real Highlightly
+key, `wrangler secret put HIGHLIGHTLY_API_KEY` in `live/`, then run one
+real call against an in-progress game and fix the score-order guess
+first** before trusting this path under real fire.
+
+### Code changes
+
+- `live/bbs_client.js`: added `fetchLegacyMatches()` (secondary, single
+  request, no date loop).
+- `live/highlightly_client.js`: new file, tertiary client + parser,
+  fully inert without a key.
+- `live/worker.js`: `pollAndCache()` now tries primary -> secondary ->
+  throttled tertiary in order per tick instead of failing outright on
+  the primary; the per-game loop now calls a source-specific parser
+  first and resolves team names off the parsed, source-agnostic
+  `home_name_raw`/`away_name_raw` fields instead of reading BBS's raw
+  shape directly, so `gameIdentityKey()`/`STATUS_PRIORITY`/`mergeGames()`
+  keep working unchanged no matter which of the three sources answered.
+  Each published game now also carries `data_source`
+  (`bbs_stored`/`bbs_legacy`/`highlightly`) for operational visibility.
+
+### Verified in production, against the real still-live outage - not simulated
+
+Local sanity checks first (Node script against real captured BBS
+fixtures + a synthetic Highlightly-shaped object, both parsers, both
+`resolveBbsTeamName()` paths, `norm()` variant handling, and the ET
+active-window boundary math - all correct). Then a real
+`wrangler deploy` (`powerswap-live-scores`, version
+`a62bb791-60fe-4e93-b67a-b9bab5408888`), then `wrangler tail` caught a
+REAL cron tick at 12:02:19 AM ET 2026-09-12 hitting the still-ongoing
+primary 500 outage and falling through to the secondary automatically:
+
+```
+"*/2 * * * *" @ 9/12/2026, 12:02:19 AM - Ok
+  (error) BBS /v1/stored/matches (date=2026-09-12) returned 500
+  (error) BBS /v1/stored/matches (date=2026-09-11) returned 500
+  (error) BBS primary (stored/matches) fetch failed: ... returned 500
+  (warn) BBS primary down this tick - used /v1/matches secondary instead
+```
+
+Confirmed `GET /live` immediately after: **19 real games, all tagged
+`"data_source":"bbs_legacy"`**, including
+`Louisville 59-13 Villanova (finished)` and the rest of that day's
+ranked-team slate - not the empty `{"updated_at":null,"games":[]}` the
+site was showing before this session, and not a simulated test - this
+is the actual production outage this whole build was meant to survive,
+resolving itself live during the fix.
+
+### What's left
+
+Only Highlightly's real-key verification (flagged above) is outstanding
+- everything else in this session is deployed and confirmed against
+real production traffic. Once BBS's `/v1/stored/matches` recovers,
+`data_source` should flip back to `"bbs_stored"` on its own with no
+redeploy needed - worth a quick look at `/live` next session to confirm
+that transition happens cleanly too.
