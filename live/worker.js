@@ -279,10 +279,20 @@ export default {
     };
 
     if (url.pathname === "/live") {
+      // `data_source` (bbs_stored/bbs_legacy/highlightly) stays in the KV
+      // payload for internal debugging (visible via `wrangler tail` /
+      // direct KV inspection) but is stripped here - this is the exact
+      // URL the public site's own JS fetches directly (Bird Feeder: no
+      // backend proxy), so anything left in this response is visible to
+      // any visitor via devtools or a plain curl, not just "not rendered
+      // on the page." See admin/BUILD_LOG.md for why this was added.
       const cached = await env.LIVE_KV.get(LIVE_KV_KEY);
-      return new Response(cached || JSON.stringify({ updated_at: null, games: [] }), {
-        headers: corsHeaders,
-      });
+      const payload = cached ? JSON.parse(cached) : { updated_at: null, games: [] };
+      const publicPayload = {
+        ...payload,
+        games: payload.games.map(({ data_source, ...rest }) => rest),
+      };
+      return new Response(JSON.stringify(publicPayload), { headers: corsHeaders });
     }
 
     if (url.pathname === "/health") {
