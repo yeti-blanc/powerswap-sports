@@ -363,19 +363,23 @@ main {
 }
 .live-game-status {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.5px;
   color: var(--text-muted);
   margin-top: 5px;
 }
 
-/* Slow flash on the status/score/team info while a game is live. */
+/* Slow flash on the status/score/team info while a game is live: holds at
+   full opacity for a beat (0-50% of the 4s cycle = 2s) before dipping down
+   and back, rather than the old sine-wave version that was never actually
+   AT full opacity except for an instant. */
 @keyframes live-game-flash {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.55; }
+  0%, 50% { opacity: 1; }
+  75% { opacity: 0.55; }
+  100% { opacity: 1; }
 }
 .live-game-flash {
-  animation: live-game-flash 2.5s ease-in-out infinite;
+  animation: live-game-flash 4s ease-in-out infinite;
 }
 
 /* Underdog (lower-ranked or unranked side) currently leading - real

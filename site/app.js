@@ -660,13 +660,16 @@ function renderLiveBadges() {
       badge.hidden = true;
     }
 
-    // The opponent/kickoff subtext is redundant once a game goes live -
-    // the belt-live badge above already carries the opponent name, and
-    // kickoff time is meaningless for a game already underway. Hidden
-    // rather than removed, so it comes right back if the game somehow
-    // reverts (e.g. a stale record briefly wins a dedup tick).
+    // The opponent/kickoff subtext is redundant once a game goes live OR
+    // finishes - the belt-live badge above already carries the opponent
+    // name (and, once finished, the real score), and kickoff time is
+    // meaningless either way at that point. Hidden rather than removed,
+    // so it comes right back if the game somehow reverts (e.g. a stale
+    // record briefly wins a dedup tick).
     const opponentSpan = li.querySelector(".belt-opponent");
-    if (opponentSpan) opponentSpan.hidden = game?.status === "in_progress";
+    if (opponentSpan) {
+      opponentSpan.hidden = game?.status === "in_progress" || game?.status === "finished";
+    }
   }
 }
 
