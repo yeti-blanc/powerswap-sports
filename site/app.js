@@ -289,16 +289,17 @@ function renderRankings(snapshot, weekEvents) {
     // actually being viewed - generalizing the lookup by week key fixes
     // that at the source instead of special-casing week 1.
     const matchup = weekMatchups[snapshot.week]?.[slot.team] ?? null;
-    // For a past, completed game, show the real result (W/L + score) - see
-    // sports/cfb/fetch_week1_matchups.py's completed/team_score/
-    // opponent_score fields, backfilled 2026-09-06 for every past season.
-    // Skipped for the CURRENT live season, where the separate live-badge
-    // (renderLiveBadges) already shows FINAL score - showing it twice
-    // would be redundant.
-    const showResult = matchup?.completed && !isViewingLiveWeek();
-    const detailText = showResult ? formatMatchupResult(matchup) : matchup ? formatKickoff(matchup) : "";
+    // Opponent + home/away always shows underneath, regardless of week or
+    // status (user request 2026-09-12) - the kickoff-time detail is the
+    // only part that ever goes away, wrapped in its own .belt-kickoff span
+    // so renderLiveBadges() can hide just that part (not the opponent name)
+    // once the live feed says a CURRENT-week game has gone live/finished -
+    // the static matchup file's own `completed` flag doesn't update until
+    // Monday's batch run, so kickoff would otherwise stay stuck showing a
+    // stale time all week once the game actually started.
+    const detailText = matchup?.completed ? "" : matchup ? formatKickoff(matchup) : "";
     const opponentLine = matchup
-      ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}${detailText ? " · " + detailText : ""}</span>`
+      ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}<span class="belt-kickoff">${detailText ? " · " + detailText : ""}</span></span>`
       : "";
 
     const row = document.createElement("div");
@@ -309,6 +310,20 @@ function renderRankings(snapshot, weekEvents) {
       <span class="belt-live" hidden></span>
       <span class="belt-toggle">LINEAGE ▾</span>
     `;
+
+    // Past weeks' results come from the static season-history data, not
+    // the live feed - renderLiveBadges() only ever touches .belt-live for
+    // the CURRENT live week (see its own comment), so a past week's Final
+    // badge has to be set here, once, directly from matchup.completed.
+    if (matchup?.completed && !isViewingLiveWeek()) {
+      const finalText = formatFinalResult(matchup.team_score, matchup.opponent_score);
+      if (finalText) {
+        const badge = row.querySelector(".belt-live");
+        badge.textContent = finalText;
+        badge.hidden = false;
+        badge.className = "belt-live is-final";
+      }
+    }
 
     const lineageDiv = document.createElement("div");
     lineageDiv.className = "lineage";
@@ -550,10 +565,17 @@ function formatKickoff(matchup) {
   });
 }
 
-function formatMatchupResult(matchup) {
-  if (matchup.team_score == null || matchup.opponent_score == null) return "";
-  const result = matchup.team_score > matchup.opponent_score ? "W" : "L";
-  return `${result} ${matchup.team_score}-${matchup.opponent_score}`;
+// Shared by past-week completed matchups (renderRankings, from the static
+// season-history data) and the current live week's finished games
+// (formatLiveBadge, from the live-scores feed) - one format either way,
+// shown in the .belt-live slot to the right of the ranked team's name:
+// "Final: W 41-13" / "Final: L 13-41". Per user request 2026-09-12: the
+// opponent name now always lives in .belt-opponent underneath instead, so
+// this never repeats it.
+function formatFinalResult(teamScore, oppScore) {
+  if (teamScore == null || oppScore == null) return null;
+  const result = teamScore > oppScore ? "W" : "L";
+  return `Final: ${result} ${teamScore}-${oppScore}`;
 }
 
 // game.period is BBS's linescore-array length (verified 2026-09-12 against
@@ -584,7 +606,7 @@ function formatLiveBadge(game, isHome) {
     return `● LIVE ${scoreText} vs ${opponent}${clockPart ? " · " + clockPart : ""}`;
   }
   if (game.status === "finished") {
-    return `FINAL ${scoreText} vs ${opponent}`;
+    return formatFinalResult(teamScore, oppScore);
   }
   return null;
 }
@@ -643,13 +665,20 @@ function gameMatchesExpectedWeek(game, liveWeekKey) {
 }
 
 function renderLiveBadges() {
-  const showBadges = isViewingLiveWeek();
+  // Past weeks' .belt-live "Final: W/L Score" badges are set once, directly
+  // in renderRankings(), from the static season-history data - this
+  // function only ever knows about the live feed, which only ever means
+  // anything for the CURRENT live week. Returning early here (rather than
+  // looping through and hiding everything, the old behavior) leaves those
+  // past-week badges alone instead of stomping them blank on every poll.
+  if (!isViewingLiveWeek()) return;
+
   const liveWeekKey = getLiveWeekKey();
   for (const li of rankingsList.children) {
     const badge = li.querySelector(".belt-live");
     if (!badge) continue;
     const team = li.dataset.team;
-    let game = showBadges ? liveGamesByTeam[team] : null;
+    let game = liveGamesByTeam[team];
     if (game && !gameMatchesExpectedWeek(game, liveWeekKey)) game = null;
     const text = game ? formatLiveBadge(game, game.home_team === team) : null;
     if (text) {
@@ -660,15 +689,15 @@ function renderLiveBadges() {
       badge.hidden = true;
     }
 
-    // The opponent/kickoff subtext is redundant once a game goes live OR
-    // finishes - the belt-live badge above already carries the opponent
-    // name (and, once finished, the real score), and kickoff time is
-    // meaningless either way at that point. Hidden rather than removed,
-    // so it comes right back if the game somehow reverts (e.g. a stale
-    // record briefly wins a dedup tick).
-    const opponentSpan = li.querySelector(".belt-opponent");
-    if (opponentSpan) {
-      opponentSpan.hidden = game?.status === "in_progress" || game?.status === "finished";
+    // The kickoff-time detail (NOT the opponent name, which always stays
+    // visible per user request 2026-09-12) is meaningless once a game has
+    // gone live or finished - the static matchup file's `completed` flag
+    // doesn't update mid-week, so this is the only place that knows to
+    // hide it. Hidden rather than removed, so it comes right back if the
+    // game somehow reverts (e.g. a stale record briefly wins a dedup tick).
+    const kickoffSpan = li.querySelector(".belt-kickoff");
+    if (kickoffSpan) {
+      kickoffSpan.hidden = game?.status === "in_progress" || game?.status === "finished";
     }
   }
 }

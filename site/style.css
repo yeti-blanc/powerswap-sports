@@ -278,7 +278,6 @@ main {
   text-shadow: none;
   margin-top: 2px;
 }
-.belt-opponent[hidden] { display: none; }
 .belt-toggle {
   font-family: var(--font-mono);
   font-size: 9px;
