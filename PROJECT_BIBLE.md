@@ -440,3 +440,44 @@ realizing there's a sibling path with the same bug.
 - When in doubt about scope (build vs. just report; commit vs. leave staged;
   fix vs. flag), the user has consistently preferred being told clearly what
   is and isn't verified over being told a rosier-sounding summary.
+
+## 12. Site styling conventions (`site/style.css`/`site/app.js`, started 2026-09-12)
+
+The user is actively iterating on the rank cards / Live Games look —
+treat this as ongoing, not finished, and expect more requests like these:
+
+- **One font, not three.** `--font-mono` (used to be `'Courier New',
+  monospace`) is now just `var(--font-display)` — the user disliked
+  Courier New on sight and wanted it gone sitewide. If a new element
+  needs a distinct font again, don't silently reintroduce a third
+  family; ask, since the user has explicitly gone the other direction
+  once already. `--font-body` (Arial) is still separate, used for
+  regular text.
+- **A `hidden`-attribute toggle needs a matching `[hidden]` override if
+  the element has its own `display` declaration.** `.belt-opponent`
+  sets `display: block` unconditionally, which silently defeats the
+  bare `hidden` attribute — needed `.belt-opponent[hidden] { display:
+  none; }` alongside it. `.belt-live` didn't need this since it has no
+  competing `display` rule. Check for this whenever toggling `.hidden`
+  on a new element.
+- **Rank-card opponent/kickoff subtext (`.belt-opponent`) is hidden once
+  a team's game is `in_progress` or `finished`** (`renderLiveBadges()`
+  in `site/app.js`) — the `.belt-live` badge right next to it already
+  carries the opponent name (and, once finished, the real score), so
+  kickoff time and opponent were redundant in both states. This logic
+  lives in `renderLiveBadges()`, which runs on its own poll cycle
+  separate from `renderRankings()`'s full rebuild — a new "hide when
+  live" rule for some other element likely belongs in the same
+  function, not in `renderRankings()`.
+- **`live-game-flash` (the slow pulse on Live Games cards) holds at full
+  opacity for the first half of its cycle, not just an instant.**
+  Current: 4s cycle, `0%,50%: opacity 1` (flat 2s hold — two equal
+  keyframe values produce no interpolation between them), `75%: opacity
+  0.55`, `100%: opacity 1`. If the hold duration or dip depth ever needs
+  to change again, keep the "two equal consecutive keyframes = a real
+  flat hold" trick rather than going back to a pure sine wave.
+- **Current sizes, all explicitly first-pass / open to revision per the
+  user**: `.belt-team` (ranked team name) 14px (was 12px),
+  `.live-game-status` (the "● LIVE · Q4" line) 12px (was 10px). HAVOC
+  card font sizes have NOT been touched yet — user wants to see the font
+  swap alone first before deciding on sizing there.

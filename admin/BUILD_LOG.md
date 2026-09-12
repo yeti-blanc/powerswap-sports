@@ -1879,3 +1879,95 @@ remaining open item (score order) needs a live or finished game to
 resolve - worth a deliberate re-check once Saturday's slate is
 underway, using a real score with clearly distinguishable home/away
 numbers.
+
+## 2026-09-12 (later same day): BBS primary outage resolved; live quarter/OT shipped; sitewide font/card styling pass
+
+**BBS `/v1/stored/matches` primary outage confirmed resolved.** User's
+support ticket came back same-day saying it was on BBS's end and fixed;
+independently verified here before trusting that: `live_payload` KV read
+showed 21/22 games tagged `data_source: "bbs_stored"` (the lone
+`bbs_legacy` entry was a finished game retained from before recovery,
+not new), and a `wrangler tail` catch of a real cron tick showed
+`outcome: "ok"`, `exceptions: []`, `logs: []` - the Worker only emits
+`console.warn`/`console.error` on a fallback or failure, so an empty log
+array on a real tick means primary answered cleanly. PROJECT_BIBLE.md
+§9 updated to close this out; keeping an eye out since BBS outages have
+recurred before.
+
+**Live quarter/overtime now real, not guessed.** `parseBbsMatch()` had
+carried an "UNVERIFIED - no in-progress example observed yet" comment
+since day one because nothing was ever actually live during testing.
+With real live games finally on (Texas A&M/Arizona State, Georgia/
+Western Kentucky, etc.), added a temporary diagnostic
+(`console.log("RAW BBS LIVE MATCH:", JSON.stringify(liveRaw))` in
+`worker.js`, deployed, caught via `wrangler tail --format json`, then
+reverted) and got two real raw records: James Madison/Wagner and
+Virginia Tech/Old Dominion. Confirmed:
+- `status` really does come back as `"live"`.
+- No clock/time-remaining field exists anywhere on the raw object - full
+  real key set is `id, sport, league, home, away, kickoff_utc, status,
+  score, linescore, attendance, broadcast, round, has_odds`. Not
+  unpopulated - genuinely absent. Not available from BBS, period.
+- `linescore.home`/`linescore.away` are per-quarter score arrays whose
+  LENGTH is the current quarter - verified by summing each array against
+  `score` (matched exactly both times: JMU 66 = 21+21+24, Wagner 3 =
+  3+0+0; VT 37 = 17+17+3+0, ODU 13 = 3+3+7+0 with Q4 just underway, 0
+  points in it yet) - so a new array entry appears the INSTANT a quarter
+  starts, not once it's scored in. Reliable, not a lagging indicator.
+
+Shipped as `period = linescore length` in `bbs_client.js`, rendered by a
+new shared `formatPeriodLabel()` in `site/app.js` (Q1-Q4, OT/2OT/etc.
+past 4) used in both the rank-card badge and the Live Games section.
+
+**Halftime deliberately NOT detected** - user's explicit call after
+being told BBS's documented status enum is only
+`scheduled|live|finished|cancelled` (no halftime value) and linescore
+length can't tell "still Q2" from "halftime after Q2" (both length 2).
+A live game just keeps showing `Q2` through the break rather than ship
+a heuristic that could mislabel a stalled game as halftime.
+
+Verified end-to-end in a real browser: local `http-server` preview
+first, then confirmed again on the real production site
+(`yetiblanc.com/powerswap-sports/site/`) after push, real quarters
+showing on real live games.
+
+**Sitewide font/card styling pass, done in two rounds per user
+feedback:**
+- `--font-mono` (`'Courier New', monospace`) disliked on sight -
+  repointed the custom property itself to `var(--font-display)` rather
+  than hunting down each of the 8 selectors using it (opponent/kickoff
+  subtext, LINEAGE toggle, live badges, HAVOC/podcast labels, etc.) -
+  one change point, sitewide, matches the ranked-team-name font
+  everywhere at once.
+- `.belt-team` (ranked team name on rank cards) 12px -> 14px, per user's
+  request to see it slightly larger. Explicitly left open for further
+  adjustment - user said this was a first look, not a final size.
+- Round 1: `.belt-opponent` (kickoff/opponent subtext) hidden once a
+  team's game is `in_progress`, via `renderLiveBadges()` (which already
+  runs on its own poll cycle, separate from the full `renderRankings()`
+  rebuild) - the belt-live badge right next to it already carries the
+  opponent name, kickoff time is stale once the game has started. Had
+  to add `.belt-opponent[hidden] { display: none; }` since the class
+  already sets `display: block` unconditionally, which silently
+  defeats the bare `hidden` attribute (unlike `.belt-live`, which has no
+  competing `display` declaration and didn't need this).
+- Round 2 (same feedback loop, next message): extended the same hiding
+  to `"finished"` status too - the FINAL badge shows the same redundant
+  info, so the once-live-only scope was really "once the belt-live badge
+  has anything to say."
+- `.live-game-status` (the "* LIVE * Q4" line in the Live Games column)
+  bumped 10px -> 12px, user's call after seeing the font swap alone
+  wasn't enough of a size bump for their taste.
+- `live-game-flash` keyframes restructured: old version was `0%,100%:
+  opacity 1, 50%: opacity 0.55` on a sine easing - technically only ever
+  AT full opacity for an instant per cycle. Rebuilt as a 4s cycle with
+  an explicit hold: `0%,50%: opacity 1` (flat 2s hold, two equal
+  keyframe values = no interpolation happens between them), `75%:
+  opacity 0.55`, `100%: opacity 1`. Verified for real in a live tab by
+  sampling `getComputedStyle(el).opacity` every 0.5s - got three
+  consecutive `1` readings before it dipped, confirming the hold
+  actually holds rather than just touching 1 momentarily.
+
+User said more style changes are likely in a future session - nothing
+left open right now, just noting this area is actively being iterated
+on, not a one-and-done pass.
