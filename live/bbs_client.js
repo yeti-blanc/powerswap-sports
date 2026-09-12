@@ -19,10 +19,16 @@
  *     works on /v1/matches is REJECTED here with a 400.
  *   - Response envelope is `{ data, pagination }`, not the `{ data, meta,
  *     error }` Envelope /v1/matches uses.
- * fetchBbsMatches() below fetches both today's and yesterday's UTC date
- * (kickoff_utc's date is a UTC calendar date, and POST_KICKOFF_WINDOW_MS
- * in worker.js is only 4h15m, so a game can never be in-window more than
- * one UTC day back) and merges them, deduped by id.
+ * fetchBbsMatches() below can fetch either just today's UTC date or both
+ * today's + yesterday's, merged and deduped by id. DECOUPLED 2026-09-12
+ * (same fix as PFPI's schedule/live-score split, see admin/BUILD_LOG.md):
+ * yesterday's date only ever matters for the brief window right after UTC
+ * midnight while a late-kickoff game from "yesterday" hasn't finished yet -
+ * every other tick of the day it was a wasted second request, unconditionally
+ * doubling this endpoint's cost 24/7 for a need that's real maybe 4-5 hours
+ * a day. worker.js now decides includeYesterday per tick from actual KV
+ * state (does a not-yet-finished game with a yesterday kickoff exist?),
+ * the same "self-limiting on real state, not a fixed clock" idea PFPI used.
  *
  * Base URL/auth style confirmed 2026-09-01. Docs: bigballsdata.com/docs,
  * bigballsdata.com/ncaaf-api. Free tier: 1,000 req/day, 2,000/day on a
@@ -35,7 +41,7 @@ export const BBS_BASE_URL = "https://api.bigballsdata.com";
 export const BBS_SPORT = "american_football";
 export const BBS_LEAGUE = "ncaaf"; // FBS only - AP Top 25 never has an FCS team (see sports/cfb/config.py DIVISION_FILTER)
 
-function utcDateString(daysOffset) {
+export function utcDateString(daysOffset) {
   return new Date(Date.now() + daysOffset * 24 * 60 * 60 * 1000)
     .toISOString()
     .slice(0, 10);
@@ -63,8 +69,8 @@ async function fetchStoredMatchesForDate(apiKey, date) {
   return matches;
 }
 
-export async function fetchBbsMatches(apiKey) {
-  const dates = [utcDateString(0), utcDateString(-1)];
+export async function fetchBbsMatches(apiKey, includeYesterday = true) {
+  const dates = includeYesterday ? [utcDateString(0), utcDateString(-1)] : [utcDateString(0)];
   const byId = new Map();
   let lastError = null;
 

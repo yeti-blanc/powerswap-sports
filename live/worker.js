@@ -38,10 +38,9 @@
  *
  * ARCHITECTURE (rewritten 2026-09-05, see admin/BUILD_LOG.md for the full
  * history): every cron tick does exactly ONE poll - fetch the
- * ranked-teams list, fetch BBS's full day's slate (2 requests - see
- * bbs_client.js), filter to ranked teams, write to KV. No in-Worker loop,
- * no "poll faster during a live game" logic, no per-game kickoff-time
- * awareness.
+ * ranked-teams list, fetch BBS's full day's slate, filter to ranked teams,
+ * write to KV. No in-Worker loop, no "poll faster during a live game"
+ * logic, no per-game kickoff-time-driven polling FREQUENCY.
  *
  * Why: BBS's /v1/stored/matches is a flat "whole day's slate" call - one
  * request returns every game for that date/league regardless of how many
@@ -56,18 +55,36 @@
  * day had an overlapping ranked-team game - unpredictable, and large on
  * a real Saturday.
  *
- * The fix is architectural, not a tighter safeguard: a fixed poll
- * interval low enough that requests/day is comfortably under the daily
- * cap, for ANY possible number of concurrent games (0 or 30, doesn't
- * matter - it's still exactly 2 requests per tick):
- *   - every 2 minutes = 720 pulls/day x 2 = 1,440 requests/day, under the
- *     primary key's 2,000/day cap with real headroom (560/day, 28%).
- * That makes the daily total exact and provable, not a runtime guess
- * needing a usage-counter safety net.
+ * TODAY vs. YESTERDAY DECOUPLED (2026-09-12, same lesson as PFPI's
+ * schedule/live-score split): "today"'s date is the real live-score need
+ * and is fetched every tick. "yesterday"'s date only exists to catch a
+ * late-kickoff game that's still not-finished after UTC midnight rolls
+ * over - real maybe 4-5 hours a day, not 24. It used to be fetched
+ * unconditionally every tick anyway, permanently doubling this endpoint's
+ * cost for a need that's actually rare. needsYesterdayQuery() below gates
+ * it on real KV state (any not-finished game with a yesterday kickoff?),
+ * the same "self-limiting on state, not a fixed clock" idea PFPI used for
+ * enrichLiveScores() - no interval to tune, and it naturally re-includes
+ * yesterday on cold start (empty/expired KV) rather than risk missing one.
+ * Worst case (a stuck "scheduled" game that never resolves) degrades to
+ * the old always-both-dates behavior for at most that one calendar day,
+ * never worse.
+ *
+ * Combined with the fixed 2-minute tick, this makes request volume a
+ * provable range instead of one flat number:
+ *   - 720 ticks/day. "today" always fires: 720 requests/day floor.
+ *   - "yesterday" adds up to 720 more only during a full-day outage where
+ *     it can never resolve to finished; a normal day adds roughly the
+ *     ticks in the post-midnight crossover window, not all of them.
+ *   - Primary key's cap is 2,000/day - even the worst case (both dates
+ *     every tick, 1,440/day) has headroom; the gate exists to keep normal
+ *     days far below that, and to leave room for the secondary
+ *     (/v1/matches, same key) to fall back on without risking the cap
+ *     during an actual primary outage.
  */
 
 import { norm, resolveBbsTeamName } from "./team_norm.js";
-import { fetchBbsMatches, fetchLegacyMatches, parseBbsMatch } from "./bbs_client.js";
+import { fetchBbsMatches, fetchLegacyMatches, parseBbsMatch, utcDateString } from "./bbs_client.js";
 import { fetchHighlightlyMatches, parseHighlightlyMatch } from "./highlightly_client.js";
 
 const RANKED_TEAMS_URL =
@@ -319,6 +336,12 @@ async function pollAndCache(env) {
     return;
   }
 
+  // Fetched once, up front, so both the includeYesterday decision below and
+  // the final mergeGames() call read the exact same snapshot (previously
+  // this was fetched a second time later, purely for the merge).
+  const previous = await getPreviousPayload(env);
+  const includeYesterday = needsYesterdayQuery(previous.games);
+
   // Tried in order until one succeeds - see the REDUNDANCY BUILD comment
   // above for why each exists and what's confirmed vs. not about each.
   let rawMatches = null;
@@ -326,7 +349,7 @@ async function pollAndCache(env) {
   let dataSource = null;
 
   try {
-    rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR]);
+    rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR], includeYesterday);
     parseMatch = parseBbsMatch;
     dataSource = "bbs_stored";
   } catch (err) {
@@ -426,13 +449,29 @@ async function pollAndCache(env) {
   }
   const freshGames = [...freshByKey.values()];
 
-  const previous = await getPreviousPayload(env);
   const mergedGames = mergeGames(freshGames, previous.games, rankedSet);
 
   await env.LIVE_KV.put(
     LIVE_KV_KEY,
     JSON.stringify({ updated_at: new Date().toISOString(), games: mergedGames }),
     { expirationTtl: KV_TTL_SECONDS }
+  );
+}
+
+// Self-limiting gate for fetchBbsMatches()'s "yesterday" query - see the
+// TODAY vs. YESTERDAY DECOUPLED comment above. Empty/missing previous
+// payload (cold start, or KV expired past KV_TTL_SECONDS) errs toward
+// including yesterday rather than risk silently dropping a real
+// still-in-progress crossover game. `kickoff_utc` here is only ever used
+// to pick a date RANGE to query, never to judge live/imminent status for
+// polling frequency (that's the exact class of bug the 2026-09-05
+// rewrite removed - see this file's header) - a wrong placeholder value
+// at worst costs one wasted request, never a missed live game.
+export function needsYesterdayQuery(previousGames) {
+  if (!previousGames || previousGames.length === 0) return true;
+  const yesterday = utcDateString(-1);
+  return previousGames.some(
+    (g) => g.status !== "finished" && g.kickoff_utc && g.kickoff_utc.slice(0, 10) === yesterday
   );
 }
 

@@ -15,10 +15,19 @@ kv_namespaces = [
 # PERMANENT VERSION (deployed 2026-09-06 ~3 AM ET, swapped in from the
 # 2026-09-05 same-day stopgap - see admin/BUILD_LOG.md for the full
 # history): every cron tick does exactly ONE flat poll, no in-Worker
-# loop, no kickoff-time judgment - BBS's /v1/stored/matches returns the
-# whole day's slate in one call regardless of game count, so request
-# volume is purely ticks/day x 2, provably fixed:
-#   "*/2 * * * *" = 720 ticks/day x 2 = 1,440 requests/day, under the
-#   primary BBS_API_KEY account's 2,000/day cap (28% headroom).
+# loop, no kickoff-time-driven polling FREQUENCY - BBS's
+# /v1/stored/matches returns the whole day's slate in one call regardless
+# of game count, so request volume is purely a function of ticks/day.
+#   "*/2 * * * *" = 720 ticks/day.
+# Per-tick cost is 1-2 requests, not a flat 2 (decoupled 2026-09-12, see
+# worker.js's needsYesterdayQuery() / TODAY vs. YESTERDAY DECOUPLED
+# comment): "today" always fires (720/day floor), "yesterday" only fires
+# while a not-yet-finished game from yesterday's UTC date is still in the
+# cache, self-limiting instead of a flat every-tick cost. Worst case
+# (both dates every tick, e.g. a stuck game all day) is still only
+# 1,440/day, under the primary BBS_API_KEY account's 2,000/day cap (28%
+# headroom) - the gate is there to keep normal days well below that and
+# to leave the cap's headroom for the /v1/matches secondary to use during
+# an actual primary outage, without the combined total risking a 429.
 [triggers]
 crons = ["*/2 * * * *"]
