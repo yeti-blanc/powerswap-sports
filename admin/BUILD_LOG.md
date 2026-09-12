@@ -2086,3 +2086,75 @@ Week 1 (Ohio State "Final: W 56-3", Miami "Final: W 45-6" @ Stanford)
 and Week 2's live mix (Georgia/Miami/Texas A&M "Final: W ..." with
 opponent underneath; Oregon/Notre Dame still show the unchanged live
 badge with opponent inline and no stale kickoff underneath).
+
+---
+
+## 2026-09-12 (even later): HAVOC now shows live-detected upsets as games go final
+
+User noticed the season's first real upset didn't show up anywhere in
+HAVOC and asked why.
+
+**Root cause, confirmed by reading the actual pipeline, not assumed:**
+HAVOC's `events-list` is driven entirely by `season_history.json`'s
+backtested `events`, which only exist once `fetch_results.py` +
+`backtest.py` run for a week. `season_history.json`'s `snapshots`
+topped out at `week1` (0 events — week 1 was chalk, already known).
+`data/cfb/seasons/2026/raw/week_02_games.json` didn't exist yet.
+`.github/workflows/season-progression.yml`'s cron automation only
+starts at Week 3 (first trigger 2026-09-20) — weeks 1-2 were called out
+in that workflow's own comments as one-off manual backfills done
+2026-09-08, before week 2's games were even played. So there is
+currently no mechanism, automated or otherwise, that will pick up week
+2's results on its own. Checked the real clock (`date -u`: Sat
+2026-09-12 21:27 UTC = 5:27pm ET) against week 2's kickoff spread in
+`week_02_matchups.json` and confirmed the slate wasn't even fully over
+yet — running the real backtest right now would reproduce the exact
+"phantom/partial week" bug reverted on 2026-09-08 (`38f5f56`), where
+teams with unfinished games would incorrectly freeze as byes.
+
+**User's call:** don't touch rankings until the real week-3-and-on
+automation (or a manual run once week 2 is genuinely over) actually
+processes them — but show a game as it goes final in HAVOC anyway if it
+was an upset, sourced from the live feed rather than waiting days for
+backtest.
+
+**Built (`site/app.js`, `site/style.css`), display-only, no ranking-engine
+changes:**
+- `computeLiveUpsets()`: reuses the existing `isUnderdogLeading()` (it
+  already only compares scores, no idea what `status` even is) filtered
+  to `status === "finished"` instead of `renderLiveGamesSection()`'s
+  `"in_progress"`. Gated to `isViewingLiveWeek()` only, same as every
+  other live-feed consumer in this file.
+- `liveUpsetCardHtml()` / `refreshHavocPanel()`: renders a red
+  `event-card.live-upset` card (`Upset · Final` tag, same red as the
+  existing in-progress `.upset` styling) and re-draws the HAVOC panel on
+  both week navigation and every live-score poll tick (45s) via
+  `fetchLiveScores()`, so a finished upset appears within one poll, no
+  reload needed.
+- Explicitly does NOT touch `currentSeasonData`/rankings/
+  `season_history.json` — only the real swap engine is allowed to move a
+  rank slot. Naturally self-retires per week: once that week's real
+  backtest runs, `getLiveWeekKey()` rolls forward to the next week and
+  the now-past week's tab shows its real `season_history.json` events
+  instead — no manual cleanup path needed.
+- Original version included a "Not yet official - rankings update once
+  Week N is backtested" disclaimer line under each card; user asked to
+  drop it same day (the HAVOC section context plus the red styling read
+  as sufficiently provisional on their own). Removed.
+
+**Verified live in Chrome against the real production live-scores
+endpoint** (local static server serving the repo, `LIVE_WORKER_URL`
+still pointed at the real deployed Worker — not a mock): first injected
+a simulated finished upset to confirm rendering/class names, then the
+real 45s poll tick overwrote it with genuine production data and
+surfaced two REAL week-2 upsets on its own — unranked Oklahoma State
+over #2 Oregon (39-31) and Michigan (#16) over #10 Oklahoma (17-10) —
+both correctly styled, while both teams' actual rank-card slots stayed
+completely unchanged (`#2 Oregon`, `#10 Oklahoma`, both showing their
+real "Final: L" scores, no rank movement). Committed and pushed
+(`cf0a68b`, then a follow-up commit for the disclaimer removal).
+
+**Open item added:** week 2's real backtest is still pending as of this
+entry — someone needs to run the manual pipeline (or dispatch
+`season-progression.yml` with `week: 2`) once week 2's slate is fully
+over, or rankings never move past week 1. Logged in PROJECT_BIBLE.md §9.

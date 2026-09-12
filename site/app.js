@@ -792,12 +792,10 @@ function liveUpsetCardHtml(game) {
   const loserScore = homeWon ? game.away_score : game.home_score;
 
   const winnerText = winnerRank ? `<strong>${winner}</strong> (#${winnerRank})` : `Unranked <strong>${winner}</strong>`;
-  const weekLabel = formatWeekLabel(getLiveWeekKey());
 
   return `
     <span class="event-tag live-upset-tag">Upset · Final</span>
     ${winnerText} beat #${loserRank} <strong>${loser}</strong>, ${winnerScore}-${loserScore}
-    <div class="event-detail">Not yet official - rankings update once ${weekLabel} is backtested</div>
   `;
 }
 

@@ -438,6 +438,15 @@ realizing there's a sibling path with the same bug.
 - **No admin-side UI for `data_source` or other live-scores internals** —
   intentionally not built (user's explicit call — KV/`wrangler tail`
   visibility is sufficient for now). Revisit only if asked.
+- **Week 2's real backtest is still pending as of this writing (evening
+  of 2026-09-12).** Automation (§5/§9's `season-progression.yml`) only
+  starts at Week 3 — once week 2's full slate is actually over, someone
+  needs to run `fetch_results.py --season 2026 --week 2` +
+  `backtest.py --sport cfb --season 2026 --weeks 2` by hand (or dispatch
+  `season-progression.yml` with `week: 2`), or the rankings will never
+  move past week 1. §12's HAVOC live-upset cards surface today's upsets
+  in the meantime for visibility only — they are not a substitute for
+  this and don't feed the swap engine.
 
 ## 10. Where to look for what
 
@@ -525,3 +534,33 @@ treat this as ongoing, not finished, and expect more requests like these:
   `.live-game-status` (the "● LIVE · Q4" line) 12px (was 10px). HAVOC
   card font sizes have NOT been touched yet — user wants to see the font
   swap alone first before deciding on sizing there.
+- **HAVOC shows live-detected upsets the instant a game goes final
+  (added 2026-09-12), separate from and ahead of the weekly backtest.**
+  Built because the site had no way to surface an in-week upset (e.g. a
+  real week-2 unranked/lower-ranked team beating a ranked one) until
+  days later, once that week's manual `fetch_results.py`/`backtest.py`
+  pipeline finally ran — HAVOC's `events-list` is normally driven
+  entirely by `season_history.json`'s backtested `events`, which only
+  update per §9's manual/weekly cadence. `computeLiveUpsets()`
+  (`site/app.js`) reuses `isUnderdogLeading()` — already status-agnostic,
+  it just compares scores — filtered to `status === "finished"` instead
+  of `"in_progress"`, and only ever runs while `isViewingLiveWeek()` is
+  true. `refreshHavocPanel()` redraws the panel both on week navigation
+  and on every live-score poll tick (45s), so a card appears within one
+  poll of a game finishing, no reload needed. **Deliberately does not
+  touch `currentSeasonData`, rankings, or `season_history.json`** — only
+  the real swap engine/backtest is allowed to move a rank slot (§2); this
+  is a read-only preview layer on top of the live feed, styled as a red
+  `.event-card.live-upset` card (same red as the existing in-progress
+  `.upset` styling, for one consistent "upset" color sitewide). No
+  disclaimer text on the card (removed same day, per explicit user
+  request) — the HAVOC section context and the red styling are
+  considered sufficient to convey "not yet official" without spelling it
+  out. Naturally stops showing a given week's cards the moment that
+  week's real backtest runs — `getLiveWeekKey()` rolls forward to the
+  next week at that point, and the now-past week's tab shows its real
+  `season_history.json` events instead. Verified live against real
+  production data (not just simulated): correctly surfaced 2026-09-12's
+  real upsets (unranked Oklahoma State over #2 Oregon 39-31; Michigan
+  over #10 Oklahoma 17-10) while both teams' rank slots stayed exactly
+  where they were.
