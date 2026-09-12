@@ -135,6 +135,22 @@ export function getCurrentWeekMatchupsUrl(weekNum) {
 }
 
 const LIVE_KV_KEY = "live_payload";
+// Real incident 2026-09-12: needsYesterdayQuery() only queries yesterday
+// when a not-yet-finished yesterday game is ALREADY visible in KV - it
+// can't tell "yesterday's fully accounted for" apart from "we have zero
+// memory of yesterday" (e.g. after a KV wipe - see this file's 2026-09-11
+// outage comment: `/live` was observed returning completely empty
+// `{games:[]}`, not stale, meaning the whole payload's TTL had lapsed).
+// Real case: Miami's real 77-7 final over Florida A&M was captured
+// correctly on 9/11, then lost in that wipe, then never re-fetched since
+// - the gate had no unfinished-yesterday game to notice was missing, so
+// it just kept skipping yesterday's date forever. Confirmed via a real
+// call that BBS still had the finished record days later (still within
+// its 2-day window). Fix: track the UTC date of the last successful
+// yesterday-INCLUSIVE primary fetch here, and force yesterday back in at
+// least once per UTC day regardless of what the gate above sees - closes
+// the gap while still avoiding the old unconditional-every-tick cost.
+const YESTERDAY_SWEEP_KEY = "yesterday_sweep_date";
 // Must comfortably exceed the cron interval or the key expires between
 // ticks and /live falls back to its empty default even though polling is
 // working fine - confirmed happening in production with a too-short TTL
@@ -340,7 +356,13 @@ async function pollAndCache(env) {
   // the final mergeGames() call read the exact same snapshot (previously
   // this was fetched a second time later, purely for the merge).
   const previous = await getPreviousPayload(env);
-  const includeYesterday = needsYesterdayQuery(previous.games);
+  const today = utcDateString(0);
+  const lastSweepDate = await env.LIVE_KV.get(YESTERDAY_SWEEP_KEY);
+  // See YESTERDAY_SWEEP_KEY's comment above: force yesterday in at least
+  // once per UTC day even if the gate above sees no reason to, so a game
+  // lost to a past KV wipe (or any other gap) gets one guaranteed chance
+  // per day to be rediscovered from BBS's still-live 2-day window.
+  const includeYesterday = needsYesterdayQuery(previous.games) || lastSweepDate !== today;
 
   // Tried in order until one succeeds - see the REDUNDANCY BUILD comment
   // above for why each exists and what's confirmed vs. not about each.
@@ -352,6 +374,14 @@ async function pollAndCache(env) {
     rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR], includeYesterday);
     parseMatch = parseBbsMatch;
     dataSource = "bbs_stored";
+    // Only mark the sweep done when yesterday was ACTUALLY included and
+    // the primary succeeded - if primary is down and the secondary saves
+    // this tick instead, the secondary doesn't respect date-scoping, so
+    // we don't know yesterday was really covered; leave the marker stale
+    // so the next successful primary tick tries the sweep again.
+    if (includeYesterday) {
+      await env.LIVE_KV.put(YESTERDAY_SWEEP_KEY, today);
+    }
   } catch (err) {
     console.error("BBS primary (stored/matches) fetch failed:", err.message);
   }
