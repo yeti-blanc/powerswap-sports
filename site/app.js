@@ -43,8 +43,11 @@ const weekHeading = document.getElementById("week-heading");
 const sportBanner = document.getElementById("sport-banner");
 const rankingsList = document.getElementById("rankings-list");
 const eventsList = document.getElementById("events-list");
+const havocSection = document.getElementById("havoc-section");
 const liveGamesSection = document.getElementById("live-games-section");
 const liveGamesList = document.getElementById("live-games-list");
+const lastWeekSection = document.getElementById("last-week-section");
+const lastWeekList = document.getElementById("last-week-list");
 const ticker = document.getElementById("ticker");
 const tickerText = document.getElementById("ticker-text");
 const weekNavDisplay = document.getElementById("week-nav-display");
@@ -262,6 +265,7 @@ function renderWeek() {
 
   renderRankings(snapshot, weekEvents);
   refreshHavocPanel();
+  renderLastWeekPanel();
   renderTicker(weekEvents);
 }
 
@@ -401,21 +405,88 @@ function renderEvents(weekEvents, isPreview = false, liveUpsets = []) {
   for (const e of weekEvents) {
     const li = document.createElement("li");
     li.className = "event-card" + (e.kind === "dethrone" ? " dethrone" : "");
-
-    if (e.kind === "swap") {
-      li.innerHTML = `
-        <span class="event-tag">Swap</span>
-        <strong>${e.winner}</strong> (#${e.winner_old_rank}) beat <strong>${e.loser}</strong> (#${e.loser_old_rank})
-        <div class="event-detail">${e.winner} → #${e.winner_new_rank} · ${e.loser} → #${e.loser_new_rank}</div>
-      `;
-    } else {
-      li.innerHTML = `
-        <span class="event-tag">Dethrone</span>
-        Unranked <strong>${e.winner}</strong> beat #${e.loser_old_rank} <strong>${e.loser}</strong>
-        <div class="event-detail">${e.winner} → #${e.winner_new_rank} · ${e.loser} is OUT</div>
-      `;
-    }
+    li.innerHTML = eventCardHtml(e);
     eventsList.appendChild(li);
+  }
+}
+
+// Shared by renderEvents() (this week's official swap/dethrone cards)
+// and renderLastWeekPanel() ("Last Week's Power Swaps" - same card look,
+// just sourced from the previous real week instead of the current one).
+function eventCardHtml(e) {
+  if (e.kind === "swap") {
+    return `
+      <span class="event-tag">Swap</span>
+      <strong>${e.winner}</strong> (#${e.winner_old_rank}) beat <strong>${e.loser}</strong> (#${e.loser_old_rank})
+      <div class="event-detail">${e.winner} → #${e.winner_new_rank} · ${e.loser} → #${e.loser_new_rank}</div>
+    `;
+  }
+  return `
+    <span class="event-tag">Dethrone</span>
+    Unranked <strong>${e.winner}</strong> beat #${e.loser_old_rank} <strong>${e.loser}</strong>
+    <div class="event-detail">${e.winner} → #${e.winner_new_rank} · ${e.loser} is OUT</div>
+  `;
+}
+
+// The real week immediately before weekKey, e.g. "week3" -> "week2".
+// null for week1 (or any non-numbered key like "preseason"/"postseason")
+// - there's no "previous week" to show.
+function previousRealWeekKey(weekKey) {
+  const num = weekNumber(weekKey);
+  if (!num || num <= 1) return null;
+  return `week${num - 1}`;
+}
+
+// "Last Week's Power Swaps" - fills the dead air on the live week's tab
+// before its own games start (and HAVOC has nothing yet) by showing the
+// previous week's already-official events, in the same card style as
+// HAVOC. Only ever shown while viewing the live week (like Live Games) -
+// a historical week's own tab already has its own real events, no dead
+// air to fill. Unlike Live Games, this never hides once shown; see
+// updateEventsColumnOrder() for how its PRIORITY (position, not
+// visibility) changes once this week's own games go live.
+function renderLastWeekPanel() {
+  const show = isViewingLiveWeek();
+  lastWeekSection.hidden = !show;
+  if (!show) return;
+
+  const viewedWeekKey = visibleSnapshots[currentWeekIndex].week;
+  const prevKey = previousRealWeekKey(viewedWeekKey);
+  lastWeekList.innerHTML = "";
+
+  if (!prevKey) {
+    lastWeekList.innerHTML = `<li class="no-events">No previous week yet.</li>`;
+    return;
+  }
+
+  const prevEvents = currentSeasonData.events.filter((e) => e.week === prevKey);
+  if (prevEvents.length === 0) {
+    lastWeekList.innerHTML = `<li class="no-events">No rank changes last week. Chalk held.</li>`;
+    return;
+  }
+
+  for (const e of prevEvents) {
+    const li = document.createElement("li");
+    li.className = "event-card" + (e.kind === "dethrone" ? " dethrone" : "");
+    li.innerHTML = eventCardHtml(e);
+    lastWeekList.appendChild(li);
+  }
+}
+
+// HAVOC and "Last Week's Power Swaps" trade physical order depending on
+// whether Live Games is actively showing (real games in progress right
+// now): Live Games / HAVOC / Last Week while something's live, but
+// Last Week / HAVOC once it isn't - last week's recap is more useful
+// than a HAVOC panel with nothing in it yet (or the live-upset-only
+// contents so far) during the dead air before this week's own games
+// start. Source order in index.html already matches the "live" case
+// (Live Games, then HAVOC, then Last Week), so only the "not live" case
+// needs an actual DOM move.
+function updateEventsColumnOrder(liveGamesVisible) {
+  if (liveGamesVisible) {
+    havocSection.parentElement?.appendChild(lastWeekSection);
+  } else {
+    havocSection.parentElement?.insertBefore(lastWeekSection, havocSection);
   }
 }
 
@@ -808,6 +879,7 @@ function renderLiveGamesSection() {
 
   liveGamesSection.hidden = inProgress.length === 0;
   liveGamesList.innerHTML = "";
+  updateEventsColumnOrder(!liveGamesSection.hidden);
 
   for (const game of inProgress) {
     const clockPart = [formatPeriodLabel(game.period), game.clock].filter(Boolean).join(" ");

@@ -2203,3 +2203,56 @@ from `github-actions[bot]` after it fires, same as how every other
 week's automation gets verified, not by assuming the YAML is correct
 just because it parses. Updated PROJECT_BIBLE.md §9 to reflect the fix
 instead of the still-manual gap.
+
+---
+
+## 2026-09-12 (latest): "Last Week's Power Swaps" - fills the dead air right after a week's real backtest runs
+
+User's reasoning: once tomorrow's automation (previous entry) actually
+runs and week 3 becomes the live week, there won't be any live games OR
+any HAVOC content for a few days - week 3's own games haven't started,
+so HAVOC (which now shows only official week-3 events, since the live
+week rolled forward and today's live-upset cards stop applying to it)
+sits empty the whole time. Asked for a new section showing last week's
+real Power Swap events instead, styled identically to HAVOC cards, that
+drops in priority (not visibility) once week 3's own games actually go
+live.
+
+**Built (`site/index.html`, `site/app.js`, `site/style.css`):**
+- New `<section id="last-week-section">` in the events column, source
+  order placed AFTER `havoc-section` (now itself given an id) - matches
+  the "live games happening" hierarchy for free, so only the "not live"
+  case needs any DOM movement.
+- `eventCardHtml(e)` factored out of `renderEvents()`'s inline
+  swap/dethrone markup - now shared by HAVOC's own cards and this
+  section's, so "same look as HAVOC" is structural (one card-building
+  function), not just visually similar CSS.
+- `previousRealWeekKey(weekKey)`: `"week3"` -> `"week2"`, null for week1
+  (nothing before it).
+- `renderLastWeekPanel()`: gated to `isViewingLiveWeek()` exactly like
+  Live Games - shows `currentSeasonData.events` for the previous real
+  week. Empty states: "No previous week yet." (week1) / "No rank changes
+  last week. Chalk held." (previous week was itself chalk) - same
+  convention HAVOC's own empty states use. Called from `renderWeek()`
+  only (its content only changes on a week/season nav or a fresh
+  `season_history.json` load, never from a live poll tick).
+- `updateEventsColumnOrder(liveGamesVisible)`: `appendChild` (back to
+  the end, after HAVOC) when Live Games is showing, `insertBefore` HAVOC
+  otherwise. Called from `renderLiveGamesSection()` - already runs on
+  every render AND every 45s live-poll tick, so the section's a priority
+  update rides along for free, no new poll/timer needed. Deliberately
+  never sets `.hidden` based on live-game state - only HAVOC and Live
+  Games do that; this section's `.hidden` is solely
+  `!isViewingLiveWeek()` (a historical week's tab has no dead-air
+  problem to solve, since its own real events already populate HAVOC).
+
+**Tested live in Chrome** (local static server, real production
+`/live` endpoint, not mocked): confirmed default order is Live
+Games/HAVOC/Last Week while real live games are in progress; cleared
+`liveGamesRaw` and re-rendered to confirm it correctly reorders to
+Last Week/HAVOC (Live Games hidden) the moment nothing's live;
+confirmed `eventCardHtml()`'s output/class name for an injected fake
+dethrone event is byte-identical in shape to a real HAVOC card
+(`event-card dethrone`); confirmed the real HAVOC live-upset cards
+(Oklahoma State/Oregon, Michigan/Oklahoma) kept rendering correctly
+alongside the new section throughout.

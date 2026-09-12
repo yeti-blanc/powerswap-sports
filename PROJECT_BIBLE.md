@@ -573,3 +573,23 @@ treat this as ongoing, not finished, and expect more requests like these:
   real upsets (unranked Oklahoma State over #2 Oregon 39-31; Michigan
   over #10 Oklahoma 17-10) while both teams' rank slots stayed exactly
   where they were.
+- **"Last Week's Power Swaps" section (added 2026-09-12)** — fills the
+  dead air right after a week's real backtest runs, when the newly-live
+  week has no games yet and HAVOC is empty. Same card look as HAVOC
+  (shares `eventCardHtml()`), sourced from `previousRealWeekKey()`'s
+  week (e.g. viewing week3, shows week2's real events) instead of the
+  current one. Gated to `isViewingLiveWeek()` like Live Games — a
+  historical week's own tab already has its own real events, no dead air
+  to fill. Unlike Live Games, it never hides once the live week has one;
+  it only changes PRIORITY (DOM position, via
+  `updateEventsColumnOrder()`, called from `renderLiveGamesSection()`
+  every render and every live-poll tick): default order (no games live
+  right now this week) is Last Week / HAVOC; the moment Live Games
+  itself is showing (real in-progress games), it drops to Live Games /
+  HAVOC / Last Week. index.html's own source order (Live Games, HAVOC,
+  Last Week) already matches the "live" case, so only the "not live"
+  case needs an actual `insertBefore` — the "live" case is just
+  `appendChild` back to the end. Shows "No previous week yet." for
+  week1 (nothing before it) and "No rank changes last week. Chalk held."
+  when the previous week was itself chalk - same empty-state convention
+  HAVOC uses.

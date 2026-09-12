@@ -320,6 +320,12 @@ main {
 
 /* ── Live Games (middle column, above HAVOC) ── */
 .live-games-section { margin-bottom: 20px; }
+/* HAVOC and "Last Week's Power Swaps" swap physical order (see
+   updateEventsColumnOrder() in app.js) depending on whether Live Games
+   is currently shown, so both need their own bottom margin - whichever
+   one currently sits above the other needs the gap, and it's harmless
+   on the one that ends up last. */
+.havoc-section, .last-week-section { margin-bottom: 20px; }
 .live-games-list {
   list-style: none;
   margin: 0;
