@@ -238,6 +238,27 @@ HTTP response** (see rule 5). There is currently no admin-side UI for this;
 it's "captured" only via KV/tail, which the user has explicitly said is
 sufficient for now.
 
+**Live quarter/OT display (added 2026-09-12, confirmed against real games):**
+`game.period` is derived in `parseBbsMatch()` (`live/bbs_client.js`) from
+BBS's `linescore.home`/`linescore.away` arrays — their LENGTH is the current
+quarter. Verified against two real in-progress games caught via a temporary
+diagnostic log during the first live tick after the primary outage recovered
+(James Madison/Wagner, Virginia Tech/Old Dominion): each array's sum matched
+`score` exactly, and a new (initially 0) entry appears the instant that
+quarter starts, not only once it's scored in — so the length is reliable,
+not a lagging indicator. `site/app.js`'s `formatPeriodLabel()` renders 1-4 as
+`Q1`-`Q4` and anything higher as `OT`/`2OT`/etc. **`game.clock` (time
+remaining) is confirmed ABSENT from BBS entirely** — the raw record's full
+field set is `id/sport/league/home/away/kickoff_utc/status/score/linescore/
+attendance/broadcast/round/has_odds`, nothing clock-shaped exists on it, on
+either `/v1/stored/matches` or `/v1/matches` (same schema). **Halftime is
+deliberately NOT detected** — BBS's documented status enum is only
+`scheduled|live|finished|cancelled` (no halftime value), and linescore
+length can't distinguish "still Q2" from "halftime after Q2" (both length
+2) — a live game just keeps showing `Q2` through its halftime break rather
+than risk a heuristic-based mislabel. User's explicit call: skip it rather
+than guess.
+
 ## 7. Known BBS data quirks (apply to BOTH `/v1/stored/matches` and `/v1/matches`)
 
 - **Duplicate records under different IDs for the same real game.** Routine
@@ -366,11 +387,12 @@ realizing there's a sibling path with the same bug.
 
 ## 9. Current open items (as of 2026-09-12)
 
-- **BBS `/v1/stored/matches` primary outage — still ongoing, no ETA.** No
-  code fix exists; the Worker retries automatically every 2 minutes and the
-  secondary (`/v1/matches`) is currently serving `/live` in its place.
-  Watch for it to recover on its own (`data_source` should flip back to
-  `bbs_stored` with no redeploy needed) — worth a spot-check next session.
+- **BBS `/v1/stored/matches` primary outage — RESOLVED 2026-09-12.**
+  Confirmed via BBS support directly (their side, not a code bug) and via
+  real evidence here: KV payload and a caught cron tick both show
+  `data_source: "bbs_stored"` with clean `outcome: "ok"` / no fallback
+  warnings. No action needed; keep an eye out since BBS outages have
+  recurred before.
 - **Highlightly score-string home/away order — unverified.** See §6. Needs a
   real live/finished unequal score to confirm; check this before fully
   trusting the tertiary path under real fire.

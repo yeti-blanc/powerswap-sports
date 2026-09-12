@@ -556,6 +556,21 @@ function formatMatchupResult(matchup) {
   return `${result} ${matchup.team_score}-${matchup.opponent_score}`;
 }
 
+// game.period is BBS's linescore-array length (verified 2026-09-12 against
+// two real in-progress games - see live/bbs_client.js's parseBbsMatch
+// comment): 1-4 is a regulation quarter, >4 is overtime. Halftime isn't
+// distinguishable from BBS's data (no separate status value, and the
+// linescore array doesn't grow until the next quarter actually starts) so
+// it deliberately isn't guessed at here - a game just keeps showing "Q2"
+// through its halftime break. game.clock is confirmed absent from BBS
+// entirely; kept as an optional suffix only in case a future source adds it.
+function formatPeriodLabel(period) {
+  if (!period) return null;
+  if (period <= 4) return `Q${period}`;
+  const ot = period - 4;
+  return ot === 1 ? "OT" : `${ot}OT`;
+}
+
 function formatLiveBadge(game, isHome) {
   const teamScore = isHome ? game.home_score : game.away_score;
   const oppScore = isHome ? game.away_score : game.home_score;
@@ -563,9 +578,7 @@ function formatLiveBadge(game, isHome) {
   const scoreText = teamScore !== null && oppScore !== null ? `${teamScore}-${oppScore}` : "";
 
   if (game.status === "in_progress") {
-    // period/clock are UNVERIFIED against a real in-progress BBS game as
-    // of 2026-09-01 (see live/bbs_client.js) - shown only if present.
-    const clockPart = [game.period ? `Q${game.period}` : null, game.clock]
+    const clockPart = [formatPeriodLabel(game.period), game.clock]
       .filter(Boolean)
       .join(" ");
     return `● LIVE ${scoreText} vs ${opponent}${clockPart ? " · " + clockPart : ""}`;
@@ -690,7 +703,7 @@ function renderLiveGamesSection() {
   liveGamesList.innerHTML = "";
 
   for (const game of inProgress) {
-    const clockPart = [game.period ? `Q${game.period}` : null, game.clock].filter(Boolean).join(" ");
+    const clockPart = [formatPeriodLabel(game.period), game.clock].filter(Boolean).join(" ");
     const statusText = ["● LIVE", clockPart].filter(Boolean).join(" · ");
     const upset = isUnderdogLeading(game);
 

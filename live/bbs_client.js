@@ -165,22 +165,37 @@ export async function fetchLegacyMatches(apiKey) {
 //   - linescore: null while scheduled, else { home: number[], away: number[] }
 //   - bonus fields also present: attendance, broadcast, round, has_odds
 //
-// UNVERIFIED - no in-progress example observed yet (still true after the
-// 2026-09-04 endpoint fix - nothing was actually live at check time):
-//   - whether "live" (this endpoint's documented in-progress value, per
-//     its OpenAPI enum) is really what comes back, vs some other string
-//   - whether/where clock and period/quarter live on the object - not
-//     present on any finished/scheduled example seen so far
+// CONFIRMED against two real in-progress games on 2026-09-12 (James
+// Madison/Wagner, Virginia Tech/Old Dominion, caught via a temporary
+// console.log during the primary's first post-outage live tick):
+//   - status really does come back as "live" (not some other string)
+//   - linescore.home / linescore.away are per-quarter score arrays whose
+//     LENGTH is the current quarter - a new (initially 0) entry appears
+//     the moment that quarter starts, not only once it's scored in.
+//     Verified by summing each array against `score`: they matched
+//     exactly in both examples (JMU 66 = 21+21+24, Wagner 3 = 3+0+0;
+//     VT 37 = 17+17+3+0, ODU 13 = 3+3+7+0 with Q4 just underway).
+//     -> period = linescore length; >4 means overtime.
+//
+// STILL UNVERIFIED / genuinely absent from both real examples above:
+//   - clock / time-remaining: no such field exists anywhere on the raw
+//     object (full real key set: id, sport, league, home, away,
+//     kickoff_utc, status, score, linescore, attendance, broadcast,
+//     round, has_odds). Not just unpopulated - not present at all. Kept
+//     as a guessed-name passthrough below in case a future response ever
+//     adds it, but don't expect it from this endpoint.
+//   - possession: same - not present on either real example.
+//   - halftime as a distinct state: BBS's own documented status enum is
+//     only scheduled|live|finished|cancelled, and linescore length can't
+//     tell "still Q2" apart from "halftime after Q2" (both are length 2).
+//     Deliberately not guessed at - see PROJECT_BIBLE.md §6 discussion.
 //   - the real refresh cadence behind this DB-backed endpoint ("stored
 //     matches... read directly from Postgres" per its own docs) - i.e.
 //     whether polling faster than that cadence buys any actual freshness
-//
-// This function is intentionally permissive: it never assumes a field is
-// present, and passes through whatever raw status/clock/period-shaped
-// values it can find so the next session can correct field names here
-// without touching anything else in the Worker.
 export function parseBbsMatch(raw) {
   const status = normalizeStatus(raw.status);
+  const homeLinescore = raw.linescore?.home;
+  const awayLinescore = raw.linescore?.away;
   return {
     id: raw.id,
     home_name_raw: raw.home?.name ?? null,
@@ -190,9 +205,10 @@ export function parseBbsMatch(raw) {
     raw_status: raw.status ?? null,
     home_score: raw.score?.home ?? null,
     away_score: raw.score?.away ?? null,
-    // UNVERIFIED: guessed key names, tried in rough order of likelihood.
-    // None of these have been seen populated in any real response yet.
-    period: raw.period ?? raw.current_period ?? raw.quarter ?? null,
+    period: homeLinescore?.length ?? awayLinescore?.length ?? raw.period ?? raw.current_period ?? raw.quarter ?? null,
+    // UNVERIFIED, confirmed absent from every real example seen so far -
+    // see comment above. Guessed-name passthrough kept only as a no-cost
+    // safety net if BBS ever adds this.
     clock: raw.clock ?? raw.current_clock ?? raw.time_remaining ?? null,
     possession: raw.possession ?? raw.current_possession ?? null,
   };
