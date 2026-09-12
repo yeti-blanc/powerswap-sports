@@ -2042,3 +2042,47 @@ dependent on the diagnostic).
 blind to the case where the evidence itself got lost - needs a periodic
 unconditional fallback alongside the evidence-triggered one, not instead
 of it.
+
+## 2026-09-12 (still later): unified rank-card result format across all weeks - "Final: W/L Score" to the right, opponent always underneath
+
+Follow-up to the Miami investigation above: user (correctly) flagged
+that Week 1 and the current week rendered a finished game two different
+ways - Week 1 baked the result into the opponent subtext ("VS. BALL
+STATE · W 56-3"), while the current live week hid the opponent subtext
+entirely and put "FINAL 77-7 vs Florida A&M" in the live badge instead.
+Asked for one consistent look: opponent name always underneath, "Final:
+W 41-13" / "Final: L 13-41" to the right of the team name, in black.
+
+Implementation, `site/app.js`:
+- New shared `formatFinalResult(teamScore, oppScore)` -> `"Final: W/L
+  Score"`, used by both `formatLiveBadge()` (current-week live path) and
+  a new block in `renderRankings()` (past-week static path).
+- `renderRankings()`'s opponent line no longer embeds the result at all
+  - just `"{vs./@} {opponent}"` - and separately, for a past week's
+    `matchup.completed` entry, sets `.belt-live` directly to the Final
+    text (since `renderLiveBadges()` never touches non-live weeks).
+- Kickoff-time detail moved into its own inner `.belt-kickoff` span so
+  it can be hidden independently of the opponent name - needed because
+  the CURRENT week's static matchup file doesn't get `completed`
+  backfilled until Monday, so without this split, a live/finished
+  current-week game would keep showing its stale pregame kickoff time
+  underneath even after the opponent name itself stayed correctly
+  visible.
+- `renderLiveBadges()` now returns immediately when not viewing the live
+  week, instead of looping through every card and blanking `.belt-live`
+  - that used to be harmless (past weeks never populated `.belt-live` at
+  all), but now that `renderRankings()` sets real Final badges for past
+  weeks, the old unconditional-hide behavior would have stomped them
+  right back to blank on every poll tick.
+- Removed the now-dead `.belt-opponent[hidden]` CSS override from this
+  morning's earlier change (nothing hides the whole opponent span
+  anymore, only `.belt-kickoff`, which needs no override).
+
+Verified in a real browser (local static server, then production after
+GitHub Pages' ~1 minute rebuild + edge-cache propagation caught up -
+first post-push check still showed the old cached `app.js`, confirmed
+real via `curl`, then re-checked and confirmed updated) against both
+Week 1 (Ohio State "Final: W 56-3", Miami "Final: W 45-6" @ Stanford)
+and Week 2's live mix (Georgia/Miami/Texas A&M "Final: W ..." with
+opponent underneath; Oregon/Notre Dame still show the unchanged live
+badge with opponent inline and no stale kickoff underneath).

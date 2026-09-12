@@ -485,20 +485,34 @@ treat this as ongoing, not finished, and expect more requests like these:
   regular text.
 - **A `hidden`-attribute toggle needs a matching `[hidden]` override if
   the element has its own `display` declaration.** `.belt-opponent`
-  sets `display: block` unconditionally, which silently defeats the
-  bare `hidden` attribute — needed `.belt-opponent[hidden] { display:
-  none; }` alongside it. `.belt-live` didn't need this since it has no
-  competing `display` rule. Check for this whenever toggling `.hidden`
-  on a new element.
-- **Rank-card opponent/kickoff subtext (`.belt-opponent`) is hidden once
-  a team's game is `in_progress` or `finished`** (`renderLiveBadges()`
-  in `site/app.js`) — the `.belt-live` badge right next to it already
-  carries the opponent name (and, once finished, the real score), so
-  kickoff time and opponent were redundant in both states. This logic
-  lives in `renderLiveBadges()`, which runs on its own poll cycle
-  separate from `renderRankings()`'s full rebuild — a new "hide when
-  live" rule for some other element likely belongs in the same
-  function, not in `renderRankings()`.
+  sets `display: block` unconditionally, which would silently defeat
+  the bare `hidden` attribute — relevant again if `.belt-opponent`
+  itself is ever hidden in the future (it isn't currently — see next
+  bullet). `.belt-live` and `.belt-kickoff` don't need an override since
+  neither has a competing `display` rule. Check for this whenever
+  toggling `.hidden` on a new element that already has its own
+  `display`.
+- **SUPERSEDED 2026-09-12 (same day, later request): rank-card opponent
+  name now ALWAYS shows underneath, every status, every week** — the
+  earlier "hide `.belt-opponent` once live/finished" behavior was
+  reversed. Only the KICKOFF-TIME portion hides now, and it's split into
+  its own inner `<span class="belt-kickoff">` for exactly that reason
+  (`renderRankings()` builds `.belt-opponent` as `"{vs./@} {opponent}<span
+  class="belt-kickoff">...</span>"`). The result (once known) shows
+  separately, to the right of the team name in `.belt-live`, as `"Final:
+  W 41-13"` / `"Final: L 13-41"` (`formatFinalResult()`) — never
+  repeating the opponent name there anymore. `renderLiveBadges()` now
+  returns immediately for a non-live week instead of looping through and
+  blanking every card's `.belt-live` — a past week's Final badge is set
+  once, directly in `renderRankings()` from the static
+  `matchup.completed`/`team_score`/`opponent_score` fields, and must be
+  left alone by the live-poll code. This is why the static matchup
+  file's own `completed` flag not updating mid-week (it's only backfilled
+  by Monday's batch run) matters: `.belt-kickoff` is what
+  `renderLiveBadges()` hides once the LIVE feed (not the static file)
+  says a current-week game has gone `in_progress`/`finished`, so the
+  kickoff clock doesn't stay stuck showing a stale pregame time once the
+  game has actually started.
 - **`live-game-flash` (the slow pulse on Live Games cards) holds at full
   opacity for the first half of its cycle, not just an instant.**
   Current: 4s cycle, `0%,50%: opacity 1` (flat 2s hold — two equal
