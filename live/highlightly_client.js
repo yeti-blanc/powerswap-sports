@@ -2,80 +2,73 @@
  * PowerSwap Live Scores - Highlightly (tertiary source) client
  * ===============================================================
  *
- * STATUS AS OF 2026-09-12: implemented but NOT LIVE-VERIFIED. There is no
- * HIGHLIGHTLY_API_KEY anywhere in this repo, in either Worker's Cloudflare
- * secrets (`wrangler secret list` checked for both `powerswap-live-scores`
- * and the admin worker), in `.env`, or in any OS environment variable -
- * despite the handoff brief for this build asserting one already existed.
- * `sports/cfb/havoc_rating.py` independently corroborates this from an
- * earlier session ("Highlightly's docs show no injuries endpoint on any
- * plan, not independently verified live - no key available").
+ * STATUS AS OF 2026-09-12 (updated same day once a real key was added -
+ * see admin/BUILD_LOG.md): PARTIALLY LIVE-VERIFIED. A real
+ * HIGHLIGHTLY_API_KEY now exists as a `powerswap-live-scores` Worker
+ * secret (it didn't when this file was first written - see BUILD_LOG for
+ * that history) and a real call has been made and inspected. One real
+ * bug was caught and fixed this way: the docs originally pulled for this
+ * file said the NCAA filter param was `leagueName=NCAA` - a REAL call
+ * rejected that with `{"message":"property leagueName should not exist"}`
+ * (400). The correct param, confirmed with a real 200, is `league=NCAA`.
  *
- * Because of that, this file is built from Highlightly's own real
- * documentation (https://highlightly.net/nfl-api/documentation/ and
- * /sport-api/documentation/ - NOT the third-party/marketing summaries the
- * handoff brief warned against), but the "real test call" half of
- * verification could not be done - no live request has ever actually
- * been sent. Treat every UNVERIFIED note below as a real risk, not
- * boilerplate caution: worker.js only calls this file when BOTH the BBS
- * primary and secondary have failed, i.e. exactly the moment a wrong
- * answer here is most likely to be trusted at face value. Before this
- * path is allowed to publish a score to real users, get a real key
- * (`wrangler secret put HIGHLIGHTLY_API_KEY` in live/), then run this
- * against at least one real in-progress NCAA FBS game and fix whatever
- * this file guessed wrong - starting with the score-string order below,
- * which is the one guess that fails silently (wrong-looking-plausible)
- * rather than loudly if it's backwards.
+ * CONFIRMED against a real response (2026-09-12, ~06:00 UTC, NCAA slate
+ * for 2026-09-12 - all games still pregame at that hour, see the one
+ * still-open item below):
+ *   - Base URL + endpoint + auth header all correct as documented:
+ *     `GET https://american-football.highlightly.net/matches?league=NCAA&date=YYYY-MM-DD`,
+ *     `x-rapidapi-key: <key>` header, no RapidAPI-marketplace host header
+ *     needed for direct calls.
+ *   - Real rate-limit headers came back exactly as documented:
+ *     `x-ratelimit-requests-limit: 100`, `x-ratelimit-requests-remaining`
+ *     decrementing per call (confirmed 96 -> 95 across two real calls).
+ *   - `homeTeam`/`awayTeam.displayName` for NCAA IS "School Mascot" format
+ *     - confirmed real examples: "Auburn Tigers", "Southern Miss Golden
+ *     Eagles", "Ole Miss Rebels", "Charlotte 49ers", "LSU Tigers",
+ *     "Louisiana Tech Bulldogs". Same convention as BBS -
+ *     resolveBbsTeamName()/norm() work completely unchanged (the "Ole
+ *     Miss" -> "Mississippi" NORM entry already covers the one variant
+ *     seen).
+ *   - `state.description` for a pregame game is the string `"Scheduled"`
+ *     (capital S) - matches normalizeHighlightlyStatus()'s existing
+ *     "scheduled" entry (lowercased before comparison, so this already
+ *     worked without a code change).
+ *   - `date` (top-level, real kickoff time e.g.
+ *     "2026-09-12T23:45:00.000Z" = 7:45 PM EDT) is populated and
+ *     cross-checks against real broadcast-window expectations - no
+ *     BBS-style midnight-UTC placeholder seen here.
+ *   - `state.score.current` real shape confirmed: `"0 - 0"` pregame,
+ *     confirming it IS the documented combined-string format (not
+ *     separate integers) - see the still-open item below for the part
+ *     that matters more than the shape.
  *
- * CONFIRMED from Highlightly's own docs (not a real call):
- *   - Base URL: https://american-football.highlightly.net
- *   - Auth header: `x-rapidapi-key: <key>` - their own docs state this is
- *     the header to use even calling the API directly (not just via the
- *     RapidAPI marketplace). UNVERIFIED against a real response: it would
- *     not be the first vendor whose docs are stale about this.
- *   - Endpoint: GET /matches, filtered by `leagueName=NCAA` and
- *     `date=YYYY-MM-DD`.
- *   - Response carries `x-ratelimit-requests-limit` and
- *     `x-ratelimit-requests-remaining` headers - see worker.js's
- *     Highlightly throttle, which reads these defensively alongside its
- *     own KV-tracked rolling count rather than trusting either alone.
- *
- * UNVERIFIED (no real response ever seen):
- *   - Whether `leagueName=NCAA` is really the right param (vs `league=`,
- *     seen used for NFL in the same docs) for filtering to NCAA FBS.
- *   - `homeTeam`/`awayTeam.displayName` naming convention for NCAA teams
- *     specifically - the one real example pulled was NFL ("New Orleans
- *     Saints", city+mascot). If NCAA's displayName is "School Mascot"
- *     like BBS's, resolveBbsTeamName() below works unchanged; if it's
- *     school-only (already matching season_history.json), it works too
- *     but takes the exact-match branch instead of the prefix branch.
- *     Either way should resolve correctly - NOT verified live.
- *   - THE BIG ONE: `score.current` is documented as a combined string
- *     ("21 - 7"), not separate home/away integers like BBS. Which side
- *     of the " - " is home and which is away is NOT stated anywhere in
- *     the docs pulled for this file - parseHighlightlyMatch() below
- *     guesses "home - away" (matching the away-then-home JSON key order
- *     seen in the one real example) but this is exactly the kind of
- *     guess that produces a confidently-wrong score instead of an
- *     obviously-broken one. VERIFY THIS FIRST against a real response,
- *     ideally a real blowout where the two numbers are easy to tell
- *     apart by eye.
- *   - The exact status/description vocabulary for American football
- *     specifically (docs examples mixed a soccer-shaped example with an
- *     American-football one; "In progress" and "Final" both appeared in
- *     the football-specific pull, but the full enum wasn't).
+ * STILL UNVERIFIED - genuinely open, not for lack of trying: no game in
+ * the real pull was anything but pregame (0-0, "Scheduled") at check
+ * time (~2 AM ET, before that Saturday's slate kicked off):
+ *   - THE BIG ONE: which side of `score.current`'s `"N - M"` string is
+ *     home and which is away. "0 - 0" can't distinguish this either way.
+ *     parseHighlightlyScore() below still GUESSES "home - away" - this
+ *     is the one guess that fails SILENTLY (a confidently-wrong score)
+ *     rather than loudly if backwards. Re-check the first time this path
+ *     actually serves a live or finished score with unequal numbers,
+ *     ideally a blowout where a flipped order is obvious by eye - the
+ *     debug endpoint this was checked with is still deployed (see
+ *     worker.js's TEMPORARY DIAGNOSTIC comment) for exactly this.
+ *   - The in-progress/finished status vocabulary - only "Scheduled" has
+ *     been seen for real. HL_LIVE/HL_FINISHED below are still guesses.
  *   - Whether this endpoint has the same duplicate-row problem as BBS's
- *     two endpoints. Assume yes until proven otherwise - mergeGames()'s
- *     identity/priority logic in worker.js applies regardless of source,
- *     so this isn't a blocker, just an open question.
+ *     two endpoints - not seen in the one pull done, but that pull was
+ *     small. mergeGames()'s identity/priority logic in worker.js applies
+ *     regardless of source either way, so this isn't a blocker.
  *
- * Rate limit: Basic/free tier is documented as 100 requests/day, but the
- * docs pulled for this file do NOT state whether that resets on a fixed
- * calendar day or a rolling 24h window. worker.js's throttle is built to
- * be correct under EITHER interpretation (see HIGHLIGHTLY_MAX_PER_DAY in
- * worker.js) rather than guessing - it tracks a rolling 24h count in KV
- * (always <= either a calendar or rolling cap) and additionally backs
- * off early if the live x-ratelimit-requests-remaining header ever comes
+ * Rate limit reset window (calendar day vs. rolling 24h) is still not
+ * stated anywhere in Highlightly's docs and wasn't resolved by the one
+ * real call made (not enough calls/time elapsed to observe a reset).
+ * worker.js's throttle is built to be correct under EITHER
+ * interpretation (see HIGHLIGHTLY_MAX_PER_ROLLING_DAY in worker.js)
+ * rather than guessing - it tracks a rolling 24h count in KV (always <=
+ * either a calendar or rolling cap) and additionally backs off early if
+ * a real response's x-ratelimit-requests-remaining header ever comes
  * back low, regardless of what our own counter thinks.
  */
 
@@ -92,7 +85,7 @@ function dateString(daysOffset = 0) {
 // a real response - see file header).
 export async function fetchHighlightlyMatches(apiKey, dateOverride) {
   const date = dateOverride ?? dateString(0);
-  const url = `${HIGHLIGHTLY_BASE_URL}/matches?leagueName=NCAA&date=${date}`;
+  const url = `${HIGHLIGHTLY_BASE_URL}/matches?league=NCAA&date=${date}`;
   const resp = await fetch(url, {
     headers: { "x-rapidapi-key": apiKey },
   });

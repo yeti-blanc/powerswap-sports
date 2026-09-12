@@ -1798,3 +1798,84 @@ real production traffic. Once BBS's `/v1/stored/matches` recovers,
 `data_source` should flip back to `"bbs_stored"` on its own with no
 redeploy needed - worth a quick look at `/live` next session to confirm
 that transition happens cleanly too.
+
+## 2026-09-12 (later same day): real Highlightly key added - live-verified, one real bug caught and fixed
+
+User found they'd used their Highlightly key on a different project and
+got a fresh one for this one, and set it as `HIGHLIGHTLY_API_KEY` via
+`wrangler secret put` in `live/`. Worth recording how that went, since
+it wasn't clean:
+
+- **First attempt stored an empty string.** `wrangler secret list`
+  showed the key as present, but a temporary diagnostic route (added
+  and removed same session, see below) reported `keyLen: 0` - the
+  interactive prompt hadn't actually captured the pasted value. Root
+  cause: `wrangler secret put`'s interactive prompt needs a real
+  terminal (TTY); running it through this session's command relay
+  doesn't reliably provide one.
+- **Second attempt via the same relay didn't even show a prompt** before
+  reporting success - same underlying TTY problem, worse symptom.
+- **Fixed by having the user run it directly in their own terminal**,
+  piping the value in instead of using the interactive prompt
+  (`echo "key" | npx wrangler secret put HIGHLIGHTLY_API_KEY`, run from
+  `live/` specifically - this repo has two separate `wrangler.toml`s,
+  one per Worker, and the secret attaches to whichever one is nearest
+  the current directory). Confirmed via the same length-only diagnostic
+  (`keyLen` > 0, never the actual value) before spending any real quota
+  on it.
+
+**Real verification, once the key was actually in place** (~06:00 UTC,
+temporary `/debug-highlightly` route added to `worker.js` for this,
+calling the real `fetchHighlightlyMatches`/`parseHighlightlyMatch`
+production code directly - not a separate ad-hoc check - then removed
+before this entry was written):
+
+- **Caught a real bug**: the docs pulled earlier said the NCAA filter
+  param was `leagueName=NCAA`. A real call rejected that -
+  `{"message":"property leagueName should not exist","statusCode":400}`.
+  The correct param, confirmed with a real 200, is `league=NCAA`. Fixed
+  in `highlightly_client.js`.
+- **Auth and rate-limit headers confirmed real**:
+  `x-ratelimit-requests-limit: 100`, `x-ratelimit-requests-remaining`
+  decrementing normally across calls (100 -> 93 over this session's
+  testing - each call, including the failed 400 ones, cost real quota,
+  worth remembering next time this needs live debugging).
+  `HIGHLIGHTLY_MAX_PER_ROLLING_DAY` (85) already gives 15 of slack for
+  exactly this kind of debugging cost.
+- **Team names confirmed "School Mascot" for NCAA too** - real examples:
+  "Auburn Tigers", "Southern Miss Golden Eagles", "Ole Miss Rebels",
+  "Charlotte 49ers", "LSU Tigers", "Louisiana Tech Bulldogs".
+  `resolveBbsTeamName()`/`norm()` need no changes - confirmed, not just
+  assumed from the shared convention with BBS.
+  Real, populated kickoff times too (e.g. `2026-09-12T23:45:00.000Z` =
+  7:45 PM EDT, matches the real broadcast window) - no BBS-style
+  midnight-UTC placeholder seen here.
+- **No duplicate-row problem seen** in a real 100-game pull (grouped by
+  team pair, zero pairs appeared twice) - a real, different result from
+  both BBS endpoints (which do have this problem). Sample size is one
+  pull, so "assume it could still happen" stays the safer working
+  assumption, but this is a genuinely better data point than a guess.
+- `state.description` confirmed as `"Scheduled"` (capital S) for a
+  pregame game - already handled correctly by the existing normalizer
+  (lowercased before comparison).
+
+**Still genuinely open** - every game in the real pull was pregame
+(0-0, "Scheduled") at ~2 AM ET, before that Saturday's slate had
+kicked off, so nothing observed could resolve this:
+- **The score-string home/away order** (`"score.current": "N - M"`) -
+  "0 - 0" can't distinguish it either way. This is still the single
+  biggest real risk in this integration - see `highlightly_client.js`'s
+  updated file header for exactly what to check the next time this path
+  sees a live or finished score with unequal numbers.
+- The in-progress/finished status vocabulary - only "Scheduled" seen for
+  real so far.
+
+Net result: Highlightly is now a real, working tertiary with one
+confirmed bug fixed before it could ever bite in production (the
+`leagueName` param would have made every real tertiary activation fail
+with a 400, silently, exactly when the primary and secondary were
+already down - the worst possible time to discover it). The one
+remaining open item (score order) needs a live or finished game to
+resolve - worth a deliberate re-check once Saturday's slate is
+underway, using a real score with clearly distinguishable home/away
+numbers.
