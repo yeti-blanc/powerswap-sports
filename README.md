@@ -1,5 +1,10 @@
 # PowerSwap Sports
 
+**New chat session? Read [`PROJECT_BIBLE.md`](PROJECT_BIBLE.md) first** —
+it's a synthesized handoff doc covering the rules, architecture, standing
+non-negotiables, and a condensed real-incident mistake log, so you don't
+have to re-derive or re-learn any of it from scratch.
+
 An alternate-universe ranking system. Real Week 1 results set the path;
 every week after that lives entirely inside its own universe. Currently
 covers College Football (CFB) and College Basketball (CBB) as two
