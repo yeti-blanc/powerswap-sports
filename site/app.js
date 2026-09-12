@@ -261,8 +261,23 @@ function renderWeek() {
   weekHeading.textContent = `${currentSeasonData.season}: ${formatWeekLabel(weekKey)}`;
 
   renderRankings(snapshot, weekEvents);
-  renderEvents(weekEvents, weekKey === previewWeekKey);
+  refreshHavocPanel();
   renderTicker(weekEvents);
+}
+
+// Re-derives and redraws just the HAVOC panel for whichever week is
+// currently being viewed - shared by renderWeek() (a season/week/nav
+// change) and fetchLiveScores() (a live poll tick, so a game finishing
+// as an upset shows up within one poll interval without waiting for any
+// other UI interaction). No-ops harmlessly if the viewed week isn't the
+// live week - computeLiveUpsets() already returns [] in that case, so
+// this just redraws the same official weekEvents that were already there.
+function refreshHavocPanel() {
+  if (!currentSeasonData) return;
+  const snapshot = visibleSnapshots[currentWeekIndex];
+  if (!snapshot) return;
+  const weekEvents = currentSeasonData.events.filter((e) => e.week === snapshot.week);
+  renderEvents(weekEvents, snapshot.week === previewWeekKey, computeLiveUpsets());
 }
 
 function renderRankings(snapshot, weekEvents) {
@@ -360,13 +375,27 @@ function renderRankings(snapshot, weekEvents) {
   }
 }
 
-function renderEvents(weekEvents, isPreview = false) {
+function renderEvents(weekEvents, isPreview = false, liveUpsets = []) {
   eventsList.innerHTML = "";
-  if (weekEvents.length === 0) {
+  if (weekEvents.length === 0 && liveUpsets.length === 0) {
     eventsList.innerHTML = isPreview
       ? `<li class="no-events">This week hasn't been played yet - check back once its games wrap up.</li>`
       : `<li class="no-events">No rank changes this week. Chalk held.</li>`;
     return;
+  }
+
+  // Live upsets first - these are provisional (this week hasn't been
+  // backtested yet, so the rank slots themselves haven't moved), shown
+  // ahead of any official swap/dethrone cards so the newest news reads
+  // first. In practice the two never really mix: once a week is
+  // officially backtested, the live week pointer (getLiveWeekKey) rolls
+  // forward to the next one, so this week's tab shows real weekEvents
+  // instead from then on.
+  for (const game of liveUpsets) {
+    const li = document.createElement("li");
+    li.className = "event-card live-upset";
+    li.innerHTML = liveUpsetCardHtml(game);
+    eventsList.appendChild(li);
   }
 
   for (const e of weekEvents) {
@@ -732,6 +761,46 @@ function isUnderdogLeading(game) {
   return false;
 }
 
+// HAVOC's live-upset cards: a finished game this week where the
+// lower-ranked/unranked side won. isUnderdogLeading() doesn't actually
+// care whether the game is in_progress or finished - it just compares
+// final vs. current score - so a "finished" upset is detected the exact
+// same way a "leading" one is, just filtered to status === "finished"
+// here instead of "in_progress" (renderLiveGamesSection's filter).
+// Deliberately does NOT touch currentSeasonData/rankings - the swap
+// engine is the only thing allowed to move a rank slot (per README/
+// PROJECT_BIBLE rules), and it only runs once a week is fully over and
+// gets backtested. This is a display-only preview of what a future
+// backtest will likely turn into a real Swap/Dethrone event.
+function computeLiveUpsets() {
+  if (!isViewingLiveWeek()) return [];
+  const liveWeekKey = getLiveWeekKey();
+  return liveGamesRaw.filter(
+    (g) => g.status === "finished" && gameMatchesExpectedWeek(g, liveWeekKey) && isUnderdogLeading(g)
+  );
+}
+
+function liveUpsetCardHtml(game) {
+  const homeRank = findCurrentRank(game.home_team);
+  const awayRank = findCurrentRank(game.away_team);
+  const homeWon = game.home_score > game.away_score;
+  const winner = homeWon ? game.home_team : game.away_team;
+  const loser = homeWon ? game.away_team : game.home_team;
+  const winnerRank = homeWon ? homeRank : awayRank;
+  const loserRank = homeWon ? awayRank : homeRank;
+  const winnerScore = homeWon ? game.home_score : game.away_score;
+  const loserScore = homeWon ? game.away_score : game.home_score;
+
+  const winnerText = winnerRank ? `<strong>${winner}</strong> (#${winnerRank})` : `Unranked <strong>${winner}</strong>`;
+  const weekLabel = formatWeekLabel(getLiveWeekKey());
+
+  return `
+    <span class="event-tag live-upset-tag">Upset · Final</span>
+    ${winnerText} beat #${loserRank} <strong>${loser}</strong>, ${winnerScore}-${loserScore}
+    <div class="event-detail">Not yet official - rankings update once ${weekLabel} is backtested</div>
+  `;
+}
+
 function renderLiveGamesSection() {
   const show = isViewingLiveWeek();
   const liveWeekKey = getLiveWeekKey();
@@ -827,6 +896,7 @@ async function fetchLiveScores() {
     liveGamesRaw = payload.games ?? [];
     renderLiveBadges();
     renderLiveGamesSection();
+    refreshHavocPanel();
   } catch (err) {
     console.error("Live score fetch failed:", err.message);
   }

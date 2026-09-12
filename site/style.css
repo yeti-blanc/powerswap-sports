@@ -414,6 +414,14 @@ main {
   text-transform: uppercase;
 }
 .event-card.dethrone .event-tag { color: #fff; }
+/* Provisional upset card, sourced from the live-scores feed for a
+   finished game in a week that hasn't been backtested yet - same red
+   used for an in-progress upset on the Live Games cards (.upset), so
+   red reads consistently as "upset" sitewide. Rankings themselves
+   haven't moved yet; see computeLiveUpsets()/liveUpsetCardHtml() in
+   app.js. */
+.event-card.live-upset { border-left-color: #ff4444; }
+.event-card.live-upset .event-tag { color: #ff4444; }
 .event-detail {
   color: var(--text-muted);
   font-size: 11px;
