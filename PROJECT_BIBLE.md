@@ -289,6 +289,24 @@ than guess.
   time-boxed — an earlier 7-day-TTL version was explicitly wrong per the
   user: a completed score should never disappear, and a future week can't
   leak early since BBS won't return it before it's real either way).
+- **The whole `live_payload` KV entry can be silently wiped, not just
+  individual games, if EVERY source fails for longer than
+  `KV_TTL_SECONDS` (600s = 5 cron ticks).** A failed tick just `return`s
+  without writing to KV, so nothing refreshes the TTL — confirmed real
+  during the 2026-09-11 outage (before the secondary existed): `/live`
+  was observed returning a completely empty `{games:[]}`, not stale
+  data. Real incident, 2026-09-12: Miami's real 77-7 final over Florida
+  A&M was wiped this way, and then never re-discovered, because
+  `needsYesterdayQuery()`'s gate only re-queries yesterday when it
+  already sees an unfinished-yesterday game in KV — it can't tell
+  "yesterday's fully accounted for" apart from "we have zero memory of
+  yesterday." Fixed by a `yesterday_sweep_date` KV marker
+  (`live/worker.js`) that forces yesterday's date back into the primary
+  query at least once per UTC day regardless of what the gate sees —
+  the permanent-retention promise above only holds for a game that
+  actually made it into KV at least once since the last wipe; this
+  sweep is what gives a wiped-and-still-BBS-recoverable game a daily
+  second chance.
 
 ## 8. Mistake log — real incidents, condensed (full evidence in `admin/BUILD_LOG.md`)
 
@@ -384,6 +402,18 @@ realizing there's a sibling path with the same bug.
   directly** — a field not rendered in the UI is still fully exposed via
   devtools/curl. `data_source` was in that payload until caught and fixed
   2026-09-12. → See rule §4.5.
+- **A self-limiting gate built on "have we already seen evidence we need
+  this?" can't recover from having lost the evidence.** The
+  today/yesterday query decoupling (2026-09-12 morning) gated yesterday's
+  BBS query on seeing an unfinished-yesterday game already in KV — safe
+  in general, but blind to a game whose record was already wiped (by the
+  KV-TTL issue above) before the gate could ever see it. Real result:
+  Miami's true 77-7 final over Florida A&M silently stayed missing for
+  a full day even though BBS still had it. → See §7's KV-wipe entry for
+  the fix (a daily forced sweep, independent of what the gate observes).
+  General lesson: a "only do the expensive thing if we have evidence we
+  need it" optimization needs a periodic unconditional fallback too, not
+  just an evidence-triggered one — evidence itself can go missing.
 
 ## 9. Current open items (as of 2026-09-12)
 

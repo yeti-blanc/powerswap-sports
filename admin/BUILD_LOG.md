@@ -1971,3 +1971,74 @@ feedback:**
 User said more style changes are likely in a future session - nothing
 left open right now, just noting this area is actively being iterated
 on, not a one-and-done pass.
+
+## 2026-09-12 (later still): Miami/Florida A&M final missing - root-caused and fixed with real evidence, not guessed
+
+User reported Miami's real Thursday final (77-7 over Florida A&M) wasn't
+showing anywhere on the site. Investigated rather than assumed:
+
+**Confirmed the game data was gone entirely, not just mis-rendered:** a
+real `curl` of the production `/live` endpoint had no Miami/Florida A&M
+entry at all - `kv_has_miami: false` via a temporary diagnostic (see
+below).
+
+**Root cause, traced through real evidence at every step, not
+speculation:**
+1. Re-read the earlier 2026-09-11 outage entry above with fresh eyes:
+   it explicitly recorded `/live` returning a completely empty
+   `{"updated_at":null,"games":[]}` that night - not stale data, an
+   actually-empty KV key. That's the `expirationTtl` (600s =
+   `KV_TTL_SECONDS`) lapsing because every tick during the primary-only
+   failure window just `console.error`'d and `return`'d without ever
+   calling `env.LIVE_KV.put()` - nothing was refreshing the TTL. That
+   wipe took EVERYTHING retained down with it, including Miami's real
+   77-7 final, which had been correctly captured earlier that same day
+   (after that day's status-priority fix).
+2. Added a temporary `/debug/miami` route to `worker.js` (deployed,
+   queried, then removed) that called the real `fetchBbsMatches()` /
+   `fetchLegacyMatches()` functions directly and filtered for Miami/
+   Florida A&M. Confirmed BBS's `/v1/stored/matches` STILL has the real
+   finished 77-7 record right now (twice, under two different ids - the
+   same known duplicate-row pattern, both finished 77-7) - so the data
+   was never actually gone from BBS, only from this Worker's own KV.
+3. So why hadn't a normal poll re-discovered it since? This morning's
+   "decouple today/yesterday" commit (see its own build-log entry)
+   gates the primary's yesterday-date query on seeing a NOT-YET-FINISHED
+   yesterday game already in the current KV payload. After the wipe,
+   Miami's record wasn't in KV to trigger that - so the gate had no
+   reason to ever query yesterday's date again, even though yesterday's
+   bucket (BBS's 2-day window) still genuinely held the answer. A gate
+   built on "do we have evidence we need this" can't recover once the
+   evidence itself is the thing that got lost.
+
+**Fix:** added a `yesterday_sweep_date` KV marker recording the last UTC
+date on which a yesterday-INCLUSIVE primary fetch actually succeeded.
+`includeYesterday` in `pollAndCache()` is now
+`needsYesterdayQuery(previous.games) || lastSweepDate !== today` - forces
+one guaranteed yesterday-inclusive primary query per UTC day regardless
+of what the original gate sees, closing this exact blind spot, while
+still avoiding the unconditional-every-tick cost the decoupling commit
+was built to remove. The marker is only set when the PRIMARY succeeds
+with yesterday included (the secondary/`fetchLegacyMatches()` doesn't
+respect date-scoping at all, so its success can't confirm yesterday was
+really covered - leaving the marker stale in that case means the next
+successful PRIMARY tick will try the sweep again).
+
+**Verified end-to-end through the real pipeline, not a manual KV
+patch:** deployed, caught the very next real cron tick via
+`wrangler tail --format json` (clean - `outcome: "ok"`, empty
+`exceptions`/`logs`, meaning primary succeeded with no fallback),
+confirmed `yesterday_sweep_date` was written (`2026-09-12`), confirmed
+`curl`ing `/live` now returns Miami 77-7 Florida A&M finished, and
+confirmed it renders correctly on the real production site after a hard
+refresh (`FINAL 77-7 vs Florida A&M` on Miami's rank card, opponent
+subtext correctly hidden per this session's earlier styling change).
+Removed the temporary `/debug/miami` route and redeployed; confirmed
+Miami's record survived that redeploy (it's real KV state now, not
+dependent on the diagnostic).
+
+**Broader lesson, added to PROJECT_BIBLE.md §7/§8:** any
+"only do the expensive thing if we see evidence we need it" gate is
+blind to the case where the evidence itself got lost - needs a periodic
+unconditional fallback alongside the evidence-triggered one, not instead
+of it.
