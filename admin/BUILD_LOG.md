@@ -1442,3 +1442,52 @@ telemetry after the fact if wanted.
 Not committed/pushed yet - held pending the user's go-ahead on the
 production Worker deploy, so both the KV-side data fix and the display
 code ship together rather than in two mismatched steps.
+
+## 2026-09-11 (evening): two live games missing scores/badges - traced to a real BBS-side outage, not our code
+
+User reported two real in-progress games not showing scores, live badges,
+or Live Games cards. `/live` was returning `{"updated_at":null,"games":[]}`
+- completely empty, not stale.
+
+**Root cause, confirmed with real evidence, not guessed:**
+`wrangler tail powerswap-live-scores` showed every single cron tick
+failing identically for several consecutive ticks:
+```
+BBS /v1/stored/matches (date=2026-09-12) returned 500
+BBS /v1/stored/matches (date=2026-09-11) returned 500
+BBS fetch failed: BBS /v1/stored/matches (date=2026-09-11) returned 500
+```
+Ruled out our own request being at fault: a call with no `Authorization`
+header and a call with a deliberately bad key both got clean, well-formed
+`401 invalid API key` responses from BBS in the same window - so BBS's
+auth layer is fine and reachable, only the real authenticated query
+errors out.
+
+**Backup-key test (ruled out account-specific cause):** temporarily
+pointed `ACTIVE_BBS_KEY_ENV_VAR` at `BBS_API_KEY_BACKUP` (already present
+as a Worker secret from the 2026-09-05 stopgap) and redeployed. Got the
+IDENTICAL 500 on the next two ticks. Two different keys/accounts failing
+the same way rules out "our primary account specifically is broken" and
+points to BBS's `/v1/stored/matches` endpoint itself being down for real
+authenticated traffic - reverted back to the primary key immediately
+after (no benefit to burning backup-key quota on a broken endpoint) and
+redeployed again.
+
+**Checked BBS's own status page** (`bigballsdata.com/status` ->
+`stats.uptimerobot.com/0eeM4GZQiv`, loaded in a real browser since it's
+JS-rendered): shows "All systems Operational" throughout, monitoring only
+`api.bigballsdata.com/health`. It would never catch this - `/health`
+being up doesn't mean `/v1/stored/matches` is.
+
+**Conclusion: this is a genuine third-party outage, not a bug in this
+repo.** No code change fixes it - `worker.js`'s existing design already
+handles it correctly on its own: a failed poll just leaves `/live`
+serving its last-known KV payload (or the empty default if KV had
+nothing cached) and retries automatically every 2 minutes with no
+intervention needed once BBS's endpoint recovers. Nothing to do here but
+wait for BBS and keep an eye on the next few polls.
+
+Net diff: `live/worker.js`'s `ACTIVE_BBS_KEY_ENV_VAR` comment updated to
+record this incident (constant itself unchanged - back on the primary
+key). Two real `wrangler deploy`s happened during diagnosis (backup key,
+then revert) - both confirmed via `wrangler tail` logs, not assumed.

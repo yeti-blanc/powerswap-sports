@@ -132,7 +132,18 @@ const KV_TTL_SECONDS = 600;
 // newer finished (or in-progress) one for the same team. No extra BBS
 // requests either way - this is pure KV read+merge, no per-game TTL.
 
-// Permanent key: primary BBS_API_KEY account (2,000/day, GitHub-linked).
+// INCIDENT 2026-09-11 (see admin/BUILD_LOG.md): /v1/stored/matches started
+// returning a consistent 500 for BOTH queried dates, on every cron tick,
+// while an unauthenticated call and a call with a deliberately bad key
+// both got clean 401s from BBS in the same window - so it's not our
+// request shape. Briefly tried BBS_API_KEY_BACKUP as a stopgap; it got the
+// IDENTICAL 500, which rules out an account-specific problem and points to
+// a broader BBS-side outage on this endpoint - one their own status page
+// (monitors only /health, showed "All systems Operational" throughout)
+// doesn't catch. Reverted to the permanent primary key since the backup
+// bought nothing; no code-side fix exists for this - the Worker's
+// architecture already retries every 2 minutes with no manual
+// intervention needed once BBS recovers.
 const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
 
 export default {
