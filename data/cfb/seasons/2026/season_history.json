@@ -3,286 +3,6 @@
   "season": 2026,
   "snapshots": [
     {
-      "week": "preseason",
-      "rankings": [
-        {
-          "rank": 1,
-          "team": "Ohio State",
-          "lineage": [
-            {
-              "team": "Ohio State",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 2,
-          "team": "Oregon",
-          "lineage": [
-            {
-              "team": "Oregon",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 3,
-          "team": "Georgia",
-          "lineage": [
-            {
-              "team": "Georgia",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 4,
-          "team": "Notre Dame",
-          "lineage": [
-            {
-              "team": "Notre Dame",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 5,
-          "team": "Texas",
-          "lineage": [
-            {
-              "team": "Texas",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 6,
-          "team": "Indiana",
-          "lineage": [
-            {
-              "team": "Indiana",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 7,
-          "team": "Miami",
-          "lineage": [
-            {
-              "team": "Miami",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 8,
-          "team": "Texas A&M",
-          "lineage": [
-            {
-              "team": "Texas A&M",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 9,
-          "team": "Mississippi",
-          "lineage": [
-            {
-              "team": "Mississippi",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 10,
-          "team": "Oklahoma",
-          "lineage": [
-            {
-              "team": "Oklahoma",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 11,
-          "team": "LSU",
-          "lineage": [
-            {
-              "team": "LSU",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 12,
-          "team": "Texas Tech",
-          "lineage": [
-            {
-              "team": "Texas Tech",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 13,
-          "team": "Alabama",
-          "lineage": [
-            {
-              "team": "Alabama",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 14,
-          "team": "USC",
-          "lineage": [
-            {
-              "team": "USC",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 15,
-          "team": "BYU",
-          "lineage": [
-            {
-              "team": "BYU",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 16,
-          "team": "Michigan",
-          "lineage": [
-            {
-              "team": "Michigan",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 17,
-          "team": "Washington",
-          "lineage": [
-            {
-              "team": "Washington",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 18,
-          "team": "Penn State",
-          "lineage": [
-            {
-              "team": "Penn State",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 19,
-          "team": "SMU",
-          "lineage": [
-            {
-              "team": "SMU",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 20,
-          "team": "Tennessee",
-          "lineage": [
-            {
-              "team": "Tennessee",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 21,
-          "team": "Utah",
-          "lineage": [
-            {
-              "team": "Utah",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 22,
-          "team": "Iowa",
-          "lineage": [
-            {
-              "team": "Iowa",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 23,
-          "team": "Houston",
-          "lineage": [
-            {
-              "team": "Houston",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 24,
-          "team": "Louisville",
-          "lineage": [
-            {
-              "team": "Louisville",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        },
-        {
-          "rank": 25,
-          "team": "Missouri",
-          "lineage": [
-            {
-              "team": "Missouri",
-              "held_from": "preseason",
-              "held_until": null
-            }
-          ]
-        }
-      ]
-    },
-    {
       "week": "week1",
       "rankings": [
         {
@@ -291,7 +11,7 @@
           "lineage": [
             {
               "team": "Ohio State",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -302,7 +22,7 @@
           "lineage": [
             {
               "team": "Oregon",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -313,7 +33,7 @@
           "lineage": [
             {
               "team": "Georgia",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -324,7 +44,7 @@
           "lineage": [
             {
               "team": "Notre Dame",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -335,7 +55,7 @@
           "lineage": [
             {
               "team": "Texas",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -346,7 +66,7 @@
           "lineage": [
             {
               "team": "Indiana",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -357,7 +77,7 @@
           "lineage": [
             {
               "team": "Miami",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -368,7 +88,7 @@
           "lineage": [
             {
               "team": "Texas A&M",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -379,7 +99,7 @@
           "lineage": [
             {
               "team": "Mississippi",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -390,7 +110,7 @@
           "lineage": [
             {
               "team": "Oklahoma",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -401,7 +121,7 @@
           "lineage": [
             {
               "team": "LSU",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -412,7 +132,7 @@
           "lineage": [
             {
               "team": "Texas Tech",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -423,7 +143,7 @@
           "lineage": [
             {
               "team": "Alabama",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -434,7 +154,7 @@
           "lineage": [
             {
               "team": "USC",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -445,7 +165,7 @@
           "lineage": [
             {
               "team": "BYU",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -456,7 +176,7 @@
           "lineage": [
             {
               "team": "Michigan",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -467,7 +187,7 @@
           "lineage": [
             {
               "team": "Washington",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -478,7 +198,7 @@
           "lineage": [
             {
               "team": "Penn State",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -489,7 +209,7 @@
           "lineage": [
             {
               "team": "SMU",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -500,7 +220,7 @@
           "lineage": [
             {
               "team": "Tennessee",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -511,7 +231,7 @@
           "lineage": [
             {
               "team": "Utah",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -522,7 +242,7 @@
           "lineage": [
             {
               "team": "Iowa",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -533,7 +253,7 @@
           "lineage": [
             {
               "team": "Houston",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -544,7 +264,7 @@
           "lineage": [
             {
               "team": "Louisville",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -555,7 +275,7 @@
           "lineage": [
             {
               "team": "Missouri",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -567,16 +287,296 @@
       "rankings": [
         {
           "rank": 1,
+          "team": "Ohio State",
+          "lineage": [
+            {
+              "team": "Ohio State",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "team": "Oregon",
+          "lineage": [
+            {
+              "team": "Oregon",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "team": "Georgia",
+          "lineage": [
+            {
+              "team": "Georgia",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "team": "Notre Dame",
+          "lineage": [
+            {
+              "team": "Notre Dame",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "team": "Texas",
+          "lineage": [
+            {
+              "team": "Texas",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "team": "Indiana",
+          "lineage": [
+            {
+              "team": "Indiana",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "team": "Miami",
+          "lineage": [
+            {
+              "team": "Miami",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "team": "Texas A&M",
+          "lineage": [
+            {
+              "team": "Texas A&M",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "team": "Mississippi",
+          "lineage": [
+            {
+              "team": "Mississippi",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "team": "Oklahoma",
+          "lineage": [
+            {
+              "team": "Oklahoma",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 11,
+          "team": "LSU",
+          "lineage": [
+            {
+              "team": "LSU",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 12,
+          "team": "Texas Tech",
+          "lineage": [
+            {
+              "team": "Texas Tech",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 13,
+          "team": "Alabama",
+          "lineage": [
+            {
+              "team": "Alabama",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 14,
+          "team": "USC",
+          "lineage": [
+            {
+              "team": "USC",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 15,
+          "team": "BYU",
+          "lineage": [
+            {
+              "team": "BYU",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 16,
+          "team": "Michigan",
+          "lineage": [
+            {
+              "team": "Michigan",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 17,
+          "team": "Washington",
+          "lineage": [
+            {
+              "team": "Washington",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 18,
+          "team": "Penn State",
+          "lineage": [
+            {
+              "team": "Penn State",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 19,
+          "team": "SMU",
+          "lineage": [
+            {
+              "team": "SMU",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 20,
+          "team": "Tennessee",
+          "lineage": [
+            {
+              "team": "Tennessee",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 21,
+          "team": "Utah",
+          "lineage": [
+            {
+              "team": "Utah",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 22,
+          "team": "Iowa",
+          "lineage": [
+            {
+              "team": "Iowa",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 23,
+          "team": "Houston",
+          "lineage": [
+            {
+              "team": "Houston",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 24,
+          "team": "Louisville",
+          "lineage": [
+            {
+              "team": "Louisville",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        },
+        {
+          "rank": 25,
+          "team": "Missouri",
+          "lineage": [
+            {
+              "team": "Missouri",
+              "held_from": "week1",
+              "held_until": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": "week3",
+      "rankings": [
+        {
+          "rank": 1,
           "team": "Texas",
           "lineage": [
             {
               "team": "Ohio State",
-              "held_from": "preseason",
-              "held_until": "week2"
+              "held_from": "week1",
+              "held_until": "week3"
             },
             {
               "team": "Texas",
-              "held_from": "week2",
+              "held_from": "week3",
               "held_until": null
             }
           ]
@@ -587,12 +587,12 @@
           "lineage": [
             {
               "team": "Oregon",
-              "held_from": "preseason",
-              "held_until": "week2"
+              "held_from": "week1",
+              "held_until": "week3"
             },
             {
               "team": "Oklahoma State",
-              "held_from": "week2",
+              "held_from": "week3",
               "held_until": null
             }
           ]
@@ -603,7 +603,7 @@
           "lineage": [
             {
               "team": "Georgia",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -614,7 +614,7 @@
           "lineage": [
             {
               "team": "Notre Dame",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -625,12 +625,12 @@
           "lineage": [
             {
               "team": "Texas",
-              "held_from": "preseason",
-              "held_until": "week2"
+              "held_from": "week1",
+              "held_until": "week3"
             },
             {
               "team": "Ohio State",
-              "held_from": "week2",
+              "held_from": "week3",
               "held_until": null
             }
           ]
@@ -641,7 +641,7 @@
           "lineage": [
             {
               "team": "Indiana",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -652,7 +652,7 @@
           "lineage": [
             {
               "team": "Miami",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -663,7 +663,7 @@
           "lineage": [
             {
               "team": "Texas A&M",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -674,7 +674,7 @@
           "lineage": [
             {
               "team": "Mississippi",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -685,12 +685,12 @@
           "lineage": [
             {
               "team": "Oklahoma",
-              "held_from": "preseason",
-              "held_until": "week2"
+              "held_from": "week1",
+              "held_until": "week3"
             },
             {
               "team": "Michigan",
-              "held_from": "week2",
+              "held_from": "week3",
               "held_until": null
             }
           ]
@@ -701,7 +701,7 @@
           "lineage": [
             {
               "team": "LSU",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -712,7 +712,7 @@
           "lineage": [
             {
               "team": "Texas Tech",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -723,7 +723,7 @@
           "lineage": [
             {
               "team": "Alabama",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -734,7 +734,7 @@
           "lineage": [
             {
               "team": "USC",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -745,7 +745,7 @@
           "lineage": [
             {
               "team": "BYU",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -756,12 +756,12 @@
           "lineage": [
             {
               "team": "Michigan",
-              "held_from": "preseason",
-              "held_until": "week2"
+              "held_from": "week1",
+              "held_until": "week3"
             },
             {
               "team": "Oklahoma",
-              "held_from": "week2",
+              "held_from": "week3",
               "held_until": null
             }
           ]
@@ -772,7 +772,7 @@
           "lineage": [
             {
               "team": "Washington",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -783,7 +783,7 @@
           "lineage": [
             {
               "team": "Penn State",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -794,7 +794,7 @@
           "lineage": [
             {
               "team": "SMU",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -805,7 +805,7 @@
           "lineage": [
             {
               "team": "Tennessee",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -816,7 +816,7 @@
           "lineage": [
             {
               "team": "Utah",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -827,7 +827,7 @@
           "lineage": [
             {
               "team": "Iowa",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -838,7 +838,7 @@
           "lineage": [
             {
               "team": "Houston",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -849,7 +849,7 @@
           "lineage": [
             {
               "team": "Louisville",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -860,7 +860,7 @@
           "lineage": [
             {
               "team": "Missouri",
-              "held_from": "preseason",
+              "held_from": "week1",
               "held_until": null
             }
           ]
@@ -871,7 +871,7 @@
   "events": [
     {
       "kind": "swap",
-      "week": "week2",
+      "week": "week3",
       "winner": "Michigan",
       "loser": "Oklahoma",
       "winner_old_rank": 16,
@@ -881,7 +881,7 @@
     },
     {
       "kind": "dethrone",
-      "week": "week2",
+      "week": "week3",
       "winner": "Oklahoma State",
       "loser": "Oregon",
       "winner_old_rank": null,
@@ -891,7 +891,7 @@
     },
     {
       "kind": "swap",
-      "week": "week2",
+      "week": "week3",
       "winner": "Texas",
       "loser": "Ohio State",
       "winner_old_rank": 5,
@@ -904,7 +904,7 @@
     "Michigan": [
       {
         "kind": "swap",
-        "week": "week2",
+        "week": "week3",
         "winner": "Michigan",
         "loser": "Oklahoma",
         "winner_old_rank": 16,
@@ -916,7 +916,7 @@
     "Ohio State": [
       {
         "kind": "swap",
-        "week": "week2",
+        "week": "week3",
         "winner": "Texas",
         "loser": "Ohio State",
         "winner_old_rank": 5,
@@ -928,7 +928,7 @@
     "Oklahoma": [
       {
         "kind": "swap",
-        "week": "week2",
+        "week": "week3",
         "winner": "Michigan",
         "loser": "Oklahoma",
         "winner_old_rank": 16,
@@ -940,7 +940,7 @@
     "Oklahoma State": [
       {
         "kind": "dethrone",
-        "week": "week2",
+        "week": "week3",
         "winner": "Oklahoma State",
         "loser": "Oregon",
         "winner_old_rank": null,
@@ -952,7 +952,7 @@
     "Oregon": [
       {
         "kind": "dethrone",
-        "week": "week2",
+        "week": "week3",
         "winner": "Oklahoma State",
         "loser": "Oregon",
         "winner_old_rank": null,
@@ -964,7 +964,7 @@
     "Texas": [
       {
         "kind": "swap",
-        "week": "week2",
+        "week": "week3",
         "winner": "Texas",
         "loser": "Ohio State",
         "winner_old_rank": 5,

@@ -38,10 +38,13 @@ is sorted out:
 - **Week 1 opponent preview (2026-09-02)** - each ranked team's rank
   card shows its Week 1 opponent and home/away (`vs. Team` / `@ Team`),
   from real CFBD schedule data. See "Week 1 Matchups" further down.
-- **The current season's baseline displays as "Week 1," not
-  "Preseason,"** until that season's real `week1` snapshot exists (see
-  "Week 1 Matchups" below) - otherwise a "Preseason" label next to live
-  in-game scores reads as stale.
+- **Week 1 IS the baseline** - `backtest.py` writes it directly as the
+  `week1` snapshot (the untouched preseason AP poll), so there's no
+  separate "Preseason" state to special-case. A ranking snapshot is
+  always labeled for the week it *governs*, not the week whose games
+  produced it: week N's tab shows the ranking that resulted from week
+  N-1's results, and a change from week N's own games first appears on
+  week N+1's tab (see PROJECT_BIBLE.md §12, fixed 2026-09-13).
 
 Both flags live at the top of `site/app.js`. Flipping either to `true`
 is the entire activation step on the site side - everything else needed

@@ -2332,3 +2332,145 @@ team shows a red ▼, right after the name, and no other row got an
 arrow it shouldn't have. Real production verification (the actual
 green/red arrows against real week2 results) still pending until
 week2's real backtest runs - see the missed-automation entry above.
+
+## 2026-09-13 (same day, follow-up): real off-by-one found in the week-labeling convention itself - fixed across the whole pipeline
+
+User caught this by actually reading the deployed site after the
+previous entry shipped: on the live "Week 2" tab, Texas already showed
+at #1 with a green arrow, on the SAME tab as the Texas/Ohio-State game
+that caused the move. User's read: that's backwards from real AP-poll
+convention. A poll numbered "Week N" is always the poll that GOVERNED
+week N's games (produced by week N-1's results) - not the poll week
+N's own games just produced. Week 1 is the baseline itself, full stop.
+Confirmed this was a genuine bug, not a preference call, and traced it
+to its root: `scripts/backtest.py` was labeling the snapshot/events
+produced by applying real week W's games `"week{W}"` - the same week
+number as the games that caused them - one too early relative to what
+"Week N" is supposed to mean.
+
+**Root cause, `scripts/backtest.py`:** `PowerSwapRankings.from_preseason_poll(...,
+"preseason")` seeded the baseline under a separate `"preseason"` key
+instead of directly as `"week1"`, and the main loop labeled the
+snapshot/events resulting from real week `W`'s games `f"week{W}"`
+instead of `f"week{W+1}"`. Fixed: baseline is now seeded straight as
+`"week1"` (no more separate preseason key at all), and the loop uses
+`reveal_label = f"week{week + 1}"` for both `apply_week()`'s
+`week_label` and the appended snapshot - real week W's games still read
+from `raw/week_{W:02d}_games.json` (CFBD's real week numbering,
+untouched), but the RESULT is now filed one week later, matching real
+convention. `core/swap_engine.py` needed zero changes - it was already
+fully label-agnostic, just handed whatever string the caller chose.
+
+**Cascading consequence realized while tracing this (the actual reason
+this fix eliminates a whole subsystem):** under the corrected
+convention, the LATEST snapshot backtest.py writes after processing
+real week K's games is now `"week{K+1}"` - i.e. the current/live
+week's own ranking (the one governing its still-upcoming games) is
+already a real, correct snapshot the instant backtest.py runs, with no
+gap to paper over. This makes `site/app.js`'s entire "preview week"
+mechanism dead code, not just cosmetically related:
+- `previewWeekKey` (module-level state), `weekHasStarted()`, and the
+  `"(Upcoming)"` suffix in `formatWeekLabel()` - deleted outright, per
+  explicit user request. There is no week left that's a "preview" of
+  anything; every browsable week is a real backtested snapshot from the
+  moment it appears.
+- `loadSeason()`'s synthesized-next-week-snapshot block (the one that
+  used to `visibleSnapshots.push({week: nextWeekKey, rankings:
+  latestSnapshot.rankings})` when a schedule file existed but no real
+  backtest did) - deleted. Nothing to synthesize anymore; the real
+  snapshot already covers it.
+- `computeVisibleSnapshots()` - simplified to a bare passthrough
+  (`return seasonData.snapshots`). Its old job (dropping the
+  `"preseason"` key once a real `"week1"` existed) is moot since that
+  key no longer exists at all.
+- `getPreviousRankings()` (yesterday's rank-arrow feature) - simplified
+  to just "the prior entry in `snapshots`," dropping both its
+  `"preseason"`-fallback special case and its synthesized-preview
+  fallback. Both were compensating for exactly the mess this fix
+  removes.
+- `getLiveWeekKey()` - simplified to always return the latest visible
+  snapshot's week; the `if (previewWeekKey) return previewWeekKey`
+  branch is gone since the latest real snapshot IS the live week now, by
+  construction.
+- `refreshWeekLabel()` (the 45s-poll-piggybacked function that kept the
+  "(Upcoming)" suffix from going stale across a real kickoff) - deleted
+  along with the suffix it existed to maintain.
+- `refreshHavocPanel()`'s call into `renderEvents()` now passes
+  `isViewingLiveWeek()` instead of `snapshot.week === previewWeekKey`
+  for the "hasn't been played yet" vs. "chalk held" empty-state choice -
+  same distinction, now derived instead of tracked as separate state.
+
+**A second, independent implementation of the same convention was
+found and fixed too, per §8's standing lesson that a data-model fix
+doesn't automatically reach every consumer:** `live/worker.js`'s
+`getCurrentWeekNumber()` reimplements "which week is live right now" in
+JS (for live-score opponent-name resolution, since the Worker can't
+import `site/app.js`). It had the identical `latestRealWeek + 1` logic,
+now equally wrong under the corrected convention - fixed to just
+`latestRealWeek` (no `+1`; the latest snapshot's own week number is now
+already the live one). **This fix is written and committed but NOT YET
+DEPLOYED** - `live/worker.js` runs as a separately-deployed Cloudflare
+Worker with no auto-deploy workflow (by design, see PROJECT_BIBLE.md
+§5); it needs a real `wrangler deploy` from `live/` before it takes
+effect. Flagged in PROJECT_BIBLE.md §9 as an open item - low urgency
+today (Week 3 has no live games yet) but will matter the moment Week
+3's own games go live.
+
+**season-progression.yml, fetch_results.py, fetch_week_matchups.py -
+confirmed to need ZERO changes**, and verified why rather than assumed:
+both scripts already operate on CFBD's real week numbering (fetching
+"real week W's games/schedule"), completely independent of what label
+the RESULTING ranking snapshot gets. The workflow's existing "seed next
+week's schedule preview" step (`fetch_week_matchups.py --week
+$((WEEK+1))`) already fetches exactly the schedule the new current/live
+week needs, for the same reason.
+
+**`sports/cfb/havoc_rating.py`, `fetch_week1_matchups.py`,
+`fetch_week_matchups.py` - confirmed unaffected:** all three only ever
+read `snapshots[-1]` (whatever the actual latest entry is) to get
+"current standings," never caring what string label it carries. Same
+real standings either way, just filed under a different key than
+before.
+
+**Existing test suite - confirmed unaffected, not just assumed:**
+`tests/test_swap_engine.py` and `tests/test_multigame_week.py` call
+`core/swap_engine.py` directly with their own literal `"week1"`/
+`"preseason"` labels as test fixtures, independent of
+`backtest.py`'s policy - both still pass unchanged (re-ran them, real
+output, all PASS).
+
+**Verified real, in this order, not skipped:**
+1. Generated a synthetic season (`tests/generate_fake_season.py`,
+   throwaway `data/cfb/seasons/9999/`, gitignored) and ran the fixed
+   `backtest.py` against it first, before touching any real data -
+   confirmed 5 raw weekly game files produced snapshots `week1..week6`
+   and events tagged `week2..week6` (never `week1`, matching "week1 is
+   the baseline, nothing reveals there").
+2. Regenerated the REAL `data/cfb/seasons/2026/season_history.json` by
+   re-running `backtest.py --season 2026 --weeks 2` against the
+   already-fetched real raw game files (no new fetch, no new API call) -
+   confirmed real output: `week2` now shows 0 events (week 1's real
+   games were chalk, matching before), `week3` now carries the 3 real
+   week-2 upsets (Texas/Ohio State, Oklahoma State/Oregon,
+   Michigan/Oklahoma).
+3. Copied `site/` + the regenerated `data/` into an isolated scratch
+   directory (real production files untouched until commit), served it,
+   and checked all three weeks in a real browser: Week 1 shows the
+   untouched baseline, no arrows, its own real final scores; Week 2
+   shows that SAME baseline (Ohio State still #1) with week 2's own
+   final scores and "No rank changes this week. Chalk held."; Week 3
+   (now the default/live tab, no "(Upcoming)" suffix anywhere) shows the
+   corrected ranking (Texas #1 with a green arrow, Ohio State #5 with a
+   red one) alongside week 3's real not-yet-played schedule, and HAVOC
+   correctly shows the 3 official swap/dethrone cards on THIS tab
+   instead of Week 2's. Also confirmed the ‹ back-arrow is disabled at
+   Week 1 now (nothing before the baseline - there's no more hidden
+   "preseason" tab to navigate into).
+4. Deleted the throwaway `data/cfb/seasons/9999/` test season after
+   confirming it wasn't git-tracked (gitignored - `git status --porcelain`
+   showed nothing for that path).
+
+**Not yet done, left for the user:** deploying `live/worker.js`'s fix
+via `wrangler deploy` (see above) - Worker deploys are treated as a
+manual, explicit-confirmation action same as the GitHub Actions
+workflow-dispatch earlier today, not run unprompted.

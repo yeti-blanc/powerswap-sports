@@ -109,11 +109,13 @@ const WEEK1_MATCHUPS_URL =
 const RAW_DATA_BASE_URL =
   "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/raw";
 
-// season_history.json's snapshots are the completed/backtested weeks -
-// the week that's actually being PLAYED right now (where live games and
-// unranked opponents show up) is always one past the latest of those
-// (falls back to week 1 if the season has no real snapshot yet, e.g.
-// preseason). Mirrors site/app.js's getLiveWeekKey()/loadSeason() logic.
+// season_history.json's snapshots are keyed by the week each ranking
+// GOVERNS, not the week whose games produced it (backtest.py labels the
+// ranking produced by week N's results "week{N+1}" - see PROJECT_BIBLE.md
+// §12) - so the latest snapshot's own week number IS the week that's
+// actually being PLAYED right now (where live games and unranked
+// opponents show up), no "+1" needed. Falls back to week 1 if the season
+// has no real snapshot yet. Mirrors site/app.js's getLiveWeekKey().
 export function getCurrentWeekNumber(seasonData) {
   const snapshots = seasonData?.snapshots ?? [];
   const realWeekNums = snapshots
@@ -121,7 +123,7 @@ export function getCurrentWeekNumber(seasonData) {
     .filter(Boolean)
     .map((m) => parseInt(m[1], 10));
   const latestRealWeek = realWeekNums.length ? Math.max(...realWeekNums) : null;
-  return latestRealWeek !== null ? latestRealWeek + 1 : 1;
+  return latestRealWeek !== null ? latestRealWeek : 1;
 }
 
 // Week 1 keeps using the legacy top-level file (fetch_week1_matchups.py's

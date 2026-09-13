@@ -91,24 +91,31 @@ def run_season_backtest(sport: str, season: int, max_week: int, include_postseas
     raw_dir = season_dir / "raw"
 
     preseason = load_json(season_dir / "preseason_poll.json")
-    rankings = PowerSwapRankings.from_preseason_poll(preseason["teams"], "preseason")
+    rankings = PowerSwapRankings.from_preseason_poll(preseason["teams"], "week1")
 
-    all_snapshots = [rankings.to_dict("preseason")]
+    # Week N's tab always shows the ranking that GOVERNED week N's games
+    # (produced by week N-1's real results), never the ranking week N's
+    # own games just produced - that's the real AP-poll convention, and
+    # what site/app.js displays. So week1's snapshot is the untouched
+    # preseason baseline, and applying real week W's games labels the
+    # RESULTING snapshot/events "week{W+1}" - the tab where that change
+    # first becomes visible, one week after the games that caused it.
+    all_snapshots = [rankings.to_dict("week1")]
     all_events = []
     consecutive_absences = {}
 
     for week in range(1, max_week + 1):
-        week_label = f"week{week}"
         games_path = raw_dir / f"week_{week:02d}_games.json"
+        reveal_label = f"week{week + 1}"
 
         if not games_path.exists():
-            print(f"  [{week_label}] no data found, skipping (run fetch_results.py --week {week})")
+            print(f"  [{reveal_label}] no data found, skipping (run fetch_results.py --week {week})")
             continue
 
         week_data = load_json(games_path)
-        events = _apply_and_log(rankings, week_data["games"], week_label, consecutive_absences)
+        events = _apply_and_log(rankings, week_data["games"], reveal_label, consecutive_absences)
 
-        all_snapshots.append(rankings.to_dict(week_label))
+        all_snapshots.append(rankings.to_dict(reveal_label))
         all_events.extend([e.to_dict() for e in events])
 
     if include_postseason:

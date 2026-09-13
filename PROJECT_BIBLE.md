@@ -39,6 +39,17 @@ alongside it (live scores, admin portal) — see §5.
    beat a team currently in the PowerSwap top 25.
 4. **Unranked vs. unranked.** No effect, not tracked.
 5. **Bye week / no game.** Slot freezes exactly where it was.
+6. **Week-label convention (fixed 2026-09-13, real AP-poll convention):**
+   the ranking shown on "Week N"'s tab is the ranking that GOVERNED week
+   N's games — i.e. produced by week N-1's real results — never the
+   ranking week N's own games just produced. Week 1 IS the baseline (the
+   untouched preseason poll); a change from week N's games first becomes
+   visible on week N+1's tab, with week N+1's own (upcoming) schedule
+   underneath it. `scripts/backtest.py` implements this by labeling the
+   snapshot/events produced by applying real week W's games `"week{W+1}"`,
+   not `"week{W}"`. See §12's 2026-09-13 entry for the full before/after
+   and every file this touches (`backtest.py`, `site/app.js`,
+   `live/worker.js`'s `getCurrentWeekNumber()`).
 
 Every rank slot carries full lineage (every team that's ever held it).
 Conference championships and CFP/bowls are NOT special-cased — a ranked team
@@ -417,6 +428,15 @@ realizing there's a sibling path with the same bug.
 
 ## 9. Current open items (as of 2026-09-12)
 
+- **`live/worker.js`'s `getCurrentWeekNumber()` fix needs a real
+  `wrangler deploy` (2026-09-13)** — the code is fixed and committed (see
+  §2 rule 6 / §12) but the live Cloudflare Worker won't pick it up until
+  someone runs `wrangler deploy` from the `live/` directory (no
+  auto-deploy workflow exists for this Worker - manual by design, see
+  §5). Until deployed, the live Worker is one week behind the new
+  convention for opponent-name resolution on live games (harmless right
+  now since Week 3 has no live games yet, but will matter the moment
+  Week 3's Thursday/Friday games start).
 - **BBS `/v1/stored/matches` primary outage — RESOLVED 2026-09-12.**
   Confirmed via BBS support directly (their side, not a code bug) and via
   real evidence here: KV payload and a caught cron tick both show
@@ -551,11 +571,51 @@ treat this as ongoing, not finished, and expect more requests like these:
   flat hold" trick rather than going back to a pure sine wave.
 - **Rank-change arrows (added 2026-09-13)** — green ▲ / red ▼ to the
   right of the team name on a rank card, shown when that team's rank
-  differs from the previous week's (preseason, for week1). No arrow for
-  a brand-new entry or preseason itself. `getPreviousRankings()`
-  (`site/app.js`) walks the raw `snapshots` array (not the UI's filtered
-  `visibleSnapshots`) so it still has `"preseason"` to compare week1
-  against.
+  differs from the previous week's. No arrow for a brand-new entry or for
+  week1 itself (nothing before the baseline). `getPreviousRankings()`
+  (`site/app.js`) just looks at the prior entry in `snapshots` - trivial
+  once §2 rule 6's week-label convention shipped the same day, since
+  every snapshot is real and in order with no placeholder/preview weeks
+  to special-case.
+- **Week-label convention fixed; "(Upcoming)" removed entirely
+  (2026-09-13)** — see §2 rule 6 for the what/why. Concretely: the user
+  caught that Week 2's tab was showing the RESULT of week 2's own games
+  (Texas already at #1 after beating Ohio State, on the same tab as that
+  game) instead of the ranking that governed week 2's games in the first
+  place - a real, correct AP-poll-convention bug, not a preference.
+  `scripts/backtest.py` now labels the snapshot/events produced by real
+  week W's games `"week{W+1}"` (the tab where that change is first
+  visible), and seeds the baseline directly as `"week1"` (no more
+  separate `"preseason"` key at all - Week 1 IS the baseline, full stop).
+  This made the entire "preview week" mechanism in `site/app.js`
+  unnecessary and it was deleted: `previewWeekKey`, the
+  `weekHasStarted()`/"(Upcoming)" suffix, and `loadSeason()`'s
+  synthesized-next-week-snapshot block are all gone, since backtest.py's
+  own output already includes the "current/live" week as a real,
+  already-correct snapshot the moment it runs - no client-side synthesis
+  needed. `getLiveWeekKey()` simplified to just the latest snapshot.
+  `live/worker.js`'s `getCurrentWeekNumber()` (an independent
+  reimplementation of the same "which week is live" logic, used for live-
+  score opponent-name resolution) had the exact same `+1` and needed the
+  identical fix - caught by grepping for every place that reimplements
+  this convention, per §8's standing lesson about a data-model fix not
+  automatically propagating to every consumer. **`live/worker.js`'s fix
+  is written but NOT YET DEPLOYED** - it only takes effect after a real
+  `wrangler deploy` from the `live/` directory; see §9 for the pending
+  action. Verified end-to-end in a real browser against a scratch copy of
+  the regenerated real 2026 season data (not just eyeballed): Week 1
+  shows the untouched baseline with no arrows and its own final scores;
+  Week 2 shows that SAME baseline (Ohio State still #1) alongside week
+  2's own final scores (Ohio State's real loss to Texas) and "No rank
+  changes this week. Chalk held."; Week 3 (now the live/current tab, no
+  "(Upcoming)" suffix) shows the resulting new ranking (Texas #1 ▲, Ohio
+  State #5 ▼) alongside week 3's own not-yet-played schedule. Also
+  reran `tests/test_swap_engine.py` and `tests/test_multigame_week.py`
+  (untouched by this fix, since `core/swap_engine.py` is label-agnostic)
+  to confirm no regression, and validated the new labeling against a
+  freshly-generated synthetic season (`tests/generate_fake_season.py`,
+  throwaway `data/cfb/seasons/9999/`) before touching real production
+  data.
 - **Current sizes, all explicitly first-pass / open to revision per the
   user**: `.belt-team` (ranked team name) 14px (was 12px),
   `.live-game-status` (the "● LIVE · Q4" line) 12px (was 10px). HAVOC
