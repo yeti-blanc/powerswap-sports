@@ -438,6 +438,17 @@ realizing there's a sibling path with the same bug.
 - **No admin-side UI for `data_source` or other live-scores internals** —
   intentionally not built (user's explicit call — KV/`wrangler tail`
   visibility is sufficient for now). Revisit only if asked.
+- **Week 2's first-ever scheduled fire (2026-09-13, 6 AM ET) never ran —
+  confirmed real via the GitHub API (zero runs, ever, for this workflow),
+  everything else about the trigger checked out as correctly configured.
+  Cron minute shifted from `:00` to `:05` sitewide as a permanent hedge
+  (GitHub's own docs name top-of-hour as the highest-congestion window
+  for scheduled-workflow delays) — not a confirmed root cause, just the
+  most likely one left standing. Manually backfilling week 2 via
+  `workflow_dispatch` is still pending the user's explicit go-ahead
+  (writes real season data + pushes to `main` — Claude Code's auto-mode
+  blocked doing this unprompted). See `admin/BUILD_LOG.md`'s 2026-09-13
+  entry for the full elimination process.**
 - **Week 2's real backtest is now automated too (fixed 2026-09-12,
   same day as the item above was first written).** User caught that
   `season-progression.yml`'s cron list started at Week 3
@@ -538,6 +549,13 @@ treat this as ongoing, not finished, and expect more requests like these:
   0.55`, `100%: opacity 1`. If the hold duration or dip depth ever needs
   to change again, keep the "two equal consecutive keyframes = a real
   flat hold" trick rather than going back to a pure sine wave.
+- **Rank-change arrows (added 2026-09-13)** — green ▲ / red ▼ to the
+  right of the team name on a rank card, shown when that team's rank
+  differs from the previous week's (preseason, for week1). No arrow for
+  a brand-new entry or preseason itself. `getPreviousRankings()`
+  (`site/app.js`) walks the raw `snapshots` array (not the UI's filtered
+  `visibleSnapshots`) so it still has `"preseason"` to compare week1
+  against.
 - **Current sizes, all explicitly first-pass / open to revision per the
   user**: `.belt-team` (ranked team name) 14px (was 12px),
   `.live-game-status` (the "● LIVE · Q4" line) 12px (was 10px). HAVOC

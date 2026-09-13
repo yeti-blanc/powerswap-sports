@@ -109,6 +109,26 @@ function weekNumber(weekKey) {
   return match ? parseInt(match[1], 10) : null;
 }
 
+// Looks up the rankings a team should be compared against to decide
+// whether it moved up/down this week (renderRankings' rank-change arrow).
+// Walks currentSeasonData.snapshots (the raw, chronological list - unlike
+// visibleSnapshots, this still includes "preseason") so week1 can compare
+// against the preseason AP baseline even though preseason itself isn't
+// browsable. A synthesized preview week (see loadSeason - appended to
+// visibleSnapshots but never added to seasonData.snapshots) has no entry
+// here at all; its rankings are a direct copy of the latest real
+// snapshot's, so falling back to that same latest snapshot naturally
+// yields zero movement for every team, which is correct (no games played
+// yet).
+function getPreviousRankings(weekKey) {
+  if (!currentSeasonData) return null;
+  const snapshots = currentSeasonData.snapshots;
+  const idx = snapshots.findIndex(s => s.week === weekKey);
+  if (idx > 0) return snapshots[idx - 1].rankings;
+  if (idx === -1) return snapshots[snapshots.length - 1]?.rankings ?? null;
+  return null; // idx === 0 (preseason itself) - nothing before it
+}
+
 async function loadSeason(sport, year) {
   const path = `../data/${sport}/seasons/${year}/season_history.json`;
   try {
@@ -294,6 +314,11 @@ function renderRankings(snapshot, weekEvents) {
     changedTeams.add(e.loser);
   }
 
+  const previousRankings = getPreviousRankings(snapshot.week);
+  const previousRankByTeam = previousRankings
+    ? new Map(previousRankings.map(r => [r.team, r.rank]))
+    : null;
+
   for (const slot of snapshot.rankings) {
     const li = document.createElement("li");
     li.className = "belt-card" + (changedTeams.has(slot.team) ? " just-changed" : "");
@@ -321,11 +346,23 @@ function renderRankings(snapshot, weekEvents) {
       ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}<span class="belt-kickoff">${detailText ? " · " + detailText : ""}</span></span>`
       : "";
 
+    // Green up / red down arrow, right next to the team name, when this
+    // team's rank differs from where it sat the previous week (preseason,
+    // for week1). No arrow at all for a brand-new entry (previously
+    // unranked) or when nothing before this week exists to compare
+    // against - only an actual rank-to-rank move is shown.
+    const previousRank = previousRankByTeam?.get(slot.team);
+    let rankArrow = "";
+    if (previousRank !== undefined && previousRank !== slot.rank) {
+      const movedUp = slot.rank < previousRank;
+      rankArrow = `<span class="belt-rank-arrow ${movedUp ? "rank-up" : "rank-down"}" title="${movedUp ? "Up" : "Down"} from #${previousRank}">${movedUp ? "▲" : "▼"}</span>`;
+    }
+
     const row = document.createElement("div");
     row.className = "belt-row";
     row.innerHTML = `
       <span class="belt-rank">#${slot.rank}</span>
-      <span class="belt-team" data-team="${slot.team}">${slot.team}${opponentLine}</span>
+      <span class="belt-team" data-team="${slot.team}">${slot.team}${rankArrow}${opponentLine}</span>
       <span class="belt-live" hidden></span>
       <span class="belt-toggle">LINEAGE ▾</span>
     `;

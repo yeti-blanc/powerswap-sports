@@ -2256,3 +2256,79 @@ dethrone event is byte-identical in shape to a real HAVOC card
 (`event-card dethrone`); confirmed the real HAVOC live-upset cards
 (Oklahoma State/Oregon, Michigan/Oklahoma) kept rendering correctly
 alongside the new section throughout.
+
+## 2026-09-13: season-progression.yml's first-ever scheduled fire never ran; rank-change arrows added to rank cards
+
+**Missed 6 AM auto-populate, investigated with real evidence, not
+guessed:** user reported the week that should have auto-populated at
+6 AM ET today didn't. Confirmed via `gh api
+repos/yeti-blanc/powerswap-sports/actions/workflows/352809788/runs` -
+`{"total_count":0,"workflow_runs":[]}`. Zero runs, ever, for this
+workflow - not just today. Ruled out real candidate causes one at a
+time: the cron trigger (`0 10 13 9 *`, added in `bdcd2f8` at
+2026-09-12 22:46 UTC) was on `main` over 11 hours before its 10:00 UTC
+fire time, well past any registration-delay window; workflow `state`
+is `"active"` via the API (not `disabled_invalid_workflow` or
+similar); the file on GitHub is byte-identical to the local copy (no
+encoding/CRLF corruption); repo is public with very recent push
+activity (rules out the 60-day-inactive scheduled-workflow disable);
+Actions are enabled repo-wide (`allowed_actions: "all"`); the
+`CFBD_API_KEY` secret the job needs exists. Everything checks out as
+correctly configured - the only real culprit left is GitHub's own
+documented scheduler behavior: cron minute `0` (top of the hour) is
+called out by GitHub's own docs as the highest-congestion time for
+scheduled-workflow delays, and Sunday 6 AM US-Eastern (10:00 UTC) is a
+popular cron slot sitewide, not just here. Can't fully rule out a
+silent drop with certainty (GitHub's scheduler is opaque server-side),
+but a multi-hour no-show at exactly `:00` on a popular slot matches
+their documented failure mode, not a misconfiguration on this repo's
+side.
+
+**Action taken:** none yet on the backfill itself - manually dispatching
+`season-progression.yml` (`gh workflow run ... -f week=2`) would write
+real season data and push a real commit to `main`, which Claude Code's
+auto-mode classifier correctly flagged as a production action and
+blocked pending explicit user confirmation. Left for the user to
+approve directly rather than routed around.
+
+**Mitigation applied (`season-progression.yml`):** shifted every cron
+entry's minute off `:00` (now `:05`) sitewide, since GitHub's own docs
+name top-of-hour as the specific high-congestion window - a cheap,
+permanent hedge against this recurring for weeks 3-14, independent of
+whatever caused today's miss.
+
+**Rank-change arrows (`site/app.js`, `site/style.css`):** user request -
+green up-arrow / red down-arrow to the right of the team name on each
+rank card, when that team's rank differs from the previous week's.
+`getPreviousRankings(weekKey)` walks `currentSeasonData.snapshots`
+(the raw chronological list, which still includes `"preseason"` even
+though `visibleSnapshots` drops it) so week1 can compare against the
+preseason AP baseline, not just weeks 2+ against each other. A
+synthesized preview week (see `loadSeason`) isn't in `snapshots` at
+all; falls back to the latest real snapshot, which is a no-op since
+the preview's rankings are a direct copy of it (no games played yet,
+correctly no arrows). No arrow at all for a brand-new entry
+(previously unranked) or preseason itself (nothing before it to
+compare against) - only an actual rank-to-rank move renders one.
+Arrow lives inside `.belt-team` right after the team name text (before
+`.belt-opponent`, which is `display: block` and wraps to its own line
+regardless), so it reads as "next to the name," not "next to the
+opponent line" underneath. New CSS: `.belt-rank-arrow` (`.rank-up` =
+`#33cc66` green, `.rank-down` = `#ff4444` red, reusing the sitewide
+"upset" red for consistency rather than inventing a new one).
+
+**Tested in a real browser, not just eyeballed the diff:** the repo's
+own `season_history.json` currently has zero rank movement between
+`preseason` and `week1` (real week1 games produced no swaps - already
+true before this change, confirmed via a quick script diffing the two
+snapshots), so there was nothing live to visually verify against yet.
+Copied `site/` + `data/` into an isolated scratch directory (never
+touched the tracked file - `git status` confirms only `app.js`/
+`style.css` changed after this test), synthesized a fake `week2`
+snapshot there with two ranks swapped (mimicking a real
+upset-driven move), served it with `python -m http.server`, and
+confirmed in Chrome: the moved-up team shows a green ▲, the moved-down
+team shows a red ▼, right after the name, and no other row got an
+arrow it shouldn't have. Real production verification (the actual
+green/red arrows against real week2 results) still pending until
+week2's real backtest runs - see the missed-automation entry above.
