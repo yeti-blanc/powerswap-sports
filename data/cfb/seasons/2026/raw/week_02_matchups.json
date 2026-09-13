@@ -65,14 +65,14 @@
       "team_score": 10,
       "opponent_score": 17
     },
-    "Oklahoma State": {
-      "opponent": "Oregon",
-      "home_away": "home",
+    "Oregon": {
+      "opponent": "Oklahoma State",
+      "home_away": "away",
       "kickoff_utc": "2026-09-12T16:00:00.000Z",
       "start_time_tbd": false,
       "completed": true,
-      "team_score": 39,
-      "opponent_score": 31
+      "team_score": 31,
+      "opponent_score": 39
     },
     "Indiana": {
       "opponent": "Howard",

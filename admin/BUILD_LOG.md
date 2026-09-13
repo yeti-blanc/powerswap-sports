@@ -2474,3 +2474,76 @@ output, all PASS).
 via `wrangler deploy` (see above) - Worker deploys are treated as a
 manual, explicit-confirmation action same as the GitHub Actions
 workflow-dispatch earlier today, not run unprompted.
+
+## 2026-09-13 (later still): live/worker.js deployed; second real bug found - Oregon missing from Week 2's own matchups
+
+**`live/worker.js` deployed** with the `getCurrentWeekNumber()` fix from
+the previous entry, after explicit user confirmation (asked again via
+AskUserQuestion since Claude Code's auto-mode classifier flags
+`wrangler deploy` as a production action every time, same as the
+GitHub Actions dispatch earlier). `npx wrangler deploy` from `live/`,
+real output confirmed: `Deployed powerswap-live-scores triggers`,
+version `df22ed40-c5d0-43e2-83db-06616e76697a`. Verified the endpoint
+still serves real traffic post-deploy (`/live` returned 23 games, same
+shape as before) - the specific week-number fix itself can't be
+observed in real traffic yet since no live game exists to exercise that
+code path (Week 3's games don't start until Friday); flagged that
+explicitly rather than claiming full verification.
+
+**Separate real bug, caught by the user actually reading Week 2's rank
+cards:** every team's opponent/final-score line was present except
+Oregon's. Traced to `sports/cfb/fetch_week_matchups.py`'s
+`get_ranked_teams()`, which always read `snapshots[-1]` (whatever the
+LATEST snapshot happened to be) to decide which teams need a matchup
+entry. That function is called for two different purposes (per its own
+module docstring) that need two DIFFERENT rankings:
+1. Seeding an upcoming week's schedule preview - "latest/current
+   standings" is exactly right here.
+2. Re-fetching a week's OWN matchups to bake in final scores, AFTER
+   that week has already been backtested - by then "latest" already
+   reflects THAT SAME week's results, so a team fully dethroned that
+   week has already dropped out of "latest," even though it still needs
+   a final-score entry for the very game that dethroned it.
+
+Oregon was the only card affected because it's the only team from
+week 2 that got fully DETHRONED (unranked) rather than just swapped to
+a different number - everyone else who moved (Ohio State, Oklahoma,
+Michigan, Texas) stayed ranked, so they stayed in "latest" regardless.
+Confirmed via git history: the automation's "re-fetch week 2's own
+matchups" step ran AFTER that day's backtest.py, at which point the
+latest snapshot already had Oregon dethroned - so Oklahoma State's real
+week-2 game (Oklahoma State beating Oregon) got filed under the
+"Oklahoma State" key instead of "Oregon," and Oklahoma State isn't the
+team holding rank #2 on the Week 2 CARD (Oregon is, per the earlier
+week-label fix) - so the card looked for `weekMatchups.week2.Oregon`,
+found nothing, and rendered no opponent/score line at all.
+
+**Fix:** `get_ranked_teams(season, week)` now takes the target week and
+looks up the snapshot literally labeled `"week{week}"` instead of
+blindly grabbing the latest one - under the corrected week-label
+convention (previous entries today), `"week{week}"` IS exactly "who was
+ranked when week `week`'s games were played," which is correct for
+BOTH call sites uniformly (no more special-casing needed): the upcoming
+week's `"week{W+1}"` snapshot already reflects week W's results by the
+time it's queried (same as before), and the just-played week's
+`"week{W}"` snapshot correctly still has Oregon at #2, since the games
+that dethroned it haven't been "applied" to that label yet - they show
+up starting `"week{W+1}"` instead. Falls back to the latest snapshot
+with a printed warning if the exact week's snapshot doesn't exist yet
+(shouldn't happen in the normal automation order, which always runs
+backtest.py first).
+
+**Verified with real evidence:** re-ran
+`fetch_week_matchups.py --season 2026 --week 2` against the real CFBD
+API (using the real key already in the local, gitignored `.env`) -
+confirmed `Oregon` now appears with its real result (`@ Oklahoma State,
+completed: true, 31-39 loss`), and `Oklahoma State`'s own entry is
+correctly gone (it doesn't hold a rank-2 CARD on the Week 2 tab under
+the new label convention, so it doesn't need one). Cross-checked
+`week_03_matchups.json` (the "seed the upcoming week" call, generated
+by the SAME automation run) was already correct and untouched by this
+bug, confirming the bug was specific to the re-fetch-after-played path.
+Copied the corrected data into an isolated scratch site (real repo
+files untouched pre-commit) and confirmed in a real browser: Week 2's
+#2 card now reads "OREGON / @ OKLAHOMA STATE / Final: L 31-39,"
+matching every other card's format exactly.

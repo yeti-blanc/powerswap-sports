@@ -428,15 +428,18 @@ realizing there's a sibling path with the same bug.
 
 ## 9. Current open items (as of 2026-09-12)
 
-- **`live/worker.js`'s `getCurrentWeekNumber()` fix needs a real
-  `wrangler deploy` (2026-09-13)** — the code is fixed and committed (see
-  §2 rule 6 / §12) but the live Cloudflare Worker won't pick it up until
-  someone runs `wrangler deploy` from the `live/` directory (no
-  auto-deploy workflow exists for this Worker - manual by design, see
-  §5). Until deployed, the live Worker is one week behind the new
-  convention for opponent-name resolution on live games (harmless right
-  now since Week 3 has no live games yet, but will matter the moment
-  Week 3's Thursday/Friday games start).
+- **`live/worker.js`'s `getCurrentWeekNumber()` fix — DEPLOYED
+  2026-09-13.** `wrangler deploy` run from `live/` after explicit user
+  confirmation; version `df22ed40-c5d0-43e2-83db-06616e76697a`. `/live`
+  confirmed still serving real traffic post-deploy. The week-number
+  logic itself can't be exercised by real traffic until a live game
+  exists to trigger opponent-name resolution - genuinely unverified
+  until Week 3's Thursday/Friday games start, not just unconfirmed out
+  of caution.
+- **`sports/cfb/fetch_week_matchups.py`'s `get_ranked_teams()` had its
+  own real bug, found 2026-09-13 the same day** — see §12's dated entry.
+  Fixed and the real `week_02_matchups.json` regenerated; Oregon's
+  opponent/final-score line now shows correctly.
 - **BBS `/v1/stored/matches` primary outage — RESOLVED 2026-09-12.**
   Confirmed via BBS support directly (their side, not a code bug) and via
   real evidence here: KV payload and a caught cron tick both show
@@ -616,6 +619,24 @@ treat this as ongoing, not finished, and expect more requests like these:
   freshly-generated synthetic season (`tests/generate_fake_season.py`,
   throwaway `data/cfb/seasons/9999/`) before touching real production
   data.
+- **`fetch_week_matchups.py`'s `get_ranked_teams()` real bug, caught
+  the same day by the user reading Week 2's cards** — every team except
+  Oregon showed its opponent/final score. Root cause:
+  `get_ranked_teams()` always read `snapshots[-1]` (whatever's latest)
+  to decide who needs a matchup entry, but this script is called for two
+  purposes needing two DIFFERENT rankings - seeding an upcoming week's
+  preview (latest/current standings is correct) vs. re-fetching an
+  ALREADY-PLAYED week's own matchups to bake in final scores (by then
+  "latest" already includes that same week's results, so a team fully
+  dethroned that week - Oregon, by Oklahoma State - has already dropped
+  out of "latest," even though it needs a final-score entry for the very
+  game that dethroned it). Fixed: `get_ranked_teams(season, week)` now
+  looks up the snapshot literally labeled `"week{week}"` instead of the
+  latest one - under the week-label convention above, that's exactly
+  "who was ranked when week `week` was played," correct for both call
+  sites with no special-casing. Verified with a real re-fetch against
+  the real CFBD API: Oregon's entry now shows `@ Oklahoma State,
+  completed: true, 31-39`, confirmed in a real browser.
 - **Current sizes, all explicitly first-pass / open to revision per the
   user**: `.belt-team` (ranked team name) 14px (was 12px),
   `.live-game-status` (the "● LIVE · Q4" line) 12px (was 10px). HAVOC

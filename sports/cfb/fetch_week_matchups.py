@@ -68,8 +68,28 @@ def cfbd_get(endpoint: str, params: dict) -> list | dict:
     return resp.json()
 
 
-def get_ranked_teams(season: int) -> list[str]:
-    """Latest snapshot's ranked team names, from season_history.json."""
+def get_ranked_teams(season: int, week: int) -> list[str]:
+    """
+    Ranked team names from the snapshot labeled "week{week}" - the
+    ranking that GOVERNED week `week`'s own games (see PROJECT_BIBLE.md
+    §2 rule 6), not whatever the latest snapshot happens to be.
+
+    This script is called for two different purposes (see module
+    docstring), and blindly using the latest snapshot silently breaks
+    the first one: baking in week W's own final score AFTER it's been
+    backtested, at which point "latest" already reflects week W's OWN
+    results - a team dethroned that same week (unranked entirely) has
+    already dropped out of "latest" by the time this runs, even though
+    it needs a final-score entry for the very game that dethroned it.
+    Real bug (2026-09-13): Oregon vanished from week 2's matchups this
+    way after Oklahoma State dethroned it in that same week's game -
+    every other week-2 mover stayed ranked (just at a different number)
+    so only Oregon's full removal exposed this. Using "week{week}"
+    itself fixes both call sites uniformly: it's the entering ranking for
+    the week being fetched, whether that week's games are still upcoming
+    (schedule preview) or already final (this same set is exactly who
+    was ranked when those games were played).
+    """
     path = DATA_DIR / str(season) / "season_history.json"
     if not path.exists():
         raise FileNotFoundError(
@@ -78,8 +98,14 @@ def get_ranked_teams(season: int) -> list[str]:
         )
     with open(path) as f:
         data = json.load(f)
-    latest = data["snapshots"][-1]
-    return [slot["team"] for slot in latest["rankings"]]
+    target = f"week{week}"
+    snapshot = next((s for s in data["snapshots"] if s["week"] == target), None)
+    if snapshot is None:
+        print(f"  WARNING: no '{target}' snapshot yet - falling back to the latest "
+              f"snapshot instead. Run backtest.py through week {week} first if this "
+              f"looks wrong.")
+        snapshot = data["snapshots"][-1]
+    return [slot["team"] for slot in snapshot["rankings"]]
 
 
 def fetch_week_matchups(season: int, week: int) -> dict[str, dict]:
@@ -88,7 +114,7 @@ def fetch_week_matchups(season: int, week: int) -> dict[str, dict]:
         "division": cfb_config.DIVISION_FILTER,
     })
 
-    ranked_teams = set(get_ranked_teams(season))
+    ranked_teams = set(get_ranked_teams(season, week))
     matchups = {}
 
     for g in games:
