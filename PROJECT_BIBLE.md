@@ -426,7 +426,7 @@ realizing there's a sibling path with the same bug.
   need it" optimization needs a periodic unconditional fallback too, not
   just an evidence-triggered one — evidence itself can go missing.
 
-## 9. Current open items (as of 2026-09-12)
+## 9. Current open items (as of 2026-09-13)
 
 - **`live/worker.js`'s `getCurrentWeekNumber()` fix — DEPLOYED
   2026-09-13.** `wrangler deploy` run from `live/` after explicit user
@@ -438,8 +438,10 @@ realizing there's a sibling path with the same bug.
   of caution.
 - **`sports/cfb/fetch_week_matchups.py`'s `get_ranked_teams()` had its
   own real bug, found 2026-09-13 the same day** — see §12's dated entry.
-  Fixed and the real `week_02_matchups.json` regenerated; Oregon's
-  opponent/final-score line now shows correctly.
+  Fixed and the real `week_02_matchups.json` regenerated; confirmed live
+  in production via a direct curl of the deployed JSON (not just the
+  scratch-copy browser check) - Oregon's opponent/final-score line now
+  shows correctly.
 - **BBS `/v1/stored/matches` primary outage — RESOLVED 2026-09-12.**
   Confirmed via BBS support directly (their side, not a code bug) and via
   real evidence here: KV payload and a caught cron tick both show
