@@ -238,11 +238,27 @@ function renderWeek() {
 // other UI interaction). No-ops harmlessly if the viewed week isn't the
 // live week - computeLiveUpsets() already returns [] in that case, so
 // this just redraws the same official weekEvents that were already there.
+//
+// HAVOC shows the upsets from the games actually PLAYED during the
+// viewed week - but per the week-label convention (PROJECT_BIBLE §2.6),
+// backtest.py labels the events produced by week N's own games
+// "week{N+1}" (the tab where that change first becomes visible), not
+// "week{N}". So HAVOC has to look one week AHEAD of the tab being viewed
+// to find that week's own games, not at the tab's own label (which holds
+// the PREVIOUS week's games instead - see renderLastWeekPanel()). Bug
+// fixed 2026-09-19: before this, HAVOC used e.week === snapshot.week,
+// which actually pulled the previous week's already-official results
+// (since those are the ones labeled with the current tab's key) - so a
+// week's HAVOC and its "Last Week's Power Swaps" panel were showing each
+// other's content.
 function refreshHavocPanel() {
   if (!currentSeasonData) return;
   const snapshot = visibleSnapshots[currentWeekIndex];
   if (!snapshot) return;
-  const weekEvents = currentSeasonData.events.filter((e) => e.week === snapshot.week);
+  const thisWeeksGamesKey = nextWeekKey(snapshot.week);
+  const weekEvents = thisWeeksGamesKey
+    ? currentSeasonData.events.filter((e) => e.week === thisWeeksGamesKey)
+    : [];
   renderEvents(weekEvents, isViewingLiveWeek(), computeLiveUpsets());
 }
 
@@ -416,6 +432,16 @@ function previousRealWeekKey(weekKey) {
   return `week${num - 1}`;
 }
 
+// The week immediately after weekKey, e.g. "week2" -> "week3". null for
+// any non-numbered key. Used to find the events produced by the VIEWED
+// week's own games, since backtest.py labels those "week{N+1}" (see
+// refreshHavocPanel()'s comment).
+function nextWeekKey(weekKey) {
+  const num = weekNumber(weekKey);
+  if (!num) return null;
+  return `week${num + 1}`;
+}
+
 // "Last Week's Power Swaps" - fills the dead air on the live week's tab
 // before its own games start (and HAVOC has nothing yet) by showing the
 // previous week's already-official events, in the same card style as
@@ -438,7 +464,15 @@ function renderLastWeekPanel() {
     return;
   }
 
-  const prevEvents = currentSeasonData.events.filter((e) => e.week === prevKey);
+  // The previous week's own games are what produced the CURRENTLY viewed
+  // week's ranking, so - per the week-label convention - they're labeled
+  // with the viewed week's own key, not prevKey (prevKey is only used
+  // above to detect "is there a previous week at all"). This is the same
+  // set of events renderRankings() already uses for its just-changed
+  // highlight/rank arrows; this panel is just a recap list of the same
+  // thing. Bug fixed 2026-09-19 - see refreshHavocPanel()'s comment for
+  // the full explanation of the label offset.
+  const prevEvents = currentSeasonData.events.filter((e) => e.week === viewedWeekKey);
   if (prevEvents.length === 0) {
     lastWeekList.innerHTML = `<li class="no-events">No rank changes last week. Chalk held.</li>`;
     return;
