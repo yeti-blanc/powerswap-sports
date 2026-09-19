@@ -180,14 +180,15 @@ files for some data.
 is a computed range, not a hardcoded list, so no code change is needed each
 new year.
 
-## 6. Live scores: current three-tier redundancy architecture (built 2026-09-12)
+## 6. Live scores: redundancy architecture (built 2026-09-12, cadence corrected 2026-09-19 - see the dated update at the end of this section)
 
 Built after a real BBS outage (`/v1/stored/matches` returning 500 on every
 call, still ongoing as of this writing) left the site with zero live-score
 updates for hours — one data source was the actual root cause, not a bug in
 how that source was handled.
 
-**Tried in this order, every cron tick (`live/wrangler.toml`, `*/2 * * * *`):**
+**Tried in this order, every cron tick (`live/wrangler.toml`, `*/6 * * * *`
+as of 2026-09-19 — see this section's dated update below for why):**
 
 1. **Primary: BBS `/v1/stored/matches`** (`live/bbs_client.js`
    `fetchBbsMatches()`). 2 requests/tick (today + yesterday UTC date).
@@ -269,6 +270,76 @@ length can't distinguish "still Q2" from "halftime after Q2" (both length
 2) — a live game just keeps showing `Q2` through its halftime break rather
 than risk a heuristic-based mislabel. User's explicit call: skip it rather
 than guess.
+
+**UPDATE 2026-09-19 — BBS's real cap is 500/day, not 2,000. ESPN tried as
+a free replacement and reverted the same day after a real production
+test; BBS stays primary with a corrected cadence.** Trigger: the user
+checked BBS's real account dashboard and found it capping requests at
+500/day, not the 2,000/day its own docs (`live/README.md`, `bbs_client.js`,
+`bbs_config.py` — all written 2026-09-01 from BBS's docs, never verified
+against a real request-volume test) claimed for a GitHub-linked account —
+the user's own words: "I can't support a bait and switch." Full evidence
+trail is in `admin/BUILD_LOG.md`'s 2026-09-19 entry; summary:
+
+- **BallDontLie evaluated and ruled out** as a free-tier BBS replacement —
+  not a rate-limit problem (5 req/min would've been fine), a plan-tier
+  lockout: a real authenticated call confirmed `Games` returns 401 on the
+  free tier while `Teams` returns 200 with the same key, matching their
+  docs' tier-access table exactly. Games is the only endpoint with
+  anything score/status-related, so free tier can't do what BBS does at
+  any price point below their $9.99/mo ALL-STAR tier.
+- **ESPN's unofficial scoreboard endpoint**
+  (`https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard`)
+  tested instead — no key, no signup. From a plain dev machine, real 200s
+  with real live data, confirmed to return MORE than BBS ever did (a real
+  populated clock, plain-integer period, team names already in BBS's
+  "School Mascot" convention). Wired in as primary (`live/espn_client.js`,
+  new file) and deployed.
+- **REVERTED ~15 minutes after deploying**, once real production traffic
+  was checked with `wrangler tail`: every single tick got a real,
+  deterministic 403 from ESPN — not intermittent, and NOT a header issue
+  (added a full browser User-Agent + Referer, redeployed, still 403 on
+  every tick). The identical request succeeds from a plain dev machine.
+  Near-certain cause: ESPN's WAF blocking Cloudflare's own egress IP range
+  outright — a real, common anti-scraping measure against exactly this
+  kind of Worker, invisible to any test run from a non-Cloudflare origin.
+  **This is the load-bearing lesson**: testing `parseEspnMatch()` and even
+  the full `pollAndCache()` pipeline locally (real network calls, correct
+  output) was NOT sufficient verification, because "correct output" and
+  "reachable from the actual production network" are two different
+  claims — the local test only checked the first. The site was never
+  actually down during this window: the fallback chain caught the 403
+  immediately and BBS covered every tick silently, exactly as designed —
+  but "primary" was non-functional in name only for those ~15 minutes,
+  and BBS was still absorbing 100% of the real load against the very cap
+  this was meant to relieve.
+- `espn_client.js` is kept in the repo (real, verified-working code
+  against a non-Cloudflare origin) for a future poller that doesn't run
+  inside a Cloudflare Worker — not currently imported by `worker.js`.
+- **Final state: BBS restored as primary** (`live/worker.js`'s fallback
+  chain is byte-identical to the pre-2026-09-19 verified-working version,
+  confirmed via `git diff` before redeploying — only comments changed).
+  Cadence corrected instead: `live/wrangler.toml`'s cron moved from
+  `*/2 * * * *` (720 ticks/day) to `*/6 * * * *` (240 ticks/day) — the
+  most frequent interval that keeps the documented worst case (both dates
+  queried every tick) under the real 500/day cap: 480/day worst case (96%
+  utilization, ~4% headroom), 240/day floor (the common case). This is
+  deliberately thinner headroom than the old 2,000-cap design's ~28% — the
+  user's explicit instruction was the most frequent cadence the real cap
+  allows, not preserved caution.
+- **Verified before AND after deploying, not just unit-tested:**
+  `parseEspnMatch()` tested against real live data (74 events, 0 missing
+  team names) before wiring in; full `pollAndCache()` run locally against
+  a mock KV with real network calls (22 real ranked-team games correctly
+  resolved) before the first deploy; `wrangler tail` against real
+  production traffic caught the 403 within minutes of that deploy: the
+  header-fix attempt was ALSO verified live via `wrangler tail` before
+  being judged a dead end. After reverting, `git diff` confirmed the
+  restored chain matches the last known-good commit exactly, and a final
+  ~8-minute `wrangler tail` sample confirmed two real ticks 6 minutes
+  apart, both succeeding cleanly on BBS with no errors, while `/live`
+  kept serving real visitor traffic uninterrupted throughout the entire
+  episode.
 
 ## 7. Known BBS data quirks (apply to BOTH `/v1/stored/matches` and `/v1/matches`)
 

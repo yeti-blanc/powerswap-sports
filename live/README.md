@@ -4,35 +4,58 @@
 
 ## What's here
 
-- `worker.js` - the Cloudflare Worker. Polls BBS (Big Balls Sports Data) on
-  a cron trigger, filters to games involving currently-ranked teams, and
-  publishes one consolidated payload to KV. Deployed as
-  `powerswap-live-scores` at
+- `worker.js` - the Cloudflare Worker. Polls a chain of live-score sources
+  on a cron trigger (see "Vendor split / fallback chain" below), filters to
+  games involving currently-ranked teams, and publishes one consolidated
+  payload to KV. Deployed as `powerswap-live-scores` at
   `https://powerswap-live-scores.yeti-f3c.workers.dev`.
 - `bbs_client.js` - BBS API client + response parsing, isolated per the
   "confirmed vs. UNVERIFIED" split described in its own comments.
+- `highlightly_client.js` - Highlightly client, tertiary/last-resort.
+- `espn_client.js` - ESPN's unofficial scoreboard endpoint client. NOT
+  currently used by `worker.js` - real production testing 2026-09-19
+  found it returns a deterministic 403 when called from Cloudflare's
+  network specifically (near-certainly ESPN's WAF blocking Cloudflare's
+  egress IP range), even though the identical request works fine from a
+  plain dev machine. Kept in the repo, verified-working code, in case a
+  future poller ever runs from a non-Cloudflare origin (e.g. GitHub
+  Actions) - see its file header and `admin/BUILD_LOG.md`'s 2026-09-19
+  entry for the full evidence.
 - `team_norm.js` - JS mirror of `sports/cfb/team_norm.py`'s `NORM`/`norm()`,
   plus `resolveBbsTeamName()` for matching BBS's "School Mascot" naming
   against season_history.json's school-only names.
-- `wrangler.toml` - Worker config. Cron schedule (`*/5 * * * *`) lives here
-  deliberately, not in the Cloudflare dashboard - see the comment in that
-  file for why.
+- `wrangler.toml` - Worker config. Cron schedule lives here deliberately,
+  not in the Cloudflare dashboard - see the comment in that file for why.
 - `fetch_live_scores.py` / `bbs_config.py` - local Python dev/diagnose
   tools (`--diagnose`, `--ranked-check`). Not used by the deployed Worker.
 
-## Vendor split (as decided 2026-09-01)
+## Vendor split / fallback chain (cadence updated 2026-09-19 - see PROJECT_BIBLE.md §6 and admin/BUILD_LOG.md for the full incident)
 
-- **CFBD** stays exactly as before: final results only, via the existing
-  `sports/cfb/fetch_results.py` → `scripts/backtest.py` pipeline. No new
-  subscription, no Patreon tier - this task didn't touch any of that.
-- **BBS (Big Balls Sports Data)** is the live-score vendor. Free tier:
-  1,000 req/day, 2,000/day on this GitHub-linked account.
-  `https://bigballsdata.com` / `https://bigballsdata.com/docs/introduction`
-  / `https://bigballsdata.com/ncaaf-api`.
+Tried in order every cron tick until one succeeds - see `worker.js`'s
+REDUNDANCY BUILD comment for the full evidence behind each:
 
-An earlier draft of this file (and `worker.js`) described a different,
-CFBD-Patreon-based live-score plan. That's superseded - CFBD is not used
-for live data at all now.
+1. **PRIMARY: BBS `/v1/stored/matches`** - real account cap confirmed
+   500/day 2026-09-19 (NOT the 2,000/day its own docs claimed for a
+   GitHub-linked account - never verified with a real request-volume test
+   before that point, see "verify with real evidence" lessons elsewhere in
+   `admin/BUILD_LOG.md`, same class of mistake). `live/wrangler.toml`'s
+   cron cadence is sized to that real number. User is evaluating paid
+   alternatives long-term (BallDontLie's free tier was ruled out -
+   confirmed via a real authenticated call that its `Games` endpoint 401s
+   on the free tier while `Teams` doesn't - a plan-tier lockout, not a
+   rate limit; ESPN's unofficial endpoint was tried as a free replacement
+   the same day but reverted - see `espn_client.js` above).
+2. **SECONDARY: BBS `/v1/matches`** - same account/key as primary, tried
+   only if primary fails the same tick.
+3. **TERTIARY: Highlightly** - only tried if both BBS endpoints fail the
+   same tick, and even then throttled by its own 100/day cap (see
+   `worker.js`'s `maybeFetchHighlightly()`). Currently inert - no
+   `HIGHLIGHTLY_API_KEY` secret set for this project.
+
+**CFBD** stays exactly as before: final results only, via the existing
+`sports/cfb/fetch_results.py` → `scripts/backtest.py` pipeline. Not used
+for live data at all - its live endpoints require a paid Patreon tier this
+project doesn't have (see `worker.js`'s REDUNDANCY BUILD comment).
 
 ## Confirmed vs. UNVERIFIED (as of 2026-09-01)
 

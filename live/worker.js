@@ -195,9 +195,13 @@ const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
 // diagnostic history and Phase 1/2/3 findings): the 2026-09-11/12 BBS
 // /v1/stored/matches outage above exposed that this Worker had exactly
 // one data source - a failure there meant zero live updates for hours,
-// with no fallback. Three sources now exist, tried in order each tick
-// until one succeeds:
-//   1. PRIMARY:   BBS /v1/stored/matches (fetchBbsMatches)
+// with no fallback. Three sources exist, tried in order each tick until
+// one succeeds:
+//   1. PRIMARY:   BBS /v1/stored/matches (fetchBbsMatches). Real account
+//      cap confirmed 500/day 2026-09-19 (NOT the 2,000/day its own docs
+//      claimed for a GitHub-linked account - see PROJECT_BIBLE.md §6 and
+//      admin/BUILD_LOG.md's 2026-09-19 entry) - see wrangler.toml for the
+//      cron cadence sized to that real number.
 //   2. SECONDARY: BBS /v1/matches (fetchLegacyMatches) - verified live
 //      2026-09-12 against a real in-progress game (see bbs_client.js's
 //      SECONDARY SOURCE comment for the evidence). Still the same
@@ -220,6 +224,20 @@ const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
 //      build) and exactly what to check first once one is added. Stays
 //      completely inert (this whole branch is skipped) until
 //      HIGHLIGHTLY_API_KEY is set as a Worker secret.
+//
+// ESPN's unofficial scoreboard endpoint (espn_client.js) was tried as a
+// PRIMARY ahead of this chain for about 15 minutes on 2026-09-19, then
+// pulled back out the same day: confirmed via `wrangler tail` against
+// real production traffic that it returns a deterministic 403 on EVERY
+// tick when called from THIS Worker specifically (full browser
+// User-Agent + Referer made no difference - not a header problem), while
+// the identical request succeeds fine from a plain dev machine. Near-
+// certain cause: ESPN's WAF blocking Cloudflare's egress IP range
+// outright, a real and common anti-scraping measure against exactly this
+// kind of Worker - not something any client-side fix can work around.
+// espn_client.js is kept in the repo (real, verified-working code against
+// a non-Cloudflare origin) in case a future poller runs from somewhere
+// else (e.g. GitHub Actions) - it is NOT imported or called here.
 //
 // Team-name resolution and the gameIdentityKey()/STATUS_PRIORITY dedup
 // below run identically regardless of which source produced this tick's
@@ -372,6 +390,11 @@ async function pollAndCache(env) {
   let parseMatch = null;
   let dataSource = null;
 
+  // ESPN's unofficial endpoint was tried as primary ahead of BBS for about
+  // 15 minutes on 2026-09-19, then reverted - see the REDUNDANCY BUILD
+  // comment above for the real evidence (deterministic 403 from this
+  // Worker's network specifically). BBS is genuinely primary again; see
+  // wrangler.toml for the cron cadence sized to its real 500/day cap.
   try {
     rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR], includeYesterday);
     parseMatch = parseBbsMatch;

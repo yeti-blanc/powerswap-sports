@@ -2547,3 +2547,206 @@ Copied the corrected data into an isolated scratch site (real repo
 files untouched pre-commit) and confirmed in a real browser: Week 2's
 #2 card now reads "OREGON / @ OKLAHOMA STATE / Final: L 31-39,"
 matching every other card's format exactly.
+
+---
+
+## 2026-09-19: BBS's real cap is 500/day not 2,000/day, "This Week" ticker fix, and a same-day ESPN-as-primary attempt reverted after a real Cloudflare-network block
+
+Three separate pieces of work today, logged together since the last two
+are directly downstream of the first.
+
+### 1. "This Week" ticker showing last week's headline (fixed, minor)
+
+User reported the top-of-page ticker giving a headline from LAST week
+instead of the current week. Root cause: `renderTicker()` (`site/app.js`)
+was called with `weekEvents` filtered on `e.week === snapshot.week` - the
+VIEWED week's own label, which per the week-label convention
+(PROJECT_BIBLE.md §2.6) holds the PREVIOUS week's already-official swaps,
+not this week's. Exact same label-offset bug class as the HAVOC/Last Week
+fix from earlier the same day (see that entry above) - the ticker was a
+sibling consumer of the same data that got missed at the time.
+
+Confirmed live in-browser via the console before fixing: on Week 3's tab,
+`currentSeasonData.events.filter(e => e.week === "week3")` returned
+Michigan-over-Oklahoma, Oklahoma State-dethroning-Oregon, and
+Texas-over-Ohio State - Week 2's news, already sitting in the Last Week
+panel. Fixed with a new `refreshTicker()` (mirrors `refreshHavocPanel()`):
+sources `nextWeekKey(snapshot.week)`'s events (this week's own official
+games) and folds in `computeLiveUpsets()` so the headline updates same-day
+instead of waiting for the weekly backtest. `renderTicker()` now takes a
+`liveUpsets` param and shows those ahead of any official swap/dethrone
+headline; wired into `fetchLiveScores()`'s poll tick too, not just
+`renderWeek()`. Verified via console: old code's `oldBuggyEvents` (3 stale
+events) vs. new `newCorrectEvents` (0, correct - Week 3 hadn't been
+backtested yet) before/after comparison, plus manually exercised both the
+live-upset and official-swap render branches with synthetic data before
+confirming `refreshTicker()` correctly restored real (hidden) state.
+Committed and pushed as `fda24f5`.
+
+### 2. BBS's real daily cap is 500, not 2,000 - "bait and switch"
+
+User checked BBS's real account dashboard and found it capping requests at
+500/day. Every piece of documentation in this repo (`live/README.md`,
+`live/bbs_client.js`, `live/bbs_config.py` - all written 2026-09-01 from
+BBS's own docs page) says a GitHub-linked account gets 2,000/day. This was
+never verified against a real sustained-volume test before now - it was
+taken from BBS's docs at face value back on 2026-09-01, the one category
+of "verify with real evidence" this project hadn't actually applied to
+this specific number. User's own words: "I can't support a bait and
+switch," and started evaluating alternatives while asking for the most
+frequent safe cadence under the real 500/day number as an interim
+measure (superseded by part 3 below before that cadence work was
+finished/deployed - no cadence change was ever shipped from this angle).
+
+### 3. BallDontLie ruled out; ESPN tried as primary, reverted after a real Cloudflare-network block; BBS cadence corrected instead
+
+**BallDontLie evaluated first** (user's find,
+`https://www.balldontlie.io/`, NCAAF docs at
+`https://ncaaf.balldontlie.io/`). Free tier's 5 req/min looked fine on
+its face, but the real blocker turned out to be plan-tier access, not
+rate limit:
+- Docs' tier-access table, pulled twice independently to be sure (this
+  project has been burned before by summarized-docs errors - see §8's
+  "AI-summarized vendor documentation" lesson): `Games | No | Yes | Yes`
+  for Free/ALL-STAR/GOAT. Free tier gets Conferences/Teams/Players/
+  Standings ONLY.
+- **Confirmed with a real authenticated call**, not just trusted from
+  docs: `GET https://api.balldontlie.io/ncaaf/v1/teams` with the user's
+  real free-tier key returned a real 200 with real team data (both with
+  `Authorization: <key>` and `Authorization: Bearer <key>` - auth format
+  wasn't the issue). The identical key against
+  `GET .../ncaaf/v1/games?dates[]=2026-09-19` returned a real 401 both
+  ways. Since `Games` is the only endpoint with anything score/status-
+  related, and that's 100% of what BBS is used for in this project, free
+  tier can't replace BBS at any price point below their $9.99/mo
+  ALL-STAR tier (60 req/min, adds Games/Rankings/Play-by-Play).
+
+**Real key handling note:** the user initially pasted their real
+BallDontLie key into `.env.example` (the committed template) instead of
+`.env` (gitignored). Caught before any commit - `git status`/`git
+ls-files` confirmed the file was still untracked with no prior history,
+so nothing ever reached git. Moved the real key into the existing local
+`.env` (already holding `BBS_API_KEY`/`CFBD_API_KEY`) and restored
+`.env.example` to a placeholder-only template covering both keys.
+
+**ESPN's unofficial scoreboard endpoint** tested next (user's find):
+`https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard`.
+Real calls made during an actual live Saturday (7+ ranked-team games in
+progress at check time - Rutgers/USC, Louisville/SMU, Utah/Utah State,
+Michigan/UTEP, Texas A&M/Kentucky, Indiana/Western Kentucky, Iowa/
+Northern Iowa):
+- No auth, no signup, real 200 with real live data - genuinely
+  unauthenticated.
+- One call returns the WHOLE day's slate (22 real events in the first
+  pull, all conferences), same request-count-independent-of-game-count
+  shape as BBS's `/v1/stored/matches`.
+- Confirmed MORE than BBS ever exposed: `status.displayClock` is a real,
+  populated clock string (e.g. `"13:55"` - BBS's raw record schema
+  literally has no clock-shaped field at all, confirmed absent back on
+  2026-09-12); `status.period` is a plain integer (no linescore-length
+  inference needed); `situation.possession` (a team id) is present on
+  live games, something BBS never had either.
+- Team names (`team.displayName`) confirmed already in the same "School
+  Mascot" convention as BBS/Highlightly (e.g. "Rutgers Scarlet Knights",
+  "Georgia Bulldogs") - `resolveBbsTeamName()`/`norm()` needed zero
+  changes.
+- `?dates=YYYYMMDD` (dashless) confirmed real and working via a second
+  call for the previous day - and confirmed the SAME late-kickoff UTC-
+  crossover phenomenon `needsYesterdayQuery()` exists for: the
+  "yesterday" (09-18) response included a game whose own `date` field
+  already read 2026-09-19. Reused that exact gate unchanged for ESPN.
+- One real edge case caught during parser testing: a game with
+  `status.type.description: "Delayed"` still correctly normalized to
+  `in_progress` because classification keys off `status.type.state`
+  ("in") rather than the human-readable description/detail text - the
+  right call, confirmed by this real example rather than assumed.
+
+**Explicit tradeoff going in, not glossed over:** this is unofficial/
+undocumented - no ToS, no published rate limit, no SLA, no support if it
+breaks or gets blocked. Accepted as an immediate stopgap (explicit user
+call, full context: they're evaluating real paid alternatives in
+parallel) because the existing fallback chain already degrades gracefully
+on any single source's failure.
+
+**Wired in as primary and deployed** (`live/espn_client.js`, new file,
+mirrors the existing `bbs_client.js`/`highlightly_client.js` pattern
+exactly - `fetchEspnMatches(includeYesterday)` + `parseEspnMatch(raw)`
+normalizing into the identical shape the dedup/merge/naming pipeline
+already expects; `gameIdentityKey()`/`mergeGames()`/`resolveBbsTeamName()`
+all confirmed source-agnostic, so nothing downstream needed to change).
+**Verified before deploying, not just unit-tested:**
+- `parseEspnMatch()` tested against a real live pull via a throwaway Node
+  script: 74 real events (today+yesterday, deduped), 19 in-progress/16
+  finished/39 scheduled, 0 records with a missing team name.
+- Full `worker.js` `scheduled()` handler run locally against a mock KV,
+  with real network calls to GitHub raw (season data) and ESPN: 22 real
+  ranked-team games came back correctly resolved, scored, and normalized
+  (`data_source: "espn"` on all 22), matching what the site itself was
+  showing live at the same time (e.g. USC 10 @ Rutgers 7, Georgia 45 @
+  Arkansas final 17).
+- `node --check` on both modified/new files before deploy.
+
+Deployed via `wrangler deploy` from `live/`.
+
+**REVERTED ~15 minutes later - the local verification above was real but
+insufficient, and this is the load-bearing lesson of the whole day's
+work.** `wrangler tail` against real production traffic showed every
+single cron tick getting a real, deterministic 403 from ESPN:
+```
+"*/2 * * * *" @ 9/19/2026, 4:36:53 PM - Ok
+  (error) ESPN /scoreboard (dates=20260919) returned 403
+  (error) ESPN primary fetch failed: ESPN /scoreboard (dates=20260919) returned 403
+  (warn) ESPN down this tick - used BBS stored/matches secondary instead
+```
+Not intermittent - repeated on every tick observed. Not a header issue
+either: added a full browser `User-Agent` (Chrome/Windows string) +
+`Referer: https://www.espn.com/` to the fetch call, redeployed, tailed
+again - identical 403 on every subsequent tick. Meanwhile the IDENTICAL
+request from a plain dev machine (the exact testing done above, and a
+fresh `curl` re-check) kept returning clean 200s throughout. Near-certain
+cause: ESPN's WAF blocking Cloudflare's own egress IP range outright - a
+real, common anti-scraping measure against exactly this kind of Worker,
+which is invisible to any test that isn't actually running inside a
+Cloudflare Worker. Running `parseEspnMatch()` locally, and even running
+the full `pollAndCache()` pipeline locally with real network calls,
+proved the CODE was correct - it never could have proven the code was
+*reachable from production*, because "correct output" and "reachable from
+this specific network" are different claims, and only one of them was
+actually tested before the first deploy.
+
+The site was never actually down during this window - confirmed via the
+tail output above, the fallback chain caught the 403 immediately and BBS
+covered every tick silently, and `GET /live` kept returning `Ok` to real
+visitor traffic the entire time. But "primary" was non-functional in name
+only for those ~15 minutes, and BBS was still absorbing 100% of the real
+load against the very 500/day cap this was meant to relieve - the
+original problem (part 2 above) was NOT actually solved by this window's
+deploy, despite `data_source: "espn"` looking correct in the local test.
+
+**Reverted:** removed the ESPN import and its branch from `worker.js`'s
+fallback chain, restoring it to call BBS `/v1/stored/matches` first
+(added a historical comment explaining why, pointing at this entry).
+Confirmed via `git diff live/worker.js` against the last known-good
+commit that the restored logic is byte-identical except for comments -
+no behavior drift introduced by the round trip. `espn_client.js` itself
+is kept in the repo (real, verified-working code against a non-Cloudflare
+origin) in case a future poller ever runs from somewhere else, e.g. a
+GitHub Actions workflow - it is not imported by `worker.js` anymore.
+
+**Cadence fixed instead, which is what part 2's real problem actually
+needed all along:** `live/wrangler.toml`'s cron moved from `*/2 * * * *`
+(720 ticks/day) to `*/6 * * * *` (240 ticks/day) - the most frequent
+interval that keeps the same worst-case method this project already used
+for the old 2,000/day cap (both dates queried every tick) under the real
+500/day cap: 480/day worst case (96% utilization, ~4% headroom), 240/day
+floor. Deliberately thinner headroom than the old design's ~28% - the
+user's explicit ask was the most frequent cadence the real cap allows.
+
+**Redeployed and re-verified with `wrangler tail`:** two real ticks
+observed 6 minutes apart (4:48:54 PM and 4:54:54 PM), both `Ok`, both
+correctly labeled `"*/6 * * * *"`, no errors on either - BBS succeeding
+cleanly as primary again, `GET /live` responding `Ok` continuously to
+real visitor traffic throughout the entire episode (deploy, break,
+revert, redeploy) with no user-facing interruption at any point.
+
+Committed and pushed alongside this log entry.
