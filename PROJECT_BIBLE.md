@@ -694,3 +694,30 @@ treat this as ongoing, not finished, and expect more requests like these:
   week1 (nothing before it) and "No rank changes last week. Chalk held."
   when the previous week was itself chalk - same empty-state convention
   HAVOC uses.
+- **HAVOC / Last Week's Power Swaps label-offset bug, fixed 2026-09-19.**
+  Both panels were filtering `currentSeasonData.events` by the VIEWED
+  week's own label (`e.week === snapshot.week`), which was correct back
+  when this code was written (2026-09-12) but silently broke the next
+  day when §2 rule 6's week-label convention shipped (events produced by
+  week N's own games are labeled `"week{N+1}"`, not `"week{N}"` - see
+  that rule for the full why). Real symptom the user caught: viewing the
+  live week (week3) showed HAVOC full of week2's already-official swaps
+  (Michigan over Oklahoma, Oklahoma State dethroning Oregon, Texas over
+  Ohio State) with Last Week's Power Swaps empty - exactly backwards.
+  Root cause: `refreshHavocPanel()`'s `e.week === snapshot.week` was
+  actually matching the PREVIOUS week's games (since those are the ones
+  labeled with the current tab's key), while `renderLastWeekPanel()`'s
+  `e.week === prevKey` (one label further back) landed on nothing since
+  week1 was chalk. Fixed by adding a `nextWeekKey()` helper (mirrors the
+  existing `previousRealWeekKey()`) so HAVOC now looks one week AHEAD of
+  the viewed tab for that week's own games, and Last Week's Power Swaps
+  now filters on the viewed week's own label directly (`prevKey` is only
+  used to detect whether a previous week exists at all, not to filter
+  events by anymore) - this makes Last Week's Power Swaps the same event
+  set `renderRankings()` already uses for its just-changed highlight/rank
+  arrows, just recapped in its own panel. Verified in a real browser
+  against the real 2026 season data (not just read): week2's tab shows
+  HAVOC with all three swaps and Last Week hidden (not the live week);
+  week3's tab shows empty HAVOC ("hasn't been played yet") and Last
+  Week's Power Swaps with those same three swaps. `site/app.js` only
+  (`refreshHavocPanel()`, `renderLastWeekPanel()`, new `nextWeekKey()`).
