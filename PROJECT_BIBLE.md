@@ -745,3 +745,26 @@ treat this as ongoing, not finished, and expect more requests like these:
   right content per week, and a simulated in-progress game confirmed
   Live Games bumps to the top with HAVOC/Last Week's relative order
   undisturbed beneath it.
+- **"This Week" ticker fixed, 2026-09-19 (same label-offset bug class as
+  the HAVOC/Last Week fix above, missed as a sibling consumer at the
+  time).** User caught the top-of-page ticker showing a headline from
+  last week instead of this week's own news. Root cause: `renderTicker()`
+  was called with `weekEvents` (`e.week === snapshot.week`), which per
+  the week-label convention holds the PREVIOUS week's already-official
+  swaps - confirmed live in-browser: on Week 3's tab, the old code would
+  have shown "Unranked Oklahoma State just dethroned #2 Oregon" (Week 2's
+  news, already sitting in Last Week's Power Swaps). Fixed via a new
+  `refreshTicker()` (mirrors `refreshHavocPanel()`): sources from
+  `nextWeekKey(snapshot.week)`'s events (this week's own official games)
+  and folds in live-detected upsets via `computeLiveUpsets()` so the
+  headline updates same-day instead of waiting for the weekly backtest.
+  `renderTicker()` now takes a `liveUpsets` param and shows those ahead of
+  any official swap/dethrone headline. Also wired into `fetchLiveScores()`
+  (the 45s live-poll tick), not just `renderWeek()`, so a live upset
+  appears in the ticker within one poll interval. Verified in a real
+  browser against real 2026 season data: confirmed the exact before/after
+  text via console (`oldBuggyEvents` vs `newCorrectEvents`), and confirmed
+  both the live-upset and official-swap render paths produce correct text
+  before restoring real state (real state currently renders hidden,
+  correctly - Week 3's own games haven't been backtested yet and no
+  in-progress game is currently an upset).

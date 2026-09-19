@@ -228,7 +228,7 @@ function renderWeek() {
   renderRankings(snapshot, weekEvents);
   refreshHavocPanel();
   renderLastWeekPanel();
-  renderTicker(weekEvents);
+  refreshTicker();
 }
 
 // Re-derives and redraws just the HAVOC panel for whichever week is
@@ -260,6 +260,38 @@ function refreshHavocPanel() {
     ? currentSeasonData.events.filter((e) => e.week === thisWeeksGamesKey)
     : [];
   renderEvents(weekEvents, isViewingLiveWeek(), computeLiveUpsets());
+}
+
+// Re-derives and redraws the "This Week" ticker headline - shared by
+// renderWeek() and fetchLiveScores() (a live poll tick), same split as
+// refreshHavocPanel() just above. Bug fixed 2026-09-19: this used to be
+// called directly from renderWeek() with the VIEWED week's own weekEvents
+// (e.week === snapshot.week), which - per the week-label convention
+// (PROJECT_BIBLE §2.6) - actually holds the PREVIOUS week's already-
+// official swaps, not this week's. That's the exact same label-offset bug
+// HAVOC and Last Week's Power Swaps already hit and fixed earlier the same
+// day (see refreshHavocPanel()'s comment) - this was a sibling consumer of
+// the same data that got missed at the time. Fixed the same way: look one
+// week AHEAD for this week's own official games, and fold in live-detected
+// upsets (not yet backtested) so the headline updates same-day instead of
+// waiting for the weekly batch run.
+function refreshTicker() {
+  if (!currentSeasonData) {
+    ticker.hidden = true;
+    tickerText.textContent = "";
+    return;
+  }
+  const snapshot = visibleSnapshots[currentWeekIndex];
+  if (!snapshot) {
+    ticker.hidden = true;
+    tickerText.textContent = "";
+    return;
+  }
+  const thisWeeksGamesKey = nextWeekKey(snapshot.week);
+  const thisWeeksEvents = thisWeeksGamesKey
+    ? currentSeasonData.events.filter((e) => e.week === thisWeeksGamesKey)
+    : [];
+  renderTicker(thisWeeksEvents, computeLiveUpsets());
 }
 
 function renderRankings(snapshot, weekEvents) {
@@ -483,7 +515,26 @@ function renderLastWeekPanel() {
   }
 }
 
-function renderTicker(weekEvents) {
+function renderTicker(weekEvents, liveUpsets = []) {
+  // A live-detected upset is same-day news and not yet reflected in
+  // weekEvents (that only updates once the weekly backtest runs) - show it
+  // ahead of any official swap/dethrone card, same priority order as
+  // renderEvents()'s HAVOC cards.
+  if (liveUpsets.length > 0) {
+    const game = liveUpsets[0];
+    const homeWon = game.home_score > game.away_score;
+    const winner = homeWon ? game.home_team : game.away_team;
+    const loser = homeWon ? game.away_team : game.home_team;
+    const winnerRank = findCurrentRank(winner);
+    const loserRank = findCurrentRank(loser);
+    const winnerScore = homeWon ? game.home_score : game.away_score;
+    const loserScore = homeWon ? game.away_score : game.home_score;
+    const winnerText = winnerRank ? `#${winnerRank} ${winner}` : `Unranked ${winner}`;
+    tickerText.textContent = `${winnerText} just took down #${loserRank} ${loser}, ${winnerScore}-${loserScore}.`;
+    ticker.hidden = false;
+    return;
+  }
+
   if (weekEvents.length === 0) {
     ticker.hidden = true;
     tickerText.textContent = "";
@@ -936,6 +987,7 @@ async function fetchLiveScores() {
     renderLiveBadges();
     renderLiveGamesSection();
     refreshHavocPanel();
+    refreshTicker();
   } catch (err) {
     console.error("Live score fetch failed:", err.message);
   }
