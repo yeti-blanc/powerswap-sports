@@ -442,18 +442,15 @@ function nextWeekKey(weekKey) {
   return `week${num + 1}`;
 }
 
-// "Last Week's Power Swaps" - fills the dead air on the live week's tab
-// before its own games start (and HAVOC has nothing yet) by showing the
-// previous week's already-official events, in the same card style as
-// HAVOC. Only ever shown while viewing the live week (like Live Games) -
-// a historical week's own tab already has its own real events, no dead
-// air to fill. Unlike Live Games, this never hides once shown; see
-// updateEventsColumnOrder() for how its PRIORITY (position, not
-// visibility) changes once this week's own games go live.
+// "Last Week's Power Swaps" - always visible, on every week's tab (not
+// just the live week - changed 2026-09-19 per explicit user request), in
+// the same card style as HAVOC. Always sits directly beneath HAVOC in
+// the DOM (index.html's static source order: Live Games, HAVOC, Last
+// Week) and stays there - Live Games hiding/showing via its own `hidden`
+// attribute is what bumps HAVOC/Last Week up or down, no JS reordering
+// needed or wanted anymore.
 function renderLastWeekPanel() {
-  const show = isViewingLiveWeek();
-  lastWeekSection.hidden = !show;
-  if (!show) return;
+  lastWeekSection.hidden = false;
 
   const viewedWeekKey = visibleSnapshots[currentWeekIndex].week;
   const prevKey = previousRealWeekKey(viewedWeekKey);
@@ -483,23 +480,6 @@ function renderLastWeekPanel() {
     li.className = "event-card" + (e.kind === "dethrone" ? " dethrone" : "");
     li.innerHTML = eventCardHtml(e);
     lastWeekList.appendChild(li);
-  }
-}
-
-// HAVOC and "Last Week's Power Swaps" trade physical order depending on
-// whether Live Games is actively showing (real games in progress right
-// now): Live Games / HAVOC / Last Week while something's live, but
-// Last Week / HAVOC once it isn't - last week's recap is more useful
-// than a HAVOC panel with nothing in it yet (or the live-upset-only
-// contents so far) during the dead air before this week's own games
-// start. Source order in index.html already matches the "live" case
-// (Live Games, then HAVOC, then Last Week), so only the "not live" case
-// needs an actual DOM move.
-function updateEventsColumnOrder(liveGamesVisible) {
-  if (liveGamesVisible) {
-    havocSection.parentElement?.appendChild(lastWeekSection);
-  } else {
-    havocSection.parentElement?.insertBefore(lastWeekSection, havocSection);
   }
 }
 
@@ -889,7 +869,6 @@ function renderLiveGamesSection() {
 
   liveGamesSection.hidden = inProgress.length === 0;
   liveGamesList.innerHTML = "";
-  updateEventsColumnOrder(!liveGamesSection.hidden);
 
   for (const game of inProgress) {
     const clockPart = [formatPeriodLabel(game.period), game.clock].filter(Boolean).join(" ");
