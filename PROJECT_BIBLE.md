@@ -717,7 +717,31 @@ treat this as ongoing, not finished, and expect more requests like these:
   set `renderRankings()` already uses for its just-changed highlight/rank
   arrows, just recapped in its own panel. Verified in a real browser
   against the real 2026 season data (not just read): week2's tab shows
-  HAVOC with all three swaps and Last Week hidden (not the live week);
-  week3's tab shows empty HAVOC ("hasn't been played yet") and Last
-  Week's Power Swaps with those same three swaps. `site/app.js` only
-  (`refreshHavocPanel()`, `renderLastWeekPanel()`, new `nextWeekKey()`).
+  HAVOC with all three swaps and Last Week hidden (not the live week -
+  **SUPERSEDED same day, see next entry**); week3's tab shows empty
+  HAVOC ("hasn't been played yet") and Last Week's Power Swaps with
+  those same three swaps. `site/app.js` only (`refreshHavocPanel()`,
+  `renderLastWeekPanel()`, new `nextWeekKey()`).
+- **Last Week's Power Swaps made permanently visible + order fixed,
+  2026-09-19 (same day, later request).** User's explicit call:
+  the panel should never hide, on any week's tab (not just the live
+  week as it had been since it was built 2026-09-12), always showing
+  that week's own previous-week recap - `"No rank changes last week.
+  Chalk held."` when that previous week was chalk, `"No previous week
+  yet."` for week1. `renderLastWeekPanel()`'s `isViewingLiveWeek()`
+  gate on `lastWeekSection.hidden` was removed (now unconditionally
+  `false`); the event-filtering logic underneath (viewed week's own
+  label, from the fix above) didn't need to change since it already
+  works correctly for every week, not just the live one. Also removed
+  `updateEventsColumnOrder()` entirely (and its call in
+  `renderLiveGamesSection()`) - it used to swap HAVOC/Last Week's
+  physical DOM order depending on whether Live Games was showing;
+  now Last Week always sits directly beneath HAVOC in index.html's
+  static source order (Live Games, HAVOC, Last Week), and Live Games
+  hiding/showing via its own `hidden` attribute is what naturally
+  bumps everything else down/up - no JS reordering needed or wanted
+  anymore. Verified in a real browser against real 2026 season data:
+  week1/2/3 all show Last Week's Power Swaps beneath HAVOC with the
+  right content per week, and a simulated in-progress game confirmed
+  Live Games bumps to the top with HAVOC/Last Week's relative order
+  undisturbed beneath it.
