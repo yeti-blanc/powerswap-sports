@@ -1,0 +1,222 @@
+{
+  "season": 2026,
+  "week": 4,
+  "matchups": {
+    "Indiana": {
+      "opponent": "Northwestern",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Louisville": {
+      "opponent": "Wake Forest",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Ohio State": {
+      "opponent": "Illinois",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Texas Tech": {
+      "opponent": "Sam Houston State",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Tennessee": {
+      "opponent": "Texas",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Texas": {
+      "opponent": "Tennessee",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Kentucky": {
+      "opponent": "South Alabama",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T16:45:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Notre Dame": {
+      "opponent": "Purdue",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T18:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Utah": {
+      "opponent": "Iowa State",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Michigan": {
+      "opponent": "Iowa",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Iowa": {
+      "opponent": "Michigan",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Mississippi": {
+      "opponent": "Florida",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Georgia": {
+      "opponent": "Oklahoma",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Oklahoma": {
+      "opponent": "Georgia",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Houston": {
+      "opponent": "Georgia Southern",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T20:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Penn State": {
+      "opponent": "Wisconsin",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T21:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Miami": {
+      "opponent": "Central Michigan",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T22:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Alabama": {
+      "opponent": "South Carolina",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Oklahoma State": {
+      "opponent": "West Virginia",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "USC": {
+      "opponent": "Oregon",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "LSU": {
+      "opponent": "Texas A&M",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-26T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Missouri": {
+      "opponent": "Mississippi State",
+      "home_away": "away",
+      "kickoff_utc": "2026-09-26T23:45:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "SMU": {
+      "opponent": "Missouri State",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-27T01:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Washington": {
+      "opponent": "Minnesota",
+      "home_away": "home",
+      "kickoff_utc": "2026-09-27T03:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    }
+  }
+}
