@@ -12,39 +12,77 @@ kv_namespaces = [
 # (instead of setting it by hand in the dashboard) is what keeps it from
 # silently drifting or getting cleared across deploys.
 #
-# UPDATED 2026-09-19 (real BBS cap confirmed 500/day, not the 2,000/day
-# its own docs claimed for a GitHub-linked account - see PROJECT_BIBLE.md
-# §6 and admin/BUILD_LOG.md's 2026-09-19 entry for the full incident,
-# including a same-day ESPN-as-primary attempt that was reverted after a
-# real deterministic 403 from Cloudflare's network - see worker.js's
-# REDUNDANCY BUILD comment). Every cron tick does exactly ONE flat poll,
-# no in-Worker loop, no kickoff-time-driven polling FREQUENCY - BBS's
-# /v1/stored/matches returns the whole day's slate in one call regardless
-# of game count, so request volume is purely a function of ticks/day.
+# UPDATED 2026-09-19, twice the same day:
+#   1. Real BBS cap confirmed 500/day, not the 2,000/day its own docs
+#      claimed for a GitHub-linked account - see PROJECT_BIBLE.md §6 and
+#      admin/BUILD_LOG.md's 2026-09-19 entry for the full incident. Cadence
+#      below was sized to that cap while BBS was primary.
+#   2. ESPN's unofficial scoreboard (espn_client.js) wired in as PRIMARY
+#      ahead of BBS, later the same day, once a same-day 403 was root-
+#      caused to a User-Agent WAF rule (not the IP block first suspected)
+#      and fixed - see worker.js's REDUNDANCY BUILD comment and
+#      espn_client.js's file header for the full evidence trail. ESPN
+#      publishes no rate limit; cadence is deliberately left UNCHANGED
+#      rather than polling faster just because it's free (see
+#      espn_client.js's UNVERIFIED section) - BBS (now secondary/tertiary)
+#      only gets hit on ticks where ESPN fails, so its real daily volume is
+#      now well under the worst-case math below, which is kept as a
+#      conservative floor rather than re-tuned upward.
 #
-# Per-tick cost is 1-2 requests, not a flat 2 (decoupled 2026-09-12, see
-# worker.js's needsYesterdayQuery() / TODAY vs. YESTERDAY DECOUPLED
-# comment): "today" always fires, "yesterday" only fires while a
-# not-yet-finished game from yesterday's UTC date is still in the cache,
-# self-limiting instead of a flat every-tick cost.
+# DUAL-CADENCE (2026-09-20, explicit user request for near-real-time
+# updates during live games - see worker.js's ARCHITECTURE comment for the
+# full mechanism): cron now fires every 1 minute - "*/6 * * * *" below
+# became "* * * * *" - and worker.js's runScheduledTick() internally
+# decides each tick whether to poll once (IDLE) or twice ~30s apart
+# (LIVE), keyed on the LAST OBSERVED game status in KV, never on a
+# predicted kickoff time. This file's job is just the budget math those
+# two constants (LIVE_POLL_SUB_INTERVAL_MS, IDLE_TICK_INTERVAL_MINUTES in
+# worker.js) were tuned against - change the cron expression or either of
+# those constants only together with re-checking this math, not
+# independently.
 #
-# Sized to the MOST FREQUENT interval that still fits the real 500/day cap
-# under the SAME worst-case method this project already used for the old
-# 2,000/day cap (both dates queried every tick, the whole day):
-#   "*/6 * * * *" = 240 ticks/day.
-#   Floor (today-only, the common case): 240 requests/day (48% of 500).
-#   Worst case (both dates every tick, e.g. a stuck yesterday game all
-#   day): 480 requests/day (96% of 500, 20-request/~4% headroom).
-# That headroom is intentionally thin - the user's explicit instruction
-# was the most frequent cadence the real cap allows, not the old design's
-# ~28%-headroom convention (which existed to leave room for the /v1/matches
-# secondary to absorb overflow during an outage - less relevant now that
-# BBS itself is a single account across both its endpoints, not two
-# independent quotas). The one compound scenario this doesn't fully cover:
-# a stuck yesterday game AND the /v1/matches secondary ALSO getting called
-# every tick (a full primary outage) would exceed 500/day - an accepted,
-# understood risk for a failure mode that's already degrading service
-# anyway, not silently ignored. Revisit downward if that combination is
-# ever actually observed hitting a real 429.
+# THE BINDING CONSTRAINT IS NOW KV WRITES, NOT ESPN/BBS REQUESTS: ESPN
+# publishes no rate limit (see espn_client.js) and BBS's real 500/day cap
+# (PROJECT_BIBLE.md §6) is no longer the bottleneck now that BBS only gets
+# hit on ticks where ESPN fails. What actually caps how fast we can poll
+# is Workers KV's FREE-TIER limit of 1,000 writes/day to the LIVE_KV
+# namespace - pollAndCache() does exactly one KV write per successful
+# poll, so write count == poll count.
+#
+# THE UTC DAY BOUNDARY MATTERS (real, not a rounding footnote): Workers'
+# free-tier daily limits reset at 00:00 UTC (confirmed for the request
+# limit in Cloudflare's own docs; KV's daily counters run on the same
+# account-wide UTC day). In college football season (EDT, UTC-4), 00:00
+# UTC = 8:00 PM ET - i.e. the reset lands in the MIDDLE of a real Saturday
+# slate, not at its edges, splitting one long live window into two shorter
+# ones that each get their own fresh 1,000-write budget:
+#   Segment 1: noon ET kickoffs -> 8pm ET (UTC rollover) = 8h live.
+#     Non-live remainder of that UTC day (16h) at the IDLE cadence
+#     (1 poll / 6 min) = 160 writes. Budget left for the 8h live segment:
+#     1000 - 160 = 840 writes over 28,800s -> ceiling ~34.3s/write.
+#   Segment 2: 8pm ET -> ~1am ET tail of late West Coast games = 5h live,
+#     against a FRESH 1,000-write budget for the new UTC day. Non-live
+#     remainder (19h) at IDLE cadence = 190 writes. Budget left: 1000 - 190
+#     = 810 writes over 18,000s -> ceiling ~22.2s/write.
+# The tighter of the two (segment 1's ~34.3s) sets the one fixed LIVE
+# cadence used all day, since the Worker doesn't (yet) vary its live
+# sub-interval by which UTC segment it's in. LIVE_POLL_SUB_INTERVAL_MS is
+# set to 30,000 (2 polls per 1-minute tick, ~30s apart) - under the 34.3s
+# ceiling with real margin for a slate that runs longer than this
+# estimate, at the cost of not fully using segment 2's extra headroom.
+#
+# IDLE-path volume is unchanged from before DUAL-CADENCE:
+# IDLE_TICK_INTERVAL_MINUTES = 6 means only 1 in 6 of the now-every-minute
+# cron ticks actually polls while idle, so off-season/overnight volume
+# stays exactly what it was under the old "*/6 * * * *" schedule - the
+# only thing that changed is which mechanism produces that cadence (a
+# worker.js-internal skip counter instead of the cron expression itself),
+# because the cron expression now has to be fast enough to serve LIVE
+# windows too.
+#
+# BBS's own 500/day request cap (kept as a secondary/tertiary fallback,
+# not the pacing constraint anymore) still comfortably holds: it's only
+# invoked on ticks where ESPN fails, which is a small fraction of total
+# ticks in normal operation.
 [triggers]
-crons = ["*/6 * * * *"]
+crons = ["* * * * *"]

@@ -180,38 +180,46 @@ files for some data.
 is a computed range, not a hardcoded list, so no code change is needed each
 new year.
 
-## 6. Live scores: redundancy architecture (built 2026-09-12, cadence corrected 2026-09-19 - see the dated update at the end of this section)
+## 6. Live scores: redundancy architecture (built 2026-09-12, ESPN corrected and wired as primary + DUAL-CADENCE polling added 2026-09-19/20 - see the dated updates at the end of this section)
 
 Built after a real BBS outage (`/v1/stored/matches` returning 500 on every
 call, still ongoing as of this writing) left the site with zero live-score
 updates for hours — one data source was the actual root cause, not a bug in
 how that source was handled.
 
-**Tried in this order, every cron tick (`live/wrangler.toml`, `*/6 * * * *`
-as of 2026-09-19 — see this section's dated update below for why):**
+**Tried in this order, every poll (`live/wrangler.toml`'s cron fires every
+1 minute as of 2026-09-20, but that's a DUAL-CADENCE floor, not the actual
+poll cadence — see this section's 2026-09-20 update below):**
 
-1. **Primary: BBS `/v1/stored/matches`** (`live/bbs_client.js`
+1. **Primary: ESPN's unofficial scoreboard** (`live/espn_client.js`
+   `fetchEspnMatches()`). No key, no signup, no published rate limit — see
+   this section's 2026-09-19 (later) update for the full story: an initial
+   403-from-Cloudflare-only reading was WRONG (assumed an IP block); the
+   real cause was a User-Agent WAF rule, fixed by sending `curl/8.14.1`
+   instead of a browser UA, and re-verified working from real Cloudflare
+   edge traffic before being wired back in here.
+2. **Secondary: BBS `/v1/stored/matches`** (`live/bbs_client.js`
    `fetchBbsMatches()`). 2 requests/tick (today + yesterday UTC date).
-   `BBS_API_KEY` secret. **Currently down** (real outage, confirmed via
-   direct calls and `wrangler tail` against production, not a code bug —
-   BBS's own status page doesn't catch it since it only monitors `/health`).
-2. **Secondary: BBS `/v1/matches`** (`fetchLegacyMatches()`, added
+   `BBS_API_KEY` secret. Real confirmed cap: 500/day (not the 2,000/day its
+   own docs claimed — see this section's 2026-09-19 update). Only hit on
+   ticks where ESPN fails, so real daily volume against this account is now
+   well under that cap.
+3. **Tertiary: BBS `/v1/matches`** (`fetchLegacyMatches()`, added
    2026-09-12) — the OLD endpoint this client moved off of back on
-   2026-09-04. Same account/key as primary (not independent of a
-   platform-wide BBS outage, but real and verified working: status
-   transitions promptly, identical schema/naming convention, same
-   duplicate-row issue as primary — handled by the same dedup logic since
-   it's source-agnostic). 1 request/tick, no date param needed. **This is
-   what's currently serving `/live`**, tagged `data_source: "bbs_legacy"`
+   2026-09-04. Same account/key as #2 (not independent of a platform-wide
+   BBS outage, but real and verified working: status transitions promptly,
+   identical schema/naming convention, same duplicate-row issue as #2 —
+   handled by the same dedup logic since it's source-agnostic). 1
+   request/tick, no date param needed, tagged `data_source: "bbs_legacy"`
    internally (KV only — see rule 5 above, this is stripped from the public
    response).
-3. **Tertiary: Highlightly** (`live/highlightly_client.js`, added
-   2026-09-12) — only tried when BOTH BBS endpoints fail on the same tick.
-   Genuinely independent vendor. Throttled separately from the outer 2-min
-   cron: rolling 24h count in KV (`highlightly_poll_log`), capped at 85 of
-   the free tier's 100/day, ~1 poll/10min, active only 12pm–2am ET. Backs
-   off an hour early if a real response's rate-limit-remaining header ever
-   drops ≤5. `HIGHLIGHTLY_API_KEY` secret (real key added 2026-09-12).
+4. **Quaternary: Highlightly** (`live/highlightly_client.js`, added
+   2026-09-12) — only tried when ESPN and both BBS endpoints fail on the
+   same tick. Genuinely independent vendor. Throttled separately from the
+   outer cron: rolling 24h count in KV (`highlightly_poll_log`), capped at
+   85 of the free tier's 100/day, ~1 poll/10min, active only 12pm–2am ET.
+   Backs off an hour early if a real response's rate-limit-remaining header
+   ever drops ≤5. `HIGHLIGHTLY_API_KEY` secret (real key added 2026-09-12).
    **Endpoint**: `GET https://american-football.highlightly.net/matches?league=NCAA&date=YYYY-MM-DD`,
    header `x-rapidapi-key`. Real bug already caught and fixed: the param is
    `league=NCAA`, NOT `leagueName=NCAA` as the vendor's own docs page said
@@ -300,26 +308,34 @@ trail is in `admin/BUILD_LOG.md`'s 2026-09-19 entry; summary:
   deterministic 403 from ESPN — not intermittent, and NOT a header issue
   (added a full browser User-Agent + Referer, redeployed, still 403 on
   every tick). The identical request succeeds from a plain dev machine.
-  Near-certain cause: ESPN's WAF blocking Cloudflare's own egress IP range
-  outright — a real, common anti-scraping measure against exactly this
-  kind of Worker, invisible to any test run from a non-Cloudflare origin.
-  **This is the load-bearing lesson**: testing `parseEspnMatch()` and even
-  the full `pollAndCache()` pipeline locally (real network calls, correct
-  output) was NOT sufficient verification, because "correct output" and
-  "reachable from the actual production network" are two different
-  claims — the local test only checked the first. The site was never
-  actually down during this window: the fallback chain caught the 403
-  immediately and BBS covered every tick silently, exactly as designed —
-  but "primary" was non-functional in name only for those ~15 minutes,
-  and BBS was still absorbing 100% of the real load against the very cap
-  this was meant to relieve.
-- `espn_client.js` is kept in the repo (real, verified-working code
-  against a non-Cloudflare origin) for a future poller that doesn't run
-  inside a Cloudflare Worker — not currently imported by `worker.js`.
-- **Final state: BBS restored as primary** (`live/worker.js`'s fallback
-  chain is byte-identical to the pre-2026-09-19 verified-working version,
-  confirmed via `git diff` before redeploying — only comments changed).
-  Cadence corrected instead: `live/wrangler.toml`'s cron moved from
+  ~~Near-certain cause: ESPN's WAF blocking Cloudflare's own egress IP
+  range outright.~~ **CORRECTED later the same day (2026-09-19) — this
+  conclusion was WRONG.** The real cause is a User-Agent WAF rule, not an
+  IP block: the only thing this test varied was network (Cloudflare vs.
+  dev machine) while holding the UA constant at "looks like a browser,"
+  which can only ever prove "this combination is blocked," never isolate
+  which half of it matters. See this section's 2026-09-19 (later) update
+  below for the real isolating test (same network, different UAs) and the
+  fix. **This is still the load-bearing lesson, just corrected**: testing
+  `parseEspnMatch()` and even the full `pollAndCache()` pipeline locally
+  (real network calls, correct output) was NOT sufficient verification,
+  because "correct output" and "reachable from the actual production
+  network" are two different claims — the local test only checked the
+  first. The site was never actually down during this window: the
+  fallback chain caught the 403 immediately and BBS covered every tick
+  silently, exactly as designed — but "primary" was non-functional in
+  name only for those ~15 minutes, and BBS was still absorbing 100% of
+  the real load against the very cap this was meant to relieve.
+- `espn_client.js` was kept in the repo at this point (real, verified-
+  working code against a non-Cloudflare origin) for a future poller that
+  doesn't run inside a Cloudflare Worker — **superseded the same day, see
+  the 2026-09-19 (later) update below: it's back in `worker.js`, fixed,
+  as PRIMARY.**
+- **State as of this entry (BBS restored as primary, corrected cadence) —
+  superseded later the same day, see below**: `live/worker.js`'s fallback
+  chain was restored byte-identical to the pre-2026-09-19 verified-working
+  version (confirmed via `git diff` before redeploying — only comments
+  changed). Cadence corrected: `live/wrangler.toml`'s cron moved from
   `*/2 * * * *` (720 ticks/day) to `*/6 * * * *` (240 ticks/day) — the
   most frequent interval that keeps the documented worst case (both dates
   queried every tick) under the real 500/day cap: 480/day worst case (96%
@@ -327,6 +343,75 @@ trail is in `admin/BUILD_LOG.md`'s 2026-09-19 entry; summary:
   deliberately thinner headroom than the old 2,000-cap design's ~28% — the
   user's explicit instruction was the most frequent cadence the real cap
   allows, not preserved caution.
+
+**UPDATE 2026-09-19 (later same day) — the IP-block conclusion above was
+wrong; real cause is a User-Agent WAF rule; ESPN fixed and wired back in
+as PRIMARY.** Full evidence trail: `admin/BUILD_LOG.md`'s
+"ESPN's 403 root-caused to a User-Agent WAF rule" entry. Summary:
+
+- Diagnostic testing ESPN from Google Cloud (Cloud Functions, then Apps
+  Script after a billing-account blocker) got 403 too — briefly looked
+  like it confirmed cloud IPs in general are blocked.
+- Testing User-Agent as its own isolated variable broke the case open:
+  real `curl` calls from a residential machine, same endpoint — `curl`'s
+  own default UA and `python-requests`'s own default UA both got real
+  200s with real data; a Chrome UA, PowerShell's default UA, Node's
+  default UA, Firefox's UA, and no UA at all all got 403 — **from the same
+  residential IP**. Not IP-based at all.
+- Confirmed directly on real Cloudflare infrastructure via
+  `wrangler dev --remote` (real edge execution): `curl`/`python-requests`
+  UAs → real 200 with 321KB of live data; the Chrome UA `espn_client.js`
+  had been using → 403, identical network and code path otherwise. This
+  directly falsifies the earlier IP-block read.
+- Google Apps Script's `UrlFetchApp` re-tested with an explicit
+  `curl/8.14.1` header for completeness — still 403 either way. Left
+  unresolved and flagged as unrelated to the Cloudflare fix (Apps Script
+  isn't part of this project's real architecture).
+- **Fixed**: `espn_client.js`'s UA changed to `curl/8.14.1` (Referer header
+  dropped too — never load-bearing). **Wired back in as PRIMARY** in
+  `worker.js`'s fallback chain, BBS `/v1/stored/matches` pushed to
+  secondary, BBS `/v1/matches` to tertiary, Highlightly to quaternary.
+  Deployed and confirmed live via a real KV read after the next cron tick:
+  `data_source: "espn"` on every game, `id` fields prefixed `espn:`,
+  populated `clock`/`possession` fields BBS never had.
+- Cron cadence itself left UNCHANGED at this point (`*/6 * * * *`) —
+  ESPN publishes no rate limit, but deliberately not polled faster just
+  because it's free; see the 2026-09-20 DUAL-CADENCE update below for
+  where that changed.
+
+**UPDATE 2026-09-20 — DUAL-CADENCE: live games now poll every ~30s
+instead of every 6 minutes, idle cadence unchanged.** Explicit user
+request for near-real-time updates during live games (an initial ask for
+literal 10s was corrected down to ~30s by real platform constraints,
+surfaced before building anything — full math in
+`admin/BUILD_LOG.md`'s 2026-09-20 entry and in `live/wrangler.toml`'s
+own comment block). Summary:
+
+- Two hard constraints ruled out literal 10s on the free tier: Cloudflare
+  Cron Triggers can't fire faster than once/minute (no seconds field
+  exists), and Workers KV's free tier caps at 1,000 writes/day, where
+  `pollAndCache()` does exactly one write per poll.
+- The UTC day-boundary reset (00:00 UTC = 8pm ET in-season) lands in the
+  MIDDLE of a real Saturday slate, splitting one long live window into two
+  shorter ones that each get a fresh 1,000-write budget — this is real and
+  meaningfully improves the achievable cadence, not a rounding footnote.
+  Worked out to a ~34.3s ceiling for the tighter of the two segments;
+  landed on 30s with margin.
+- **Mechanism** (`live/worker.js`, `live/wrangler.toml`): cron now fires
+  every 1 minute (the new floor, not the cadence itself).
+  `runScheduledTick()` checks whether any ranked-team game's LAST OBSERVED
+  status (from KV, never a predicted kickoff time) is `in_progress`: if
+  not, only 1 in 6 ticks actually polls (preserves the exact pre-change
+  ~240-poll/day idle volume); if so, polls twice per tick ~30s apart via a
+  plain in-Worker sleep. Cold start defaults to IDLE (not live) — the
+  off-season's permanently-empty KV state would otherwise run the fast
+  path 24/7 for weeks before week 1.
+- Deployed and confirmed running (`/health`, cron registered as
+  `* * * * *` in deploy output, a real post-tick KV read showing a fresh
+  timestamp). **Not yet observed firing under a real live game** — built
+  and verified during a quiet window with no `in_progress` ranked game;
+  the live/idle branch and real ~30s cadence still need a real live-game
+  observation, ideally via `wrangler tail`. See §9.
 - **Verified before AND after deploying, not just unit-tested:**
   `parseEspnMatch()` tested against real live data (74 events, 0 missing
   team names) before wiring in; full `pollAndCache()` run locally against
@@ -497,8 +582,16 @@ realizing there's a sibling path with the same bug.
   need it" optimization needs a periodic unconditional fallback too, not
   just an evidence-triggered one — evidence itself can go missing.
 
-## 9. Current open items (as of 2026-09-13)
+## 9. Current open items (as of 2026-09-13, plus dated additions below)
 
+- **DUAL-CADENCE live-game polling (~30s during live games) — DEPLOYED
+  2026-09-20, NOT YET OBSERVED UNDER A REAL LIVE GAME.** See §6's
+  2026-09-20 update and `admin/BUILD_LOG.md` for the full mechanism and
+  write-budget math. Built and verified during a quiet window (no
+  ranked-team game `in_progress` at deploy time) — the `runScheduledTick()`
+  live/idle branch, the real ~30s effective cadence, and actual KV write
+  volume during a live window all still need a real observation, ideally
+  via `wrangler tail` open during a live ranked-team game.
 - **`live/worker.js`'s `getCurrentWeekNumber()` fix — DEPLOYED
   2026-09-13.** `wrangler deploy` run from `live/` after explicit user
   confirmation; version `df22ed40-c5d0-43e2-83db-06616e76697a`. `/live`

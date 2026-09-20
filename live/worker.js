@@ -36,28 +36,58 @@
  *
  * KV binding: LIVE_KV (see wrangler.toml). Single key: "live_payload".
  *
- * ARCHITECTURE (rewritten 2026-09-05, see admin/BUILD_LOG.md for the full
- * history): every cron tick does exactly ONE poll - fetch the
- * ranked-teams list, fetch BBS's full day's slate, filter to ranked teams,
- * write to KV. No in-Worker loop, no "poll faster during a live game"
- * logic, no per-game kickoff-time-driven polling FREQUENCY.
+ * ARCHITECTURE (rewritten 2026-09-05, DUAL-CADENCE added 2026-09-20 - see
+ * admin/BUILD_LOG.md for the full history): every cron tick fetches the
+ * ranked-teams list, polls the source waterfall (REDUNDANCY BUILD below),
+ * filters to ranked teams, writes to KV. Still no per-game kickoff-time-
+ * driven polling FREQUENCY (that class of bug is explained below and is
+ * specifically why DUAL-CADENCE's live/idle switch is keyed on OBSERVED
+ * game status, not predicted kickoff times).
  *
- * Why: BBS's /v1/stored/matches is a flat "whole day's slate" call - one
- * request returns every game for that date/league regardless of how many
- * ranked teams are playing (confirmed: a single call returned 34 games at
- * once on 2026-09-05). So request volume is a pure function of HOW OFTEN
- * we poll, never of how many games are live. An earlier same-day design
- * instead tried to poll faster (every 20s, via an in-Worker sleep loop)
- * whenever ANY ranked team's game was judged "in progress" - which (a)
- * required knowing real kickoff times to judge that correctly (BBS's own
- * kickoff_utc turned out to sometimes be a placeholder), and (b) even
- * once fixed, made total daily volume depend on how many hours of the
- * day had an overlapping ranked-team game - unpredictable, and large on
- * a real Saturday.
+ * Why request volume is a pure function of how often we poll, never of how
+ * many games are live: every source's primary call (ESPN's /scoreboard,
+ * BBS's /v1/stored/matches) is a flat "whole day's slate" request - one
+ * call returns every game for that date/league regardless of how many
+ * ranked teams are playing (confirmed: a single BBS call returned 34 games
+ * at once on 2026-09-05).
+ *
+ * DUAL-CADENCE (2026-09-20, explicit user request for near-real-time
+ * updates during live games): cron now fires every 1 minute (Cloudflare's
+ * own minimum granularity - it cannot go below this), and
+ * runScheduledTick() below decides EACH tick whether to run the cheap idle
+ * path or the fast live path:
+ *   - IDLE (no ranked-team game currently in_progress per the last known
+ *     KV payload): only actually poll on every IDLE_TICK_INTERVAL_MINUTES-
+ *     th tick, preserving the same ~6-minute-equivalent cadence and daily
+ *     volume this Worker already used before this change.
+ *   - LIVE: poll TWICE per 1-minute tick (LIVE_POLL_SUB_INTERVAL_MS apart,
+ *     via a plain in-Worker sleep - Cron Triggers can't fire faster than
+ *     1/minute, so hitting sub-minute cadence means stitching multiple
+ *     polls inside one invocation) for an effective ~30s refresh.
+ *   - An earlier 2026-09-05 same-day design also tried polling faster
+ *     during live games, and was reverted - but for reasons DUAL-CADENCE
+ *     doesn't share: that version judged "live" from BBS's own kickoff_utc
+ *     field (sometimes a placeholder - unreliable), and even once fixed,
+ *     made total daily volume depend on unpredictable how-many-hours-had-
+ *     an-overlapping-game math. DUAL-CADENCE instead judges "live" from
+ *     OBSERVED status on the last real poll (no kickoff-time prediction at
+ *     all), and its volume is a deliberately bounded, precomputed budget
+ *     (see wrangler.toml) sized against Workers KV's free-tier 1,000
+ *     writes/day cap - not an open-ended function of the day's schedule.
+ *   - Cold start (KV wiped/expired, previous.games empty) defaults to
+ *     IDLE, not live - the opposite default from needsYesterdayQuery()
+ *     below, deliberately: an unknown/empty state there is rare and
+ *     resolves within one tick either way, but here it also covers the
+ *     entire off-season (no rankings snapshot yet = permanently empty
+ *     games array) - defaulting that to "assume live" would run the fast
+ *     path 24/7 for the weeks before week 1, not just after a rare mid-game
+ *     KV wipe. The rare real case (KV wiped mid-live-game) briefly
+ *     degrades to idle cadence for at most one idle-interval's worth of
+ *     ticks before self-correcting on the next successful poll.
  *
  * TODAY vs. YESTERDAY DECOUPLED (2026-09-12, same lesson as PFPI's
  * schedule/live-score split): "today"'s date is the real live-score need
- * and is fetched every tick. "yesterday"'s date only exists to catch a
+ * and is fetched every poll. "yesterday"'s date only exists to catch a
  * late-kickoff game that's still not-finished after UTC midnight rolls
  * over - real maybe 4-5 hours a day, not 24. It used to be fetched
  * unconditionally every tick anyway, permanently doubling this endpoint's
@@ -70,22 +100,15 @@
  * the old always-both-dates behavior for at most that one calendar day,
  * never worse.
  *
- * Combined with the fixed 2-minute tick, this makes request volume a
- * provable range instead of one flat number:
- *   - 720 ticks/day. "today" always fires: 720 requests/day floor.
- *   - "yesterday" adds up to 720 more only during a full-day outage where
- *     it can never resolve to finished; a normal day adds roughly the
- *     ticks in the post-midnight crossover window, not all of them.
- *   - Primary key's cap is 2,000/day - even the worst case (both dates
- *     every tick, 1,440/day) has headroom; the gate exists to keep normal
- *     days far below that, and to leave room for the secondary
- *     (/v1/matches, same key) to fall back on without risking the cap
- *     during an actual primary outage.
+ * See wrangler.toml for the full DUAL-CADENCE write-budget math, including
+ * why the UTC day boundary (00:00 UTC = 8pm ET in-season) falling in the
+ * middle of a real Saturday slate matters to the achievable live cadence.
  */
 
 import { norm, resolveBbsTeamName } from "./team_norm.js";
 import { fetchBbsMatches, fetchLegacyMatches, parseBbsMatch, utcDateString } from "./bbs_client.js";
 import { fetchHighlightlyMatches, parseHighlightlyMatch } from "./highlightly_client.js";
+import { fetchEspnMatches, parseEspnMatch } from "./espn_client.js";
 
 const RANKED_TEAMS_URL =
   "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/season_history.json";
@@ -156,8 +179,23 @@ const YESTERDAY_SWEEP_KEY = "yesterday_sweep_date";
 // Must comfortably exceed the cron interval or the key expires between
 // ticks and /live falls back to its empty default even though polling is
 // working fine - confirmed happening in production with a too-short TTL
-// during overnight testing on 2026-09-01.
+// during overnight testing on 2026-09-01. Still comfortably covers the
+// IDLE path's effective ~6-minute gap between real polls after
+// DUAL-CADENCE (2026-09-20, see ARCHITECTURE above) - LIVE-path polls are
+// far more frequent than this TTL needs.
 const KV_TTL_SECONDS = 600;
+
+// DUAL-CADENCE tuning (2026-09-20, see ARCHITECTURE above and
+// wrangler.toml for the write-budget math these two numbers are derived
+// from - change them together, not independently, or the derived budget
+// no longer holds):
+//   - LIVE: cron fires every 1 minute; runScheduledTick() polls twice per
+//     tick, this many ms apart, for an effective ~30s cadence.
+//   - IDLE: only 1 in this many 1-minute ticks actually polls, preserving
+//     the same ~6-minute-equivalent cadence/volume this Worker used before
+//     DUAL-CADENCE.
+const LIVE_POLL_SUB_INTERVAL_MS = 30 * 1000;
+const IDLE_TICK_INTERVAL_MINUTES = 6;
 
 // GAME RETENTION (2026-09-06, made permanent-until-superseded per explicit
 // request): BBS's /v1/stored/matches only ever returns today's and
@@ -191,32 +229,45 @@ const KV_TTL_SECONDS = 600;
 // intervention needed once BBS recovers.
 const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
 
-// REDUNDANCY BUILD (2026-09-12, see admin/BUILD_LOG.md for the full
-// diagnostic history and Phase 1/2/3 findings): the 2026-09-11/12 BBS
-// /v1/stored/matches outage above exposed that this Worker had exactly
-// one data source - a failure there meant zero live updates for hours,
-// with no fallback. Three sources exist, tried in order each tick until
-// one succeeds:
-//   1. PRIMARY:   BBS /v1/stored/matches (fetchBbsMatches). Real account
+// REDUNDANCY BUILD (2026-09-12, extended 2026-09-19 - see admin/BUILD_LOG.md
+// for the full diagnostic history): the 2026-09-11/12 BBS /v1/stored/matches
+// outage above exposed that this Worker had exactly one data source - a
+// failure there meant zero live updates for hours, with no fallback. Four
+// sources now exist, tried in order each tick until one succeeds:
+//   1. PRIMARY:   ESPN unofficial scoreboard (fetchEspnMatches,
+//      espn_client.js). Was tried as primary for ~15 minutes on 2026-09-19,
+//      reverted the same day after a deterministic 403 on every tick from
+//      this Worker's network - initially read as ESPN's WAF blocking
+//      Cloudflare's egress IP range outright. CORRECTED later the same
+//      day: it's a User-Agent WAF rule, not IP-based - isolated via
+//      `wrangler dev --remote` (real Cloudflare edge) hitting the same
+//      endpoint with different UAs and nothing else changed (curl/
+//      python-requests UAs = real 200 with full data; the Chrome-style UA
+//      this file was sending = 403, from the identical network). Fixed in
+//      espn_client.js (UA now curl/8.14.1) and re-verified before being
+//      wired back in here as primary - see espn_client.js's file header
+//      for the full evidence trail. No published rate limit exists for
+//      this endpoint, so it's deliberately NOT polled more aggressively
+//      just because it's free - same fixed cron cadence as before (see
+//      wrangler.toml).
+//   2. SECONDARY: BBS /v1/stored/matches (fetchBbsMatches). Real account
 //      cap confirmed 500/day 2026-09-19 (NOT the 2,000/day its own docs
 //      claimed for a GitHub-linked account - see PROJECT_BIBLE.md §6 and
-//      admin/BUILD_LOG.md's 2026-09-19 entry) - see wrangler.toml for the
-//      cron cadence sized to that real number.
-//   2. SECONDARY: BBS /v1/matches (fetchLegacyMatches) - verified live
+//      admin/BUILD_LOG.md's 2026-09-19 entry). Only hit when ESPN fails on
+//      a tick, so its real daily volume is now well under that cap's old
+//      worst-case math (see wrangler.toml, still sized to the standalone
+//      worst case as a conservative floor).
+//   3. TERTIARY:  BBS /v1/matches (fetchLegacyMatches) - verified live
 //      2026-09-12 against a real in-progress game (see bbs_client.js's
-//      SECONDARY SOURCE comment for the evidence). Still the same
-//      vendor as primary - CFBD's live scoreboard (/scoreboard, Tier 1+)
-//      and live play-by-play (/live/plays, Tier 2+) were checked as a
-//      genuinely independent alternative first, but both returned a real
-//      401 "requires a Patreon subscription" against our existing
-//      (free-tier) CFBD_API_KEY - confirmed via a direct call to CFBD's
-//      actual OpenAPI-documented endpoints, not assumed from third-party
-//      docs. So BBS /v1/matches is what's actually available today, with
-//      the known caveat that a BBS-platform-wide outage could take both
-//      primary and secondary down together - CFBD becomes worth revisiting
-//      as secondary if a Patreon Tier 1+ key is ever added.
-//   3. TERTIARY:  Highlightly (fetchHighlightlyMatches) - only tried once
-//      both of the above fail on the SAME tick, and even then only inside
+//      SECONDARY SOURCE comment for the evidence). Same vendor/account as
+//      #2 - CFBD's live scoreboard (/scoreboard, Tier 1+) and live
+//      play-by-play (/live/plays, Tier 2+) were checked as a genuinely
+//      independent alternative first, but both returned a real 401
+//      "requires a Patreon subscription" against our existing (free-tier)
+//      CFBD_API_KEY - confirmed via a direct call to CFBD's actual
+//      OpenAPI-documented endpoints, not assumed from third-party docs.
+//   4. QUATERNARY: Highlightly (fetchHighlightlyMatches) - only tried once
+//      all three above fail on the SAME tick, and even then only inside
 //      its own throttle (see maybeFetchHighlightly() below) so its 100
 //      req/day free-tier cap can't be blown through by a long outage.
 //      NOT LIVE-VERIFIED - see highlightly_client.js's file header for
@@ -225,25 +276,11 @@ const ACTIVE_BBS_KEY_ENV_VAR = "BBS_API_KEY";
 //      completely inert (this whole branch is skipped) until
 //      HIGHLIGHTLY_API_KEY is set as a Worker secret.
 //
-// ESPN's unofficial scoreboard endpoint (espn_client.js) was tried as a
-// PRIMARY ahead of this chain for about 15 minutes on 2026-09-19, then
-// pulled back out the same day: confirmed via `wrangler tail` against
-// real production traffic that it returns a deterministic 403 on EVERY
-// tick when called from THIS Worker specifically (full browser
-// User-Agent + Referer made no difference - not a header problem), while
-// the identical request succeeds fine from a plain dev machine. Near-
-// certain cause: ESPN's WAF blocking Cloudflare's egress IP range
-// outright, a real and common anti-scraping measure against exactly this
-// kind of Worker - not something any client-side fix can work around.
-// espn_client.js is kept in the repo (real, verified-working code against
-// a non-Cloudflare origin) in case a future poller runs from somewhere
-// else (e.g. GitHub Actions) - it is NOT imported or called here.
-//
 // Team-name resolution and the gameIdentityKey()/STATUS_PRIORITY dedup
 // below run identically regardless of which source produced this tick's
-// rawMatches - each source's parser (parseBbsMatch / parseHighlightlyMatch)
-// normalizes into the same shape first, so nothing downstream needs to
-// know or care which of the three actually answered.
+// rawMatches - each source's parser (parseEspnMatch / parseBbsMatch /
+// parseHighlightlyMatch) normalizes into the same shape first, so nothing
+// downstream needs to know or care which of the four actually answered.
 const HIGHLIGHTLY_MIN_INTERVAL_MS = 10 * 60 * 1000; // ~1 poll/10min
 const HIGHLIGHTLY_MAX_PER_ROLLING_DAY = 85; // of the free tier's 100/day - 15 held back as slack, see admin/BUILD_LOG.md
 const HIGHLIGHTLY_LOG_KEY = "highlightly_poll_log";
@@ -356,9 +393,50 @@ export default {
   },
 
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(pollAndCache(env));
+    ctx.waitUntil(runScheduledTick(event, env));
   },
 };
+
+// DUAL-CADENCE entry point (2026-09-20, see file-header ARCHITECTURE
+// comment for the full reasoning) - decides once per 1-minute cron tick
+// whether this tick runs the cheap IDLE path or the fast LIVE path, then
+// drives pollAndCache() accordingly. This is the ONLY place that decides
+// cadence; pollAndCache() itself has no knowledge of live/idle mode.
+async function runScheduledTick(event, env) {
+  const live = await isLiveWindow(env);
+
+  if (!live) {
+    // Only 1 in IDLE_TICK_INTERVAL_MINUTES ticks actually polls - see that
+    // constant's comment for why this preserves the pre-DUAL-CADENCE
+    // volume even though cron now fires every 1 minute instead of every 6.
+    const minute = new Date(event.scheduledTime).getUTCMinutes();
+    if (minute % IDLE_TICK_INTERVAL_MINUTES !== 0) return;
+    await pollAndCache(env);
+    return;
+  }
+
+  // LIVE: two polls stitched into this one 1-minute invocation - see
+  // LIVE_POLL_SUB_INTERVAL_MS's comment. Each call independently runs the
+  // full source waterfall and handles its own failure (leaves KV
+  // untouched) - a failure on the first poll doesn't skip the second.
+  await pollAndCache(env);
+  await new Promise((resolve) => setTimeout(resolve, LIVE_POLL_SUB_INTERVAL_MS));
+  await pollAndCache(env);
+}
+
+// Judges "live" from the LAST REAL POLL's observed status only - never
+// from a predicted/kickoff-time schedule (see ARCHITECTURE above for why
+// that distinction is deliberate). Cold start (KV wiped/expired, or the
+// entire off-season before any rankings snapshot exists) defaults to
+// false/IDLE - the opposite default from needsYesterdayQuery() below,
+// deliberately: see ARCHITECTURE's DUAL-CADENCE section for why erring
+// toward idle is correct here even though that other function errs
+// toward inclusion for a similarly "unknown" state.
+async function isLiveWindow(env) {
+  const previous = await getPreviousPayload(env);
+  if (!previous.games || previous.games.length === 0) return false;
+  return previous.games.some((g) => g.status === "in_progress");
+}
 
 async function pollAndCache(env) {
   const seasonData = await getSeasonData(env);
@@ -389,26 +467,31 @@ async function pollAndCache(env) {
   let rawMatches = null;
   let parseMatch = null;
   let dataSource = null;
+  // Only ESPN and BBS-stored actually query by date (includeYesterday) -
+  // the legacy/Highlightly fallbacks don't respect date-scoping, so a
+  // sweep marked done off one of those wouldn't really mean yesterday was
+  // covered. Tracked here instead of duplicated per-branch below.
+  let respectsDateScoping = false;
 
-  // ESPN's unofficial endpoint was tried as primary ahead of BBS for about
-  // 15 minutes on 2026-09-19, then reverted - see the REDUNDANCY BUILD
-  // comment above for the real evidence (deterministic 403 from this
-  // Worker's network specifically). BBS is genuinely primary again; see
-  // wrangler.toml for the cron cadence sized to its real 500/day cap.
   try {
-    rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR], includeYesterday);
-    parseMatch = parseBbsMatch;
-    dataSource = "bbs_stored";
-    // Only mark the sweep done when yesterday was ACTUALLY included and
-    // the primary succeeded - if primary is down and the secondary saves
-    // this tick instead, the secondary doesn't respect date-scoping, so
-    // we don't know yesterday was really covered; leave the marker stale
-    // so the next successful primary tick tries the sweep again.
-    if (includeYesterday) {
-      await env.LIVE_KV.put(YESTERDAY_SWEEP_KEY, today);
-    }
+    rawMatches = await fetchEspnMatches(includeYesterday);
+    parseMatch = parseEspnMatch;
+    dataSource = "espn";
+    respectsDateScoping = true;
   } catch (err) {
-    console.error("BBS primary (stored/matches) fetch failed:", err.message);
+    console.error("ESPN primary fetch failed:", err.message);
+  }
+
+  if (!rawMatches) {
+    try {
+      rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR], includeYesterday);
+      parseMatch = parseBbsMatch;
+      dataSource = "bbs_stored";
+      respectsDateScoping = true;
+      console.warn("ESPN primary down this tick - used BBS stored/matches secondary instead");
+    } catch (err) {
+      console.error("BBS secondary (stored/matches) fetch failed:", err.message);
+    }
   }
 
   if (!rawMatches) {
@@ -416,9 +499,9 @@ async function pollAndCache(env) {
       rawMatches = await fetchLegacyMatches(env[ACTIVE_BBS_KEY_ENV_VAR]);
       parseMatch = parseBbsMatch; // same response shape, see bbs_client.js
       dataSource = "bbs_legacy";
-      console.warn("BBS primary down this tick - used /v1/matches secondary instead");
+      console.warn("ESPN and BBS stored both down this tick - used BBS /v1/matches tertiary instead");
     } catch (err) {
-      console.error("BBS secondary (v1/matches) fetch also failed:", err.message);
+      console.error("BBS tertiary (v1/matches) fetch also failed:", err.message);
     }
   }
 
@@ -428,7 +511,7 @@ async function pollAndCache(env) {
       rawMatches = hlMatches;
       parseMatch = parseHighlightlyMatch;
       dataSource = "highlightly";
-      console.warn("Both BBS sources down this tick - used Highlightly tertiary instead");
+      console.warn("ESPN and both BBS sources down this tick - used Highlightly quaternary instead");
     }
   }
 
@@ -436,11 +519,19 @@ async function pollAndCache(env) {
     // No special 429/outage handling beyond the fallback chain above: a
     // fixed poll interval is already sized to stay well under any single
     // source's daily cap regardless of game count, so a failure across
-    // all three just means this tick's poll didn't refresh - /live keeps
+    // all four just means this tick's poll didn't refresh - /live keeps
     // serving its last-known payload from KV (see the fetch handler
     // above) and the next tick, a couple of minutes later, tries again.
     console.error("All live-score sources failed this tick; keeping last-known KV payload");
     return;
+  }
+
+  // Only mark the sweep done when yesterday was ACTUALLY included and a
+  // date-scoped source succeeded - if a non-date-scoped fallback saved
+  // this tick instead, we don't know yesterday was really covered; leave
+  // the marker stale so the next successful date-scoped tick retries it.
+  if (respectsDateScoping && includeYesterday) {
+    await env.LIVE_KV.put(YESTERDAY_SWEEP_KEY, today);
   }
 
   const currentWeekNumber = getCurrentWeekNumber(seasonData);

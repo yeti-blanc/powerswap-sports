@@ -2750,3 +2750,198 @@ real visitor traffic throughout the entire episode (deploy, break,
 revert, redeploy) with no user-facing interruption at any point.
 
 Committed and pushed alongside this log entry.
+
+## 2026-09-19 (later same day): ESPN's 403 root-caused to a User-Agent WAF rule, NOT an IP block - corrected and wired back in as primary
+
+**This corrects the "near-certain cause: ESPN's WAF blocking Cloudflare's
+own egress IP range" conclusion in the entry immediately above. That
+conclusion was reasonable given what was tested at the time, but wrong -
+full evidence below.**
+
+User asked for a real diagnostic: deploy something to Google Cloud (Cloud
+Functions) to check whether ESPN blocks cloud/datacenter IP ranges in
+general, not just Cloudflare's. What actually happened, in order:
+
+- **Google Cloud Functions blocked on account setup, not ESPN**: the
+  Google account had no billing account, and Cloud Functions requires one
+  even for free-tier usage. Pivoted to **Google Apps Script**
+  (`UrlFetchApp`) instead - also Google's own infrastructure, no billing
+  required. Real friction getting there: `clasp create` failed for ~20
+  minutes with "User has not enabled the Apps Script API" even after
+  enabling it (propagation delay, not a code/config problem - resolved by
+  creating a project via the `script.new` web UI directly instead of
+  waiting out `clasp`'s API-enablement propagation). Separately, the
+  browser session kept authorizing under the wrong one of several signed-
+  in Google accounts (`ggentry@gmail.com` instead of the intended
+  `yetiblancmusic@gmail.com`) - resolved by switching to a second,
+  single-account browser via the `claude-in-chrome` extension's
+  multi-browser support, not a code issue either.
+- **Real result from Apps Script, 4 runs over ~10 minutes** (9:07:25 PM -
+  9:17:04 PM): **403 on every single call**, identical
+  Akamai `Access Denied` edge-block page (`errors.edgesuite.net`
+  reference) every time, immediately - no ~15-minute delay like the
+  Cloudflare case showed. This looked like it CONFIRMED the IP-block
+  theory (Google's cloud IPs blocked too) - but see below, this was
+  actually about to be shown as the wrong read as well.
+- **The actual break came from testing User-Agent as an isolated
+  variable**, prompted by re-examining the Cloudflare test's own header
+  choice. Real `curl` calls from this residential Windows machine, same
+  endpoint, nothing else changed:
+  - `curl/8.14.1` (curl's own default UA) → real `200`, real live data.
+  - Chrome UA (`Mozilla/5.0 ... Chrome/128.0.0.0 ...`) → `403`.
+  - PowerShell's own default UA → `403`.
+  - `python-requests/2.31.0` → `200`.
+  - Node/`node` UA → `403`.
+  - Firefox UA → `403`.
+  - Blank/no UA → `403`.
+  **This is a User-Agent allow/deny rule (Akamai bot management), not an
+  IP-based block at all** - a residential IP got blocked just as hard as
+  a cloud IP whenever the UA looked like a browser or common script
+  client; curl and python-requests' own default UAs passed from every
+  origin tested.
+- **Confirmed directly against production-equivalent Cloudflare
+  infrastructure**, not just simulated: `wrangler dev --remote` (real
+  Cloudflare edge execution, not local emulation) against a throwaway
+  scratch Worker, same ESPN endpoint, UA as the only variable:
+  - `curl/8.14.1` → real `200`, 321KB of real live scoreboard JSON.
+  - `python-requests/2.31.0` → real `200`, same 321KB payload.
+  - The Chrome UA `live/espn_client.js` had been using → real `403`,
+    same Akamai block page. **Identical Cloudflare network, identical
+    code path, only the UA string differed.** This directly falsifies
+    the previous entry's IP-block conclusion - that test only ever used a
+    browser-style UA, so it could never have distinguished "Cloudflare's
+    IPs are blocked" from "this specific UA is blocked from anywhere."
+  - Apps Script re-tested the same way (`UrlFetchApp` with an explicit
+    `curl/8.14.1` header) for completeness: still `403` either way. Either
+    `UrlFetchApp` doesn't actually send the UA it's told to, or Apps
+    Script's egress really is separately blocklisted - left unresolved
+    and flagged as unrelated to the Cloudflare fix, not worth chasing
+    further since Apps Script isn't part of this project's real
+    architecture.
+- **Fixed and re-wired as primary**: `live/espn_client.js`'s
+  `fetchScoreboardForDate()` UA changed from the Chrome string to
+  `curl/8.14.1` (the `Referer` header was also dropped - it was never
+  load-bearing, added originally as part of the same disproven browser-
+  mimicry attempt). `live/worker.js`'s fallback chain now tries ESPN
+  first, BBS `/v1/stored/matches` second, BBS `/v1/matches` third,
+  Highlightly fourth - each source's own comment block updated to match.
+  Deployed via `wrangler deploy` from `live/`; confirmed live via
+  `wrangler kv key get live_payload --namespace-id
+  55f3c6dc817145c58d216e9d0364e3cf --remote`: after the next real cron
+  tick, the payload showed `"data_source":"espn"` on every game, `id`
+  fields prefixed `espn:`, and populated `clock`/`possession` fields BBS
+  never had (e.g. Missouri/Troy `"clock":"13:32"`) - not just a 200
+  response, real live data flowing through the actual production path.
+- Scratch Cloudflare Worker and all 5 throwaway Apps Script projects
+  created during this diagnostic were torn down (`wrangler dev --remote`
+  process killed; Apps Script projects moved to Drive trash under
+  `yetiblancmusic@gmail.com` - not permanently deleted, since that action
+  is outside what this session performs on its own). No production KV,
+  Workers, or files were touched by any of the diagnostic steps
+  themselves - only the final, deliberate `espn_client.js`/`worker.js`
+  fix was.
+
+**Lesson for next time, stated plainly because it directly contradicts
+this file's own previous entry**: a deterministic 403 that's consistent
+across every tick from one network is evidence of *a* block, not
+necessarily evidence of *which* block. The previous entry's test varied
+network (Cloudflare vs. dev machine) while holding UA constant at "looks
+like a browser" - that setup can only ever detect "something about this
+combination is blocked," not isolate which half of the combination
+matters. Isolating one variable at a time (same network, different UAs)
+is what actually found the real cause.
+
+## 2026-09-20: DUAL-CADENCE - live games now poll every ~30s instead of every 6 minutes, without exceeding Workers KV's free-tier write cap
+
+Explicit user request ("let's really cook this thing... I want updates
+every 10 seconds" during live games). Real platform constraints made
+literal 10s infeasible without new cost, surfaced and confirmed before
+building anything:
+
+- **Cloudflare Cron Triggers cannot fire faster than once per minute** -
+  no seconds field exists in their cron implementation. Any cadence
+  faster than 60s has to come from stitching multiple polls inside one
+  1-minute invocation (an in-Worker sleep), not from the cron expression
+  itself.
+- **Workers KV's free tier caps out at 1,000 writes/day**, and
+  `pollAndCache()` does exactly one `LIVE_KV.put()` per successful poll -
+  so write count and poll count are the same number. A naive
+  continuous 10s cadence is 8,640 writes/day, ~8.6x over the free cap.
+- **The UTC day-boundary reset matters more than it looks like it
+  should**: Workers' free-tier daily limits reset at 00:00 UTC (confirmed
+  in Cloudflare's own docs for the request limit; KV's daily counters run
+  on the same account-wide UTC day, per Cloudflare's UTC-aligned usage
+  dashboards generally - no KV-specific doc contradicts this). In-season
+  (EDT, UTC-4), that's **8:00 PM ET - squarely in the middle of a real
+  Saturday slate**, not at its edges. Real math, assuming a realistic
+  worst-case 15-hour live Saturday (noon ET early games through a West
+  Coast primetime game running past midnight):
+  - Segment 1 (noon ET → 8pm ET, 8h live): non-live remainder of that UTC
+    day (16h) at the idle cadence (1 poll/6min) = 160 writes. Budget left
+    for the live segment: 1000 - 160 = 840 writes over 28,800s → ceiling
+    ≈ 34.3s/write.
+  - Segment 2 (8pm ET → ~1am ET tail, 5h live, against a FRESH 1,000-write
+    budget for the new UTC day): non-live remainder (19h) at idle cadence
+    = 190 writes. Budget left: 1000 - 190 = 810 writes over 18,000s →
+    ceiling ≈ 22.2s/write.
+  - The tighter of the two (segment 1's ~34.3s) sets one fixed cadence for
+    the whole day, since the Worker doesn't vary its live sub-interval by
+    UTC segment. Landed on **30s** (2 polls per 1-minute cron tick) -
+    under the 34.3s ceiling with real margin for a slate running longer
+    than the 15h estimate.
+- **Built with a plain in-Worker sleep loop, not a Durable Object** - the
+  achievable cadence (~30-35s) is still faster than the 1-minute cron
+  floor so some sub-minute mechanism was unavoidable, but a Durable
+  Object's Alarm API (the more "correct" Cloudflare-native mechanism for
+  continuous sub-minute scheduling) was judged more machinery than a
+  ~2x-per-minute target actually needs. Revisit if the project ever
+  upgrades to paid Workers KV and wants true 10s (that combination needs
+  either this same sleep-loop pattern or a Durable Object - paid KV alone
+  doesn't remove the 1-minute cron floor).
+- **Implementation** (`live/worker.js`, `live/wrangler.toml`):
+  - `wrangler.toml`'s cron changed from `*/6 * * * *` to `* * * * *`
+    (every 1 minute - the new floor, not the new cadence).
+  - `worker.js`'s `scheduled()` now calls a new `runScheduledTick(event,
+    env)` instead of `pollAndCache(env)` directly. That function checks
+    `isLiveWindow(env)` (does the LAST KNOWN KV payload have any game with
+    `status === "in_progress"`? - judged from observed state, never a
+    predicted kickoff time, which is the exact class of bug an earlier
+    2026-09-05 fast-polling attempt had and was reverted for) and
+    branches:
+    - **Idle**: only polls on 1 of every 6 one-minute ticks
+      (`IDLE_TICK_INTERVAL_MINUTES = 6`, gated on
+      `event.scheduledTime`'s UTC minute), preserving the exact same
+      ~240-poll/day volume this Worker already had before this change.
+    - **Live**: polls twice per tick, `LIVE_POLL_SUB_INTERVAL_MS = 30000`
+      apart, via a plain `await new Promise(r => setTimeout(r, 30000))`
+      between two `pollAndCache()` calls, wrapped in `ctx.waitUntil()` so
+      Cloudflare doesn't tear down the invocation mid-sleep.
+  - **Cold start defaults to IDLE, not live** - deliberately the opposite
+    default from `needsYesterdayQuery()`'s "unknown → assume we need it"
+    philosophy elsewhere in this same file. Reasoning: an empty/unknown
+    KV state here doesn't just mean "we just got wiped mid-game" (rare,
+    self-corrects in one idle-interval) - it's also the state of the
+    ENTIRE off-season before any rankings snapshot exists. Defaulting
+    that to "assume live" would run the fast 2x/minute path 24/7 for
+    weeks every preseason, not just after a rare mid-game KV wipe.
+- **Verified after deploying, not just unit-tested**: `wrangler deploy`
+  from `live/`, confirmed `/health` responding and cron registered as
+  `* * * * *` in the deploy output. Checked `/live` immediately after
+  deploy - showed a stale pre-deploy payload (`data_source: "bbs_stored"`,
+  old timestamp), correctly identified as stale rather than assumed
+  working, since cron hadn't ticked yet. Re-checked via `wrangler kv key
+  get live_payload --remote` after the next real 1-minute tick: fresh
+  timestamp, `data_source: "espn"` on every game, confirming both the
+  ESPN-primary wiring AND the new every-1-minute cron are both actually
+  running in production, not just deployed.
+- **Not yet real-world-verified under an actual live game** (built and
+  deployed during a quiet window with no ranked-team game in progress -
+  confirmed via KV, every game currently shows `status: "finished"`) -
+  the live/idle branch itself, and the real ~30s cadence during a live
+  game, have NOT yet been observed firing in production. Verify the
+  `runScheduledTick()`/`isLiveWindow()` branch and real write volume the
+  next time a ranked-team game actually goes `in_progress` - ideally with
+  a `wrangler tail` session open to catch it directly, not just inferred
+  from KV timestamps after the fact.
+
+Committed and pushed alongside this log entry.

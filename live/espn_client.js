@@ -2,26 +2,30 @@
  * PowerSwap Live Scores - ESPN (unofficial) client
  * =============================================================================
  *
- * NOT CURRENTLY USED BY worker.js. Tried as primary for about 15 minutes
- * on 2026-09-19 (explicit user call, as an immediate stopgap after BBS's
+ * PRIMARY as of 2026-09-19 (worker.js's REDUNDANCY BUILD comment has the
+ * current full hierarchy). First tried as primary for about 15 minutes
+ * that same day (explicit user call, as an immediate stopgap after BBS's
  * real dashboard turned out to cap the account at 500 req/day, not the
  * 2,000/day its own docs/account page had documented - see PROJECT_BIBLE.md
- * §6 and admin/BUILD_LOG.md for the full incident), then REVERTED the same
- * day: confirmed via `wrangler tail` against real production traffic that
- * this endpoint returns a deterministic 403 on EVERY tick when called from
- * a Cloudflare Worker specifically - not intermittent, and not a header
- * issue (a full browser User-Agent + Referer made no difference, still
- * 403 on every subsequent tick). The identical request succeeds fine from
- * a plain dev machine (all the "CONFIRMED" evidence below is real and
- * still accurate) - near-certain cause is ESPN's WAF blocking Cloudflare's
- * own egress IP range outright, which no client-side header change can
- * work around. worker.js currently calls BBS as primary again (its real
- * cadence corrected to the actual 500/day cap - see wrangler.toml).
+ * §6 and admin/BUILD_LOG.md for the full incident), then REVERTED after
+ * `wrangler tail` showed a deterministic 403 on every tick from a
+ * Cloudflare Worker. At the time this was read as an IP-range block
+ * (Cloudflare's egress specifically), since the only header combo tried
+ * was a full Chrome User-Agent + Referer and it still 403'd.
  *
- * This file is kept, unmodified in its actual behavior, for a future
- * poller that runs from a non-Cloudflare origin (e.g. a GitHub Actions
- * workflow) - everything below is real, verified-working code, just not
- * reachable from this project's current Worker-based architecture.
+ * CORRECTED later the same day: it's a User-Agent WAF rule, not IP-based.
+ * Isolated via `wrangler dev --remote` (real Cloudflare edge, not a
+ * simulation) hitting this exact endpoint with different UAs and nothing
+ * else changed - `curl/8.14.1` and `python-requests/2.31.0` both return a
+ * real 200 with full scoreboard data from Cloudflare's network; a Chrome-
+ * style UA (what this file was using) returns 403 from that same network.
+ * The earlier "CONFIRMED...still accurate" 403 was this file's own
+ * browser-UA header choice being one of the blocked strings, not evidence
+ * of an IP block - fetchScoreboardForDate()'s UA below is now curl/8.14.1
+ * accordingly, re-verified working, and wired back into worker.js as
+ * primary the same day. (For reference: the same UA fix did NOT clear a
+ * 403 from Google Apps Script's UrlFetchApp, tested the same day - that
+ * origin's block is unresolved and unrelated to this one.)
  *
  * THIS IS UNOFFICIAL/UNDOCUMENTED. ESPN does not publish this as a public
  * API: no ToS, no published rate limit, no SLA, no support channel, and it
@@ -94,10 +98,8 @@ async function fetchScoreboardForDate(date) {
   const url = `${ESPN_BASE_URL}/scoreboard?dates=${date}`;
   const resp = await fetch(url, {
     headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+      "User-Agent": "curl/8.14.1",
       Accept: "application/json",
-      Referer: "https://www.espn.com/",
     },
   });
   if (!resp.ok) {
