@@ -456,6 +456,11 @@ own comment block). Summary:
   time-boxed — an earlier 7-day-TTL version was explicitly wrong per the
   user: a completed score should never disappear, and a future week can't
   leak early since BBS won't return it before it's real either way).
+  **This permanent retention is exactly what caused the 2026-09-20
+  client-side staleness bug below** — a team can now carry two
+  `"finished"` entries in the same payload (last week's real final and
+  tonight's), which the client wasn't prepared to disambiguate. See §8's
+  "stale live-score badges" entry for the fix.
 - **The whole `live_payload` KV entry can be silently wiped, not just
   individual games, if EVERY source fails for longer than
   `KV_TTL_SECONDS` (600s = 5 cron ticks).** A failed tick just `return`s
@@ -581,6 +586,36 @@ realizing there's a sibling path with the same bug.
   General lesson: a "only do the expensive thing if we have evidence we
   need it" optimization needs a periodic unconditional fallback too, not
   just an evidence-triggered one — evidence itself can go missing.
+- **Stale live-score badges hid tonight's real finals behind an old
+  retained game, fixed 2026-09-20.** Real symptom the user caught: ~10
+  ranked teams' cards (Texas, Ohio State, Michigan, Oklahoma, Mississippi,
+  LSU, Texas Tech, Houston, SMU, Louisville) stayed stuck showing a
+  pregame kickoff time hours after their real week-3 game had gone final,
+  while ~15 other ranked teams updated correctly. Root cause:
+  `site/app.js`'s `fetchLiveScores()` collapses `payload.games` to one
+  entry per team, tie-breaking equal-`LIVE_STATUS_PRIORITY` entries by
+  array position ("later index wins") — a rule written back when the only
+  way a team could have two entries was same-vendor same-game duplicates
+  (see the "Backwards status priority" entry above). §7's permanent-
+  retention design (added later) made that assumption stale: a team can
+  now carry TWO real, distinct `"finished"` games at once — last week's
+  and tonight's — and the retained old one happened to sit later in the
+  array than the fresh fetch, so it won the tie and overwrote tonight's
+  result. `gameMatchesExpectedWeek()` (§4.1-adjacent guard, unrelated fix)
+  correctly caught the resulting mismatch and hid the badge rather than
+  show the wrong score — which is why the symptom was a stuck kickoff
+  time, not a visibly wrong number, and why it looked like a subset of
+  cards simply "hadn't updated." Fixed by adding `isNewerLiveGame()`: ties
+  now break on `kickoff_utc` recency instead of array order. Verified live
+  in-browser against the real production `/live` payload (not just read)
+  by patching the tie-break in a live console session before committing:
+  all 10 affected teams resolved to their real tonight's final once fixed,
+  confirmed again after redeploy. → General lesson, same shape as the
+  self-limiting-gate entry above: a dedup/collapse rule's tie-break needs
+  to be re-examined every time an assumption it was built on changes —
+  here, "a team only ever has one finished game in the feed at a time"
+  quietly stopped being true the day permanent retention shipped, and
+  nothing forced a re-check of the code that assumed it.
 
 ## 9. Current open items (as of 2026-09-13, plus dated additions below)
 
