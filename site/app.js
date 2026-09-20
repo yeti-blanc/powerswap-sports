@@ -968,6 +968,26 @@ function renderLiveGamesSection() {
 // carries more than one entry for a team.
 const LIVE_STATUS_PRIORITY = { finished: 3, in_progress: 2, scheduled: 1 };
 
+// Bug fixed 2026-09-20: PROJECT_BIBLE.md §7's permanent-retention merge
+// (worker.js keeps a team's past finished games in the payload forever, so
+// a completed score never disappears from KV) means a team can now carry
+// TWO "finished" entries at once - last week's real final AND tonight's -
+// not just same-game duplicates from one vendor. The old tie-break (later
+// array index wins on an EQUAL status) had no way to prefer the newer game
+// when both are "finished", and worker.js appends retained history after
+// the fresh fetch, so the OLD game silently won and hid tonight's real
+// score behind it (gameMatchesExpectedWeek then correctly hid the badge
+// entirely rather than show the wrong score - real symptom was a stuck
+// pregame kickoff time, not a wrong number). Fixed by breaking ties on
+// kickoff_utc recency, not array position, whenever status priority is
+// equal.
+function isNewerLiveGame(candidate, existing) {
+  const candidatePriority = LIVE_STATUS_PRIORITY[candidate.status] ?? 0;
+  const existingPriority = LIVE_STATUS_PRIORITY[existing.status] ?? 0;
+  if (candidatePriority !== existingPriority) return candidatePriority > existingPriority;
+  return new Date(candidate.kickoff_utc ?? 0) >= new Date(existing.kickoff_utc ?? 0);
+}
+
 async function fetchLiveScores() {
   try {
     const resp = await fetch(LIVE_WORKER_URL);
@@ -977,7 +997,7 @@ async function fetchLiveScores() {
     for (const game of payload.games ?? []) {
       for (const team of [game.home_team, game.away_team]) {
         const existing = byTeam[team];
-        if (!existing || (LIVE_STATUS_PRIORITY[game.status] ?? 0) >= (LIVE_STATUS_PRIORITY[existing.status] ?? 0)) {
+        if (!existing || isNewerLiveGame(game, existing)) {
           byTeam[team] = game;
         }
       }
