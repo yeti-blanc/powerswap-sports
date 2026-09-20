@@ -442,11 +442,23 @@ async function pollAndCache(env) {
   const seasonData = await getSeasonData(env);
   const rankedTeams = getCurrentRankedTeams(seasonData);
   if (rankedTeams.length === 0) {
-    await env.LIVE_KV.put(
-      LIVE_KV_KEY,
-      JSON.stringify({ updated_at: new Date().toISOString(), games: [], note: "no ranked teams yet" }),
-      { expirationTtl: KV_TTL_SECONDS }
-    );
+    // Bug fixed 2026-09-20: this used to unconditionally overwrite
+    // LIVE_KV_KEY with an empty `games: []`, bypassing mergeGames()
+    // entirely - the ONLY write in this file that didn't go through the
+    // permanent-retention merge (§7 of PROJECT_BIBLE.md). getSeasonData()
+    // returns null/[] not just for the genuine off-season (no
+    // season_history.json published yet) but for ANY transient failure
+    // fetching it from GitHub's raw CDN - a real blip there was enough to
+    // instantly wipe every permanently-retained finished game (confirmed
+    // real: Thursday/Friday's Miami-Wake Forest and Texas Tech-Houston
+    // finals both vanished this way, along with older retained history,
+    // between two consecutive polls with nothing else explaining it).
+    // Fixed to match every other failure path in this file (see "All
+    // live-score sources failed" below): just leave the last-known KV
+    // payload alone. /live's own handler already returns a safe empty
+    // default when no KV entry exists at all, so this write was never
+    // actually needed for a genuine cold start either.
+    console.error("No ranked teams this tick (season_history.json fetch failed or off-season) - keeping last-known KV payload");
     return;
   }
 
