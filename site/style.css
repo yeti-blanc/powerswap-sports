@@ -286,6 +286,10 @@ main {
   text-shadow: none;
   margin-top: 2px;
 }
+.belt-bye {
+  font-style: italic;
+  text-transform: uppercase;
+}
 .belt-toggle {
   font-family: var(--font-mono);
   font-size: 9px;

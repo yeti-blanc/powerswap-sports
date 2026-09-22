@@ -1018,3 +1018,36 @@ treat this as ongoing, not finished, and expect more requests like these:
   session, and confirmed no regression via two in-console simulations - a
   legitimate matching live game still renders, a legitimate opponent
   mismatch (the original 2026-09-11 guard's own case) is still hidden.
+- **"Bye" label added for real bye weeks, 2026-09-22 (same day, follow-up
+  request after the BYU fix above).** The fix above stopped BYU's stale
+  score from bleeding through, but left the card blank - user's explicit
+  follow-up: a real bye should say "Bye", but NOT at the cost of saying
+  "Bye" on conference championship weekend (week 14), where the vast
+  majority of ranked teams have no game simply because they're not a
+  conference champion, not because of a bye - labeling that "Bye" would be
+  actively wrong, not just unhelpful. Same distinction will matter again
+  for bowl season (postseason - still manual per §9, not built by this
+  change). Implementation: `fetch_week_matchups.py` gained a
+  `--week-type {regular,championship}` flag (default `regular`), written
+  straight into the output JSON's new `week_type` field;
+  `season-progression.yml`'s existing per-week case statement (it already
+  hardcodes which real date is week 14 for this season, same pattern as
+  every other week) now also derives `week_type`/`next_week_type` from
+  that and passes `--week-type` on both the current-week bake-in call and
+  the next-week schedule-preview-seed call. `site/app.js`'s `loadSeason()`
+  now tracks a parallel `weekTypes` map alongside `weekMatchups` (defaults
+  to `"regular"` if a file predates this field - every existing week 2-13
+  matchup file is genuinely regular season, so this default needs no
+  backfill). `renderRankings()` shows `"Bye"` for a matchup-less ranked
+  team only when `weekMatchups[snapshot.week]` has real fetched data for
+  that week AND `weekTypes[snapshot.week] !== "championship"` - postseason
+  and any not-yet-fetched week already render blank today (no per-week
+  matchup file exists for them at all), so they're unaffected without
+  needing any special-casing here; only week 14 needed the explicit flag.
+  Verified live in-browser against real 2026 data: BYU's week4 card now
+  reads "Bye" (confirmed real - CFBD directly confirms no week4 2026 game
+  for BYU, not a name-mismatch); a simulated `weekTypes.week4 =
+  "championship"` console override confirmed BYU's card goes back to
+  blank (not "Bye") while a real-matchup team (Texas) renders unaffected
+  either way - proving the two states are properly independent, not one
+  overriding the other by accident.

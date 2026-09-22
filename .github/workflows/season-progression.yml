@@ -103,6 +103,24 @@ jobs:
             esac
           fi
           echo "week=$WEEK" >> "$GITHUB_OUTPUT"
+          # Week 14 is conference championship weekend for this season (see
+          # this file's header) - fetch_week_matchups.py's --week-type flag
+          # needs this so site/app.js can tell a real bye (regular season,
+          # "Bye" shown) apart from most ranked teams simply not being a
+          # conference champion (championship weekend, no "Bye" label -
+          # user's explicit call 2026-09-22). Week 15+ (bowls/CFP) isn't
+          # reached by this workflow at all - still manual, see
+          # PROJECT_BIBLE.md §9.
+          if [ "$WEEK" = "14" ]; then
+            echo "week_type=championship" >> "$GITHUB_OUTPUT"
+          else
+            echo "week_type=regular" >> "$GITHUB_OUTPUT"
+          fi
+          if [ "$((WEEK + 1))" = "14" ]; then
+            echo "next_week_type=championship" >> "$GITHUB_OUTPUT"
+          else
+            echo "next_week_type=regular" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Fetch week results, run backtest, and refresh schedule previews
         if: steps.week.outputs.skip != 'true'
@@ -115,11 +133,11 @@ jobs:
           # Re-fetch THIS week's own matchup file to bake in final scores
           # now that the games are over (was seeded as a schedule-only
           # preview by last week's run - see the next step below).
-          python sports/cfb/fetch_week_matchups.py --season 2026 --week "$WEEK"
+          python sports/cfb/fetch_week_matchups.py --season 2026 --week "$WEEK" --week-type "${{ steps.week.outputs.week_type }}"
           # Seed NEXT week's schedule preview, so the site has something
           # concrete to show for "what's coming" the moment this week
           # solidifies, instead of stale data from this week lingering.
-          python sports/cfb/fetch_week_matchups.py --season 2026 --week "$((WEEK + 1))" || true
+          python sports/cfb/fetch_week_matchups.py --season 2026 --week "$((WEEK + 1))" --week-type "${{ steps.week.outputs.next_week_type }}" || true
 
       - name: Commit updated season data
         if: steps.week.outputs.skip != 'true'

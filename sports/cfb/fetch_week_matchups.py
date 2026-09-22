@@ -162,11 +162,21 @@ def main():
     parser = argparse.ArgumentParser(description="Fetch a week's matchups for currently-ranked CFB teams")
     parser.add_argument("--season", type=int, required=True)
     parser.add_argument("--week", type=int, required=True)
+    # "regular" (default) vs "championship" - passed straight through to
+    # the output JSON's week_type field, which site/app.js uses to decide
+    # whether a ranked team with no matchup entry gets labeled "Bye"
+    # (regular season only) or shown as simply having no game (championship
+    # weekend, where that's true for most ranked teams and isn't a bye at
+    # all). Caller's responsibility to pass "championship" for whichever
+    # week is conference championship weekend that season - see
+    # season-progression.yml, which already tracks that week explicitly
+    # per-season the same way it tracks every other week's real date.
+    parser.add_argument("--week-type", choices=["regular", "championship"], default="regular")
     args = parser.parse_args()
 
     matchups = fetch_week_matchups(args.season, args.week)
     save_json(
-        {"season": args.season, "week": args.week, "matchups": matchups},
+        {"season": args.season, "week": args.week, "week_type": args.week_type, "matchups": matchups},
         DATA_DIR / str(args.season) / "raw" / f"week_{args.week:02d}_matchups.json",
     )
 

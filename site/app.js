@@ -64,6 +64,16 @@ let currentSeasonData = null;
 let visibleSnapshots = [];
 let currentWeekIndex = 0;
 let weekMatchups = {};
+// "regular" (default) or "championship" - see the matchup file's own
+// week_type field (fetch_week_matchups.py). Distinguishes a real bye (a
+// regular-season week where CFBD has no game for a ranked team) from
+// conference championship weekend, where the vast majority of ranked
+// teams have no game simply because they're not in a title game - that's
+// not a bye and renderRankings() must not label it as one. A week with no
+// entry here at all (never fetched, or a past season) defaults to
+// "regular" too, but that only matters combined with weekMatchups having
+// real data for that week - see renderRankings()'s opponentLine.
+let weekTypes = {};
 
 function populateSportSelect() {
   sportSelect.innerHTML = "";
@@ -126,15 +136,18 @@ async function loadSeason(sport, year) {
 
   visibleSnapshots = computeVisibleSnapshots(currentSeasonData);
   weekMatchups = {};
+  weekTypes = {};
 
   // Week 1's matchup/schedule data lives in its own legacy file
   // (live/worker.js reads it directly by URL, and every past season
-  // already has one).
+  // already has one). Always "regular" - week1 is real Week 1, never a
+  // championship/postseason week.
   try {
     const resp = await fetch(`../data/${sport}/seasons/${year}/week1_matchups.json`);
     if (resp.ok) {
       const data = await resp.json();
       weekMatchups.week1 = data.matchups;
+      weekTypes.week1 = "regular";
     }
   } catch (err) {
     // ignored - purely decorative data
@@ -159,6 +172,7 @@ async function loadSeason(sport, year) {
           if (resp.ok) {
             const data = await resp.json();
             weekMatchups[`week${w}`] = data.matchups;
+            weekTypes[`week${w}`] = data.week_type || "regular";
           }
         } catch (err) {
           // ignored - purely decorative data
@@ -332,9 +346,26 @@ function renderRankings(snapshot, weekEvents) {
     // Monday's batch run, so kickoff would otherwise stay stuck showing a
     // stale time all week once the game actually started.
     const detailText = matchup?.completed ? "" : matchup ? formatKickoff(matchup) : "";
+    // A team with no matchup entry has no game this week - but why differs
+    // by week type, and only a real bye should ever say "Bye" (added
+    // 2026-09-22, user's explicit call after BYU's stale-score bug above
+    // led straight into this: a genuine week4 bye needs to say SOMETHING,
+    // but that same blank state is also the normal, unremarkable case for
+    // ~90% of ranked teams on conference championship weekend, where
+    // "no game" just means "not a conference champion" - saying "Bye"
+    // there would be actively wrong, not just unhelpful. Gated on
+    // `weekMatchups[snapshot.week]` actually existing (real schedule data
+    // fetched for this week) so a week that simply hasn't been fetched yet
+    // - a past season's weeks 2+, or postseason, which never gets a
+    // per-week matchup file at all (bowls/CFP still manual, see
+    // PROJECT_BIBLE §9) - stays blank exactly as it always has, never
+    // mislabeled "Bye" for lack of data.
+    const isByeEligibleWeek = Boolean(weekMatchups[snapshot.week]) && weekTypes[snapshot.week] !== "championship";
     const opponentLine = matchup
       ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}<span class="belt-kickoff">${detailText ? " · " + detailText : ""}</span></span>`
-      : "";
+      : isByeEligibleWeek
+        ? `<span class="belt-opponent belt-bye">Bye</span>`
+        : "";
 
     // Green up / red down arrow, right next to the team name, when this
     // team's rank differs from where it sat the previous week. No arrow
