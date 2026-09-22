@@ -338,12 +338,28 @@ function renderRankings(snapshot, weekEvents) {
 
     // Green up / red down arrow, right next to the team name, when this
     // team's rank differs from where it sat the previous week. No arrow
-    // at all for a brand-new entry (previously unranked) or for week1
-    // itself (it IS the baseline - nothing before it to compare against)
-    // - only an actual rank-to-rank move is shown.
+    // at all for week1 itself (it IS the baseline - nothing before it to
+    // compare against).
+    //
+    // A team with no previous rank (previousRank undefined) but still
+    // present this week is a BRAND-NEW entry - and per §2 rule 3, the only
+    // way into the rankings past week1 is dethroning a currently-ranked
+    // team outright, which is always a move up (previously unranked, now
+    // ranked - there's no such thing as a "down" version of that). Bug
+    // fixed 2026-09-22: this case used to render no arrow at all, which
+    // read as "nothing happened" for what's actually the single biggest
+    // possible move a team can make - real case caught by the user:
+    // Kentucky dethroning #8 Texas A&M in week4 showed no indicator
+    // whatsoever. Same root cause as Oklahoma State's identical silent
+    // entry at #2 in week3 (also dethroning, also unflagged before this
+    // fix) - confirmed both are "dethrone" events in season_history.json's
+    // events list, not isolated incidents, so this fix covers every week,
+    // past and future, not just the one the user happened to spot.
     const previousRank = previousRankByTeam?.get(slot.team);
     let rankArrow = "";
-    if (previousRank !== undefined && previousRank !== slot.rank) {
+    if (previousRankByTeam && previousRank === undefined) {
+      rankArrow = `<span class="belt-rank-arrow rank-up" title="New - entered the rankings at #${slot.rank}">▲</span>`;
+    } else if (previousRank !== undefined && previousRank !== slot.rank) {
       const movedUp = slot.rank < previousRank;
       rankArrow = `<span class="belt-rank-arrow ${movedUp ? "rank-up" : "rank-down"}" title="${movedUp ? "Up" : "Down"} from #${previousRank}">${movedUp ? "▲" : "▼"}</span>`;
     }
@@ -800,7 +816,26 @@ function gameMatchesExpectedWeek(game, liveWeekKey) {
     [game.away_team, game.home_team],
   ]) {
     const expectedOpponent = weekMatchups[liveWeekKey]?.[team]?.opponent;
-    if (expectedOpponent && reportedOpponent !== expectedOpponent) return false;
+    if (expectedOpponent) {
+      if (reportedOpponent !== expectedOpponent) return false;
+      continue;
+    }
+    // No matchup entry for this team this week. For a currently-ranked
+    // team that means a real bye (fetch_week_matchups.py writes an entry
+    // for every ranked team it finds a game for, and logs "No Week N game
+    // found for" when it can't - see that script's header) - so ANY game
+    // the live feed still has for them this week is necessarily stale
+    // retained data from a previous week (permanent retention, §7), never
+    // a real week-N game, and must never be treated as a match. Bug fixed
+    // 2026-09-22: this branch used to fall through and match by default
+    // whenever there was nothing to compare against (fail OPEN) - real
+    // case caught by the user: BYU had a real bye in week 4, but its
+    // retained week-3 final kept bleeding through and displaying as if it
+    // were week 4's result, with the (nonexistent) week-4 opponent line
+    // hidden behind it. An unranked team with no matchup entry (never has
+    // one, bye or not) still falls through to "true" below, same as
+    // always - only a ranked team's own missing entry is meaningful here.
+    if (findCurrentRank(team) != null) return false;
   }
   return true;
 }

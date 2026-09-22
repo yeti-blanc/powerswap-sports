@@ -967,3 +967,54 @@ treat this as ongoing, not finished, and expect more requests like these:
   before restoring real state (real state currently renders hidden,
   correctly - Week 3's own games haven't been backtested yet and no
   in-progress game is currently an upset).
+- **Rank-change arrows missing on brand-new entries, fixed 2026-09-22.**
+  User caught it live: Kentucky dethroned #8 Texas A&M in week4 (a real
+  `"dethrone"` event in `season_history.json`) and landed at #8 with no
+  arrow at all, reading as "nothing happened" for what's actually the
+  single biggest move a team can make. Root cause: `renderRankings()`'s
+  arrow logic (added 2026-09-13, see this section's earlier entry)
+  deliberately skipped teams with no previous rank ("brand-new entry"),
+  which at the time seemed like the safe default - but per §2 rule 3, the
+  ONLY way into the rankings after week1 is dethroning a currently-ranked
+  team outright, so "brand-new entry" and "just moved up, maximally" are
+  the same event, never two different ones. Confirmed not a one-off:
+  Oklahoma State's identical silent entry at #2 in week3 (also a real
+  dethrone) had the same bug, unnoticed until this same pass caught it.
+  Fixed by adding an explicit branch: a team present this week with no
+  entry in `previousRankByTeam` (and it's not week1, which has no
+  "previous" to compare against at all) always renders the green ▲, titled
+  "New - entered the rankings at #N". Verified live in-browser against
+  real 2026 season data (not just read): Kentucky's week4 card and Oklahoma
+  State's week3 card both show the arrow correctly post-fix. Data-driven
+  fix (no season data touched) - applies retroactively to every already-
+  backtested week the moment the page loads, and automatically covers
+  every future dethrone, not just this one.
+- **Stale live-score "Final" badge bleeding through on a ranked team's real
+  bye week, fixed 2026-09-22.** User caught BYU's week4 card showing a
+  "Final" score with no opponent line, instead of its real week4 bye
+  (confirmed against CFBD directly: BYU has no week4 2026 game at all, not
+  a name-mismatch - `fetch_week_matchups.py` correctly wrote no matchup
+  entry for them and logged its own "No Week 4 game found for" warning).
+  Root cause: `gameMatchesExpectedWeek()` (§8's "Miami/Stanford" guard,
+  added 2026-09-11) only ever compared a live game's reported opponent
+  against `weekMatchups[liveWeekKey][team].opponent` - when that lookup is
+  `undefined` (no matchup entry, i.e. a real bye), the comparison was
+  skipped entirely and the function fell through to `return true` (fail
+  OPEN), so §7's permanent-retention design let BYU's last real result
+  (BYU 41, Colorado State 23, week3) keep showing as if it were week4's.
+  Same bug shape as §8's "self-limiting gate" and "stale live-score
+  badges" entries - an assumption ("something to compare against always
+  exists") quietly stopped holding once the season reached its first real
+  bye week for a ranked team, and nothing forced a re-check. Fixed: when
+  there's no matchup entry for a team AND that team is currently ranked
+  (`findCurrentRank(team) != null`), the function now fails CLOSED
+  (`return false`) instead of skipping the check - a bye means no game,
+  full stop, so any live-feed entry still attached to that team this week
+  is guaranteed stale. An unranked team missing a matchup entry (the
+  normal case - they never get one) is unaffected. Verified against real
+  production data, not simulated: confirmed the real `/live` payload still
+  carries BYU's retained week3 final via a direct fetch, confirmed BYU's
+  card shows nothing (correct - true bye) after the fix in a real browser
+  session, and confirmed no regression via two in-console simulations - a
+  legitimate matching live game still renders, a legitimate opponent
+  mismatch (the original 2026-09-11 guard's own case) is still hidden.
