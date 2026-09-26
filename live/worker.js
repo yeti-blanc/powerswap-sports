@@ -108,7 +108,7 @@
 import { norm, resolveBbsTeamName } from "./team_norm.js";
 import { fetchBbsMatches, fetchLegacyMatches, parseBbsMatch, utcDateString } from "./bbs_client.js";
 import { fetchHighlightlyMatches, parseHighlightlyMatch } from "./highlightly_client.js";
-import { fetchEspnMatches, parseEspnMatch } from "./espn_client.js";
+import { fetchEspnMatches, parseEspnMatch, easternDateOf, easternDateString } from "./espn_client.js";
 
 const RANKED_TEAMS_URL =
   "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/season_history.json";
@@ -472,7 +472,15 @@ async function pollAndCache(env) {
   // once per UTC day even if the gate above sees no reason to, so a game
   // lost to a past KV wipe (or any other gap) gets one guaranteed chance
   // per day to be rediscovered from BBS's still-live 2-day window.
-  const includeYesterday = needsYesterdayQuery(previous.games) || lastSweepDate !== today;
+  const sweepDue = lastSweepDate !== today;
+  // Two gates, because the sources bucket "a day" differently: BBS by UTC
+  // date, ESPN by US Eastern date (see espn_client.js's easternDateOf() for
+  // the real 2026-09-25 incident). Judging ESPN's "yesterday" in UTC is
+  // what let a Friday 8pm-ET kickoff drop out of every query after 00:00Z.
+  const includeYesterdayUtc = needsYesterdayQuery(previous.games) || sweepDue;
+  const includeYesterdayEt =
+    needsYesterdayQuery(previous.games, easternDateString(-1), easternDateOf) || sweepDue;
+  let includedYesterday = false;
 
   // Tried in order until one succeeds - see the REDUNDANCY BUILD comment
   // above for why each exists and what's confirmed vs. not about each.
@@ -486,20 +494,22 @@ async function pollAndCache(env) {
   let respectsDateScoping = false;
 
   try {
-    rawMatches = await fetchEspnMatches(includeYesterday);
+    rawMatches = await fetchEspnMatches(includeYesterdayEt);
     parseMatch = parseEspnMatch;
     dataSource = "espn";
     respectsDateScoping = true;
+    includedYesterday = includeYesterdayEt;
   } catch (err) {
     console.error("ESPN primary fetch failed:", err.message);
   }
 
   if (!rawMatches) {
     try {
-      rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR], includeYesterday);
+      rawMatches = await fetchBbsMatches(env[ACTIVE_BBS_KEY_ENV_VAR], includeYesterdayUtc);
       parseMatch = parseBbsMatch;
       dataSource = "bbs_stored";
       respectsDateScoping = true;
+      includedYesterday = includeYesterdayUtc;
       console.warn("ESPN primary down this tick - used BBS stored/matches secondary instead");
     } catch (err) {
       console.error("BBS secondary (stored/matches) fetch failed:", err.message);
@@ -542,7 +552,7 @@ async function pollAndCache(env) {
   // date-scoped source succeeded - if a non-date-scoped fallback saved
   // this tick instead, we don't know yesterday was really covered; leave
   // the marker stale so the next successful date-scoped tick retries it.
-  if (respectsDateScoping && includeYesterday) {
+  if (respectsDateScoping && includedYesterday) {
     await env.LIVE_KV.put(YESTERDAY_SWEEP_KEY, today);
   }
 
@@ -625,11 +635,16 @@ async function pollAndCache(env) {
 // polling frequency (that's the exact class of bug the 2026-09-05
 // rewrite removed - see this file's header) - a wrong placeholder value
 // at worst costs one wasted request, never a missed live game.
-export function needsYesterdayQuery(previousGames) {
+// `yesterday`/`dateOf` default to BBS's UTC bucketing; ESPN passes its
+// Eastern-time equivalents (see pollAndCache()).
+export function needsYesterdayQuery(
+  previousGames,
+  yesterday = utcDateString(-1),
+  dateOf = (iso) => iso.slice(0, 10)
+) {
   if (!previousGames || previousGames.length === 0) return true;
-  const yesterday = utcDateString(-1);
   return previousGames.some(
-    (g) => g.status !== "finished" && g.kickoff_utc && g.kickoff_utc.slice(0, 10) === yesterday
+    (g) => g.status !== "finished" && g.kickoff_utc && dateOf(g.kickoff_utc) === yesterday
   );
 }
 

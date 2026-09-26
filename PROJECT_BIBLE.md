@@ -616,6 +616,30 @@ realizing there's a sibling path with the same bug.
   here, "a team only ever has one finished game in the feed at a time"
   quietly stopped being true the day permanent retention shipped, and
   nothing forced a re-check of the code that assumed it.
+- **Every 8pm-ET-or-later kickoff froze at its first-seen state, fixed
+  2026-09-25.** Real symptom the user caught: Friday's live Northwestern @
+  #Indiana (8pm ET, `2026-09-26T00:00Z`) never showed as live - `/live`
+  held it at `scheduled, 0-0` while ESPN itself had it in progress 12-0.
+  Root cause: ESPN's `?dates=` buckets games by **US Eastern** date, but
+  `espn_client.js` built the param from the **UTC** date (BBS's
+  convention, carried over when ESPN was wired in 2026-09-19). After
+  00:00Z, "today" was already Saturday's slate, so the game dropped out;
+  `needsYesterdayQuery()` (also UTC) saw its `2026-09-26` kickoff as
+  "today" and never re-asked for 09-25; the once-per-UTC-day sweep
+  caught it exactly once at kickoff, and permanent retention (§7) kept
+  that stale snapshot. Confirmed by real calls: `dates=20260925` returns
+  the game, `dates=20260926` doesn't. Not Friday-specific - every night's
+  late games were affected. Fixed: ESPN dates now come from
+  `easternDateString()`/`easternDateOf()` (`espn_client.js`, calendar-day
+  arithmetic so DST days can't break "yesterday"), and `pollAndCache()`
+  evaluates the yesterday gate separately per source (ET for ESPN, UTC
+  for BBS). ET vs. PT couldn't be distinguished empirically (no 2026
+  game has kicked off 04:00-07:00Z yet) - ET is ESPN's standard and
+  matches every observed boundary; worth re-checking the first time a
+  Hawaii home game kicks off that late. → Lesson: when swapping in a new
+  vendor behind an existing interface, re-verify every convention the
+  old vendor's code baked in (date bucketing here), not just the payload
+  shape.
 
 ## 9. Current open items (as of 2026-09-13, plus dated additions below)
 

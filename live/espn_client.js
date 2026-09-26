@@ -43,13 +43,13 @@
  *     count-independent-of-game-count" shape as BBS's /v1/stored/matches,
  *     so this Worker's existing flat-poll-per-tick architecture drops in
  *     with no redesign.
- *   - `?dates=YYYYMMDD` (no dashes) confirmed real and working - used the
- *     same way as BBS's date param, including the identical late-kickoff
- *     UTC-crossover case needsYesterdayQuery() exists for: a real call for
- *     "yesterday" (2026-09-18) returned 3 games, one of which had its own
- *     `date` field already reading 2026-09-19 - confirming the same
- *     crossover BBS has, handled here the same way (reuses worker.js's
- *     existing includeYesterday gate, source-agnostic).
+ *   - `?dates=YYYYMMDD` (no dashes) confirmed real and working. A real
+ *     call for 2026-09-18 returned a game whose `date` read 2026-09-19 -
+ *     originally misread as the same UTC crossover BBS has. CORRECTED
+ *     2026-09-25: it's because ESPN buckets by US EASTERN date, not UTC
+ *     (that game kicked off Friday evening ET). Querying by UTC date
+ *     dropped every 8pm-ET-or-later game from "today" - see
+ *     easternDateOf() below for the real incident and the fix.
  *   - `status.type.state` confirmed real values: "pre" (scheduled), "in"
  *     (live), "post" (finished). Any other value (postponed/canceled -
  *     not observed live) surfaces as "unknown" via raw_status rather than
@@ -87,11 +87,43 @@
 export const ESPN_BASE_URL =
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football";
 
+// Bug fixed 2026-09-25 (real incident): ESPN's `?dates=` buckets games by
+// US EASTERN calendar date, NOT UTC - confirmed via real calls: Friday
+// 2026-09-25's Northwestern @ Indiana (kickoff 2026-09-26T00:00Z, 8pm ET)
+// is returned ONLY by dates=20260925, never by dates=20260926. This file
+// used to build the date from UTC (the BBS convention), so from 8pm ET
+// onward every night "today" already meant tomorrow's slate, and every
+// 8pm-ET-or-later kickoff silently froze at whatever state the once-a-day
+// yesterday sweep last caught it in (Indiana sat at "scheduled, 0-0" in
+// /live while ESPN had it live at 12-0). Every ESPN-side date - the query
+// param and worker.js's yesterday gate - must use these helpers, never
+// utcDateString(). Pacific-vs-Eastern couldn't be distinguished
+// empirically yet (no 2026 game has kicked off 04:00-07:00Z so far) -
+// Eastern is ESPN's standard convention and matches every boundary seen.
+const ESPN_TIME_ZONE = "America/New_York";
+const easternFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone: ESPN_TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+// YYYY-MM-DD in Eastern time for an ISO timestamp (e.g. a game's kickoff_utc).
+export function easternDateOf(iso) {
+  return easternFormatter.format(new Date(iso));
+}
+
+// YYYY-MM-DD in Eastern time, offset by whole CALENDAR days. Offsets from
+// Eastern's own date rather than subtracting 24h from now, so a DST
+// transition day (23 or 25 hours long) can't make "yesterday" equal today.
+export function easternDateString(daysOffset = 0) {
+  const today = new Date(`${easternDateOf(Date.now())}T00:00:00Z`);
+  today.setUTCDate(today.getUTCDate() + daysOffset);
+  return today.toISOString().slice(0, 10);
+}
+
 function espnDateString(daysOffset = 0) {
-  return new Date(Date.now() + daysOffset * 24 * 60 * 60 * 1000)
-    .toISOString()
-    .slice(0, 10)
-    .replace(/-/g, "");
+  return easternDateString(daysOffset).replace(/-/g, "");
 }
 
 async function fetchScoreboardForDate(date) {
