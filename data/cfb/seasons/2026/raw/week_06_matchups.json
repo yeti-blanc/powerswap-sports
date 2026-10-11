@@ -8,171 +8,171 @@
       "home_away": "away",
       "kickoff_utc": "2026-10-10T01:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 41,
+      "opponent_score": 24
     },
     "BYU": {
       "opponent": "Iowa State",
       "home_away": "home",
       "kickoff_utc": "2026-10-10T02:15:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Missouri": {
-      "opponent": "Texas A&M",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-10T16:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Oklahoma State": {
-      "opponent": "Central Florida",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-10T16:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 24,
+      "opponent_score": 10
     },
     "Indiana": {
       "opponent": "Nebraska",
       "home_away": "away",
       "kickoff_utc": "2026-10-10T16:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 20,
+      "opponent_score": 17
     },
     "Wake Forest": {
       "opponent": "NC State",
       "home_away": "away",
       "kickoff_utc": "2026-10-10T16:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 38,
+      "opponent_score": 14
     },
-    "Houston": {
-      "opponent": "Kansas State",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-10T19:30:00.000Z",
+    "Oklahoma State": {
+      "opponent": "Central Florida",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-10T16:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 42,
+      "opponent_score": 28
+    },
+    "Missouri": {
+      "opponent": "Texas A&M",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-10T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 27,
+      "opponent_score": 6
     },
     "Notre Dame": {
       "opponent": "Stanford",
       "home_away": "home",
       "kickoff_utc": "2026-10-10T19:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 58,
+      "opponent_score": 7
     },
     "Oregon": {
       "opponent": "UCLA",
       "home_away": "home",
       "kickoff_utc": "2026-10-10T19:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 15,
+      "opponent_score": 17
+    },
+    "Houston": {
+      "opponent": "Kansas State",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-10T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 35,
+      "opponent_score": 16
     },
     "Oklahoma": {
       "opponent": "Texas",
       "home_away": "home",
       "kickoff_utc": "2026-10-10T19:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 27,
+      "opponent_score": 24
     },
     "Texas": {
       "opponent": "Oklahoma",
       "home_away": "away",
       "kickoff_utc": "2026-10-10T19:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 24,
+      "opponent_score": 27
     },
     "Tennessee": {
       "opponent": "Arkansas",
       "home_away": "away",
       "kickoff_utc": "2026-10-10T20:15:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 24,
+      "opponent_score": 17
     },
     "Ohio State": {
       "opponent": "Maryland",
       "home_away": "home",
       "kickoff_utc": "2026-10-10T20:15:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 45,
+      "opponent_score": 16
     },
     "Kentucky": {
       "opponent": "LSU",
       "home_away": "home",
       "kickoff_utc": "2026-10-10T23:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 35,
+      "opponent_score": 34
     },
     "LSU": {
       "opponent": "Kentucky",
       "home_away": "away",
       "kickoff_utc": "2026-10-10T23:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 34,
+      "opponent_score": 35
     },
     "Alabama": {
       "opponent": "Georgia",
       "home_away": "home",
       "kickoff_utc": "2026-10-10T23:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 17,
+      "opponent_score": 20
     },
     "Georgia": {
       "opponent": "Alabama",
       "home_away": "away",
       "kickoff_utc": "2026-10-10T23:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 20,
+      "opponent_score": 17
+    },
+    "Utah": {
+      "opponent": "Kansas",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-11T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": true,
+      "team_score": 41,
+      "opponent_score": 24
     },
     "Minnesota": {
       "opponent": "Purdue",
       "home_away": "away",
       "kickoff_utc": "2026-10-11T00:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Utah": {
-      "opponent": "Kansas",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-11T02:15:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 13,
+      "opponent_score": 41
     }
   }
 }

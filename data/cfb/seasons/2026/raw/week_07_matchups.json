@@ -1,0 +1,223 @@
+{
+  "season": 2026,
+  "week": 7,
+  "week_type": "regular",
+  "matchups": {
+    "Purdue": {
+      "opponent": "Washington",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T00:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "UCLA": {
+      "opponent": "Wisconsin",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T04:00:00.000Z",
+      "start_time_tbd": true,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Wisconsin": {
+      "opponent": "UCLA",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T04:00:00.000Z",
+      "start_time_tbd": true,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "LSU": {
+      "opponent": "Mississippi State",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Mississippi State": {
+      "opponent": "LSU",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Texas": {
+      "opponent": "Florida",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Indiana": {
+      "opponent": "Ohio State",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Ohio State": {
+      "opponent": "Indiana",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "SMU": {
+      "opponent": "Virginia",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Missouri": {
+      "opponent": "Mississippi",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Tennessee": {
+      "opponent": "Alabama",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Alabama": {
+      "opponent": "Tennessee",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Texas Tech": {
+      "opponent": "Arizona State",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Michigan": {
+      "opponent": "Penn State",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Georgia": {
+      "opponent": "Auburn",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Miami": {
+      "opponent": "Florida State",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "BYU": {
+      "opponent": "Notre Dame",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Notre Dame": {
+      "opponent": "BYU",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Oklahoma": {
+      "opponent": "Kentucky",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Kentucky": {
+      "opponent": "Oklahoma",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Houston": {
+      "opponent": "Oklahoma State",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-17T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Oklahoma State": {
+      "opponent": "Houston",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-17T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Utah": {
+      "opponent": "Colorado",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-18T02:15:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Wake Forest": {
+      "opponent": "California",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-18T02:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    }
+  }
+}
