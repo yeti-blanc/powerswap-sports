@@ -597,8 +597,19 @@ async function pollAndCache(env) {
       // getCurrentWeekOpponents() - use that name instead of guessing at
       // BBS's raw one. Falls back to the raw BBS name if that week has no
       // matchups file yet.
-      home_team: homeCanonical ?? currentWeekOpponents.get(awayCanonical) ?? norm(parsed.home_name_raw ?? ""),
-      away_team: awayCanonical ?? currentWeekOpponents.get(homeCanonical) ?? norm(parsed.away_name_raw ?? ""),
+      //
+      // Bug fixed 2026-10-19: the current-week name used to be applied
+      // UNCONDITIONALLY, without checking that this game actually IS the
+      // current-week game. The moment Sunday's auto-populate published
+      // week 8's matchups, the still-fetched week 7 finals got relabeled
+      // with week 8 opponents (real: Utah's 27-24 win at Colorado became
+      // "Utah beat #2 Houston 27-24", Michigan 21-18 over Penn State
+      // became "over #6 Indiana") - wrong Final badges on the site and
+      // fake HAVOC upsets. Now the substitute name is only used when the
+      // raw vendor name actually resolves to it (confirmed against every
+      // real week 8 ESPN name, incl. "UCF Knights" -> "Central Florida").
+      home_team: homeCanonical ?? confirmedOpponentName(parsed.home_name_raw, currentWeekOpponents.get(awayCanonical)),
+      away_team: awayCanonical ?? confirmedOpponentName(parsed.away_name_raw, currentWeekOpponents.get(homeCanonical)),
       home_score: parsed.home_score,
       away_score: parsed.away_score,
       status: parsed.status,
@@ -702,10 +713,28 @@ export function gameIdentityKey(game, rankedSet) {
 // i.e. once it's genuinely about to happen or has happened, so this can
 // never show a future week's result early - it only ever replaces one
 // finished/in-progress entry with a newer one for the same team.
+//
+// A retained game whose vendor `id` matches a fresh one is the same real
+// game and is always superseded too (added 2026-10-19) - otherwise a game
+// whose team naming changed between polls (e.g. the mislabeling bug
+// fixed in pollAndCache()) lingers forever as a second copy under a
+// different identity key.
 export function mergeGames(freshGames, previousGames, rankedSet) {
   const freshKeys = new Set(freshGames.map((g) => gameIdentityKey(g, rankedSet)));
-  const retained = (previousGames ?? []).filter((g) => !freshKeys.has(gameIdentityKey(g, rankedSet)));
+  const freshIds = new Set(freshGames.map((g) => g.id).filter(Boolean));
+  const retained = (previousGames ?? []).filter(
+    (g) => !freshKeys.has(gameIdentityKey(g, rankedSet)) && !(g.id && freshIds.has(g.id))
+  );
   return [...freshGames, ...retained];
+}
+
+// The ranked side's current-week opponent name, but only if the vendor's
+// raw name really is that team - see the MASCOT-FREE NAMING comment in
+// pollAndCache(). Anything else (a previous week's opponent still in the
+// fetch window) keeps its own normalized raw name.
+export function confirmedOpponentName(rawName, expectedOpponent) {
+  if (expectedOpponent && resolveBbsTeamName(rawName, [expectedOpponent])) return expectedOpponent;
+  return norm(rawName ?? "");
 }
 
 // Canonical ranked-team name -> their real CURRENT-WEEK opponent's clean

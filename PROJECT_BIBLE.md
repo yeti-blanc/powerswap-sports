@@ -640,6 +640,25 @@ realizing there's a sibling path with the same bug.
   vendor behind an existing interface, re-verify every convention the
   old vendor's code baked in (date bucketing here), not just the payload
   shape.
+- **2026-10-19 — last week's finals relabeled with this week's opponents
+  (fake Week 8 finals + fake HAVOC upsets).** User-reported. `worker.js`'s
+  MASCOT-FREE NAMING swapped an unranked opponent's raw name for the
+  ranked side's *current-week* opponent unconditionally. Sunday's
+  auto-populate published week 8 matchups while week 7 finals were still
+  in the fetch window, so e.g. Utah 27 @ Colorado 24 became "Utah beat #2
+  Houston 27-24", Michigan 21-18 over Penn State became "over #6 Indiana",
+  and Miami/Ole Miss/Texas Tech/SMU's old finals showed against their
+  unplayed week 8 opponents. The site's opponent-name guard passed them
+  because the names now matched. Fixed three ways: the worker only uses
+  the current-week name when the raw vendor name resolves to it
+  (`confirmedOpponentName()`, checked against every real week 8 ESPN
+  name); `mergeGames()` drops a retained game whose vendor `id` matches a
+  fresh one; `gameMatchesExpectedWeek()` (site) also rejects a game that
+  kicked off >3 days before that team's scheduled kickoff. Corrupted
+  records already in KV (retention is permanent) needed a one-time
+  cleanup. → Lesson: a "display-only" substitution that rewrites
+  identity fields (team names) is not display-only; every downstream
+  guard keyed on those names inherits the lie.
 
 ## 9. Current open items (as of 2026-09-13, plus dated additions below)
 

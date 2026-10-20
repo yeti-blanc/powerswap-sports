@@ -846,9 +846,20 @@ function gameMatchesExpectedWeek(game, liveWeekKey) {
     [game.home_team, game.away_team],
     [game.away_team, game.home_team],
   ]) {
-    const expectedOpponent = weekMatchups[liveWeekKey]?.[team]?.opponent;
+    const expectedMatchup = weekMatchups[liveWeekKey]?.[team];
+    const expectedOpponent = expectedMatchup?.opponent;
     if (expectedOpponent) {
       if (reportedOpponent !== expectedOpponent) return false;
+      // Bug fixed 2026-10-19: names alone can lie - live/worker.js used to
+      // relabel last week's unranked opponent with THIS week's opponent
+      // (Utah's win at Colorado showed as a final vs. #2 Houston before
+      // that game was played). A game that kicked off days before this
+      // week's scheduled kickoff can't be this week's game, whatever it's
+      // called. 3 days covers TBD placeholders (Saturday 04:00Z) vs. a
+      // real Thursday/Friday kickoff; a full week's gap never fits.
+      const expectedKickoff = Date.parse(expectedMatchup.kickoff_utc ?? "");
+      const gameKickoff = Date.parse(game.kickoff_utc ?? "");
+      if (!isNaN(expectedKickoff) && !isNaN(gameKickoff) && gameKickoff < expectedKickoff - 3 * 86400000) return false;
       continue;
     }
     // No matchup entry for this team this week. For a currently-ranked
