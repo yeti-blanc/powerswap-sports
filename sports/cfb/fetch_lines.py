@@ -93,8 +93,10 @@ def fetch_week_lines(season: int, week: int) -> list[dict]:
         ]
 
         results.append({
-            "home_team": norm_team(g.get("homeTeam", "")),
-            "away_team": norm_team(g.get("awayTeam", "")),
+            # CFBD /lines carries homeTeamId/awayTeamId (same ID space as
+            # /games); falls back to the name if a payload ever omits them.
+            "home_team": norm_team(g.get("homeTeam", ""), g.get("homeTeamId")),
+            "away_team": norm_team(g.get("awayTeam", ""), g.get("awayTeamId")),
             "lines": normalize_lines(lines),
         })
 

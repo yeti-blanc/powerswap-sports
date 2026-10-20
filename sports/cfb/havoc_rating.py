@@ -109,7 +109,7 @@ def fetch_ap_poll(season: int, week: int) -> dict[str, int]:
     for week_block in data:
         for poll in week_block.get("polls", []):
             if poll.get("poll") == cfb_config.POLL_NAME:
-                return {norm_team(r["school"]): r["rank"] for r in poll["ranks"]}
+                return {norm_team(r["school"], r.get("teamId")): r["rank"] for r in poll["ranks"]}
     return {}
 
 

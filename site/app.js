@@ -842,14 +842,23 @@ function isViewingLiveWeek() {
 // on the other having already filtered anything.
 function gameMatchesExpectedWeek(game, liveWeekKey) {
   if (!liveWeekKey) return true;
-  for (const [team, reportedOpponent] of [
-    [game.home_team, game.away_team],
-    [game.away_team, game.home_team],
+  for (const [team, reportedOpponent, reportedOpponentId] of [
+    [game.home_team, game.away_team, game.away_id],
+    [game.away_team, game.home_team, game.home_id],
   ]) {
     const expectedMatchup = weekMatchups[liveWeekKey]?.[team];
     const expectedOpponent = expectedMatchup?.opponent;
     if (expectedOpponent) {
-      if (reportedOpponent !== expectedOpponent) return false;
+      // Team registry IDs (data/teams/cfb_teams.json, stamped on both the
+      // live feed and matchup files since 2026-10-19) are compared when
+      // both sides have them - a spelling can drift, an ID can't. Names
+      // remain the fallback for anything published before then.
+      const expectedOpponentId = expectedMatchup.opponent_id;
+      if (expectedOpponentId && reportedOpponentId) {
+        if (String(reportedOpponentId) !== String(expectedOpponentId)) return false;
+      } else if (reportedOpponent !== expectedOpponent) {
+        return false;
+      }
       // Bug fixed 2026-10-19: names alone can lie - live/worker.js used to
       // relabel last week's unranked opponent with THIS week's opponent
       // (Utah's win at Colorado showed as a final vs. #2 Houston before

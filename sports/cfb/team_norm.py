@@ -1,67 +1,57 @@
 """
-PowerSwap CFB - Team Name Normalization
+PowerSwap CFB - team name normalization (thin wrapper over the team registry)
 
-Direct lesson from the Cote Cup project: never trust an API to return the
-same name for the same entity every time. football-data.org did this to
-the World Cup tracker with country names (Cape Verde / Cabo Verde / Cape
-Verde Islands all meaning the same team). CFBD will almost certainly do
-the same thing with school names across its /rankings and /games
-endpoints, or even between different seasons.
+The hand-maintained NORM table that used to live here (and its copies in
+sports/cbb/team_norm.py and live/team_norm.js) was replaced on 2026-10-19
+by the generated registry, data/teams/cfb_teams.json - see core/teams.py.
+These functions keep their old signatures so every existing caller keeps
+working, but now resolve against the full ESPN + CFBD team list, by ID
+whenever the caller has one.
 
-The danger is silent, not loud: if "Hawaii" in the preseason poll and
-"Hawai'i" in a games payload are treated as two different teams, the
-swap engine won't error out - it will just quietly conclude Hawaii never
-played a single game all season. No exception, no crash, just a wrong
-answer that looks plausible.
-
-Rule, same as the Cote Cup project: when CFBD returns a name you don't
-recognize as matching an existing one, add it here. Don't patch individual
-data points downstream.
-
-This seed list below is a starting point based on commonly known CFB
-naming quirks - it has NOT been validated against actual CFBD API output,
-since fetching real data requires network access this environment doesn't
-have. Treat it as a first draft to test against the real API responses,
-not a verified list.
+Rule (unchanged from the Cote Cup lesson): normalize at ingestion, before
+any name touches the rankings. A name the registry can't place is
+returned unchanged AND recorded in UNRESOLVED, so callers/validators can
+fail loudly instead of letting it silently become "a different team".
+To fix one: rebuild the registry (scripts/build_team_registry.py --sport cfb)
+or add an alias in data/teams/cfb_overrides.json. Never patch data.
 """
 
-# Maps a known variant -> the canonical name to use everywhere.
-# Canonical names chosen to match how CFBD's own /teams endpoint typically
-# lists schools - verify this against a real /teams pull before trusting it.
-NORM = {
-    # Common abbreviation / full-name mismatches
-    "Hawai'i": "Hawaii",
-    "App State": "Appalachian State",
-    "Sam Houston": "Sam Houston State",
-    "UMass": "Massachusetts",
-    "UConn": "Connecticut",
-    "Ole Miss": "Mississippi",
-    "Pitt": "Pittsburgh",
-    "USF": "South Florida",
-    "UCF": "Central Florida",
-    "FIU": "Florida International",
-    "FAU": "Florida Atlantic",
-    "UTSA": "UT San Antonio",
-    "UNLV": "Nevada-Las Vegas",
-    "San Jose State": "San José State",
+import sys
+from pathlib import Path
 
-    # Disambiguation cases - CFBD sometimes appends location to avoid
-    # collisions (Miami FL vs Miami OH, etc.)
-    "Miami (FL)": "Miami",
-    "Miami (OH)": "Miami (Ohio)",
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "core"))
+from teams import load_registry  # noqa: E402
 
-    # Known mid-window rebrands / renames worth double-checking for the
-    # 2021-2025 window specifically:
-    # - none confirmed without checking the live API; add here as found.
-}
+SPORT = "cfb"
+VENDOR = "cfbd"
+UNRESOLVED: set[str] = set()
 
 
-def norm(team_name: str) -> str:
-    """
-    Returns the canonical name for a team. If the name isn't a known
-    variant, it's returned unchanged (assumed already canonical).
-    """
-    return NORM.get(team_name, team_name)
+def registry():
+    return load_registry(SPORT)
+
+
+def resolve(team_name: str, vendor_id=None) -> str | None:
+    """Registry ID for a vendor team (by CFBD ID first, then name), or None."""
+    r = registry()
+    return r.resolve_id(VENDOR, vendor_id) or r.resolve(team_name)
+
+
+def norm(team_name: str, vendor_id=None) -> str:
+    """Canonical name for a team; unchanged (and recorded) if unknown."""
+    tid = resolve(team_name, vendor_id)
+    if tid:
+        return registry().name(tid)
+    if team_name and team_name not in UNRESOLVED:
+        UNRESOLVED.add(team_name)
+        print(f"  WARNING: UNRESOLVED CFB TEAM: {team_name!r}"
+              + (f" (CFBD id {vendor_id})" if vendor_id is not None else "")
+              + f" - not in data/teams/cfb_teams.json", file=sys.stderr)
+    return team_name
+
+
+def team_id(team_name: str, vendor_id=None) -> str | None:
+    return resolve(team_name, vendor_id)
 
 
 def normalize_team_list(teams: list[str]) -> list[str]:
@@ -69,9 +59,15 @@ def normalize_team_list(teams: list[str]) -> list[str]:
 
 
 def normalize_games(games: list[dict]) -> list[dict]:
-    # **g preserves any extra fields (like "date") - needed for postseason
-    # games, which can have a team playing multiple rounds and therefore
-    # need chronological sorting, same reasoning as basketball's multi-game
-    # weeks. Existing regular-season weekly fetches only ever build
-    # winner/loser dicts with no extra fields, so this is a no-op for them.
-    return [{**g, "winner": norm(g["winner"]), "loser": norm(g["loser"])} for g in games]
+    """{"winner", "loser", optional "winner_vendor_id"/"loser_vendor_id",
+    any extra fields like "date"} -> canonical names plus registry
+    "winner_id"/"loser_id" (None when unresolvable). **g preserves extra
+    fields - postseason/basketball need "date" for chronological sorting."""
+    out = []
+    for g in games:
+        g = dict(g)
+        wv, lv = g.pop("winner_vendor_id", None), g.pop("loser_vendor_id", None)
+        out.append({**g,
+                    "winner": norm(g["winner"], wv), "loser": norm(g["loser"], lv),
+                    "winner_id": team_id(g["winner"], wv), "loser_id": team_id(g["loser"], lv)})
+    return out

@@ -1,0 +1,38 @@
+name: Tests
+
+# Every push/PR to main runs the full guard-rail suite: swap engine,
+# multi-game weeks, the team registry (incl. Python <-> JS parity over
+# every alias), and the live Worker's real-data regression test. A red
+# run here means a real result could vanish or land on the wrong school -
+# fix the cause, never loosen a test (see tests/test_team_registry.py).
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Swap engine
+        run: |
+          python tests/test_swap_engine.py
+          python tests/test_multigame_week.py
+
+      - name: Team registry (Python + JS parity)
+        run: python tests/test_team_registry.py
+
+      - name: Live Worker regression (real 2026-10-19 data)
+        run: node tests/test_live_worker.mjs

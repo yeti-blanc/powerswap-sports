@@ -101,9 +101,9 @@ export async function fetchBbsMatches(apiKey, includeYesterday = true) {
 //     same convention - confirmed against real games incl. "Kansas
 //     Jayhawks", "UCF Knights", "East Carolina Pirates" vs "App State
 //     Mountaineers"/"Appalachian State Mountaineers" both spellings, both
-//     already covered by team_norm.js's existing NORM table), kickoff_utc,
+//     now covered by the team registry - data/teams/cfb_teams.json), kickoff_utc,
 //     status, score.{home,away}, linescore.{home,away}. No new norm()
-//     entries needed; resolveBbsTeamName() works unchanged.
+//     entries needed; the registry resolves it (team_registry.js).
 //   - status TRANSITIONS correctly and promptly: watched a real live game
 //     (Kansas @ Missouri, id b5cb50b8-cfb2-4d14-83de-7e3b79574e90) flip
 //     "live" -> "finished" between two 60s-apart polls (03:53:38 ->

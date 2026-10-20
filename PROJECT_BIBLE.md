@@ -80,17 +80,21 @@ team per week.
 These came from real incidents, not caution for its own sake. Each has a
 "why" so you can judge edge cases, not just follow blindly.
 
-1. **Team name normalization happens at ingestion, before any data touches
-   core structures.** `sports/cfb/team_norm.py`, `sports/cbb/team_norm.py`
-   (Python, engine-facing) and `live/team_norm.js` (JS port for the
-   Cloudflare Worker, which can't import Python) all implement this. *Why:*
+1. **Team identity is resolved at ingestion, before any data touches core
+   structures - by the vendor's team ID whenever it gives one, and always
+   through the team registry** (`data/teams/<sport>_teams.json`, built by
+   `scripts/build_team_registry.py`, read by `core/teams.py` in Python and
+   `live/team_registry.js` in the Worker - see §13). Never hand-roll a
+   name match, never borrow a name from somewhere else (the 2026-10-19
+   incident, §8), never patch stored data to fix a lookup: add an alias
+   to `data/teams/<sport>_overrides.json` and rebuild. *Why:*
    the Cote Cup World Cup tracker lost real results silently because
    inconsistent name variants meant a match never got matched — no error,
    the result just vanished. Same class of risk here, doubled (once per
    sport, and again for whichever live-score vendor's own naming quirks).
-   Every new data source (BBS, Highlightly, CFBD) needs its raw team names
-   run through `norm()`/`resolveBbsTeamName()` before the swap engine or the
-   live-score dedup logic ever sees them.
+   Every new data source needs its raw teams run through the registry
+   (`resolve_id()`/`resolve()` in Python, `resolveId()`/`resolve()` in JS)
+   before the swap engine or the live-score dedup logic ever sees them.
 2. **No secrets in the repo, ever.** Cloudflare Worker secrets
    (`wrangler secret put`), GitHub Actions repo secrets, or local `.env`
    (gitignored) only. Never invent a credential on the user's behalf — if a
@@ -142,12 +146,21 @@ These came from real incidents, not caution for its own sake. Each has a
 ```
 powerswap-sports/
   core/swap_engine.py          Sport-agnostic ranking engine. Rarely touched.
+  core/teams.py                Team registry loader/resolver (see §13).
+  data/teams/                  <sport>_teams.json (GENERATED registry - never
+                                 hand-edit), <sport>_overrides.json (hand-
+                                 maintained name pins + extra aliases)
   sports/
     cfb/   config.py, team_norm.py, fetch_results.py,
            fetch_week1_matchups.py, fetch_week_matchups.py (generalized,
            per-week, added 2026-09-08), fetch_lines.py, havoc_rating.py
     cbb/   config.py, team_norm.py, fetch_results.py (date-range + sort)
-  scripts/backtest.py           Sport-agnostic, --sport cfb|cbb
+  scripts/backtest.py           Sport-agnostic, --sport cfb|cbb. Stamps team
+                                 IDs on its output and REFUSES to write if a
+                                 ranked name isn't a canonical registry name.
+  scripts/build_team_registry.py  Builds data/teams/<sport>_teams.json (§13).
+  scripts/migrate_team_ids.py   One-time back-fill of IDs onto pre-registry
+                                 data (idempotent, additive).
   tests/                        test_swap_engine.py, test_multigame_week.py,
                                  generate_fake_season.py
   data/cfb/seasons/<year>/...   season_history.json (the site's data source),
@@ -168,6 +181,10 @@ powerswap-sports/
                                  deliberate, still manual.
     recompute-havoc.yml         workflow_dispatch only, triggered by the
                                  admin portal's Recompute button or gh CLI.
+    tests.yml                   Every push/PR: all tests incl. registry
+                                 Python<->JS parity + live Worker regression.
+    refresh-team-registry.yml   Mondays + on demand: rebuild registries,
+                                 commit only if the full suite passes.
 ```
 
 **Two separate Cloudflare Workers, two separate `wrangler.toml`s** (`live/`
@@ -658,7 +675,11 @@ realizing there's a sibling path with the same bug.
   records already in KV (retention is permanent) needed a one-time
   cleanup. → Lesson: a "display-only" substitution that rewrites
   identity fields (team names) is not display-only; every downstream
-  guard keyed on those names inherits the lie.
+  guard keyed on those names inherits the lie. **Follow-up the same
+  night (user's call: "build me the cadillac"):** replaced every
+  hand-rolled name table with the generated team registry and ID-based
+  matching end to end - §13. The worker no longer reads the schedule at
+  all; `confirmedOpponentName()` was deleted with it.
 
 ## 9. Current open items (as of 2026-09-13, plus dated additions below)
 
@@ -1094,3 +1115,104 @@ treat this as ongoing, not finished, and expect more requests like these:
   blank (not "Bye") while a real-matchup team (Texas) renders unaffected
   either way - proving the two states are properly independent, not one
   overriding the other by accident.
+
+## 13. Team registry (built 2026-10-19 - replaces every hand-maintained NORM table)
+
+**What:** one generated file per sport, `data/teams/cfb_teams.json` (1,856
+teams) and `data/teams/cbb_teams.json` (1,460), built by
+`scripts/build_team_registry.py` from ESPN's full team list + CFBD's /
+CBBD's `/teams`, plus hand-maintained `data/teams/<sport>_overrides.json`.
+The ONLY source of truth for "which school is this?" - read by
+`core/teams.py` (CFBD/CBBD ingestion, backtest, havoc ratings, the
+`team_norm.py` wrappers kept for old call sites) and by its JS twin
+`live/team_registry.js` (bundled into the live Worker at deploy time).
+Built after the 2026-10-19 incident (§8), on the user's explicit ask to
+make team identity bulletproof before the full launch.
+
+**ID space (verified against real data 2026-10-19):** football registry
+IDs ARE CFBD's team IDs, which are the same numbers ESPN's scoreboard
+uses on every real game (Colorado 38, Ole Miss 145, Utah 254...). ESPN's
+own `/teams` LIST has a few stale IDs (Charlotte 3253 / Troy 3237 there,
+2429 / 2653 on every real scoreboard and in CFBD) - kept as alternate IDs
+so both resolve. Basketball registry IDs are ESPN's; CBBD's own `id` is a
+different number, and its `sourceId` is ESPN's (360/362 D-I match).
+ESPN football vs basketball IDs for the same school mostly agree but NOT
+always (Charlotte, Troy, LIU, West Florida differ) - hence one registry
+per sport, never shared.
+
+**Resolution order** (identical in Python and JS, proven by a parity
+test over every alias - 11,498 inputs at build time): vendor ID ->
+exact folded alias (case/diacritics/punctuation-insensitive; every
+spelling both vendors use, abbreviations, "School Mascot" combos,
+legacy variants) -> school-prefix + close match to THAT school's mascot
+(catches typos like BBS's "Golde Lions"; never "Texas" + someone else's
+mascot) -> a few conservative rewrites ("... University", "... St",
+trailing state code) that may NEVER land on an FBS/FCS/D-I team (real
+catch: "Louisiana College" would otherwise have become the Ragin'
+Cajuns). Anything else is `None` - callers treat that as loud, never
+keep a guess.
+
+**Name stability:** a team's canonical `name` is what stored data is
+keyed by. Precedence: overrides `names` > previous build's name for that
+ID > the pre-registry NORM table's choice ("Mississippi", "Central
+Florida", "Nevada-Las Vegas", "UT San Antonio", "San José State",
+"Miami (Ohio)"...) > the vendor's school name. A rebuild can add teams
+and spellings but can never silently rename one. Aliases two schools
+both claim are resolved by tier (a real name beats an abbreviation),
+then by a single higher-division claimant, else dropped from the index
+and listed in `ambiguous_aliases` (8 tiny-school abbreviations in CFB).
+
+**Where IDs live now:** `winner_id`/`loser_id` on raw games,
+`team_id`/`opponent_id` on matchups, `team_id` on every ranking slot and
+lineage entry + `winner_id`/`loser_id` on events + a top-level
+`team_ids` map in season_history.json, `home_id`/`away_id` on every live
+game. All 2021-2026 CFB data was back-filled by
+`scripts/migrate_team_ids.py` (verified additive-only: every changed
+file equals its previous version with the ID fields removed). 54 raw
+small-college names from 2021-2025 (CFBD's game feed spelled them
+loosely, e.g. "St. Xavier IL") keep a null ID - none ever touched the
+rankings, and new ingestion resolves by ID so this can't recur.
+
+**Guard rails:**
+- `scripts/backtest.py` refuses to write season_history.json if any
+  ranked/lineage/event name isn't a canonical registry name (so an
+  unresolvable team can't enter the rankings under a raw spelling).
+- `tests/test_team_registry.py`: registry consistency, every vendor ID
+  and own spelling resolves, 46 known traps (Miami/Miami (Ohio), Texas/
+  Texas A&M, Louisiana vs "Louisiana College", "Texas Wildcats" -> None,
+  Charlotte's stale ID...), pinned names hold, every stored ranking/poll/
+  matchup name is canonical, every stored ID agrees with its name, and
+  Python<->JS parity.
+- `tests/test_live_worker.mjs`: runs the real `pollAndCache()` against
+  captured real ESPN data + the actual corrupted 2026-10-19 KV payload;
+  asserts real opponents, IDs on every side, one poll heals the
+  corruption, admin-only fields stripped from `/live`.
+- `.github/workflows/tests.yml` runs both on every push; the Sunday
+  season job refreshes the registry before fetching and validates after
+  committing (a failure emails the owner); `refresh-team-registry.yml`
+  rebuilds weekly and commits only if the suite passes.
+- Live Worker: unknown teams publish with ESPN's school-only `location`
+  as the display name but a NULL id (can never match a ranked team or a
+  schedule entry by accident), and are recorded in KV
+  `live_payload.unresolved_names` (same write as the payload - zero
+  extra KV writes; stripped from public `/live`). A record where both
+  sides resolve to the same school is dropped as corrupt.
+- Admin portal -> **Team Names** tab (`/api/team-health`, session-gated,
+  read-only `LIVE_KV` binding on the admin Worker): registry stats,
+  unresolved live names with counts/first/last seen, and a warning when
+  the live Worker's bundled registry is older than the repo's (live
+  `/health` reports `registry_generated_at`).
+
+**Fixing an unresolved name:** add it under the team's ID in
+`data/teams/<sport>_overrides.json` -> `aliases`, run
+`python scripts/build_team_registry.py --sport <sport>` and
+`python tests/test_team_registry.py`, commit, then `cd live && npx
+wrangler deploy` (the Worker only picks up registry changes on deploy).
+
+**Also fixed while building this:** `sports/cbb/fetch_results.py`'s
+preseason-poll parser assumed CFBD's nested rankings shape; real CBBD
+returns a flat list (`pollType`/`ranking`/`teamId`) with unranked
+"receiving votes" rows (`ranking: null`) - it could never have found a
+poll. Verified against the real 2026 CBB preseason AP poll (Purdue,
+Houston, Florida, Connecticut, St. John's...) and 413 real week-1 games,
+all resolved by ID.

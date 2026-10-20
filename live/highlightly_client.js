@@ -26,7 +26,7 @@
  *     - confirmed real examples: "Auburn Tigers", "Southern Miss Golden
  *     Eagles", "Ole Miss Rebels", "Charlotte 49ers", "LSU Tigers",
  *     "Louisiana Tech Bulldogs". Same convention as BBS -
- *     resolveBbsTeamName()/norm() work completely unchanged (the "Ole
+ *     team resolution (the team registry since 2026-10-19) works unchanged (the "Ole
  *     Miss" -> "Mississippi" NORM entry already covers the one variant
  *     seen).
  *   - `state.description` for a pregame game is the string `"Scheduled"`

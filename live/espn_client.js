@@ -62,7 +62,8 @@
  *   - Team names (`team.displayName`) are already "School Mascot" format
  *     confirmed identical to BBS/Highlightly's convention (e.g. "Rutgers
  *     Scarlet Knights", "Arkansas Razorbacks", "Georgia Bulldogs") -
- *     resolveBbsTeamName()/norm() work completely unchanged, zero new
+ *     team resolution (originally resolveBbsTeamName()/norm(), the team
+ *     registry since 2026-10-19 - by ESPN team id first) needed zero new
  *     NORM entries needed.
  *   - `situation.possession` (a team id string, e.g. "2567") is real and
  *     present on live games - more than BBS ever exposed - but not
@@ -191,6 +192,14 @@ export function parseEspnMatch(event) {
     id: event.id != null ? `espn:${event.id}` : null,
     home_name_raw: home?.team?.displayName ?? null,
     away_name_raw: away?.team?.displayName ?? null,
+    // ESPN's team id is CFBD's team id for every real game (verified
+    // 2026-10-19) - worker.js resolves by it before ever looking at a
+    // name. `location` is the school-only name, used only as the display
+    // fallback for a team the registry doesn't know yet.
+    home_espn_id: home?.team?.id ?? null,
+    away_espn_id: away?.team?.id ?? null,
+    home_location: home?.team?.location ?? null,
+    away_location: away?.team?.location ?? null,
     kickoff_utc: comp?.date ?? event.date ?? null,
     status,
     raw_status: statusType?.description ?? statusType?.name ?? null,

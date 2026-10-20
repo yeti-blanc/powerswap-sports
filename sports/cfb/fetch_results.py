@@ -35,7 +35,7 @@ except ImportError:
 
 sys.path.insert(0, str(Path(__file__).parent))
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))  # repo root, for core/
-from team_norm import normalize_team_list, normalize_games
+from team_norm import norm, normalize_games
 import config as cfb_config
 
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "cfb" / "seasons"
@@ -66,10 +66,12 @@ def fetch_preseason_poll(season: int) -> list[str]:
         for poll in week_block.get("polls", []):
             if poll.get("poll") == cfb_config.POLL_NAME:
                 ranks = sorted(poll["ranks"], key=lambda r: r["rank"])
-                teams = [r["school"] for r in ranks[:25]]
+                # By CFBD teamId first (the registry's own ID space), name
+                # only as a fallback - see core/teams.py.
+                teams = [norm(r["school"], r.get("teamId")) for r in ranks[:25]]
                 if len(teams) < 25:
                     print(f"WARNING: only found {len(teams)} ranked teams, expected 25")
-                return normalize_team_list(teams)
+                return teams
 
     raise RuntimeError(
         f"Could not find an AP Top 25 preseason poll for {season}. "
@@ -78,8 +80,13 @@ def fetch_preseason_poll(season: int) -> list[str]:
     )
 
 
+def _result(winner: dict, loser: dict) -> dict:
+    return {"winner": winner["name"], "loser": loser["name"],
+            "winner_vendor_id": winner["vendor_id"], "loser_vendor_id": loser["vendor_id"]}
+
+
 def fetch_week_games(season: int, week: int) -> list[dict]:
-    """list of {"winner": str, "loser": str} for every completed FBS game."""
+    """list of {"winner", "loser", "winner_id", "loser_id"} for every completed FBS game."""
     games = cfbd_get("/games", {
         "year": season, "week": week, "seasonType": "regular",
         "division": cfb_config.DIVISION_FILTER,
@@ -93,10 +100,14 @@ def fetch_week_games(season: int, week: int) -> list[dict]:
         if home_pts is None or away_pts is None:
             continue  # not yet played
 
+        # CFBD's team IDs ride along so normalize_games() resolves by ID
+        # (never ambiguous, never misspelled) and stores winner_id/loser_id.
+        home = {"name": home_team, "vendor_id": g.get("homeId")}
+        away = {"name": away_team, "vendor_id": g.get("awayId")}
         if home_pts > away_pts:
-            results.append({"winner": home_team, "loser": away_team})
+            results.append(_result(home, away))
         elif away_pts > home_pts:
-            results.append({"winner": away_team, "loser": home_team})
+            results.append(_result(away, home))
 
     return normalize_games(results)
 
@@ -131,10 +142,12 @@ def fetch_postseason_games(season: int) -> list[dict]:
         if home_pts is None or away_pts is None:
             continue
 
+        home = {"name": home_team, "vendor_id": g.get("homeId")}
+        away = {"name": away_team, "vendor_id": g.get("awayId")}
         if home_pts > away_pts:
-            results.append({"winner": home_team, "loser": away_team, "date": game_date})
+            results.append({**_result(home, away), "date": game_date})
         elif away_pts > home_pts:
-            results.append({"winner": away_team, "loser": home_team, "date": game_date})
+            results.append({**_result(away, home), "date": game_date})
 
     results.sort(key=lambda r: r["date"])
     return normalize_games(results)

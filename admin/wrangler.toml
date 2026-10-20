@@ -3,7 +3,12 @@ main = "worker.js"
 compatibility_date = "2026-09-01"
 
 kv_namespaces = [
-  { binding = "ADMIN_KV", id = "f44d3d06a05f4e18a970a72694142b84" }
+  { binding = "ADMIN_KV", id = "f44d3d06a05f4e18a970a72694142b84" },
+  # The live-scores Worker's namespace, READ-ONLY by convention (only
+  # handleTeamHealth() touches it, only via .get) - lets the authenticated
+  # admin portal see the admin-only `unresolved_names` the public /live
+  # response strips (PROJECT_BIBLE.md §4 rule 5).
+  { binding = "LIVE_KV", id = "55f3c6dc817145c58d216e9d0364e3cf" }
 ]
 
 # Non-secret config. Everything else the Worker needs (ADMIN_PASSWORD_HASH,

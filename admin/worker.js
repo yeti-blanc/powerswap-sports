@@ -598,6 +598,56 @@ async function handleRecomputeStatus(request, env) {
   return json({ status: "done", snapshot });
 }
 
+// Team-name health (2026-10-19): what the team registry knows
+// (data/teams/<sport>_teams.json, read from GitHub raw like every other
+// repo file here), which raw team names the live feed has seen that the
+// registry can't place (LIVE_KV live_payload.unresolved_names - stripped
+// from the public /live response), and whether the live Worker's
+// BUNDLED registry copy is older than the repo's (it only refreshes on
+// `wrangler deploy` from live/).
+const REPO_RAW_BASE = "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main";
+const LIVE_HEALTH_URL = "https://powerswap-live-scores.yeti-f3c.workers.dev/health";
+
+async function registrySummary(sport) {
+  const resp = await fetch(`${REPO_RAW_BASE}/data/teams/${sport}_teams.json`, { cf: { cacheTtl: 300 } });
+  if (!resp.ok) return { sport, error: `GitHub raw returned ${resp.status}` };
+  const data = await resp.json();
+  return {
+    sport,
+    generated_at: data.generated_at,
+    teams: Object.keys(data.teams).length,
+    aliases: Object.keys(data.alias_index).length,
+    ambiguous_aliases: Object.keys(data.ambiguous_aliases ?? {}).length,
+    source_counts: data.source_counts,
+  };
+}
+
+async function handleTeamHealth(request, env) {
+  if (!(await validateSession(env, request))) return unauthorized();
+  const [cfb, cbb, liveRaw, liveHealth] = await Promise.all([
+    registrySummary("cfb").catch((err) => ({ sport: "cfb", error: err.message })),
+    registrySummary("cbb").catch((err) => ({ sport: "cbb", error: err.message })),
+    env.LIVE_KV.get("live_payload"),
+    fetch(LIVE_HEALTH_URL).then((r) => r.json()).catch(() => null),
+  ]);
+  const live = liveRaw ? JSON.parse(liveRaw) : {};
+  const unresolved = Object.entries(live.unresolved_names ?? {})
+    .map(([name, info]) => ({ name, ...info }))
+    .sort((a, b) => (b.last_seen ?? "").localeCompare(a.last_seen ?? ""));
+  const liveRegistryAt = liveHealth?.registry_generated_at ?? null;
+  return json({
+    registries: [cfb, cbb],
+    live: {
+      updated_at: live.updated_at ?? null,
+      games: (live.games ?? []).length,
+      games_missing_ids: (live.games ?? []).filter((g) => !g.home_id || !g.away_id).length,
+      registry_generated_at: liveRegistryAt,
+      registry_stale: Boolean(liveRegistryAt && cfb.generated_at && liveRegistryAt < cfb.generated_at),
+    },
+    unresolved,
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -612,6 +662,7 @@ export default {
       if (url.pathname === "/api/digest" && request.method === "GET") return handleDigest(request, env);
       if (url.pathname === "/api/recompute" && request.method === "POST") return handleRecompute(request, env);
       if (url.pathname === "/api/recompute-status" && request.method === "GET") return handleRecomputeStatus(request, env);
+      if (url.pathname === "/api/team-health" && request.method === "GET") return handleTeamHealth(request, env);
     } catch (err) {
       console.error("Unhandled error:", err.stack ?? err.message);
       return json({ error: "Internal error" }, 500);

@@ -281,8 +281,9 @@ on this GitHub-linked account) - no recurring cost for this layer either.
   `live/wrangler.toml`, deliberately not the dashboard) for games
   involving currently-ranked teams only, filtered by reading the latest
   snapshot from `data/cfb/seasons/<year>/season_history.json` and
-  matching BBS's team names against it via `live/team_norm.js` (a JS port
-  of `sports/cfb/team_norm.py`'s normalization). Publishes one
+  resolving every team through the shared team registry
+  (`data/teams/cfb_teams.json`, read by `live/team_registry.js` - see
+  PROJECT_BIBLE.md §13), by ESPN team ID first. Publishes one
   consolidated payload to Cloudflare KV.
 - The site (`site/app.js`) polls that Worker's `/live` endpoint every 45s
   and renders an inline `● LIVE score vs opponent` / `FINAL score`

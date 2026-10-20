@@ -29,7 +29,7 @@ import urllib.request
 import urllib.error
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from sports.cfb.team_norm import norm  # noqa: E402
+from core.teams import load_registry  # noqa: E402
 from live.bbs_config import BASE_URL, SPORT, LEAGUE, MATCHES_PATH  # noqa: E402
 
 RANKED_TEAMS_URL = (
@@ -79,16 +79,12 @@ def fetch_ranked_teams():
 
 
 def resolve_bbs_name(bbs_name, ranked_teams):
-    # Same "school name is a leading prefix of School Mascot" heuristic as
-    # live/team_norm.js's resolveBbsTeamName - see that file for the real
-    # examples this was confirmed against. Kept intentionally simple/dumb
-    # here since this script is a diagnostic tool, not production logic.
-    folded = bbs_name.lower()
-    for canonical in ranked_teams:
-        if folded == canonical.lower() or folded.startswith(canonical.lower() + " "):
-            return canonical
-    return None
-
+    # Same team registry the Worker uses (data/teams/cfb_teams.json via
+    # core/teams.py <-> live/team_registry.js), then filtered to ranked.
+    reg = load_registry("cfb")
+    tid = reg.resolve(bbs_name)
+    name = reg.name(tid) if tid else None
+    return name if name in ranked_teams else None
 
 def cmd_diagnose(args):
     env = load_env()

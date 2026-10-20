@@ -36,7 +36,7 @@ except ImportError:
     sys.exit(1)
 
 sys.path.insert(0, str(Path(__file__).parent))
-from team_norm import normalize_team_list, normalize_games
+from team_norm import norm, normalize_games
 import config as cbb_config
 
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "cbb" / "seasons"
@@ -67,14 +67,23 @@ def fetch_preseason_poll(season: int) -> list[str]:
     """
     data = cbbd_get("/rankings", {"season": season, "seasonType": "regular", "week": 1})
 
-    for week_block in data:
-        for poll in week_block.get("polls", []):
-            if poll.get("poll") == cbb_config.POLL_NAME:
-                ranks = sorted(poll["ranks"], key=lambda r: r["rank"])
-                teams = [r["school"] for r in ranks[:25]]
-                if len(teams) < 25:
-                    print(f"WARNING: only found {len(teams)} ranked teams, expected 25")
-                return normalize_team_list(teams)
+    # Real CBBD shape (verified 2026-10-19 against season 2026): a FLAT
+    # list of {pollType, ranking, teamId, team, ...} rows - NOT CFBD's
+    # nested week -> polls -> ranks shape this originally assumed, which
+    # could never have matched. Nested shape still accepted defensively.
+    # ranking is None for "others receiving votes" rows - not ranked.
+    rows = [r for r in data if r.get("pollType") == cbb_config.POLL_NAME and r.get("ranking") is not None]
+    if not rows:
+        rows = [{"ranking": r["rank"], "teamId": r.get("teamId"), "team": r["school"]}
+                for week_block in data for poll in week_block.get("polls", [])
+                if poll.get("poll") == cbb_config.POLL_NAME for r in poll["ranks"]]
+    if rows:
+        ranks = sorted(rows, key=lambda r: r["ranking"])
+        # CBBD's own teamId (registry key "cbbd:<id>"), name as fallback.
+        teams = [norm(r["team"], r.get("teamId")) for r in ranks[:25]]
+        if len(teams) < 25:
+            print(f"WARNING: only found {len(teams)} ranked teams, expected 25")
+        return teams
 
     raise RuntimeError(
         f"Could not find an AP Top 25 preseason poll for {season} in the CBBD "
@@ -119,10 +128,13 @@ def fetch_week_games(season: int, week_number: int, season_start_date: date) -> 
         if home_pts is None or away_pts is None:
             continue  # not yet played
 
+        home_id, away_id = g.get("homeTeamId"), g.get("awayTeamId")
         if home_pts > away_pts:
-            results.append({"winner": home_team, "loser": away_team, "date": game_date})
+            results.append({"winner": home_team, "loser": away_team, "date": game_date,
+                            "winner_vendor_id": home_id, "loser_vendor_id": away_id})
         elif away_pts > home_pts:
-            results.append({"winner": away_team, "loser": home_team, "date": game_date})
+            results.append({"winner": away_team, "loser": home_team, "date": game_date,
+                            "winner_vendor_id": away_id, "loser_vendor_id": home_id})
 
     # Critical: sort chronologically. Multiple games for the same team in
     # one calendar week MUST be processed in the order they actually

@@ -105,59 +105,20 @@
  * middle of a real Saturday slate matters to the achievable live cadence.
  */
 
-import { norm, resolveBbsTeamName } from "./team_norm.js";
+import { createTeamRegistry } from "./team_registry.js";
+import cfbTeamsData from "../data/teams/cfb_teams.json" with { type: "json" };
 import { fetchBbsMatches, fetchLegacyMatches, parseBbsMatch, utcDateString } from "./bbs_client.js";
 import { fetchHighlightlyMatches, parseHighlightlyMatch } from "./highlightly_client.js";
 import { fetchEspnMatches, parseEspnMatch, easternDateOf, easternDateString } from "./espn_client.js";
 
+// Bundled at deploy time (wrangler JSON import): the same generated
+// registry the Python pipeline uses - see team_registry.js / core/teams.py.
+// A team added to the registry after the last deploy still shows by its
+// ESPN school name, just without an id until the next `wrangler deploy`.
+const TEAMS = createTeamRegistry(cfbTeamsData);
+
 const RANKED_TEAMS_URL =
   "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/season_history.json";
-
-// Used ONLY for clean opponent naming (see MASCOT-FREE NAMING below) - a
-// free GitHub-raw fetch, doesn't touch BBS's quota. Not used for polling
-// decisions of any kind (that architecture was deliberately removed - see
-// the file header above).
-//
-// Bug fixed 2026-09-11: this used to be a single hardcoded
-// WEEK1_MATCHUPS_URL, always. That was correct only while week 1 was the
-// only week with games - the instant week 2 started (Miami vs Florida
-// A&M, an unranked opponent), the fallback kept reaching for week 1's
-// file and returned Miami's WEEK 1 opponent ("Stanford") instead, with
-// the real live score attached to the wrong name. getCurrentWeekUrl()
-// below picks whichever week's matchups file actually matches the week
-// that's live right now, the same "latest real snapshot + 1" logic
-// site/app.js already uses for its own preview-week display.
-const WEEK1_MATCHUPS_URL =
-  "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/week1_matchups.json";
-const RAW_DATA_BASE_URL =
-  "https://raw.githubusercontent.com/yeti-blanc/powerswap-sports/main/data/cfb/seasons/2026/raw";
-
-// season_history.json's snapshots are keyed by the week each ranking
-// GOVERNS, not the week whose games produced it (backtest.py labels the
-// ranking produced by week N's results "week{N+1}" - see PROJECT_BIBLE.md
-// §12) - so the latest snapshot's own week number IS the week that's
-// actually being PLAYED right now (where live games and unranked
-// opponents show up), no "+1" needed. Falls back to week 1 if the season
-// has no real snapshot yet. Mirrors site/app.js's getLiveWeekKey().
-export function getCurrentWeekNumber(seasonData) {
-  const snapshots = seasonData?.snapshots ?? [];
-  const realWeekNums = snapshots
-    .map((s) => /^week(\d+)$/.exec(s.week || ""))
-    .filter(Boolean)
-    .map((m) => parseInt(m[1], 10));
-  const latestRealWeek = realWeekNums.length ? Math.max(...realWeekNums) : null;
-  return latestRealWeek !== null ? latestRealWeek : 1;
-}
-
-// Week 1 keeps using the legacy top-level file (fetch_week1_matchups.py's
-// output, unchanged - live games already relied on this exact URL). Week
-// 2 onward uses fetch_week_matchups.py's generalized per-week file (see
-// admin/BUILD_LOG.md's 2026-09-08 entry) - this Worker just never looked
-// at it until now.
-export function getCurrentWeekMatchupsUrl(weekNum) {
-  if (weekNum <= 1) return WEEK1_MATCHUPS_URL;
-  return `${RAW_DATA_BASE_URL}/week_${String(weekNum).padStart(2, "0")}_matchups.json`;
-}
 
 const LIVE_KV_KEY = "live_payload";
 // Real incident 2026-09-12: needsYesterdayQuery() only queries yesterday
@@ -369,7 +330,8 @@ export default {
     };
 
     if (url.pathname === "/live") {
-      // `data_source` (bbs_stored/bbs_legacy/highlightly) stays in the KV
+      // `data_source` (bbs_stored/bbs_legacy/highlightly) and the
+      // admin-only `unresolved_names` map stay in the KV
       // payload for internal debugging (visible via `wrangler tail` /
       // direct KV inspection) but is stripped here - this is the exact
       // URL the public site's own JS fetches directly (Bird Feeder: no
@@ -378,15 +340,21 @@ export default {
       // on the page." See admin/BUILD_LOG.md for why this was added.
       const cached = await env.LIVE_KV.get(LIVE_KV_KEY);
       const payload = cached ? JSON.parse(cached) : { updated_at: null, games: [] };
+      const { unresolved_names, ...rest } = payload;
       const publicPayload = {
-        ...payload,
-        games: payload.games.map(({ data_source, ...rest }) => rest),
+        ...rest,
+        games: payload.games.map(({ data_source, ...game }) => game),
       };
       return new Response(JSON.stringify(publicPayload), { headers: corsHeaders });
     }
 
     if (url.pathname === "/health") {
-      return new Response(JSON.stringify({ ok: true }), { headers: corsHeaders });
+      // registry_generated_at: which team-registry build is bundled into
+      // this deploy - the admin portal compares it to the repo's to flag
+      // a needed redeploy. Public and harmless (a timestamp).
+      return new Response(JSON.stringify({ ok: true, registry_generated_at: cfbTeamsData.generated_at }), {
+        headers: corsHeaders,
+      });
     }
 
     return new Response("Not found", { status: 404 });
@@ -438,7 +406,7 @@ async function isLiveWindow(env) {
   return previous.games.some((g) => g.status === "in_progress");
 }
 
-async function pollAndCache(env) {
+export async function pollAndCache(env) {
   const seasonData = await getSeasonData(env);
   const rankedTeams = getCurrentRankedTeams(seasonData);
   if (rankedTeams.length === 0) {
@@ -556,9 +524,8 @@ async function pollAndCache(env) {
     await env.LIVE_KV.put(YESTERDAY_SWEEP_KEY, today);
   }
 
-  const currentWeekNumber = getCurrentWeekNumber(seasonData);
-  const currentWeekOpponents = await getCurrentWeekOpponents(env, currentWeekNumber);
-  const rankedSet = new Set(rankedTeams);
+  const rankedIds = getCurrentRankedIds(seasonData);
+  const unresolved = new Map(Object.entries(previous.unresolved_names ?? {}));
 
   // Keyed by gameIdentityKey(), not pushed to a flat array: BBS's own
   // stored data carries real duplicate/near-duplicate records for the
@@ -571,45 +538,38 @@ async function pollAndCache(env) {
   for (const raw of rawMatches) {
     // parseMatch() normalizes whichever source answered this tick into a
     // common {home_name_raw, away_name_raw, ...} shape first (see
-    // bbs_client.js / highlightly_client.js), so team-name resolution
-    // below is source-agnostic - it never reads BBS's raw.home?.name
-    // shape directly.
+    // bbs_client.js / highlightly_client.js / espn_client.js), so team
+    // resolution below is source-agnostic.
     const parsed = parseMatch(raw);
-    const homeCanonical = resolveBbsTeamName(parsed.home_name_raw, rankedTeams);
-    const awayCanonical = resolveBbsTeamName(parsed.away_name_raw, rankedTeams);
-    if (!homeCanonical && !awayCanonical) continue;
+    const home = resolveSide(parsed.home_espn_id, parsed.home_name_raw, parsed.home_location);
+    const away = resolveSide(parsed.away_espn_id, parsed.away_name_raw, parsed.away_location);
+    if (!rankedIds.has(home.id) && !rankedIds.has(away.id)) continue;
+    for (const side of [home, away]) {
+      if (!side.id && side.raw) noteUnresolved(unresolved, side.raw, dataSource);
+    }
+    // Both sides resolving to the same school can only be a corrupt
+    // vendor record - never publish it.
+    if (home.id && home.id === away.id) {
+      console.error(`Dropped self-matchup record ${parsed.id}: ${parsed.home_name_raw} vs ${parsed.away_name_raw}`);
+      continue;
+    }
 
     const game = {
       id: parsed.id,
       data_source: dataSource,
-      // MASCOT-FREE NAMING (2026-09-06, fixed 2026-09-08 to use the
-      // actually-live week's file instead of always week 1's): a ranked
-      // opponent already comes out clean via resolveBbsTeamName (matches
-      // season_history.json's school-only names). An UNRANKED opponent
-      // has no such match, so it used to fall straight through to BBS's
-      // raw "School Mascot" name (e.g. "East Carolina Pirates") -
-      // confirmed live. BBS's own `short_name` field is NOT a safe
-      // substitute (confirmed via a real call: it's sometimes an
-      // abbreviation like "UTU" for Utah Tech, not a clean full name).
-      // Instead, since the OTHER side of this game is always a ranked
-      // team once we're in this loop, we already know that ranked team's
-      // real CURRENT-WEEK opponent from CFBD (clean, no mascot) via
-      // getCurrentWeekOpponents() - use that name instead of guessing at
-      // BBS's raw one. Falls back to the raw BBS name if that week has no
-      // matchups file yet.
-      //
-      // Bug fixed 2026-10-19: the current-week name used to be applied
-      // UNCONDITIONALLY, without checking that this game actually IS the
-      // current-week game. The moment Sunday's auto-populate published
-      // week 8's matchups, the still-fetched week 7 finals got relabeled
-      // with week 8 opponents (real: Utah's 27-24 win at Colorado became
-      // "Utah beat #2 Houston 27-24", Michigan 21-18 over Penn State
-      // became "over #6 Indiana") - wrong Final badges on the site and
-      // fake HAVOC upsets. Now the substitute name is only used when the
-      // raw vendor name actually resolves to it (confirmed against every
-      // real week 8 ESPN name, incl. "UCF Knights" -> "Central Florida").
-      home_team: homeCanonical ?? confirmedOpponentName(parsed.home_name_raw, currentWeekOpponents.get(awayCanonical)),
-      away_team: awayCanonical ?? confirmedOpponentName(parsed.away_name_raw, currentWeekOpponents.get(homeCanonical)),
+      // TEAM REGISTRY NAMING (2026-10-19, replaces MASCOT-FREE NAMING):
+      // every side - ranked or not - comes straight from
+      // data/teams/cfb_teams.json, by ESPN team ID when the source gives
+      // one, else by the vendor's own spelling (see team_registry.js).
+      // The old scheme only knew the ~25 ranked names and borrowed an
+      // unranked opponent's name from the CURRENT week's schedule, which
+      // relabeled last week's finals with this week's opponents (Utah's
+      // win at Colorado showed as a final vs #2 Houston - PROJECT_BIBLE.md
+      // §8, 2026-10-19). Nothing here reads the schedule any more.
+      home_team: home.name,
+      away_team: away.name,
+      home_id: home.id,
+      away_id: away.id,
       home_score: parsed.home_score,
       away_score: parsed.away_score,
       status: parsed.status,
@@ -620,7 +580,7 @@ async function pollAndCache(env) {
       kickoff_utc: parsed.kickoff_utc,
     };
 
-    const key = gameIdentityKey(game, rankedSet);
+    const key = gameIdentityKey(game, rankedIds);
     const existing = freshByKey.get(key);
     if (!existing || (STATUS_PRIORITY[game.status] ?? 0) >= (STATUS_PRIORITY[existing.status] ?? 0)) {
       freshByKey.set(key, game);
@@ -628,13 +588,51 @@ async function pollAndCache(env) {
   }
   const freshGames = [...freshByKey.values()];
 
-  const mergedGames = mergeGames(freshGames, previous.games, rankedSet);
+  const mergedGames = mergeGames(freshGames, previous.games, rankedIds);
 
+  // `unresolved_names` rides along in the SAME write (KV's free tier is
+  // 1,000 writes/day and DUAL-CADENCE's budget is tight - see
+  // wrangler.toml) and is stripped from the public /live response, same
+  // as data_source (PROJECT_BIBLE.md §4 rule 5). The admin portal reads it
+  // straight from KV (admin/worker.js, read-only LIVE_KV binding).
   await env.LIVE_KV.put(
     LIVE_KV_KEY,
-    JSON.stringify({ updated_at: new Date().toISOString(), games: mergedGames }),
+    JSON.stringify({
+      updated_at: new Date().toISOString(),
+      games: mergedGames,
+      unresolved_names: Object.fromEntries(pruneUnresolved(unresolved)),
+    }),
     { expirationTtl: KV_TTL_SECONDS }
   );
+}
+
+// One side of a vendor game -> {id, name, raw}. Registry ID by ESPN team
+// ID first (never ambiguous), then by the vendor's spelling. An unknown
+// team keeps a readable name - ESPN's own `location` field (school only,
+// no mascot) when present, else the raw string - but a null id, so it
+// can never match a ranked team or a schedule entry by accident.
+export function resolveSide(espnId, rawName, location) {
+  const id = TEAMS.resolveId("espn", espnId) ?? TEAMS.resolve(rawName);
+  if (id) return { id, name: TEAMS.name(id), raw: rawName };
+  return { id: null, name: (location || rawName || "").trim(), raw: rawName };
+}
+
+const UNRESOLVED_KEEP_DAYS = 14;
+
+function noteUnresolved(unresolved, rawName, source) {
+  const prev = unresolved.get(rawName);
+  if (!prev) console.warn(`UNRESOLVED TEAM NAME from ${source}: ${JSON.stringify(rawName)} - add it to data/teams/cfb_overrides.json`);
+  unresolved.set(rawName, {
+    source,
+    count: (prev?.count ?? 0) + 1,
+    first_seen: prev?.first_seen ?? new Date().toISOString(),
+    last_seen: new Date().toISOString(),
+  });
+}
+
+function pruneUnresolved(unresolved) {
+  const cutoff = Date.now() - UNRESOLVED_KEEP_DAYS * 86400000;
+  return [...unresolved].filter(([name, info]) => Date.parse(info.last_seen) >= cutoff && TEAMS.resolve(name) == null);
 }
 
 // Self-limiting gate for fetchBbsMatches()'s "yesterday" query - see the
@@ -689,79 +687,52 @@ async function getPreviousPayload(env) {
 // record still says.
 const STATUS_PRIORITY = { finished: 3, in_progress: 2, scheduled: 1, unknown: 0 };
 
-// Identity is anchored to whichever side is a CURRENTLY-ranked team, not
-// the raw team-name pair. Bug found and fixed same-day: keying by the raw
-// pair broke the instant an unranked opponent's displayed name changed
-// (e.g. the mascot-stripping fix below) - the old ("BYU Cougars" era)
-// and new ("BYU"/"Utah Tech") records no longer matched, so the "merge"
-// treated them as two different games and kept both, doubling the
-// payload. A ranked team's own canonical name never changes between
-// polls, so keying on it (both sides, sorted, for the rare ranked-vs-
-// ranked case) is stable regardless of how the OTHER side's name is
-// computed.
-export function gameIdentityKey(game, rankedSet) {
-  const rankedSides = [game.home_team, game.away_team].filter((t) => rankedSet.has(t)).sort();
-  return (rankedSides.length > 0 ? rankedSides : [game.home_team, game.away_team].sort()).join("|");
+// Identity is anchored to whichever side is a CURRENTLY-ranked team,
+// never the raw pair: an unranked opponent's displayed name can change
+// between polls (it did, repeatedly, under the pre-registry naming), but a
+// ranked team's registry ID can't. Both ranked sides, sorted, for the rare
+// ranked-vs-ranked case. Keyed by registry ID since 2026-10-19; games
+// retained from before then carry names only, so their IDs are looked up
+// from the canonical name (identical result for the same team).
+function sideIds(game) {
+  return [
+    game.home_id ?? TEAMS.idForName(game.home_team) ?? `name:${game.home_team}`,
+    game.away_id ?? TEAMS.idForName(game.away_team) ?? `name:${game.away_team}`,
+  ];
+}
+
+export function gameIdentityKey(game, rankedIds) {
+  const ids = sideIds(game);
+  const rankedSides = ids.filter((id) => rankedIds.has(id)).sort();
+  return (rankedSides.length > 0 ? rankedSides : ids.sort()).join("|");
 }
 
 // Fresh fetch results always win (they're the latest known state for
-// anything still inside BBS's queried date range). Games from the
-// previous payload are kept PERMANENTLY - no time-based expiry - as long
-// as the fresh fetch doesn't already have a newer entry for the same
-// ranked team (see gameIdentityKey()). A team's next real game can only
-// enter the fresh fetch once it's actually within BBS's 2-day window,
-// i.e. once it's genuinely about to happen or has happened, so this can
-// never show a future week's result early - it only ever replaces one
-// finished/in-progress entry with a newer one for the same team.
+// anything still inside the queried date range). Games from the previous
+// payload are kept PERMANENTLY - no time-based expiry - as long as the
+// fresh fetch doesn't already have a newer entry for the same ranked team
+// (see gameIdentityKey()). A team's next real game can only enter the
+// fresh fetch once it's actually within the queried window, i.e. once
+// it's genuinely about to happen or has happened, so this can never show
+// a future week's result early.
 //
 // A retained game whose vendor `id` matches a fresh one is the same real
 // game and is always superseded too (added 2026-10-19) - otherwise a game
-// whose team naming changed between polls (e.g. the mislabeling bug
-// fixed in pollAndCache()) lingers forever as a second copy under a
-// different identity key.
-export function mergeGames(freshGames, previousGames, rankedSet) {
-  const freshKeys = new Set(freshGames.map((g) => gameIdentityKey(g, rankedSet)));
+// whose team naming changed between polls lingers forever as a second
+// copy under a different identity key.
+export function mergeGames(freshGames, previousGames, rankedIds) {
+  const freshKeys = new Set(freshGames.map((g) => gameIdentityKey(g, rankedIds)));
   const freshIds = new Set(freshGames.map((g) => g.id).filter(Boolean));
   const retained = (previousGames ?? []).filter(
-    (g) => !freshKeys.has(gameIdentityKey(g, rankedSet)) && !(g.id && freshIds.has(g.id))
+    (g) => !freshKeys.has(gameIdentityKey(g, rankedIds)) && !(g.id && freshIds.has(g.id))
   );
   return [...freshGames, ...retained];
 }
 
-// The ranked side's current-week opponent name, but only if the vendor's
-// raw name really is that team - see the MASCOT-FREE NAMING comment in
-// pollAndCache(). Anything else (a previous week's opponent still in the
-// fetch window) keeps its own normalized raw name.
-export function confirmedOpponentName(rawName, expectedOpponent) {
-  if (expectedOpponent && resolveBbsTeamName(rawName, [expectedOpponent])) return expectedOpponent;
-  return norm(rawName ?? "");
-}
-
-// Canonical ranked-team name -> their real CURRENT-WEEK opponent's clean
-// name (CFBD-sourced, no mascot - see fetch_week1_matchups.py /
-// fetch_week_matchups.py). Used only for display naming, never for
-// polling decisions. weekNum picks the file (see getCurrentWeekNumber()/
-// getCurrentWeekMatchupsUrl() above) - fixed 2026-09-11, this used to
-// always read week 1's file regardless of which week was actually live.
-async function getCurrentWeekOpponents(env, weekNum) {
-  let resp;
-  try {
-    resp = await fetch(getCurrentWeekMatchupsUrl(weekNum), { cf: { cacheTtl: 60 } });
-  } catch (err) {
-    console.error("Current-week matchups fetch failed:", err.message);
-    return new Map();
-  }
-  if (!resp.ok) return new Map();
-  const data = await resp.json();
-  const matchups = data.matchups ?? {};
-  return new Map(Object.entries(matchups).map(([team, info]) => [team, info.opponent]));
-}
-
 // Fetches season_history.json once per poll - shared by
-// getCurrentRankedTeams() (which teams to filter BBS's slate to) and
-// getCurrentWeekNumber() (which week is actually live right now), so both
-// read the exact same snapshot instead of two separate fetches that could
-// disagree if the file changed between them.
+// getCurrentRankedTeams() (the off-season/blip guard) and
+// getCurrentRankedIds() (which games to keep), so both read the exact
+// same snapshot instead of two separate fetches that could disagree.
 async function getSeasonData(env) {
   let resp;
   try {
@@ -777,6 +748,18 @@ async function getSeasonData(env) {
     return null;
   }
   return resp.json();
+}
+
+// Registry IDs of the currently-ranked teams. backtest.py stamps team_id
+// on every slot since 2026-10-19; the name lookup covers a snapshot
+// published before that (same answer either way).
+function getCurrentRankedIds(seasonData) {
+  const snapshots = seasonData?.snapshots ?? [];
+  if (snapshots.length === 0) return new Set();
+  const latest = snapshots[snapshots.length - 1];
+  return new Set(
+    (latest.rankings ?? []).map((slot) => slot.team_id ?? TEAMS.idForName(slot.team)).filter(Boolean)
+  );
 }
 
 function getCurrentRankedTeams(seasonData) {

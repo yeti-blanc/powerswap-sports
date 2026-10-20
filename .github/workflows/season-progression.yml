@@ -122,6 +122,20 @@ jobs:
             echo "next_week_type=regular" >> "$GITHUB_OUTPUT"
           fi
 
+      # Picks up any team CFBD/ESPN added since the registry was last
+      # built (a new program, a rebrand) BEFORE this week's data is
+      # fetched, so ingestion can resolve it by ID. Non-fatal: if a vendor
+      # is down, the committed registry is still complete for every team
+      # seen so far, and backtest.py's hard stop still guards the rankings.
+      - name: Refresh team registry
+        if: steps.week.outputs.skip != 'true'
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python scripts/build_team_registry.py --sport cfb || echo "::warning::Team registry refresh failed - continuing with the committed registry"
+
+      # backtest.py refuses to write season_history.json if any name in
+      # the rankings isn't a canonical registry name, which fails this step
+      # and skips the commit - a wrong ranking is never published.
       - name: Fetch week results, run backtest, and refresh schedule previews
         if: steps.week.outputs.skip != 'true'
         env:
@@ -150,6 +164,21 @@ jobs:
           git add "data/cfb/seasons/2026/raw/week_${WEEK_PADDED}_games.json" \
                   "data/cfb/seasons/2026/raw/week_${WEEK_PADDED}_matchups.json" \
                   "data/cfb/seasons/2026/raw/week_${NEXT_WEEK_PADDED}_matchups.json" \
-                  "data/cfb/seasons/2026/season_history.json"
+                  "data/cfb/seasons/2026/season_history.json" \
+                  data/teams/cfb_teams.json
           git commit -m "Auto-populate CFB 2026 week ${WEEK}" || echo "Nothing to commit"
           git push
+
+      # Runs AFTER the commit on purpose: the rankings are already guarded
+      # by backtest.py's hard stop above, so anything this catches (e.g. an
+      # unranked schedule opponent the registry can't place yet) shouldn't
+      # hold back the week's rankings - but it does fail the run, which
+      # emails the repo owner, so it can't go unnoticed either.
+      - uses: actions/setup-node@v4
+        if: always() && steps.week.outputs.skip != 'true'
+        with:
+          node-version: "22"
+
+      - name: Validate team names in the published data
+        if: always() && steps.week.outputs.skip != 'true'
+        run: python tests/test_team_registry.py

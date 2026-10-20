@@ -25,7 +25,7 @@ SPORT_KEY = "cbb"
 DISPLAY_NAME = "College Basketball"
 
 API_BASE_URL = "https://api.collegebasketballdata.com"
-POLL_NAME = "AP Top 25"  # UNVERIFIED - confirm this is the exact poll name CBBD uses
+POLL_NAME = "AP Top 25"  # verified 2026-10-19: CBBD /rankings rows carry pollType "AP Top 25"
 
 # UNVERIFIED: CFBD has a "division=fbs" filter on /games. It's not confirmed
 # whether CBBD's /games endpoint needs (or even has) an equivalent D-I filter,

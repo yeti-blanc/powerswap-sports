@@ -45,7 +45,7 @@ except ImportError:
 
 sys.path.insert(0, str(Path(__file__).parent))
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))  # repo root, for core/
-from team_norm import norm
+from team_norm import norm, team_id
 import config as cfb_config
 
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "cfb" / "seasons"
@@ -118,8 +118,13 @@ def fetch_week_matchups(season: int, week: int) -> dict[str, dict]:
     matchups = {}
 
     for g in games:
-        home = norm(g.get("homeTeam", ""))
-        away = norm(g.get("awayTeam", ""))
+        # Resolved by CFBD team ID first (core/teams.py); the registry IDs
+        # are stored alongside the names so the site and live Worker can
+        # match games by ID instead of by spelling.
+        home_id = team_id(g.get("homeTeam", ""), g.get("homeId"))
+        away_id = team_id(g.get("awayTeam", ""), g.get("awayId"))
+        home = norm(g.get("homeTeam", ""), g.get("homeId"))
+        away = norm(g.get("awayTeam", ""), g.get("awayId"))
         kickoff = {
             "kickoff_utc": g.get("startDate"),
             "start_time_tbd": g.get("startTimeTBD", False),
@@ -130,14 +135,16 @@ def fetch_week_matchups(season: int, week: int) -> dict[str, dict]:
 
         if home in ranked_teams:
             matchups[home] = {
-                "opponent": away, "home_away": "home", **kickoff,
+                "opponent": away, "team_id": home_id, "opponent_id": away_id,
+                "home_away": "home", **kickoff,
                 "completed": completed,
                 "team_score": home_points if completed else None,
                 "opponent_score": away_points if completed else None,
             }
         if away in ranked_teams:
             matchups[away] = {
-                "opponent": home, "home_away": "away", **kickoff,
+                "opponent": home, "team_id": away_id, "opponent_id": home_id,
+                "home_away": "away", **kickoff,
                 "completed": completed,
                 "team_score": away_points if completed else None,
                 "opponent_score": home_points if completed else None,
@@ -146,7 +153,7 @@ def fetch_week_matchups(season: int, week: int) -> dict[str, dict]:
     missing = ranked_teams - matchups.keys()
     if missing:
         print(f"  No Week {week} game found for: {sorted(missing)} "
-              f"(bye week, or a team-name mismatch - check team_norm.py if unexpected)")
+              f"(bye week, or a team-name mismatch - check data/teams/cfb_teams.json if unexpected)")
 
     return matchups
 

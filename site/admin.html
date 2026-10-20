@@ -60,6 +60,8 @@
   .game-rating { float: right; font-size: 18px; color: #ffd166; font-weight: bold; }
   .game-bullets { margin: 6px 0 0 18px; padding: 0; font-size: 13px; color: #ccc; }
   .toolbar { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+  #teams-unresolved table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  #teams-unresolved th, #teams-unresolved td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #333; }
   .status-pill { font-size: 12px; padding: 3px 8px; border-radius: 10px; background: #333; }
   .status-pill.running { background: #6b5a1e; color: #ffd166; }
   .status-pill.done { background: #1e5a2e; color: #6bff8f; }
@@ -104,6 +106,7 @@
   <div id="dashboard" hidden>
     <div class="tab-bar">
       <button class="tab-btn active" data-tab="digest">Havoc Digest</button>
+      <button class="tab-btn" data-tab="teams">Team Names</button>
       <button class="secondary" id="logout-btn" style="margin-left: auto;">Log Out</button>
     </div>
 
@@ -120,6 +123,23 @@
       <div id="digest-meta" class="muted"></div>
       <div id="digest-games"></div>
       <div id="digest-error" class="error" hidden></div>
+    </div>
+
+    <div id="tab-teams" class="tab-panel card" hidden>
+      <div class="toolbar">
+        <strong>Team name health</strong>
+        <span id="teams-status" class="status-pill" hidden></span>
+        <button class="secondary" id="teams-refresh-btn" style="margin-left: auto;">Refresh</button>
+      </div>
+      <div id="teams-summary" class="muted"></div>
+      <h3 style="margin: 16px 0 8px;">Unrecognized names from the live feed (last 14 days)</h3>
+      <div id="teams-unresolved"></div>
+      <p class="muted" style="margin-top: 16px;">
+        Fix one by adding it to <code>data/teams/cfb_overrides.json</code> (aliases, keyed by team ID),
+        running <code>python scripts/build_team_registry.py --sport cfb</code>, then redeploying the live Worker
+        (<code>cd live &amp;&amp; npx wrangler deploy</code>). Never patch season data by hand.
+      </p>
+      <div id="teams-error" class="error" hidden></div>
     </div>
   </div>
 </div>
@@ -264,7 +284,52 @@ async function checkExistingSession() {
 function showDashboard() {
   el("login-card").hidden = true;
   el("dashboard").hidden = false;
+  initTabs();
   initDigest();
+}
+
+function initTabs() {
+  for (const btn of document.querySelectorAll(".tab-btn")) {
+    btn.addEventListener("click", () => {
+      for (const b of document.querySelectorAll(".tab-btn")) b.classList.toggle("active", b === btn);
+      for (const panel of document.querySelectorAll(".tab-panel")) panel.hidden = panel.id !== `tab-${btn.dataset.tab}`;
+      if (btn.dataset.tab === "teams") loadTeamHealth();
+    });
+  }
+  el("teams-refresh-btn").addEventListener("click", loadTeamHealth);
+}
+
+// ---------------------------------------------------------------------
+// Team Names panel (admin/worker.js handleTeamHealth)
+// ---------------------------------------------------------------------
+
+const fmtTime = (iso) => (iso ? new Date(iso).toLocaleString() : "-");
+
+async function loadTeamHealth() {
+  el("teams-error").hidden = true;
+  const pill = el("teams-status");
+  try {
+    const h = await api("/api/team-health");
+    const regs = h.registries.map((r) => r.error
+      ? `<div>${escapeHtml(r.sport.toUpperCase())}: <span class="error">${escapeHtml(r.error)}</span></div>`
+      : `<div>${escapeHtml(r.sport.toUpperCase())} registry: ${r.teams} teams, ${r.aliases} spellings, ${r.ambiguous_aliases} ambiguous (dropped) - built ${fmtTime(r.generated_at)}</div>`).join("");
+    const live = h.live;
+    el("teams-summary").innerHTML = regs + `
+      <div>Live feed: ${live.games} games, ${live.games_missing_ids} with an unrecognized team - updated ${fmtTime(live.updated_at)}</div>
+      <div>Live Worker's bundled registry: ${fmtTime(live.registry_generated_at)}${live.registry_stale ? ' <span class="error">- older than the repo, redeploy the live Worker</span>' : ""}</div>`;
+    const problems = h.unresolved.length + (live.registry_stale ? 1 : 0);
+    pill.hidden = false;
+    pill.className = "status-pill " + (problems ? "failed" : "done");
+    pill.textContent = problems ? `${problems} issue${problems === 1 ? "" : "s"}` : "All clear";
+    el("teams-unresolved").innerHTML = h.unresolved.length
+      ? `<table><tr><th>Raw name</th><th>Source</th><th>Seen</th><th>First</th><th>Last</th></tr>` +
+        h.unresolved.map((u) => `<tr><td>${escapeHtml(u.name)}</td><td>${escapeHtml(u.source)}</td><td>${u.count}</td><td>${fmtTime(u.first_seen)}</td><td>${fmtTime(u.last_seen)}</td></tr>`).join("") +
+        `</table>`
+      : `<div class="muted">None - every team the live feed reported matched the registry.</div>`;
+  } catch (err) {
+    el("teams-error").textContent = err.message;
+    el("teams-error").hidden = false;
+  }
 }
 
 // ---------------------------------------------------------------------
@@ -330,7 +395,7 @@ function renderDigest(digest) {
 }
 
 function escapeHtml(s) {
-  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
 async function triggerRecompute() {

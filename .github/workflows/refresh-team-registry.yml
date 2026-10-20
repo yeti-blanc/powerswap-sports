@@ -1,0 +1,61 @@
+name: Refresh Team Registry
+
+# Rebuilds data/teams/{cfb,cbb}_teams.json from ESPN + CFBD/CBBD every
+# Monday (and on demand), so a new program, rebrand or alternate spelling
+# lands in the registry without anyone remembering to do it. Existing
+# teams' canonical names are pinned by the builder (NAME STABILITY in
+# scripts/build_team_registry.py), so a rebuild can add teams/spellings
+# but never silently rename one already in the season data. Commits only
+# if the full test suite passes on the rebuilt files.
+#
+# The live-scores Worker bundles its copy at deploy time - after a change
+# here it needs a `cd live && npx wrangler deploy`. The admin portal's
+# Team Names tab flags when that's due.
+on:
+  schedule:
+    - cron: "17 13 * * 1"  # Mondays 13:17 UTC (9:17 AM EDT) - off the top of the hour, see season-progression.yml
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - run: pip install requests
+
+      - name: Rebuild registries
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python scripts/build_team_registry.py --sport cfb
+          python scripts/build_team_registry.py --sport cbb
+
+      - name: Full test suite on the rebuilt registries
+        run: |
+          python tests/test_team_registry.py
+          node tests/test_live_worker.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/teams/cfb_teams.json data/teams/cbb_teams.json
+          if git diff --cached --quiet; then
+            echo "Registries unchanged."
+            exit 0
+          fi
+          git commit -m "Refresh team registry"
+          git pull --rebase
+          git push
+          echo "::notice::Team registry changed - redeploy the live Worker (cd live && npx wrangler deploy) so it bundles the new copy."

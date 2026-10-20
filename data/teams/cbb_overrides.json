@@ -1,0 +1,24 @@
+{
+  "_readme": [
+    "Hand-maintained inputs to scripts/build_team_registry.py --sport cbb. Never edit cbb_teams.json directly.",
+    "names: registry ID -> canonical display name. Pins the pre-registry NORM table's choices that stored data is keyed by. Changing one RENAMES that team everywhere going forward (stored season files keep the old string) - do it deliberately, never to fix a lookup.",
+    "aliases: registry ID -> extra spellings to resolve to that team. Strongest tier: beats any vendor-derived claim on the same spelling.",
+    "blocked_aliases: spellings that must never resolve to anything."
+  ],
+  "names": {},
+  "aliases": {
+    "30": [
+      "Southern California",
+      "Southern Cal"
+    ],
+    "2390": [
+      "Miami (FL)",
+      "Miami Florida"
+    ],
+    "193": [
+      "Miami (OH)",
+      "Miami Ohio"
+    ]
+  },
+  "blocked_aliases": []
+}

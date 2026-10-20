@@ -22,6 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "core"))
 from swap_engine import PowerSwapRankings
+from teams import annotate_season_history, load_registry
 
 REPO_ROOT = Path(__file__).parent.parent
 
@@ -49,8 +50,8 @@ def _apply_and_log(rankings, games, week_label, consecutive_absences=None, check
         for team, streak in consecutive_absences.items():
             if streak == 2:
                 print(f"      ⚠ NAME MISMATCH? '{team}' has had no recorded game for 2 straight "
-                      f"weeks. Check if the API is spelling this team differently and add it to "
-                      f"this sport's team_norm.py.")
+                      f"weeks. Check if the API is spelling this team differently - add an alias "
+                      f"to data/teams/<sport>_overrides.json and rebuild the registry.")
 
     events = rankings.apply_week(games, week_label)
 
@@ -133,15 +134,28 @@ def run_season_backtest(sport: str, season: int, max_week: int, include_postseas
 
     team_histories = _build_team_histories(rankings)
 
+    history = {
+        "sport": sport,
+        "season": season,
+        "snapshots": all_snapshots,
+        "events": all_events,
+        "team_histories": team_histories,
+    }
+    # Hard stop, before anything is written: every name in the rankings
+    # must be a canonical registry name (see core/teams.py). An
+    # unresolvable team that beat a ranked one would otherwise enter the
+    # rankings under whatever raw spelling the API used - silently.
+    unknown = annotate_season_history(history, load_registry(sport))
+    if unknown:
+        raise SystemExit(
+            f"REFUSING TO WRITE season_history.json - not canonical {sport.upper()} registry "
+            f"names: {unknown}. Rebuild data/teams/{sport}_teams.json (scripts/build_team_registry.py) "
+            f"or add aliases to data/teams/{sport}_overrides.json, re-fetch, then re-run."
+        )
+
     output_path = season_dir / "season_history.json"
     with open(output_path, "w") as f:
-        json.dump({
-            "sport": sport,
-            "season": season,
-            "snapshots": all_snapshots,
-            "events": all_events,
-            "team_histories": team_histories,
-        }, f, indent=2)
+        json.dump(history, f, indent=2)
 
     final_label = "postseason" if include_postseason else f"week {max_week}"
     print(f"\nFinal {sport.upper()} rankings after {final_label}:")

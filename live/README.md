@@ -21,9 +21,12 @@
   future poller ever runs from a non-Cloudflare origin (e.g. GitHub
   Actions) - see its file header and `admin/BUILD_LOG.md`'s 2026-09-19
   entry for the full evidence.
-- `team_norm.js` - JS mirror of `sports/cfb/team_norm.py`'s `NORM`/`norm()`,
-  plus `resolveBbsTeamName()` for matching BBS's "School Mascot" naming
-  against season_history.json's school-only names.
+- `team_registry.js` - JS twin of `core/teams.py`: resolves any vendor's
+  team (ESPN team ID first, then every known spelling incl. BBS's
+  "School Mascot" names) against the generated team registry,
+  `data/teams/cfb_teams.json`, bundled at deploy time. Replaced
+  `team_norm.js` on 2026-10-19 - see PROJECT_BIBLE.md §13. After the
+  registry changes, `npx wrangler deploy` from here to bundle the new copy.
 - `wrangler.toml` - Worker config. Cron schedule lives here deliberately,
   not in the Cloudflare dashboard - see the comment in that file for why.
 - `fetch_live_scores.py` / `bbs_config.py` - local Python dev/diagnose
@@ -77,7 +80,8 @@ Confirmed with a real authenticated call to `GET /v1/matches?sport=american_foot
   conservatively (every 5 min + in-worker sub-polls every 20s during a
   game window) than the originally-targeted "~15s", and why `worker.js`'s
   `SUBPOLL_*` comment flags this as worth re-checking.
-- Team-name matching (`resolveBbsTeamName`): verified against 10 real team
+- Team-name matching (`resolveBbsTeamName`, superseded 2026-10-19 by
+  `team_registry.js`): verified against 10 real team
   names from the diagnose call, including the tricky abbreviation case -
   BBS's "UCF Knights" correctly resolves to CFBD's canonical "Central
   Florida" via `team_norm.js`'s existing `UCF -> Central Florida` entry.

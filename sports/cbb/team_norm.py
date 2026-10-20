@@ -1,43 +1,57 @@
 """
-PowerSwap CBB - Team Name Normalization
+PowerSwap CBB - team name normalization (thin wrapper over the team registry)
 
-Same principle as sports/cfb/team_norm.py: normalize at ingestion, before
-any name touches the rankings state, so a real result never silently
-disappears because of a spelling mismatch.
+The hand-maintained NORM table that used to live here (and its copies in
+sports/cfb/team_norm.py and live/team_norm.js) was replaced on 2026-10-19
+by the generated registry, data/teams/cbb_teams.json - see core/teams.py.
+These functions keep their old signatures so every existing caller keeps
+working, but now resolve against the full ESPN + CBBD team list, by ID
+whenever the caller has one.
 
-Kept as a SEPARATE dict from the CFB one, not because the underlying bug
-is different, but because the team universe is different. CBB Division I
-includes ~360+ programs, well over double the FBS football count, and a
-meaningful chunk of them (Gonzaga, Saint Mary's, Davidson, Loyola Chicago,
-etc.) don't field FBS football teams at all, so there's no reason to
-assume the same normalization entries apply.
-
-This seed list is a starting guess based on common CBB naming quirks, NOT
-verified against actual CBBD output. Expand it as real mismatches surface.
+Rule (unchanged from the Cote Cup lesson): normalize at ingestion, before
+any name touches the rankings. A name the registry can't place is
+returned unchanged AND recorded in UNRESOLVED, so callers/validators can
+fail loudly instead of letting it silently become "a different team".
+To fix one: rebuild the registry (scripts/build_team_registry.py --sport cbb)
+or add an alias in data/teams/cbb_overrides.json. Never patch data.
 """
 
-NORM = {
-    "Hawai'i": "Hawaii",
-    "UMass": "Massachusetts",
-    "UConn": "Connecticut",
-    "Ole Miss": "Mississippi",
-    "Pitt": "Pittsburgh",
-    "USF": "South Florida",
-    "UCF": "Central Florida",
-    "FIU": "Florida International",
-    "FAU": "Florida Atlantic",
-    "UTSA": "UT San Antonio",
-    "UNLV": "Nevada-Las Vegas",
-    "San Jose State": "San José State",
-    "Miami (FL)": "Miami",
-    "Miami (OH)": "Miami (Ohio)",
-    "St. John's": "St. John's (NY)",  # CBB-specific disambiguation guess - verify
-    "Saint Mary's": "Saint Mary's (CA)",  # same - verify against real data
-}
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "core"))
+from teams import load_registry  # noqa: E402
+
+SPORT = "cbb"
+VENDOR = "cbbd"
+UNRESOLVED: set[str] = set()
 
 
-def norm(team_name: str) -> str:
-    return NORM.get(team_name, team_name)
+def registry():
+    return load_registry(SPORT)
+
+
+def resolve(team_name: str, vendor_id=None) -> str | None:
+    """Registry ID for a vendor team (by CBBD ID first, then name), or None."""
+    r = registry()
+    return r.resolve_id(VENDOR, vendor_id) or r.resolve(team_name)
+
+
+def norm(team_name: str, vendor_id=None) -> str:
+    """Canonical name for a team; unchanged (and recorded) if unknown."""
+    tid = resolve(team_name, vendor_id)
+    if tid:
+        return registry().name(tid)
+    if team_name and team_name not in UNRESOLVED:
+        UNRESOLVED.add(team_name)
+        print(f"  WARNING: UNRESOLVED CBB TEAM: {team_name!r}"
+              + (f" (CBBD id {vendor_id})" if vendor_id is not None else "")
+              + f" - not in data/teams/cbb_teams.json", file=sys.stderr)
+    return team_name
+
+
+def team_id(team_name: str, vendor_id=None) -> str | None:
+    return resolve(team_name, vendor_id)
 
 
 def normalize_team_list(teams: list[str]) -> list[str]:
@@ -45,4 +59,15 @@ def normalize_team_list(teams: list[str]) -> list[str]:
 
 
 def normalize_games(games: list[dict]) -> list[dict]:
-    return [{**g, "winner": norm(g["winner"]), "loser": norm(g["loser"])} for g in games]
+    """{"winner", "loser", optional "winner_vendor_id"/"loser_vendor_id",
+    any extra fields like "date"} -> canonical names plus registry
+    "winner_id"/"loser_id" (None when unresolvable). **g preserves extra
+    fields - postseason/basketball need "date" for chronological sorting."""
+    out = []
+    for g in games:
+        g = dict(g)
+        wv, lv = g.pop("winner_vendor_id", None), g.pop("loser_vendor_id", None)
+        out.append({**g,
+                    "winner": norm(g["winner"], wv), "loser": norm(g["loser"], lv),
+                    "winner_id": team_id(g["winner"], wv), "loser_id": team_id(g["loser"], lv)})
+    return out
