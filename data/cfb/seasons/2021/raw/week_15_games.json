@@ -4,27 +4,39 @@
   "games": [
     {
       "winner": "North Dakota State",
-      "loser": "East Tennessee State"
+      "loser": "East Tennessee State",
+      "winner_id": "2449",
+      "loser_id": "2193"
     },
     {
       "winner": "Valdosta State",
-      "loser": "Colorado School Of Mines"
+      "loser": "Colorado School Of Mines",
+      "winner_id": "2673",
+      "loser_id": "2146"
     },
     {
       "winner": "South Dakota State",
-      "loser": "Villanova"
+      "loser": "Villanova",
+      "winner_id": "2571",
+      "loser_id": "222"
     },
     {
       "winner": "Navy",
-      "loser": "Army"
+      "loser": "Army",
+      "winner_id": "2426",
+      "loser_id": "349"
     },
     {
       "winner": "Ferris State",
-      "loser": "Shepherd"
+      "loser": "Shepherd",
+      "winner_id": "2222",
+      "loser_id": "2974"
     },
     {
       "winner": "Montana State",
-      "loser": "Sam Houston State"
+      "loser": "Sam Houston State",
+      "winner_id": "147",
+      "loser_id": "2534"
     }
   ]
 }

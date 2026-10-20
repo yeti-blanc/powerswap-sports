@@ -9,7 +9,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 20,
-      "opponent_score": 23
+      "opponent_score": 23,
+      "team_id": "24",
+      "opponent_id": "62"
     },
     "Duke": {
       "opponent": "Elon",
@@ -18,7 +20,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 45,
-      "opponent_score": 17
+      "opponent_score": 17,
+      "team_id": "150",
+      "opponent_id": "2210"
     },
     "Minnesota": {
       "opponent": "Buffalo",
@@ -27,7 +31,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 23,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "135",
+      "opponent_id": "2084"
     },
     "Houston": {
       "opponent": "Stephen F. Austin",
@@ -36,7 +42,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 27,
-      "opponent_score": 0
+      "opponent_score": 0,
+      "team_id": "248",
+      "opponent_id": "2617"
     },
     "Tulane": {
       "opponent": "Northwestern",
@@ -45,7 +53,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 23,
-      "opponent_score": 3
+      "opponent_score": 3,
+      "team_id": "2655",
+      "opponent_id": "77"
     },
     "Ohio State": {
       "opponent": "Texas",
@@ -54,7 +64,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 14,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "194",
+      "opponent_id": "251"
     },
     "Texas": {
       "opponent": "Ohio State",
@@ -63,7 +75,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 7,
-      "opponent_score": 14
+      "opponent_score": 14,
+      "team_id": "251",
+      "opponent_id": "194"
     },
     "Indiana": {
       "opponent": "Old Dominion",
@@ -72,7 +86,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 27,
-      "opponent_score": 14
+      "opponent_score": 14,
+      "team_id": "84",
+      "opponent_id": "295"
     },
     "Louisville": {
       "opponent": "Eastern Kentucky",
@@ -81,7 +97,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 51,
-      "opponent_score": 17
+      "opponent_score": 17,
+      "team_id": "97",
+      "opponent_id": "2198"
     },
     "Penn State": {
       "opponent": "Nevada",
@@ -90,7 +108,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 46,
-      "opponent_score": 11
+      "opponent_score": 11,
+      "team_id": "213",
+      "opponent_id": "2440"
     },
     "Georgia": {
       "opponent": "Marshall",
@@ -99,7 +119,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 45,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "61",
+      "opponent_id": "276"
     },
     "Alabama": {
       "opponent": "Florida State",
@@ -108,7 +130,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 17,
-      "opponent_score": 31
+      "opponent_score": 31,
+      "team_id": "333",
+      "opponent_id": "52"
     },
     "Oregon": {
       "opponent": "Montana State",
@@ -117,7 +141,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 59,
-      "opponent_score": 13
+      "opponent_score": 13,
+      "team_id": "2483",
+      "opponent_id": "147"
     },
     "Oklahoma": {
       "opponent": "Illinois State",
@@ -126,7 +152,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 35,
-      "opponent_score": 3
+      "opponent_score": 3,
+      "team_id": "201",
+      "opponent_id": "2287"
     },
     "Iowa": {
       "opponent": "UAlbany",
@@ -135,7 +163,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 34,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "2294",
+      "opponent_id": "399"
     },
     "Virginia": {
       "opponent": "Coastal Carolina",
@@ -144,7 +174,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 48,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "258",
+      "opponent_id": "324"
     },
     "Texas A&M": {
       "opponent": "UT San Antonio",
@@ -153,7 +185,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 42,
-      "opponent_score": 24
+      "opponent_score": 24,
+      "team_id": "245",
+      "opponent_id": "2636"
     },
     "Texas Tech": {
       "opponent": "Arkansas-Pine Bluff",
@@ -162,7 +196,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 67,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "2641",
+      "opponent_id": "2029"
     },
     "Mississippi": {
       "opponent": "Georgia State",
@@ -171,7 +207,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 63,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "145",
+      "opponent_id": "2247"
     },
     "North Texas": {
       "opponent": "Lamar",
@@ -180,7 +218,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 51,
-      "opponent_score": 0
+      "opponent_score": 0,
+      "team_id": "249",
+      "opponent_id": "2320"
     },
     "SMU": {
       "opponent": "East Texas A&M",
@@ -189,7 +229,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 42,
-      "opponent_score": 13
+      "opponent_score": 13,
+      "team_id": "2567",
+      "opponent_id": "2837"
     },
     "Utah": {
       "opponent": "UCLA",
@@ -198,7 +240,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 43,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "254",
+      "opponent_id": "26"
     },
     "Miami": {
       "opponent": "Notre Dame",
@@ -207,7 +251,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 27,
-      "opponent_score": 24
+      "opponent_score": 24,
+      "team_id": "2390",
+      "opponent_id": "87"
     },
     "Notre Dame": {
       "opponent": "Miami",
@@ -216,7 +262,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 24,
-      "opponent_score": 27
+      "opponent_score": 27,
+      "team_id": "87",
+      "opponent_id": "2390"
     },
     "TCU": {
       "opponent": "North Carolina",
@@ -225,7 +273,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 48,
-      "opponent_score": 14
+      "opponent_score": 14,
+      "team_id": "2628",
+      "opponent_id": "153"
     }
   }
 }

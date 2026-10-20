@@ -10,7 +10,9 @@
       "start_time_tbd": true,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "2294",
+      "opponent_id": "135"
     },
     "Texas Tech": {
       "opponent": "Cincinnati",
@@ -19,7 +21,9 @@
       "start_time_tbd": true,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "2641",
+      "opponent_id": "2132"
     },
     "UCLA": {
       "opponent": "Michigan State",
@@ -28,7 +32,9 @@
       "start_time_tbd": true,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "26",
+      "opponent_id": "127"
     },
     "Utah": {
       "opponent": "Houston",
@@ -37,7 +43,9 @@
       "start_time_tbd": true,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "254",
+      "opponent_id": "248"
     },
     "Houston": {
       "opponent": "Utah",
@@ -46,7 +54,9 @@
       "start_time_tbd": true,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "248",
+      "opponent_id": "254"
     },
     "Oklahoma State": {
       "opponent": "Colorado",
@@ -55,7 +65,9 @@
       "start_time_tbd": true,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "197",
+      "opponent_id": "38"
     },
     "BYU": {
       "opponent": "Central Florida",
@@ -64,7 +76,9 @@
       "start_time_tbd": true,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "252",
+      "opponent_id": "2116"
     },
     "Miami": {
       "opponent": "Pittsburgh",
@@ -73,7 +87,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "2390",
+      "opponent_id": "221"
     },
     "Auburn": {
       "opponent": "LSU",
@@ -82,7 +98,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "2",
+      "opponent_id": "99"
     },
     "LSU": {
       "opponent": "Auburn",
@@ -91,7 +109,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "99",
+      "opponent_id": "2"
     },
     "Michigan": {
       "opponent": "Indiana",
@@ -100,7 +120,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "130",
+      "opponent_id": "84"
     },
     "Indiana": {
       "opponent": "Michigan",
@@ -109,7 +131,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "84",
+      "opponent_id": "130"
     },
     "SMU": {
       "opponent": "California",
@@ -118,7 +142,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "2567",
+      "opponent_id": "25"
     },
     "Mississippi State": {
       "opponent": "Oklahoma",
@@ -127,7 +153,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "344",
+      "opponent_id": "201"
     },
     "Oklahoma": {
       "opponent": "Mississippi State",
@@ -136,7 +164,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "201",
+      "opponent_id": "344"
     },
     "Alabama": {
       "opponent": "Texas A&M",
@@ -145,7 +175,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "333",
+      "opponent_id": "245"
     },
     "Tennessee": {
       "opponent": "South Carolina",
@@ -154,7 +186,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "2633",
+      "opponent_id": "2579"
     },
     "Kentucky": {
       "opponent": "Vanderbilt",
@@ -163,7 +197,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "96",
+      "opponent_id": "238"
     },
     "Wisconsin": {
       "opponent": "USC",
@@ -172,7 +208,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "275",
+      "opponent_id": "30"
     },
     "Mississippi": {
       "opponent": "Texas",
@@ -181,7 +219,9 @@
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null
+      "opponent_score": null,
+      "team_id": "145",
+      "opponent_id": "251"
     }
   }
 }

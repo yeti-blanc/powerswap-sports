@@ -5,232 +5,324 @@
     {
       "winner": "James Madison",
       "loser": "SE Louisiana",
-      "date": "2021-12-04T19:00:00.000Z"
+      "date": "2021-12-04T19:00:00.000Z",
+      "winner_id": "256",
+      "loser_id": "2545"
     },
     {
       "winner": "James Madison",
       "loser": "Montana",
-      "date": "2021-12-11T00:00:00.000Z"
+      "date": "2021-12-11T00:00:00.000Z",
+      "winner_id": "256",
+      "loser_id": "149"
     },
     {
       "winner": "Middle Tennessee",
       "loser": "Toledo",
-      "date": "2021-12-17T17:00:00.000Z"
+      "date": "2021-12-17T17:00:00.000Z",
+      "winner_id": "2393",
+      "loser_id": "2649"
     },
     {
       "winner": "Coastal Carolina",
       "loser": "Northern Illinois",
-      "date": "2021-12-17T23:00:00.000Z"
+      "date": "2021-12-17T23:00:00.000Z",
+      "winner_id": "324",
+      "loser_id": "2459"
     },
     {
       "winner": "Mary Hardin-Baylor",
       "loser": "North Central College",
-      "date": "2021-12-18T00:00:00.000Z"
+      "date": "2021-12-18T00:00:00.000Z",
+      "winner_id": "2371",
+      "loser_id": "3071"
     },
     {
       "winner": "North Dakota State",
       "loser": "James Madison",
-      "date": "2021-12-18T02:15:00.000Z"
+      "date": "2021-12-18T02:15:00.000Z",
+      "winner_id": "2449",
+      "loser_id": "256"
     },
     {
       "winner": "Western Kentucky",
       "loser": "Appalachian State",
-      "date": "2021-12-18T16:00:00.000Z"
+      "date": "2021-12-18T16:00:00.000Z",
+      "winner_id": "98",
+      "loser_id": "2026"
     },
     {
       "winner": "South Carolina State",
       "loser": "Jackson State",
-      "date": "2021-12-18T17:00:00.000Z"
+      "date": "2021-12-18T17:00:00.000Z",
+      "winner_id": "2569",
+      "loser_id": "2296"
     },
     {
       "winner": "Montana State",
       "loser": "South Dakota State",
-      "date": "2021-12-18T19:00:00.000Z"
+      "date": "2021-12-18T19:00:00.000Z",
+      "winner_id": "147",
+      "loser_id": "2571"
     },
     {
       "winner": "Fresno State",
       "loser": "UTEP",
-      "date": "2021-12-18T19:15:00.000Z"
+      "date": "2021-12-18T19:15:00.000Z",
+      "winner_id": "278",
+      "loser_id": "2638"
     },
     {
       "winner": "UAB",
       "loser": "BYU",
-      "date": "2021-12-18T20:30:00.000Z"
+      "date": "2021-12-18T20:30:00.000Z",
+      "winner_id": "5",
+      "loser_id": "252"
     },
     {
       "winner": "Liberty",
       "loser": "Eastern Michigan",
-      "date": "2021-12-18T22:45:00.000Z"
+      "date": "2021-12-18T22:45:00.000Z",
+      "winner_id": "2335",
+      "loser_id": "2199"
     },
     {
       "winner": "Utah State",
       "loser": "Oregon State",
-      "date": "2021-12-19T00:30:00.000Z"
+      "date": "2021-12-19T00:30:00.000Z",
+      "winner_id": "328",
+      "loser_id": "204"
     },
     {
       "winner": "Ferris State",
       "loser": "Valdosta State",
-      "date": "2021-12-19T02:00:00.000Z"
+      "date": "2021-12-19T02:00:00.000Z",
+      "winner_id": "2222",
+      "loser_id": "2673"
     },
     {
       "winner": "Louisiana",
       "loser": "Marshall",
-      "date": "2021-12-19T02:15:00.000Z"
+      "date": "2021-12-19T02:15:00.000Z",
+      "winner_id": "309",
+      "loser_id": "276"
     },
     {
       "winner": "Tulsa",
       "loser": "Old Dominion",
-      "date": "2021-12-20T19:30:00.000Z"
+      "date": "2021-12-20T19:30:00.000Z",
+      "winner_id": "202",
+      "loser_id": "295"
     },
     {
       "winner": "Wyoming",
       "loser": "Kent State",
-      "date": "2021-12-21T20:30:00.000Z"
+      "date": "2021-12-21T20:30:00.000Z",
+      "winner_id": "2751",
+      "loser_id": "2309"
     },
     {
       "winner": "San Diego State",
       "loser": "UT San Antonio",
-      "date": "2021-12-22T00:30:00.000Z"
+      "date": "2021-12-22T00:30:00.000Z",
+      "winner_id": "21",
+      "loser_id": "2636"
     },
     {
       "winner": "Army",
       "loser": "Missouri",
-      "date": "2021-12-23T01:00:00.000Z"
+      "date": "2021-12-23T01:00:00.000Z",
+      "winner_id": "349",
+      "loser_id": "142"
     },
     {
       "winner": "Miami (Ohio)",
       "loser": "North Texas",
-      "date": "2021-12-23T20:30:00.000Z"
+      "date": "2021-12-23T20:30:00.000Z",
+      "winner_id": "193",
+      "loser_id": "249"
     },
     {
       "winner": "Central Florida",
       "loser": "Florida",
-      "date": "2021-12-24T00:00:00.000Z"
+      "date": "2021-12-24T00:00:00.000Z",
+      "winner_id": "2116",
+      "loser_id": "57"
     },
     {
       "winner": "Georgia State",
       "loser": "Ball State",
-      "date": "2021-12-25T19:30:00.000Z"
+      "date": "2021-12-25T19:30:00.000Z",
+      "winner_id": "2247",
+      "loser_id": "2050"
     },
     {
       "winner": "Western Michigan",
       "loser": "Nevada",
-      "date": "2021-12-27T16:00:00.000Z"
+      "date": "2021-12-27T16:00:00.000Z",
+      "winner_id": "2711",
+      "loser_id": "2440"
     },
     {
       "winner": "Houston",
       "loser": "Auburn",
-      "date": "2021-12-28T17:00:00.000Z"
+      "date": "2021-12-28T17:00:00.000Z",
+      "winner_id": "248",
+      "loser_id": "2"
     },
     {
       "winner": "Air Force",
       "loser": "Louisville",
-      "date": "2021-12-28T20:15:00.000Z"
+      "date": "2021-12-28T20:15:00.000Z",
+      "winner_id": "2005",
+      "loser_id": "97"
     },
     {
       "winner": "Texas Tech",
       "loser": "Mississippi State",
-      "date": "2021-12-28T23:45:00.000Z"
+      "date": "2021-12-28T23:45:00.000Z",
+      "winner_id": "2641",
+      "loser_id": "344"
     },
     {
       "winner": "Minnesota",
       "loser": "West Virginia",
-      "date": "2021-12-29T03:15:00.000Z"
+      "date": "2021-12-29T03:15:00.000Z",
+      "winner_id": "135",
+      "loser_id": "277"
     },
     {
       "winner": "Maryland",
       "loser": "Virginia Tech",
-      "date": "2021-12-29T19:15:00.000Z"
+      "date": "2021-12-29T19:15:00.000Z",
+      "winner_id": "120",
+      "loser_id": "259"
     },
     {
       "winner": "Clemson",
       "loser": "Iowa State",
-      "date": "2021-12-29T22:45:00.000Z"
+      "date": "2021-12-29T22:45:00.000Z",
+      "winner_id": "228",
+      "loser_id": "66"
     },
     {
       "winner": "Oklahoma",
       "loser": "Oregon",
-      "date": "2021-12-30T02:15:00.000Z"
+      "date": "2021-12-30T02:15:00.000Z",
+      "winner_id": "201",
+      "loser_id": "2483"
     },
     {
       "winner": "South Carolina",
       "loser": "North Carolina",
-      "date": "2021-12-30T16:30:00.000Z"
+      "date": "2021-12-30T16:30:00.000Z",
+      "winner_id": "2579",
+      "loser_id": "153"
     },
     {
       "winner": "Purdue",
       "loser": "Tennessee",
-      "date": "2021-12-30T20:00:00.000Z"
+      "date": "2021-12-30T20:00:00.000Z",
+      "winner_id": "2509",
+      "loser_id": "2633"
     },
     {
       "winner": "Michigan State",
       "loser": "Pittsburgh",
-      "date": "2021-12-31T00:00:00.000Z"
+      "date": "2021-12-31T00:00:00.000Z",
+      "winner_id": "127",
+      "loser_id": "221"
     },
     {
       "winner": "Wisconsin",
       "loser": "Arizona State",
-      "date": "2021-12-31T03:30:00.000Z"
+      "date": "2021-12-31T03:30:00.000Z",
+      "winner_id": "275",
+      "loser_id": "9"
     },
     {
       "winner": "Wake Forest",
       "loser": "Rutgers",
-      "date": "2021-12-31T16:00:00.000Z"
+      "date": "2021-12-31T16:00:00.000Z",
+      "winner_id": "154",
+      "loser_id": "164"
     },
     {
       "winner": "Central Michigan",
       "loser": "Washington State",
-      "date": "2021-12-31T17:00:00.000Z"
+      "date": "2021-12-31T17:00:00.000Z",
+      "winner_id": "2117",
+      "loser_id": "265"
     },
     {
       "winner": "Alabama",
       "loser": "Cincinnati",
-      "date": "2021-12-31T20:30:00.000Z"
+      "date": "2021-12-31T20:30:00.000Z",
+      "winner_id": "333",
+      "loser_id": "2132"
     },
     {
       "winner": "Georgia",
       "loser": "Michigan",
-      "date": "2022-01-01T00:30:00.000Z"
+      "date": "2022-01-01T00:30:00.000Z",
+      "winner_id": "61",
+      "loser_id": "130"
     },
     {
       "winner": "Arkansas",
       "loser": "Penn State",
-      "date": "2022-01-01T17:00:00.000Z"
+      "date": "2022-01-01T17:00:00.000Z",
+      "winner_id": "8",
+      "loser_id": "213"
     },
     {
       "winner": "Kentucky",
       "loser": "Iowa",
-      "date": "2022-01-01T18:00:00.000Z"
+      "date": "2022-01-01T18:00:00.000Z",
+      "winner_id": "96",
+      "loser_id": "2294"
     },
     {
       "winner": "Oklahoma State",
       "loser": "Notre Dame",
-      "date": "2022-01-01T18:00:00.000Z"
+      "date": "2022-01-01T18:00:00.000Z",
+      "winner_id": "197",
+      "loser_id": "87"
     },
     {
       "winner": "Ohio State",
       "loser": "Utah",
-      "date": "2022-01-01T22:00:00.000Z"
+      "date": "2022-01-01T22:00:00.000Z",
+      "winner_id": "194",
+      "loser_id": "254"
     },
     {
       "winner": "Baylor",
       "loser": "Mississippi",
-      "date": "2022-01-02T01:45:00.000Z"
+      "date": "2022-01-02T01:45:00.000Z",
+      "winner_id": "239",
+      "loser_id": "145"
     },
     {
       "winner": "Kansas State",
       "loser": "LSU",
-      "date": "2022-01-05T02:00:00.000Z"
+      "date": "2022-01-05T02:00:00.000Z",
+      "winner_id": "2306",
+      "loser_id": "99"
     },
     {
       "winner": "North Dakota State",
       "loser": "Montana State",
-      "date": "2022-01-08T17:00:00.000Z"
+      "date": "2022-01-08T17:00:00.000Z",
+      "winner_id": "2449",
+      "loser_id": "147"
     },
     {
       "winner": "Georgia",
       "loser": "Alabama",
-      "date": "2022-01-11T01:00:00.000Z"
+      "date": "2022-01-11T01:00:00.000Z",
+      "winner_id": "61",
+      "loser_id": "333"
     }
   ]
 }

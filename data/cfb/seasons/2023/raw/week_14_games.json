@@ -4,43 +4,63 @@
   "games": [
     {
       "winner": "Liberty",
-      "loser": "New Mexico State"
+      "loser": "New Mexico State",
+      "winner_id": "2335",
+      "loser_id": "166"
     },
     {
       "winner": "Washington",
-      "loser": "Oregon"
+      "loser": "Oregon",
+      "winner_id": "264",
+      "loser_id": "2483"
     },
     {
       "winner": "Texas",
-      "loser": "Oklahoma State"
+      "loser": "Oklahoma State",
+      "winner_id": "251",
+      "loser_id": "197"
     },
     {
       "winner": "Miami (Ohio)",
-      "loser": "Toledo"
+      "loser": "Toledo",
+      "winner_id": "193",
+      "loser_id": "2649"
     },
     {
       "winner": "Boise State",
-      "loser": "Nevada-Las Vegas"
+      "loser": "Nevada-Las Vegas",
+      "winner_id": "68",
+      "loser_id": "2439"
     },
     {
       "winner": "Alabama",
-      "loser": "Georgia"
+      "loser": "Georgia",
+      "winner_id": "333",
+      "loser_id": "61"
     },
     {
       "winner": "SMU",
-      "loser": "Tulane"
+      "loser": "Tulane",
+      "winner_id": "2567",
+      "loser_id": "2655"
     },
     {
       "winner": "Troy",
-      "loser": "Appalachian State"
+      "loser": "Appalachian State",
+      "winner_id": "2653",
+      "loser_id": "2026"
     },
     {
       "winner": "Michigan",
-      "loser": "Iowa"
+      "loser": "Iowa",
+      "winner_id": "130",
+      "loser_id": "2294"
     },
     {
       "winner": "Florida State",
-      "loser": "Louisville"
+      "loser": "Louisville",
+      "winner_id": "52",
+      "loser_id": "97"
     }
   ]
 }

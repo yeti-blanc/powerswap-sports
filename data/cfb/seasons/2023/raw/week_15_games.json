@@ -4,7 +4,9 @@
   "games": [
     {
       "winner": "Army",
-      "loser": "Navy"
+      "loser": "Navy",
+      "winner_id": "349",
+      "loser_id": "2426"
     }
   ]
 }

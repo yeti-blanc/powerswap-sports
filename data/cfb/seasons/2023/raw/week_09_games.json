@@ -4,1227 +4,1839 @@
   "games": [
     {
       "winner": "New Mexico State",
-      "loser": "Louisiana Tech"
+      "loser": "Louisiana Tech",
+      "winner_id": "166",
+      "loser_id": "2348"
     },
     {
       "winner": "Liberty",
-      "loser": "Western Kentucky"
+      "loser": "Western Kentucky",
+      "winner_id": "2335",
+      "loser_id": "98"
     },
     {
       "winner": "Jacksonville State",
-      "loser": "Florida International"
+      "loser": "Florida International",
+      "winner_id": "55",
+      "loser_id": "2229"
     },
     {
       "winner": "UTEP",
-      "loser": "Sam Houston State"
+      "loser": "Sam Houston State",
+      "winner_id": "2638",
+      "loser_id": "2534"
     },
     {
       "winner": "Eastern New Mexico",
-      "loser": "Lincoln (MO)"
+      "loser": "Lincoln (MO)",
+      "winner_id": "2201",
+      "loser_id": "2876"
     },
     {
       "winner": "Long Island University",
-      "loser": "Central Connecticut"
+      "loser": "Central Connecticut",
+      "winner_id": "2341",
+      "loser_id": "2115"
     },
     {
       "winner": "Ouachita Baptist",
-      "loser": "Southern Nazarene"
+      "loser": "Southern Nazarene",
+      "winner_id": "2888",
+      "loser_id": "200"
     },
     {
       "winner": "West Georgia",
-      "loser": "Shorter"
+      "loser": "Shorter",
+      "winner_id": "2698",
+      "loser_id": "2560"
     },
     {
       "winner": "North Carolina Central",
-      "loser": "South Carolina State"
+      "loser": "South Carolina State",
+      "winner_id": "2428",
+      "loser_id": "2569"
     },
     {
       "winner": "Virginia Tech",
-      "loser": "Syracuse"
+      "loser": "Syracuse",
+      "winner_id": "259",
+      "loser_id": "183"
     },
     {
       "winner": "Georgia Southern",
-      "loser": "Georgia State"
+      "loser": "Georgia State",
+      "winner_id": "290",
+      "loser_id": "2247"
     },
     {
       "winner": "Brown",
-      "loser": "Pennsylvania"
+      "loser": "Pennsylvania",
+      "winner_id": "225",
+      "loser_id": "219"
     },
     {
       "winner": "Florida Atlantic",
-      "loser": "Charlotte"
+      "loser": "Charlotte",
+      "winner_id": "2226",
+      "loser_id": "2429"
     },
     {
       "winner": "LYONCOLL",
-      "loser": "Hilbert College"
+      "loser": "Hilbert College",
+      "winner_id": null,
+      "loser_id": "125974"
     },
     {
       "winner": "Tennessee Tech",
-      "loser": "Robert Morris"
+      "loser": "Robert Morris",
+      "winner_id": "2635",
+      "loser_id": "2523"
     },
     {
       "winner": "Delaware Valley",
-      "loser": "Stevenson"
+      "loser": "Stevenson",
+      "winner_id": "2808",
+      "loser_id": "471"
     },
     {
       "winner": "Plymouth State",
-      "loser": "Westfield State"
+      "loser": "Westfield State",
+      "winner_id": "2972",
+      "loser_id": "2909"
     },
     {
       "winner": "Ohio Wesleyan",
-      "loser": "Oberlin"
+      "loser": "Oberlin",
+      "winner_id": "2980",
+      "loser_id": "391"
     },
     {
       "winner": "Curry College",
-      "loser": "Nichols College"
+      "loser": "Nichols College",
+      "winner_id": "40",
+      "loser_id": "2884"
     },
     {
       "winner": "Findlay",
-      "loser": "Ohio Dominican"
+      "loser": "Ohio Dominican",
+      "winner_id": "2224",
+      "loser_id": "2477"
     },
     {
       "winner": "Seton Hill",
-      "loser": "Edinboro University"
+      "loser": "Edinboro University",
+      "winner_id": "611",
+      "loser_id": "1001018"
     },
     {
       "winner": "Rensselaer",
-      "loser": "University of Rochester (NY)"
+      "loser": "University of Rochester (NY)",
+      "winner_id": "2528",
+      "loser_id": "184"
     },
     {
       "winner": "Springfield",
-      "loser": "Merchant Marine Academy"
+      "loser": "Merchant Marine Academy",
+      "winner_id": "81",
+      "loser_id": null
     },
     {
       "winner": "Depauw",
-      "loser": "Kenyon"
+      "loser": "Kenyon",
+      "winner_id": "83",
+      "loser_id": "352"
     },
     {
       "winner": "PennWest California",
-      "loser": "Mercyhurst"
+      "loser": "Mercyhurst",
+      "winner_id": null,
+      "loser_id": "2385"
     },
     {
       "winner": "Notre Dame College",
-      "loser": "Wheeling"
+      "loser": "Wheeling",
+      "winner_id": "587",
+      "loser_id": "112335"
     },
     {
       "winner": "Davenport",
-      "loser": "Saginaw Valley State"
+      "loser": "Saginaw Valley State",
+      "winner_id": "110254",
+      "loser_id": "129"
     },
     {
       "winner": "Limestone",
-      "loser": "Newberry"
+      "loser": "Newberry",
+      "winner_id": "2336",
+      "loser_id": "2444"
     },
     {
       "winner": "Tiffin",
-      "loser": "Walsh"
+      "loser": "Walsh",
+      "winner_id": "2838",
+      "loser_id": "2682"
     },
     {
       "winner": "Howard",
-      "loser": "Delaware State"
+      "loser": "Delaware State",
+      "winner_id": "47",
+      "loser_id": "2169"
     },
     {
       "winner": "Wagner",
-      "loser": "Stonehill"
+      "loser": "Stonehill",
+      "winner_id": "2681",
+      "loser_id": "284"
     },
     {
       "winner": "Yale",
-      "loser": "Columbia"
+      "loser": "Columbia",
+      "winner_id": "43",
+      "loser_id": "171"
     },
     {
       "winner": "Florida State",
-      "loser": "Wake Forest"
+      "loser": "Wake Forest",
+      "winner_id": "52",
+      "loser_id": "154"
     },
     {
       "winner": "Kansas",
-      "loser": "Oklahoma"
+      "loser": "Oklahoma",
+      "winner_id": "2305",
+      "loser_id": "201"
     },
     {
       "winner": "Framingham State",
-      "loser": "Mass Maritime"
+      "loser": "Mass Maritime",
+      "winner_id": "2967",
+      "loser_id": "110"
     },
     {
       "winner": "Anna Maria College",
-      "loser": "Gallaudet"
+      "loser": "Gallaudet",
+      "winner_id": "15",
+      "loser_id": "417"
     },
     {
       "winner": "UMass Dartmouth",
-      "loser": "Bridgewater State"
+      "loser": "Bridgewater State",
+      "winner_id": "379",
+      "loser_id": "18"
     },
     {
       "winner": "Catholic",
-      "loser": "Keystone"
+      "loser": "Keystone",
+      "winner_id": "2108",
+      "loser_id": "122774"
     },
     {
       "winner": "MIT",
-      "loser": "Norwich"
+      "loser": "Norwich",
+      "winner_id": "109",
+      "loser_id": "2467"
     },
     {
       "winner": "St John Fisher University",
-      "loser": "Alfred University"
+      "loser": "Alfred University",
+      "winner_id": "374",
+      "loser_id": "365"
     },
     {
       "winner": "Endicott College",
-      "loser": "Husson"
+      "loser": "Husson",
+      "winner_id": "452",
+      "loser_id": "2280"
     },
     {
       "winner": "SMU",
-      "loser": "Tulsa"
+      "loser": "Tulsa",
+      "winner_id": "2567",
+      "loser_id": "202"
     },
     {
       "winner": "West Virginia",
-      "loser": "Central Florida"
+      "loser": "Central Florida",
+      "winner_id": "277",
+      "loser_id": "2116"
     },
     {
       "winner": "Kansas State",
-      "loser": "Houston"
+      "loser": "Houston",
+      "winner_id": "2306",
+      "loser_id": "248"
     },
     {
       "winner": "Penn State",
-      "loser": "Indiana"
+      "loser": "Indiana",
+      "winner_id": "213",
+      "loser_id": "84"
     },
     {
       "winner": "Massachusetts",
-      "loser": "Army"
+      "loser": "Army",
+      "winner_id": "113",
+      "loser_id": "349"
     },
     {
       "winner": "Boston College",
-      "loser": "Connecticut"
+      "loser": "Connecticut",
+      "winner_id": "103",
+      "loser_id": "41"
     },
     {
       "winner": "Northwestern",
-      "loser": "Maryland"
+      "loser": "Maryland",
+      "winner_id": "77",
+      "loser_id": "120"
     },
     {
       "winner": "Texas A&M",
-      "loser": "South Carolina"
+      "loser": "South Carolina",
+      "winner_id": "245",
+      "loser_id": "2579"
     },
     {
       "winner": "Duquesne",
-      "loser": "Sacred Heart"
+      "loser": "Sacred Heart",
+      "winner_id": "2184",
+      "loser_id": "2529"
     },
     {
       "winner": "Lafayette",
-      "loser": "Georgetown"
+      "loser": "Georgetown",
+      "winner_id": "322",
+      "loser_id": "46"
     },
     {
       "winner": "Wisconsin-Lacrosse",
-      "loser": "Wisconsin-Eau Claire"
+      "loser": "Wisconsin-Eau Claire",
+      "winner_id": null,
+      "loser_id": "2738"
     },
     {
       "winner": "Alma",
-      "loser": "Olivet College"
+      "loser": "Olivet College",
+      "winner_id": "2800",
+      "loser_id": "354"
     },
     {
       "winner": "Pace",
-      "loser": "St. Anselm"
+      "loser": "St. Anselm",
+      "winner_id": "2487",
+      "loser_id": null
     },
     {
       "winner": "Wayne State (NE)",
-      "loser": "Augustana University (SD)"
+      "loser": "Augustana University (SD)",
+      "winner_id": "2844",
+      "loser_id": null
     },
     {
       "winner": "Allegheny",
-      "loser": "Thiel"
+      "loser": "Thiel",
+      "winner_id": "2018",
+      "loser_id": "2644"
     },
     {
       "winner": "Southern Connecticut State",
-      "loser": "Post University"
+      "loser": "Post University",
+      "winner_id": "2583",
+      "loser_id": "126086"
     },
     {
       "winner": "Misericordia",
-      "loser": "Albright"
+      "loser": "Albright",
+      "winner_id": "2969",
+      "loser_id": "2015"
     },
     {
       "winner": "Lycoming",
-      "loser": "Juniata College"
+      "loser": "Juniata College",
+      "winner_id": "2354",
+      "loser_id": "246"
     },
     {
       "winner": "Salve Regina",
-      "loser": "Worcester Polytechnic Institute"
+      "loser": "Worcester Polytechnic Institute",
+      "winner_id": "2776",
+      "loser_id": null
     },
     {
       "winner": "Albany State GA",
-      "loser": "Miles College"
+      "loser": "Miles College",
+      "winner_id": null,
+      "loser_id": "2396"
     },
     {
       "winner": "Grove City College",
-      "loser": "Bethany (WV)"
+      "loser": "Bethany (WV)",
+      "winner_id": "146",
+      "loser_id": "2062"
     },
     {
       "winner": "Greenville",
-      "loser": "Westminster College (MO)"
+      "loser": "Westminster College (MO)",
+      "winner_id": "2257",
+      "loser_id": null
     },
     {
       "winner": "University of Mary",
-      "loser": "Minot State"
+      "loser": "Minot State",
+      "winner_id": "559",
+      "loser_id": "568"
     },
     {
       "winner": "Westminster (PA)",
-      "loser": "Saint Vincent"
+      "loser": "Saint Vincent",
+      "winner_id": "2849",
+      "loser_id": "2614"
     },
     {
       "winner": "Ashland",
-      "loser": "Thomas More College"
+      "loser": "Thomas More College",
+      "winner_id": "308",
+      "loser_id": "2646"
     },
     {
       "winner": "West Chester",
-      "loser": "Lock Haven University"
+      "loser": "Lock Haven University",
+      "winner_id": "223",
+      "loser_id": "209"
     },
     {
       "winner": "Franklin & Marshall",
-      "loser": "Kean"
+      "loser": "Kean",
+      "winner_id": "2234",
+      "loser_id": "2871"
     },
     {
       "winner": "University Of Charleston (WV)",
-      "loser": "Frostburg State"
+      "loser": "Frostburg State",
+      "winner_id": "2128",
+      "loser_id": "341"
     },
     {
       "winner": "Ursinus",
-      "loser": "McDaniel College"
+      "loser": "McDaniel College",
+      "winner_id": "2667",
+      "loser_id": "2700"
     },
     {
       "winner": "Wesleyan University (CT)",
-      "loser": "Amherst"
+      "loser": "Amherst",
+      "winner_id": null,
+      "loser_id": "7"
     },
     {
       "winner": "FDU-Florham",
-      "loser": "Eastern University"
+      "loser": "Eastern University",
+      "winner_id": "2221",
+      "loser_id": "127954"
     },
     {
       "winner": "College Of New Jersey",
-      "loser": "Salisbury"
+      "loser": "Salisbury",
+      "winner_id": null,
+      "loser_id": "2532"
     },
     {
       "winner": "Dickinson (PA)",
-      "loser": "Gettysburg"
+      "loser": "Gettysburg",
+      "winner_id": null,
+      "loser_id": "2248"
     },
     {
       "winner": "Centre College Kentucky",
-      "loser": "Sewanee"
+      "loser": "Sewanee",
+      "winner_id": null,
+      "loser_id": "2553"
     },
     {
       "winner": "Ithaca College",
-      "loser": "Buffalo State"
+      "loser": "Buffalo State",
+      "winner_id": "175",
+      "loser_id": "2085"
     },
     {
       "winner": "Berry College",
-      "loser": "Hendrix College"
+      "loser": "Hendrix College",
+      "winner_id": "2757",
+      "loser_id": "418"
     },
     {
       "winner": "Hampden-Sydney",
-      "loser": "Guilford College"
+      "loser": "Guilford College",
+      "winner_id": "297",
+      "loser_id": "2258"
     },
     {
       "winner": "Lebanon Valley",
-      "loser": "Reading"
+      "loser": "Reading",
+      "winner_id": "388",
+      "loser_id": null
     },
     {
       "winner": "Mars Hill",
-      "loser": "UVA Wise"
+      "loser": "UVA Wise",
+      "winner_id": "2369",
+      "loser_id": "2842"
     },
     {
       "winner": "Wabash College",
-      "loser": "Wittenberg"
+      "loser": "Wittenberg",
+      "winner_id": "89",
+      "loser_id": "2746"
     },
     {
       "winner": "Greensboro College",
-      "loser": "Southern Virginia"
+      "loser": "Southern Virginia",
+      "winner_id": "2256",
+      "loser_id": "2896"
     },
     {
       "winner": "Hope College",
-      "loser": "Kalamazoo"
+      "loser": "Kalamazoo",
+      "winner_id": "2812",
+      "loser_id": "126"
     },
     {
       "winner": "Christopher Newport",
-      "loser": "William Paterson"
+      "loser": "William Paterson",
+      "winner_id": "3112",
+      "loser_id": "2970"
     },
     {
       "winner": "Hobart College",
-      "loser": "St. Lawrence"
+      "loser": "St. Lawrence",
+      "winner_id": "174",
+      "loser_id": "2779"
     },
     {
       "winner": "Ferris State",
-      "loser": "American International"
+      "loser": "American International",
+      "winner_id": "2222",
+      "loser_id": "2022"
     },
     {
       "winner": "Susquehanna",
-      "loser": "Moravian"
+      "loser": "Moravian",
+      "winner_id": "216",
+      "loser_id": "323"
     },
     {
       "winner": "Bemidji State",
-      "loser": "Minnesota Duluth"
+      "loser": "Minnesota Duluth",
+      "winner_id": "132",
+      "loser_id": "134"
     },
     {
       "winner": "Fairmont State",
-      "loser": "West Virginia State"
+      "loser": "West Virginia State",
+      "winner_id": "2986",
+      "loser_id": "2707"
     },
     {
       "winner": "Randolph-Macon",
-      "loser": "Washington and Lee"
+      "loser": "Washington and Lee",
+      "winner_id": "2516",
+      "loser_id": "2688"
     },
     {
       "winner": "New Haven",
-      "loser": "Assumption"
+      "loser": "Assumption",
+      "winner_id": "2441",
+      "loser_id": "2038"
     },
     {
       "winner": "Wayne State (MI)",
-      "loser": "Northern Michigan"
+      "loser": "Northern Michigan",
+      "winner_id": "131",
+      "loser_id": "128"
     },
     {
       "winner": "Central State (OH)",
-      "loser": "Lane College"
+      "loser": "Lane College",
+      "winner_id": null,
+      "loser_id": "2323"
     },
     {
       "winner": "West Alabama",
-      "loser": "Chowan"
+      "loser": "Chowan",
+      "winner_id": "2695",
+      "loser_id": "2804"
     },
     {
       "winner": "Virginia Union",
-      "loser": "Bluefield State"
+      "loser": "Bluefield State",
+      "winner_id": "2676",
+      "loser_id": "124180"
     },
     {
       "winner": "Shenandoah",
-      "loser": "Averett"
+      "loser": "Averett",
+      "winner_id": "2828",
+      "loser_id": "2047"
     },
     {
       "winner": "Hamilton",
-      "loser": "Tufts"
+      "loser": "Tufts",
+      "winner_id": "348",
+      "loser_id": "112"
     },
     {
       "winner": "Rhode Island",
-      "loser": "New Hampshire"
+      "loser": "New Hampshire",
+      "winner_id": "227",
+      "loser_id": "160"
     },
     {
       "winner": "Geneva",
-      "loser": "Waynesburg"
+      "loser": "Waynesburg",
+      "winner_id": "2242",
+      "loser_id": "2845"
     },
     {
       "winner": "Drake",
-      "loser": "Stetson"
+      "loser": "Stetson",
+      "winner_id": "2181",
+      "loser_id": "56"
     },
     {
       "winner": "Western Michigan",
-      "loser": "Eastern Michigan"
+      "loser": "Eastern Michigan",
+      "winner_id": "2711",
+      "loser_id": "2199"
     },
     {
       "winner": "Trinity University TX",
-      "loser": "Millsaps"
+      "loser": "Millsaps",
+      "winner_id": "386",
+      "loser_id": "2398"
     },
     {
       "winner": "Western New England",
-      "loser": "Biddeford"
+      "loser": "Biddeford",
+      "winner_id": "2702",
+      "loser_id": null
     },
     {
       "winner": "William & Mary",
-      "loser": "Monmouth"
+      "loser": "Monmouth",
+      "winner_id": "2729",
+      "loser_id": "2405"
     },
     {
       "winner": "UAlbany",
-      "loser": "Maine"
+      "loser": "Maine",
+      "winner_id": "399",
+      "loser_id": "311"
     },
     {
       "winner": "Butler",
-      "loser": "Valparaiso"
+      "loser": "Valparaiso",
+      "winner_id": "2086",
+      "loser_id": "2674"
     },
     {
       "winner": "Princeton",
-      "loser": "Cornell"
+      "loser": "Cornell",
+      "winner_id": "163",
+      "loser_id": "172"
     },
     {
       "winner": "Northern Iowa",
-      "loser": "Illinois State"
+      "loser": "Illinois State",
+      "winner_id": "2460",
+      "loser_id": "2287"
     },
     {
       "winner": "Holy Cross",
-      "loser": "Fordham"
+      "loser": "Fordham",
+      "winner_id": "107",
+      "loser_id": "2230"
     },
     {
       "winner": "Bucknell",
-      "loser": "Colgate"
+      "loser": "Colgate",
+      "winner_id": "2083",
+      "loser_id": "2142"
     },
     {
       "winner": "Minnesota State Moorhead",
-      "loser": "Winona State"
+      "loser": "Winona State",
+      "winner_id": null,
+      "loser_id": "2851"
     },
     {
       "winner": "St. Francis (PA)",
-      "loser": "Merrimack"
+      "loser": "Merrimack",
+      "winner_id": null,
+      "loser_id": "2771"
     },
     {
       "winner": "Slippery Rock",
-      "loser": "Clarion"
+      "loser": "Clarion",
+      "winner_id": "215",
+      "loser_id": "2134"
     },
     {
       "winner": "Delaware",
-      "loser": "Towson"
+      "loser": "Towson",
+      "winner_id": "48",
+      "loser_id": "119"
     },
     {
       "winner": "Maryville College (TN)",
-      "loser": "Belhaven"
+      "loser": "Belhaven",
+      "winner_id": null,
+      "loser_id": "2056"
     },
     {
       "winner": "Concordia University St Paul",
-      "loser": "Northern State"
+      "loser": "Northern State",
+      "winner_id": "1001066",
+      "loser_id": "425"
     },
     {
       "winner": "Greeneville",
-      "loser": "ERSKINE"
+      "loser": "ERSKINE",
+      "winner_id": null,
+      "loser_id": "101784"
     },
     {
       "winner": "Fayetteville State",
-      "loser": "Shaw"
+      "loser": "Shaw",
+      "winner_id": "2220",
+      "loser_id": "2551"
     },
     {
       "winner": "Bowie State",
-      "loser": "Elizabeth City State"
+      "loser": "Elizabeth City State",
+      "winner_id": "2075",
+      "loser_id": "2207"
     },
     {
       "winner": "Widener",
-      "loser": "Kings College (PA)"
+      "loser": "Kings College (PA)",
+      "winner_id": "2725",
+      "loser_id": null
     },
     {
       "winner": "East Stroudsburg University",
-      "loser": "Shippensburg"
+      "loser": "Shippensburg",
+      "winner_id": "2188",
+      "loser_id": "2559"
     },
     {
       "winner": "Chattanooga",
-      "loser": "VMI"
+      "loser": "VMI",
+      "winner_id": "236",
+      "loser_id": "2678"
     },
     {
       "winner": "Bluffton",
-      "loser": "Anderson (IN)"
+      "loser": "Anderson (IN)",
+      "winner_id": "2074",
+      "loser_id": "2023"
     },
     {
       "winner": "Defiance College",
-      "loser": "Manchester"
+      "loser": "Manchester",
+      "winner_id": "190",
+      "loser_id": "2362"
     },
     {
       "winner": "John Carroll University",
-      "loser": "Muskingum University"
+      "loser": "Muskingum University",
+      "winner_id": "2302",
+      "loser_id": "332"
     },
     {
       "winner": "Heidelberg",
-      "loser": "Wilmington (OH)"
+      "loser": "Wilmington (OH)",
+      "winner_id": "191",
+      "loser_id": "2733"
     },
     {
       "winner": "Baldwin Wallace",
-      "loser": "Capital"
+      "loser": "Capital",
+      "winner_id": "188",
+      "loser_id": "424"
     },
     {
       "winner": "Mount St. Joseph",
-      "loser": "Franklin"
+      "loser": "Franklin",
+      "winner_id": "2419",
+      "loser_id": "2233"
     },
     {
       "winner": "University of Mount Union",
-      "loser": "Otterbein"
+      "loser": "Otterbein",
+      "winner_id": "426",
+      "loser_id": "359"
     },
     {
       "winner": "Gardner-Webb",
-      "loser": "UT Martin"
+      "loser": "UT Martin",
+      "winner_id": "2241",
+      "loser_id": "2630"
     },
     {
       "winner": "Washington University (St. Louis)",
-      "loser": "Elmhurst"
+      "loser": "Elmhurst",
+      "winner_id": null,
+      "loser_id": "72"
     },
     {
       "winner": "Benedictine University",
-      "loser": "Wisconsin-Lutheran"
+      "loser": "Wisconsin-Lutheran",
+      "winner_id": null,
+      "loser_id": "2741"
     },
     {
       "winner": "Kutztown University",
-      "loser": "Millersville"
+      "loser": "Millersville",
+      "winner_id": "2315",
+      "loser_id": "210"
     },
     {
       "winner": "Wooster",
-      "loser": "Hiram College"
+      "loser": "Hiram College",
+      "winner_id": "2748",
+      "loser_id": "2274"
     },
     {
       "winner": "Rose-Hulman",
-      "loser": "Hanover College"
+      "loser": "Hanover College",
+      "winner_id": "86",
+      "loser_id": "2262"
     },
     {
       "winner": "Tuskegee",
-      "loser": "Clark Atlanta"
+      "loser": "Clark Atlanta",
+      "winner_id": "2657",
+      "loser_id": "2805"
     },
     {
       "winner": "Saint John's (MN)",
-      "loser": "St. Scholastica"
+      "loser": "St. Scholastica",
+      "winner_id": "2600",
+      "loser_id": "375"
     },
     {
       "winner": "Wingate",
-      "loser": "Lenoir-Rhyne"
+      "loser": "Lenoir-Rhyne",
+      "winner_id": "351",
+      "loser_id": "2331"
     },
     {
       "winner": "Marietta",
-      "loser": "Ohio Northern"
+      "loser": "Ohio Northern",
+      "winner_id": "317",
+      "loser_id": "427"
     },
     {
       "winner": "Brockport",
-      "loser": "Utica"
+      "loser": "Utica",
+      "winner_id": "2781",
+      "loser_id": "390"
     },
     {
       "winner": "Illinois College",
-      "loser": "Grinnell"
+      "loser": "Grinnell",
+      "winner_id": "2286",
+      "loser_id": "65"
     },
     {
       "winner": "Concordia Moorhead",
-      "loser": "Augsburg"
+      "loser": "Augsburg",
+      "winner_id": null,
+      "loser_id": "124"
     },
     {
       "winner": "Rhodes College",
-      "loser": "Birmingham-Southern"
+      "loser": "Birmingham-Southern",
+      "winner_id": "2519",
+      "loser_id": "3"
     },
     {
       "winner": "North Central College",
-      "loser": "North Park"
+      "loser": "North Park",
+      "winner_id": "3071",
+      "loser_id": "75"
     },
     {
       "winner": "St. Norbert",
-      "loser": "Concordia University Chicago"
+      "loser": "Concordia University Chicago",
+      "winner_id": "2832",
+      "loser_id": null
     },
     {
       "winner": "Hamline University",
-      "loser": "Macalester"
+      "loser": "Macalester",
+      "winner_id": "162",
+      "loser_id": "2359"
     },
     {
       "winner": "SUNY Maritime",
-      "loser": "Coast Guard"
+      "loser": "Coast Guard",
+      "winner_id": "2951",
+      "loser_id": "2557"
     },
     {
       "winner": "Northwestern (MN)",
-      "loser": "Martin Luther"
+      "loser": "Martin Luther",
+      "winner_id": "583",
+      "loser_id": "446"
     },
     {
       "winner": "Johns Hopkins University",
-      "loser": "Muhlenberg"
+      "loser": "Muhlenberg",
+      "winner_id": "118",
+      "loser_id": "2422"
     },
     {
       "winner": "Lake Forest College",
-      "loser": "Beloit"
+      "loser": "Beloit",
+      "winner_id": "262",
+      "loser_id": "266"
     },
     {
       "winner": "Aurora",
-      "loser": "Rockford"
+      "loser": "Rockford",
+      "winner_id": "2044",
+      "loser_id": "2524"
     },
     {
       "winner": "Gustavus Adolphus",
-      "loser": "St. Olaf"
+      "loser": "St. Olaf",
+      "winner_id": "2968",
+      "loser_id": "133"
     },
     {
       "winner": "Cornell College (IA)",
-      "loser": "Knox College"
+      "loser": "Knox College",
+      "winner_id": null,
+      "loser_id": "255"
     },
     {
       "winner": "Bethel (MN)",
-      "loser": "Carleton"
+      "loser": "Carleton",
+      "winner_id": "2802",
+      "loser_id": "2101"
     },
     {
       "winner": "Hillsdale",
-      "loser": "Lake Erie"
+      "loser": "Lake Erie",
+      "winner_id": "2273",
+      "loser_id": "437"
     },
     {
       "winner": "Howard Payne",
-      "loser": "Texas Lutheran"
+      "loser": "Texas Lutheran",
+      "winner_id": "2758",
+      "loser_id": "2639"
     },
     {
       "winner": "Fort Hays State",
-      "loser": "Central Oklahoma"
+      "loser": "Central Oklahoma",
+      "winner_id": null,
+      "loser_id": "2122"
     },
     {
       "winner": "Gannon",
-      "loser": "Indiana-Pennsylvania"
+      "loser": "Indiana-Pennsylvania",
+      "winner_id": "367",
+      "loser_id": null
     },
     {
       "winner": "Augustana (IL)",
-      "loser": "Illinois Wesleyan"
+      "loser": "Illinois Wesleyan",
+      "winner_id": "2042",
+      "loser_id": "306"
     },
     {
       "winner": "Northwest Missouri St",
-      "loser": "Washburn"
+      "loser": "Washburn",
+      "winner_id": "138",
+      "loser_id": "2687"
     },
     {
       "winner": "Minnesota State Mankato",
-      "loser": "Southwest Minnesota State"
+      "loser": "Southwest Minnesota State",
+      "winner_id": "2364",
+      "loser_id": "2587"
     },
     {
       "winner": "NC State",
-      "loser": "Clemson"
+      "loser": "Clemson",
+      "winner_id": "152",
+      "loser_id": "228"
     },
     {
       "winner": "Monmouth (IL)",
-      "loser": "Ripon"
+      "loser": "Ripon",
+      "winner_id": "2919",
+      "loser_id": "2891"
     },
     {
       "winner": "North Greenville",
-      "loser": "Mississippi College"
+      "loser": "Mississippi College",
+      "winner_id": "2822",
+      "loser_id": "2401"
     },
     {
       "winner": "Bentley",
-      "loser": "Franklin Pierce"
+      "loser": "Franklin Pierce",
+      "winner_id": "2060",
+      "loser_id": "112334"
     },
     {
       "winner": "Virginia St",
-      "loser": "Lincoln (PA)"
+      "loser": "Lincoln (PA)",
+      "winner_id": "330",
+      "loser_id": "2339"
     },
     {
       "winner": "Bloomsburg",
-      "loser": "Shepherd"
+      "loser": "Shepherd",
+      "winner_id": "2071",
+      "loser_id": "2974"
     },
     {
       "winner": "Johnson C Smith",
-      "loser": "Winston-Salem"
+      "loser": "Winston-Salem",
+      "winner_id": "2304",
+      "loser_id": "2736"
     },
     {
       "winner": "Missouri Western",
-      "loser": "Northeastern State"
+      "loser": "Northeastern State",
+      "winner_id": "137",
+      "loser_id": "196"
     },
     {
       "winner": "Missouri S&T",
-      "loser": "William Jewell"
+      "loser": "William Jewell",
+      "winner_id": "2402",
+      "loser_id": "2911"
     },
     {
       "winner": "Southwest Baptist",
-      "loser": "Truman State"
+      "loser": "Truman State",
+      "winner_id": "2586",
+      "loser_id": "2654"
     },
     {
       "winner": "Black Hills State",
-      "loser": "Fort Lewis"
+      "loser": "Fort Lewis",
+      "winner_id": "2069",
+      "loser_id": "2237"
     },
     {
       "winner": "Morgan State",
-      "loser": "Norfolk State"
+      "loser": "Norfolk State",
+      "winner_id": "2415",
+      "loser_id": "2450"
     },
     {
       "winner": "North Dakota",
-      "loser": "Indiana State"
+      "loser": "Indiana State",
+      "winner_id": "155",
+      "loser_id": "282"
     },
     {
       "winner": "Youngstown State",
-      "loser": "Missouri State"
+      "loser": "Missouri State",
+      "winner_id": "2754",
+      "loser_id": "2623"
     },
     {
       "winner": "Hampton",
-      "loser": "North Carolina A&T"
+      "loser": "North Carolina A&T",
+      "winner_id": "2261",
+      "loser_id": "2448"
     },
     {
       "winner": "St. Thomas (MN)",
-      "loser": "Marist"
+      "loser": "Marist",
+      "winner_id": "2900",
+      "loser_id": "2368"
     },
     {
       "winner": "Villanova",
-      "loser": "Stony Brook"
+      "loser": "Stony Brook",
+      "winner_id": "222",
+      "loser_id": "2619"
     },
     {
       "winner": "Furman",
-      "loser": "East Tennessee State"
+      "loser": "East Tennessee State",
+      "winner_id": "231",
+      "loser_id": "2193"
     },
     {
       "winner": "South Dakota State",
-      "loser": "South Dakota"
+      "loser": "South Dakota",
+      "winner_id": "2571",
+      "loser_id": "233"
     },
     {
       "winner": "Wheaton",
-      "loser": "Millikin"
+      "loser": "Millikin",
+      "winner_id": null,
+      "loser_id": "74"
     },
     {
       "winner": "Hardin-Simmons",
-      "loser": "Mary Hardin-Baylor"
+      "loser": "Mary Hardin-Baylor",
+      "winner_id": "2810",
+      "loser_id": "2371"
     },
     {
       "winner": "Fort Valley State",
-      "loser": "Virginia University Of Lynchburg"
+      "loser": "Virginia University Of Lynchburg",
+      "winner_id": "2232",
+      "loser_id": null
     },
     {
       "winner": "Concordia-Wisconsin",
-      "loser": "Eureka College"
+      "loser": "Eureka College",
+      "winner_id": null,
+      "loser_id": "101"
     },
     {
       "winner": "Allen",
-      "loser": "Edward Waters"
+      "loser": "Edward Waters",
+      "winner_id": "2019",
+      "loser_id": "2206"
     },
     {
       "winner": "Chicago",
-      "loser": "Lawrence University"
+      "loser": "Lawrence University",
+      "winner_id": "80",
+      "loser_id": "268"
     },
     {
       "winner": "Wisconsin-River Falls",
-      "loser": "Wisconsin-Stout"
+      "loser": "Wisconsin-Stout",
+      "winner_id": "2723",
+      "loser_id": "2744"
     },
     {
       "winner": "Minnesota Morris",
-      "loser": "Crown College"
+      "loser": "Crown College",
+      "winner_id": "2399",
+      "loser_id": "509"
     },
     {
       "winner": "Wartburg",
-      "loser": "Central College"
+      "loser": "Central College",
+      "winner_id": "2685",
+      "loser_id": "2964"
     },
     {
       "winner": "Loras College",
-      "loser": "Buena Vista"
+      "loser": "Buena Vista",
+      "winner_id": "263",
+      "loser_id": "63"
     },
     {
       "winner": "Carthage",
-      "loser": "Carroll University (WI)"
+      "loser": "Carroll University (WI)",
+      "winner_id": "2106",
+      "loser_id": null
     },
     {
       "winner": "East Texas Baptist University",
-      "loser": "Sul Ross State"
+      "loser": "Sul Ross State",
+      "winner_id": "2194",
+      "loser_id": "2834"
     },
     {
       "winner": "Colorado School Of Mines",
-      "loser": "Western Colorado"
+      "loser": "Western Colorado",
+      "winner_id": "2146",
+      "loser_id": "2714"
     },
     {
       "winner": "Concord University",
-      "loser": "West Virginia Wesleyan"
+      "loser": "West Virginia Wesleyan",
+      "winner_id": "2148",
+      "loser_id": "455"
     },
     {
       "winner": "Kentucky State",
-      "loser": "Morehouse College"
+      "loser": "Morehouse College",
+      "winner_id": "2310",
+      "loser_id": "60"
     },
     {
       "winner": "Wisconsin-Whitewater",
-      "loser": "Wisconsin-Platteville"
+      "loser": "Wisconsin-Platteville",
+      "winner_id": "2745",
+      "loser_id": "272"
     },
     {
       "winner": "McMurry",
-      "loser": "Austin"
+      "loser": "Austin",
+      "winner_id": "241",
+      "loser_id": "2045"
     },
     {
       "winner": "Coe College",
-      "loser": "Luther"
+      "loser": "Luther",
+      "winner_id": "2141",
+      "loser_id": "67"
     },
     {
       "winner": "Bridgewater (VA)",
-      "loser": "Ferrum"
+      "loser": "Ferrum",
+      "winner_id": null,
+      "loser_id": "366"
     },
     {
       "winner": "Chadron St",
-      "loser": "New Mexico Highlands"
+      "loser": "New Mexico Highlands",
+      "winner_id": "2123",
+      "loser_id": "2424"
     },
     {
       "winner": "Cortland",
-      "loser": "Hartwick"
+      "loser": "Hartwick",
+      "winner_id": null,
+      "loser_id": "173"
     },
     {
       "winner": "Mercer",
-      "loser": "Western Carolina"
+      "loser": "Western Carolina",
+      "winner_id": "2382",
+      "loser_id": "2717"
     },
     {
       "winner": "Wisconsin-Oshkosh",
-      "loser": "Wisconsin-Stevens Pt"
+      "loser": "Wisconsin-Stevens Pt",
+      "winner_id": "271",
+      "loser_id": null
     },
     {
       "winner": "Tennessee State",
-      "loser": "Lindenwood"
+      "loser": "Lindenwood",
+      "winner_id": "2634",
+      "loser_id": "2815"
     },
     {
       "winner": "Jackson State",
-      "loser": "Arkansas-Pine Bluff"
+      "loser": "Arkansas-Pine Bluff",
+      "winner_id": "2296",
+      "loser_id": "2029"
     },
     {
       "winner": "Samford",
-      "loser": "The Citadel"
+      "loser": "The Citadel",
+      "winner_id": "2535",
+      "loser_id": "2643"
     },
     {
       "winner": "Central Missouri",
-      "loser": "Missouri Southern State"
+      "loser": "Missouri Southern State",
+      "winner_id": "2118",
+      "loser_id": "2403"
     },
     {
       "winner": "Oklahoma Baptist",
-      "loser": "Arkansas-Monticello"
+      "loser": "Arkansas-Monticello",
+      "winner_id": "319",
+      "loser_id": "2028"
     },
     {
       "winner": "Montana",
-      "loser": "Northern Colorado"
+      "loser": "Northern Colorado",
+      "winner_id": "149",
+      "loser_id": "2458"
     },
     {
       "winner": "Grambling",
-      "loser": "Bethune-Cookman"
+      "loser": "Bethune-Cookman",
+      "winner_id": "2755",
+      "loser_id": "2065"
     },
     {
       "winner": "Memphis",
-      "loser": "North Texas"
+      "loser": "North Texas",
+      "winner_id": "235",
+      "loser_id": "249"
     },
     {
       "winner": "UNC Pembroke",
-      "loser": "Glenville State"
+      "loser": "Glenville State",
+      "winner_id": "2882",
+      "loser_id": "2249"
     },
     {
       "winner": "Brevard College",
-      "loser": "Lagrange College"
+      "loser": "Lagrange College",
+      "winner_id": "2913",
+      "loser_id": "548"
     },
     {
       "winner": "South Dakota Mines",
-      "loser": "Adams State"
+      "loser": "Adams State",
+      "winner_id": "613",
+      "loser_id": "2001"
     },
     {
       "winner": "Albion",
-      "loser": "Adrian"
+      "loser": "Adrian",
+      "winner_id": "2790",
+      "loser_id": "2003"
     },
     {
       "winner": "Harding University",
-      "loser": "Southeastern Oklahoma State"
+      "loser": "Southeastern Oklahoma State",
+      "winner_id": "2264",
+      "loser_id": "199"
     },
     {
       "winner": "Henderson State",
-      "loser": "Northwestern Oklahoma State"
+      "loser": "Northwestern Oklahoma State",
+      "winner_id": "2271",
+      "loser_id": null
     },
     {
       "winner": "Carson-Newman College",
-      "loser": "Emory & Henry College"
+      "loser": "Emory & Henry College",
+      "winner_id": "2105",
+      "loser_id": "2213"
     },
     {
       "winner": "CSU Pueblo",
-      "loser": "Colorado Mesa"
+      "loser": "Colorado Mesa",
+      "winner_id": "2570",
+      "loser_id": "11"
     },
     {
       "winner": "Arkansas Tech",
-      "loser": "East Central (OK)"
+      "loser": "East Central (OK)",
+      "winner_id": "2033",
+      "loser_id": null
     },
     {
       "winner": "Benedict College",
-      "loser": "Savannah St"
+      "loser": "Savannah St",
+      "winner_id": "1001090",
+      "loser_id": "2542"
     },
     {
       "winner": "Alcorn State",
-      "loser": "Mississippi Valley State"
+      "loser": "Mississippi Valley State",
+      "winner_id": "2016",
+      "loser_id": "2400"
     },
     {
       "winner": "Houston Christian",
-      "loser": "East Texas A&M"
+      "loser": "East Texas A&M",
+      "winner_id": "2277",
+      "loser_id": "2837"
     },
     {
       "winner": "Southern Arkansas",
-      "loser": "Southwestern Oklahoma State"
+      "loser": "Southwestern Oklahoma State",
+      "winner_id": "2568",
+      "loser_id": "2927"
     },
     {
       "winner": "Emporia State University",
-      "loser": "Nebraska-Kearney"
+      "loser": "Nebraska-Kearney",
+      "winner_id": "2214",
+      "loser_id": "2438"
     },
     {
       "winner": "Southern Utah",
-      "loser": "Abilene Christian"
+      "loser": "Abilene Christian",
+      "winner_id": "253",
+      "loser_id": "2000"
     },
     {
       "winner": "Pittsburg St",
-      "loser": "Sioux Falls"
+      "loser": "Sioux Falls",
+      "winner_id": "90",
+      "loser_id": "2894"
     },
     {
       "winner": "Grand Valley State University",
-      "loser": "Michigan Tech"
+      "loser": "Michigan Tech",
+      "winner_id": "125",
+      "loser_id": "2392"
     },
     {
       "winner": "Kennesaw State",
-      "loser": "Lincoln (CA)"
+      "loser": "Lincoln (CA)",
+      "winner_id": "338",
+      "loser_id": "124179"
     },
     {
       "winner": "Southeast Missouri State",
-      "loser": "Nicholls"
+      "loser": "Nicholls",
+      "winner_id": "2546",
+      "loser_id": "2447"
     },
     {
       "winner": "Nebraska",
-      "loser": "Purdue"
+      "loser": "Purdue",
+      "winner_id": "158",
+      "loser_id": "2509"
     },
     {
       "winner": "Miami",
-      "loser": "Virginia"
+      "loser": "Virginia",
+      "winner_id": "2390",
+      "loser_id": "258"
     },
     {
       "winner": "Miami (Ohio)",
-      "loser": "Ohio"
+      "loser": "Ohio",
+      "winner_id": "193",
+      "loser_id": "195"
     },
     {
       "winner": "Appalachian State",
-      "loser": "Southern Miss"
+      "loser": "Southern Miss",
+      "winner_id": "2026",
+      "loser_id": "2572"
     },
     {
       "winner": "UT San Antonio",
-      "loser": "East Carolina"
+      "loser": "East Carolina",
+      "winner_id": "2636",
+      "loser_id": "151"
     },
     {
       "winner": "Iowa State",
-      "loser": "Baylor"
+      "loser": "Baylor",
+      "winner_id": "66",
+      "loser_id": "239"
     },
     {
       "winner": "Oregon",
-      "loser": "Utah"
+      "loser": "Utah",
+      "winner_id": "2483",
+      "loser_id": "254"
     },
     {
       "winner": "Texas",
-      "loser": "BYU"
+      "loser": "BYU",
+      "winner_id": "251",
+      "loser_id": "252"
     },
     {
       "winner": "Notre Dame",
-      "loser": "Pittsburgh"
+      "loser": "Pittsburgh",
+      "winner_id": "87",
+      "loser_id": "221"
     },
     {
       "winner": "Alabama State",
-      "loser": "Alabama A&M"
+      "loser": "Alabama A&M",
+      "winner_id": "2011",
+      "loser_id": "2010"
     },
     {
       "winner": "Auburn",
-      "loser": "Mississippi State"
+      "loser": "Mississippi State",
+      "winner_id": "2",
+      "loser_id": "344"
     },
     {
       "winner": "Minnesota",
-      "loser": "Michigan State"
+      "loser": "Michigan State",
+      "winner_id": "135",
+      "loser_id": "127"
     },
     {
       "winner": "Georgia",
-      "loser": "Florida"
+      "loser": "Florida",
+      "winner_id": "61",
+      "loser_id": "57"
     },
     {
       "winner": "North Dakota State",
-      "loser": "Murray State"
+      "loser": "Murray State",
+      "winner_id": "2449",
+      "loser_id": "93"
     },
     {
       "winner": "Louisville",
-      "loser": "Duke"
+      "loser": "Duke",
+      "winner_id": "97",
+      "loser_id": "150"
     },
     {
       "winner": "Richmond",
-      "loser": "Campbell"
+      "loser": "Campbell",
+      "winner_id": "257",
+      "loser_id": "2097"
     },
     {
       "winner": "Northern Arizona",
-      "loser": "UC Davis"
+      "loser": "UC Davis",
+      "winner_id": "2464",
+      "loser_id": "302"
     },
     {
       "winner": "Idaho",
-      "loser": "Montana State"
+      "loser": "Montana State",
+      "winner_id": "70",
+      "loser_id": "147"
     },
     {
       "winner": "Puget Sound",
-      "loser": "Willamette"
+      "loser": "Willamette",
+      "winner_id": "2508",
+      "loser_id": "2930"
     },
     {
       "winner": "Chapman",
-      "loser": "Claremont-Mudd-Scripps College"
+      "loser": "Claremont-Mudd-Scripps College",
+      "winner_id": "411",
+      "loser_id": "17"
     },
     {
       "winner": "Linfield College",
-      "loser": "Pacific (OR)"
+      "loser": "Pacific (OR)",
+      "winner_id": "203",
+      "loser_id": "205"
     },
     {
       "winner": "Southern Illinois",
-      "loser": "Western Illinois"
+      "loser": "Western Illinois",
+      "winner_id": "79",
+      "loser_id": "2710"
     },
     {
       "winner": "Catawba",
-      "loser": "Wilson"
+      "loser": "Wilson",
+      "winner_id": "2107",
+      "loser_id": null
     },
     {
       "winner": "Livingstone",
-      "loser": "St. Augustine's"
+      "loser": "St. Augustine's",
+      "winner_id": "2940",
+      "loser_id": "395"
     },
     {
       "winner": "Portland State",
-      "loser": "Eastern Washington"
+      "loser": "Eastern Washington",
+      "winner_id": "2502",
+      "loser_id": "331"
     },
     {
       "winner": "Whitworth",
-      "loser": "Lewis & Clark College"
+      "loser": "Lewis & Clark College",
+      "winner_id": "2721",
+      "loser_id": "2333"
     },
     {
       "winner": "McKendree",
-      "loser": "Quincy"
+      "loser": "Quincy",
+      "winner_id": "2816",
+      "loser_id": "2825"
     },
     {
       "winner": "Harvard",
-      "loser": "Dartmouth"
+      "loser": "Dartmouth",
+      "winner_id": "108",
+      "loser_id": "159"
     },
     {
       "winner": "Dean College",
-      "loser": "Castleton"
+      "loser": "Castleton",
+      "winner_id": "110438",
+      "loser_id": null
     },
     {
       "winner": "Incarnate Word",
-      "loser": "Lamar"
+      "loser": "Lamar",
+      "winner_id": "2916",
+      "loser_id": "2320"
     },
     {
       "winner": "Bryant",
-      "loser": "Charleston Southern"
+      "loser": "Charleston Southern",
+      "winner_id": "2803",
+      "loser_id": "2127"
     },
     {
       "winner": "Valdosta State",
-      "loser": "West Florida"
+      "loser": "West Florida",
+      "winner_id": "2673",
+      "loser_id": "110242"
     },
     {
       "winner": "Austin Peay",
-      "loser": "North Alabama"
+      "loser": "North Alabama",
+      "winner_id": "2046",
+      "loser_id": "2453"
     },
     {
       "winner": "Tulane",
-      "loser": "Rice"
+      "loser": "Rice",
+      "winner_id": "2655",
+      "loser_id": "242"
     },
     {
       "winner": "USC",
-      "loser": "California"
+      "loser": "California",
+      "winner_id": "30",
+      "loser_id": "25"
     },
     {
       "winner": "Florida A&M",
-      "loser": "Prairie View A&M"
+      "loser": "Prairie View A&M",
+      "winner_id": "50",
+      "loser_id": "2504"
     },
     {
       "winner": "Tarleton State",
-      "loser": "Central Arkansas"
+      "loser": "Central Arkansas",
+      "winner_id": "2627",
+      "loser_id": "2110"
     },
     {
       "winner": "Louisiana",
-      "loser": "South Alabama"
+      "loser": "South Alabama",
+      "winner_id": "309",
+      "loser_id": "6"
     },
     {
       "winner": "Rowan",
-      "loser": "Montclair State"
+      "loser": "Montclair State",
+      "winner_id": "2827",
+      "loser_id": "2818"
     },
     {
       "winner": "Arkansas State",
-      "loser": "UL Monroe"
+      "loser": "UL Monroe",
+      "winner_id": "2032",
+      "loser_id": "2433"
     },
     {
       "winner": "Dubuque",
-      "loser": "Simpson College (IA)"
+      "loser": "Simpson College (IA)",
+      "winner_id": "49",
+      "loser_id": null
     },
     {
       "winner": "San Diego",
-      "loser": "Morehead State"
+      "loser": "Morehead State",
+      "winner_id": "301",
+      "loser_id": "2413"
     },
     {
       "winner": "Southern",
-      "loser": "Texas Southern"
+      "loser": "Texas Southern",
+      "winner_id": "2582",
+      "loser_id": "2640"
     },
     {
       "winner": "Boise State",
-      "loser": "Wyoming"
+      "loser": "Wyoming",
+      "winner_id": "68",
+      "loser_id": "2751"
     },
     {
       "winner": "Washington & Jefferson",
-      "loser": "Case Western Reserve"
+      "loser": "Case Western Reserve",
+      "winner_id": "2686",
+      "loser_id": "2963"
     },
     {
       "winner": "Coastal Carolina",
-      "loser": "Marshall"
+      "loser": "Marshall",
+      "winner_id": "324",
+      "loser_id": "276"
     },
     {
       "winner": "Indianapolis",
-      "loser": "Upper Iowa University"
+      "loser": "Upper Iowa University",
+      "winner_id": "2292",
+      "loser_id": "389"
     },
     {
       "winner": "North Carolina Wesleyan",
-      "loser": "Methodist"
+      "loser": "Methodist",
+      "winner_id": "286",
+      "loser_id": "291"
     },
     {
       "winner": "Northwood (MI)",
-      "loser": "Kentucky Wesleyan"
+      "loser": "Kentucky Wesleyan",
+      "winner_id": null,
+      "loser_id": "2316"
     },
     {
       "winner": "NEWBERG",
-      "loser": "Pacific Lutheran"
+      "loser": "Pacific Lutheran",
+      "winner_id": null,
+      "loser_id": "2486"
     },
     {
       "winner": "Davidson",
-      "loser": "Presbyterian"
+      "loser": "Presbyterian",
+      "winner_id": "2166",
+      "loser_id": "2506"
     },
     {
       "winner": "UT Permian Basin",
-      "loser": "Western Oregon"
+      "loser": "Western Oregon",
+      "winner_id": "110243",
+      "loser_id": "2848"
     },
     {
       "winner": "Tennessee",
-      "loser": "Kentucky"
+      "loser": "Kentucky",
+      "winner_id": "2633",
+      "loser_id": "96"
     },
     {
       "winner": "Troy",
-      "loser": "Texas State"
+      "loser": "Texas State",
+      "winner_id": "2653",
+      "loser_id": "326"
     },
     {
       "winner": "Washington",
-      "loser": "Stanford"
+      "loser": "Stanford",
+      "winner_id": "264",
+      "loser_id": "24"
     },
     {
       "winner": "Air Force",
-      "loser": "Colorado State"
+      "loser": "Colorado State",
+      "winner_id": "2005",
+      "loser_id": "36"
     },
     {
       "winner": "Ohio State",
-      "loser": "Wisconsin"
+      "loser": "Wisconsin",
+      "winner_id": "194",
+      "loser_id": "275"
     },
     {
       "winner": "Mississippi",
-      "loser": "Vanderbilt"
+      "loser": "Vanderbilt",
+      "winner_id": "145",
+      "loser_id": "238"
     },
     {
       "winner": "UCLA",
-      "loser": "Colorado"
+      "loser": "Colorado",
+      "winner_id": "26",
+      "loser_id": "38"
     },
     {
       "winner": "Midwestern State",
-      "loser": "Western New Mexico"
+      "loser": "Western New Mexico",
+      "winner_id": "2395",
+      "loser_id": "2703"
     },
     {
       "winner": "Arizona State",
-      "loser": "Washington State"
+      "loser": "Washington State",
+      "winner_id": "9",
+      "loser_id": "265"
     },
     {
       "winner": "Angelo State",
-      "loser": "West Texas A&M"
+      "loser": "West Texas A&M",
+      "winner_id": "2025",
+      "loser_id": null
     },
     {
       "winner": "James Madison",
-      "loser": "Old Dominion"
+      "loser": "Old Dominion",
+      "winner_id": "256",
+      "loser_id": "295"
     },
     {
       "winner": "Oklahoma State",
-      "loser": "Cincinnati"
+      "loser": "Cincinnati",
+      "winner_id": "197",
+      "loser_id": "2132"
     },
     {
       "winner": "McNeese",
-      "loser": "Northwestern State"
+      "loser": "Northwestern State",
+      "winner_id": "2377",
+      "loser_id": "2466"
     },
     {
       "winner": "Georgia Tech",
-      "loser": "North Carolina"
+      "loser": "North Carolina",
+      "winner_id": "59",
+      "loser_id": "153"
     },
     {
       "winner": "Central Washington",
-      "loser": "Texas A&M-Kingsville"
+      "loser": "Texas A&M-Kingsville",
+      "winner_id": "2120",
+      "loser_id": "2658"
     },
     {
       "winner": "Eastern Kentucky",
-      "loser": "Utah Tech"
+      "loser": "Utah Tech",
+      "winner_id": "2198",
+      "loser_id": "3101"
     },
     {
       "winner": "Sacramento State",
-      "loser": "Idaho State"
+      "loser": "Idaho State",
+      "winner_id": "16",
+      "loser_id": "304"
     },
     {
       "winner": "Pomona Pitzer",
-      "loser": "California Lutheran University"
+      "loser": "California Lutheran University",
+      "winner_id": "2923",
+      "loser_id": "2094"
     },
     {
       "winner": "Redlands",
-      "loser": "La Verne"
+      "loser": "La Verne",
+      "winner_id": "29",
+      "loser_id": "2318"
     },
     {
       "winner": "Fresno State",
-      "loser": "Nevada-Las Vegas"
+      "loser": "Nevada-Las Vegas",
+      "winner_id": "278",
+      "loser_id": "2439"
     },
     {
       "winner": "Nevada",
-      "loser": "New Mexico"
+      "loser": "New Mexico",
+      "winner_id": "2440",
+      "loser_id": "167"
     },
     {
       "winner": "Arizona",
-      "loser": "Oregon State"
+      "loser": "Oregon State",
+      "winner_id": "12",
+      "loser_id": "204"
     },
     {
       "winner": "San Jos\u00e9 State",
-      "loser": "Hawaii"
+      "loser": "Hawaii",
+      "winner_id": "23",
+      "loser_id": "62"
     },
     {
       "winner": "Western Connecticut St",
-      "loser": "Worcester St"
+      "loser": "Worcester St",
+      "winner_id": "2843",
+      "loser_id": "402"
     }
   ]
 }

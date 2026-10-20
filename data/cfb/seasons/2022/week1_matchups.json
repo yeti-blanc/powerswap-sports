@@ -9,7 +9,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 49,
-      "opponent_score": 17
+      "opponent_score": 17,
+      "team_id": "98",
+      "opponent_id": "62"
     },
     "Florida State": {
       "opponent": "LSU",
@@ -18,7 +20,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 24,
-      "opponent_score": 23
+      "opponent_score": 23,
+      "team_id": "52",
+      "opponent_id": "99"
     },
     "Tennessee": {
       "opponent": "Ball State",
@@ -27,7 +31,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 59,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "2633",
+      "opponent_id": "2050"
     },
     "Wake Forest": {
       "opponent": "VMI",
@@ -36,7 +42,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 44,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "154",
+      "opponent_id": "2678"
     },
     "Penn State": {
       "opponent": "Purdue",
@@ -45,7 +53,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 35,
-      "opponent_score": 31
+      "opponent_score": 31,
+      "team_id": "213",
+      "opponent_id": "2509"
     },
     "Fresno State": {
       "opponent": "Cal Poly",
@@ -54,7 +64,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 35,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "278",
+      "opponent_id": "13"
     },
     "TCU": {
       "opponent": "Colorado",
@@ -63,7 +75,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 38,
-      "opponent_score": 13
+      "opponent_score": 13,
+      "team_id": "2628",
+      "opponent_id": "38"
     },
     "Michigan": {
       "opponent": "Colorado State",
@@ -72,7 +86,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 51,
-      "opponent_score": 7
+      "opponent_score": 7,
+      "team_id": "130",
+      "opponent_id": "36"
     },
     "Navy": {
       "opponent": "Delaware",
@@ -81,7 +97,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 7,
-      "opponent_score": 14
+      "opponent_score": 14,
+      "team_id": "2426",
+      "opponent_id": "48"
     },
     "Iowa": {
       "opponent": "South Dakota State",
@@ -90,7 +108,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 7,
-      "opponent_score": 3
+      "opponent_score": 3,
+      "team_id": "2294",
+      "opponent_id": "2571"
     },
     "Texas A&M": {
       "opponent": "Sam Houston State",
@@ -99,7 +119,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 31,
-      "opponent_score": 0
+      "opponent_score": 0,
+      "team_id": "245",
+      "opponent_id": "2534"
     },
     "Georgia": {
       "opponent": "Oregon",
@@ -108,7 +130,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 49,
-      "opponent_score": 3
+      "opponent_score": 3,
+      "team_id": "61",
+      "opponent_id": "2483"
     },
     "Arkansas": {
       "opponent": "Cincinnati",
@@ -117,7 +141,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 31,
-      "opponent_score": 24
+      "opponent_score": 24,
+      "team_id": "8",
+      "opponent_id": "2132"
     },
     "Arizona": {
       "opponent": "San Diego State",
@@ -126,7 +152,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 38,
-      "opponent_score": 20
+      "opponent_score": 20,
+      "team_id": "12",
+      "opponent_id": "21"
     },
     "Army": {
       "opponent": "Coastal Carolina",
@@ -135,7 +163,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 28,
-      "opponent_score": 38
+      "opponent_score": 38,
+      "team_id": "349",
+      "opponent_id": "324"
     },
     "Kansas State": {
       "opponent": "South Dakota",
@@ -144,7 +174,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 34,
-      "opponent_score": 0
+      "opponent_score": 0,
+      "team_id": "2306",
+      "opponent_id": "233"
     },
     "Tulane": {
       "opponent": "Massachusetts",
@@ -153,7 +185,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 42,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "2655",
+      "opponent_id": "113"
     },
     "Ohio State": {
       "opponent": "Notre Dame",
@@ -162,7 +196,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 21,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "194",
+      "opponent_id": "87"
     },
     "Notre Dame": {
       "opponent": "Ohio State",
@@ -171,7 +207,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 10,
-      "opponent_score": 21
+      "opponent_score": 21,
+      "team_id": "87",
+      "opponent_id": "194"
     },
     "Alabama": {
       "opponent": "Utah State",
@@ -180,7 +218,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 55,
-      "opponent_score": 0
+      "opponent_score": 0,
+      "team_id": "333",
+      "opponent_id": "328"
     },
     "Texas": {
       "opponent": "UL Monroe",
@@ -189,7 +229,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 52,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "251",
+      "opponent_id": "2433"
     },
     "Texas Tech": {
       "opponent": "Murray State",
@@ -198,7 +240,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 63,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "2641",
+      "opponent_id": "93"
     },
     "Washington": {
       "opponent": "Kent State",
@@ -207,7 +251,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 45,
-      "opponent_score": 20
+      "opponent_score": 20,
+      "team_id": "264",
+      "opponent_id": "2309"
     },
     "Oregon State": {
       "opponent": "Boise State",
@@ -216,7 +262,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 34,
-      "opponent_score": 17
+      "opponent_score": 17,
+      "team_id": "204",
+      "opponent_id": "68"
     },
     "Clemson": {
       "opponent": "Georgia Tech",
@@ -225,7 +273,9 @@
       "start_time_tbd": false,
       "completed": true,
       "team_score": 41,
-      "opponent_score": 10
+      "opponent_score": 10,
+      "team_id": "228",
+      "opponent_id": "59"
     }
   }
 }
