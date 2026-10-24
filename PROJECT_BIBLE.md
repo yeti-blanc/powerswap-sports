@@ -179,6 +179,11 @@ powerswap-sports/
     season-progression.yml      Auto-populates weeks 3-13 + championship week
                                  (Sun/Mon 6 AM ET). Bowls/CFP NOT covered —
                                  deliberate, still manual.
+    refresh-upcoming-schedule.yml  Every 6h: re-fetches the upcoming week's
+                                 matchup file so kickoff times announced
+                                 after Sunday's seed (TBD -> real) land
+                                 before game day. Season/week/week_type all
+                                 derived from the data, nothing per-season.
     recompute-havoc.yml         workflow_dispatch only, triggered by the
                                  admin portal's Recompute button or gh CLI.
     tests.yml                   Every push/PR: all tests incl. registry

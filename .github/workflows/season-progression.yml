@@ -61,6 +61,11 @@ on:
         description: "Week number to populate (manual override/backfill; leave blank on a normal scheduled run)"
         required: false
 
+# Shared with refresh-upcoming-schedule.yml so the two never push over each other.
+concurrency:
+  group: cfb-season-data
+  cancel-in-progress: false
+
 jobs:
   populate:
     runs-on: ubuntu-latest

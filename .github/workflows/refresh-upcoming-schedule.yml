@@ -1,0 +1,96 @@
+name: CFB Refresh Upcoming Schedule
+
+# Keeps the upcoming week's kickoff times current between Sunday runs.
+#
+# season-progression.yml seeds week N+1's matchup file on Sunday morning,
+# when CFBD still has many of that week's games as TBD (networks announce
+# times 6-12 days out). Nothing re-fetched it before kickoff, so those
+# games kept showing as TBD all week (real incident, week 8 of 2026: 7 of
+# 20 ranked games still TBD at 1 AM on game day, though CFBD had real
+# times for all of them).
+#
+# Every 6 hours this re-runs fetch_week_matchups.py for the week the
+# latest season_history.json snapshot governs, and commits only if the
+# file actually changed. Nothing is hardcoded per season:
+#   - season = newest directory under data/cfb/seasons/
+#   - week   = latest snapshot label ("week8" -> 8)
+#   - week_type is carried over from the existing file, which the Sunday
+#     job seeded with the right value (regular vs championship)
+# It only ever refreshes a file that already exists (the Sunday job owns
+# creating it) and skips once every game in it is final (the Sunday job
+# bakes in final scores). Read-only against CFBD, a handful of requests a
+# day - well inside the free tier.
+on:
+  schedule:
+    - cron: "35 */6 * * *"
+  workflow_dispatch:
+
+# Shared with season-progression.yml so the two never push over each other.
+concurrency:
+  group: cfb-season-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Determine upcoming week
+        id: week
+        run: |
+          python - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, re
+          from pathlib import Path
+          seasons = sorted((p for p in Path("data/cfb/seasons").iterdir()
+                            if (p / "season_history.json").exists()), key=lambda p: int(p.name))
+          season_dir = seasons[-1]
+          label = json.loads((season_dir / "season_history.json").read_text())["snapshots"][-1]["week"]
+          m = re.fullmatch(r"week(\d+)", label)
+          path = season_dir / "raw" / f"week_{int(m.group(1)):02d}_matchups.json" if m else None
+          if not path or not path.exists():
+              print("skip=true")
+              raise SystemExit
+          data = json.loads(path.read_text())
+          if all(g.get("completed") for g in data["matchups"].values()):
+              print("skip=true")
+              raise SystemExit
+          print(f"season={season_dir.name}")
+          print(f"week={int(m.group(1))}")
+          print(f"week_type={data.get('week_type', 'regular')}")
+          print(f"path={path.as_posix()}")
+          EOF
+          cat "$GITHUB_OUTPUT"
+
+      - name: Re-fetch the upcoming week's matchups
+        if: steps.week.outputs.skip != 'true'
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python sports/cfb/fetch_week_matchups.py \
+            --season "${{ steps.week.outputs.season }}" \
+            --week "${{ steps.week.outputs.week }}" \
+            --week-type "${{ steps.week.outputs.week_type }}"
+
+      - name: Commit if anything changed
+        if: steps.week.outputs.skip != 'true'
+        run: |
+          FILE="${{ steps.week.outputs.path }}"
+          if git diff --quiet -- "$FILE"; then
+            echo "No schedule changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$FILE"
+          git commit -m "Refresh CFB ${{ steps.week.outputs.season }} week ${{ steps.week.outputs.week }} schedule"
+          git pull --rebase
+          git push

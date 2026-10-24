@@ -3,225 +3,225 @@
   "week": 8,
   "week_type": "regular",
   "matchups": {
-    "Iowa": {
-      "opponent": "Minnesota",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-24T04:00:00.000Z",
-      "start_time_tbd": true,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "2294",
-      "opponent_id": "135"
-    },
-    "Texas Tech": {
-      "opponent": "Cincinnati",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-24T04:00:00.000Z",
-      "start_time_tbd": true,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "2641",
-      "opponent_id": "2132"
-    },
-    "UCLA": {
-      "opponent": "Michigan State",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-24T04:00:00.000Z",
-      "start_time_tbd": true,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "26",
-      "opponent_id": "127"
-    },
-    "Utah": {
-      "opponent": "Houston",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-24T04:00:00.000Z",
-      "start_time_tbd": true,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "254",
-      "opponent_id": "248"
-    },
-    "Houston": {
-      "opponent": "Utah",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-24T04:00:00.000Z",
-      "start_time_tbd": true,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "248",
-      "opponent_id": "254"
-    },
-    "Oklahoma State": {
-      "opponent": "Colorado",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-24T04:00:00.000Z",
-      "start_time_tbd": true,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "197",
-      "opponent_id": "38"
-    },
-    "BYU": {
-      "opponent": "Central Florida",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-24T04:00:00.000Z",
-      "start_time_tbd": true,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "252",
-      "opponent_id": "2116"
-    },
-    "Miami": {
-      "opponent": "Pittsburgh",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-24T16:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "2390",
-      "opponent_id": "221"
-    },
-    "Auburn": {
-      "opponent": "LSU",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-24T16:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "2",
-      "opponent_id": "99"
-    },
-    "LSU": {
-      "opponent": "Auburn",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-24T16:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null,
-      "team_id": "99",
-      "opponent_id": "2"
-    },
     "Michigan": {
       "opponent": "Indiana",
+      "team_id": "130",
+      "opponent_id": "84",
       "home_away": "home",
       "kickoff_utc": "2026-10-24T16:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "130",
-      "opponent_id": "84"
+      "opponent_score": null
     },
     "Indiana": {
       "opponent": "Michigan",
+      "team_id": "84",
+      "opponent_id": "130",
       "home_away": "away",
       "kickoff_utc": "2026-10-24T16:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "84",
-      "opponent_id": "130"
+      "opponent_score": null
     },
     "SMU": {
       "opponent": "California",
+      "team_id": "2567",
+      "opponent_id": "25",
       "home_away": "home",
       "kickoff_utc": "2026-10-24T16:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "2567",
-      "opponent_id": "25"
+      "opponent_score": null
     },
-    "Mississippi State": {
-      "opponent": "Oklahoma",
+    "Miami": {
+      "opponent": "Pittsburgh",
+      "team_id": "2390",
+      "opponent_id": "221",
       "home_away": "home",
-      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "kickoff_utc": "2026-10-24T16:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "344",
-      "opponent_id": "201"
+      "opponent_score": null
     },
-    "Oklahoma": {
-      "opponent": "Mississippi State",
+    "Texas Tech": {
+      "opponent": "Cincinnati",
+      "team_id": "2641",
+      "opponent_id": "2132",
       "home_away": "away",
-      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "kickoff_utc": "2026-10-24T16:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "201",
-      "opponent_id": "344"
+      "opponent_score": null
     },
-    "Alabama": {
-      "opponent": "Texas A&M",
+    "Auburn": {
+      "opponent": "LSU",
+      "team_id": "2",
+      "opponent_id": "99",
       "home_away": "home",
-      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "kickoff_utc": "2026-10-24T16:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "333",
-      "opponent_id": "245"
+      "opponent_score": null
+    },
+    "LSU": {
+      "opponent": "Auburn",
+      "team_id": "99",
+      "opponent_id": "2",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-24T16:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
     },
     "Tennessee": {
       "opponent": "South Carolina",
+      "team_id": "2633",
+      "opponent_id": "2579",
       "home_away": "away",
       "kickoff_utc": "2026-10-24T19:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "2633",
-      "opponent_id": "2579"
+      "opponent_score": null
     },
-    "Kentucky": {
-      "opponent": "Vanderbilt",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-24T23:30:00.000Z",
+    "BYU": {
+      "opponent": "Central Florida",
+      "team_id": "252",
+      "opponent_id": "2116",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-24T19:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "96",
-      "opponent_id": "238"
+      "opponent_score": null
+    },
+    "Alabama": {
+      "opponent": "Texas A&M",
+      "team_id": "333",
+      "opponent_id": "245",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Iowa": {
+      "opponent": "Minnesota",
+      "team_id": "2294",
+      "opponent_id": "135",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Mississippi State": {
+      "opponent": "Oklahoma",
+      "team_id": "344",
+      "opponent_id": "201",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Oklahoma": {
+      "opponent": "Mississippi State",
+      "team_id": "201",
+      "opponent_id": "344",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "UCLA": {
+      "opponent": "Michigan State",
+      "team_id": "26",
+      "opponent_id": "127",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-24T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Oklahoma State": {
+      "opponent": "Colorado",
+      "team_id": "197",
+      "opponent_id": "38",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-24T23:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
     },
     "Wisconsin": {
       "opponent": "USC",
+      "team_id": "275",
+      "opponent_id": "30",
       "home_away": "home",
       "kickoff_utc": "2026-10-24T23:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "275",
-      "opponent_id": "30"
+      "opponent_score": null
     },
     "Mississippi": {
       "opponent": "Texas",
+      "team_id": "145",
+      "opponent_id": "251",
       "home_away": "away",
       "kickoff_utc": "2026-10-24T23:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
-      "opponent_score": null,
-      "team_id": "145",
-      "opponent_id": "251"
+      "opponent_score": null
+    },
+    "Kentucky": {
+      "opponent": "Vanderbilt",
+      "team_id": "96",
+      "opponent_id": "238",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-24T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Utah": {
+      "opponent": "Houston",
+      "team_id": "254",
+      "opponent_id": "248",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-25T02:15:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Houston": {
+      "opponent": "Utah",
+      "team_id": "248",
+      "opponent_id": "254",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-25T02:15:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
     }
   }
 }
