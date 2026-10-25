@@ -208,9 +208,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-10-25T02:15:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 21,
+      "opponent_score": 13
     },
     "Houston": {
       "opponent": "Utah",
@@ -219,9 +219,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-10-25T02:15:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 13,
+      "opponent_score": 21
     }
   }
 }
