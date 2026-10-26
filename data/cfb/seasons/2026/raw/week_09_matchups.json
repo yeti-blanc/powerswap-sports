@@ -25,10 +25,10 @@
       "team_score": null,
       "opponent_score": null
     },
-    "SMU": {
-      "opponent": "Syracuse",
-      "team_id": "2567",
-      "opponent_id": "183",
+    "Notre Dame": {
+      "opponent": "Navy",
+      "team_id": "87",
+      "opponent_id": "2426",
       "home_away": "away",
       "kickoff_utc": "2026-10-31T16:00:00.000Z",
       "start_time_tbd": false,
@@ -36,10 +36,10 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Notre Dame": {
-      "opponent": "Navy",
-      "team_id": "87",
-      "opponent_id": "2426",
+    "SMU": {
+      "opponent": "Syracuse",
+      "team_id": "2567",
+      "opponent_id": "183",
       "home_away": "away",
       "kickoff_utc": "2026-10-31T16:00:00.000Z",
       "start_time_tbd": false,
@@ -135,6 +135,17 @@
       "team_score": null,
       "opponent_score": null
     },
+    "UCLA": {
+      "opponent": "Nevada",
+      "team_id": "26",
+      "opponent_id": "2440",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-31T20:15:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Oklahoma": {
       "opponent": "South Carolina",
       "team_id": "201",
@@ -151,17 +162,6 @@
       "team_id": "2579",
       "opponent_id": "201",
       "home_away": "away",
-      "kickoff_utc": "2026-10-31T20:15:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "UCLA": {
-      "opponent": "Nevada",
-      "team_id": "26",
-      "opponent_id": "2440",
-      "home_away": "home",
       "kickoff_utc": "2026-10-31T20:15:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -190,6 +190,17 @@
       "team_score": null,
       "opponent_score": null
     },
+    "Miami": {
+      "opponent": "North Carolina",
+      "team_id": "2390",
+      "opponent_id": "153",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-31T23:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Texas": {
       "opponent": "Mississippi State",
       "team_id": "251",
@@ -205,17 +216,6 @@
       "opponent": "Texas",
       "team_id": "344",
       "opponent_id": "251",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-31T23:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Miami": {
-      "opponent": "North Carolina",
-      "team_id": "2390",
-      "opponent_id": "153",
       "home_away": "away",
       "kickoff_utc": "2026-10-31T23:30:00.000Z",
       "start_time_tbd": false,
