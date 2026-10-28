@@ -69,6 +69,17 @@
       "team_score": null,
       "opponent_score": null
     },
+    "Florida": {
+      "opponent": "Georgia",
+      "team_id": "57",
+      "opponent_id": "61",
+      "home_away": "away",
+      "kickoff_utc": "2026-10-31T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Indiana": {
       "opponent": "Minnesota",
       "team_id": "84",
@@ -84,17 +95,6 @@
       "opponent": "Indiana",
       "team_id": "135",
       "opponent_id": "84",
-      "home_away": "away",
-      "kickoff_utc": "2026-10-31T19:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Florida": {
-      "opponent": "Georgia",
-      "team_id": "57",
-      "opponent_id": "61",
       "home_away": "away",
       "kickoff_utc": "2026-10-31T19:30:00.000Z",
       "start_time_tbd": false,
@@ -135,17 +135,6 @@
       "team_score": null,
       "opponent_score": null
     },
-    "UCLA": {
-      "opponent": "Nevada",
-      "team_id": "26",
-      "opponent_id": "2440",
-      "home_away": "home",
-      "kickoff_utc": "2026-10-31T20:15:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
     "Oklahoma": {
       "opponent": "South Carolina",
       "team_id": "201",
@@ -162,6 +151,17 @@
       "team_id": "2579",
       "opponent_id": "201",
       "home_away": "away",
+      "kickoff_utc": "2026-10-31T20:15:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "UCLA": {
+      "opponent": "Nevada",
+      "team_id": "26",
+      "opponent_id": "2440",
+      "home_away": "home",
       "kickoff_utc": "2026-10-31T20:15:00.000Z",
       "start_time_tbd": false,
       "completed": false,
