@@ -102,6 +102,17 @@
       "team_score": null,
       "opponent_score": null
     },
+    "Wake Forest": {
+      "opponent": "Virginia",
+      "team_id": "154",
+      "opponent_id": "258",
+      "home_away": "home",
+      "kickoff_utc": "2026-10-31T19:45:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Cincinnati": {
       "opponent": "Utah",
       "team_id": "2132",
@@ -118,17 +129,6 @@
       "team_id": "254",
       "opponent_id": "2132",
       "home_away": "away",
-      "kickoff_utc": "2026-10-31T19:45:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Wake Forest": {
-      "opponent": "Virginia",
-      "team_id": "154",
-      "opponent_id": "258",
-      "home_away": "home",
       "kickoff_utc": "2026-10-31T19:45:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -179,10 +179,10 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Ohio State": {
-      "opponent": "USC",
-      "team_id": "194",
-      "opponent_id": "30",
+    "Miami": {
+      "opponent": "North Carolina",
+      "team_id": "2390",
+      "opponent_id": "153",
       "home_away": "away",
       "kickoff_utc": "2026-10-31T23:30:00.000Z",
       "start_time_tbd": false,
@@ -190,10 +190,10 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Miami": {
-      "opponent": "North Carolina",
-      "team_id": "2390",
-      "opponent_id": "153",
+    "Ohio State": {
+      "opponent": "USC",
+      "team_id": "194",
+      "opponent_id": "30",
       "home_away": "away",
       "kickoff_utc": "2026-10-31T23:30:00.000Z",
       "start_time_tbd": false,
