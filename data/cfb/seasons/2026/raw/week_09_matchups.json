@@ -10,9 +10,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-10-30T23:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 9,
+      "opponent_score": 41
     },
     "Wisconsin": {
       "opponent": "Iowa",
