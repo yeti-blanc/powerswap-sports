@@ -21,9 +21,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-10-31T16:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 0,
+      "opponent_score": 30
     },
     "Notre Dame": {
       "opponent": "Navy",
@@ -32,9 +32,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-10-31T16:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 35,
+      "opponent_score": 13
     },
     "SMU": {
       "opponent": "Syracuse",
@@ -43,9 +43,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-10-31T16:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 27,
+      "opponent_score": 30
     },
     "Michigan": {
       "opponent": "Rutgers",
@@ -54,9 +54,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-10-31T16:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 28,
+      "opponent_score": 21
     },
     "Auburn": {
       "opponent": "Mississippi",
@@ -65,9 +65,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-10-31T16:45:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 15,
+      "opponent_score": 45
     },
     "Florida": {
       "opponent": "Georgia",
