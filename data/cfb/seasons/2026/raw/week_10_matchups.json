@@ -179,6 +179,17 @@
       "team_score": null,
       "opponent_score": null
     },
+    "Iowa": {
+      "opponent": "Northwestern",
+      "team_id": "2294",
+      "opponent_id": "77",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-08T00:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Notre Dame": {
       "opponent": "Miami",
       "team_id": "87",
@@ -228,17 +239,6 @@
       "team_id": "130",
       "opponent_id": "127",
       "home_away": "home",
-      "kickoff_utc": "2026-11-08T00:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Iowa": {
-      "opponent": "Northwestern",
-      "team_id": "2294",
-      "opponent_id": "77",
-      "home_away": "away",
       "kickoff_utc": "2026-11-08T00:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
