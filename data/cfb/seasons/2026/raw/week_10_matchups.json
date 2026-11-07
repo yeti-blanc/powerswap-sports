@@ -10,9 +10,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-07T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 28,
+      "opponent_score": 20
     },
     "Texas": {
       "opponent": "Missouri",
@@ -21,9 +21,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-07T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 34,
+      "opponent_score": 20
     },
     "Minnesota": {
       "opponent": "UCLA",
@@ -32,9 +32,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-07T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 20,
+      "opponent_score": 34
     },
     "UCLA": {
       "opponent": "Minnesota",
@@ -43,9 +43,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-07T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 34,
+      "opponent_score": 20
     },
     "Baylor": {
       "opponent": "Iowa State",
@@ -54,9 +54,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-07T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 42,
+      "opponent_score": 31
     },
     "Iowa State": {
       "opponent": "Baylor",
@@ -65,9 +65,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-07T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 31,
+      "opponent_score": 42
     },
     "Syracuse": {
       "opponent": "Clemson",
@@ -76,9 +76,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-07T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 13,
+      "opponent_score": 18
     },
     "South Carolina": {
       "opponent": "Texas A&M",
