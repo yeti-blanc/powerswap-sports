@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
  "sport": "cfb",
- "generated_at": "2026-10-20T01:58:23Z",
+ "generated_at": "2026-11-08T16:59:44Z",
  "source_counts": {
-  "espn": 762,
+  "espn": 763,
   "cfbd": 1933
  },
  "teams": {
@@ -16719,6 +16719,8 @@
    "aliases": [
     "WTAM",
     "West Texas",
+    "West Texas A&M",
+    "West Texas A&M Buffaloes",
     "West Texas Buffaloes"
    ]
   },
@@ -19921,6 +19923,8 @@
    "aliases": [
     "N Central (IL)",
     "NCC",
+    "North Central (IL)",
+    "North Central (IL) Cardinals",
     "North Central College",
     "North Central College Cardinals"
    ]
@@ -21180,9 +21184,12 @@
    "classification": "ii",
    "conference": "GLIAC",
    "color": "#null",
-   "logo": null,
+   "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/110254.png",
    "source_ids": {
     "cfbd": [
+     "110254"
+    ],
+    "espn": [
      "110254"
     ]
    },
@@ -21191,6 +21198,7 @@
    ],
    "aliases": [
     "DU",
+    "DVPT",
     "Davenport",
     "Davenport Panthers"
    ]
@@ -22376,7 +22384,10 @@
    ],
    "aliases": [
     "MON",
+    "MONR",
     "Monroe",
+    "Monroe (NY)",
+    "Monroe (NY) Mustangs",
     "Monroe Mustangs"
    ]
   },
@@ -22402,6 +22413,7 @@
    ],
    "aliases": [
     "AND",
+    "ANDR",
     "Andrew",
     "Andrew Fighting Tigers"
    ]
@@ -22428,9 +22440,13 @@
    ],
    "aliases": [
     "WES",
+    "WGCU",
     "Westgate Chris",
+    "Westgate Christian",
+    "Westgate Christian Ravens",
     "Westgate Christian University",
-    "Westgate Christian University Ravens"
+    "Westgate Christian University Ravens",
+    "Westgate Chrst"
    ]
   },
   "134180": {
@@ -41838,6 +41854,7 @@
   "anderson (sc)": "129469",
   "anderson (sc) trojans": "129469",
   "andover": "1000089",
+  "andr": "134002",
   "andrew": "134002",
   "andrew fighting tigers": "134002",
   "angelo st": "2025",
@@ -42691,6 +42708,7 @@
   "duquesne": "2184",
   "duquesne ac": "1000176",
   "duquesne dukes": "2184",
+  "dvpt": "110254",
   "dvu": "2808",
   "dwu": "513",
   "e illinois": "2197",
@@ -43871,7 +43889,10 @@
   "monmouth (il) fighting scots": "2919",
   "monmouth hawks": "2405",
   "monmouth nj": "2405",
+  "monr": "134001",
   "monroe": "134001",
+  "monroe (ny)": "134001",
+  "monroe (ny) mustangs": "134001",
   "monroe ac": "1000403",
   "monroe mustangs": "134001",
   "mont": "149",
@@ -44123,6 +44144,8 @@
   "north carolina tar heels": "153",
   "north carolina wesleyan": "286",
   "north carolina wesleyan battling bishops": "286",
+  "north central (il)": "3071",
+  "north central (il) cardinals": "3071",
   "north central college": "3071",
   "north central college cardinals": "3071",
   "north dakota": "155",
@@ -45467,6 +45490,8 @@
   "west oregon": "2848",
   "west seattle ac": "1000697",
   "west texas": "2704",
+  "west texas a&m": "2704",
+  "west texas a&m buffaloes": "2704",
   "west texas buffaloes": "2704",
   "west texas military": "1000405",
   "west virginia": "277",
@@ -45506,8 +45531,11 @@
   "westfield state": "2909",
   "westfield state owls": "2909",
   "westgate chris": "134087",
+  "westgate christian": "134087",
+  "westgate christian ravens": "134087",
   "westgate christian university": "134087",
   "westgate christian university ravens": "134087",
+  "westgate chrst": "134087",
   "westminster (missouri)": "1000384",
   "westminster (mo)": "433",
   "westminster (mo) blue jays": "433",
@@ -45520,6 +45548,7 @@
   "wfl": "110242",
   "wfst": "2909",
   "wga": "2698",
+  "wgcu": "134087",
   "wheaton (il)": "396",
   "wheaton (il) thunder": "396",
   "wheaton high": "1000181",
@@ -47673,6 +47702,7 @@
   "espn:110": "110",
   "espn:110242": "110242",
   "espn:110243": "110243",
+  "espn:110254": "110254",
   "espn:110438": "110438",
   "espn:111610": "111610",
   "espn:111674": "111674",
