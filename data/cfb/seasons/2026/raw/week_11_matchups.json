@@ -25,17 +25,6 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Miami": {
-      "opponent": "Duke",
-      "team_id": "2390",
-      "opponent_id": "150",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-14T17:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
     "Iowa State": {
       "opponent": "Cincinnati",
       "team_id": "66",
@@ -63,6 +52,17 @@
       "team_id": "154",
       "opponent_id": "2567",
       "home_away": "away",
+      "kickoff_utc": "2026-11-14T17:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Miami": {
+      "opponent": "Duke",
+      "team_id": "2390",
+      "opponent_id": "150",
+      "home_away": "home",
       "kickoff_utc": "2026-11-14T17:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -113,21 +113,10 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Baylor": {
-      "opponent": "BYU",
-      "team_id": "239",
-      "opponent_id": "252",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-14T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Georgia": {
-      "opponent": "Missouri",
-      "team_id": "61",
-      "opponent_id": "142",
+    "Notre Dame": {
+      "opponent": "Boston College",
+      "team_id": "87",
+      "opponent_id": "103",
       "home_away": "home",
       "kickoff_utc": "2026-11-14T20:30:00.000Z",
       "start_time_tbd": false,
@@ -157,11 +146,22 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Notre Dame": {
-      "opponent": "Boston College",
-      "team_id": "87",
-      "opponent_id": "103",
+    "Georgia": {
+      "opponent": "Missouri",
+      "team_id": "61",
+      "opponent_id": "142",
       "home_away": "home",
+      "kickoff_utc": "2026-11-14T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Baylor": {
+      "opponent": "BYU",
+      "team_id": "239",
+      "opponent_id": "252",
+      "home_away": "away",
       "kickoff_utc": "2026-11-14T20:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -223,11 +223,11 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Utah": {
-      "opponent": "Arizona",
-      "team_id": "254",
-      "opponent_id": "12",
-      "home_away": "away",
+    "Iowa": {
+      "opponent": "Purdue",
+      "team_id": "2294",
+      "opponent_id": "2509",
+      "home_away": "home",
       "kickoff_utc": "2026-11-15T00:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -256,11 +256,11 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Iowa": {
-      "opponent": "Purdue",
-      "team_id": "2294",
-      "opponent_id": "2509",
-      "home_away": "home",
+    "Utah": {
+      "opponent": "Arizona",
+      "team_id": "254",
+      "opponent_id": "12",
+      "home_away": "away",
       "kickoff_utc": "2026-11-15T00:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
