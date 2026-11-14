@@ -32,9 +32,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 36,
+      "opponent_score": 25
     },
     "Iowa State": {
       "opponent": "Cincinnati",
@@ -43,9 +43,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 41,
+      "opponent_score": 13
     },
     "Cincinnati": {
       "opponent": "Iowa State",
@@ -54,9 +54,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-14T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 13,
+      "opponent_score": 41
     },
     "Wake Forest": {
       "opponent": "SMU",
@@ -65,9 +65,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-14T17:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 49,
+      "opponent_score": 7
     },
     "Clemson": {
       "opponent": "Georgia Tech",
@@ -76,9 +76,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T17:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 6,
+      "opponent_score": 20
     },
     "Vanderbilt": {
       "opponent": "Alabama",
@@ -87,9 +87,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T17:45:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 6,
+      "opponent_score": 21
     },
     "Alabama": {
       "opponent": "Vanderbilt",
@@ -98,9 +98,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-14T17:45:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 21,
+      "opponent_score": 6
     },
     "Tennessee": {
       "opponent": "Texas A&M",
