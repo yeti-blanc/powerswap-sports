@@ -10,9 +10,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T02:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 22,
+      "opponent_score": 14
     },
     "Houston": {
       "opponent": "Colorado",
@@ -21,9 +21,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-14T03:15:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 32,
+      "opponent_score": 42
     },
     "Iowa State": {
       "opponent": "Cincinnati",
