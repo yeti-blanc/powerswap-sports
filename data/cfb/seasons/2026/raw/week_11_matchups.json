@@ -109,9 +109,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-14T20:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 22,
+      "opponent_score": 7
     },
     "Notre Dame": {
       "opponent": "Boston College",
@@ -120,9 +120,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T20:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 41,
+      "opponent_score": 7
     },
     "Georgia": {
       "opponent": "Missouri",
@@ -131,9 +131,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T20:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 48,
+      "opponent_score": 21
     },
     "Indiana": {
       "opponent": "USC",
@@ -142,9 +142,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T20:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 27,
+      "opponent_score": 13
     },
     "USC": {
       "opponent": "Indiana",
@@ -153,9 +153,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-14T20:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 13,
+      "opponent_score": 27
     },
     "Michigan State": {
       "opponent": "Washington",
@@ -164,9 +164,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-14T22:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 14,
+      "opponent_score": 21
     },
     "Penn State": {
       "opponent": "Minnesota",
@@ -175,9 +175,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-15T00:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 42,
+      "opponent_score": 14
     },
     "Minnesota": {
       "opponent": "Penn State",
@@ -186,9 +186,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-15T00:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 14,
+      "opponent_score": 42
     },
     "Baylor": {
       "opponent": "BYU",
@@ -197,9 +197,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-15T00:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 7,
+      "opponent_score": 28
     },
     "LSU": {
       "opponent": "Texas",
@@ -208,9 +208,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-15T00:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 21,
+      "opponent_score": 22
     },
     "Texas": {
       "opponent": "LSU",
@@ -219,9 +219,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-15T00:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 22,
+      "opponent_score": 21
     },
     "Iowa": {
       "opponent": "Purdue",
@@ -230,9 +230,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-15T00:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 28,
+      "opponent_score": 7
     },
     "South Carolina": {
       "opponent": "Arkansas",
@@ -241,9 +241,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-15T00:45:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 6,
+      "opponent_score": 34
     },
     "Utah": {
       "opponent": "Arizona",
