@@ -246,17 +246,9 @@ first real run catches them instead of trusting them blindly:
 - **CFBD preseason poll tagging** can shift year to year. Spot-check the
   output against the real AP preseason poll before trusting it as the
   baseline.
-- **CBBD poll name** — assumed to be `"AP Top 25"`, same as football.
-  Unverified.
-- **CBBD classification/division filter** — unclear whether `/games`
-  needs an explicit D-I filter or returns it by default. Check the first
-  real response for non-D-I teams showing up.
-- **CBBD field names** (`homeTeam`, `awayTeam`, `homePoints`, `awayPoints`,
-  `startDate`) — assumed to match CFBD's convention since it's the same
-  vendor. Reasonable guess, not confirmed.
-- **CBBD disambiguation names** like "St. John's (NY)" or "Saint Mary's
-  (CA)" in `sports/cbb/team_norm.py` are guesses at how CBBD might
-  disambiguate similarly-named schools. Verify against real data.
+- **CBBD poll name, field names, and D-I filtering** - VERIFIED
+  2026-11-15 against real season-2027 data (see PROJECT_BIBLE.md §14).
+  Note CBBD names seasons by the year they END.
 
 ## Live Scores (Deployed 2026-09-01)
 

@@ -1,0 +1,796 @@
+{
+  "sport": "cbb",
+  "season": 2026,
+  "snapshots": [
+    {
+      "week": "week1",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Florida",
+          "lineage": [
+            {
+              "team": "Florida",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "57"
+            }
+          ],
+          "team_id": "57"
+        },
+        {
+          "rank": 2,
+          "team": "Duke",
+          "lineage": [
+            {
+              "team": "Duke",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "150"
+            }
+          ],
+          "team_id": "150"
+        },
+        {
+          "rank": 3,
+          "team": "Illinois",
+          "lineage": [
+            {
+              "team": "Illinois",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "356"
+            }
+          ],
+          "team_id": "356"
+        },
+        {
+          "rank": 4,
+          "team": "Connecticut",
+          "lineage": [
+            {
+              "team": "Connecticut",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "41"
+            }
+          ],
+          "team_id": "41"
+        },
+        {
+          "rank": 5,
+          "team": "Arizona",
+          "lineage": [
+            {
+              "team": "Arizona",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "12"
+            }
+          ],
+          "team_id": "12"
+        },
+        {
+          "rank": 6,
+          "team": "Michigan State",
+          "lineage": [
+            {
+              "team": "Michigan State",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "127"
+            }
+          ],
+          "team_id": "127"
+        },
+        {
+          "rank": 7,
+          "team": "Texas",
+          "lineage": [
+            {
+              "team": "Texas",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "251"
+            }
+          ],
+          "team_id": "251"
+        },
+        {
+          "rank": 8,
+          "team": "Tennessee",
+          "lineage": [
+            {
+              "team": "Tennessee",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2633"
+            }
+          ],
+          "team_id": "2633"
+        },
+        {
+          "rank": 9,
+          "team": "Virginia",
+          "lineage": [
+            {
+              "team": "Virginia",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "258"
+            }
+          ],
+          "team_id": "258"
+        },
+        {
+          "rank": 10,
+          "team": "Houston",
+          "lineage": [
+            {
+              "team": "Houston",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "248"
+            }
+          ],
+          "team_id": "248"
+        },
+        {
+          "rank": 11,
+          "team": "Louisville",
+          "lineage": [
+            {
+              "team": "Louisville",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "97"
+            }
+          ],
+          "team_id": "97"
+        },
+        {
+          "rank": 12,
+          "team": "Arkansas",
+          "lineage": [
+            {
+              "team": "Arkansas",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "8"
+            }
+          ],
+          "team_id": "8"
+        },
+        {
+          "rank": 13,
+          "team": "St. John's",
+          "lineage": [
+            {
+              "team": "St. John's",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2599"
+            }
+          ],
+          "team_id": "2599"
+        },
+        {
+          "rank": 14,
+          "team": "Miami",
+          "lineage": [
+            {
+              "team": "Miami",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2390"
+            }
+          ],
+          "team_id": "2390"
+        },
+        {
+          "rank": 15,
+          "team": "Gonzaga",
+          "lineage": [
+            {
+              "team": "Gonzaga",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2250"
+            }
+          ],
+          "team_id": "2250"
+        },
+        {
+          "rank": 16,
+          "team": "Michigan",
+          "lineage": [
+            {
+              "team": "Michigan",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "130"
+            }
+          ],
+          "team_id": "130"
+        },
+        {
+          "rank": 17,
+          "team": "Kansas",
+          "lineage": [
+            {
+              "team": "Kansas",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2305"
+            }
+          ],
+          "team_id": "2305"
+        },
+        {
+          "rank": 18,
+          "team": "Iowa State",
+          "lineage": [
+            {
+              "team": "Iowa State",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "66"
+            }
+          ],
+          "team_id": "66"
+        },
+        {
+          "rank": 19,
+          "team": "Texas Tech",
+          "lineage": [
+            {
+              "team": "Texas Tech",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2641"
+            }
+          ],
+          "team_id": "2641"
+        },
+        {
+          "rank": 20,
+          "team": "Alabama",
+          "lineage": [
+            {
+              "team": "Alabama",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "333"
+            }
+          ],
+          "team_id": "333"
+        },
+        {
+          "rank": 21,
+          "team": "USC",
+          "lineage": [
+            {
+              "team": "USC",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "30"
+            }
+          ],
+          "team_id": "30"
+        },
+        {
+          "rank": 22,
+          "team": "UCLA",
+          "lineage": [
+            {
+              "team": "UCLA",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "26"
+            }
+          ],
+          "team_id": "26"
+        },
+        {
+          "rank": 23,
+          "team": "Kentucky",
+          "lineage": [
+            {
+              "team": "Kentucky",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "96"
+            }
+          ],
+          "team_id": "96"
+        },
+        {
+          "rank": 24,
+          "team": "Vanderbilt",
+          "lineage": [
+            {
+              "team": "Vanderbilt",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "238"
+            }
+          ],
+          "team_id": "238"
+        },
+        {
+          "rank": 25,
+          "team": "BYU",
+          "lineage": [
+            {
+              "team": "BYU",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "252"
+            }
+          ],
+          "team_id": "252"
+        }
+      ]
+    },
+    {
+      "week": "week2",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Florida",
+          "lineage": [
+            {
+              "team": "Florida",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "57"
+            }
+          ],
+          "team_id": "57"
+        },
+        {
+          "rank": 2,
+          "team": "Duke",
+          "lineage": [
+            {
+              "team": "Duke",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "150"
+            }
+          ],
+          "team_id": "150"
+        },
+        {
+          "rank": 3,
+          "team": "Illinois",
+          "lineage": [
+            {
+              "team": "Illinois",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "356"
+            }
+          ],
+          "team_id": "356"
+        },
+        {
+          "rank": 4,
+          "team": "Connecticut",
+          "lineage": [
+            {
+              "team": "Connecticut",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "41"
+            }
+          ],
+          "team_id": "41"
+        },
+        {
+          "rank": 5,
+          "team": "UCLA",
+          "lineage": [
+            {
+              "team": "Arizona",
+              "held_from": "week1",
+              "held_until": "week2",
+              "team_id": "12"
+            },
+            {
+              "team": "UCLA",
+              "held_from": "week2",
+              "held_until": null,
+              "team_id": "26"
+            }
+          ],
+          "team_id": "26"
+        },
+        {
+          "rank": 6,
+          "team": "Michigan State",
+          "lineage": [
+            {
+              "team": "Michigan State",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "127"
+            }
+          ],
+          "team_id": "127"
+        },
+        {
+          "rank": 7,
+          "team": "Texas",
+          "lineage": [
+            {
+              "team": "Texas",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "251"
+            }
+          ],
+          "team_id": "251"
+        },
+        {
+          "rank": 8,
+          "team": "Tennessee",
+          "lineage": [
+            {
+              "team": "Tennessee",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2633"
+            }
+          ],
+          "team_id": "2633"
+        },
+        {
+          "rank": 9,
+          "team": "Virginia",
+          "lineage": [
+            {
+              "team": "Virginia",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "258"
+            }
+          ],
+          "team_id": "258"
+        },
+        {
+          "rank": 10,
+          "team": "Houston",
+          "lineage": [
+            {
+              "team": "Houston",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "248"
+            }
+          ],
+          "team_id": "248"
+        },
+        {
+          "rank": 11,
+          "team": "Louisville",
+          "lineage": [
+            {
+              "team": "Louisville",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "97"
+            }
+          ],
+          "team_id": "97"
+        },
+        {
+          "rank": 12,
+          "team": "Arkansas",
+          "lineage": [
+            {
+              "team": "Arkansas",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "8"
+            }
+          ],
+          "team_id": "8"
+        },
+        {
+          "rank": 13,
+          "team": "St. John's",
+          "lineage": [
+            {
+              "team": "St. John's",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2599"
+            }
+          ],
+          "team_id": "2599"
+        },
+        {
+          "rank": 14,
+          "team": "Miami",
+          "lineage": [
+            {
+              "team": "Miami",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2390"
+            }
+          ],
+          "team_id": "2390"
+        },
+        {
+          "rank": 15,
+          "team": "Gonzaga",
+          "lineage": [
+            {
+              "team": "Gonzaga",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2250"
+            }
+          ],
+          "team_id": "2250"
+        },
+        {
+          "rank": 16,
+          "team": "Michigan",
+          "lineage": [
+            {
+              "team": "Michigan",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "130"
+            }
+          ],
+          "team_id": "130"
+        },
+        {
+          "rank": 17,
+          "team": "Kansas",
+          "lineage": [
+            {
+              "team": "Kansas",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2305"
+            }
+          ],
+          "team_id": "2305"
+        },
+        {
+          "rank": 18,
+          "team": "Memphis",
+          "lineage": [
+            {
+              "team": "Iowa State",
+              "held_from": "week1",
+              "held_until": "week2",
+              "team_id": "66"
+            },
+            {
+              "team": "Memphis",
+              "held_from": "week2",
+              "held_until": null,
+              "team_id": "235"
+            }
+          ],
+          "team_id": "235"
+        },
+        {
+          "rank": 19,
+          "team": "Texas Tech",
+          "lineage": [
+            {
+              "team": "Texas Tech",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "2641"
+            }
+          ],
+          "team_id": "2641"
+        },
+        {
+          "rank": 20,
+          "team": "Alabama",
+          "lineage": [
+            {
+              "team": "Alabama",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "333"
+            }
+          ],
+          "team_id": "333"
+        },
+        {
+          "rank": 21,
+          "team": "USC",
+          "lineage": [
+            {
+              "team": "USC",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "30"
+            }
+          ],
+          "team_id": "30"
+        },
+        {
+          "rank": 22,
+          "team": "Arizona",
+          "lineage": [
+            {
+              "team": "UCLA",
+              "held_from": "week1",
+              "held_until": "week2",
+              "team_id": "26"
+            },
+            {
+              "team": "Arizona",
+              "held_from": "week2",
+              "held_until": null,
+              "team_id": "12"
+            }
+          ],
+          "team_id": "12"
+        },
+        {
+          "rank": 23,
+          "team": "Kentucky",
+          "lineage": [
+            {
+              "team": "Kentucky",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "96"
+            }
+          ],
+          "team_id": "96"
+        },
+        {
+          "rank": 24,
+          "team": "Vanderbilt",
+          "lineage": [
+            {
+              "team": "Vanderbilt",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "238"
+            }
+          ],
+          "team_id": "238"
+        },
+        {
+          "rank": 25,
+          "team": "BYU",
+          "lineage": [
+            {
+              "team": "BYU",
+              "held_from": "week1",
+              "held_until": null,
+              "team_id": "252"
+            }
+          ],
+          "team_id": "252"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "kind": "dethrone",
+      "week": "week2",
+      "winner": "Memphis",
+      "loser": "Iowa State",
+      "winner_old_rank": null,
+      "loser_old_rank": 18,
+      "winner_new_rank": 18,
+      "loser_new_rank": null,
+      "winner_id": "235",
+      "loser_id": "66"
+    },
+    {
+      "kind": "swap",
+      "week": "week2",
+      "winner": "UCLA",
+      "loser": "Arizona",
+      "winner_old_rank": 22,
+      "loser_old_rank": 5,
+      "winner_new_rank": 5,
+      "loser_new_rank": 22,
+      "winner_id": "26",
+      "loser_id": "12"
+    }
+  ],
+  "team_histories": {
+    "Arizona": [
+      {
+        "kind": "swap",
+        "week": "week2",
+        "winner": "UCLA",
+        "loser": "Arizona",
+        "winner_old_rank": 22,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": 22,
+        "winner_id": "26",
+        "loser_id": "12"
+      }
+    ],
+    "Iowa State": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Memphis",
+        "loser": "Iowa State",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null,
+        "winner_id": "235",
+        "loser_id": "66"
+      }
+    ],
+    "Memphis": [
+      {
+        "kind": "dethrone",
+        "week": "week2",
+        "winner": "Memphis",
+        "loser": "Iowa State",
+        "winner_old_rank": null,
+        "loser_old_rank": 18,
+        "winner_new_rank": 18,
+        "loser_new_rank": null,
+        "winner_id": "235",
+        "loser_id": "66"
+      }
+    ],
+    "UCLA": [
+      {
+        "kind": "swap",
+        "week": "week2",
+        "winner": "UCLA",
+        "loser": "Arizona",
+        "winner_old_rank": 22,
+        "loser_old_rank": 5,
+        "winner_new_rank": 5,
+        "loser_new_rank": 22,
+        "winner_id": "26",
+        "loser_id": "12"
+      }
+    ]
+  },
+  "team_ids": {
+    "Alabama": "333",
+    "Arizona": "12",
+    "Arkansas": "8",
+    "BYU": "252",
+    "Connecticut": "41",
+    "Duke": "150",
+    "Florida": "57",
+    "Gonzaga": "2250",
+    "Houston": "248",
+    "Illinois": "356",
+    "Iowa State": "66",
+    "Kansas": "2305",
+    "Kentucky": "96",
+    "Louisville": "97",
+    "Memphis": "235",
+    "Miami": "2390",
+    "Michigan": "130",
+    "Michigan State": "127",
+    "St. John's": "2599",
+    "Tennessee": "2633",
+    "Texas": "251",
+    "Texas Tech": "2641",
+    "UCLA": "26",
+    "USC": "30",
+    "Vanderbilt": "238",
+    "Virginia": "258"
+  }
+}

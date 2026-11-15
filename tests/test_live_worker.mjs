@@ -5,7 +5,8 @@
 //   - tests/fixtures/live_payload_corrupted_2026-10-19.json: the actual
 //     corrupted KV payload behind the 2026-10-19 incident (week 7 finals
 //     relabeled with week 8 opponents - "Utah beat #2 Houston")
-//   - data/cfb/seasons/2026/season_history.json: real week 8 rankings
+//   - tests/fixtures/cfb_season_history_week8.json: real week 8 rankings
+//     (frozen copy - the live file keeps moving past these fixtures)
 // External calls are mocked (fetch + KV); nothing here touches the network.
 //
 // Run: node tests/test_live_worker.mjs
@@ -16,7 +17,7 @@ import path from "path";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => readFileSync(path.join(root, p), "utf8");
-const seasonHistory = read("data/cfb/seasons/2026/season_history.json");
+const seasonHistory = read("tests/fixtures/cfb_season_history_week8.json");
 const scoreboards = {
   "20261017": read("tests/fixtures/espn_scoreboard_20261017.json"),
   "20261018": read("tests/fixtures/espn_scoreboard_20261018.json"),

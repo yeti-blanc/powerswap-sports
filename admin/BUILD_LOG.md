@@ -2945,3 +2945,59 @@ building anything:
   from KV timestamps after the fact.
 
 Committed and pushed alongside this log entry.
+
+## 2026-11-15: College basketball goes live - 2026-27 caught up through week 1
+
+User asked to build out CBB with the football rules, starting from the
+preseason AP Top 25, Monday-Sunday weeks, first game Nov 1 2026. Every
+premise fact-checked against real data:
+
+- **Preseason AP Top 25** (CBBD `/rankings`, pollDate 2026-10-19): 1 Florida,
+  2 Duke, 3 Illinois, 4 UConn, 5 Arizona, 6 Michigan State, 7 Texas,
+  8 Tennessee, 9 Virginia, 10 Houston, 11 Louisville, 12 Arkansas,
+  13 St. John's, 14 Miami (FL, registry 2390), 15 Gonzaga, 16 Michigan,
+  17 Kansas, 18 Iowa State, 19 Texas Tech, 20 Alabama, 21 USC, 22 UCLA,
+  23 Kentucky, 24 Vanderbilt, 25 BYU.
+- **CBBD season naming is end-year**: `season=2027` is 2026-27;
+  `season=2026` is 2025-26 (preseason poll 2025-10-13, Purdue #1). The
+  2026-10-19 registry note ("verified against the real 2026 CBB preseason
+  AP poll (Purdue, Houston...)") had actually checked LAST season's poll.
+  PowerSwap keeps start-year naming (`data/cbb/seasons/2026`);
+  `config.cbbd_season()` maps it, and `fetch_preseason_poll()` now refuses
+  a poll not dated in the season's own start year.
+- **AP polls are Mondays**: 2026-27 polls dated Mon 10-19 and Mon 11-09.
+- **First game**: Sun 2026-11-01, Notre Dame 74, Villanova 72 (Eternal City
+  Tip-Off, Rome) - the only game before Mon 11-02 (30 games) / Tue 11-03
+  (154). Week 1 = Nov 1-8 (opener folds into week 1, as the AP's 11-09 poll
+  does); `WEEK1_MONDAY[2026] = 2026-11-02`.
+- **ESPN basketball scoreboard exists and works** with the same `curl/8.14.1`
+  UA trick: `.../sports/basketball/mens-college-basketball/scoreboard`,
+  real 200, ESPN team IDs (= CBB registry IDs), `curatedRank`, period = half.
+
+**Real bug caught while verifying:** CBBD's `endDateRange` cuts off at that
+date's 00:00Z, so Sunday-night ET games vanished (Houston @ California,
+8:30pm ET = 2026-11-09T01:30Z; USC @ Wichita State). Found by diffing every
+ranked team's week-1 games against ESPN. Fixed: over-fetch 2 days, bucket
+by US Eastern date. After the fix, CBBD vs ESPN week 1: identical for every
+D-I game; only diff is one non-D-I game CBBD lacks (NC A&T over Warren
+Wilson, unranked).
+
+**Week 1 result** (week2 tab): unranked Memphis dethroned #18 Iowa State;
+#22 UCLA beat #5 Arizona (swap). Arkansas/Miami/Michigan losses were to
+better-ranked teams (chalk).
+
+**Site:** `BASKETBALL_ENABLED = true`; heading shows "2026-27". The live
+Worker is football-only, so every live-feed consumer now goes through
+`liveFeedApplies()` (cfb only) - verified in-browser: the real football
+feed (29 games, 23 football badges) produced zero badges on the basketball
+view. No per-week CBB matchup files yet, so cards show no opponent (and
+never a false "Bye").
+
+**Automation:** `.github/workflows/cbb-season-progression.yml`, Mondays
+6:05 AM + 12:05 PM ET, date-derived (no per-week table): re-fetches every
+completed week, rebuilds the backtest, commits only on change.
+
+**Also fixed:** `tests/test_live_worker.mjs` had started failing (3) on
+plain main because it read the LIVE football season_history.json against
+frozen week-7 ESPN fixtures; now reads a frozen week-8 copy
+(`tests/fixtures/cfb_season_history_week8.json`).

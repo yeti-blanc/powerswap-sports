@@ -1,7 +1,7 @@
 // PowerSwap Sports - site/app.js
 
 const LIVE_SCORES_ENABLED = true;
-const BASKETBALL_ENABLED = false;
+const BASKETBALL_ENABLED = true;
 
 // live/worker.js's own /live endpoint - the site never calls BBS directly.
 const LIVE_WORKER_URL = "https://powerswap-live-scores.yeti-f3c.workers.dev/live";
@@ -205,6 +205,14 @@ function populateWeekSelect() {
   weekSelect.value = visibleSnapshots[currentWeekIndex].week;
 }
 
+// Basketball seasons span two calendar years and are stored under the
+// year they START (data/cbb/seasons/2026 = 2026-27, see
+// sports/cbb/config.py) - show both years so "2026" isn't misread as the
+// 2025-26 season that ENDED in 2026.
+function formatSeasonLabel(sport, year) {
+  return sport === "cbb" ? `${year}-${String((Number(year) + 1) % 100).padStart(2, "0")}` : `${year}`;
+}
+
 function formatWeekLabel(weekKey) {
   if (weekKey === "postseason") return "Bowls & Playoff";
   return `Week ${weekKey.replace("week", "")}`;
@@ -237,7 +245,7 @@ function renderWeek() {
 
   const sportLabel = SPORTS.find(s => s.key === currentSeasonData.sport)?.label || currentSeasonData.sport;
   sportBanner.textContent = sportLabel;
-  weekHeading.textContent = `${currentSeasonData.season}: ${formatWeekLabel(weekKey)}`;
+  weekHeading.textContent = `${formatSeasonLabel(currentSeasonData.sport, currentSeasonData.season)}: ${formatWeekLabel(weekKey)}`;
 
   renderRankings(snapshot, weekEvents);
   refreshHavocPanel();
@@ -827,6 +835,17 @@ function isViewingLiveWeek() {
   return liveWeekKey !== null && visibleSnapshots[currentWeekIndex]?.week === liveWeekKey;
 }
 
+// The live-scores Worker (live/worker.js) only polls FOOTBALL. Its games
+// are matched to rank cards by team name, so letting it touch the
+// basketball view would pin e.g. Florida's football score to Florida's
+// basketball card. Every live-feed consumer goes through this, not
+// isViewingLiveWeek() directly - isViewingLiveWeek() stays sport-agnostic
+// because it also drives non-live UI (HAVOC's "not played yet" copy).
+const LIVE_FEED_SPORTS = new Set(["cfb"]);
+function liveFeedApplies() {
+  return isViewingLiveWeek() && LIVE_FEED_SPORTS.has(currentSeasonData.sport);
+}
+
 // The live feed retains a team's last known result until their NEXT real
 // game supersedes it (see live/worker.js) - accurate about the real
 // world, but stale relative to whichever week is being viewed if that
@@ -898,7 +917,7 @@ function renderLiveBadges() {
   // anything for the CURRENT live week. Returning early here (rather than
   // looping through and hiding everything, the old behavior) leaves those
   // past-week badges alone instead of stomping them blank on every poll.
-  if (!isViewingLiveWeek()) return;
+  if (!liveFeedApplies()) return;
 
   const liveWeekKey = getLiveWeekKey();
   for (const li of rankingsList.children) {
@@ -971,7 +990,7 @@ function isUnderdogLeading(game) {
 // gets backtested. This is a display-only preview of what a future
 // backtest will likely turn into a real Swap/Dethrone event.
 function computeLiveUpsets() {
-  if (!isViewingLiveWeek()) return [];
+  if (!liveFeedApplies()) return [];
   const liveWeekKey = getLiveWeekKey();
   return liveGamesRaw.filter(
     (g) => g.status === "finished" && gameMatchesExpectedWeek(g, liveWeekKey) && isUnderdogLeading(g)
@@ -998,7 +1017,7 @@ function liveUpsetCardHtml(game) {
 }
 
 function renderLiveGamesSection() {
-  const show = isViewingLiveWeek();
+  const show = liveFeedApplies();
   const liveWeekKey = getLiveWeekKey();
   const inProgress = show
     ? liveGamesRaw.filter((g) => g.status === "in_progress" && gameMatchesExpectedWeek(g, liveWeekKey))

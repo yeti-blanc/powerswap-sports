@@ -20,9 +20,8 @@ detail in `BUILD_LOG.md`.
 An alternate-universe college sports ranking system. Real Week 1 results set
 the starting path; every week after that lives entirely inside its own
 universe of swap rules (see §2). Two sports share one engine: College
-Football (CFB, **active**) and College Basketball (CBB, **built but
-dormant** — `BASKETBALL_ENABLED = false` in `site/app.js`, shown as "Coming
-Soon" until football is fully solid).
+Football (CFB, **active**) and College Basketball (CBB, **active since
+2026-11-15** - 2026-27 season, Monday-Sunday ET weeks, see §14).
 
 Live site: GitHub Pages, static. Two separate Cloudflare Workers run
 alongside it (live scores, admin portal) — see §5.
@@ -725,9 +724,10 @@ realizing there's a sibling path with the same bug.
 - **Bowls/CFP season progression is still manual** — `season-progression.yml`
   deliberately does not cover it (user's explicit call, to be tackled
   separately later).
-- **Basketball (`sports/cbb/`) is fully built but untouched by real data** —
-  several CBBD field-name/poll-name/filter assumptions in `README.md`'s
-  "Known Unverified Assumptions" section need checking on first real use.
+- **Basketball went live 2026-11-15** (§14). Open: no per-week CBB
+  matchup/schedule files (cards show no opponent), and no live scores for
+  basketball (the live Worker is football-only; ESPN's basketball
+  scoreboard is confirmed to work - see §14).
 - **No admin-side UI for `data_source` or other live-scores internals** —
   intentionally not built (user's explicit call — KV/`wrangler tail`
   visibility is sufficient for now). Revisit only if asked.
@@ -1218,6 +1218,35 @@ wrangler deploy` (the Worker only picks up registry changes on deploy).
 preseason-poll parser assumed CFBD's nested rankings shape; real CBBD
 returns a flat list (`pollType`/`ranking`/`teamId`) with unranked
 "receiving votes" rows (`ranking: null`) - it could never have found a
-poll. Verified against the real 2026 CBB preseason AP poll (Purdue,
-Houston, Florida, Connecticut, St. John's...) and 413 real week-1 games,
-all resolved by ID.
+poll. ~~Verified against the real 2026 CBB preseason AP poll (Purdue,
+Houston, Florida, Connecticut, St. John's...)~~ **CORRECTED 2026-11-15:
+that was the 2025-26 poll** - CBBD names seasons by END year (see §14).
+
+## 14. College basketball (live 2026-11-15)
+
+- **Season naming:** stored under the START year (`data/cbb/seasons/2026` =
+  2026-27, same as the site's season selector). CBBD uses the END year -
+  always go through `sports/cbb/config.py`'s `cbbd_season()`. The fetcher
+  refuses a preseason poll not dated in the start year.
+- **Weeks:** Monday-Sunday by US Eastern date (AP polls drop Mondays).
+  `config.WEEK1_MONDAY` is pinned per season from real data; any opener
+  before it folds into week 1 (2026: Sun 11-01 Notre Dame-Villanova in
+  Rome, week 1 = Nov 1-8). **A new season needs only its WEEK1_MONDAY.**
+- **CBBD's `endDateRange` stops at that date's 00:00Z** - the fetcher
+  over-fetches and buckets by ET itself. Never trust CBBD's date filter
+  for membership (it silently dropped Sunday-night games once).
+- **Week labels** follow §2 rule 6 exactly (backtest.py is shared).
+- **Automation:** `cbb-season-progression.yml`, Mondays 6:05 AM + 12:05
+  PM ET, re-fetches every completed week and rebuilds from the preseason
+  poll (idempotent). Off-season runs skip.
+- **Site:** live-score features are football-only via `liveFeedApplies()`
+  in `site/app.js` - the live Worker's games match cards by team name, so
+  without that gate a football score lands on the same school's
+  basketball card.
+- **ESPN basketball scoreboard (confirmed working 2026-11-15):**
+  `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=YYYYMMDD&groups=50&limit=500`,
+  `curl/8.14.1` UA required (same WAF rule as football). ESPN team IDs =
+  CBB registry IDs; `curatedRank` carries AP rank; `period` is a HALF
+  (the site's `formatPeriodLabel()` would say "Q2" - fix before wiring
+  basketball live scores). Non-D-I opponents use ESPN IDs that differ
+  from the registry's for some tiny schools (Regent, Ripon...).

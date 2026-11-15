@@ -1,0 +1,100 @@
+name: CBB Season Progression
+
+# College basketball's weekly update. A PowerSwap basketball week is
+# Monday-Sunday (US Eastern), matching the AP poll's Monday release - see
+# sports/cbb/config.py. Unlike the CFB workflow there is no per-week date
+# table here: fetch_results.py --through-today derives which weeks have
+# fully ended from the date and config.WEEK1_MONDAY, and re-fetches ALL of
+# them every run (idempotent - a late-arriving or corrected CBBD result
+# for an earlier week is picked up, and the backtest is always rebuilt
+# from the preseason poll forward). Nothing to edit mid-season; a new
+# season only needs its WEEK1_MONDAY pinned in config.py.
+#
+# Runs Monday 6:05 AM ET (late Sunday West Coast games long final by
+# then) plus a noon-ET re-run in case CBBD was slow to post a final.
+# Cron is UTC with no DST awareness: 11:05/17:05 UTC = 6:05 AM/12:05 PM
+# EST (Nov-Mar, i.e. nearly the whole season); 7:05/1:05 EDT in March.
+# Off-season runs exit cleanly (no WEEK1_MONDAY for the year -> skip).
+
+on:
+  schedule:
+    - cron: "5 11 * 11,12,1,2,3,4 1"
+    - cron: "5 17 * 11,12,1,2,3,4 1"
+  workflow_dispatch:
+
+concurrency:
+  group: cbb-season-data
+  cancel-in-progress: false
+
+jobs:
+  populate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Determine season
+        id: season
+        run: |
+          # PowerSwap stores a basketball season under the year it STARTS
+          # (2026 = 2026-27); Jan-Apr belong to the previous year's season.
+          YEAR=$(TZ=America/New_York date +%Y); MONTH=$(TZ=America/New_York date +%-m)
+          if [ "$MONTH" -lt 6 ]; then YEAR=$((YEAR - 1)); fi
+          if ! python -c "import sys; sys.path.insert(0,'sports/cbb'); import config; sys.exit(0 if $YEAR in config.WEEK1_MONDAY else 1)"; then
+            echo "No WEEK1_MONDAY pinned for CBB $YEAR in sports/cbb/config.py - skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "season=$YEAR" >> "$GITHUB_OUTPUT"
+
+      - name: Refresh team registry
+        if: steps.season.outputs.skip != 'true'
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python scripts/build_team_registry.py --sport cbb || echo "::warning::Team registry refresh failed - continuing with the committed registry"
+
+      - name: Fetch completed weeks and run backtest
+        if: steps.season.outputs.skip != 'true'
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          SEASON="${{ steps.season.outputs.season }}"
+          if [ ! -f "data/cbb/seasons/$SEASON/preseason_poll.json" ]; then
+            python sports/cbb/fetch_results.py --season "$SEASON" --preseason-poll
+          fi
+          python sports/cbb/fetch_results.py --season "$SEASON" --through-today | tee fetch.log
+          WEEKS=$(sed -n 's/^COMPLETED_WEEKS=//p' fetch.log)
+          if [ "${WEEKS:-0}" -gt 0 ]; then
+            python scripts/backtest.py --sport cbb --season "$SEASON" --weeks "$WEEKS"
+          fi
+
+      - name: Commit updated season data
+        if: steps.season.outputs.skip != 'true'
+        run: |
+          SEASON="${{ steps.season.outputs.season }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "data/cbb/seasons/$SEASON" data/teams/cbb_teams.json
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git commit -m "Auto-populate CBB $SEASON-$(( (SEASON + 1) % 100 )) through week $(sed -n 's/^COMPLETED_WEEKS=//p' fetch.log)"
+          git pull --rebase
+          git push
+
+      - uses: actions/setup-node@v4
+        if: always() && steps.season.outputs.skip != 'true'
+        with:
+          node-version: "22"
+
+      - name: Validate team names in the published data
+        if: always() && steps.season.outputs.skip != 'true'
+        run: python tests/test_team_registry.py
