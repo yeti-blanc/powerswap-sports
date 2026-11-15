@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-15T15:09:40-05:00",
+ "generated_at": "2026-11-15T18:57:22-05:00",
  "today": "2026-11-15",
  "current_week": "week2",
  "weeks": {
@@ -24,7 +24,7 @@
   "2633",
   "258",
   "248",
-  "97",
+  "235",
   "8",
   "2599",
   "2390",
@@ -37,7 +37,7 @@
   "30",
   "12",
   "96",
-  "235",
+  "97",
   "252"
  ],
  "teams": {
@@ -292,10 +292,12 @@
      "id": "401918453",
      "start": "2026-11-15T19:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "William & Mary",
-     "opponent_id": "2729"
+     "opponent_id": "2729",
+     "score": 123,
+     "opponent_score": 79
     },
     {
      "id": "401921776",
@@ -690,10 +692,12 @@
      "id": "401918949",
      "start": "2026-11-15T18:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Louisville",
-     "opponent_id": "97"
+     "opponent_id": "97",
+     "score": 98,
+     "opponent_score": 78
     },
     {
      "id": "401918988",
@@ -1118,10 +1122,12 @@
      "id": "401906866",
      "start": "2026-11-15T20:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Baylor",
      "opponent_id": "239",
+     "score": 75,
+     "opponent_score": 72,
      "note": "San Antonio Hoops Showdown"
     },
     {
@@ -2686,10 +2692,12 @@
      "id": "401918949",
      "start": "2026-11-15T18:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "away",
      "opponent": "Memphis",
-     "opponent_id": "235"
+     "opponent_id": "235",
+     "score": 78,
+     "opponent_score": 98
     },
     {
      "id": "401918950",

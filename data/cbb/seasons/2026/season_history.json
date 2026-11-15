@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-15T02:22:16-05:00",
+ "generated_at": "2026-11-15T18:57:22-05:00",
  "current_week": "week2",
  "weeks": {
   "week1": {
@@ -852,16 +852,22 @@
     },
     {
      "rank": 11,
-     "team": "Louisville",
+     "team": "Memphis",
      "lineage": [
       {
        "team": "Louisville",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week2",
        "team_id": "97"
+      },
+      {
+       "team": "Memphis",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "235"
       }
      ],
-     "team_id": "97"
+     "team_id": "235"
     },
     {
      "rank": 12,
@@ -1051,7 +1057,7 @@
     },
     {
      "rank": 24,
-     "team": "Memphis",
+     "team": "Louisville",
      "lineage": [
       {
        "team": "Vanderbilt",
@@ -1062,11 +1068,17 @@
       {
        "team": "Memphis",
        "held_from": "week2",
-       "held_until": null,
+       "held_until": "week2",
        "team_id": "235"
+      },
+      {
+       "team": "Louisville",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "97"
       }
      ],
-     "team_id": "235"
+     "team_id": "97"
     },
     {
      "rank": 25,
@@ -1186,6 +1198,23 @@
    "winner_home_away": "away",
    "winner_id": "99",
    "loser_id": "2250"
+  },
+  {
+   "kind": "swap",
+   "week": "week2",
+   "winner": "Memphis",
+   "loser": "Louisville",
+   "winner_old_rank": 24,
+   "loser_old_rank": 11,
+   "winner_new_rank": 11,
+   "loser_new_rank": 24,
+   "at": "2026-11-15T18:00Z",
+   "game_id": "401918949",
+   "winner_score": 98,
+   "loser_score": 78,
+   "winner_home_away": "home",
+   "winner_id": "235",
+   "loser_id": "97"
   }
  ],
  "team_histories": {
@@ -1303,6 +1332,25 @@
     "loser_id": "2250"
    }
   ],
+  "Louisville": [
+   {
+    "kind": "swap",
+    "week": "week2",
+    "winner": "Memphis",
+    "loser": "Louisville",
+    "winner_old_rank": 24,
+    "loser_old_rank": 11,
+    "winner_new_rank": 11,
+    "loser_new_rank": 24,
+    "at": "2026-11-15T18:00Z",
+    "game_id": "401918949",
+    "winner_score": 98,
+    "loser_score": 78,
+    "winner_home_away": "home",
+    "winner_id": "235",
+    "loser_id": "97"
+   }
+  ],
   "Memphis": [
    {
     "kind": "dethrone",
@@ -1337,6 +1385,23 @@
     "winner_home_away": "home",
     "winner_id": "238",
     "loser_id": "235"
+   },
+   {
+    "kind": "swap",
+    "week": "week2",
+    "winner": "Memphis",
+    "loser": "Louisville",
+    "winner_old_rank": 24,
+    "loser_old_rank": 11,
+    "winner_new_rank": 11,
+    "loser_new_rank": 24,
+    "at": "2026-11-15T18:00Z",
+    "game_id": "401918949",
+    "winner_score": 98,
+    "loser_score": 78,
+    "winner_home_away": "home",
+    "winner_id": "235",
+    "loser_id": "97"
    }
   ],
   "Michigan State": [
