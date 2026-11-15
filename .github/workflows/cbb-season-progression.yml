@@ -1,34 +1,43 @@
-name: CBB Season Progression
+name: CBB Standings (every 15 min)
 
-# College basketball's weekly update. A PowerSwap basketball week is
-# Monday-Sunday (US Eastern), matching the AP poll's Monday release - see
-# sports/cbb/config.py. Unlike the CFB workflow there is no per-week date
-# table here: fetch_results.py --through-today derives which weeks have
-# fully ended from the date and config.WEEK1_MONDAY, and re-fetches ALL of
-# them every run (idempotent - a late-arriving or corrected CBBD result
-# for an earlier week is picked up, and the backtest is always rebuilt
-# from the preseason poll forward). Nothing to edit mid-season; a new
-# season only needs its WEEK1_MONDAY pinned in config.py.
+# Basketball standings move GAME BY GAME (user's call 2026-11-15; see
+# sports/cbb/build_season.py and PROJECT_BIBLE.md §14). Every ~15 minutes:
+#   1. espn_days.py refreshes ESPN day files (yesterday, today, next 3
+#      days every run; the whole 4-week look-ahead on the first run of
+#      every 6th hour, or whenever a day file is missing);
+#   2. build_season.py replays every final since the opener through the
+#      swap engine, in tip-off order, and rewrites season_history.json +
+#      schedule.json only if something real changed;
+#   3. commit + push only when a file changed (no no-op commits).
+# Nothing is per-week or per-date here; a new season only needs its
+# WEEK1_MONDAY / SEASON_FIRST_DAY pinned in sports/cbb/config.py. Runs
+# outside the season (no pin for the year) exit cleanly.
 #
-# Runs Monday 6:05 AM ET (late Sunday West Coast games long final by
-# then) plus a noon-ET re-run in case CBBD was slow to post a final.
-# Cron is UTC with no DST awareness: 11:05/17:05 UTC = 6:05 AM/12:05 PM
-# EST (Nov-Mar, i.e. nearly the whole season); 7:05/1:05 EDT in March.
-# Off-season runs exit cleanly (no WEEK1_MONDAY for the year -> skip).
+# GitHub starts scheduled runs late under load (often 5-15 min), so a
+# swap typically lands on the site 15-30 min after the final buzzer; the
+# basketball live Worker shows the final + a provisional upset card
+# sooner. Pages' soft limit is 10 builds/hour; this commits at most 4.
+#
+# The CBBD preseason poll (fetch_results.py) is fetched once if missing.
 
 on:
   schedule:
-    - cron: "5 11 * 11,12,1,2,3,4 1"
-    - cron: "5 17 * 11,12,1,2,3,4 1"
+    - cron: "*/15 * * 11,12,1,2,3,4 *"
   workflow_dispatch:
+    inputs:
+      full:
+        description: "Refresh the whole look-ahead horizon too"
+        type: boolean
+        default: false
 
 concurrency:
   group: cbb-season-data
   cancel-in-progress: false
 
 jobs:
-  populate:
+  update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: write
     steps:
@@ -43,24 +52,21 @@ jobs:
       - name: Determine season
         id: season
         run: |
-          # PowerSwap stores a basketball season under the year it STARTS
-          # (2026 = 2026-27); Jan-Apr belong to the previous year's season.
+          # Stored under the year the season STARTS (2026 = 2026-27).
           YEAR=$(TZ=America/New_York date +%Y); MONTH=$(TZ=America/New_York date +%-m)
           if [ "$MONTH" -lt 6 ]; then YEAR=$((YEAR - 1)); fi
-          if ! python -c "import sys; sys.path.insert(0,'sports/cbb'); import config; sys.exit(0 if $YEAR in config.WEEK1_MONDAY else 1)"; then
-            echo "No WEEK1_MONDAY pinned for CBB $YEAR in sports/cbb/config.py - skipping."
+          if ! python -c "import sys; sys.path.insert(0,'sports/cbb'); import config; sys.exit(0 if $YEAR in config.SEASON_FIRST_DAY else 1)"; then
+            echo "No SEASON_FIRST_DAY pinned for CBB $YEAR in sports/cbb/config.py - skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "season=$YEAR" >> "$GITHUB_OUTPUT"
+          # Full horizon refresh on the first run of every 6th UTC hour.
+          if [ "${{ inputs.full }}" = "true" ] || { [ $(( $(date -u +%-H) % 6 )) -eq 0 ] && [ "$(date -u +%-M)" -lt 15 ]; }; then
+            echo "full=--full" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: Refresh team registry
-        if: steps.season.outputs.skip != 'true'
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python scripts/build_team_registry.py --sport cbb || echo "::warning::Team registry refresh failed - continuing with the committed registry"
-
-      - name: Fetch completed weeks and run backtest
+      - name: Preseason poll (once)
         if: steps.season.outputs.skip != 'true'
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -69,26 +75,37 @@ jobs:
           if [ ! -f "data/cbb/seasons/$SEASON/preseason_poll.json" ]; then
             python sports/cbb/fetch_results.py --season "$SEASON" --preseason-poll
           fi
-          python sports/cbb/fetch_results.py --season "$SEASON" --through-today | tee fetch.log
-          WEEKS=$(sed -n 's/^COMPLETED_WEEKS=//p' fetch.log)
-          if [ "${WEEKS:-0}" -gt 0 ]; then
-            python scripts/backtest.py --sport cbb --season "$SEASON" --weeks "$WEEKS"
-          fi
 
-      - name: Commit updated season data
+      - name: Refresh ESPN day files and rebuild standings
+        if: steps.season.outputs.skip != 'true'
+        run: |
+          SEASON="${{ steps.season.outputs.season }}"
+          python sports/cbb/espn_days.py --season "$SEASON" ${{ steps.season.outputs.full }}
+          python sports/cbb/build_season.py --season "$SEASON" | tee build.log
+
+      - name: Commit if anything changed
         if: steps.season.outputs.skip != 'true'
         run: |
           SEASON="${{ steps.season.outputs.season }}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "data/cbb/seasons/$SEASON" data/teams/cbb_teams.json
+          git add "data/cbb/seasons/$SEASON"
           if git diff --cached --quiet; then
-            echo "Nothing to commit"
+            echo "Nothing changed"
             exit 0
           fi
-          git commit -m "Auto-populate CBB $SEASON-$(( (SEASON + 1) % 100 )) through week $(sed -n 's/^COMPLETED_WEEKS=//p' fetch.log)"
-          git pull --rebase
-          git push
+          if git diff --cached --name-only | grep -q season_history.json; then
+            MSG="CBB $SEASON standings update"
+          else
+            MSG="CBB $SEASON scores/schedule refresh"
+          fi
+          git commit -q -m "$MSG"
+          for i in 1 2 3; do
+            git pull -q --rebase && git push -q && exit 0
+            sleep 5
+          done
+          echo "::error::push failed after 3 attempts"
+          exit 1
 
       - uses: actions/setup-node@v4
         if: always() && steps.season.outputs.skip != 'true'

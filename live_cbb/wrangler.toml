@@ -1,0 +1,25 @@
+# Basketball live scores - "powerswap-cbb-live". See worker.js's header.
+#
+# Lives in its OWN Cloudflare account (not football's): Workers KV's free
+# tier is 1,000 writes/day per ACCOUNT, and football's live Worker
+# (live/wrangler.toml) already uses nearly all of its account's budget on
+# Saturdays. Deploy from THIS directory only, authenticated to the
+# basketball account - see live_cbb/README.md.
+#
+# TODO on first setup: fill in account_id and the KV namespace id
+# (README.md has the exact commands).
+
+name = "powerswap-cbb-live"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+# account_id = "<basketball account id>"
+
+kv_namespaces = [
+  { binding = "LIVE_KV", id = "REPLACE_WITH_CBB_KV_NAMESPACE_ID" }
+]
+
+# Every minute. worker.js decides per tick whether to actually call ESPN
+# (only inside a ranked game's window) and whether to spend a KV write
+# (only on a real change, paced against the daily budget).
+[triggers]
+crons = ["* * * * *"]

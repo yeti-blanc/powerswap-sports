@@ -1,0 +1,551 @@
+{
+ "date": "2026-11-19",
+ "games": [
+  {
+   "id": "401920517",
+   "start": "2026-11-19T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 8 - Third Place Game"
+  },
+  {
+   "id": "401920519",
+   "start": "2026-11-19T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 8 - Fifth Place"
+  },
+  {
+   "id": "401918959",
+   "start": "2026-11-19T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "93",
+    "name": "Murray State"
+   },
+   "away": {
+    "id": "152",
+    "name": "NC State"
+   },
+   "note": "Baha Mar Championship"
+  },
+  {
+   "id": "401902280",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2086",
+    "name": "Butler"
+   },
+   "away": {
+    "id": "111",
+    "name": "Northeastern"
+   }
+  },
+  {
+   "id": "401911021",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "179",
+    "name": "St. Bonaventure"
+   },
+   "away": {
+    "id": "2084",
+    "name": "Buffalo"
+   }
+  },
+  {
+   "id": "401912211",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "44",
+    "name": "American University"
+   },
+   "away": {
+    "id": "124942",
+    "name": "Mary Baldwin"
+   }
+  },
+  {
+   "id": "401916318",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "194",
+    "name": "Ohio State"
+   },
+   "away": {
+    "id": "2378",
+    "name": "UMBC"
+   }
+  },
+  {
+   "id": "401920413",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2272",
+    "name": "High Point"
+   },
+   "away": {
+    "id": "147",
+    "name": "Montana State"
+   }
+  },
+  {
+   "id": "401920878",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "294",
+    "name": "Jacksonville"
+   },
+   "away": {
+    "id": "2031",
+    "name": "Little Rock"
+   }
+  },
+  {
+   "id": "401923304",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2514",
+    "name": "Quinnipiac"
+   },
+   "away": {
+    "id": "311",
+    "name": "Maine"
+   }
+  },
+  {
+   "id": "401926144",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2565",
+    "name": "SIU Edwardsville"
+   },
+   "away": {
+    "id": "75",
+    "name": "North Park"
+   }
+  },
+  {
+   "id": "401928388",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2755",
+    "name": "Grambling"
+   },
+   "away": {
+    "id": "2572",
+    "name": "Southern Miss"
+   }
+  },
+  {
+   "id": "401928812",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "94",
+    "name": "Northern Kentucky"
+   },
+   "away": {
+    "id": "2061",
+    "name": "Berea"
+   }
+  },
+  {
+   "id": "401928826",
+   "start": "2026-11-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2649",
+    "name": "Toledo"
+   },
+   "away": {
+    "id": "2523",
+    "name": "Robert Morris"
+   }
+  },
+  {
+   "id": "401919005",
+   "start": "2026-11-20T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2348",
+    "name": "Louisiana Tech"
+   },
+   "away": {
+    "id": "2655",
+    "name": "Tulane"
+   }
+  },
+  {
+   "id": "401926814",
+   "start": "2026-11-20T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2181",
+    "name": "Drake"
+   },
+   "away": {
+    "id": "232",
+    "name": "Charleston"
+   }
+  },
+  {
+   "id": "401929373",
+   "start": "2026-11-20T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2453",
+    "name": "North Alabama"
+   },
+   "away": {
+    "id": "2839",
+    "name": "Tusculum"
+   }
+  },
+  {
+   "id": "401906867",
+   "start": "2026-11-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "251",
+    "name": "Texas"
+   },
+   "away": {
+    "id": "253",
+    "name": "Southern Utah"
+   }
+  },
+  {
+   "id": "401918950",
+   "start": "2026-11-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "97",
+    "name": "Louisville"
+   },
+   "away": {
+    "id": "56",
+    "name": "Stetson"
+   }
+  },
+  {
+   "id": "401919050",
+   "start": "2026-11-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2628",
+    "name": "TCU"
+   },
+   "away": {
+    "id": "245",
+    "name": "Texas A&M"
+   }
+  },
+  {
+   "id": "401920845",
+   "start": "2026-11-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2900",
+    "name": "St. Thomas"
+   },
+   "away": {
+    "id": "2546",
+    "name": "Southeast Missouri State"
+   }
+  },
+  {
+   "id": "401921028",
+   "start": "2026-11-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2277",
+    "name": "Houston Christian"
+   },
+   "away": {
+    "id": "290",
+    "name": "Georgia Southern"
+   }
+  },
+  {
+   "id": "401927375",
+   "start": "2026-11-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2287",
+    "name": "Illinois State"
+   },
+   "away": {
+    "id": "101",
+    "name": "Eureka"
+   }
+  },
+  {
+   "id": "401929409",
+   "start": "2026-11-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "155",
+    "name": "North Dakota"
+   },
+   "away": {
+    "id": "561",
+    "name": "Mayville State"
+   }
+  },
+  {
+   "id": "401920520",
+   "start": "2026-11-20T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 8 - Seventh Place"
+  },
+  {
+   "id": "401920888",
+   "start": "2026-11-20T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "275",
+    "name": "Wisconsin"
+   },
+   "away": {
+    "id": "2550",
+    "name": "Seton Hall"
+   },
+   "note": "Baha Mar Championship"
+  },
+  {
+   "id": "401911534",
+   "start": "2026-11-20T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "166",
+    "name": "New Mexico State"
+   },
+   "away": {
+    "id": "2638",
+    "name": "UTEP"
+   }
+  },
+  {
+   "id": "401925941",
+   "start": "2026-11-20T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "264",
+    "name": "Washington"
+   },
+   "away": {
+    "id": "3101",
+    "name": "Utah Tech"
+   }
+  },
+  {
+   "id": "401928354",
+   "start": "2026-11-20T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2492",
+    "name": "Pepperdine"
+   },
+   "away": {
+    "id": "2540",
+    "name": "UC Santa Barbara"
+   }
+  },
+  {
+   "id": "401930884",
+   "start": "2026-11-20T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2483",
+    "name": "Oregon"
+   },
+   "away": {
+    "id": "204",
+    "name": "Oregon State"
+   }
+  },
+  {
+   "id": "401918056",
+   "start": "2026-11-20T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "25",
+    "name": "California"
+   },
+   "away": {
+    "id": "2837",
+    "name": "East Texas A&M"
+   }
+  },
+  {
+   "id": "401920349",
+   "start": "2026-11-20T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "24",
+    "name": "Stanford"
+   },
+   "away": {
+    "id": "16",
+    "name": "Sacramento State"
+   }
+  },
+  {
+   "id": "401925916",
+   "start": "2026-11-20T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2502",
+    "name": "Portland State"
+   },
+   "away": {
+    "id": "3218",
+    "name": "Northwest Indian"
+   }
+  },
+  {
+   "id": "401917536",
+   "start": "2026-11-20T03:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2541",
+    "name": "Santa Clara"
+   },
+   "away": {
+    "id": "2670",
+    "name": "VCU"
+   }
+  },
+  {
+   "id": "401920518",
+   "start": "2026-11-20T04:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 8 - Championship"
+  },
+  {
+   "id": "401926773",
+   "start": "2026-11-20T04:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "30",
+    "name": "USC"
+   },
+   "away": {
+    "id": "2627",
+    "name": "Tarleton State"
+   }
+  }
+ ]
+}

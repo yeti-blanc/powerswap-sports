@@ -1,0 +1,290 @@
+{
+ "date": "2026-12-10",
+ "games": [
+  {
+   "id": "401917565",
+   "start": "2026-12-10T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2501",
+    "name": "Portland"
+   },
+   "away": {
+    "id": "2320",
+    "name": "Lamar"
+   }
+  },
+  {
+   "id": "401926205",
+   "start": "2026-12-10T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2678",
+    "name": "VMI"
+   },
+   "away": {
+    "id": null,
+    "name": "Bluefield"
+   }
+  },
+  {
+   "id": "401909778",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2294",
+    "name": "Iowa"
+   },
+   "away": {
+    "id": "66",
+    "name": "Iowa State"
+   }
+  },
+  {
+   "id": "401911206",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2230",
+    "name": "Fordham"
+   },
+   "away": {
+    "id": "2803",
+    "name": "Bryant"
+   }
+  },
+  {
+   "id": "401918459",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "48",
+    "name": "Delaware"
+   },
+   "away": {
+    "id": "2729",
+    "name": "William & Mary"
+   }
+  },
+  {
+   "id": "401920385",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "259",
+    "name": "Virginia Tech"
+   },
+   "away": {
+    "id": "2379",
+    "name": "Maryland Eastern Shore"
+   }
+  },
+  {
+   "id": "401920697",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2771",
+    "name": "Merrimack"
+   },
+   "away": {
+    "id": "261",
+    "name": "Vermont"
+   }
+  },
+  {
+   "id": "401920926",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2154",
+    "name": "Coppin State"
+   },
+   "away": {
+    "id": "116",
+    "name": "Mount St. Mary's"
+   }
+  },
+  {
+   "id": "401921110",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "91",
+    "name": "Bellarmine"
+   },
+   "away": {
+    "id": "2589",
+    "name": "Spalding"
+   }
+  },
+  {
+   "id": "401924269",
+   "start": "2026-12-11T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2287",
+    "name": "Illinois State"
+   },
+   "away": {
+    "id": "299",
+    "name": "Long Beach State"
+   }
+  },
+  {
+   "id": "401925034",
+   "start": "2026-12-11T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2377",
+    "name": "McNeese"
+   },
+   "away": {
+    "id": "2572",
+    "name": "Southern Miss"
+   }
+  },
+  {
+   "id": "401911341",
+   "start": "2026-12-11T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2046",
+    "name": "Austin Peay"
+   },
+   "away": {
+    "id": "2005",
+    "name": "Air Force"
+   }
+  },
+  {
+   "id": "401920852",
+   "start": "2026-12-11T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2900",
+    "name": "St. Thomas"
+   },
+   "away": {
+    "id": "2427",
+    "name": "UNC Asheville"
+   }
+  },
+  {
+   "id": "401921100",
+   "start": "2026-12-11T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "242",
+    "name": "Rice"
+   },
+   "away": {
+    "id": "2447",
+    "name": "Nicholls"
+   }
+  },
+  {
+   "id": "401927394",
+   "start": "2026-12-11T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "47",
+    "name": "Howard"
+   },
+   "away": {
+    "id": "2350",
+    "name": "Loyola Chicago"
+   }
+  },
+  {
+   "id": "401927868",
+   "start": "2026-12-11T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2464",
+    "name": "Northern Arizona"
+   },
+   "away": {
+    "id": "131646",
+    "name": "Nelson American Indian"
+   }
+  },
+  {
+   "id": "401920161",
+   "start": "2026-12-11T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "304",
+    "name": "Idaho State"
+   },
+   "away": {
+    "id": "2239",
+    "name": "Cal State Fullerton"
+   }
+  },
+  {
+   "id": "401925944",
+   "start": "2026-12-11T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "3101",
+    "name": "Utah Tech"
+   },
+   "away": {
+    "id": "130183",
+    "name": "Justice College"
+   }
+  },
+  {
+   "id": "401918060",
+   "start": "2026-12-11T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "25",
+    "name": "California"
+   },
+   "away": {
+    "id": "2545",
+    "name": "SE Louisiana"
+   }
+  }
+ ]
+}

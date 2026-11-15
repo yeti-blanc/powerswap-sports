@@ -1,0 +1,339 @@
+{
+ "date": "2026-11-26",
+ "games": [
+  {
+   "id": "401929281",
+   "start": "2026-11-26T16:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2132",
+    "name": "Cincinnati"
+   },
+   "away": {
+    "id": "61",
+    "name": "Georgia"
+   },
+   "note": "ESPN Events Invitational - Magic Bracket"
+  },
+  {
+   "id": "401906807",
+   "start": "2026-11-26T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2509",
+    "name": "Purdue"
+   },
+   "away": {
+    "id": "201",
+    "name": "Oklahoma"
+   },
+   "note": "Fort Myers Tip-Off - Beach Division"
+  },
+  {
+   "id": "401912231",
+   "start": "2026-11-26T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2636",
+    "name": "UT San Antonio"
+   },
+   "away": {
+    "id": "349",
+    "name": "Army"
+   }
+  },
+  {
+   "id": "401920528",
+   "start": "2026-11-26T18:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401929282",
+   "start": "2026-11-26T18:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2116",
+    "name": "Central Florida"
+   },
+   "away": {
+    "id": "103",
+    "name": "Boston College"
+   },
+   "note": "ESPN Events Invitational - Magic Bracket"
+  },
+  {
+   "id": "401921674",
+   "start": "2026-11-26T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "9",
+    "name": "Arizona State"
+   },
+   "away": {
+    "id": "2579",
+    "name": "South Carolina"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401906869",
+   "start": "2026-11-26T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "251",
+    "name": "Texas"
+   },
+   "away": {
+    "id": "46",
+    "name": "Georgetown"
+   },
+   "note": "Rady Children's Invitational"
+  },
+  {
+   "id": "401920529",
+   "start": "2026-11-26T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401920537",
+   "start": "2026-11-26T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401921673",
+   "start": "2026-11-26T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "30",
+    "name": "USC"
+   },
+   "away": {
+    "id": "328",
+    "name": "Utah State"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401925757",
+   "start": "2026-11-26T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "127",
+    "name": "Michigan State"
+   },
+   "away": {
+    "id": "8",
+    "name": "Arkansas"
+   }
+  },
+  {
+   "id": "401917547",
+   "start": "2026-11-26T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "26",
+    "name": "UCLA"
+   },
+   "away": {
+    "id": "2608",
+    "name": "Saint Mary's"
+   },
+   "note": "Rady Children's Invitational"
+  },
+  {
+   "id": "401920538",
+   "start": "2026-11-26T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401909506",
+   "start": "2026-11-27T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "221",
+    "name": "Pittsburgh"
+   },
+   "away": {
+    "id": "305",
+    "name": "DePaul"
+   },
+   "note": "Fort Myers Tip-Off - Beach Division"
+  },
+  {
+   "id": "401918972",
+   "start": "2026-11-27T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "99",
+    "name": "LSU"
+   },
+   "away": {
+    "id": "2567",
+    "name": "SMU"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401911523",
+   "start": "2026-11-27T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "302",
+    "name": "UC Davis"
+   },
+   "away": {
+    "id": "55",
+    "name": "Jacksonville State"
+   },
+   "note": "Resorts World Classic"
+  },
+  {
+   "id": "401920530",
+   "start": "2026-11-27T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401920539",
+   "start": "2026-11-27T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401917546",
+   "start": "2026-11-27T03:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2437",
+    "name": "Omaha"
+   },
+   "away": {
+    "id": "279",
+    "name": "Pacific"
+   },
+   "note": "Resorts World Classic"
+  },
+  {
+   "id": "401920531",
+   "start": "2026-11-27T04:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401920540",
+   "start": "2026-11-27T04:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16"
+  }
+ ]
+}

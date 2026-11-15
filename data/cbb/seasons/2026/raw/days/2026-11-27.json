@@ -1,0 +1,850 @@
+{
+ "date": "2026-11-27",
+ "games": [
+  {
+   "id": "401920429",
+   "start": "2026-11-27T16:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2752",
+    "name": "Xavier"
+   },
+   "away": {
+    "id": "258",
+    "name": "Virginia"
+   },
+   "note": "Battle 4 Atlantis - Signature Series"
+  },
+  {
+   "id": "401920848",
+   "start": "2026-11-27T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2900",
+    "name": "St. Thomas"
+   },
+   "away": {
+    "id": "2335",
+    "name": "Liberty"
+   },
+   "note": "Live Oak Bank Holiday Classic"
+  },
+  {
+   "id": "401920533",
+   "start": "2026-11-27T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Third Place Game"
+  },
+  {
+   "id": "401920753",
+   "start": "2026-11-27T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2754",
+    "name": "Youngstown State"
+   },
+   "away": {
+    "id": null,
+    "name": "Bryant & Stratton (OH)"
+   }
+  },
+  {
+   "id": "401921416",
+   "start": "2026-11-27T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2349",
+    "name": "UMass Lowell"
+   },
+   "away": {
+    "id": "2261",
+    "name": "Hampton"
+   },
+   "note": "Capital Thanksgiving Classic"
+  },
+  {
+   "id": "401924810",
+   "start": "2026-11-27T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2771",
+    "name": "Merrimack"
+   },
+   "away": {
+    "id": "261",
+    "name": "Vermont"
+   },
+   "note": "The Island Invitational"
+  },
+  {
+   "id": "401929288",
+   "start": "2026-11-27T18:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Battle 4 Atlantis - Championship Bracket"
+  },
+  {
+   "id": "401919786",
+   "start": "2026-11-27T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2330",
+    "name": "Le Moyne"
+   },
+   "away": {
+    "id": "311",
+    "name": "Maine"
+   },
+   "note": "Lafayette Classic"
+  },
+  {
+   "id": "401921224",
+   "start": "2026-11-27T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2217",
+    "name": "Fairfield"
+   },
+   "away": {
+    "id": "2426",
+    "name": "Navy"
+   },
+   "note": "Mahoney Classic"
+  },
+  {
+   "id": "401921827",
+   "start": "2026-11-27T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "238",
+    "name": "Vanderbilt"
+   },
+   "away": {
+    "id": "2582",
+    "name": "Southern"
+   }
+  },
+  {
+   "id": "401929181",
+   "start": "2026-11-27T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "278",
+    "name": "Fresno State"
+   },
+   "away": {
+    "id": "6",
+    "name": "South Alabama"
+   },
+   "note": "Second Line Showcase"
+  },
+  {
+   "id": "401929407",
+   "start": "2026-11-27T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "233",
+    "name": "South Dakota"
+   },
+   "away": {
+    "id": "2965",
+    "name": "Clarke"
+   }
+  },
+  {
+   "id": "401921717",
+   "start": "2026-11-27T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Rady Children's Invitational - Consolation"
+  },
+  {
+   "id": "401902282",
+   "start": "2026-11-27T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2086",
+    "name": "Butler"
+   },
+   "away": {
+    "id": "91",
+    "name": "Bellarmine"
+   }
+  },
+  {
+   "id": "401919021",
+   "start": "2026-11-27T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "5",
+    "name": "UAB"
+   },
+   "away": {
+    "id": "2040",
+    "name": "Auburn-Montgomery"
+   }
+  },
+  {
+   "id": "401920542",
+   "start": "2026-11-27T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Third Place Game"
+  },
+  {
+   "id": "401924738",
+   "start": "2026-11-27T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "350",
+    "name": "UNC Wilmington"
+   },
+   "away": {
+    "id": "163",
+    "name": "Princeton"
+   },
+   "note": "Seahawk Classic"
+  },
+  {
+   "id": "401928468",
+   "start": "2026-11-27T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2348",
+    "name": "Louisiana Tech"
+   },
+   "away": {
+    "id": "326",
+    "name": "Texas State"
+   }
+  },
+  {
+   "id": "401920532",
+   "start": "2026-11-27T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Seventh Place Game"
+  },
+  {
+   "id": "401920774",
+   "start": "2026-11-27T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2275",
+    "name": "Hofstra"
+   },
+   "away": {
+    "id": "2142",
+    "name": "Colgate"
+   },
+   "note": "The Island Invitational"
+  },
+  {
+   "id": "401921417",
+   "start": "2026-11-27T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2083",
+    "name": "Bucknell"
+   },
+   "away": {
+    "id": "2325",
+    "name": "La Salle"
+   },
+   "note": "Cathedral Classic"
+  },
+  {
+   "id": "401911212",
+   "start": "2026-11-27T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "45",
+    "name": "George Washington"
+   },
+   "away": {
+    "id": "2378",
+    "name": "UMBC"
+   }
+  },
+  {
+   "id": "401912213",
+   "start": "2026-11-27T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "44",
+    "name": "American University"
+   },
+   "away": {
+    "id": "2515",
+    "name": "Radford"
+   },
+   "note": "Capital Thanksgiving Classic"
+  },
+  {
+   "id": "401921818",
+   "start": "2026-11-27T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "142",
+    "name": "Missouri"
+   },
+   "away": {
+    "id": "2029",
+    "name": "Arkansas-Pine Bluff"
+   }
+  },
+  {
+   "id": "401924845",
+   "start": "2026-11-27T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "322",
+    "name": "Lafayette"
+   },
+   "away": {
+    "id": "315",
+    "name": "Niagara"
+   },
+   "note": "Lafayette Classic"
+  },
+  {
+   "id": "401929283",
+   "start": "2026-11-27T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "103",
+    "name": "Boston College"
+   },
+   "away": {
+    "id": "2132",
+    "name": "Cincinnati"
+   },
+   "note": "ESPN Events Invitational - Magic Bracket"
+  },
+  {
+   "id": "401909789",
+   "start": "2026-11-27T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2305",
+    "name": "Kansas"
+   },
+   "away": {
+    "id": "222",
+    "name": "Villanova"
+   }
+  },
+  {
+   "id": "401920382",
+   "start": "2026-11-27T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "259",
+    "name": "Virginia Tech"
+   },
+   "away": {
+    "id": "295",
+    "name": "Old Dominion"
+   }
+  },
+  {
+   "id": "401920810",
+   "start": "2026-11-27T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "245",
+    "name": "Texas A&M"
+   },
+   "away": {
+    "id": "269",
+    "name": "Marquette"
+   },
+   "note": "Battle 4 Atlantis - Signature Series"
+  },
+  {
+   "id": "401921718",
+   "start": "2026-11-27T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Rady Children's Invitational - Championship"
+  },
+  {
+   "id": "401920541",
+   "start": "2026-11-27T22:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Seventh Place Game"
+  },
+  {
+   "id": "401927366",
+   "start": "2026-11-27T22:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "68",
+    "name": "Boise State"
+   },
+   "away": {
+    "id": "2181",
+    "name": "Drake"
+   },
+   "note": "Snake River Invitational"
+  },
+  {
+   "id": "401911030",
+   "start": "2026-11-27T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "84",
+    "name": "Indiana"
+   },
+   "away": {
+    "id": "189",
+    "name": "Bowling Green"
+   }
+  },
+  {
+   "id": "401913531",
+   "start": "2026-11-27T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "356",
+    "name": "Illinois"
+   },
+   "away": {
+    "id": "98",
+    "name": "Western Kentucky"
+   }
+  },
+  {
+   "id": "401921185",
+   "start": "2026-11-27T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "219",
+    "name": "Pennsylvania"
+   },
+   "away": {
+    "id": "119",
+    "name": "Towson"
+   },
+   "note": "Cathedral Classic"
+  },
+  {
+   "id": "401933055",
+   "start": "2026-11-27T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2908",
+    "name": "South Carolina Upstate"
+   },
+   "away": {
+    "id": "2576",
+    "name": "Southern Wesleyan"
+   }
+  },
+  {
+   "id": "401911380",
+   "start": "2026-11-28T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2193",
+    "name": "East Tennessee State"
+   },
+   "away": {
+    "id": "2127",
+    "name": "Charleston Southern"
+   },
+   "note": "ETSU MTE"
+  },
+  {
+   "id": "401912711",
+   "start": "2026-11-28T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "153",
+    "name": "North Carolina"
+   },
+   "away": {
+    "id": "277",
+    "name": "West Virginia"
+   },
+   "note": "Dick Vitale Invitational pres. by Belk"
+  },
+  {
+   "id": "401918980",
+   "start": "2026-11-28T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "151",
+    "name": "East Carolina"
+   },
+   "away": {
+    "id": null,
+    "name": "North Carolina Wesleyan"
+   },
+   "note": "Flex Game: 11/27 or 11/28"
+  },
+  {
+   "id": "401926756",
+   "start": "2026-11-28T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2540",
+    "name": "UC Santa Barbara"
+   },
+   "away": {
+    "id": "2329",
+    "name": "Lehigh"
+   },
+   "note": "Gratitude Thanksgiving Classic"
+  },
+  {
+   "id": "401925703",
+   "start": "2026-11-28T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "248",
+    "name": "Houston"
+   },
+   "away": {
+    "id": "2473",
+    "name": "Oakland"
+   }
+  },
+  {
+   "id": "401929289",
+   "start": "2026-11-28T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Battle 4 Atlantis - Championship Bracket"
+  },
+  {
+   "id": "401911524",
+   "start": "2026-11-28T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "302",
+    "name": "UC Davis"
+   },
+   "away": {
+    "id": "279",
+    "name": "Pacific"
+   },
+   "note": "Resorts World Classic"
+  },
+  {
+   "id": "401920737",
+   "start": "2026-11-28T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "77",
+    "name": "Northwestern"
+   },
+   "away": {
+    "id": "111",
+    "name": "Northeastern"
+   }
+  },
+  {
+   "id": "401922264",
+   "start": "2026-11-28T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "265",
+    "name": "Washington State"
+   },
+   "away": {
+    "id": "70",
+    "name": "Idaho"
+   }
+  },
+  {
+   "id": "401925829",
+   "start": "2026-11-28T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "249",
+    "name": "North Texas"
+   },
+   "away": {
+    "id": "2449",
+    "name": "North Dakota State"
+   },
+   "note": "Snake River Invitational"
+  },
+  {
+   "id": "401928624",
+   "start": "2026-11-28T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "198",
+    "name": "Oral Roberts"
+   },
+   "away": {
+    "id": "2623",
+    "name": "Missouri State"
+   }
+  },
+  {
+   "id": "401929381",
+   "start": "2026-11-28T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2031",
+    "name": "Little Rock"
+   },
+   "away": {
+    "id": "6371",
+    "name": "Lane College"
+   }
+  },
+  {
+   "id": "401920543",
+   "start": "2026-11-28T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Fifth Place Game"
+  },
+  {
+   "id": "401919033",
+   "start": "2026-11-28T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "96",
+    "name": "Kentucky"
+   },
+   "away": {
+    "id": "2724",
+    "name": "Wichita State"
+   }
+  },
+  {
+   "id": "401920534",
+   "start": "2026-11-28T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Bracket Final"
+  },
+  {
+   "id": "401926783",
+   "start": "2026-11-28T03:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2437",
+    "name": "Omaha"
+   },
+   "away": {
+    "id": "55",
+    "name": "Jacksonville State"
+   },
+   "note": "Resorts World Classic"
+  },
+  {
+   "id": "401920544",
+   "start": "2026-11-28T04:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Bracket Final"
+  },
+  {
+   "id": "401920535",
+   "start": "2026-11-28T04:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Players Era 16 - Fifth Place Game"
+  }
+ ]
+}

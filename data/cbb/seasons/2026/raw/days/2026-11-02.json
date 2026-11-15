@@ -1,0 +1,3123 @@
+{
+ "date": "2026-11-02",
+ "games": [
+  {
+   "id": "401920912",
+   "start": "2026-11-02T08:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2755",
+    "name": "Grambling",
+    "score": 89
+   },
+   "away": {
+    "id": "2459",
+    "name": "Northern Illinois",
+    "score": 87
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  },
+  {
+   "id": "401921422",
+   "start": "2026-11-02T11:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2026",
+    "name": "Appalachian State",
+    "score": 63
+   },
+   "away": {
+    "id": "2771",
+    "name": "Merrimack",
+    "score": 49
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  },
+  {
+   "id": "401921423",
+   "start": "2026-11-02T14:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2511",
+    "name": "Queens University",
+    "score": 103
+   },
+   "away": {
+    "id": "2737",
+    "name": "Winthrop",
+    "score": 98
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  },
+  {
+   "id": "401921173",
+   "start": "2026-11-02T16:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "85",
+    "name": "IU Indianapolis",
+    "score": 113
+   },
+   "away": {
+    "id": "126972",
+    "name": "Miami (OH)-Middletown",
+    "score": 76
+   }
+  },
+  {
+   "id": "401929384",
+   "start": "2026-11-02T16:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2382",
+    "name": "Mercer",
+    "score": 90
+   },
+   "away": {
+    "id": "2890",
+    "name": "Reinhardt",
+    "score": 53
+   }
+  },
+  {
+   "id": "401911707",
+   "start": "2026-11-02T16:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2634",
+    "name": "Tennessee State",
+    "score": 64
+   },
+   "away": {
+    "id": "93",
+    "name": "Murray State",
+    "score": 94
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  },
+  {
+   "id": "401926830",
+   "start": "2026-11-02T16:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2275",
+    "name": "Hofstra",
+    "score": 97
+   },
+   "away": {
+    "id": null,
+    "name": "St. Joseph's Long Island",
+    "score": 51
+   }
+  },
+  {
+   "id": "401928619",
+   "start": "2026-11-02T16:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2393",
+    "name": "Middle Tennessee",
+    "score": 117
+   },
+   "away": {
+    "id": "2225",
+    "name": "Fisk",
+    "score": 73
+   }
+  },
+  {
+   "id": "401925062",
+   "start": "2026-11-02T17:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2447",
+    "name": "Nicholls",
+    "score": 110
+   },
+   "away": {
+    "id": "126750",
+    "name": "North American",
+    "score": 56
+   }
+  },
+  {
+   "id": "401925925",
+   "start": "2026-11-02T17:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2569",
+    "name": "South Carolina State",
+    "score": 94
+   },
+   "away": {
+    "id": "571",
+    "name": "Morris College",
+    "score": 55
+   }
+  },
+  {
+   "id": "401911532",
+   "start": "2026-11-02T19:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "94",
+    "name": "Northern Kentucky",
+    "score": 84
+   },
+   "away": {
+    "id": "2638",
+    "name": "UTEP",
+    "score": 76
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  },
+  {
+   "id": "401911469",
+   "start": "2026-11-02T20:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "23",
+    "name": "San José State",
+    "score": 95
+   },
+   "away": {
+    "id": "2636",
+    "name": "UT San Antonio",
+    "score": 74
+   }
+  },
+  {
+   "id": "401920071",
+   "start": "2026-11-02T21:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2244",
+    "name": "George Mason",
+    "score": 82
+   },
+   "away": {
+    "id": "2378",
+    "name": "UMBC",
+    "score": 54
+   }
+  },
+  {
+   "id": "401924732",
+   "start": "2026-11-02T21:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "163",
+    "name": "Princeton",
+    "score": 78
+   },
+   "away": {
+    "id": "2102",
+    "name": "Carnegie Mellon",
+    "score": 46
+   }
+  },
+  {
+   "id": "401928858",
+   "start": "2026-11-02T22:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "82",
+    "name": "UIC",
+    "score": 96
+   },
+   "away": {
+    "id": "2595",
+    "name": "St. Francis (IL)",
+    "score": 47
+   }
+  },
+  {
+   "id": "401919014",
+   "start": "2026-11-02T22:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2377",
+    "name": "McNeese",
+    "score": 99
+   },
+   "away": {
+    "id": "5",
+    "name": "UAB",
+    "score": 78
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  },
+  {
+   "id": "401906769",
+   "start": "2026-11-02T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "57",
+    "name": "Florida",
+    "score": 77
+   },
+   "away": {
+    "id": "2390",
+    "name": "Miami",
+    "score": 67
+   },
+   "note": "Orion180 Tipoff Classic"
+  },
+  {
+   "id": "401910994",
+   "start": "2026-11-02T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2247",
+    "name": "Georgia State",
+    "score": 73
+   },
+   "away": {
+    "id": "189",
+    "name": "Bowling Green",
+    "score": 76
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401924717",
+   "start": "2026-11-02T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "172",
+    "name": "Cornell",
+    "score": 86
+   },
+   "away": {
+    "id": "2492",
+    "name": "Pepperdine",
+    "score": 85
+   }
+  },
+  {
+   "id": "401925733",
+   "start": "2026-11-02T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "130",
+    "name": "Michigan",
+    "score": 84
+   },
+   "away": {
+    "id": "2473",
+    "name": "Oakland",
+    "score": 68
+   }
+  },
+  {
+   "id": "401926200",
+   "start": "2026-11-02T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2678",
+    "name": "VMI",
+    "score": 115
+   },
+   "away": {
+    "id": "3229",
+    "name": "Virginia-Lynchburg",
+    "score": 83
+   }
+  },
+  {
+   "id": "401929404",
+   "start": "2026-11-02T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "233",
+    "name": "South Dakota",
+    "score": 95
+   },
+   "away": {
+    "id": "573",
+    "name": "Mount Marty College",
+    "score": 57
+   }
+  },
+  {
+   "id": "401909562",
+   "start": "2026-11-02T23:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "150",
+    "name": "Duke",
+    "score": 84
+   },
+   "away": {
+    "id": "349",
+    "name": "Army",
+    "score": 50
+   }
+  },
+  {
+   "id": "401920679",
+   "start": "2026-11-02T23:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2599",
+    "name": "St. John's",
+    "score": 78
+   },
+   "away": {
+    "id": "2405",
+    "name": "Monmouth",
+    "score": 63
+   }
+  },
+  {
+   "id": "401921093",
+   "start": "2026-11-02T23:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "242",
+    "name": "Rice",
+    "score": 100
+   },
+   "away": {
+    "id": "2937",
+    "name": "Dallas Christian",
+    "score": 55
+   }
+  },
+  {
+   "id": "401921264",
+   "start": "2026-11-02T23:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "46",
+    "name": "Georgetown",
+    "score": 80
+   },
+   "away": {
+    "id": "2352",
+    "name": "Loyola Maryland",
+    "score": 58
+   }
+  },
+  {
+   "id": "401923317",
+   "start": "2026-11-02T23:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "399",
+    "name": "UAlbany",
+    "score": 74
+   },
+   "away": {
+    "id": "226",
+    "name": "Rhode Island College",
+    "score": 67
+   }
+  },
+  {
+   "id": "401925857",
+   "start": "2026-11-02T23:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "218",
+    "name": "Temple",
+    "score": 68
+   },
+   "away": {
+    "id": "2115",
+    "name": "Central Connecticut",
+    "score": 56
+   }
+  },
+  {
+   "id": "401926833",
+   "start": "2026-11-02T23:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2619",
+    "name": "Stony Brook",
+    "score": 97
+   },
+   "away": {
+    "id": null,
+    "name": "SUNY Old Westbury",
+    "score": 47
+   }
+  },
+  {
+   "id": "401902275",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2086",
+    "name": "Butler",
+    "score": 96
+   },
+   "away": {
+    "id": "322",
+    "name": "Lafayette",
+    "score": 60
+   }
+  },
+  {
+   "id": "401909531",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2507",
+    "name": "Providence",
+    "score": 83
+   },
+   "away": {
+    "id": "311",
+    "name": "Maine",
+    "score": 56
+   }
+  },
+  {
+   "id": "401909541",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2752",
+    "name": "Xavier",
+    "score": 97
+   },
+   "away": {
+    "id": "116",
+    "name": "Mount St. Mary's",
+    "score": 52
+   }
+  },
+  {
+   "id": "401909705",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "221",
+    "name": "Pittsburgh",
+    "score": 95
+   },
+   "away": {
+    "id": "2520",
+    "name": "Rider",
+    "score": 57
+   }
+  },
+  {
+   "id": "401909716",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "183",
+    "name": "Syracuse",
+    "score": 74
+   },
+   "away": {
+    "id": "2441",
+    "name": "New Haven",
+    "score": 58
+   }
+  },
+  {
+   "id": "401909771",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "66",
+    "name": "Iowa State",
+    "score": 76
+   },
+   "away": {
+    "id": "235",
+    "name": "Memphis",
+    "score": 80
+   }
+  },
+  {
+   "id": "401910995",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "276",
+    "name": "Marshall",
+    "score": 92
+   },
+   "away": {
+    "id": "2084",
+    "name": "Buffalo",
+    "score": 65
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401910997",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "295",
+    "name": "Old Dominion",
+    "score": 61
+   },
+   "away": {
+    "id": "2711",
+    "name": "Western Michigan",
+    "score": 49
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401910998",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "324",
+    "name": "Coastal Carolina",
+    "score": 70
+   },
+   "away": {
+    "id": "2199",
+    "name": "Eastern Michigan",
+    "score": 71
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911001",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2653",
+    "name": "Troy",
+    "score": 60
+   },
+   "away": {
+    "id": "113",
+    "name": "Massachusetts",
+    "score": 71
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911002",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "256",
+    "name": "James Madison",
+    "score": 77
+   },
+   "away": {
+    "id": "193",
+    "name": "Miami (Ohio)",
+    "score": 86
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911004",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "290",
+    "name": "Georgia Southern",
+    "score": 67
+   },
+   "away": {
+    "id": "2050",
+    "name": "Ball State",
+    "score": 55
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911185",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2168",
+    "name": "Dayton",
+    "score": 89
+   },
+   "away": {
+    "id": "2885",
+    "name": "NJIT",
+    "score": 58
+   }
+  },
+  {
+   "id": "401911237",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "257",
+    "name": "Richmond",
+    "score": 100
+   },
+   "away": {
+    "id": "2427",
+    "name": "UNC Asheville",
+    "score": 77
+   }
+  },
+  {
+   "id": "401911261",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "179",
+    "name": "St. Bonaventure",
+    "score": 71
+   },
+   "away": {
+    "id": "2754",
+    "name": "Youngstown State",
+    "score": 79
+   }
+  },
+  {
+   "id": "401911304",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "225",
+    "name": "Brown",
+    "score": 55
+   },
+   "away": {
+    "id": "160",
+    "name": "New Hampshire",
+    "score": 59
+   }
+  },
+  {
+   "id": "401911333",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2750",
+    "name": "Wright State",
+    "score": 102
+   },
+   "away": {
+    "id": "2005",
+    "name": "Air Force",
+    "score": 71
+   }
+  },
+  {
+   "id": "401912207",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2132",
+    "name": "Cincinnati",
+    "score": 79
+   },
+   "away": {
+    "id": "44",
+    "name": "American University",
+    "score": 53
+   }
+  },
+  {
+   "id": "401913099",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "153",
+    "name": "North Carolina",
+    "score": 80
+   },
+   "away": {
+    "id": "2717",
+    "name": "Western Carolina",
+    "score": 72
+   }
+  },
+  {
+   "id": "401916286",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "84",
+    "name": "Indiana",
+    "score": 91
+   },
+   "away": {
+    "id": "2197",
+    "name": "Eastern Illinois",
+    "score": 57
+   }
+  },
+  {
+   "id": "401916296",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "120",
+    "name": "Maryland",
+    "score": 96
+   },
+   "away": {
+    "id": "2083",
+    "name": "Bucknell",
+    "score": 67
+   }
+  },
+  {
+   "id": "401918073",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "228",
+    "name": "Clemson",
+    "score": 85
+   },
+   "away": {
+    "id": "56",
+    "name": "Stetson",
+    "score": 72
+   }
+  },
+  {
+   "id": "401918312",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2729",
+    "name": "William & Mary",
+    "score": 80
+   },
+   "away": {
+    "id": null,
+    "name": "Bridgewater",
+    "score": 66
+   }
+  },
+  {
+   "id": "401918976",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "151",
+    "name": "East Carolina",
+    "score": 83
+   },
+   "away": {
+    "id": "2908",
+    "name": "South Carolina Upstate",
+    "score": 70
+   }
+  },
+  {
+   "id": "401919803",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2226",
+    "name": "Florida Atlantic",
+    "score": 74
+   },
+   "away": {
+    "id": "112358",
+    "name": "Long Island University",
+    "score": 60
+   }
+  },
+  {
+   "id": "401919845",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "284",
+    "name": "Stonehill",
+    "score": 84
+   },
+   "away": {
+    "id": "40",
+    "name": "Curry College",
+    "score": 56
+   }
+  },
+  {
+   "id": "401920201",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2670",
+    "name": "VCU",
+    "score": 82
+   },
+   "away": {
+    "id": "2031",
+    "name": "Little Rock",
+    "score": 72
+   }
+  },
+  {
+   "id": "401920231",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2368",
+    "name": "Marist",
+    "score": 62
+   },
+   "away": {
+    "id": "159",
+    "name": "Dartmouth",
+    "score": 69
+   }
+  },
+  {
+   "id": "401920354",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "108",
+    "name": "Harvard",
+    "score": 73
+   },
+   "away": {
+    "id": "109",
+    "name": "MIT",
+    "score": 45
+   }
+  },
+  {
+   "id": "401920690",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "314",
+    "name": "Iona",
+    "score": 56
+   },
+   "away": {
+    "id": "261",
+    "name": "Vermont",
+    "score": 55
+   }
+  },
+  {
+   "id": "401920746",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "104",
+    "name": "Boston University",
+    "score": 93
+   },
+   "away": {
+    "id": "111",
+    "name": "Northeastern",
+    "score": 85
+   }
+  },
+  {
+   "id": "401920842",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2506",
+    "name": "Presbyterian",
+    "score": 78
+   },
+   "away": {
+    "id": "2900",
+    "name": "St. Thomas",
+    "score": 87
+   }
+  },
+  {
+   "id": "401920876",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "294",
+    "name": "Jacksonville",
+    "score": 105
+   },
+   "away": {
+    "id": null,
+    "name": "Trinity College of Jacksonville",
+    "score": 61
+   }
+  },
+  {
+   "id": "401920902",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "48",
+    "name": "Delaware",
+    "score": 105
+   },
+   "away": {
+    "id": "128342",
+    "name": "Notre Dame (Md)",
+    "score": 44
+   }
+  },
+  {
+   "id": "401921036",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2641",
+    "name": "Texas Tech",
+    "score": 76
+   },
+   "away": {
+    "id": "2296",
+    "name": "Jackson State",
+    "score": 42
+   }
+  },
+  {
+   "id": "401921104",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "238",
+    "name": "Vanderbilt",
+    "score": 93
+   },
+   "away": {
+    "id": "91",
+    "name": "Bellarmine",
+    "score": 47
+   }
+  },
+  {
+   "id": "401921139",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "171",
+    "name": "Columbia",
+    "score": 71
+   },
+   "away": {
+    "id": "2210",
+    "name": "Elon",
+    "score": 84
+   }
+  },
+  {
+   "id": "401921753",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2116",
+    "name": "Central Florida",
+    "score": 96
+   },
+   "away": {
+    "id": "526",
+    "name": "Florida Gulf Coast",
+    "score": 95
+   }
+  },
+  {
+   "id": "401921766",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "277",
+    "name": "West Virginia",
+    "score": 91
+   },
+   "away": {
+    "id": "315",
+    "name": "Niagara",
+    "score": 46
+   }
+  },
+  {
+   "id": "401922247",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2697",
+    "name": "West Florida",
+    "score": 127
+   },
+   "away": {
+    "id": null,
+    "name": "Southeastern Baptist",
+    "score": 42
+   }
+  },
+  {
+   "id": "401923324",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2349",
+    "name": "UMass Lowell",
+    "score": 121
+   },
+   "away": {
+    "id": "111913",
+    "name": "Rivier",
+    "score": 57
+   }
+  },
+  {
+   "id": "401924743",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "43",
+    "name": "Yale",
+    "score": 72
+   },
+   "away": {
+    "id": "47",
+    "name": "Howard",
+    "score": 62
+   }
+  },
+  {
+   "id": "401924856",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "127",
+    "name": "Michigan State",
+    "score": 96
+   },
+   "away": {
+    "id": "2514",
+    "name": "Quinnipiac",
+    "score": 59
+   }
+  },
+  {
+   "id": "401924875",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2529",
+    "name": "Sacred Heart",
+    "score": 111
+   },
+   "away": {
+    "id": "2557",
+    "name": "Coast Guard",
+    "score": 44
+   }
+  },
+  {
+   "id": "401925818",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "282",
+    "name": "Indiana State",
+    "score": 70
+   },
+   "away": {
+    "id": "2429",
+    "name": "Charlotte",
+    "score": 78
+   }
+  },
+  {
+   "id": "401926077",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2504",
+    "name": "Prairie View A&M",
+    "score": 86
+   },
+   "away": {
+    "id": "2491",
+    "name": "Paul Quinn",
+    "score": 65
+   }
+  },
+  {
+   "id": "401926141",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2565",
+    "name": "SIU Edwardsville",
+    "score": 91
+   },
+   "away": {
+    "id": "101",
+    "name": "Eureka",
+    "score": 39
+   }
+  },
+  {
+   "id": "401926787",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "338",
+    "name": "Kennesaw State",
+    "score": 116
+   },
+   "away": {
+    "id": "111166",
+    "name": "Midway University",
+    "score": 57
+   }
+  },
+  {
+   "id": "401926862",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "350",
+    "name": "UNC Wilmington",
+    "score": 101
+   },
+   "away": {
+    "id": "2418",
+    "name": "Mount Olive",
+    "score": 65
+   }
+  },
+  {
+   "id": "401927341",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2169",
+    "name": "Delaware State",
+    "score": 86
+   },
+   "away": {
+    "id": "2614",
+    "name": "Saint Vincent",
+    "score": 52
+   }
+  },
+  {
+   "id": "401928357",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2229",
+    "name": "Florida International",
+    "score": 101
+   },
+   "away": {
+    "id": "108818",
+    "name": "New York Institute Of Technology",
+    "score": 58
+   }
+  },
+  {
+   "id": "401928852",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2415",
+    "name": "Morgan State",
+    "score": 103
+   },
+   "away": {
+    "id": "2129",
+    "name": "Cheyney (PA)",
+    "score": 52
+   }
+  },
+  {
+   "id": "401929383",
+   "start": "2026-11-03T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2198",
+    "name": "Eastern Kentucky",
+    "score": 105
+   },
+   "away": {
+    "id": "3077",
+    "name": "Kentucky Christian",
+    "score": 54
+   }
+  },
+  {
+   "id": "401906779",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "61",
+    "name": "Georgia",
+    "score": 78
+   },
+   "away": {
+    "id": "2428",
+    "name": "North Carolina Central",
+    "score": 62
+   }
+  },
+  {
+   "id": "401906791",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "344",
+    "name": "Mississippi State",
+    "score": 106
+   },
+   "away": {
+    "id": "2635",
+    "name": "Tennessee Tech",
+    "score": 88
+   }
+  },
+  {
+   "id": "401909522",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "269",
+    "name": "Marquette",
+    "score": 78
+   },
+   "away": {
+    "id": "2385",
+    "name": "Mercyhurst",
+    "score": 43
+   }
+  },
+  {
+   "id": "401910996",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2433",
+    "name": "UL Monroe",
+    "score": 78
+   },
+   "away": {
+    "id": "2117",
+    "name": "Central Michigan",
+    "score": 83
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911000",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2348",
+    "name": "Louisiana Tech",
+    "score": 85
+   },
+   "away": {
+    "id": "2309",
+    "name": "Kent State",
+    "score": 75
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911208",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "45",
+    "name": "George Washington",
+    "score": 91
+   },
+   "away": {
+    "id": "2426",
+    "name": "Navy",
+    "score": 39
+   }
+  },
+  {
+   "id": "401917173",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "213",
+    "name": "Penn State",
+    "score": 97
+   },
+   "away": {
+    "id": "2099",
+    "name": "Canisius",
+    "score": 57
+   }
+  },
+  {
+   "id": "401918955",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "152",
+    "name": "NC State",
+    "score": 83
+   },
+   "away": {
+    "id": "2097",
+    "name": "Campbell",
+    "score": 64
+   }
+  },
+  {
+   "id": "401919780",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "158",
+    "name": "Nebraska",
+    "score": 106
+   },
+   "away": {
+    "id": "2330",
+    "name": "Le Moyne",
+    "score": 64
+   }
+  },
+  {
+   "id": "401920701",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2546",
+    "name": "Southeast Missouri State",
+    "score": 86
+   },
+   "away": {
+    "id": "288",
+    "name": "Lipscomb",
+    "score": 79
+   }
+  },
+  {
+   "id": "401920758",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2057",
+    "name": "Belmont",
+    "score": 72
+   },
+   "away": {
+    "id": "88",
+    "name": "Southern Indiana",
+    "score": 54
+   }
+  },
+  {
+   "id": "401920886",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2550",
+    "name": "Seton Hall",
+    "score": 66
+   },
+   "away": {
+    "id": "2612",
+    "name": "Saint Peter's",
+    "score": 42
+   }
+  },
+  {
+   "id": "401920893",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "275",
+    "name": "Wisconsin",
+    "score": 75
+   },
+   "away": {
+    "id": "2172",
+    "name": "Denver",
+    "score": 68
+   }
+  },
+  {
+   "id": "401920959",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "98",
+    "name": "Western Kentucky",
+    "score": 83
+   },
+   "away": {
+    "id": "2413",
+    "name": "Morehead State",
+    "score": 58
+   }
+  },
+  {
+   "id": "401921704",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2250",
+    "name": "Gonzaga",
+    "score": 78
+   },
+   "away": {
+    "id": "2509",
+    "name": "Purdue",
+    "score": 72
+   },
+   "note": "Hall of Fame Series - Las Vegas"
+  },
+  {
+   "id": "401922043",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2344",
+    "name": "Longwood",
+    "score": 123
+   },
+   "away": {
+    "id": "2945",
+    "name": "Pfeiffer",
+    "score": 67
+   }
+  },
+  {
+   "id": "401925088",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2617",
+    "name": "Stephen F. Austin",
+    "score": 120
+   },
+   "away": {
+    "id": "2358",
+    "name": "Lyon",
+    "score": 61
+   }
+  },
+  {
+   "id": "401926116",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2535",
+    "name": "Samford",
+    "score": 87
+   },
+   "away": {
+    "id": "2757",
+    "name": "Berry",
+    "score": 58
+   }
+  },
+  {
+   "id": "401928806",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2739",
+    "name": "Green Bay",
+    "score": 94
+   },
+   "away": {
+    "id": "268",
+    "name": "Lawrence University",
+    "score": 51
+   }
+  },
+  {
+   "id": "401931655",
+   "start": "2026-11-03T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "232",
+    "name": "Charleston",
+    "score": 111
+   },
+   "away": {
+    "id": "2576",
+    "name": "Southern Wesleyan",
+    "score": 55
+   }
+  },
+  {
+   "id": "401911374",
+   "start": "2026-11-03T00:45Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "58",
+    "name": "South Florida",
+    "score": 98
+   },
+   "away": {
+    "id": "2127",
+    "name": "Charleston Southern",
+    "score": 71
+   }
+  },
+  {
+   "id": "401906801",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "201",
+    "name": "Oklahoma",
+    "score": 64
+   },
+   "away": {
+    "id": "2837",
+    "name": "East Texas A&M",
+    "score": 68
+   }
+  },
+  {
+   "id": "401909490",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "156",
+    "name": "Creighton",
+    "score": 76
+   },
+   "away": {
+    "id": "140",
+    "name": "Kansas City",
+    "score": 61
+   }
+  },
+  {
+   "id": "401909500",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "305",
+    "name": "DePaul",
+    "score": 75
+   },
+   "away": {
+    "id": "2698",
+    "name": "West Georgia",
+    "score": 58
+   }
+  },
+  {
+   "id": "401909725",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "154",
+    "name": "Wake Forest",
+    "score": 83
+   },
+   "away": {
+    "id": "2379",
+    "name": "Maryland Eastern Shore",
+    "score": 62
+   }
+  },
+  {
+   "id": "401909784",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2305",
+    "name": "Kansas",
+    "score": 95
+   },
+   "away": {
+    "id": "2230",
+    "name": "Fordham",
+    "score": 65
+   }
+  },
+  {
+   "id": "401910993",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "309",
+    "name": "Louisiana",
+    "score": 61
+   },
+   "away": {
+    "id": "2006",
+    "name": "Akron",
+    "score": 75
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401910999",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2032",
+    "name": "Arkansas State",
+    "score": 71
+   },
+   "away": {
+    "id": "2649",
+    "name": "Toledo",
+    "score": 70
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911003",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "6",
+    "name": "South Alabama",
+    "score": 77
+   },
+   "away": {
+    "id": "195",
+    "name": "Ohio",
+    "score": 86
+   },
+   "note": "MAC-SBC Challenge"
+  },
+  {
+   "id": "401911228",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2350",
+    "name": "Loyola Chicago",
+    "score": 77
+   },
+   "away": {
+    "id": "2643",
+    "name": "The Citadel",
+    "score": 52
+   }
+  },
+  {
+   "id": "401911248",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "139",
+    "name": "Saint Louis",
+    "score": 92
+   },
+   "away": {
+    "id": "2329",
+    "name": "Lehigh",
+    "score": 67
+   }
+  },
+  {
+   "id": "401913525",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "356",
+    "name": "Illinois",
+    "score": 120
+   },
+   "away": {
+    "id": "161",
+    "name": "Fairleigh Dickinson",
+    "score": 45
+   }
+  },
+  {
+   "id": "401917510",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2501",
+    "name": "Portland",
+    "score": 133
+   },
+   "away": {
+    "id": "2930",
+    "name": "Willamette",
+    "score": 89
+   }
+  },
+  {
+   "id": "401917948",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2046",
+    "name": "Austin Peay",
+    "score": 109
+   },
+   "away": {
+    "id": "6371",
+    "name": "Lane College",
+    "score": 65
+   }
+  },
+  {
+   "id": "401918051",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "25",
+    "name": "California",
+    "score": 115
+   },
+   "away": {
+    "id": "2001",
+    "name": "Adams State",
+    "score": 86
+   }
+  },
+  {
+   "id": "401918967",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2567",
+    "name": "SMU",
+    "score": 85
+   },
+   "away": {
+    "id": "2582",
+    "name": "Southern",
+    "score": 72
+   }
+  },
+  {
+   "id": "401919001",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2655",
+    "name": "Tulane",
+    "score": 100
+   },
+   "away": {
+    "id": "2630",
+    "name": "UT Martin",
+    "score": 98
+   }
+  },
+  {
+   "id": "401919047",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2628",
+    "name": "TCU",
+    "score": 98
+   },
+   "away": {
+    "id": "2815",
+    "name": "Lindenwood",
+    "score": 59
+   }
+  },
+  {
+   "id": "401920434",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "3084",
+    "name": "Utah Valley",
+    "score": 84
+   },
+   "away": {
+    "id": "cbbd-489",
+    "name": "Western Colorado",
+    "score": 63
+   }
+  },
+  {
+   "id": "401920732",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "77",
+    "name": "Northwestern",
+    "score": 86
+   },
+   "away": {
+    "id": "2066",
+    "name": "Binghamton",
+    "score": 60
+   }
+  },
+  {
+   "id": "401920951",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "79",
+    "name": "Southern Illinois",
+    "score": 82
+   },
+   "away": {
+    "id": null,
+    "name": "Maryville (MO)",
+    "score": 40
+   }
+  },
+  {
+   "id": "401921424",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2065",
+    "name": "Bethune-Cookman",
+    "score": 70
+   },
+   "away": {
+    "id": "231",
+    "name": "Furman",
+    "score": 79
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  },
+  {
+   "id": "401923269",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2803",
+    "name": "Bryant",
+    "score": 80
+   },
+   "away": {
+    "id": "2561",
+    "name": "Siena",
+    "score": 75
+   }
+  },
+  {
+   "id": "401925096",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "326",
+    "name": "Texas State",
+    "score": 67
+   },
+   "away": {
+    "id": "357",
+    "name": "Texas A&M-Corpus Christi",
+    "score": 55
+   }
+  },
+  {
+   "id": "401925862",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "202",
+    "name": "Tulsa",
+    "score": 98
+   },
+   "away": {
+    "id": "2775",
+    "name": "Ottawa (KS)",
+    "score": 50
+   }
+  },
+  {
+   "id": "401925892",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2450",
+    "name": "Norfolk State",
+    "score": 68
+   },
+   "away": {
+    "id": "111926",
+    "name": "Regent",
+    "score": 45
+   }
+  },
+  {
+   "id": "401927360",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "71",
+    "name": "Bradley",
+    "score": 85
+   },
+   "away": {
+    "id": "2919",
+    "name": "Monmouth (IL)",
+    "score": 41
+   }
+  },
+  {
+   "id": "401927368",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "339",
+    "name": "Evansville",
+    "score": 80
+   },
+   "away": {
+    "id": null,
+    "name": "IU Kokomo",
+    "score": 70
+   }
+  },
+  {
+   "id": "401928995",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2674",
+    "name": "Valparaiso",
+    "score": 80
+   },
+   "away": {
+    "id": "2710",
+    "name": "Western Illinois",
+    "score": 58
+   }
+  },
+  {
+   "id": "401929355",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "250",
+    "name": "UT Arlington",
+    "score": 89
+   },
+   "away": {
+    "id": "126794",
+    "name": "UNT Dallas",
+    "score": 56
+   }
+  },
+  {
+   "id": "401929365",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2627",
+    "name": "Tarleton State",
+    "score": 86
+   },
+   "away": {
+    "id": "2096",
+    "name": "Cameron",
+    "score": 60
+   }
+  },
+  {
+   "id": "401929391",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2449",
+    "name": "North Dakota State",
+    "score": 90
+   },
+   "away": {
+    "id": null,
+    "name": "Crookston (MN)",
+    "score": 59
+   }
+  },
+  {
+   "id": "401929394",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2437",
+    "name": "Omaha",
+    "score": 73
+   },
+   "away": {
+    "id": "3126",
+    "name": "Mid-America Christian",
+    "score": 65
+   }
+  },
+  {
+   "id": "401929441",
+   "start": "2026-11-03T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2572",
+    "name": "Southern Miss",
+    "score": 82
+   },
+   "away": {
+    "id": "2650",
+    "name": "Tougaloo",
+    "score": 35
+   }
+  },
+  {
+   "id": "401917913",
+   "start": "2026-11-03T01:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2110",
+    "name": "Central Arkansas",
+    "score": 85
+   },
+   "away": {
+    "id": "198",
+    "name": "Oral Roberts",
+    "score": 55
+   }
+  },
+  {
+   "id": "401925010",
+   "start": "2026-11-03T01:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2320",
+    "name": "Lamar",
+    "score": 124
+   },
+   "away": {
+    "id": "2544",
+    "name": "Schreiner",
+    "score": 62
+   }
+  },
+  {
+   "id": "401925105",
+   "start": "2026-11-03T01:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "292",
+    "name": "UT Rio Grande Valley",
+    "score": 81
+   },
+   "away": {
+    "id": "2658",
+    "name": "Texas A&M-Kingsville",
+    "score": 51
+   }
+  },
+  {
+   "id": "401925640",
+   "start": "2026-11-03T01:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2010",
+    "name": "Alabama A&M",
+    "score": 90
+   },
+   "away": {
+    "id": "3083",
+    "name": "Oakwood",
+    "score": 57
+   }
+  },
+  {
+   "id": "401925683",
+   "start": "2026-11-03T01:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "145",
+    "name": "Mississippi",
+    "score": 99
+   },
+   "away": {
+    "id": "2016",
+    "name": "Alcorn State",
+    "score": 58
+   }
+  },
+  {
+   "id": "401926739",
+   "start": "2026-11-03T01:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "55",
+    "name": "Jacksonville State",
+    "score": 123
+   },
+   "away": {
+    "id": "548",
+    "name": "LaGrange",
+    "score": 59
+   }
+  },
+  {
+   "id": "401906863",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "251",
+    "name": "Texas",
+    "score": 109
+   },
+   "away": {
+    "id": "2130",
+    "name": "Chicago State",
+    "score": 59
+   }
+  },
+  {
+   "id": "401909759",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "38",
+    "name": "Colorado",
+    "score": 94
+   },
+   "away": {
+    "id": "2000",
+    "name": "Abilene Christian",
+    "score": 59
+   }
+  },
+  {
+   "id": "401911389",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2253",
+    "name": "Grand Canyon",
+    "score": 103
+   },
+   "away": {
+    "id": "2640",
+    "name": "Texas Southern",
+    "score": 79
+   }
+  },
+  {
+   "id": "401911390",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "41",
+    "name": "Connecticut",
+    "score": 86
+   },
+   "away": {
+    "id": "2241",
+    "name": "Gardner-Webb",
+    "score": 46
+   }
+  },
+  {
+   "id": "401916303",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "135",
+    "name": "Minnesota",
+    "score": 85
+   },
+   "away": {
+    "id": "155",
+    "name": "North Dakota",
+    "score": 50
+   }
+  },
+  {
+   "id": "401916313",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "252",
+    "name": "BYU",
+    "score": 94
+   },
+   "away": {
+    "id": "194",
+    "name": "Ohio State",
+    "score": 83
+   },
+   "note": "Bad Boy Mowers Series"
+  },
+  {
+   "id": "401918947",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "97",
+    "name": "Louisville",
+    "score": 84
+   },
+   "away": {
+    "id": "236",
+    "name": "Chattanooga",
+    "score": 70
+   }
+  },
+  {
+   "id": "401919039",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "197",
+    "name": "Oklahoma State",
+    "score": 91
+   },
+   "away": {
+    "id": "2916",
+    "name": "Incarnate Word",
+    "score": 60
+   }
+  },
+  {
+   "id": "401921697",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "254",
+    "name": "Utah",
+    "score": 66
+   },
+   "away": {
+    "id": "299",
+    "name": "Long Beach State",
+    "score": 63
+   }
+  },
+  {
+   "id": "401924894",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "167",
+    "name": "New Mexico",
+    "score": 100
+   },
+   "away": {
+    "id": "3101",
+    "name": "Utah Tech",
+    "score": 60
+   }
+  },
+  {
+   "id": "401925771",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "265",
+    "name": "Washington State",
+    "score": 61
+   },
+   "away": {
+    "id": "2166",
+    "name": "Davidson",
+    "score": 76
+   }
+  },
+  {
+   "id": "401925811",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "248",
+    "name": "Houston",
+    "score": 94
+   },
+   "away": {
+    "id": "2325",
+    "name": "La Salle",
+    "score": 55
+   }
+  },
+  {
+   "id": "401928351",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2540",
+    "name": "UC Santa Barbara",
+    "score": 85
+   },
+   "away": {
+    "id": "22",
+    "name": "San Francisco State",
+    "score": 55
+   }
+  },
+  {
+   "id": "401929179",
+   "start": "2026-11-03T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "278",
+    "name": "Fresno State",
+    "score": 88
+   },
+   "away": {
+    "id": "2235",
+    "name": "Fresno Pacific",
+    "score": 79
+   }
+  },
+  {
+   "id": "401909694",
+   "start": "2026-11-03T02:15Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "50",
+    "name": "Florida A&M",
+    "score": 69
+   },
+   "away": {
+    "id": "52",
+    "name": "Florida State",
+    "score": 112
+   },
+   "note": "Orion180 Tipoff Classic"
+  },
+  {
+   "id": "401925826",
+   "start": "2026-11-03T02:15Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "249",
+    "name": "North Texas",
+    "score": 122
+   },
+   "away": {
+    "id": "3238",
+    "name": "Southwestern Christian",
+    "score": 50
+   }
+  },
+  {
+   "id": "401909750",
+   "start": "2026-11-03T02:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "239",
+    "name": "Baylor",
+    "score": 87
+   },
+   "away": {
+    "id": "2466",
+    "name": "Northwestern State",
+    "score": 65
+   }
+  },
+  {
+   "id": "401917508",
+   "start": "2026-11-03T02:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "301",
+    "name": "San Diego",
+    "score": 79
+   },
+   "away": {
+    "id": "2067",
+    "name": "Biola",
+    "score": 62
+   }
+  },
+  {
+   "id": "401922020",
+   "start": "2026-11-03T02:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "328",
+    "name": "Utah State",
+    "score": 94
+   },
+   "away": {
+    "id": "304",
+    "name": "Idaho State",
+    "score": 58
+   }
+  },
+  {
+   "id": "401925887",
+   "start": "2026-11-03T02:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2458",
+    "name": "Northern Colorado",
+    "score": 117
+   },
+   "away": {
+    "id": "2144",
+    "name": "Colorado College",
+    "score": 64
+   }
+  },
+  {
+   "id": "401925947",
+   "start": "2026-11-03T02:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "204",
+    "name": "Oregon State",
+    "score": 102
+   },
+   "away": {
+    "id": "2692",
+    "name": "Weber State",
+    "score": 61
+   }
+  },
+  {
+   "id": "401909738",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "26",
+    "name": "UCLA",
+    "score": 84
+   },
+   "away": {
+    "id": "12",
+    "name": "Arizona",
+    "score": 75
+   },
+   "note": "Hall of Fame Series - Las Vegas"
+  },
+  {
+   "id": "401911452",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2440",
+    "name": "Nevada",
+    "score": 86
+   },
+   "away": {
+    "id": "2523",
+    "name": "Robert Morris",
+    "score": 49
+   }
+  },
+  {
+   "id": "401911517",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "302",
+    "name": "UC Davis",
+    "score": 75
+   },
+   "away": {
+    "id": "2453",
+    "name": "North Alabama",
+    "score": 79
+   }
+  },
+  {
+   "id": "401917507",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2608",
+    "name": "Saint Mary's",
+    "score": 90
+   },
+   "away": {
+    "id": "2287",
+    "name": "Illinois State",
+    "score": 85
+   }
+  },
+  {
+   "id": "401917509",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2541",
+    "name": "Santa Clara",
+    "score": 89
+   },
+   "away": {
+    "id": "119",
+    "name": "Towson",
+    "score": 70
+   }
+  },
+  {
+   "id": "401920348",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "16",
+    "name": "Sacramento State",
+    "score": 90
+   },
+   "away": {
+    "id": "3078",
+    "name": "Jessup University",
+    "score": 74
+   }
+  },
+  {
+   "id": "401920370",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "28",
+    "name": "UC San Diego",
+    "score": 100
+   },
+   "away": {
+    "id": "cbbd-446",
+    "name": "Whittier",
+    "score": 75
+   }
+  },
+  {
+   "id": "401920716",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "24",
+    "name": "Stanford",
+    "score": 74
+   },
+   "away": {
+    "id": "331",
+    "name": "Eastern Washington",
+    "score": 65
+   }
+  },
+  {
+   "id": "401920769",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "264",
+    "name": "Washington",
+    "score": 90
+   },
+   "away": {
+    "id": "2142",
+    "name": "Colgate",
+    "score": 76
+   }
+  },
+  {
+   "id": "401921060",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2539",
+    "name": "San Francisco",
+    "score": 76
+   },
+   "away": {
+    "id": "2515",
+    "name": "Radford",
+    "score": 62
+   }
+  },
+  {
+   "id": "401921731",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "9",
+    "name": "Arizona State",
+    "score": 75
+   },
+   "away": {
+    "id": "2193",
+    "name": "East Tennessee State",
+    "score": 65
+   }
+  },
+  {
+   "id": "401922029",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2483",
+    "name": "Oregon",
+    "score": 87
+   },
+   "away": {
+    "id": "149",
+    "name": "Montana",
+    "score": 69
+   }
+  },
+  {
+   "id": "401922260",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "70",
+    "name": "Idaho",
+    "score": 97
+   },
+   "away": {
+    "id": "415",
+    "name": "George Fox",
+    "score": 56
+   }
+  },
+  {
+   "id": "401925878",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "36",
+    "name": "Colorado State",
+    "score": 84
+   },
+   "away": {
+    "id": "147",
+    "name": "Montana State",
+    "score": 74
+   }
+  },
+  {
+   "id": "401925921",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "253",
+    "name": "Southern Utah",
+    "score": 134
+   },
+   "away": {
+    "id": "110418",
+    "name": "West Coast Baptist",
+    "score": 69
+   }
+  },
+  {
+   "id": "401926776",
+   "start": "2026-11-03T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "27",
+    "name": "UC Riverside",
+    "score": 110
+   },
+   "away": {
+    "id": "2318",
+    "name": "La Verne",
+    "score": 47
+   }
+  },
+  {
+   "id": "401920122",
+   "start": "2026-11-03T03:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "13",
+    "name": "Cal Poly",
+    "score": 78
+   },
+   "away": {
+    "id": null,
+    "name": "Cal State San Marcos",
+    "score": 62
+   }
+  },
+  {
+   "id": "401926771",
+   "start": "2026-11-03T03:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "30",
+    "name": "USC",
+    "score": 95
+   },
+   "away": {
+    "id": "270",
+    "name": "Milwaukee",
+    "score": 63
+   }
+  },
+  {
+   "id": "401917506",
+   "start": "2026-11-03T04:59Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "62",
+    "name": "Hawaii",
+    "score": 74
+   },
+   "away": {
+    "id": "2547",
+    "name": "Seattle U",
+    "score": 73
+   }
+  }
+ ]
+}

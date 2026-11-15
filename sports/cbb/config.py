@@ -70,10 +70,12 @@ WEEK1_MONDAY = {
     2026: "2026-11-02",
 }
 
-# The earliest date fetched for week 1 (catches any opener before
-# WEEK1_MONDAY). Generous on purpose - only real regular-season games come
-# back, and the ET-date filter decides membership.
-WEEK1_LOOKBACK_DAYS = 21
+# First day with a real regular-season game (week 1 starts here when it's
+# before WEEK1_MONDAY). ESPN day files are fetched from this date on.
+SEASON_FIRST_DAY = {
+    2026: "2026-11-01",
+}
+
 
 # Field names verified 2026-11-15 against a real season=2027 /games
 # response (also carries homeTeamId/awayTeamId, status "final"/

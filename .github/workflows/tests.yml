@@ -36,3 +36,6 @@ jobs:
 
       - name: Live Worker regression (real 2026-10-19 data)
         run: node tests/test_live_worker.mjs
+
+      - name: Basketball live Worker (real 2026-11-14 data)
+        run: node tests/test_cbb_live_worker.mjs

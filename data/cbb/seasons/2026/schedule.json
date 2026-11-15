@@ -1,0 +1,2859 @@
+{
+ "season": 2026,
+ "generated_at": "2026-11-15T02:25:17-05:00",
+ "today": "2026-11-15",
+ "current_week": "week2",
+ "weeks": {
+  "week1": {
+   "start": "2026-11-01",
+   "end": "2026-11-08"
+  },
+  "week2": {
+   "start": "2026-11-09",
+   "end": "2026-11-15"
+  }
+ },
+ "ranked_ids": [
+  "57",
+  "127",
+  "2641",
+  "41",
+  "26",
+  "150",
+  "251",
+  "2633",
+  "258",
+  "248",
+  "97",
+  "8",
+  "2599",
+  "2390",
+  "99",
+  "130",
+  "2305",
+  "238",
+  "356",
+  "333",
+  "30",
+  "12",
+  "96",
+  "235",
+  "252"
+ ],
+ "teams": {
+  "12": {
+   "name": "Arizona",
+   "games": [
+    {
+     "id": "401909738",
+     "start": "2026-11-03T03:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "UCLA",
+     "opponent_id": "26",
+     "score": 75,
+     "opponent_score": 84,
+     "note": "Hall of Fame Series - Las Vegas"
+    },
+    {
+     "id": "401909739",
+     "start": "2026-11-06T03:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Cal Poly",
+     "opponent_id": "13",
+     "score": 104,
+     "opponent_score": 84
+    },
+    {
+     "id": "401909740",
+     "start": "2026-11-11T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Northern Arizona",
+     "opponent_id": "2464",
+     "score": 90,
+     "opponent_score": 59
+    },
+    {
+     "id": "401909741",
+     "start": "2026-11-14T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Auburn",
+     "opponent_id": "2",
+     "score": 80,
+     "opponent_score": 69
+    },
+    {
+     "id": "401909742",
+     "start": "2026-11-19T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Connecticut",
+     "opponent_id": "41"
+    },
+    {
+     "id": "401909743",
+     "start": "2026-11-24T04:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Colorado State",
+     "opponent_id": "36",
+     "note": "Southwest Maui Invitational"
+    },
+    {
+     "id": "401909744",
+     "start": "2026-12-02T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "LSU New Orleans",
+     "opponent_id": "2443"
+    },
+    {
+     "id": "401909745",
+     "start": "2026-12-05T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "St. John's",
+     "opponent_id": "2599",
+     "note": "Hall of Fame Series - New York City"
+    },
+    {
+     "id": "401909746",
+     "start": "2026-12-12T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Tennessee Tech",
+     "opponent_id": "2635"
+    }
+   ]
+  },
+  "127": {
+   "name": "Michigan State",
+   "games": [
+    {
+     "id": "401924856",
+     "start": "2026-11-03T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Quinnipiac",
+     "opponent_id": "2514",
+     "score": 96,
+     "opponent_score": 59
+    },
+    {
+     "id": "401925754",
+     "start": "2026-11-06T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Toledo",
+     "opponent_id": "2649",
+     "score": 91,
+     "opponent_score": 61
+    },
+    {
+     "id": "401909564",
+     "start": "2026-11-11T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Duke",
+     "opponent_id": "150",
+     "score": 79,
+     "opponent_score": 73,
+     "note": "State Farm Champions Classic"
+    },
+    {
+     "id": "401925755",
+     "start": "2026-11-14T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Northern Iowa",
+     "opponent_id": "2460",
+     "score": 106,
+     "opponent_score": 72
+    },
+    {
+     "id": "401906851",
+     "start": "2026-11-18T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Tennessee",
+     "opponent_id": "2633"
+    },
+    {
+     "id": "401925756",
+     "start": "2026-11-21T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Detroit Mercy",
+     "opponent_id": "2174"
+    },
+    {
+     "id": "401925757",
+     "start": "2026-11-26T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Arkansas",
+     "opponent_id": "8"
+    },
+    {
+     "id": "401921877",
+     "start": "2026-12-02T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Minnesota",
+     "opponent_id": "135"
+    },
+    {
+     "id": "401925758",
+     "start": "2026-12-05T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Drake",
+     "opponent_id": "2181"
+    },
+    {
+     "id": "401921886",
+     "start": "2026-12-10T01:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Maryland",
+     "opponent_id": "120"
+    },
+    {
+     "id": "401924813",
+     "start": "2026-12-12T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Merrimack",
+     "opponent_id": "2771"
+    }
+   ]
+  },
+  "130": {
+   "name": "Michigan",
+   "games": [
+    {
+     "id": "401925733",
+     "start": "2026-11-02T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Oakland",
+     "opponent_id": "2473",
+     "score": 84,
+     "opponent_score": 68
+    },
+    {
+     "id": "401920685",
+     "start": "2026-11-07T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Connecticut",
+     "opponent_id": "41",
+     "score": 77,
+     "opponent_score": 85,
+     "note": "Hall of Fame Series - Boston"
+    },
+    {
+     "id": "401909524",
+     "start": "2026-11-12T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Marquette",
+     "opponent_id": "269",
+     "score": 84,
+     "opponent_score": 70
+    },
+    {
+     "id": "401918453",
+     "start": "2026-11-15T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "William & Mary",
+     "opponent_id": "2729"
+    },
+    {
+     "id": "401921776",
+     "start": "2026-11-22T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Villanova",
+     "opponent_id": "222"
+    },
+    {
+     "id": "401909495",
+     "start": "2026-11-24T22:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Creighton",
+     "opponent_id": "156",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401925734",
+     "start": "2026-12-02T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Mississippi Valley State",
+     "opponent_id": "2400"
+    },
+    {
+     "id": "401918951",
+     "start": "2026-12-05T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Louisville",
+     "opponent_id": "97"
+    },
+    {
+     "id": "401921887",
+     "start": "2026-12-09T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Rutgers",
+     "opponent_id": "164"
+    },
+    {
+     "id": "401921889",
+     "start": "2026-12-12T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Northwestern",
+     "opponent_id": "77"
+    }
+   ]
+  },
+  "150": {
+   "name": "Duke",
+   "games": [
+    {
+     "id": "401909562",
+     "start": "2026-11-02T23:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Army",
+     "opponent_id": "349",
+     "score": 84,
+     "opponent_score": 50
+    },
+    {
+     "id": "401909563",
+     "start": "2026-11-06T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Coastal Carolina",
+     "opponent_id": "324",
+     "score": 113,
+     "opponent_score": 52
+    },
+    {
+     "id": "401909564",
+     "start": "2026-11-11T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Michigan State",
+     "opponent_id": "127",
+     "score": 73,
+     "opponent_score": 79,
+     "note": "State Farm Champions Classic"
+    },
+    {
+     "id": "401909565",
+     "start": "2026-11-14T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "SIU Edwardsville",
+     "opponent_id": "2565",
+     "score": 90,
+     "opponent_score": 47
+    },
+    {
+     "id": "401909566",
+     "start": "2026-11-18T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Illinois",
+     "opponent_id": "356"
+    },
+    {
+     "id": "401909567",
+     "start": "2026-11-22T04:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Washington State",
+     "opponent_id": "265",
+     "note": "Acrisure Series"
+    },
+    {
+     "id": "401909568",
+     "start": "2026-11-26T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Connecticut",
+     "opponent_id": "41"
+    },
+    {
+     "id": "401906775",
+     "start": "2026-12-02T02:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Florida",
+     "opponent_id": "57",
+     "note": "SEC/ACC Men's Challenge"
+    },
+    {
+     "id": "401909569",
+     "start": "2026-12-05T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Harvard",
+     "opponent_id": "108"
+    },
+    {
+     "id": "401906786",
+     "start": "2026-12-09T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Georgia",
+     "opponent_id": "61",
+     "note": "Jimmy V Classic"
+    }
+   ]
+  },
+  "2250": {
+   "name": "Gonzaga",
+   "games": [
+    {
+     "id": "401921704",
+     "start": "2026-11-03T00:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Purdue",
+     "opponent_id": "2509",
+     "score": 78,
+     "opponent_score": 72,
+     "note": "Hall of Fame Series - Las Vegas"
+    },
+    {
+     "id": "401928788",
+     "start": "2026-11-07T22:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "New Mexico State",
+     "opponent_id": "166",
+     "score": 109,
+     "opponent_score": 68
+    },
+    {
+     "id": "401921689",
+     "start": "2026-11-14T20:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "LSU",
+     "opponent_id": "99",
+     "score": 80,
+     "opponent_score": 81,
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401925879",
+     "start": "2026-11-18T04:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Montana State",
+     "opponent_id": "147"
+    },
+    {
+     "id": "401909800",
+     "start": "2026-11-25T05:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Kansas State",
+     "opponent_id": "2306",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401929187",
+     "start": "2026-12-03T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Eastern Oregon",
+     "opponent_id": "2202"
+    },
+    {
+     "id": "401926138",
+     "start": "2026-12-06T04:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "UCLA",
+     "opponent_id": "26"
+    },
+    {
+     "id": "401929188",
+     "start": "2026-12-10T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Incarnate Word",
+     "opponent_id": "2916"
+    },
+    {
+     "id": "401909498",
+     "start": "2026-12-13T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Creighton",
+     "opponent_id": "156"
+    }
+   ]
+  },
+  "2305": {
+   "name": "Kansas",
+   "games": [
+    {
+     "id": "401909784",
+     "start": "2026-11-03T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Fordham",
+     "opponent_id": "2230",
+     "score": 95,
+     "opponent_score": 65
+    },
+    {
+     "id": "401909785",
+     "start": "2026-11-07T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Middle Tennessee",
+     "opponent_id": "2393",
+     "score": 89,
+     "opponent_score": 45
+    },
+    {
+     "id": "401909786",
+     "start": "2026-11-11T02:58Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Kentucky",
+     "opponent_id": "96",
+     "score": 89,
+     "opponent_score": 69,
+     "note": "State Farm Champions Classic"
+    },
+    {
+     "id": "401909787",
+     "start": "2026-11-18T02:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Nevada-Las Vegas",
+     "opponent_id": "2439",
+     "note": "Players Era 8"
+    },
+    {
+     "id": "401909788",
+     "start": "2026-11-24T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Denver",
+     "opponent_id": "2172"
+    },
+    {
+     "id": "401909789",
+     "start": "2026-11-27T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Villanova",
+     "opponent_id": "222"
+    },
+    {
+     "id": "401909790",
+     "start": "2026-12-02T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Northern Iowa",
+     "opponent_id": "2460"
+    },
+    {
+     "id": "401909791",
+     "start": "2026-12-06T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Missouri",
+     "opponent_id": "142"
+    },
+    {
+     "id": "401909792",
+     "start": "2026-12-13T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Connecticut",
+     "opponent_id": "41"
+    }
+   ]
+  },
+  "235": {
+   "name": "Memphis",
+   "games": [
+    {
+     "id": "401909771",
+     "start": "2026-11-03T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Iowa State",
+     "opponent_id": "66",
+     "score": 80,
+     "opponent_score": 76
+    },
+    {
+     "id": "401918986",
+     "start": "2026-11-07T20:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "VCU",
+     "opponent_id": "2670",
+     "score": 89,
+     "opponent_score": 88
+    },
+    {
+     "id": "401918987",
+     "start": "2026-11-11T00:15Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Vanderbilt",
+     "opponent_id": "238",
+     "score": 81,
+     "opponent_score": 105
+    },
+    {
+     "id": "401918949",
+     "start": "2026-11-15T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Louisville",
+     "opponent_id": "97"
+    },
+    {
+     "id": "401918988",
+     "start": "2026-11-22T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Evansville",
+     "opponent_id": "339"
+    },
+    {
+     "id": "401917182",
+     "start": "2026-11-25T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Penn State",
+     "opponent_id": "213",
+     "note": "Battle 4 Atlantis - Championship Bracket"
+    },
+    {
+     "id": "401911189",
+     "start": "2026-11-29T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Dayton",
+     "opponent_id": "2168",
+     "note": "A10/American Showcase"
+    },
+    {
+     "id": "401918989",
+     "start": "2026-12-02T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Jackson State",
+     "opponent_id": "2296"
+    },
+    {
+     "id": "401909754",
+     "start": "2026-12-05T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Baylor",
+     "opponent_id": "239"
+    },
+    {
+     "id": "401911402",
+     "start": "2026-12-12T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Grand Canyon",
+     "opponent_id": "2253"
+    }
+   ]
+  },
+  "238": {
+   "name": "Vanderbilt",
+   "games": [
+    {
+     "id": "401921104",
+     "start": "2026-11-03T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Bellarmine",
+     "opponent_id": "91",
+     "score": 93,
+     "opponent_score": 47
+    },
+    {
+     "id": "401909726",
+     "start": "2026-11-05T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Wake Forest",
+     "opponent_id": "154",
+     "score": 74,
+     "opponent_score": 51
+    },
+    {
+     "id": "401918987",
+     "start": "2026-11-11T00:15Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Memphis",
+     "opponent_id": "235",
+     "score": 105,
+     "opponent_score": 81
+    },
+    {
+     "id": "401921825",
+     "start": "2026-11-14T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Prairie View A&M",
+     "opponent_id": "2504",
+     "score": 89,
+     "opponent_score": 62
+    },
+    {
+     "id": "401921826",
+     "start": "2026-11-18T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Eastern Illinois",
+     "opponent_id": "2197"
+    },
+    {
+     "id": "401921757",
+     "start": "2026-11-21T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Central Florida",
+     "opponent_id": "2116"
+    },
+    {
+     "id": "401916319",
+     "start": "2026-11-25T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Ohio State",
+     "opponent_id": "194"
+    },
+    {
+     "id": "401921827",
+     "start": "2026-11-27T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Southern",
+     "opponent_id": "2582"
+    },
+    {
+     "id": "401921647",
+     "start": "2026-12-03T00:15Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Notre Dame",
+     "opponent_id": "87",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401918059",
+     "start": "2026-12-07T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "California",
+     "opponent_id": "25"
+    },
+    {
+     "id": "401917908",
+     "start": "2026-12-12T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "West Georgia",
+     "opponent_id": "2698"
+    }
+   ]
+  },
+  "2390": {
+   "name": "Miami",
+   "games": [
+    {
+     "id": "401906769",
+     "start": "2026-11-02T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Florida",
+     "opponent_id": "57",
+     "score": 67,
+     "opponent_score": 77,
+     "note": "Orion180 Tipoff Classic"
+    },
+    {
+     "id": "401921719",
+     "start": "2026-11-07T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Wagner",
+     "opponent_id": "2681",
+     "score": 83,
+     "opponent_score": 57
+    },
+    {
+     "id": "401921720",
+     "start": "2026-11-10T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "North Florida",
+     "opponent_id": "2454",
+     "score": 89,
+     "opponent_score": 51
+    },
+    {
+     "id": "401921721",
+     "start": "2026-11-13T22:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "North Alabama",
+     "opponent_id": "2453",
+     "score": 94,
+     "opponent_score": 52
+    },
+    {
+     "id": "401921722",
+     "start": "2026-11-18T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Rider",
+     "opponent_id": "2520"
+    },
+    {
+     "id": "401921723",
+     "start": "2026-11-20T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Manhattan",
+     "opponent_id": "2363"
+    },
+    {
+     "id": "401915941",
+     "start": "2026-11-24T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "TCU",
+     "opponent_id": "2628",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401906763",
+     "start": "2026-12-03T02:15Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Alabama",
+     "opponent_id": "333",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401921724",
+     "start": "2026-12-05T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Stetson",
+     "opponent_id": "56"
+    },
+    {
+     "id": "401906872",
+     "start": "2026-12-12T22:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Texas",
+     "opponent_id": "251",
+     "note": "Houston Hoopfest"
+    }
+   ]
+  },
+  "248": {
+   "name": "Houston",
+   "games": [
+    {
+     "id": "401925811",
+     "start": "2026-11-03T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "La Salle",
+     "opponent_id": "2325",
+     "score": 94,
+     "opponent_score": 55
+    },
+    {
+     "id": "401918053",
+     "start": "2026-11-09T01:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "California",
+     "opponent_id": "25",
+     "score": 86,
+     "opponent_score": 68,
+     "note": "Lake Tahoe Classic"
+    },
+    {
+     "id": "401925702",
+     "start": "2026-11-12T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Jacksonville State",
+     "opponent_id": "55",
+     "score": 92,
+     "opponent_score": 46
+    },
+    {
+     "id": "401920511",
+     "start": "2026-11-17T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Rutgers",
+     "opponent_id": "164",
+     "note": "Players Era 8"
+    },
+    {
+     "id": "401925703",
+     "start": "2026-11-28T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Oakland",
+     "opponent_id": "2473"
+    },
+    {
+     "id": "401922232",
+     "start": "2026-11-29T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Queens University",
+     "opponent_id": "2511"
+    },
+    {
+     "id": "401917921",
+     "start": "2026-12-03T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Central Arkansas",
+     "opponent_id": "2110"
+    },
+    {
+     "id": "401925704",
+     "start": "2026-12-05T22:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Texas State",
+     "opponent_id": "326"
+    },
+    {
+     "id": "401906764",
+     "start": "2026-12-08T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Alabama",
+     "opponent_id": "333",
+     "note": "Jimmy V Classic"
+    },
+    {
+     "id": "401921705",
+     "start": "2026-12-13T20:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "LSU",
+     "opponent_id": "99",
+     "note": "Houston Hoopfest"
+    }
+   ]
+  },
+  "251": {
+   "name": "Texas",
+   "games": [
+    {
+     "id": "401906863",
+     "start": "2026-11-03T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Chicago State",
+     "opponent_id": "2130",
+     "score": 109,
+     "opponent_score": 59
+    },
+    {
+     "id": "401906864",
+     "start": "2026-11-06T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Gardner-Webb",
+     "opponent_id": "2241",
+     "score": 98,
+     "opponent_score": 50
+    },
+    {
+     "id": "401906865",
+     "start": "2026-11-10T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Grambling",
+     "opponent_id": "2755",
+     "score": 93,
+     "opponent_score": 62
+    },
+    {
+     "id": "401906866",
+     "start": "2026-11-15T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Baylor",
+     "opponent_id": "239",
+     "note": "San Antonio Hoops Showdown"
+    },
+    {
+     "id": "401906867",
+     "start": "2026-11-20T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Southern Utah",
+     "opponent_id": "253"
+    },
+    {
+     "id": "401906868",
+     "start": "2026-11-22T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Southern Indiana",
+     "opponent_id": "88"
+    },
+    {
+     "id": "401906869",
+     "start": "2026-11-26T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Georgetown",
+     "opponent_id": "46",
+     "note": "Rady Children's Invitational"
+    },
+    {
+     "id": "401906870",
+     "start": "2026-12-02T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Louisville",
+     "opponent_id": "97",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401906871",
+     "start": "2026-12-09T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Jackson State",
+     "opponent_id": "2296"
+    },
+    {
+     "id": "401906872",
+     "start": "2026-12-12T22:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Miami",
+     "opponent_id": "2390",
+     "note": "Houston Hoopfest"
+    }
+   ]
+  },
+  "252": {
+   "name": "BYU",
+   "games": [
+    {
+     "id": "401916313",
+     "start": "2026-11-03T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Ohio State",
+     "opponent_id": "194",
+     "score": 94,
+     "opponent_score": 83,
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401921739",
+     "start": "2026-11-07T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Omaha",
+     "opponent_id": "2437",
+     "score": 108,
+     "opponent_score": 67
+    },
+    {
+     "id": "401921740",
+     "start": "2026-11-11T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Queens University",
+     "opponent_id": "2511",
+     "score": 98,
+     "opponent_score": 82
+    },
+    {
+     "id": "401921741",
+     "start": "2026-11-13T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Montana State",
+     "opponent_id": "147",
+     "score": 86,
+     "opponent_score": 71
+    },
+    {
+     "id": "401921742",
+     "start": "2026-11-19T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Northern Colorado",
+     "opponent_id": "2458"
+    },
+    {
+     "id": "401921708",
+     "start": "2026-11-23T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Washington",
+     "opponent_id": "264",
+     "note": "Southwest Maui Invitational"
+    },
+    {
+     "id": "401920738",
+     "start": "2026-12-05T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Northwestern",
+     "opponent_id": "77",
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401921743",
+     "start": "2026-12-10T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Utah State",
+     "opponent_id": "328"
+    },
+    {
+     "id": "401920162",
+     "start": "2026-12-12T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Cal State Fullerton",
+     "opponent_id": "2239"
+    }
+   ]
+  },
+  "258": {
+   "name": "Virginia",
+   "games": [
+    {
+     "id": "401920422",
+     "start": "2026-11-04T00:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Drexel",
+     "opponent_id": "2182",
+     "score": 89,
+     "opponent_score": 60
+    },
+    {
+     "id": "401920423",
+     "start": "2026-11-06T22:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Northeastern",
+     "opponent_id": "111",
+     "score": 97,
+     "opponent_score": 72
+    },
+    {
+     "id": "401920424",
+     "start": "2026-11-08T18:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Arkansas",
+     "opponent_id": "8",
+     "score": 91,
+     "opponent_score": 72,
+     "note": "Skyscanner Capital Showcase"
+    },
+    {
+     "id": "401920425",
+     "start": "2026-11-11T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Bucknell",
+     "opponent_id": "2083",
+     "score": 95,
+     "opponent_score": 61
+    },
+    {
+     "id": "401916297",
+     "start": "2026-11-14T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Maryland",
+     "opponent_id": "120",
+     "score": 87,
+     "opponent_score": 83
+    },
+    {
+     "id": "401920426",
+     "start": "2026-11-18T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Old Dominion",
+     "opponent_id": "295"
+    },
+    {
+     "id": "401920427",
+     "start": "2026-11-21T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Loyola Maryland",
+     "opponent_id": "2352"
+    },
+    {
+     "id": "401920428",
+     "start": "2026-11-25T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Marquette",
+     "opponent_id": "269",
+     "note": "Battle 4 Atlantis - Signature Series"
+    },
+    {
+     "id": "401920429",
+     "start": "2026-11-27T16:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Xavier",
+     "opponent_id": "2752",
+     "note": "Battle 4 Atlantis - Signature Series"
+    },
+    {
+     "id": "401920430",
+     "start": "2026-12-03T00:15Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Kentucky",
+     "opponent_id": "96",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401920431",
+     "start": "2026-12-09T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Bethune-Cookman",
+     "opponent_id": "2065"
+    },
+    {
+     "id": "401920432",
+     "start": "2026-12-13T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Western Carolina",
+     "opponent_id": "2717"
+    }
+   ]
+  },
+  "2599": {
+   "name": "St. John's",
+   "games": [
+    {
+     "id": "401920679",
+     "start": "2026-11-02T23:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Monmouth",
+     "opponent_id": "2405",
+     "score": 78,
+     "opponent_score": 63
+    },
+    {
+     "id": "401924646",
+     "start": "2026-11-08T17:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Iona",
+     "opponent_id": "314",
+     "score": 104,
+     "opponent_score": 65
+    },
+    {
+     "id": "401920680",
+     "start": "2026-11-12T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Colgate",
+     "opponent_id": "2142",
+     "score": 90,
+     "opponent_score": 59
+    },
+    {
+     "id": "401920681",
+     "start": "2026-11-16T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Syracuse",
+     "opponent_id": "183"
+    },
+    {
+     "id": "401920682",
+     "start": "2026-11-19T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Siena",
+     "opponent_id": "2561"
+    },
+    {
+     "id": "401915943",
+     "start": "2026-11-25T03:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Oregon",
+     "opponent_id": "2483",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401920683",
+     "start": "2026-12-01T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Columbia",
+     "opponent_id": "171"
+    },
+    {
+     "id": "401909745",
+     "start": "2026-12-05T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Arizona",
+     "opponent_id": "12",
+     "note": "Hall of Fame Series - New York City"
+    },
+    {
+     "id": "401920684",
+     "start": "2026-12-08T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Wagner",
+     "opponent_id": "2681"
+    },
+    {
+     "id": "401906765",
+     "start": "2026-12-12T20:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Alabama",
+     "opponent_id": "333",
+     "note": "C.M. Newton Classic"
+    }
+   ]
+  },
+  "26": {
+   "name": "UCLA",
+   "games": [
+    {
+     "id": "401909738",
+     "start": "2026-11-03T03:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Arizona",
+     "opponent_id": "12",
+     "score": 84,
+     "opponent_score": 75,
+     "note": "Hall of Fame Series - Las Vegas"
+    },
+    {
+     "id": "401922219",
+     "start": "2026-11-07T03:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "North Florida",
+     "opponent_id": "2454",
+     "score": 114,
+     "opponent_score": 63
+    },
+    {
+     "id": "401930177",
+     "start": "2026-11-12T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Arkansas-Pine Bluff",
+     "opponent_id": "2029",
+     "score": 106,
+     "opponent_score": 37
+    },
+    {
+     "id": "401924265",
+     "start": "2026-11-17T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Long Beach State",
+     "opponent_id": "299"
+    },
+    {
+     "id": "401920158",
+     "start": "2026-11-19T03:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Cal State Fullerton",
+     "opponent_id": "2239"
+    },
+    {
+     "id": "401920905",
+     "start": "2026-11-23T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Delaware",
+     "opponent_id": "48"
+    },
+    {
+     "id": "401917547",
+     "start": "2026-11-26T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Saint Mary's",
+     "opponent_id": "2608",
+     "note": "Rady Children's Invitational"
+    },
+    {
+     "id": "401921875",
+     "start": "2026-12-02T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Oregon",
+     "opponent_id": "2483"
+    },
+    {
+     "id": "401926138",
+     "start": "2026-12-06T04:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Gonzaga",
+     "opponent_id": "2250"
+    },
+    {
+     "id": "401921890",
+     "start": "2026-12-14T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Washington",
+     "opponent_id": "264"
+    }
+   ]
+  },
+  "2633": {
+   "name": "Tennessee",
+   "games": [
+    {
+     "id": "401906848",
+     "start": "2026-11-03T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Wofford",
+     "opponent_id": "2747",
+     "score": 90,
+     "opponent_score": 59
+    },
+    {
+     "id": "401906849",
+     "start": "2026-11-10T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Radford",
+     "opponent_id": "2515",
+     "score": 70,
+     "opponent_score": 47
+    },
+    {
+     "id": "401906850",
+     "start": "2026-11-14T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Tennessee State",
+     "opponent_id": "2634",
+     "score": 83,
+     "opponent_score": 78
+    },
+    {
+     "id": "401906851",
+     "start": "2026-11-18T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Michigan State",
+     "opponent_id": "127"
+    },
+    {
+     "id": "401906852",
+     "start": "2026-11-21T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Coastal Carolina",
+     "opponent_id": "324"
+    },
+    {
+     "id": "401906853",
+     "start": "2026-11-24T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Maryland",
+     "opponent_id": "120",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401906854",
+     "start": "2026-12-02T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Florida State",
+     "opponent_id": "52",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401906855",
+     "start": "2026-12-07T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "NC State",
+     "opponent_id": "152",
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401906856",
+     "start": "2026-12-12T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Purdue",
+     "opponent_id": "2509"
+    }
+   ]
+  },
+  "2641": {
+   "name": "Texas Tech",
+   "games": [
+    {
+     "id": "401921036",
+     "start": "2026-11-03T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Jackson State",
+     "opponent_id": "2296",
+     "score": 76,
+     "opponent_score": 42
+    },
+    {
+     "id": "401921133",
+     "start": "2026-11-06T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Bethune-Cookman",
+     "opponent_id": "2065",
+     "score": 76,
+     "opponent_score": 58
+    },
+    {
+     "id": "401913527",
+     "start": "2026-11-11T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Illinois",
+     "opponent_id": "356",
+     "score": 84,
+     "opponent_score": 78
+    },
+    {
+     "id": "401919847",
+     "start": "2026-11-14T19:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Stonehill",
+     "opponent_id": "284",
+     "score": 88,
+     "opponent_score": 37
+    },
+    {
+     "id": "401921134",
+     "start": "2026-11-19T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "LSU New Orleans",
+     "opponent_id": "2443"
+    },
+    {
+     "id": "401915942",
+     "start": "2026-11-25T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Louisville",
+     "opponent_id": "97",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401921135",
+     "start": "2026-12-09T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Omaha",
+     "opponent_id": "2437"
+    },
+    {
+     "id": "401921136",
+     "start": "2026-12-13T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "USC",
+     "opponent_id": "30",
+     "note": "Coast to Coast Challenge"
+    }
+   ]
+  },
+  "30": {
+   "name": "USC",
+   "games": [
+    {
+     "id": "401926771",
+     "start": "2026-11-03T03:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Milwaukee",
+     "opponent_id": "270",
+     "score": 95,
+     "opponent_score": 63
+    },
+    {
+     "id": "401919029",
+     "start": "2026-11-09T04:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Wichita State",
+     "opponent_id": "2724",
+     "score": 93,
+     "opponent_score": 86,
+     "note": "Lake Tahoe Classic"
+    },
+    {
+     "id": "401918054",
+     "start": "2026-11-12T04:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "California",
+     "opponent_id": "25",
+     "score": 77,
+     "opponent_score": 65
+    },
+    {
+     "id": "401926772",
+     "start": "2026-11-16T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Arkansas-Pine Bluff",
+     "opponent_id": "2029"
+    },
+    {
+     "id": "401926773",
+     "start": "2026-11-20T04:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Tarleton State",
+     "opponent_id": "2627"
+    },
+    {
+     "id": "401926774",
+     "start": "2026-11-23T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Louisiana",
+     "opponent_id": "309"
+    },
+    {
+     "id": "401921670",
+     "start": "2026-11-25T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "South Carolina",
+     "opponent_id": "2579",
+     "note": "Acrisure Series"
+    },
+    {
+     "id": "401921673",
+     "start": "2026-11-26T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Utah State",
+     "opponent_id": "328",
+     "note": "Acrisure Series"
+    },
+    {
+     "id": "401921879",
+     "start": "2026-12-03T03:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Washington",
+     "opponent_id": "264"
+    },
+    {
+     "id": "401921880",
+     "start": "2026-12-05T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Oregon",
+     "opponent_id": "2483"
+    },
+    {
+     "id": "401917563",
+     "start": "2026-12-09T02:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "San Diego",
+     "opponent_id": "301"
+    },
+    {
+     "id": "401921136",
+     "start": "2026-12-13T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Texas Tech",
+     "opponent_id": "2641",
+     "note": "Coast to Coast Challenge"
+    }
+   ]
+  },
+  "333": {
+   "name": "Alabama",
+   "games": [
+    {
+     "id": "401906757",
+     "start": "2026-11-04T00:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Sam Houston State",
+     "opponent_id": "2534",
+     "score": 96,
+     "opponent_score": 74
+    },
+    {
+     "id": "401906758",
+     "start": "2026-11-07T00:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Arkansas State",
+     "opponent_id": "2032",
+     "score": 101,
+     "opponent_score": 86
+    },
+    {
+     "id": "401906759",
+     "start": "2026-11-10T00:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Oakland",
+     "opponent_id": "2473",
+     "score": 109,
+     "opponent_score": 68
+    },
+    {
+     "id": "401906760",
+     "start": "2026-11-14T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Seton Hall",
+     "opponent_id": "2550",
+     "score": 82,
+     "opponent_score": 76
+    },
+    {
+     "id": "401906761",
+     "start": "2026-11-18T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Kennesaw State",
+     "opponent_id": "338"
+    },
+    {
+     "id": "401906762",
+     "start": "2026-11-25T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Baylor",
+     "opponent_id": "239",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401906763",
+     "start": "2026-12-03T02:15Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Miami",
+     "opponent_id": "2390",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401906764",
+     "start": "2026-12-08T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Houston",
+     "opponent_id": "248",
+     "note": "Jimmy V Classic"
+    },
+    {
+     "id": "401906765",
+     "start": "2026-12-12T20:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "St. John's",
+     "opponent_id": "2599",
+     "note": "C.M. Newton Classic"
+    }
+   ]
+  },
+  "356": {
+   "name": "Illinois",
+   "games": [
+    {
+     "id": "401913525",
+     "start": "2026-11-03T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Fairleigh Dickinson",
+     "opponent_id": "161",
+     "score": 120,
+     "opponent_score": 45
+    },
+    {
+     "id": "401913526",
+     "start": "2026-11-06T01:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Pennsylvania",
+     "opponent_id": "219",
+     "score": 112,
+     "opponent_score": 70
+    },
+    {
+     "id": "401913527",
+     "start": "2026-11-11T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Texas Tech",
+     "opponent_id": "2641",
+     "score": 78,
+     "opponent_score": 84
+    },
+    {
+     "id": "401913528",
+     "start": "2026-11-14T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Sam Houston State",
+     "opponent_id": "2534",
+     "score": 108,
+     "opponent_score": 86
+    },
+    {
+     "id": "401909566",
+     "start": "2026-11-18T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Duke",
+     "opponent_id": "150"
+    },
+    {
+     "id": "401913529",
+     "start": "2026-11-21T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Eastern Illinois",
+     "opponent_id": "2197"
+    },
+    {
+     "id": "401913530",
+     "start": "2026-11-24T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Winthrop",
+     "opponent_id": "2737"
+    },
+    {
+     "id": "401913531",
+     "start": "2026-11-27T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Western Kentucky",
+     "opponent_id": "98"
+    },
+    {
+     "id": "401913532",
+     "start": "2026-12-05T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Connecticut",
+     "opponent_id": "41",
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401921883",
+     "start": "2026-12-09T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Minnesota",
+     "opponent_id": "135"
+    },
+    {
+     "id": "401921888",
+     "start": "2026-12-12T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Penn State",
+     "opponent_id": "213"
+    }
+   ]
+  },
+  "41": {
+   "name": "Connecticut",
+   "games": [
+    {
+     "id": "401911390",
+     "start": "2026-11-03T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Gardner-Webb",
+     "opponent_id": "2241",
+     "score": 86,
+     "opponent_score": 46
+    },
+    {
+     "id": "401920685",
+     "start": "2026-11-07T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Michigan",
+     "opponent_id": "130",
+     "score": 85,
+     "opponent_score": 77,
+     "note": "Hall of Fame Series - Boston"
+    },
+    {
+     "id": "401920686",
+     "start": "2026-11-10T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Wagner",
+     "opponent_id": "2681",
+     "score": 83,
+     "opponent_score": 41
+    },
+    {
+     "id": "401916316",
+     "start": "2026-11-14T00:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Ohio State",
+     "opponent_id": "194",
+     "score": 84,
+     "opponent_score": 68
+    },
+    {
+     "id": "401909742",
+     "start": "2026-11-19T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Arizona",
+     "opponent_id": "12"
+    },
+    {
+     "id": "401909568",
+     "start": "2026-11-26T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Duke",
+     "opponent_id": "150"
+    },
+    {
+     "id": "401920687",
+     "start": "2026-11-30T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Rider",
+     "opponent_id": "2520"
+    },
+    {
+     "id": "401913532",
+     "start": "2026-12-05T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Illinois",
+     "opponent_id": "356",
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401920688",
+     "start": "2026-12-09T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Mississippi Valley State",
+     "opponent_id": "2400"
+    },
+    {
+     "id": "401909792",
+     "start": "2026-12-13T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Kansas",
+     "opponent_id": "2305"
+    }
+   ]
+  },
+  "57": {
+   "name": "Florida",
+   "games": [
+    {
+     "id": "401906769",
+     "start": "2026-11-02T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Miami",
+     "opponent_id": "2390",
+     "score": 77,
+     "opponent_score": 67,
+     "note": "Orion180 Tipoff Classic"
+    },
+    {
+     "id": "401906770",
+     "start": "2026-11-06T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Jacksonville",
+     "opponent_id": "294",
+     "score": 88,
+     "opponent_score": 57
+    },
+    {
+     "id": "401906771",
+     "start": "2026-11-10T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Florida State",
+     "opponent_id": "52",
+     "score": 81,
+     "opponent_score": 72
+    },
+    {
+     "id": "401906772",
+     "start": "2026-11-14T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Merrimack",
+     "opponent_id": "2771",
+     "score": 83,
+     "opponent_score": 54
+    },
+    {
+     "id": "401906773",
+     "start": "2026-11-17T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Notre Dame",
+     "opponent_id": "87",
+     "note": "Players Era 8"
+    },
+    {
+     "id": "401906774",
+     "start": "2026-11-25T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Milwaukee",
+     "opponent_id": "270"
+    },
+    {
+     "id": "401906775",
+     "start": "2026-12-02T02:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Duke",
+     "opponent_id": "150",
+     "note": "SEC/ACC Men's Challenge"
+    },
+    {
+     "id": "401906776",
+     "start": "2026-12-06T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Vermont",
+     "opponent_id": "261"
+    },
+    {
+     "id": "401920313",
+     "start": "2026-12-12T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Georgia Tech",
+     "opponent_id": "59",
+     "note": "Hall of Fame Series - Orlando"
+    }
+   ]
+  },
+  "66": {
+   "name": "Iowa State",
+   "games": [
+    {
+     "id": "401909771",
+     "start": "2026-11-03T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Memphis",
+     "opponent_id": "235",
+     "score": 76,
+     "opponent_score": 80
+    },
+    {
+     "id": "401909772",
+     "start": "2026-11-07T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Southern Miss",
+     "opponent_id": "2572",
+     "score": 83,
+     "opponent_score": 57
+    },
+    {
+     "id": "401909773",
+     "start": "2026-11-11T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Southern",
+     "opponent_id": "2582",
+     "score": 84,
+     "opponent_score": 47
+    },
+    {
+     "id": "401909774",
+     "start": "2026-11-15T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Niagara",
+     "opponent_id": "315"
+    },
+    {
+     "id": "401909775",
+     "start": "2026-11-24T22:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "San Diego State",
+     "opponent_id": "21",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401925689",
+     "start": "2026-12-02T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Alcorn State",
+     "opponent_id": "2016"
+    },
+    {
+     "id": "401909777",
+     "start": "2026-12-06T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Purdue",
+     "opponent_id": "2509"
+    },
+    {
+     "id": "401909778",
+     "start": "2026-12-11T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Iowa",
+     "opponent_id": "2294"
+    },
+    {
+     "id": "401909779",
+     "start": "2026-12-13T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "North Carolina Central",
+     "opponent_id": "2428"
+    }
+   ]
+  },
+  "8": {
+   "name": "Arkansas",
+   "games": [
+    {
+     "id": "401929372",
+     "start": "2026-11-04T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Arkansas-Pine Bluff",
+     "opponent_id": "2029",
+     "score": 106,
+     "opponent_score": 61
+    },
+    {
+     "id": "401920424",
+     "start": "2026-11-08T18:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Virginia",
+     "opponent_id": "258",
+     "score": 72,
+     "opponent_score": 91,
+     "note": "Skyscanner Capital Showcase"
+    },
+    {
+     "id": "401928824",
+     "start": "2026-11-12T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Robert Morris",
+     "opponent_id": "2523",
+     "score": 76,
+     "opponent_score": 53
+    },
+    {
+     "id": "401917916",
+     "start": "2026-11-14T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Central Arkansas",
+     "opponent_id": "2110",
+     "score": 79,
+     "opponent_score": 66
+    },
+    {
+     "id": "401916289",
+     "start": "2026-11-18T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Indiana",
+     "opponent_id": "84",
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401925740",
+     "start": "2026-11-21T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Mississippi Valley State",
+     "opponent_id": "2400"
+    },
+    {
+     "id": "401925757",
+     "start": "2026-11-26T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Michigan State",
+     "opponent_id": "127"
+    },
+    {
+     "id": "401912712",
+     "start": "2026-12-02T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "North Carolina",
+     "opponent_id": "153",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401929374",
+     "start": "2026-12-05T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Oral Roberts",
+     "opponent_id": "198"
+    },
+    {
+     "id": "401928815",
+     "start": "2026-12-09T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Oakland",
+     "opponent_id": "2473"
+    },
+    {
+     "id": "401929360",
+     "start": "2026-12-13T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "UT Arlington",
+     "opponent_id": "250"
+    }
+   ]
+  },
+  "96": {
+   "name": "Kentucky",
+   "games": [
+    {
+     "id": "401921801",
+     "start": "2026-11-04T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Manhattan",
+     "opponent_id": "2363",
+     "score": 85,
+     "opponent_score": 57
+    },
+    {
+     "id": "401921802",
+     "start": "2026-11-07T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "James Madison",
+     "opponent_id": "256",
+     "score": 89,
+     "opponent_score": 80
+    },
+    {
+     "id": "401909786",
+     "start": "2026-11-11T02:58Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Kansas",
+     "opponent_id": "2305",
+     "score": 69,
+     "opponent_score": 89,
+     "note": "State Farm Champions Classic"
+    },
+    {
+     "id": "401921803",
+     "start": "2026-11-14T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Northern Arizona",
+     "opponent_id": "2464",
+     "score": 78,
+     "opponent_score": 77
+    },
+    {
+     "id": "401921804",
+     "start": "2026-11-17T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Grambling",
+     "opponent_id": "2755"
+    },
+    {
+     "id": "401916290",
+     "start": "2026-11-21T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Indiana",
+     "opponent_id": "84"
+    },
+    {
+     "id": "401919033",
+     "start": "2026-11-28T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Wichita State",
+     "opponent_id": "2724"
+    },
+    {
+     "id": "401920430",
+     "start": "2026-12-03T00:15Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Virginia",
+     "opponent_id": "258",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401921805",
+     "start": "2026-12-05T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Appalachian State",
+     "opponent_id": "2026"
+    },
+    {
+     "id": "401921806",
+     "start": "2026-12-09T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Bryant",
+     "opponent_id": "2803"
+    },
+    {
+     "id": "401918952",
+     "start": "2026-12-12T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Louisville",
+     "opponent_id": "97"
+    }
+   ]
+  },
+  "97": {
+   "name": "Louisville",
+   "games": [
+    {
+     "id": "401918947",
+     "start": "2026-11-03T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Chattanooga",
+     "opponent_id": "236",
+     "score": 84,
+     "opponent_score": 70
+    },
+    {
+     "id": "401918948",
+     "start": "2026-11-07T17:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Morehead State",
+     "opponent_id": "2413",
+     "score": 107,
+     "opponent_score": 57
+    },
+    {
+     "id": "401918949",
+     "start": "2026-11-15T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Memphis",
+     "opponent_id": "235"
+    },
+    {
+     "id": "401918950",
+     "start": "2026-11-20T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Stetson",
+     "opponent_id": "56"
+    },
+    {
+     "id": "401915942",
+     "start": "2026-11-25T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Texas Tech",
+     "opponent_id": "2641",
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401906870",
+     "start": "2026-12-02T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Texas",
+     "opponent_id": "251",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401918951",
+     "start": "2026-12-05T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Michigan",
+     "opponent_id": "130"
+    },
+    {
+     "id": "401918952",
+     "start": "2026-12-12T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Kentucky",
+     "opponent_id": "96"
+    }
+   ]
+  },
+  "99": {
+   "name": "LSU",
+   "games": [
+    {
+     "id": "401921808",
+     "start": "2026-11-04T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "LSU New Orleans",
+     "opponent_id": "2443",
+     "score": 100,
+     "opponent_score": 57
+    },
+    {
+     "id": "401921809",
+     "start": "2026-11-07T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Texas Southern",
+     "opponent_id": "2640",
+     "score": 92,
+     "opponent_score": 51
+    },
+    {
+     "id": "401921810",
+     "start": "2026-11-10T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Louisiana Tech",
+     "opponent_id": "2348",
+     "score": 90,
+     "opponent_score": 50
+    },
+    {
+     "id": "401921689",
+     "start": "2026-11-14T20:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Gonzaga",
+     "opponent_id": "2250",
+     "score": 81,
+     "opponent_score": 80,
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401917982",
+     "start": "2026-11-19T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "UL Monroe",
+     "opponent_id": "2433"
+    },
+    {
+     "id": "401921811",
+     "start": "2026-11-21T05:00Z",
+     "time_valid": false,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Queens University",
+     "opponent_id": "2511"
+    },
+    {
+     "id": "401921669",
+     "start": "2026-11-25T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Arizona State",
+     "opponent_id": "9",
+     "note": "Acrisure Series"
+    },
+    {
+     "id": "401918972",
+     "start": "2026-11-27T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "SMU",
+     "opponent_id": "2567",
+     "note": "Acrisure Series"
+    },
+    {
+     "id": "401909731",
+     "start": "2026-12-02T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Wake Forest",
+     "opponent_id": "154",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401921812",
+     "start": "2026-12-05T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Hofstra",
+     "opponent_id": "2275"
+    },
+    {
+     "id": "401921705",
+     "start": "2026-12-13T20:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Houston",
+     "opponent_id": "248",
+     "note": "Houston Hoopfest"
+    }
+   ]
+  }
+ }
+}

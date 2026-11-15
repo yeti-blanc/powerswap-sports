@@ -1,0 +1,657 @@
+{
+ "date": "2026-11-22",
+ "games": [
+  {
+   "id": "401921088",
+   "start": "2026-11-22T05:00Z",
+   "time_valid": false,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2378",
+    "name": "UMBC"
+   },
+   "away": {
+    "id": null,
+    "name": "Lancaster Bible"
+   }
+  },
+  {
+   "id": "401911024",
+   "start": "2026-11-22T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "82",
+    "name": "UIC"
+   },
+   "away": {
+    "id": "193",
+    "name": "Miami (Ohio)"
+   },
+   "note": "Jacksonville Classic"
+  },
+  {
+   "id": "401902281",
+   "start": "2026-11-22T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "158",
+    "name": "Nebraska"
+   },
+   "away": {
+    "id": "2086",
+    "name": "Butler"
+   },
+   "note": "Bad Boy Mowers Series"
+  },
+  {
+   "id": "401909527",
+   "start": "2026-11-22T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "269",
+    "name": "Marquette"
+   },
+   "away": {
+    "id": "2130",
+    "name": "Chicago State"
+   }
+  },
+  {
+   "id": "401912212",
+   "start": "2026-11-22T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "44",
+    "name": "American University"
+   },
+   "away": {
+    "id": "119",
+    "name": "Towson"
+   }
+  },
+  {
+   "id": "401919809",
+   "start": "2026-11-22T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "112358",
+    "name": "Long Island University"
+   },
+   "away": {
+    "id": "2217",
+    "name": "Fairfield"
+   }
+  },
+  {
+   "id": "401920736",
+   "start": "2026-11-22T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "77",
+    "name": "Northwestern"
+   },
+   "away": {
+    "id": "2168",
+    "name": "Dayton"
+   },
+   "note": "Shriners Children's Charleston Classic"
+  },
+  {
+   "id": "401929023",
+   "start": "2026-11-22T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2099",
+    "name": "Canisius"
+   },
+   "away": {
+    "id": "2710",
+    "name": "Western Illinois"
+   },
+   "note": "Queen City Classic"
+  },
+  {
+   "id": "401911200",
+   "start": "2026-11-22T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2230",
+    "name": "Fordham"
+   },
+   "away": {
+    "id": "301",
+    "name": "San Diego"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401918455",
+   "start": "2026-11-22T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2754",
+    "name": "Youngstown State"
+   },
+   "away": {
+    "id": "2729",
+    "name": "William & Mary"
+   }
+  },
+  {
+   "id": "401918988",
+   "start": "2026-11-22T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "235",
+    "name": "Memphis"
+   },
+   "away": {
+    "id": "339",
+    "name": "Evansville"
+   }
+  },
+  {
+   "id": "401921706",
+   "start": "2026-11-22T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2184",
+    "name": "Duquesne"
+   },
+   "away": {
+    "id": "2751",
+    "name": "Wyoming"
+   },
+   "note": "Sunshine Slam"
+  },
+  {
+   "id": "401921748",
+   "start": "2026-11-22T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2132",
+    "name": "Cincinnati"
+   },
+   "away": {
+    "id": "2349",
+    "name": "UMass Lowell"
+   }
+  },
+  {
+   "id": "401925942",
+   "start": "2026-11-22T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "3101",
+    "name": "Utah Tech"
+   },
+   "away": {
+    "id": "233",
+    "name": "South Dakota"
+   }
+  },
+  {
+   "id": "401928802",
+   "start": "2026-11-22T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "98",
+    "name": "Western Kentucky"
+   },
+   "away": {
+    "id": "45",
+    "name": "George Washington"
+   },
+   "note": "Greenbrier Tip-Off"
+  },
+  {
+   "id": "401928790",
+   "start": "2026-11-22T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "166",
+    "name": "New Mexico State"
+   },
+   "away": {
+    "id": "2523",
+    "name": "Robert Morris"
+   },
+   "note": "Jacksonville Classic"
+  },
+  {
+   "id": "401906868",
+   "start": "2026-11-22T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "251",
+    "name": "Texas"
+   },
+   "away": {
+    "id": "88",
+    "name": "Southern Indiana"
+   }
+  },
+  {
+   "id": "401922252",
+   "start": "2026-11-22T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "6",
+    "name": "South Alabama"
+   },
+   "away": {
+    "id": "2697",
+    "name": "West Florida"
+   }
+  },
+  {
+   "id": "401925066",
+   "start": "2026-11-22T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2447",
+    "name": "Nicholls"
+   },
+   "away": {
+    "id": "2653",
+    "name": "Troy"
+   },
+   "note": "Pensacola Invitational"
+  },
+  {
+   "id": "401920381",
+   "start": "2026-11-22T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "197",
+    "name": "Oklahoma State"
+   },
+   "away": {
+    "id": "259",
+    "name": "Virginia Tech"
+   },
+   "note": "The Shriners Children's Charleston Classic"
+  },
+  {
+   "id": "401923323",
+   "start": "2026-11-22T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2385",
+    "name": "Mercyhurst"
+   },
+   "away": {
+    "id": "399",
+    "name": "UAlbany"
+   },
+   "note": "Queen City Classic"
+  },
+  {
+   "id": "401929202",
+   "start": "2026-11-22T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "326",
+    "name": "Texas State"
+   },
+   "away": {
+    "id": "2377",
+    "name": "McNeese"
+   }
+  },
+  {
+   "id": "401929387",
+   "start": "2026-11-22T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2198",
+    "name": "Eastern Kentucky"
+   },
+   "away": {
+    "id": "484",
+    "name": "Alice Lloyd College"
+   }
+  },
+  {
+   "id": "401917540",
+   "start": "2026-11-22T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2351",
+    "name": "Loyola Marymount"
+   },
+   "away": {
+    "id": "300",
+    "name": "UC Irvine"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401921176",
+   "start": "2026-11-22T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2379",
+    "name": "Maryland Eastern Shore"
+   },
+   "away": {
+    "id": "85",
+    "name": "IU Indianapolis"
+   }
+  },
+  {
+   "id": "401926795",
+   "start": "2026-11-22T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2335",
+    "name": "Liberty"
+   },
+   "away": {
+    "id": "257",
+    "name": "Richmond"
+   },
+   "note": "Greenbrier Tip-Off"
+  },
+  {
+   "id": "401909556",
+   "start": "2026-11-22T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "103",
+    "name": "Boston College"
+   },
+   "away": {
+    "id": "2885",
+    "name": "NJIT"
+   }
+  },
+  {
+   "id": "401920159",
+   "start": "2026-11-22T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2502",
+    "name": "Portland State"
+   },
+   "away": {
+    "id": "2239",
+    "name": "Cal State Fullerton"
+   }
+  },
+  {
+   "id": "401920708",
+   "start": "2026-11-22T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "288",
+    "name": "Lipscomb"
+   },
+   "away": {
+    "id": "2397",
+    "name": "Milligan"
+   }
+  },
+  {
+   "id": "401922293",
+   "start": "2026-11-22T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2535",
+    "name": "Samford"
+   },
+   "away": {
+    "id": "2427",
+    "name": "UNC Asheville"
+   }
+  },
+  {
+   "id": "401925013",
+   "start": "2026-11-22T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2320",
+    "name": "Lamar"
+   },
+   "away": {
+    "id": "242",
+    "name": "Rice"
+   },
+   "note": "Jacksonville Classic"
+  },
+  {
+   "id": "401921205",
+   "start": "2026-11-22T22:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "U.S. Virgin Islands Paradise Jam"
+  },
+  {
+   "id": "401921420",
+   "start": "2026-11-22T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "135",
+    "name": "Minnesota"
+   },
+   "away": {
+    "id": "254",
+    "name": "Utah"
+   },
+   "note": "The Shriners Children's Charleston Classic"
+  },
+  {
+   "id": "401928999",
+   "start": "2026-11-22T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2674",
+    "name": "Valparaiso"
+   },
+   "away": {
+    "id": "2572",
+    "name": "Southern Miss"
+   },
+   "note": "Pensacola Invitational"
+  },
+  {
+   "id": "401917541",
+   "start": "2026-11-23T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2501",
+    "name": "Portland"
+   },
+   "away": {
+    "id": "2856",
+    "name": "California Baptist"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401919020",
+   "start": "2026-11-23T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "5",
+    "name": "UAB"
+   },
+   "away": {
+    "id": "227",
+    "name": "Rhode Island"
+   },
+   "note": "Greenbrier Tip-Off"
+  },
+  {
+   "id": "401920905",
+   "start": "2026-11-23T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "26",
+    "name": "UCLA"
+   },
+   "away": {
+    "id": "48",
+    "name": "Delaware"
+   }
+  },
+  {
+   "id": "401921206",
+   "start": "2026-11-23T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "U.S. Virgin Islands Paradise Jam"
+  },
+  {
+   "id": "401926774",
+   "start": "2026-11-23T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "30",
+    "name": "USC"
+   },
+   "away": {
+    "id": "309",
+    "name": "Louisiana"
+   }
+  },
+  {
+   "id": "401929595",
+   "start": "2026-11-23T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2608",
+    "name": "Saint Mary's"
+   },
+   "away": {
+    "id": "2381",
+    "name": "Menlo"
+   }
+  },
+  {
+   "id": "401917542",
+   "start": "2026-11-23T02:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "28",
+    "name": "UC San Diego"
+   },
+   "away": {
+    "id": "2547",
+    "name": "Seattle U"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401911233",
+   "start": "2026-11-23T04:59Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2350",
+    "name": "Loyola Chicago"
+   },
+   "away": {
+    "id": "23",
+    "name": "San José State"
+   },
+   "note": "Acrisure Series"
+  }
+ ]
+}

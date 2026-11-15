@@ -1,0 +1,308 @@
+{
+ "date": "2026-12-04",
+ "games": [
+  {
+   "id": "401911314",
+   "start": "2026-12-04T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2803",
+    "name": "Bryant"
+   },
+   "away": {
+    "id": "225",
+    "name": "Brown"
+   }
+  },
+  {
+   "id": "401911708",
+   "start": "2026-12-04T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2634",
+    "name": "Tennessee State"
+   },
+   "away": {
+    "id": "2755",
+    "name": "Grambling"
+   },
+   "note": "Chris Paul HBCU Classic"
+  },
+  {
+   "id": "401924706",
+   "start": "2026-12-04T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2441",
+    "name": "New Haven"
+   },
+   "away": {
+    "id": "171",
+    "name": "Columbia"
+   }
+  },
+  {
+   "id": "401920925",
+   "start": "2026-12-04T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "315",
+    "name": "Niagara"
+   },
+   "away": {
+    "id": "116",
+    "name": "Mount St. Mary's"
+   }
+  },
+  {
+   "id": "401909569",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "150",
+    "name": "Duke"
+   },
+   "away": {
+    "id": "108",
+    "name": "Harvard"
+   }
+  },
+  {
+   "id": "401909801",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2550",
+    "name": "Seton Hall"
+   },
+   "away": {
+    "id": "2306",
+    "name": "Kansas State"
+   }
+  },
+  {
+   "id": "401913532",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "356",
+    "name": "Illinois"
+   },
+   "away": {
+    "id": "41",
+    "name": "Connecticut"
+   },
+   "note": "Bad Boy Mowers Series"
+  },
+  {
+   "id": "401919763",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "161",
+    "name": "Fairleigh Dickinson"
+   },
+   "away": {
+    "id": "322",
+    "name": "Lafayette"
+   }
+  },
+  {
+   "id": "401920281",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2099",
+    "name": "Canisius"
+   },
+   "away": {
+    "id": "2520",
+    "name": "Rider"
+   }
+  },
+  {
+   "id": "401920416",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2272",
+    "name": "High Point"
+   },
+   "away": {
+    "id": "2681",
+    "name": "Wagner"
+   }
+  },
+  {
+   "id": "401921193",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "314",
+    "name": "Iona"
+   },
+   "away": {
+    "id": "2514",
+    "name": "Quinnipiac"
+   }
+  },
+  {
+   "id": "401924765",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2217",
+    "name": "Fairfield"
+   },
+   "away": {
+    "id": "2363",
+    "name": "Manhattan"
+   }
+  },
+  {
+   "id": "401924797",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2368",
+    "name": "Marist"
+   },
+   "away": {
+    "id": "2529",
+    "name": "Sacred Heart"
+   }
+  },
+  {
+   "id": "401924812",
+   "start": "2026-12-05T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2561",
+    "name": "Siena"
+   },
+   "away": {
+    "id": "2771",
+    "name": "Merrimack"
+   }
+  },
+  {
+   "id": "401921099",
+   "start": "2026-12-05T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "242",
+    "name": "Rice"
+   },
+   "away": {
+    "id": "2534",
+    "name": "Sam Houston State"
+   }
+  },
+  {
+   "id": "401925832",
+   "start": "2026-12-05T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "249",
+    "name": "North Texas"
+   },
+   "away": {
+    "id": "71",
+    "name": "Bradley"
+   }
+  },
+  {
+   "id": "401927390",
+   "start": "2026-12-05T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2460",
+    "name": "Northern Iowa"
+   },
+   "away": {
+    "id": "2685",
+    "name": "Wartburg"
+   }
+  },
+  {
+   "id": "401927393",
+   "start": "2026-12-05T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2350",
+    "name": "Loyola Chicago"
+   },
+   "away": {
+    "id": "2042",
+    "name": "Augustana (IL)"
+   }
+  },
+  {
+   "id": "401925899",
+   "start": "2026-12-05T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2450",
+    "name": "Norfolk State"
+   },
+   "away": {
+    "id": "50",
+    "name": "Florida A&M"
+   },
+   "note": "Chris Paul HBCU Classic"
+  },
+  {
+   "id": "401917557",
+   "start": "2026-12-05T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2351",
+    "name": "Loyola Marymount"
+   },
+   "away": {
+    "id": "62",
+    "name": "Hawaii"
+   }
+  }
+ ]
+}

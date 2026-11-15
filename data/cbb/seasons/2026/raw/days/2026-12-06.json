@@ -1,0 +1,624 @@
+{
+ "date": "2026-12-06",
+ "games": [
+  {
+   "id": "401906776",
+   "start": "2026-12-06T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "57",
+    "name": "Florida"
+   },
+   "away": {
+    "id": "261",
+    "name": "Vermont"
+   }
+  },
+  {
+   "id": "401921822",
+   "start": "2026-12-06T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2579",
+    "name": "South Carolina"
+   },
+   "away": {
+    "id": "2630",
+    "name": "UT Martin"
+   }
+  },
+  {
+   "id": "401921881",
+   "start": "2026-12-06T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "194",
+    "name": "Ohio State"
+   },
+   "away": {
+    "id": "120",
+    "name": "Maryland"
+   }
+  },
+  {
+   "id": "401909732",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "113",
+    "name": "Massachusetts"
+   },
+   "away": {
+    "id": "154",
+    "name": "Wake Forest"
+   },
+   "note": "Basketball Hall of Fame Classic"
+  },
+  {
+   "id": "401912217",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2116",
+    "name": "Central Florida"
+   },
+   "away": {
+    "id": "44",
+    "name": "American University"
+   }
+  },
+  {
+   "id": "401918078",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "228",
+    "name": "Clemson"
+   },
+   "away": {
+    "id": "2330",
+    "name": "Le Moyne"
+   }
+  },
+  {
+   "id": "401920282",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2099",
+    "name": "Canisius"
+   },
+   "away": {
+    "id": "116",
+    "name": "Mount St. Mary's"
+   }
+  },
+  {
+   "id": "401920749",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "111",
+    "name": "Northeastern"
+   },
+   "away": {
+    "id": "163",
+    "name": "Princeton"
+   }
+  },
+  {
+   "id": "401921194",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "314",
+    "name": "Iona"
+   },
+   "away": {
+    "id": "2368",
+    "name": "Marist"
+   }
+  },
+  {
+   "id": "401923396",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "282",
+    "name": "Indiana State"
+   },
+   "away": {
+    "id": "88",
+    "name": "Southern Indiana"
+   }
+  },
+  {
+   "id": "401924766",
+   "start": "2026-12-06T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2771",
+    "name": "Merrimack"
+   },
+   "away": {
+    "id": "2217",
+    "name": "Fairfield"
+   }
+  },
+  {
+   "id": "401911257",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "139",
+    "name": "Saint Louis"
+   },
+   "away": {
+    "id": "2546",
+    "name": "Southeast Missouri State"
+   }
+  },
+  {
+   "id": "401911340",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2005",
+    "name": "Air Force"
+   },
+   "away": {
+    "id": "2426",
+    "name": "Navy"
+   }
+  },
+  {
+   "id": "401919009",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2655",
+    "name": "Tulane"
+   },
+   "away": {
+    "id": "309",
+    "name": "Louisiana"
+   }
+  },
+  {
+   "id": "401920240",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "159",
+    "name": "Dartmouth"
+   },
+   "away": {
+    "id": "274",
+    "name": "Maine Maritime"
+   }
+  },
+  {
+   "id": "401920417",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2272",
+    "name": "High Point"
+   },
+   "away": {
+    "id": "108807",
+    "name": "William Peace"
+   }
+  },
+  {
+   "id": "401921144",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2210",
+    "name": "Elon"
+   },
+   "away": {
+    "id": null,
+    "name": "North Carolina Wesleyan"
+   }
+  },
+  {
+   "id": "401922294",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2427",
+    "name": "UNC Asheville"
+   },
+   "away": {
+    "id": "484",
+    "name": "Alice Lloyd College"
+   }
+  },
+  {
+   "id": "401924846",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "315",
+    "name": "Niagara"
+   },
+   "away": {
+    "id": "2520",
+    "name": "Rider"
+   }
+  },
+  {
+   "id": "401924860",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2514",
+    "name": "Quinnipiac"
+   },
+   "away": {
+    "id": "2561",
+    "name": "Siena"
+   }
+  },
+  {
+   "id": "401924878",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2612",
+    "name": "Saint Peter's"
+   },
+   "away": {
+    "id": "2529",
+    "name": "Sacred Heart"
+   }
+  },
+  {
+   "id": "401925776",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "232",
+    "name": "Charleston"
+   },
+   "away": {
+    "id": "2166",
+    "name": "Davidson"
+   }
+  },
+  {
+   "id": "401925823",
+   "start": "2026-12-06T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2429",
+    "name": "Charlotte"
+   },
+   "away": {
+    "id": "2453",
+    "name": "North Alabama"
+   }
+  },
+  {
+   "id": "401902284",
+   "start": "2026-12-06T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "153",
+    "name": "North Carolina"
+   },
+   "away": {
+    "id": "2086",
+    "name": "Butler"
+   }
+  },
+  {
+   "id": "401928860",
+   "start": "2026-12-06T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "82",
+    "name": "UIC"
+   },
+   "away": {
+    "id": null,
+    "name": "Calumet St. Joseph"
+   }
+  },
+  {
+   "id": "401929382",
+   "start": "2026-12-06T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2032",
+    "name": "Arkansas State"
+   },
+   "away": {
+    "id": "2031",
+    "name": "Little Rock"
+   }
+  },
+  {
+   "id": "401911315",
+   "start": "2026-12-06T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "225",
+    "name": "Brown"
+   },
+   "away": {
+    "id": "2115",
+    "name": "Central Connecticut"
+   },
+   "note": "Basketball Hall of Fame Classic"
+  },
+  {
+   "id": "401917561",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "24",
+    "name": "Stanford"
+   },
+   "away": {
+    "id": "279",
+    "name": "Pacific"
+   }
+  },
+  {
+   "id": "401920311",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "59",
+    "name": "Georgia Tech"
+   },
+   "away": {
+    "id": "93",
+    "name": "Murray State"
+   },
+   "note": "Bad Boy Mowers Series"
+  },
+  {
+   "id": "401920800",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2",
+    "name": "Auburn"
+   },
+   "away": {
+    "id": "2198",
+    "name": "Eastern Kentucky"
+   }
+  },
+  {
+   "id": "401920812",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "245",
+    "name": "Texas A&M"
+   },
+   "away": {
+    "id": "2029",
+    "name": "Arkansas-Pine Bluff"
+   }
+  },
+  {
+   "id": "401922050",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "256",
+    "name": "James Madison"
+   },
+   "away": {
+    "id": "2344",
+    "name": "Longwood"
+   }
+  },
+  {
+   "id": "401925833",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "249",
+    "name": "North Texas"
+   },
+   "away": {
+    "id": "2400",
+    "name": "Mississippi Valley State"
+   }
+  },
+  {
+   "id": "401926785",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "55",
+    "name": "Jacksonville State"
+   },
+   "away": {
+    "id": "2348",
+    "name": "Louisiana Tech"
+   }
+  },
+  {
+   "id": "401929364",
+   "start": "2026-12-06T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "265",
+    "name": "Washington State"
+   },
+   "away": {
+    "id": "2449",
+    "name": "North Dakota State"
+   }
+  },
+  {
+   "id": "401909791",
+   "start": "2026-12-06T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "142",
+    "name": "Missouri"
+   },
+   "away": {
+    "id": "2305",
+    "name": "Kansas"
+   }
+  },
+  {
+   "id": "401929037",
+   "start": "2026-12-06T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2441",
+    "name": "New Haven"
+   },
+   "away": {
+    "id": "2380",
+    "name": "Medgar Evers"
+   }
+  },
+  {
+   "id": "401917907",
+   "start": "2026-12-06T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2698",
+    "name": "West Georgia"
+   },
+   "away": {
+    "id": "124721",
+    "name": "Life University"
+   }
+  },
+  {
+   "id": "401906855",
+   "start": "2026-12-07T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2633",
+    "name": "Tennessee"
+   },
+   "away": {
+    "id": "152",
+    "name": "NC State"
+   },
+   "note": "Bad Boy Mowers Series"
+  },
+  {
+   "id": "401925868",
+   "start": "2026-12-07T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2623",
+    "name": "Missouri State"
+   },
+   "away": {
+    "id": "202",
+    "name": "Tulsa"
+   }
+  },
+  {
+   "id": "401918059",
+   "start": "2026-12-07T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "25",
+    "name": "California"
+   },
+   "away": {
+    "id": "238",
+    "name": "Vanderbilt"
+   }
+  }
+ ]
+}

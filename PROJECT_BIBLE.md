@@ -724,10 +724,15 @@ realizing there's a sibling path with the same bug.
 - **Bowls/CFP season progression is still manual** — `season-progression.yml`
   deliberately does not cover it (user's explicit call, to be tackled
   separately later).
-- **Basketball went live 2026-11-15** (§14). Open: no per-week CBB
-  matchup/schedule files (cards show no opponent), and no live scores for
-  basketball (the live Worker is football-only; ESPN's basketball
-  scoreboard is confirmed to work - see §14).
+- **Basketball live scores Worker (`live_cbb/`) - BUILT, NOT DEPLOYED**
+  (2026-11-15): waiting on the user's new Cloudflare account + API token
+  (`live_cbb/README.md`). Until then basketball shows finals/swaps from
+  the 15-minute job only. After deploy: verify CPU < 10 ms and real
+  in-game scores via `wrangler tail` during a ranked game.
+- **Football may already exceed KV's 1,000 writes/day on some weekends**
+  (a Friday-night ranked game + Saturday daytime share one UTC day; the
+  §6 budget math only covered Saturday). Unverified - check the Cloudflare
+  dashboard's KV metrics.
 - **No admin-side UI for `data_source` or other live-scores internals** —
   intentionally not built (user's explicit call — KV/`wrangler tail`
   visibility is sufficient for now). Revisit only if asked.
@@ -1222,31 +1227,54 @@ poll. ~~Verified against the real 2026 CBB preseason AP poll (Purdue,
 Houston, Florida, Connecticut, St. John's...)~~ **CORRECTED 2026-11-15:
 that was the 2025-26 poll** - CBBD names seasons by END year (see §14).
 
-## 14. College basketball (live 2026-11-15)
+## 14. College basketball (live 2026-11-15; per-game model same day)
 
-- **Season naming:** stored under the START year (`data/cbb/seasons/2026` =
-  2026-27, same as the site's season selector). CBBD uses the END year -
-  always go through `sports/cbb/config.py`'s `cbbd_season()`. The fetcher
-  refuses a preseason poll not dated in the start year.
-- **Weeks:** Monday-Sunday by US Eastern date (AP polls drop Mondays).
-  `config.WEEK1_MONDAY` is pinned per season from real data; any opener
-  before it folds into week 1 (2026: Sun 11-01 Notre Dame-Villanova in
-  Rome, week 1 = Nov 1-8). **A new season needs only its WEEK1_MONDAY.**
-- **CBBD's `endDateRange` stops at that date's 00:00Z** - the fetcher
-  over-fetches and buckets by ET itself. Never trust CBBD's date filter
-  for membership (it silently dropped Sunday-night games once).
-- **Week labels** follow §2 rule 6 exactly (backtest.py is shared).
-- **Automation:** `cbb-season-progression.yml`, Mondays 6:05 AM + 12:05
-  PM ET, re-fetches every completed week and rebuilds from the preseason
-  poll (idempotent). Off-season runs skip.
-- **Site:** live-score features are football-only via `liveFeedApplies()`
-  in `site/app.js` - the live Worker's games match cards by team name, so
-  without that gate a football score lands on the same school's
-  basketball card.
-- **ESPN basketball scoreboard (confirmed working 2026-11-15):**
-  `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=YYYYMMDD&groups=50&limit=500`,
-  `curl/8.14.1` UA required (same WAF rule as football). ESPN team IDs =
-  CBB registry IDs; `curatedRank` carries AP rank; `period` is a HALF
-  (the site's `formatPeriodLabel()` would say "Q2" - fix before wiring
-  basketball live scores). Non-D-I opponents use ESPN IDs that differ
-  from the registry's for some tiny schools (Regent, Ripon...).
+**Basketball does NOT work like football (user's call 2026-11-15):** the AP
+poll is only the preseason baseline; after that, standings move GAME BY
+GAME - a loss to a lower-ranked team shows as soon as the game is final.
+Same swap rules (§2 rules 1-5), same engine, different driver:
+
+- **Pipeline** (`.github/workflows/cbb-season-progression.yml`, every 15
+  min Nov-Apr): `sports/cbb/espn_days.py` keeps one ESPN day file per
+  US-Eastern date (`raw/days/YYYY-MM-DD.json`, scores only for finals, a
+  4-week look-ahead), then `sports/cbb/build_season.py` replays every final
+  since the opener through `core/swap_engine.py` ONE GAME AT A TIME in
+  tip-off order, and writes `season_history.json` + `schedule.json` only
+  when something real changed. Commits only on change (Pages allows ~10
+  builds/hour; this does at most 4). GitHub starts cron runs late under
+  load, so a swap typically lands 15-30 min after the buzzer.
+- **ESPN, not CBBD, is the results source** (real-time; ESPN team IDs ARE
+  the CBB registry IDs). CBBD only supplies the preseason poll
+  (`fetch_results.py`). Cross-checked 2026-11-15: every D-I game of week 1
+  and every week-2 swap identical in both.
+- **Week labels mean something different from football's §2 rule 6:**
+  tabs are `preseason`, then `week1..weekN` = standings at the END of that
+  week (the current week = right now). Events are labeled with the week
+  they HAPPENED in and carry `at`/`game_id`/scores, so HAVOC lists a week's
+  swaps in game order (a team that moves twice shows twice) and Last
+  Week's Power Swaps shows the previous week's. `site/app.js` branches on
+  `standings_model == "per_game"` (`isPerGame()`); football's code paths
+  are untouched.
+- **Weeks:** Monday-Sunday by US Eastern date (AP polls drop Mondays);
+  `config.WEEK1_MONDAY` + `SEASON_FIRST_DAY` pinned per season (2026: the
+  Sun 11-01 Rome opener folds into week 1 = Nov 1-8). A new season needs
+  only those two pins.
+- **Season naming:** stored under the START year (`seasons/2026` =
+  2026-27). CBBD uses the END year - always `config.cbbd_season()`. The
+  2026-10-19 "verified" preseason poll was actually 2025-26's.
+- **Cards:** results so far this week + (current week) the NEXT game with
+  date/time, which can be in a later week; Today's Slate lists today's
+  ranked-team games. All matched by registry/ESPN id, never name.
+- **Live scores: separate Worker, separate Cloudflare account**
+  (`live_cbb/`, user's call - "I don't want the football product to
+  suffer"). KV's free tier is 1,000 writes/day PER ACCOUNT and football's
+  Saturdays use nearly all of it; the free 10 ms CPU cap allows ONE parse
+  of ESPN's ~1.3-2 MB D-I scoreboard per invocation (4.3 ms measured), so
+  ~1-minute updates. It only calls ESPN inside a ranked game's window,
+  matches by ESPN game id, writes only on change, and paces writes so the
+  day can't run dry. Site: `CBB_LIVE_URL` (null until deployed); period
+  is a HALF (`formatHalfLabel()`). Setup steps: `live_cbb/README.md`.
+  Workers Paid ($5/mo) would allow ~30s and give football headroom too.
+- **CBBD's `endDateRange` stops at 00:00Z** of that date (silently dropped
+  Sunday-night games once) - irrelevant now that ESPN is the source, but
+  don't trust it if CBBD game fetches come back.

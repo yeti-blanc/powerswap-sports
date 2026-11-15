@@ -7,6 +7,13 @@ const BASKETBALL_ENABLED = true;
 const LIVE_WORKER_URL = "https://powerswap-live-scores.yeti-f3c.workers.dev/live";
 const LIVE_POLL_MS = 45000; // within the 30-60s range noted in README.md
 
+// Basketball live scores come from their OWN Worker (live_cbb/ - separate
+// Cloudflare account, so basketball never spends football's KV write
+// budget; PROJECT_BIBLE §14). null until that Worker is deployed - the
+// basketball view then simply shows scheduled/final data from the repo.
+const CBB_LIVE_URL = null;
+const CBB_LIVE_POLL_MS = 45000;
+
 const SPORTS = [
   { key: "cfb", label: "College Football", enabled: true },
   { key: "cbb", label: "College Basketball", enabled: BASKETBALL_ENABLED },
@@ -53,6 +60,8 @@ const tickerText = document.getElementById("ticker-text");
 const weekNavDisplay = document.getElementById("week-nav-display");
 const weekPrev = document.getElementById("week-prev");
 const weekNext = document.getElementById("week-next");
+const todaySlateSection = document.getElementById("today-slate-section");
+const todaySlateList = document.getElementById("today-slate-list");
 
 const teamCardOverlay = document.getElementById("team-card-overlay");
 const teamCardClose = document.getElementById("team-card-close");
@@ -74,6 +83,22 @@ let weekMatchups = {};
 // "regular" too, but that only matters combined with weekMatchups having
 // real data for that week - see renderRankings()'s opponentLine.
 let weekTypes = {};
+
+// Basketball (standings_model "per_game", see sports/cbb/build_season.py):
+// data/cbb/seasons/<year>/schedule.json - every game for every team that
+// has held a slot, from that team's point of view - and the latest
+// basketball live payload keyed by ESPN game id.
+let cbbSchedule = null;
+let cbbLiveById = {};
+
+function isPerGame() {
+  return currentSeasonData?.standings_model === "per_game";
+}
+
+const ET_DATE_FMT = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" });
+function etDate(iso) {
+  return ET_DATE_FMT.format(new Date(iso)); // YYYY-MM-DD in US Eastern
+}
 
 function populateSportSelect() {
   sportSelect.innerHTML = "";
@@ -137,6 +162,21 @@ async function loadSeason(sport, year) {
   visibleSnapshots = computeVisibleSnapshots(currentSeasonData);
   weekMatchups = {};
   weekTypes = {};
+  cbbSchedule = null;
+
+  if (isPerGame()) {
+    try {
+      const resp = await fetch(`../data/${sport}/seasons/${year}/schedule.json`);
+      if (resp.ok) cbbSchedule = await resp.json();
+    } catch (err) {
+      console.error("Could not load schedule:", err);
+    }
+    currentWeekIndex = visibleSnapshots.length - 1;
+    populateWeekSelect();
+    renderWeek();
+    if (Number(year) === getCurrentSeasonYear()) fetchCbbLive();
+    return;
+  }
 
   // Week 1's matchup/schedule data lives in its own legacy file
   // (live/worker.js reads it directly by URL, and every past season
@@ -213,9 +253,20 @@ function formatSeasonLabel(sport, year) {
   return sport === "cbb" ? `${year}-${String((Number(year) + 1) % 100).padStart(2, "0")}` : `${year}`;
 }
 
+const SHORT_DATE_FMT = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+function formatDateRange(start, end) {
+  const a = SHORT_DATE_FMT.format(new Date(`${start}T12:00:00Z`));
+  const b = SHORT_DATE_FMT.format(new Date(`${end}T12:00:00Z`));
+  // "Nov 9-15" when both ends share a month, else "Nov 30-Dec 6"
+  return a.split(" ")[0] === b.split(" ")[0] ? `${a}–${b.split(" ")[1]}` : `${a}–${b}`;
+}
+
 function formatWeekLabel(weekKey) {
   if (weekKey === "postseason") return "Bowls & Playoff";
-  return `Week ${weekKey.replace("week", "")}`;
+  if (weekKey === "preseason") return "Preseason";
+  const range = currentSeasonData?.weeks?.[weekKey];
+  const base = `Week ${weekKey.replace("week", "")}`;
+  return range ? `${base} · ${formatDateRange(range.start, range.end)}` : base;
 }
 
 function renderWeek() {
@@ -277,6 +328,18 @@ function refreshHavocPanel() {
   if (!currentSeasonData) return;
   const snapshot = visibleSnapshots[currentWeekIndex];
   if (!snapshot) return;
+  if (isPerGame()) {
+    // Per-game standings: a week's tab shows where that week LEFT things,
+    // so its own swaps carry its own label - every one, in the order the
+    // games were played (a team that moves twice shows twice).
+    renderEventList(eventsList, eventsForWeek(snapshot.week), computeCbbLiveUpsets(),
+      snapshot.week === "preseason"
+        ? "The season starts here - every week's swaps show up as they happen."
+        : isViewingLiveWeek()
+          ? "No swaps yet this week - they show up here as soon as a game goes final."
+          : "No rank changes this week. Chalk held.");
+    return;
+  }
   const thisWeeksGamesKey = nextWeekKey(snapshot.week);
   const weekEvents = thisWeeksGamesKey
     ? currentSeasonData.events.filter((e) => e.week === thisWeeksGamesKey)
@@ -309,6 +372,14 @@ function refreshTicker() {
     tickerText.textContent = "";
     return;
   }
+  if (isPerGame()) {
+    // Newest news first: a provisional live upset, else this week's most
+    // recent official swap.
+    const liveUpsets = computeCbbLiveUpsets();
+    const latest = eventsForWeek(snapshot.week).slice(-1);
+    renderTicker(latest, liveUpsets.map(cbbUpsetAsTickerGame));
+    return;
+  }
   const thisWeeksGamesKey = nextWeekKey(snapshot.week);
   const thisWeeksEvents = thisWeeksGamesKey
     ? currentSeasonData.events.filter((e) => e.week === thisWeeksGamesKey)
@@ -335,6 +406,7 @@ function renderRankings(snapshot, weekEvents) {
     const li = document.createElement("li");
     li.className = "belt-card" + (changedTeams.has(slot.team) ? " just-changed" : "");
     li.dataset.team = slot.team;
+    if (slot.team_id) li.dataset.teamId = slot.team_id;
 
     // weekMatchups is keyed per-week (see loadSeason) - week 1 from the
     // legacy week1_matchups.json, weeks 2+ from fetch_week_matchups.py's
@@ -344,7 +416,7 @@ function renderRankings(snapshot, weekEvents) {
     // week 1's opponent stuck on every card regardless of which week was
     // actually being viewed - generalizing the lookup by week key fixes
     // that at the source instead of special-casing week 1.
-    const matchup = weekMatchups[snapshot.week]?.[slot.team] ?? null;
+    const matchup = isPerGame() ? null : (weekMatchups[snapshot.week]?.[slot.team] ?? null);
     // Opponent + home/away always shows underneath, regardless of week or
     // status (user request 2026-09-12) - the kickoff-time detail is the
     // only part that ever goes away, wrapped in its own .belt-kickoff span
@@ -369,7 +441,9 @@ function renderRankings(snapshot, weekEvents) {
     // PROJECT_BIBLE §9) - stays blank exactly as it always has, never
     // mislabeled "Bye" for lack of data.
     const isByeEligibleWeek = Boolean(weekMatchups[snapshot.week]) && weekTypes[snapshot.week] !== "championship";
-    const opponentLine = matchup
+    const opponentLine = isPerGame()
+      ? perGameCardLine(slot, snapshot.week)
+      : matchup
       ? `<span class="belt-opponent">${matchup.home_away === "home" ? "vs." : "@"} ${matchup.opponent}<span class="belt-kickoff">${detailText ? " · " + detailText : ""}</span></span>`
       : isByeEligibleWeek
         ? `<span class="belt-opponent belt-bye">Bye</span>`
@@ -459,6 +533,12 @@ function renderRankings(snapshot, weekEvents) {
     renderLiveBadges();
     renderLiveGamesSection();
   }
+  if (isPerGame()) {
+    renderCbbLiveBadges();
+    renderTodaySlate();
+  } else {
+    todaySlateSection.hidden = true;
+  }
 }
 
 function renderEvents(weekEvents, isPreview = false, liveUpsets = []) {
@@ -495,7 +575,22 @@ function renderEvents(weekEvents, isPreview = false, liveUpsets = []) {
 // Shared by renderEvents() (this week's official swap/dethrone cards)
 // and renderLastWeekPanel() ("Last Week's Power Swaps" - same card look,
 // just sourced from the previous real week instead of the current one).
+// "Tue 11/10" in the viewer's own timezone.
+function formatShortWhen(iso) {
+  return new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "numeric", day: "numeric" });
+}
+
+function eventWhenHtml(e) {
+  if (!e.at) return "";
+  const score = e.winner_score != null ? ` · ${e.winner_score}-${e.loser_score}` : "";
+  return `<div class="event-when">${formatShortWhen(e.at)}${score}</div>`;
+}
+
 function eventCardHtml(e) {
+  return eventCardBodyHtml(e) + eventWhenHtml(e);
+}
+
+function eventCardBodyHtml(e) {
   if (e.kind === "swap") {
     return `
       <span class="event-tag">Swap</span>
@@ -540,6 +635,15 @@ function renderLastWeekPanel() {
   lastWeekSection.hidden = false;
 
   const viewedWeekKey = visibleSnapshots[currentWeekIndex].week;
+  if (isPerGame()) {
+    const prevSnap = visibleSnapshots[currentWeekIndex - 1];
+    if (!prevSnap || prevSnap.week === "preseason") {
+      renderEventList(lastWeekList, [], [], "No previous week yet.");
+    } else {
+      renderEventList(lastWeekList, eventsForWeek(prevSnap.week), [], "No rank changes last week. Chalk held.");
+    }
+    return;
+  }
   const prevKey = previousRealWeekKey(viewedWeekKey);
   lastWeekList.innerHTML = "";
 
@@ -612,6 +716,248 @@ function renderTicker(weekEvents, liveUpsets = []) {
   ticker.hidden = false;
 }
 
+// ── Basketball: per-game standings, schedule, live ──
+//
+// Basketball standings move game by game (sports/cbb/build_season.py), so
+// a team's card shows its results so far in the viewed week and - on the
+// current week - its NEXT game with date/time, which may fall in a later
+// week. Live scores come from the basketball Worker (CBB_LIVE_URL) and
+// are matched to the schedule by ESPN game id - exact, never by name.
+
+function eventsForWeek(weekKey) {
+  return (currentSeasonData?.events ?? [])
+    .filter((e) => e.week === weekKey)
+    .sort((a, b) => (a.at ?? "").localeCompare(b.at ?? ""));
+}
+
+function renderEventList(listEl, events, liveUpsets, emptyMsg) {
+  listEl.innerHTML = "";
+  if (events.length === 0 && liveUpsets.length === 0) {
+    listEl.innerHTML = `<li class="no-events">${emptyMsg}</li>`;
+    return;
+  }
+  for (const u of liveUpsets) {
+    const li = document.createElement("li");
+    li.className = "event-card live-upset";
+    li.innerHTML = cbbLiveUpsetCardHtml(u);
+    listEl.appendChild(li);
+  }
+  for (const e of events) {
+    const li = document.createElement("li");
+    li.className = "event-card" + (e.kind === "dethrone" ? " dethrone" : "");
+    li.innerHTML = eventCardHtml(e);
+    listEl.appendChild(li);
+  }
+}
+
+function teamGames(teamId) {
+  const games = cbbSchedule?.teams?.[teamId]?.games ?? [];
+  for (const g of games) g.team_id = teamId; // which side is "us" for live scores
+  return games;
+}
+
+function gamesInWeek(teamId, weekKey) {
+  const range = currentSeasonData?.weeks?.[weekKey];
+  if (!range) return [];
+  return teamGames(teamId).filter((g) => {
+    const d = etDate(g.start);
+    return d >= range.start && d <= range.end;
+  });
+}
+
+// Live state for one scheduled game: the live feed when it has the game,
+// else what the repo's schedule knows (refreshed every ~15 minutes).
+function liveStateOf(game) {
+  const live = cbbLiveById[game.id];
+  if (!live) return { status: game.status, score: game.score, opponent_score: game.opponent_score };
+  const isHome = String(live.home_id) === String(game.team_id);
+  const mine = isHome ? live.home_score : live.away_score;
+  const theirs = isHome ? live.away_score : live.home_score;
+  return { status: live.status === "finished" ? "final" : live.status, score: mine, opponent_score: theirs, live };
+}
+
+function vsText(game) {
+  if (game.home_away === "away") return `@ ${game.opponent}`;
+  return `vs. ${game.opponent}`;
+}
+
+function formatTip(game) {
+  const d = new Date(game.start);
+  const day = d.toLocaleDateString(undefined, { weekday: "short", month: "numeric", day: "numeric" });
+  if (!game.time_valid) return `${day} · TBD`;
+  return `${day} · ${d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit", timeZoneName: "short" })}`;
+}
+
+function resultChip(game) {
+  const st = liveStateOf(game);
+  if (st.status === "postponed") return `PPD ${vsText(game)}`;
+  if (st.status === "canceled") return `Canceled ${vsText(game)}`;
+  if (st.status !== "final" || st.score == null) return null;
+  return `${st.score > st.opponent_score ? "W" : "L"} ${st.score}-${st.opponent_score} ${vsText(game)}`;
+}
+
+function nextGameOf(teamId) {
+  const cutoff = Date.now() - 4 * 3600 * 1000; // a just-tipped game is still "next" until final
+  return teamGames(teamId).find((g) => {
+    const st = liveStateOf(g).status;
+    return (st === "scheduled" || st === "in_progress") && new Date(g.start).getTime() >= cutoff;
+  });
+}
+
+function perGameCardLine(slot, weekKey) {
+  if (!slot.team_id || !cbbSchedule || weekKey === "preseason") return "";
+  const chips = gamesInWeek(slot.team_id, weekKey).map(resultChip).filter(Boolean);
+  const parts = [];
+  if (chips.length) parts.push(`<span class="belt-results">${chips.join(" · ")}</span>`);
+  if (isViewingLiveWeek()) {
+    const next = nextGameOf(slot.team_id);
+    if (next) {
+      const st = liveStateOf(next).status;
+      parts.push(`<span class="belt-next">${st === "in_progress" ? "Now" : "Next"}: ${vsText(next)}${st === "in_progress" ? "" : " · " + formatTip(next)}</span>`);
+    } else {
+      parts.push(`<span class="belt-next">No upcoming game scheduled</span>`);
+    }
+  } else if (!chips.length) {
+    parts.push(`<span class="belt-next">No games this week</span>`);
+  }
+  return `<span class="belt-opponent">${parts.join("")}</span>`;
+}
+
+function formatHalfLabel(period) {
+  if (!period) return null;
+  if (period <= 2) return period === 1 ? "1st" : "2nd";
+  const ot = period - 2;
+  return ot === 1 ? "OT" : `${ot}OT`;
+}
+
+function renderCbbLiveBadges() {
+  if (!isPerGame() || !isViewingLiveWeek()) return;
+  for (const li of rankingsList.querySelectorAll(".belt-card")) {
+    const teamId = li.dataset.teamId;
+    const badge = li.querySelector(".belt-live");
+    if (!teamId || !badge) continue;
+    const game = nextGameOf(teamId);
+    const st = game ? liveStateOf(game) : null;
+    if (st && st.status === "in_progress") {
+      const score = st.score != null ? `${st.score}-${st.opponent_score}` : "";
+      const clock = st.live ? [formatHalfLabel(st.live.period), st.live.clock].filter(Boolean).join(" ") : "";
+      badge.textContent = `● LIVE ${score}${clock ? " · " + clock : ""}`.trim();
+      badge.className = "belt-live is-live";
+      badge.hidden = false;
+    } else {
+      badge.hidden = true;
+    }
+  }
+}
+
+function currentRankById(teamId) {
+  const latest = visibleSnapshots[visibleSnapshots.length - 1];
+  return latest?.rankings.find((s) => s.team_id === teamId)?.rank ?? null;
+}
+
+// Today's ranked-team games (US Eastern day), deduped by game id.
+function renderTodaySlate() {
+  if (!isPerGame() || !isViewingLiveWeek() || !cbbSchedule) {
+    todaySlateSection.hidden = true;
+    return;
+  }
+  const today = etDate(new Date().toISOString());
+  const latest = visibleSnapshots[visibleSnapshots.length - 1];
+  const seen = new Set();
+  const rows = [];
+  for (const slot of latest.rankings) {
+    for (const g of teamGames(slot.team_id)) {
+      if (etDate(g.start) !== today || seen.has(g.id)) continue;
+      seen.add(g.id);
+      rows.push({ slot, g });
+    }
+  }
+  rows.sort((a, b) => a.g.start.localeCompare(b.g.start));
+  todaySlateSection.hidden = false;
+  todaySlateList.innerHTML = "";
+  if (rows.length === 0) {
+    todaySlateList.innerHTML = `<li class="no-events">No ranked teams play today.</li>`;
+    return;
+  }
+  for (const { slot, g } of rows) {
+    const st = liveStateOf(g);
+    const oppRank = g.opponent_id ? currentRankById(g.opponent_id) : null;
+    const me = `#${slot.rank} ${slot.team}`;
+    const opp = `${oppRank ? "#" + oppRank + " " : ""}${g.opponent}`;
+    const sep = g.home_away === "away" ? "@" : "vs.";
+    let status;
+    if (st.status === "in_progress") {
+      const clock = st.live ? [formatHalfLabel(st.live.period), st.live.clock].filter(Boolean).join(" ") : "";
+      status = `● LIVE${st.score != null ? ` ${st.score}-${st.opponent_score}` : ""}${clock ? " · " + clock : ""}`;
+    } else if (st.status === "final" && st.score != null) {
+      status = `Final: ${st.score > st.opponent_score ? "W" : "L"} ${st.score}-${st.opponent_score}`;
+    } else if (st.status === "postponed" || st.status === "canceled") {
+      status = st.status === "postponed" ? "Postponed" : "Canceled";
+    } else {
+      status = formatTip(g).split(" · ").slice(1).join(" · ") || "TBD";
+    }
+    const li = document.createElement("li");
+    li.className = "slate-row" + (st.status === "in_progress" ? " is-live" : "");
+    li.innerHTML = `<span class="slate-matchup">${me} <span class="slate-sep">${sep}</span> ${opp}</span><span class="slate-status">${status}</span>`;
+    todaySlateList.appendChild(li);
+  }
+}
+
+// A live-feed final that will move the standings, before the 15-minute
+// job makes it official (then it's a real event and drops out of here).
+function computeCbbLiveUpsets() {
+  if (!isPerGame() || !isViewingLiveWeek()) return [];
+  const official = new Set((currentSeasonData.events ?? []).map((e) => e.game_id));
+  const out = [];
+  for (const live of Object.values(cbbLiveById)) {
+    if (live.status !== "finished" || official.has(live.id)) continue;
+    if (live.home_score == null || live.away_score == null) continue;
+    const homeWon = live.home_score > live.away_score;
+    const winnerId = homeWon ? live.home_id : live.away_id;
+    const loserId = homeWon ? live.away_id : live.home_id;
+    const loserRank = currentRankById(loserId);
+    const winnerRank = currentRankById(winnerId);
+    if (loserRank == null) continue;
+    if (winnerRank != null && winnerRank < loserRank) continue;
+    out.push({
+      winner: homeWon ? live.home_team : live.away_team,
+      loser: homeWon ? live.away_team : live.home_team,
+      winnerRank, loserRank,
+      winnerScore: Math.max(live.home_score, live.away_score),
+      loserScore: Math.min(live.home_score, live.away_score),
+    });
+  }
+  return out;
+}
+
+function cbbLiveUpsetCardHtml(u) {
+  const winnerText = u.winnerRank ? `<strong>${u.winner}</strong> (#${u.winnerRank})` : `Unranked <strong>${u.winner}</strong>`;
+  return `
+    <span class="event-tag live-upset-tag">Upset · Final</span>
+    ${winnerText} beat #${u.loserRank} <strong>${u.loser}</strong>, ${u.winnerScore}-${u.loserScore}
+  `;
+}
+
+// renderTicker() takes football-shaped live games; adapt.
+function cbbUpsetAsTickerGame(u) {
+  return { home_team: u.winner, away_team: u.loser, home_score: u.winnerScore, away_score: u.loserScore };
+}
+
+async function fetchCbbLive() {
+  if (!CBB_LIVE_URL || !isPerGame()) return;
+  try {
+    const resp = await fetch(CBB_LIVE_URL);
+    if (!resp.ok) return;
+    const payload = await resp.json();
+    cbbLiveById = Object.fromEntries((payload.games ?? []).map((g) => [g.id, g]));
+    if (!isPerGame()) return;
+    renderWeek();
+  } catch (err) {
+    console.error("Basketball live score fetch failed:", err.message);
+  }
+}
+if (CBB_LIVE_URL) setInterval(fetchCbbLive, CBB_LIVE_POLL_MS);
+
 // ── Team card ("How We Got Here") ──
 //
 // Reads a team's path across the whole season from
@@ -666,7 +1012,7 @@ function openTeamCard(teamName) {
       const li = document.createElement("li");
       li.className = "team-card-event" + (wasWinner ? " win" : " loss");
 
-      const weekLabel = formatWeekLabel(event.week);
+      const weekLabel = event.at ? formatShortWhen(event.at) : formatWeekLabel(event.week);
 
       if (wasWinner) {
         const resultText = event.kind === "dethrone"

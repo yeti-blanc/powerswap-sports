@@ -645,3 +645,43 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+/* ── Basketball: per-game card lines, dated swap cards, Today's Slate ── */
+.belt-results,
+.belt-next {
+  display: block;
+}
+.belt-results { color: var(--text-primary); opacity: 0.85; }
+.event-when {
+  color: var(--text-muted);
+  font-size: 10px;
+  margin-top: 3px;
+  letter-spacing: 0.5px;
+}
+.today-slate-section { margin-bottom: 20px; }
+.today-slate-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.slate-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--bg-card);
+  border-left: 3px solid var(--text-muted);
+  padding: 7px 10px;
+  font-size: 12px;
+}
+.slate-row.is-live { border-left-color: #ff4444; }
+.slate-sep { color: var(--text-muted); }
+.slate-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+.slate-row.is-live .slate-status { color: #fff; }

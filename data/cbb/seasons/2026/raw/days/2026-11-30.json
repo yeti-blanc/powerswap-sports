@@ -1,0 +1,230 @@
+{
+ "date": "2026-11-30",
+ "games": [
+  {
+   "id": "401925100",
+   "start": "2026-11-30T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "357",
+    "name": "Texas A&M-Corpus Christi"
+   },
+   "away": {
+    "id": "2903",
+    "name": "Southwestern Adventist"
+   }
+  },
+  {
+   "id": "401920687",
+   "start": "2026-11-30T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "41",
+    "name": "Connecticut"
+   },
+   "away": {
+    "id": "2520",
+    "name": "Rider"
+   }
+  },
+  {
+   "id": "401911280",
+   "start": "2026-12-01T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "161",
+    "name": "Fairleigh Dickinson"
+   },
+   "away": {
+    "id": "2066",
+    "name": "Binghamton"
+   }
+  },
+  {
+   "id": "401921267",
+   "start": "2026-12-01T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2352",
+    "name": "Loyola Maryland"
+   },
+   "away": {
+    "id": "173",
+    "name": "Hartwick"
+   }
+  },
+  {
+   "id": "401925633",
+   "start": "2026-12-01T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2154",
+    "name": "Coppin State"
+   },
+   "away": {
+    "id": "3164",
+    "name": "Central Penn"
+   }
+  },
+  {
+   "id": "401926789",
+   "start": "2026-12-01T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "338",
+    "name": "Kennesaw State"
+   },
+   "away": {
+    "id": "50",
+    "name": "Florida A&M"
+   }
+  },
+  {
+   "id": "401919034",
+   "start": "2026-12-01T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2724",
+    "name": "Wichita State"
+   },
+   "away": {
+    "id": "2546",
+    "name": "Southeast Missouri State"
+   }
+  },
+  {
+   "id": "401929596",
+   "start": "2026-12-01T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2377",
+    "name": "McNeese"
+   },
+   "away": {
+    "id": "3134",
+    "name": "Champion Christian"
+   }
+  },
+  {
+   "id": "401919737",
+   "start": "2026-12-01T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "339",
+    "name": "Evansville"
+   },
+   "away": {
+    "id": "2130",
+    "name": "Chicago State"
+   }
+  },
+  {
+   "id": "401921010",
+   "start": "2026-12-01T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "140",
+    "name": "Kansas City"
+   },
+   "away": {
+    "id": "596",
+    "name": "Peru State"
+   }
+  },
+  {
+   "id": "401924954",
+   "start": "2026-12-01T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2277",
+    "name": "Houston Christian"
+   },
+   "away": {
+    "id": "2710",
+    "name": "Western Illinois"
+   }
+  },
+  {
+   "id": "401925881",
+   "start": "2026-12-01T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "233",
+    "name": "South Dakota"
+   },
+   "away": {
+    "id": "147",
+    "name": "Montana State"
+   }
+  },
+  {
+   "id": "401927383",
+   "start": "2026-12-01T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "93",
+    "name": "Murray State"
+   },
+   "away": {
+    "id": "265",
+    "name": "Washington State"
+   }
+  },
+  {
+   "id": "401928625",
+   "start": "2026-12-01T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2623",
+    "name": "Missouri State"
+   },
+   "away": {
+    "id": "2815",
+    "name": "Lindenwood"
+   }
+  },
+  {
+   "id": "401921735",
+   "start": "2026-12-01T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "9",
+    "name": "Arizona State"
+   },
+   "away": {
+    "id": "149",
+    "name": "Montana"
+   }
+  }
+ ]
+}

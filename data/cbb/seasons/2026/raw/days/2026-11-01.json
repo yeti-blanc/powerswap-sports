@@ -1,0 +1,41 @@
+{
+ "date": "2026-11-01",
+ "games": [
+  {
+   "id": "401920982",
+   "start": "2026-11-01T14:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "222",
+    "name": "Villanova",
+    "score": 72
+   },
+   "away": {
+    "id": "87",
+    "name": "Notre Dame",
+    "score": 74
+   },
+   "note": "Eternal City Tip-Off"
+  },
+  {
+   "id": "401920409",
+   "start": "2026-11-02T04:59Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2272",
+    "name": "High Point",
+    "score": 72
+   },
+   "away": {
+    "id": "2335",
+    "name": "Liberty",
+    "score": 57
+   },
+   "note": "Field of 68 Opening Day Marathon"
+  }
+ ]
+}

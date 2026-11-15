@@ -3001,3 +3001,38 @@ completed week, rebuilds the backtest, commits only on change.
 plain main because it read the LIVE football season_history.json against
 frozen week-7 ESPN fixtures; now reads a frozen week-8 copy
 (`tests/fixtures/cfb_season_history_week8.json`).
+
+## 2026-11-15 (later): Basketball switches to per-game standings + live-score Worker
+
+User's call: basketball doesn't work like football - standings move the
+moment a game goes final, weeks are just for browsing, cards show the
+next game (date/time) and live scores, and a team that moves twice in a
+week shows both moves in HAVOC / Last Week's Power Swaps, in order.
+
+- **Results source -> ESPN** (`sports/cbb/espn_days.py`, day files by ET
+  date). Checked against CBBD: all four week-2 swaps identical (scores and
+  tip times); week 1 identical for every D-I game.
+- **`sports/cbb/build_season.py`**: replays every final one game at a time
+  through the unchanged swap engine. Output: preseason + week1..weekN
+  (end-of-week / now) snapshots, timestamped events, `schedule.json`.
+  Result through Sat 11-14: week 1 - Memphis dethrones #18 Iowa State,
+  UCLA swaps with #5 Arizona; week 2 - Michigan State over #2 Duke,
+  Vanderbilt over Memphis (Memphis's 2nd move), Texas Tech over #3
+  Illinois, unranked LSU dethrones #15 Gonzaga 81-80.
+- **Workflow every 15 min**, commits only on change.
+- **Site** (`isPerGame()` branches; football untouched): week labels
+  "Week 2 · Nov 9-15", Preseason tab, cards with results + next game,
+  Today's Slate, dated swap cards in game order, provisional upset cards
+  from the basketball live feed. Verified in a real browser: real data on
+  every tab; a simulated live payload rendered each side's score from its
+  own perspective (Louisville 35-40 / Memphis 40-35) and a provisional
+  upset; football view identical to before, no console errors.
+- **`live_cbb/`**: standalone basketball live Worker for a separate
+  Cloudflare account (user's decision). One ESPN parse per invocation
+  (4.3 ms for a real full Saturday slate vs the 10 ms free cap), only
+  inside ranked games' windows, writes only on change, budget-paced. 20
+  checks in `tests/test_cbb_live_worker.mjs` (real 2026-11-14 ESPN data).
+  NOT deployed - needs the new account (see live_cbb/README.md).
+- Caught and avoided: the new Worker test first read the live
+  schedule.json - the exact moving-data fragility fixed in the football
+  test earlier today; pinned to a fixture instead.

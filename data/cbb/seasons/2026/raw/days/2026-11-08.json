@@ -1,0 +1,631 @@
+{
+ "date": "2026-11-08",
+ "games": [
+  {
+   "id": "401924646",
+   "start": "2026-11-08T17:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2599",
+    "name": "St. John's",
+    "score": 104
+   },
+   "away": {
+    "id": "314",
+    "name": "Iona",
+    "score": 65
+   }
+  },
+  {
+   "id": "401920424",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "258",
+    "name": "Virginia",
+    "score": 91
+   },
+   "away": {
+    "id": "8",
+    "name": "Arkansas",
+    "score": 72
+   },
+   "note": "Skyscanner Capital Showcase"
+  },
+  {
+   "id": "401921220",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2426",
+    "name": "Navy",
+    "score": 102
+   },
+   "away": {
+    "id": "3164",
+    "name": "Central Penn",
+    "score": 46
+   }
+  },
+  {
+   "id": "401921683",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2803",
+    "name": "Bryant",
+    "score": 59
+   },
+   "away": {
+    "id": "2217",
+    "name": "Fairfield",
+    "score": 68
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401921684",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "311",
+    "name": "Maine",
+    "score": 62
+   },
+   "away": {
+    "id": "2363",
+    "name": "Manhattan",
+    "score": 68
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401921685",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "160",
+    "name": "New Hampshire",
+    "score": 76
+   },
+   "away": {
+    "id": "2529",
+    "name": "Sacred Heart",
+    "score": 81
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401921687",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2349",
+    "name": "UMass Lowell",
+    "score": 63
+   },
+   "away": {
+    "id": "2368",
+    "name": "Marist",
+    "score": 61
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401921820",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2579",
+    "name": "South Carolina",
+    "score": 78
+   },
+   "away": {
+    "id": "2546",
+    "name": "Southeast Missouri State",
+    "score": 68
+   }
+  },
+  {
+   "id": "401924734",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2561",
+    "name": "Siena",
+    "score": 82
+   },
+   "away": {
+    "id": "163",
+    "name": "Princeton",
+    "score": 68
+   }
+  },
+  {
+   "id": "401926867",
+   "start": "2026-11-08T18:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "270",
+    "name": "Milwaukee",
+    "score": 99
+   },
+   "away": {
+    "id": "cbbd-440",
+    "name": "Ripon",
+    "score": 48
+   }
+  },
+  {
+   "id": "401902277",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "68",
+    "name": "Boise State",
+    "score": 100
+   },
+   "away": {
+    "id": "2086",
+    "name": "Butler",
+    "score": 81
+   }
+  },
+  {
+   "id": "401911306",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2329",
+    "name": "Lehigh",
+    "score": 55
+   },
+   "away": {
+    "id": "225",
+    "name": "Brown",
+    "score": 65
+   }
+  },
+  {
+   "id": "401920233",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "159",
+    "name": "Dartmouth",
+    "score": 71
+   },
+   "away": {
+    "id": "2115",
+    "name": "Central Connecticut",
+    "score": 78
+   }
+  },
+  {
+   "id": "401920355",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "cbbd-373",
+    "name": "Chicago",
+    "score": 47
+   },
+   "away": {
+    "id": "108",
+    "name": "Harvard",
+    "score": 63
+   }
+  },
+  {
+   "id": "401920692",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "261",
+    "name": "Vermont",
+    "score": 76
+   },
+   "away": {
+    "id": "2514",
+    "name": "Quinnipiac",
+    "score": 79
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401920739",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2711",
+    "name": "Western Michigan",
+    "score": 87
+   },
+   "away": {
+    "id": "2097",
+    "name": "Campbell",
+    "score": 71
+   }
+  },
+  {
+   "id": "401920843",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2900",
+    "name": "St. Thomas",
+    "score": 67
+   },
+   "away": {
+    "id": "2739",
+    "name": "Green Bay",
+    "score": 76
+   }
+  },
+  {
+   "id": "401921686",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "399",
+    "name": "UAlbany",
+    "score": 60
+   },
+   "away": {
+    "id": "2771",
+    "name": "Merrimack",
+    "score": 73
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401924719",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "172",
+    "name": "Cornell",
+    "score": 99
+   },
+   "away": {
+    "id": "6319",
+    "name": "Keuka",
+    "score": 59
+   }
+  },
+  {
+   "id": "401926210",
+   "start": "2026-11-08T19:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2747",
+    "name": "Wofford",
+    "score": 100
+   },
+   "away": {
+    "id": "2019",
+    "name": "Allen University",
+    "score": 67
+   }
+  },
+  {
+   "id": "401911335",
+   "start": "2026-11-08T20:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2005",
+    "name": "Air Force",
+    "score": 89
+   },
+   "away": {
+    "id": "304",
+    "name": "Idaho State",
+    "score": 82
+   }
+  },
+  {
+   "id": "401926215",
+   "start": "2026-11-08T20:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2635",
+    "name": "Tennessee Tech",
+    "score": 97
+   },
+   "away": {
+    "id": "98",
+    "name": "Western Kentucky",
+    "score": 94
+   }
+  },
+  {
+   "id": "401927362",
+   "start": "2026-11-08T20:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2181",
+    "name": "Drake",
+    "score": 75
+   },
+   "away": {
+    "id": "2582",
+    "name": "Southern",
+    "score": 68
+   }
+  },
+  {
+   "id": "401911274",
+   "start": "2026-11-08T21:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2066",
+    "name": "Binghamton",
+    "score": 75
+   },
+   "away": {
+    "id": "2520",
+    "name": "Rider",
+    "score": 63
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401920865",
+   "start": "2026-11-08T21:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2885",
+    "name": "NJIT",
+    "score": 54
+   },
+   "away": {
+    "id": "2612",
+    "name": "Saint Peter's",
+    "score": 52
+   },
+   "note": "America East-Metro Challenge"
+  },
+  {
+   "id": "401911453",
+   "start": "2026-11-08T21:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2440",
+    "name": "Nevada",
+    "score": 96
+   },
+   "away": {
+    "id": "2608",
+    "name": "Saint Mary's",
+    "score": 95
+   },
+   "note": "Lake Tahoe Classic"
+  },
+  {
+   "id": "401911238",
+   "start": "2026-11-08T22:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "218",
+    "name": "Temple",
+    "score": 53
+   },
+   "away": {
+    "id": "257",
+    "name": "Richmond",
+    "score": 79
+   }
+  },
+  {
+   "id": "401922262",
+   "start": "2026-11-08T22:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "70",
+    "name": "Idaho",
+    "score": 108
+   },
+   "away": {
+    "id": null,
+    "name": "Lincoln (CA)",
+    "score": 69
+   }
+  },
+  {
+   "id": "401920134",
+   "start": "2026-11-08T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2934",
+    "name": "Cal State Bakersfield",
+    "score": 91
+   },
+   "away": {
+    "id": "2449",
+    "name": "North Dakota State",
+    "score": 80
+   }
+  },
+  {
+   "id": "401925894",
+   "start": "2026-11-08T23:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2729",
+    "name": "William & Mary",
+    "score": 104
+   },
+   "away": {
+    "id": "2450",
+    "name": "Norfolk State",
+    "score": 73
+   }
+  },
+  {
+   "id": "401929352",
+   "start": "2026-11-09T00:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "2638",
+    "name": "UTEP",
+    "score": 79
+   },
+   "away": {
+    "id": "2916",
+    "name": "Incarnate Word",
+    "score": 60
+   }
+  },
+  {
+   "id": "401930195",
+   "start": "2026-11-09T00:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "3246",
+    "name": "Bethesda University",
+    "score": 56
+   },
+   "away": {
+    "id": "2501",
+    "name": "Portland",
+    "score": 130
+   },
+   "note": "Rainbow Classic"
+  },
+  {
+   "id": "401909707",
+   "start": "2026-11-09T01:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "213",
+    "name": "Penn State",
+    "score": 76
+   },
+   "away": {
+    "id": "221",
+    "name": "Pittsburgh",
+    "score": 82
+   }
+  },
+  {
+   "id": "401918053",
+   "start": "2026-11-09T01:30Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "248",
+    "name": "Houston",
+    "score": 86
+   },
+   "away": {
+    "id": "25",
+    "name": "California",
+    "score": 68
+   },
+   "note": "Lake Tahoe Classic"
+  },
+  {
+   "id": "401929002",
+   "start": "2026-11-09T03:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": false,
+   "home": {
+    "id": "62",
+    "name": "Hawaii",
+    "score": 71
+   },
+   "away": {
+    "id": "250",
+    "name": "UT Arlington",
+    "score": 62
+   },
+   "note": "Rainbow Classic"
+  },
+  {
+   "id": "401919029",
+   "start": "2026-11-09T04:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "30",
+    "name": "USC",
+    "score": 93
+   },
+   "away": {
+    "id": "2724",
+    "name": "Wichita State",
+    "score": 86
+   },
+   "note": "Lake Tahoe Classic"
+  }
+ ]
+}

@@ -1,0 +1,1007 @@
+{
+ "date": "2026-12-01",
+ "games": [
+  {
+   "id": "401925081",
+   "start": "2026-12-01T05:00Z",
+   "time_valid": false,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2466",
+    "name": "Northwestern State"
+   },
+   "away": {
+    "id": "3120",
+    "name": "Ecclesia"
+   }
+  },
+  {
+   "id": "401917906",
+   "start": "2026-12-01T16:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2698",
+    "name": "West Georgia"
+   },
+   "away": {
+    "id": "88",
+    "name": "Southern Indiana"
+   }
+  },
+  {
+   "id": "401928361",
+   "start": "2026-12-01T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2582",
+    "name": "Southern"
+   },
+   "away": {
+    "id": "3134",
+    "name": "Champion Christian"
+   }
+  },
+  {
+   "id": "401921159",
+   "start": "2026-12-01T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2448",
+    "name": "North Carolina A&T"
+   },
+   "away": {
+    "id": "50024",
+    "name": "Washington Adventist"
+   }
+  },
+  {
+   "id": "401906785",
+   "start": "2026-12-01T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "61",
+    "name": "Georgia"
+   },
+   "away": {
+    "id": "103",
+    "name": "Boston College"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401911819",
+   "start": "2026-12-01T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2678",
+    "name": "VMI"
+   },
+   "away": {
+    "id": "2430",
+    "name": "UNC Greensboro"
+   }
+  },
+  {
+   "id": "401923307",
+   "start": "2026-12-01T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "311",
+    "name": "Maine"
+   },
+   "away": {
+    "id": "126890",
+    "name": "Maine-Augusta"
+   }
+  },
+  {
+   "id": "401929615",
+   "start": "2026-12-01T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2803",
+    "name": "Bryant"
+   },
+   "away": {
+    "id": "185",
+    "name": "Vassar"
+   }
+  },
+  {
+   "id": "401920683",
+   "start": "2026-12-01T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2599",
+    "name": "St. John's"
+   },
+   "away": {
+    "id": "171",
+    "name": "Columbia"
+   }
+  },
+  {
+   "id": "401921778",
+   "start": "2026-12-01T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "218",
+    "name": "Temple"
+   },
+   "away": {
+    "id": "222",
+    "name": "Villanova"
+   },
+   "note": "Big 5 Classic - Campus Game"
+  },
+  {
+   "id": "401929440",
+   "start": "2026-12-01T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2026",
+    "name": "Appalachian State"
+   },
+   "away": {
+    "id": "108942",
+    "name": "Carolina University"
+   }
+  },
+  {
+   "id": "401906854",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2633",
+    "name": "Tennessee"
+   },
+   "away": {
+    "id": "52",
+    "name": "Florida State"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401909537",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2507",
+    "name": "Providence"
+   },
+   "away": {
+    "id": "284",
+    "name": "Stonehill"
+   }
+  },
+  {
+   "id": "401909710",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "142",
+    "name": "Missouri"
+   },
+   "away": {
+    "id": "221",
+    "name": "Pittsburgh"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401911203",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2230",
+    "name": "Fordham"
+   },
+   "away": {
+    "id": "104",
+    "name": "Boston University"
+   }
+  },
+  {
+   "id": "401911213",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "45",
+    "name": "George Washington"
+   },
+   "away": {
+    "id": "2545",
+    "name": "SE Louisiana"
+   }
+  },
+  {
+   "id": "401911243",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "151",
+    "name": "East Carolina"
+   },
+   "away": {
+    "id": "257",
+    "name": "Richmond"
+   }
+  },
+  {
+   "id": "401911313",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "227",
+    "name": "Rhode Island"
+   },
+   "away": {
+    "id": "225",
+    "name": "Brown"
+   }
+  },
+  {
+   "id": "401911382",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2127",
+    "name": "Charleston Southern"
+   },
+   "away": {
+    "id": "2643",
+    "name": "The Citadel"
+   }
+  },
+  {
+   "id": "401917178",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "213",
+    "name": "Penn State"
+   },
+   "away": {
+    "id": "399",
+    "name": "UAlbany"
+   }
+  },
+  {
+   "id": "401918077",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "228",
+    "name": "Clemson"
+   },
+   "away": {
+    "id": "2",
+    "name": "Auburn"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401918457",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2729",
+    "name": "William & Mary"
+   },
+   "away": {
+    "id": null,
+    "name": "Winston-Salem State"
+   }
+  },
+  {
+   "id": "401918962",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "152",
+    "name": "NC State"
+   },
+   "away": {
+    "id": "2579",
+    "name": "South Carolina"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401919830",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "277",
+    "name": "West Virginia"
+   },
+   "away": {
+    "id": "2385",
+    "name": "Mercyhurst"
+   }
+  },
+  {
+   "id": "401920880",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2116",
+    "name": "Central Florida"
+   },
+   "away": {
+    "id": "294",
+    "name": "Jacksonville"
+   }
+  },
+  {
+   "id": "401920978",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "236",
+    "name": "Chattanooga"
+   },
+   "away": {
+    "id": "2010",
+    "name": "Alabama A&M"
+   }
+  },
+  {
+   "id": "401921187",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "219",
+    "name": "Pennsylvania"
+   },
+   "away": {
+    "id": "2315",
+    "name": "Kutztown"
+   }
+  },
+  {
+   "id": "401921874",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2509",
+    "name": "Purdue"
+   },
+   "away": {
+    "id": "2294",
+    "name": "Iowa"
+   }
+  },
+  {
+   "id": "401925734",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "130",
+    "name": "Michigan"
+   },
+   "away": {
+    "id": "2400",
+    "name": "Mississippi Valley State"
+   }
+  },
+  {
+   "id": "401925814",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2325",
+    "name": "La Salle"
+   },
+   "away": {
+    "id": "2747",
+    "name": "Wofford"
+   }
+  },
+  {
+   "id": "401926107",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2193",
+    "name": "East Tennessee State"
+   },
+   "away": {
+    "id": "3229",
+    "name": "Virginia-Lynchburg"
+   }
+  },
+  {
+   "id": "401926114",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2653",
+    "name": "Troy"
+   },
+   "away": {
+    "id": "231",
+    "name": "Furman"
+   }
+  },
+  {
+   "id": "401926784",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "55",
+    "name": "Jacksonville State"
+   },
+   "away": {
+    "id": "2031",
+    "name": "Little Rock"
+   }
+  },
+  {
+   "id": "401926822",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "295",
+    "name": "Old Dominion"
+   },
+   "away": {
+    "id": "2182",
+    "name": "Drexel"
+   }
+  },
+  {
+   "id": "401929390",
+   "start": "2026-12-02T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2247",
+    "name": "Georgia State"
+   },
+   "away": {
+    "id": "2382",
+    "name": "Mercer"
+   }
+  },
+  {
+   "id": "401909528",
+   "start": "2026-12-02T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "269",
+    "name": "Marquette"
+   },
+   "away": {
+    "id": "2681",
+    "name": "Wagner"
+   }
+  },
+  {
+   "id": "401912712",
+   "start": "2026-12-02T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "153",
+    "name": "North Carolina"
+   },
+   "away": {
+    "id": "8",
+    "name": "Arkansas"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401920762",
+   "start": "2026-12-02T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "98",
+    "name": "Western Kentucky"
+   },
+   "away": {
+    "id": "2057",
+    "name": "Belmont"
+   }
+  },
+  {
+   "id": "401926219",
+   "start": "2026-12-02T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2393",
+    "name": "Middle Tennessee"
+   },
+   "away": {
+    "id": "2635",
+    "name": "Tennessee Tech"
+   }
+  },
+  {
+   "id": "401927343",
+   "start": "2026-12-02T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2169",
+    "name": "Delaware State"
+   },
+   "away": {
+    "id": "2441",
+    "name": "New Haven"
+   }
+  },
+  {
+   "id": "401927354",
+   "start": "2026-12-02T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2428",
+    "name": "North Carolina Central"
+   },
+   "away": {
+    "id": "2648",
+    "name": "Toccoa Falls"
+   }
+  },
+  {
+   "id": "401909496",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "156",
+    "name": "Creighton"
+   },
+   "away": {
+    "id": "198",
+    "name": "Oral Roberts"
+   }
+  },
+  {
+   "id": "401909507",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "305",
+    "name": "DePaul"
+   },
+   "away": {
+    "id": "2453",
+    "name": "North Alabama"
+   }
+  },
+  {
+   "id": "401909790",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2305",
+    "name": "Kansas"
+   },
+   "away": {
+    "id": "2460",
+    "name": "Northern Iowa"
+   }
+  },
+  {
+   "id": "401917969",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2000",
+    "name": "Abilene Christian"
+   },
+   "away": {
+    "id": "2492",
+    "name": "Pepperdine"
+   }
+  },
+  {
+   "id": "401918973",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2567",
+    "name": "SMU"
+   },
+   "away": {
+    "id": "2617",
+    "name": "Stephen F. Austin"
+   }
+  },
+  {
+   "id": "401921873",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "84",
+    "name": "Indiana"
+   },
+   "away": {
+    "id": "164",
+    "name": "Rutgers"
+   }
+  },
+  {
+   "id": "401925689",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "66",
+    "name": "Iowa State"
+   },
+   "away": {
+    "id": "2016",
+    "name": "Alcorn State"
+   }
+  },
+  {
+   "id": "401927358",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "71",
+    "name": "Bradley"
+   },
+   "away": {
+    "id": "263",
+    "name": "Loras"
+   }
+  },
+  {
+   "id": "401929396",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2437",
+    "name": "Omaha"
+   },
+   "away": {
+    "id": "573",
+    "name": "Mount Marty College"
+   }
+  },
+  {
+   "id": "401929412",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "155",
+    "name": "North Dakota"
+   },
+   "away": {
+    "id": "3080",
+    "name": "Waldorf College"
+   }
+  },
+  {
+   "id": "401906808",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "201",
+    "name": "Oklahoma"
+   },
+   "away": {
+    "id": "183",
+    "name": "Syracuse"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401906870",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "97",
+    "name": "Louisville"
+   },
+   "away": {
+    "id": "251",
+    "name": "Texas"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401909731",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "99",
+    "name": "LSU"
+   },
+   "away": {
+    "id": "154",
+    "name": "Wake Forest"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401909744",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "12",
+    "name": "Arizona"
+   },
+   "away": {
+    "id": "2443",
+    "name": "LSU New Orleans"
+   }
+  },
+  {
+   "id": "401909764",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "38",
+    "name": "Colorado"
+   },
+   "away": {
+    "id": "2638",
+    "name": "UTEP"
+   }
+  },
+  {
+   "id": "401911339",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2005",
+    "name": "Air Force"
+   },
+   "away": {
+    "id": "2172",
+    "name": "Denver"
+   }
+  },
+  {
+   "id": "401911525",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "302",
+    "name": "UC Davis"
+   },
+   "away": {
+    "id": "2501",
+    "name": "Portland"
+   }
+  },
+  {
+   "id": "401920383",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "259",
+    "name": "Virginia Tech"
+   },
+   "away": {
+    "id": "145",
+    "name": "Mississippi"
+   },
+   "note": "ACC/SEC Men's Challenge"
+  },
+  {
+   "id": "401921876",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "77",
+    "name": "Northwestern"
+   },
+   "away": {
+    "id": "275",
+    "name": "Wisconsin"
+   }
+  },
+  {
+   "id": "401929177",
+   "start": "2026-12-02T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "36",
+    "name": "Colorado State"
+   },
+   "away": {
+    "id": "250",
+    "name": "UT Arlington"
+   }
+  },
+  {
+   "id": "401906775",
+   "start": "2026-12-02T02:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "57",
+    "name": "Florida"
+   },
+   "away": {
+    "id": "150",
+    "name": "Duke"
+   },
+   "note": "SEC/ACC Men's Challenge"
+  },
+  {
+   "id": "401917554",
+   "start": "2026-12-02T02:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2608",
+    "name": "Saint Mary's"
+   },
+   "away": {
+    "id": "2275",
+    "name": "Hofstra"
+   }
+  },
+  {
+   "id": "401917555",
+   "start": "2026-12-02T02:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "301",
+    "name": "San Diego"
+   },
+   "away": {
+    "id": "62",
+    "name": "Hawaii"
+   }
+  },
+  {
+   "id": "401917553",
+   "start": "2026-12-02T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2547",
+    "name": "Seattle U"
+   },
+   "away": {
+    "id": "2450",
+    "name": "Norfolk State"
+   }
+  },
+  {
+   "id": "401921875",
+   "start": "2026-12-02T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "26",
+    "name": "UCLA"
+   },
+   "away": {
+    "id": "2483",
+    "name": "Oregon"
+   }
+  }
+ ]
+}
