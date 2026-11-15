@@ -687,6 +687,49 @@ realizing there's a sibling path with the same bug.
 
 ## 9. Current open items (as of 2026-09-13, plus dated additions below)
 
+### PICK UP HERE (written 2026-11-15, end of session - user stopped for the night)
+
+**Basketball is live on the site with per-game standings (§14). Nothing is
+broken or half-done; everything below is the next step, in order.**
+
+1. **Deploy the basketball live-score Worker (`live_cbb/`).** Built and
+   tested (`tests/test_cbb_live_worker.mjs`, 20 checks on real ESPN data),
+   NOT deployed. Waiting on the USER to:
+   a. create a new Cloudflare account (free plan) and pick its workers.dev
+      subdomain;
+   b. create an API token there (My Profile -> API Tokens -> "Edit
+      Cloudflare Workers" template);
+   c. put `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` in
+      `live_cbb/.env` themselves (gitignored; never in chat).
+   Then Claude: follow `live_cbb/README.md` steps 3-4 (load .env
+   explicitly, `wrangler whoami` MUST show the basketball account before
+   anything else, create the KV namespace, fill `wrangler.toml`, deploy,
+   set `CBB_LIVE_URL` in `site/app.js`, push), then verify with real
+   evidence during a ranked game: `wrangler tail` (no errors, CPU < 10 ms),
+   `curl .../live` shows an in-progress score, site badge + Today's Slate
+   update.
+   *Decisions already made - don't re-ask:* basketball live scores live
+   in a SEPARATE Cloudflare account so football never shares its KV
+   budget ("I don't want the football product to suffer and I want the
+   basketball to be good"); ~1-minute basketball cadence is acceptable
+   ("we can have live basketball move slower"). Claude recommended
+   Workers Paid ($5/mo) on the existing account as the cleaner option
+   (also helps football, ~30s basketball); the user chose the separate
+   account. Unknown, flagged to the user: whether Cloudflare's terms
+   allow extra free accounts.
+2. **Check whether football exceeds KV's 1,000 writes/day on weekends**
+   (Cloudflare dashboard -> the football account -> KV metrics, look at a
+   UTC day with a Friday-night ranked game + Saturday). Suspicion only,
+   from the §6 budget math covering Saturday alone. If true: Workers Paid
+   on the football account, or trim football's idle writes.
+3. **First real basketball 15-minute runs to watch** (`gh run list
+   --workflow cbb-season-progression.yml`): week 2 closes Sun 11-15 and
+   the Week 3 tab should appear on Mon 11-16 automatically. The site
+   should move a swap within ~15-30 min of a final.
+4. Still open from earlier: GitHub App migration for the admin Worker
+   (memory reminder), plus everything below.
+
+
 - **DUAL-CADENCE live-game polling (~30s during live games) — DEPLOYED
   2026-09-20, NOT YET OBSERVED UNDER A REAL LIVE GAME.** See §6's
   2026-09-20 update and `admin/BUILD_LOG.md` for the full mechanism and
