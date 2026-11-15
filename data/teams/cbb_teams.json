@@ -1,10 +1,10 @@
 {
  "schema_version": 1,
  "sport": "cbb",
- "generated_at": "2026-10-20T01:58:51Z",
+ "generated_at": "2026-11-15T06:48:54Z",
  "source_counts": {
-  "espn": 362,
-  "cbbd": 1544
+  "espn": 365,
+  "cbbd": 1546
  },
  "teams": {
   "1": {
@@ -1710,19 +1710,23 @@
    "school": "Southern Indiana",
    "mascot": "Screaming Eagles",
    "abbreviation": "USI",
-   "classification": null,
+   "classification": "d1",
    "conference": "OVC",
    "color": "CF102D",
-   "logo": "https://cdn.collegefootballdata.com/cbb-logos/500/88.png",
+   "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/88.png",
    "source_ids": {
     "cbbd": [
      "365"
+    ],
+    "espn": [
+     "88"
     ]
    },
    "mascots": [
     "screaming eagles"
    ],
    "aliases": [
+    "S Indiana",
     "So Indiana",
     "Southern Indiana",
     "Southern Indiana Screaming Eagles",
@@ -18807,13 +18811,16 @@
    "school": "Queens University",
    "mascot": "Royals",
    "abbreviation": "QUC",
-   "classification": null,
+   "classification": "d1",
    "conference": "ASUN",
    "color": "192C66",
-   "logo": "https://cdn.collegefootballdata.com/cbb-logos/500/2511.png",
+   "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2511.png",
    "source_ids": {
     "cbbd": [
      "362"
+    ],
+    "espn": [
+     "2511"
     ]
    },
    "mascots": [
@@ -23515,13 +23522,16 @@
    "school": "Lindenwood",
    "mascot": "Lions",
    "abbreviation": "LIN",
-   "classification": null,
+   "classification": "d1",
    "conference": "OVC",
-   "color": "101820",
-   "logo": "https://cdn.collegefootballdata.com/cbb-logos/500/2815.png",
+   "color": "000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/2815.png",
    "source_ids": {
     "cbbd": [
      "366"
+    ],
+    "espn": [
+     "2815"
     ]
    },
    "mascots": [
@@ -33455,6 +33465,29 @@
     "Abraham Baldwin Agricultural College ABRBALD"
    ]
   },
+  "134891": {
+   "name": "Georgia Gwinnett",
+   "school": "Georgia Gwinnett",
+   "mascot": "Grizzlies",
+   "abbreviation": "GGC",
+   "classification": null,
+   "conference": null,
+   "color": null,
+   "logo": null,
+   "source_ids": {
+    "cbbd": [
+     "1580"
+    ]
+   },
+   "mascots": [
+    "grizzlies"
+   ],
+   "aliases": [
+    "GGC",
+    "Georgia Gwinnett",
+    "Georgia Gwinnett Grizzlies"
+   ]
+  },
   "134939": {
    "name": "Kent State Tuscarawas",
    "school": "Kent State Tuscarawas",
@@ -33501,6 +33534,29 @@
     "GSEG",
     "Georgia Southern-East Georgia",
     "Georgia Southern-East Georgia Golden Eagles"
+   ]
+  },
+  "135043": {
+   "name": "Penn State Lehigh Valley",
+   "school": "Penn State Lehigh Valley",
+   "mascot": "Nittany Lions",
+   "abbreviation": "PEN",
+   "classification": null,
+   "conference": null,
+   "color": null,
+   "logo": null,
+   "source_ids": {
+    "cbbd": [
+     "1581"
+    ]
+   },
+   "mascots": [
+    "nittany lions"
+   ],
+   "aliases": [
+    "PEN",
+    "Penn State Lehigh Valley",
+    "Penn State Lehigh Valley Nittany Lions"
    ]
   },
   "cbbd-369": {
@@ -36797,6 +36853,8 @@
   "georgia bulldogs": "61",
   "georgia college": "2246",
   "georgia college bobcats": "2246",
+  "georgia gwinnett": "134891",
+  "georgia gwinnett grizzlies": "134891",
   "georgia southern": "290",
   "georgia southern eagles": "290",
   "georgia southern east georgia": "134948",
@@ -36816,6 +36874,7 @@
   "gettysburg": "2248",
   "gettysburg bullets": "2248",
   "gfu": "415",
+  "ggc": "134891",
   "glcc": "131625",
   "glenville": "2249",
   "glenville state": "2249",
@@ -37402,6 +37461,7 @@
   "life university running eagles": "124721",
   "limestone": "2336",
   "limestone saints": "2336",
+  "lin": "2815",
   "lincoln": "2338",
   "lincoln (mo)": "2876",
   "lincoln (mo) blue tigers": "2876",
@@ -38424,6 +38484,8 @@
   "penn state fayette nittany lions": "130197",
   "penn state hazleton": "131642",
   "penn state hazleton nittany lions": "131642",
+  "penn state lehigh valley": "135043",
+  "penn state lehigh valley nittany lions": "135043",
   "penn state new kensington": "126910",
   "penn state new kensington lions": "126910",
   "penn state nittany lions": "213",
@@ -38768,6 +38830,7 @@
   "s dakota st": "2571",
   "s diego christ": "3096",
   "s illinois": "79",
+  "s indiana": "88",
   "s virginia": "2896",
   "s wesleyan": "2576",
   "sa": "2950",
@@ -40190,13 +40253,6 @@
    "2918",
    "548"
   ],
-  "lin": [
-   "203",
-   "2338",
-   "2815",
-   "2876",
-   "2877"
-  ],
   "mar": [
    "124851",
    "2366",
@@ -40268,7 +40324,8 @@
   "pen": [
    "111199",
    "130195",
-   "130197"
+   "130197",
+   "135043"
   ],
   "phila": [
    "2494",
@@ -40967,6 +41024,8 @@
   "cbbd:1578": "134939",
   "cbbd:1579": "131630",
   "cbbd:158": "276",
+  "cbbd:1580": "134891",
+  "cbbd:1581": "135043",
   "cbbd:159": "2379",
   "cbbd:16": "2",
   "cbbd:160": "120",
@@ -42086,6 +42145,7 @@
   "espn:2507": "2507",
   "espn:2509": "2509",
   "espn:251": "251",
+  "espn:2511": "2511",
   "espn:2514": "2514",
   "espn:2515": "2515",
   "espn:252": "252",
@@ -42171,6 +42231,7 @@
   "espn:279": "279",
   "espn:28": "28",
   "espn:2803": "2803",
+  "espn:2815": "2815",
   "espn:282": "282",
   "espn:2837": "2837",
   "espn:284": "284",
@@ -42246,6 +42307,7 @@
   "espn:84": "84",
   "espn:85": "85",
   "espn:87": "87",
+  "espn:88": "88",
   "espn:9": "9",
   "espn:91": "91",
   "espn:93": "93",
