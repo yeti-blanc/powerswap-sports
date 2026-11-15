@@ -48,7 +48,7 @@
   },
   {
    "id": "401929419",
-   "start": "2026-11-16T18:00Z",
+   "start": "2026-11-16T19:00Z",
    "time_valid": true,
    "status": "scheduled",
    "neutral": false,
@@ -360,21 +360,6 @@
    "away": {
     "id": "171",
     "name": "Columbia"
-   }
-  },
-  {
-   "id": "401926143",
-   "start": "2026-11-17T01:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "155",
-    "name": "North Dakota"
-   },
-   "away": {
-    "id": "2565",
-    "name": "SIU Edwardsville"
    }
   },
   {

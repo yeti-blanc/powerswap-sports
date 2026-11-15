@@ -5,67 +5,75 @@
    "id": "401924858",
    "start": "2026-11-15T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2115",
-    "name": "Central Connecticut"
+    "name": "Central Connecticut",
+    "score": 72
    },
    "away": {
     "id": "2514",
-    "name": "Quinnipiac"
+    "name": "Quinnipiac",
+    "score": 67
    }
   },
   {
    "id": "401929458",
    "start": "2026-11-15T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "526",
-    "name": "Florida Gulf Coast"
+    "name": "Florida Gulf Coast",
+    "score": 99
    },
    "away": {
     "id": null,
-    "name": "Abraham Baldwin Agricultural"
+    "name": "Abraham Baldwin Agricultural",
+    "score": 31
    }
   },
   {
    "id": "401909774",
    "start": "2026-11-15T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "66",
-    "name": "Iowa State"
+    "name": "Iowa State",
+    "score": 66
    },
    "away": {
     "id": "315",
-    "name": "Niagara"
+    "name": "Niagara",
+    "score": 45
    }
   },
   {
    "id": "401912210",
    "start": "2026-11-15T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "44",
-    "name": "American University"
+    "name": "American University",
+    "score": 70
    },
    "away": {
     "id": "108",
-    "name": "Harvard"
+    "name": "Harvard",
+    "score": 64
    }
   },
   {
    "id": "401918949",
    "start": "2026-11-15T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "235",
@@ -80,52 +88,58 @@
    "id": "401920235",
    "start": "2026-11-15T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "104",
-    "name": "Boston University"
+    "name": "Boston University",
+    "score": 90
    },
    "away": {
     "id": "159",
-    "name": "Dartmouth"
+    "name": "Dartmouth",
+    "score": 75
    }
   },
   {
    "id": "401920771",
    "start": "2026-11-15T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "48",
-    "name": "Delaware"
+    "name": "Delaware",
+    "score": 64
    },
    "away": {
     "id": "2142",
-    "name": "Colgate"
+    "name": "Colgate",
+    "score": 58
    }
   },
   {
    "id": "401925896",
    "start": "2026-11-15T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2247",
-    "name": "Georgia State"
+    "name": "Georgia State",
+    "score": 78
    },
    "away": {
     "id": "2450",
-    "name": "Norfolk State"
+    "name": "Norfolk State",
+    "score": 53
    }
   },
   {
    "id": "401926063",
    "start": "2026-11-15T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "158",
@@ -140,7 +154,7 @@
    "id": "401909554",
    "start": "2026-11-15T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "103",
@@ -155,7 +169,7 @@
    "id": "401918453",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "130",
@@ -170,7 +184,7 @@
    "id": "401920065",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "227",
@@ -185,7 +199,7 @@
    "id": "401920136",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2449",
@@ -200,7 +214,7 @@
    "id": "401921287",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "107",
@@ -215,7 +229,7 @@
    "id": "401924744",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "43",
@@ -230,7 +244,7 @@
    "id": "401925812",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2325",
@@ -246,7 +260,7 @@
    "id": "401925926",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "232",
@@ -261,7 +275,7 @@
    "id": "401928825",
    "start": "2026-11-15T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2523",
@@ -276,15 +290,15 @@
    "id": "401909525",
    "start": "2026-11-15T19:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "269",
-    "name": "Marquette"
-   },
-   "away": {
     "id": "142",
     "name": "Missouri"
+   },
+   "away": {
+    "id": "269",
+    "name": "Marquette"
    },
    "note": "Legends Classic"
   },
@@ -292,7 +306,7 @@
    "id": "401906866",
    "start": "2026-11-15T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "251",
@@ -308,7 +322,7 @@
    "id": "401909493",
    "start": "2026-11-15T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2294",
@@ -323,7 +337,7 @@
    "id": "401911251",
    "start": "2026-11-15T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "139",
@@ -338,7 +352,7 @@
    "id": "401921168",
    "start": "2026-11-15T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2010",
@@ -353,7 +367,7 @@
    "id": "401926068",
    "start": "2026-11-15T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2197",
@@ -368,7 +382,7 @@
    "id": "401926216",
    "start": "2026-11-15T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2635",
