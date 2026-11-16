@@ -319,21 +319,6 @@
    }
   },
   {
-   "id": "401917534",
-   "start": "2026-11-18T00:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "279",
-    "name": "Pacific"
-   },
-   "away": {
-    "id": "594",
-    "name": "Pacific Union"
-   }
-  },
-  {
    "id": "401918994",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
@@ -526,21 +511,6 @@
    "away": {
     "id": "2129",
     "name": "Cheyney (PA)"
-   }
-  },
-  {
-   "id": "401930568",
-   "start": "2026-11-18T00:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "6",
-    "name": "South Alabama"
-   },
-   "away": {
-    "id": "2590",
-    "name": "Spring Hill"
    }
   },
   {
@@ -845,6 +815,21 @@
    }
   },
   {
+   "id": "401930568",
+   "start": "2026-11-18T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "6",
+    "name": "South Alabama"
+   },
+   "away": {
+    "id": "2590",
+    "name": "Spring Hill"
+   }
+  },
+  {
    "id": "401920720",
    "start": "2026-11-18T01:30Z",
    "time_valid": true,
@@ -963,6 +948,21 @@
    "away": {
     "id": "2547",
     "name": "Seattle U"
+   }
+  },
+  {
+   "id": "401917534",
+   "start": "2026-11-18T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "279",
+    "name": "Pacific"
+   },
+   "away": {
+    "id": "594",
+    "name": "Pacific Union"
    }
   },
   {

@@ -5,60 +5,68 @@
    "id": "401920962",
    "start": "2026-11-16T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2413",
-    "name": "Morehead State"
+    "name": "Morehead State",
+    "score": 104
    },
    "away": {
     "id": "124809",
-    "name": "Miami (OH)-Hamilton"
+    "name": "Miami (OH)-Hamilton",
+    "score": 69
    }
   },
   {
    "id": "401911211",
    "start": "2026-11-16T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "45",
-    "name": "George Washington"
+    "name": "George Washington",
+    "score": 94
    },
    "away": {
     "id": "366",
-    "name": "Ferrum"
+    "name": "Ferrum",
+    "score": 57
    }
   },
   {
    "id": "401929371",
    "start": "2026-11-16T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2453",
-    "name": "North Alabama"
+    "name": "North Alabama",
+    "score": 87
    },
    "away": {
     "id": "2225",
-    "name": "Fisk"
+    "name": "Fisk",
+    "score": 49
    }
   },
   {
    "id": "401929419",
    "start": "2026-11-16T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2638",
-    "name": "UTEP"
+    "name": "UTEP",
+    "score": 79
    },
    "away": {
     "id": "50",
-    "name": "Florida A&M"
+    "name": "Florida A&M",
+    "score": 46
    }
   },
   {
