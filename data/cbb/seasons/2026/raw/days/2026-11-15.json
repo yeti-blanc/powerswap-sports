@@ -602,135 +602,153 @@
    "id": "401911017",
    "start": "2026-11-15T22:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2084",
-    "name": "Buffalo"
+    "name": "Buffalo",
+    "score": 79
    },
    "away": {
     "id": "2099",
-    "name": "Canisius"
+    "name": "Canisius",
+    "score": 55
    }
   },
   {
    "id": "401920124",
    "start": "2026-11-15T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "147",
-    "name": "Montana State"
+    "name": "Montana State",
+    "score": 77
    },
    "away": {
     "id": "13",
-    "name": "Cal Poly"
+    "name": "Cal Poly",
+    "score": 52
    }
   },
   {
    "id": "401926733",
    "start": "2026-11-15T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2630",
-    "name": "UT Martin"
+    "name": "UT Martin",
+    "score": 128
    },
    "away": {
     "id": "3120",
-    "name": "Ecclesia"
+    "name": "Ecclesia",
+    "score": 44
    }
   },
   {
    "id": "401920681",
    "start": "2026-11-16T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2599",
-    "name": "St. John's"
+    "name": "St. John's",
+    "score": 79
    },
    "away": {
     "id": "183",
-    "name": "Syracuse"
+    "name": "Syracuse",
+    "score": 62
    }
   },
   {
    "id": "401926772",
    "start": "2026-11-16T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "30",
-    "name": "USC"
+    "name": "USC",
+    "score": 122
    },
    "away": {
     "id": "2029",
-    "name": "Arkansas-Pine Bluff"
+    "name": "Arkansas-Pine Bluff",
+    "score": 46
    }
   },
   {
    "id": "401920896",
    "start": "2026-11-16T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "275",
-    "name": "Wisconsin"
+    "name": "Wisconsin",
+    "score": 89
    },
    "away": {
     "id": "324",
-    "name": "Coastal Carolina"
+    "name": "Coastal Carolina",
+    "score": 81
    }
   },
   {
    "id": "401925718",
    "start": "2026-11-16T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2065",
-    "name": "Bethune-Cookman"
+    "name": "Bethune-Cookman",
+    "score": 88
    },
    "away": {
-    "id": "2488",
-    "name": "Paine"
+    "id": "2948",
+    "name": "Stillman",
+    "score": 64
    }
   },
   {
    "id": "401929200",
    "start": "2026-11-16T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2636",
-    "name": "UT San Antonio"
+    "name": "UT San Antonio",
+    "score": 67
    },
    "away": {
     "id": "326",
-    "name": "Texas State"
+    "name": "Texas State",
+    "score": 87
    }
   },
   {
    "id": "401911472",
    "start": "2026-11-16T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "23",
-    "name": "San José State"
+    "name": "San José State",
+    "score": 80
    },
    "away": {
     "id": "2011",
-    "name": "Alabama State"
+    "name": "Alabama State",
+    "score": 68
    }
   }
  ]

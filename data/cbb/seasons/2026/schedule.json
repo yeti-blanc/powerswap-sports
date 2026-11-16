@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-15T18:57:22-05:00",
+ "generated_at": "2026-11-15T23:42:50-05:00",
  "today": "2026-11-15",
  "current_week": "week2",
  "weeks": {
@@ -1453,10 +1453,12 @@
      "id": "401920681",
      "start": "2026-11-16T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Syracuse",
-     "opponent_id": "183"
+     "opponent_id": "183",
+     "score": 79,
+     "opponent_score": 62
     },
     {
      "id": "401920682",
@@ -1843,10 +1845,12 @@
      "id": "401926772",
      "start": "2026-11-16T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Arkansas-Pine Bluff",
-     "opponent_id": "2029"
+     "opponent_id": "2029",
+     "score": 122,
+     "opponent_score": 46
     },
     {
      "id": "401926773",
