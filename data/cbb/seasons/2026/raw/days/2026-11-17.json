@@ -981,6 +981,21 @@
    }
   },
   {
+   "id": "401934595",
+   "start": "2026-11-18T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "264",
+    "name": "Washington"
+   },
+   "away": {
+    "id": "2829",
+    "name": "Simon Fraser"
+   }
+  },
+  {
    "id": "401925879",
    "start": "2026-11-18T04:00Z",
    "time_valid": true,

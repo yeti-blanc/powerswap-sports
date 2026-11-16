@@ -2,8 +2,8 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-15T18:57:22-05:00",
- "current_week": "week2",
+ "generated_at": "2026-11-16T08:10:06-05:00",
+ "current_week": "week3",
  "weeks": {
   "week1": {
    "start": "2026-11-01",
@@ -12,6 +12,10 @@
   "week2": {
    "start": "2026-11-09",
    "end": "2026-11-15"
+  },
+  "week3": {
+   "start": "2026-11-16",
+   "end": "2026-11-22"
   }
  },
  "snapshots": [
@@ -695,6 +699,408 @@
   },
   {
    "week": "week2",
+   "rankings": [
+    {
+     "rank": 1,
+     "team": "Florida",
+     "lineage": [
+      {
+       "team": "Florida",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "57"
+      }
+     ],
+     "team_id": "57"
+    },
+    {
+     "rank": 2,
+     "team": "Michigan State",
+     "lineage": [
+      {
+       "team": "Duke",
+       "held_from": "preseason",
+       "held_until": "week2",
+       "team_id": "150"
+      },
+      {
+       "team": "Michigan State",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "127"
+      }
+     ],
+     "team_id": "127"
+    },
+    {
+     "rank": 3,
+     "team": "Texas Tech",
+     "lineage": [
+      {
+       "team": "Illinois",
+       "held_from": "preseason",
+       "held_until": "week2",
+       "team_id": "356"
+      },
+      {
+       "team": "Texas Tech",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "2641"
+      }
+     ],
+     "team_id": "2641"
+    },
+    {
+     "rank": 4,
+     "team": "Connecticut",
+     "lineage": [
+      {
+       "team": "Connecticut",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "41"
+      }
+     ],
+     "team_id": "41"
+    },
+    {
+     "rank": 5,
+     "team": "UCLA",
+     "lineage": [
+      {
+       "team": "Arizona",
+       "held_from": "preseason",
+       "held_until": "week1",
+       "team_id": "12"
+      },
+      {
+       "team": "UCLA",
+       "held_from": "week1",
+       "held_until": null,
+       "team_id": "26"
+      }
+     ],
+     "team_id": "26"
+    },
+    {
+     "rank": 6,
+     "team": "Duke",
+     "lineage": [
+      {
+       "team": "Michigan State",
+       "held_from": "preseason",
+       "held_until": "week2",
+       "team_id": "127"
+      },
+      {
+       "team": "Duke",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "150"
+      }
+     ],
+     "team_id": "150"
+    },
+    {
+     "rank": 7,
+     "team": "Texas",
+     "lineage": [
+      {
+       "team": "Texas",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "251"
+      }
+     ],
+     "team_id": "251"
+    },
+    {
+     "rank": 8,
+     "team": "Tennessee",
+     "lineage": [
+      {
+       "team": "Tennessee",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "2633"
+      }
+     ],
+     "team_id": "2633"
+    },
+    {
+     "rank": 9,
+     "team": "Virginia",
+     "lineage": [
+      {
+       "team": "Virginia",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "258"
+      }
+     ],
+     "team_id": "258"
+    },
+    {
+     "rank": 10,
+     "team": "Houston",
+     "lineage": [
+      {
+       "team": "Houston",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "248"
+      }
+     ],
+     "team_id": "248"
+    },
+    {
+     "rank": 11,
+     "team": "Memphis",
+     "lineage": [
+      {
+       "team": "Louisville",
+       "held_from": "preseason",
+       "held_until": "week2",
+       "team_id": "97"
+      },
+      {
+       "team": "Memphis",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "235"
+      }
+     ],
+     "team_id": "235"
+    },
+    {
+     "rank": 12,
+     "team": "Arkansas",
+     "lineage": [
+      {
+       "team": "Arkansas",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "8"
+      }
+     ],
+     "team_id": "8"
+    },
+    {
+     "rank": 13,
+     "team": "St. John's",
+     "lineage": [
+      {
+       "team": "St. John's",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "2599"
+      }
+     ],
+     "team_id": "2599"
+    },
+    {
+     "rank": 14,
+     "team": "Miami",
+     "lineage": [
+      {
+       "team": "Miami",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "2390"
+      }
+     ],
+     "team_id": "2390"
+    },
+    {
+     "rank": 15,
+     "team": "LSU",
+     "lineage": [
+      {
+       "team": "Gonzaga",
+       "held_from": "preseason",
+       "held_until": "week2",
+       "team_id": "2250"
+      },
+      {
+       "team": "LSU",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "99"
+      }
+     ],
+     "team_id": "99"
+    },
+    {
+     "rank": 16,
+     "team": "Michigan",
+     "lineage": [
+      {
+       "team": "Michigan",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "130"
+      }
+     ],
+     "team_id": "130"
+    },
+    {
+     "rank": 17,
+     "team": "Kansas",
+     "lineage": [
+      {
+       "team": "Kansas",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "2305"
+      }
+     ],
+     "team_id": "2305"
+    },
+    {
+     "rank": 18,
+     "team": "Vanderbilt",
+     "lineage": [
+      {
+       "team": "Iowa State",
+       "held_from": "preseason",
+       "held_until": "week1",
+       "team_id": "66"
+      },
+      {
+       "team": "Memphis",
+       "held_from": "week1",
+       "held_until": "week2",
+       "team_id": "235"
+      },
+      {
+       "team": "Vanderbilt",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "238"
+      }
+     ],
+     "team_id": "238"
+    },
+    {
+     "rank": 19,
+     "team": "Illinois",
+     "lineage": [
+      {
+       "team": "Texas Tech",
+       "held_from": "preseason",
+       "held_until": "week2",
+       "team_id": "2641"
+      },
+      {
+       "team": "Illinois",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "356"
+      }
+     ],
+     "team_id": "356"
+    },
+    {
+     "rank": 20,
+     "team": "Alabama",
+     "lineage": [
+      {
+       "team": "Alabama",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "333"
+      }
+     ],
+     "team_id": "333"
+    },
+    {
+     "rank": 21,
+     "team": "USC",
+     "lineage": [
+      {
+       "team": "USC",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "30"
+      }
+     ],
+     "team_id": "30"
+    },
+    {
+     "rank": 22,
+     "team": "Arizona",
+     "lineage": [
+      {
+       "team": "UCLA",
+       "held_from": "preseason",
+       "held_until": "week1",
+       "team_id": "26"
+      },
+      {
+       "team": "Arizona",
+       "held_from": "week1",
+       "held_until": null,
+       "team_id": "12"
+      }
+     ],
+     "team_id": "12"
+    },
+    {
+     "rank": 23,
+     "team": "Kentucky",
+     "lineage": [
+      {
+       "team": "Kentucky",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "96"
+      }
+     ],
+     "team_id": "96"
+    },
+    {
+     "rank": 24,
+     "team": "Louisville",
+     "lineage": [
+      {
+       "team": "Vanderbilt",
+       "held_from": "preseason",
+       "held_until": "week2",
+       "team_id": "238"
+      },
+      {
+       "team": "Memphis",
+       "held_from": "week2",
+       "held_until": "week2",
+       "team_id": "235"
+      },
+      {
+       "team": "Louisville",
+       "held_from": "week2",
+       "held_until": null,
+       "team_id": "97"
+      }
+     ],
+     "team_id": "97"
+    },
+    {
+     "rank": 25,
+     "team": "BYU",
+     "lineage": [
+      {
+       "team": "BYU",
+       "held_from": "preseason",
+       "held_until": null,
+       "team_id": "252"
+      }
+     ],
+     "team_id": "252"
+    }
+   ]
+  },
+  {
+   "week": "week3",
    "rankings": [
     {
      "rank": 1,

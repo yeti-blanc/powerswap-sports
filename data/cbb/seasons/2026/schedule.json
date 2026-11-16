@@ -1,8 +1,8 @@
 {
  "season": 2026,
- "generated_at": "2026-11-15T23:42:50-05:00",
- "today": "2026-11-15",
- "current_week": "week2",
+ "generated_at": "2026-11-16T08:10:06-05:00",
+ "today": "2026-11-16",
+ "current_week": "week3",
  "weeks": {
   "week1": {
    "start": "2026-11-01",
@@ -11,6 +11,10 @@
   "week2": {
    "start": "2026-11-09",
    "end": "2026-11-15"
+  },
+  "week3": {
+   "start": "2026-11-16",
+   "end": "2026-11-22"
   }
  },
  "ranked_ids": [

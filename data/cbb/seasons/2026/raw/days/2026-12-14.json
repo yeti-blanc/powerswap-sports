@@ -1,0 +1,246 @@
+{
+ "date": "2026-12-14",
+ "games": [
+  {
+   "id": "401926860",
+   "start": "2026-12-14T05:00Z",
+   "time_valid": false,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "47",
+    "name": "Howard"
+   },
+   "away": {
+    "id": "119",
+    "name": "Towson"
+   }
+  },
+  {
+   "id": "401922235",
+   "start": "2026-12-14T16:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2529",
+    "name": "Sacred Heart"
+   },
+   "away": {
+    "id": "2511",
+    "name": "Queens University"
+   }
+  },
+  {
+   "id": "401919833",
+   "start": "2026-12-14T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2385",
+    "name": "Mercyhurst"
+   },
+   "away": {
+    "id": "111943",
+    "name": "Mount Aloysius"
+   }
+  },
+  {
+   "id": "401927869",
+   "start": "2026-12-14T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2464",
+    "name": "Northern Arizona"
+   },
+   "away": {
+    "id": "130183",
+    "name": "Justice College"
+   }
+  },
+  {
+   "id": "401921750",
+   "start": "2026-12-15T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2132",
+    "name": "Cincinnati"
+   },
+   "away": {
+    "id": "56",
+    "name": "Stetson"
+   }
+  },
+  {
+   "id": "401926737",
+   "start": "2026-12-15T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2630",
+    "name": "UT Martin"
+   },
+   "away": {
+    "id": "2466",
+    "name": "Northwestern State"
+   }
+  },
+  {
+   "id": "401919036",
+   "start": "2026-12-15T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2724",
+    "name": "Wichita State"
+   },
+   "away": {
+    "id": "2096",
+    "name": "Cameron"
+   }
+  },
+  {
+   "id": "401920764",
+   "start": "2026-12-15T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2057",
+    "name": "Belmont"
+   },
+   "away": {
+    "id": "232",
+    "name": "Charleston"
+   }
+  },
+  {
+   "id": "401929435",
+   "start": "2026-12-15T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2571",
+    "name": "South Dakota State"
+   },
+   "away": {
+    "id": "63",
+    "name": "Buena Vista"
+   }
+  },
+  {
+   "id": "401929443",
+   "start": "2026-12-15T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2572",
+    "name": "Southern Miss"
+   },
+   "away": {
+    "id": "2657",
+    "name": "Tuskegee"
+   }
+  },
+  {
+   "id": "401924924",
+   "start": "2026-12-15T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2751",
+    "name": "Wyoming"
+   },
+   "away": {
+    "id": "2737",
+    "name": "Winthrop"
+   }
+  },
+  {
+   "id": "401911527",
+   "start": "2026-12-15T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "302",
+    "name": "UC Davis"
+   },
+   "away": {
+    "id": "2856",
+    "name": "California Baptist"
+   }
+  },
+  {
+   "id": "401917573",
+   "start": "2026-12-15T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2377",
+    "name": "McNeese"
+   },
+   "away": {
+    "id": "2541",
+    "name": "Santa Clara"
+   },
+   "note": "Jack Jones Classic"
+  },
+  {
+   "id": "401925945",
+   "start": "2026-12-15T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "3101",
+    "name": "Utah Tech"
+   },
+   "away": {
+    "id": "2172",
+    "name": "Denver"
+   }
+  },
+  {
+   "id": "401921730",
+   "start": "2026-12-15T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "24",
+    "name": "Stanford"
+   },
+   "away": {
+    "id": "2458",
+    "name": "Northern Colorado"
+   }
+  },
+  {
+   "id": "401921737",
+   "start": "2026-12-15T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "204",
+    "name": "Oregon State"
+   },
+   "away": {
+    "id": "9",
+    "name": "Arizona State"
+   }
+  }
+ ]
+}
