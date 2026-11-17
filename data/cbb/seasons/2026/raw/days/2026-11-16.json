@@ -499,60 +499,68 @@
    "id": "401917532",
    "start": "2026-11-17T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2608",
-    "name": "Saint Mary's"
+    "name": "Saint Mary's",
+    "score": 94
    },
    "away": {
     "id": "2502",
-    "name": "Portland State"
+    "name": "Portland State",
+    "score": 78
    }
   },
   {
    "id": "401920373",
    "start": "2026-11-17T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "28",
-    "name": "UC San Diego"
+    "name": "UC San Diego",
+    "score": 97
    },
    "away": {
     "id": "2640",
-    "name": "Texas Southern"
+    "name": "Texas Southern",
+    "score": 92
    }
   },
   {
    "id": "401924265",
    "start": "2026-11-17T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "26",
-    "name": "UCLA"
+    "name": "UCLA",
+    "score": 105
    },
    "away": {
     "id": "299",
-    "name": "Long Beach State"
+    "name": "Long Beach State",
+    "score": 66
    }
   },
   {
    "id": "401926228",
    "start": "2026-11-17T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2172",
-    "name": "Denver"
+    "name": "Denver",
+    "score": 101
    },
    "away": {
     "id": "2145",
-    "name": "Colorado-Colorado Springs"
+    "name": "Colorado-Colorado Springs",
+    "score": 63
    }
   }
  ]

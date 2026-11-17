@@ -49,6 +49,21 @@
    }
   },
   {
+   "id": "401909698",
+   "start": "2026-11-20T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "52",
+    "name": "Florida State"
+   },
+   "away": {
+    "id": "2739",
+    "name": "Green Bay"
+   }
+  },
+  {
    "id": "401925841",
    "start": "2026-11-20T17:00Z",
    "time_valid": true,
@@ -644,21 +659,6 @@
    "away": {
     "id": "61",
     "name": "Georgia"
-   }
-  },
-  {
-   "id": "401909698",
-   "start": "2026-11-21T01:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "52",
-    "name": "Florida State"
-   },
-   "away": {
-    "id": "2739",
-    "name": "Green Bay"
    }
   },
   {
