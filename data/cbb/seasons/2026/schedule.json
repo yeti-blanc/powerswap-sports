@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-17T09:00:29-05:00",
+ "generated_at": "2026-11-17T17:17:33-05:00",
  "today": "2026-11-17",
  "current_week": "week3",
  "weeks": {
@@ -1031,10 +1031,22 @@
      "id": "401920511",
      "start": "2026-11-17T19:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Rutgers",
      "opponent_id": "164",
+     "score": 85,
+     "opponent_score": 73,
+     "note": "Players Era 8"
+    },
+    {
+     "id": "401920514",
+     "start": "2026-11-18T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "TBD",
+     "opponent_id": "cbbd-1543",
      "note": "Players Era 8"
     },
     {
@@ -2337,9 +2349,9 @@
     },
     {
      "id": "401906773",
-     "start": "2026-11-17T21:30Z",
+     "start": "2026-11-17T21:51Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Notre Dame",
      "opponent_id": "87",
