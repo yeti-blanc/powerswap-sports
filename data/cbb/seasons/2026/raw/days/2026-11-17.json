@@ -439,6 +439,21 @@
    }
   },
   {
+   "id": "401922221",
+   "start": "2026-11-18T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2454",
+    "name": "North Florida"
+   },
+   "away": {
+    "id": "123362",
+    "name": "Fort Lauderdale"
+   }
+  },
+  {
    "id": "401922251",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
@@ -722,21 +737,6 @@
    "away": {
     "id": "2197",
     "name": "Eastern Illinois"
-   }
-  },
-  {
-   "id": "401922221",
-   "start": "2026-11-18T01:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2454",
-    "name": "North Florida"
-   },
-   "away": {
-    "id": "123362",
-    "name": "Fort Lauderdale"
    }
   },
   {

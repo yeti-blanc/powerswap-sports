@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-16T08:10:06-05:00",
+ "generated_at": "2026-11-16T23:54:24-05:00",
  "today": "2026-11-16",
  "current_week": "week3",
  "weeks": {
@@ -1564,7 +1564,7 @@
      "id": "401924265",
      "start": "2026-11-17T03:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Long Beach State",
      "opponent_id": "299"
@@ -2609,10 +2609,12 @@
      "id": "401921804",
      "start": "2026-11-17T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Grambling",
-     "opponent_id": "2755"
+     "opponent_id": "2755",
+     "score": 88,
+     "opponent_score": 59
     },
     {
      "id": "401916290",
