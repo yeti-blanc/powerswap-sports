@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generated_at": "2026-11-17T22:45:38-05:00",
- "today": "2026-11-17",
+ "generated_at": "2026-11-18T07:30:48-05:00",
+ "today": "2026-11-18",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -19,13 +19,13 @@
  },
  "ranked_ids": [
   "57",
-  "127",
+  "2633",
   "2641",
   "41",
   "26",
   "356",
   "251",
-  "2633",
+  "127",
   "258",
   "248",
   "235",
@@ -194,10 +194,12 @@
      "id": "401906851",
      "start": "2026-11-18T02:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "away",
      "opponent": "Tennessee",
-     "opponent_id": "2633"
+     "opponent_id": "2633",
+     "score": 46,
+     "opponent_score": 61
     },
     {
      "id": "401925756",
@@ -520,10 +522,12 @@
      "id": "401925879",
      "start": "2026-11-18T04:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Montana State",
-     "opponent_id": "147"
+     "opponent_id": "147",
+     "score": 74,
+     "opponent_score": 62
     },
     {
      "id": "401909800",
@@ -614,10 +618,22 @@
      "id": "401909787",
      "start": "2026-11-18T02:30Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Nevada-Las Vegas",
      "opponent_id": "2439",
+     "score": 102,
+     "opponent_score": 77,
+     "note": "Players Era 8"
+    },
+    {
+     "id": "401920515",
+     "start": "2026-11-19T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "West Virginia",
+     "opponent_id": "277",
      "note": "Players Era 8"
     },
     {
@@ -769,6 +785,15 @@
      "home_away": "home",
      "opponent": "Grand Canyon",
      "opponent_id": "2253"
+    },
+    {
+     "id": "401906873",
+     "start": "2026-12-17T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Texas",
+     "opponent_id": "251"
     }
    ]
   },
@@ -993,6 +1018,15 @@
      "opponent": "Texas",
      "opponent_id": "251",
      "note": "Houston Hoopfest"
+    },
+    {
+     "id": "401921725",
+     "start": "2026-12-17T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Alcorn State",
+     "opponent_id": "2016"
     }
    ]
   },
@@ -1217,6 +1251,15 @@
      "opponent": "Miami",
      "opponent_id": "2390",
      "note": "Houston Hoopfest"
+    },
+    {
+     "id": "401906873",
+     "start": "2026-12-17T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Memphis",
+     "opponent_id": "235"
     }
    ]
   },
@@ -1389,10 +1432,12 @@
      "id": "401920426",
      "start": "2026-11-18T02:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Old Dominion",
-     "opponent_id": "295"
+     "opponent_id": "295",
+     "score": 85,
+     "opponent_score": 65
     },
     {
      "id": "401920427",
@@ -1704,10 +1749,12 @@
      "id": "401906851",
      "start": "2026-11-18T02:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Michigan State",
-     "opponent_id": "127"
+     "opponent_id": "127",
+     "score": 61,
+     "opponent_score": 46
     },
     {
      "id": "401906852",
@@ -1756,6 +1803,15 @@
      "home_away": "away",
      "opponent": "Purdue",
      "opponent_id": "2509"
+    },
+    {
+     "id": "401906857",
+     "start": "2026-12-17T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Morehead State",
+     "opponent_id": "2413"
     }
    ]
   },
@@ -2077,6 +2133,15 @@
      "opponent": "St. John's",
      "opponent_id": "2599",
      "note": "C.M. Newton Classic"
+    },
+    {
+     "id": "401906766",
+     "start": "2026-12-17T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "South Florida",
+     "opponent_id": "58"
     }
    ]
   },
@@ -2955,6 +3020,15 @@
      "home_away": "away",
      "opponent": "Kentucky",
      "opponent_id": "96"
+    },
+    {
+     "id": "401918953",
+     "start": "2026-12-17T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Long Island University",
+     "opponent_id": "112358"
     }
    ]
   },
@@ -3017,8 +3091,8 @@
     },
     {
      "id": "401921811",
-     "start": "2026-11-21T05:00Z",
-     "time_valid": false,
+     "start": "2026-11-22T01:00Z",
+     "time_valid": true,
      "status": "scheduled",
      "home_away": "home",
      "opponent": "Queens University",

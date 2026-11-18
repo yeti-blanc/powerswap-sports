@@ -2,51 +2,6 @@
  "date": "2026-11-21",
  "games": [
   {
-   "id": "401917537",
-   "start": "2026-11-21T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "279",
-    "name": "Pacific"
-   },
-   "away": {
-    "id": "71",
-    "name": "Bradley"
-   }
-  },
-  {
-   "id": "401921811",
-   "start": "2026-11-21T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "99",
-    "name": "LSU"
-   },
-   "away": {
-    "id": "2511",
-    "name": "Queens University"
-   }
-  },
-  {
-   "id": "401923312",
-   "start": "2026-11-21T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2441",
-    "name": "New Haven"
-   },
-   "away": {
-    "id": "160",
-    "name": "New Hampshire"
-   }
-  },
-  {
    "id": "401922284",
    "start": "2026-11-21T16:00Z",
    "time_valid": true,
@@ -74,21 +29,6 @@
    "away": {
     "id": "2561",
     "name": "Siena"
-   }
-  },
-  {
-   "id": "401911394",
-   "start": "2026-11-21T17:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2678",
-    "name": "VMI"
-   },
-   "away": {
-    "id": "2241",
-    "name": "Gardner-Webb"
    }
   },
   {
@@ -149,6 +89,21 @@
    "away": {
     "id": "2309",
     "name": "Kent State"
+   }
+  },
+  {
+   "id": "401923312",
+   "start": "2026-11-21T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2441",
+    "name": "New Haven"
+   },
+   "away": {
+    "id": "160",
+    "name": "New Hampshire"
    }
   },
   {
@@ -516,6 +471,21 @@
    }
   },
   {
+   "id": "401926113",
+   "start": "2026-11-21T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "231",
+    "name": "Furman"
+   },
+   "away": {
+    "id": null,
+    "name": "Clinton"
+   }
+  },
+  {
    "id": "401917538",
    "start": "2026-11-21T21:30Z",
    "time_valid": true,
@@ -654,21 +624,6 @@
    }
   },
   {
-   "id": "401926113",
-   "start": "2026-11-21T23:30Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "231",
-    "name": "Furman"
-   },
-   "away": {
-    "id": null,
-    "name": "Clinton"
-   }
-  },
-  {
    "id": "401911310",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
@@ -696,6 +651,21 @@
    "away": {
     "id": "2127",
     "name": "Charleston Southern"
+   }
+  },
+  {
+   "id": "401911394",
+   "start": "2026-11-22T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2678",
+    "name": "VMI"
+   },
+   "away": {
+    "id": "2241",
+    "name": "Gardner-Webb"
    }
   },
   {
@@ -805,6 +775,21 @@
    }
   },
   {
+   "id": "401921811",
+   "start": "2026-11-22T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "99",
+    "name": "LSU"
+   },
+   "away": {
+    "id": "2511",
+    "name": "Queens University"
+   }
+  },
+  {
    "id": "401925099",
    "start": "2026-11-22T01:00Z",
    "time_valid": true,
@@ -848,6 +833,21 @@
    "away": {
     "id": "2443",
     "name": "LSU New Orleans"
+   }
+  },
+  {
+   "id": "401917537",
+   "start": "2026-11-22T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "279",
+    "name": "Pacific"
+   },
+   "away": {
+    "id": "71",
+    "name": "Bradley"
    }
   },
   {

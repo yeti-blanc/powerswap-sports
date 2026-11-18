@@ -960,15 +960,17 @@
    "id": "401924922",
    "start": "2026-11-18T01:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2751",
-    "name": "Wyoming"
+    "name": "Wyoming",
+    "score": 81
    },
    "away": {
     "id": "2534",
-    "name": "Sam Houston State"
+    "name": "Sam Houston State",
+    "score": 79
    }
   },
   {
@@ -992,60 +994,68 @@
    "id": "401906851",
    "start": "2026-11-18T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2633",
-    "name": "Tennessee"
+    "name": "Tennessee",
+    "score": 61
    },
    "away": {
     "id": "127",
-    "name": "Michigan State"
+    "name": "Michigan State",
+    "score": 46
    }
   },
   {
    "id": "401911521",
    "start": "2026-11-18T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "302",
-    "name": "UC Davis"
+    "name": "UC Davis",
+    "score": 68
    },
    "away": {
     "id": "2011",
-    "name": "Alabama State"
+    "name": "Alabama State",
+    "score": 75
    }
   },
   {
    "id": "401920426",
    "start": "2026-11-18T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "258",
-    "name": "Virginia"
+    "name": "Virginia",
+    "score": 85
    },
    "away": {
     "id": "295",
-    "name": "Old Dominion"
+    "name": "Old Dominion",
+    "score": 65
    }
   },
   {
    "id": "401909787",
    "start": "2026-11-18T02:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2305",
-    "name": "Kansas"
+    "name": "Kansas",
+    "score": 102
    },
    "away": {
     "id": "2439",
-    "name": "Nevada-Las Vegas"
+    "name": "Nevada-Las Vegas",
+    "score": 77
    },
    "note": "Players Era 8"
   },
@@ -1053,90 +1063,102 @@
    "id": "401917533",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2856",
-    "name": "California Baptist"
+    "name": "California Baptist",
+    "score": 54
    },
    "away": {
     "id": "2547",
-    "name": "Seattle U"
+    "name": "Seattle U",
+    "score": 83
    }
   },
   {
    "id": "401917534",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "279",
-    "name": "Pacific"
+    "name": "Pacific",
+    "score": 96
    },
    "away": {
     "id": "594",
-    "name": "Pacific Union"
+    "name": "Pacific Union",
+    "score": 41
    }
   },
   {
    "id": "401921729",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "24",
-    "name": "Stanford"
+    "name": "Stanford",
+    "score": 65
    },
    "away": {
     "id": "300",
-    "name": "UC Irvine"
+    "name": "UC Irvine",
+    "score": 61
    }
   },
   {
    "id": "401934595",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "264",
-    "name": "Washington"
+    "name": "Washington",
+    "score": 96
    },
    "away": {
     "id": "2829",
-    "name": "Simon Fraser"
+    "name": "Simon Fraser",
+    "score": 59
    }
   },
   {
    "id": "401925879",
    "start": "2026-11-18T04:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2250",
-    "name": "Gonzaga"
+    "name": "Gonzaga",
+    "score": 74
    },
    "away": {
     "id": "147",
-    "name": "Montana State"
+    "name": "Montana State",
+    "score": 62
    }
   },
   {
    "id": "401920512",
    "start": "2026-11-18T04:59Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2",
-    "name": "Auburn"
+    "name": "Auburn",
+    "score": 70
    },
    "away": {
     "id": "277",
-    "name": "West Virginia"
+    "name": "West Virginia",
+    "score": 76
    },
    "note": "Players Era 8"
   }

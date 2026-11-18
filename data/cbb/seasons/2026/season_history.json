@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-17T22:45:38-05:00",
+ "generated_at": "2026-11-18T07:30:48-05:00",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -1117,7 +1117,7 @@
     },
     {
      "rank": 2,
-     "team": "Michigan State",
+     "team": "Tennessee",
      "lineage": [
       {
        "team": "Duke",
@@ -1128,11 +1128,17 @@
       {
        "team": "Michigan State",
        "held_from": "week2",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "127"
+      },
+      {
+       "team": "Tennessee",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "2633"
       }
      ],
-     "team_id": "127"
+     "team_id": "2633"
     },
     {
      "rank": 3,
@@ -1225,16 +1231,22 @@
     },
     {
      "rank": 8,
-     "team": "Tennessee",
+     "team": "Michigan State",
      "lineage": [
       {
        "team": "Tennessee",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "2633"
+      },
+      {
+       "team": "Michigan State",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "127"
       }
      ],
-     "team_id": "2633"
+     "team_id": "127"
     },
     {
      "rank": 9,
@@ -1673,6 +1685,23 @@
    "winner_home_away": "neutral",
    "winner_id": "84",
    "loser_id": "8"
+  },
+  {
+   "kind": "swap",
+   "week": "week3",
+   "winner": "Tennessee",
+   "loser": "Michigan State",
+   "winner_old_rank": 8,
+   "loser_old_rank": 2,
+   "winner_new_rank": 2,
+   "loser_new_rank": 8,
+   "at": "2026-11-18T02:00Z",
+   "game_id": "401906851",
+   "winner_score": 61,
+   "loser_score": 46,
+   "winner_home_away": "home",
+   "winner_id": "2633",
+   "loser_id": "127"
   }
  ],
  "team_histories": {
@@ -1951,6 +1980,42 @@
     "winner_home_away": "neutral",
     "winner_id": "127",
     "loser_id": "150"
+   },
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Tennessee",
+    "loser": "Michigan State",
+    "winner_old_rank": 8,
+    "loser_old_rank": 2,
+    "winner_new_rank": 2,
+    "loser_new_rank": 8,
+    "at": "2026-11-18T02:00Z",
+    "game_id": "401906851",
+    "winner_score": 61,
+    "loser_score": 46,
+    "winner_home_away": "home",
+    "winner_id": "2633",
+    "loser_id": "127"
+   }
+  ],
+  "Tennessee": [
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Tennessee",
+    "loser": "Michigan State",
+    "winner_old_rank": 8,
+    "loser_old_rank": 2,
+    "winner_new_rank": 2,
+    "loser_new_rank": 8,
+    "at": "2026-11-18T02:00Z",
+    "game_id": "401906851",
+    "winner_score": 61,
+    "loser_score": 46,
+    "winner_home_away": "home",
+    "winner_id": "2633",
+    "loser_id": "127"
    }
   ],
   "Texas Tech": [

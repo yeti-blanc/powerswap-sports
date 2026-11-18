@@ -537,12 +537,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "277",
+    "name": "West Virginia"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2305",
+    "name": "Kansas"
    },
    "note": "Players Era 8"
   },
@@ -1003,12 +1003,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2",
+    "name": "Auburn"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2439",
+    "name": "Nevada-Las Vegas"
    },
    "note": "Players Era 8"
   },
