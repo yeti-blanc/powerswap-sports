@@ -2,38 +2,6 @@
  "date": "2026-11-20",
  "games": [
   {
-   "id": "401921691",
-   "start": "2026-11-20T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
-   },
-   "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
-   },
-   "note": "Baha Mar Championship - Championship"
-  },
-  {
-   "id": "401921692",
-   "start": "2026-11-20T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
-   },
-   "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
-   },
-   "note": "Baha Mar Championship - Consolation"
-  },
-  {
    "id": "401918454",
    "start": "2026-11-20T16:00Z",
    "time_valid": true,
@@ -511,6 +479,22 @@
    }
   },
   {
+   "id": "401921692",
+   "start": "2026-11-21T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Baha Mar Championship - Consolation"
+  },
+  {
    "id": "401924736",
    "start": "2026-11-21T00:00Z",
    "time_valid": true,
@@ -856,6 +840,22 @@
     "id": "2534",
     "name": "Sam Houston State"
    }
+  },
+  {
+   "id": "401921691",
+   "start": "2026-11-21T02:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "away": {
+    "id": "cbbd-1543",
+    "name": "TBD"
+   },
+   "note": "Baha Mar Championship - Championship"
   },
   {
    "id": "401925664",

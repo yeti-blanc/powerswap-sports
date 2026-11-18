@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-18T07:30:48-05:00",
+ "generated_at": "2026-11-18T15:54:20-05:00",
  "today": "2026-11-18",
  "current_week": "week3",
  "weeks": {
@@ -3091,7 +3091,7 @@
     },
     {
      "id": "401921811",
-     "start": "2026-11-22T01:00Z",
+     "start": "2026-11-21T18:00Z",
      "time_valid": true,
      "status": "scheduled",
      "home_away": "home",

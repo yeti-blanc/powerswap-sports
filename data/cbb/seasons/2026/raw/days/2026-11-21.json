@@ -92,6 +92,21 @@
    }
   },
   {
+   "id": "401921811",
+   "start": "2026-11-21T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "99",
+    "name": "LSU"
+   },
+   "away": {
+    "id": "2511",
+    "name": "Queens University"
+   }
+  },
+  {
    "id": "401923312",
    "start": "2026-11-21T18:00Z",
    "time_valid": true,
@@ -772,21 +787,6 @@
    "away": {
     "id": "2903",
     "name": "Southwestern Adventist"
-   }
-  },
-  {
-   "id": "401921811",
-   "start": "2026-11-22T01:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "99",
-    "name": "LSU"
-   },
-   "away": {
-    "id": "2511",
-    "name": "Queens University"
    }
   },
   {
