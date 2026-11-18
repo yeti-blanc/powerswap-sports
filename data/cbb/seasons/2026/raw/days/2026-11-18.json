@@ -23,8 +23,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "87",
+    "name": "Notre Dame"
    },
    "away": {
     "id": "164",
@@ -39,8 +39,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "57",
+    "name": "Florida"
    },
    "away": {
     "id": "248",

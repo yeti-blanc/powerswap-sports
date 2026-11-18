@@ -74,15 +74,17 @@
    "id": "401906773",
    "start": "2026-11-17T21:51Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "57",
-    "name": "Florida"
+    "name": "Florida",
+    "score": 86
    },
    "away": {
     "id": "87",
-    "name": "Notre Dame"
+    "name": "Notre Dame",
+    "score": 78
    },
    "note": "Players Era 8"
   },
@@ -90,510 +92,578 @@
    "id": "401912230",
    "start": "2026-11-17T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "349",
-    "name": "Army"
+    "name": "Army",
+    "score": 68
    },
    "away": {
     "id": "2368",
-    "name": "Marist"
+    "name": "Marist",
+    "score": 73
    }
   },
   {
    "id": "401920953",
    "start": "2026-11-17T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "79",
-    "name": "Southern Illinois"
+    "name": "Southern Illinois",
+    "score": 78
    },
    "away": {
     "id": "2335",
-    "name": "Liberty"
+    "name": "Liberty",
+    "score": 87
    }
   },
   {
    "id": "401923325",
    "start": "2026-11-17T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2349",
-    "name": "UMass Lowell"
+    "name": "UMass Lowell",
+    "score": 66
    },
    "away": {
     "id": "2612",
-    "name": "Saint Peter's"
+    "name": "Saint Peter's",
+    "score": 51
    }
   },
   {
    "id": "401920236",
    "start": "2026-11-17T23:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "159",
-    "name": "Dartmouth"
+    "name": "Dartmouth",
+    "score": 117
    },
    "away": {
     "id": "126890",
-    "name": "Maine-Augusta"
+    "name": "Maine-Augusta",
+    "score": 67
    }
   },
   {
    "id": "401920706",
    "start": "2026-11-17T23:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2509",
-    "name": "Purdue"
+    "name": "Purdue",
+    "score": 95
    },
    "away": {
     "id": "288",
-    "name": "Lipscomb"
+    "name": "Lipscomb",
+    "score": 78
    }
   },
   {
    "id": "401926834",
    "start": "2026-11-17T23:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2619",
-    "name": "Stony Brook"
+    "name": "Stony Brook",
+    "score": 104
    },
    "away": {
     "id": "182",
-    "name": "SUNY-Potsdam"
+    "name": "SUNY-Potsdam",
+    "score": 47
    }
   },
   {
    "id": "401902279",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2086",
-    "name": "Butler"
+    "name": "Butler",
+    "score": 89
    },
    "away": {
     "id": "2717",
-    "name": "Western Carolina"
+    "name": "Western Carolina",
+    "score": 64
    }
   },
   {
    "id": "401909535",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2507",
-    "name": "Providence"
+    "name": "Providence",
+    "score": 86
    },
    "away": {
     "id": "2529",
-    "name": "Sacred Heart"
+    "name": "Sacred Heart",
+    "score": 67
    }
   },
   {
    "id": "401909544",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2752",
-    "name": "Xavier"
+    "name": "Xavier",
+    "score": 75
    },
    "away": {
     "id": "325",
-    "name": "Cleveland State"
+    "name": "Cleveland State",
+    "score": 67
    }
   },
   {
    "id": "401909566",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "150",
-    "name": "Duke"
+    "name": "Duke",
+    "score": 78
    },
    "away": {
     "id": "356",
-    "name": "Illinois"
+    "name": "Illinois",
+    "score": 99
    }
   },
   {
    "id": "401909697",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "52",
-    "name": "Florida State"
+    "name": "Florida State",
+    "score": 85
    },
    "away": {
     "id": "2050",
-    "name": "Ball State"
+    "name": "Ball State",
+    "score": 71
    }
   },
   {
    "id": "401909708",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "221",
-    "name": "Pittsburgh"
+    "name": "Pittsburgh",
+    "score": 81
    },
    "away": {
     "id": "222",
-    "name": "Villanova"
+    "name": "Villanova",
+    "score": 61
    }
   },
   {
    "id": "401909729",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "154",
-    "name": "Wake Forest"
+    "name": "Wake Forest",
+    "score": 81
    },
    "away": {
     "id": "2405",
-    "name": "Monmouth"
+    "name": "Monmouth",
+    "score": 76
    }
   },
   {
    "id": "401911018",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2729",
-    "name": "William & Mary"
+    "name": "William & Mary",
+    "score": 77
    },
    "away": {
     "id": "189",
-    "name": "Bowling Green"
+    "name": "Bowling Green",
+    "score": 73
    }
   },
   {
    "id": "401911019",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2168",
-    "name": "Dayton"
+    "name": "Dayton",
+    "score": 88
    },
    "away": {
     "id": "2117",
-    "name": "Central Michigan"
+    "name": "Central Michigan",
+    "score": 63
    }
   },
   {
    "id": "401911198",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2363",
-    "name": "Manhattan"
+    "name": "Manhattan",
+    "score": 61
    },
    "away": {
     "id": "2230",
-    "name": "Fordham"
+    "name": "Fordham",
+    "score": 80
    }
   },
   {
    "id": "401918994",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "58",
-    "name": "South Florida"
+    "name": "South Florida",
+    "score": 98
    },
    "away": {
     "id": "2634",
-    "name": "Tennessee State"
+    "name": "Tennessee State",
+    "score": 71
    }
   },
   {
    "id": "401920194",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2603",
-    "name": "Saint Joseph's"
+    "name": "Saint Joseph's",
+    "score": 84
    },
    "away": {
     "id": "2681",
-    "name": "Wagner"
+    "name": "Wagner",
+    "score": 65
    }
   },
   {
    "id": "401920297",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2653",
-    "name": "Troy"
+    "name": "Troy",
+    "score": 84
    },
    "away": {
     "id": "2463",
-    "name": "Cal State Northridge"
+    "name": "Cal State Northridge",
+    "score": 74
    }
   },
   {
    "id": "401920308",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "59",
-    "name": "Georgia Tech"
+    "name": "Georgia Tech",
+    "score": 93
    },
    "away": {
     "id": "2450",
-    "name": "Norfolk State"
+    "name": "Norfolk State",
+    "score": 79
    }
   },
   {
    "id": "401920857",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "276",
-    "name": "Marshall"
+    "name": "Marshall",
+    "score": 67
    },
    "away": {
     "id": "2193",
-    "name": "East Tennessee State"
+    "name": "East Tennessee State",
+    "score": 55
    }
   },
   {
    "id": "401920921",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "116",
-    "name": "Mount St. Mary's"
+    "name": "Mount St. Mary's",
+    "score": 65
    },
    "away": {
     "id": "2329",
-    "name": "Lehigh"
+    "name": "Lehigh",
+    "score": 99
    }
   },
   {
    "id": "401921722",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2390",
-    "name": "Miami"
+    "name": "Miami",
+    "score": 95
    },
    "away": {
     "id": "2520",
-    "name": "Rider"
+    "name": "Rider",
+    "score": 48
    }
   },
   {
    "id": "401921756",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2116",
-    "name": "Central Florida"
+    "name": "Central Florida",
+    "score": 83
    },
    "away": {
     "id": "344",
-    "name": "Mississippi State"
+    "name": "Mississippi State",
+    "score": 86
    }
   },
   {
    "id": "401922221",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2454",
-    "name": "North Florida"
+    "name": "North Florida",
+    "score": 98
    },
    "away": {
     "id": "123362",
-    "name": "Fort Lauderdale"
+    "name": "Fort Lauderdale",
+    "score": 59
    }
   },
   {
    "id": "401922251",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2697",
-    "name": "West Florida"
+    "name": "West Florida",
+    "score": 87
    },
    "away": {
     "id": "2739",
-    "name": "Green Bay"
+    "name": "Green Bay",
+    "score": 69
    }
   },
   {
    "id": "401924941",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2083",
-    "name": "Bucknell"
+    "name": "Bucknell",
+    "score": 53
    },
    "away": {
     "id": "2006",
-    "name": "Akron"
+    "name": "Akron",
+    "score": 49
    }
   },
   {
    "id": "401925751",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2115",
-    "name": "Central Connecticut"
+    "name": "Central Connecticut",
+    "score": 98
    },
    "away": {
     "id": "551",
-    "name": "Vermont State - Lyndon"
+    "name": "Vermont State - Lyndon",
+    "score": 55
    }
   },
   {
    "id": "401925775",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2166",
-    "name": "Davidson"
+    "name": "Davidson",
+    "score": 66
    },
    "away": {
     "id": "2429",
-    "name": "Charlotte"
+    "name": "Charlotte",
+    "score": 73
    }
   },
   {
    "id": "401927342",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2169",
-    "name": "Delaware State"
+    "name": "Delaware State",
+    "score": 90
    },
    "away": {
     "id": "2129",
-    "name": "Cheyney (PA)"
+    "name": "Cheyney (PA)",
+    "score": 70
    }
   },
   {
    "id": "401930568",
    "start": "2026-11-18T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "6",
-    "name": "South Alabama"
+    "name": "South Alabama",
+    "score": 122
    },
    "away": {
     "id": "2590",
-    "name": "Spring Hill"
+    "name": "Spring Hill",
+    "score": 69
    }
   },
   {
    "id": "401906761",
    "start": "2026-11-18T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "333",
-    "name": "Alabama"
+    "name": "Alabama",
+    "score": 109
    },
    "away": {
     "id": "338",
-    "name": "Kennesaw State"
+    "name": "Kennesaw State",
+    "score": 91
    }
   },
   {
    "id": "401911020",
    "start": "2026-11-18T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "113",
-    "name": "Massachusetts"
+    "name": "Massachusetts",
+    "score": 79
    },
    "away": {
     "id": "2803",
-    "name": "Bryant"
+    "name": "Bryant",
+    "score": 83
    }
   },
   {
    "id": "401916289",
    "start": "2026-11-18T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "84",
-    "name": "Indiana"
+    "name": "Indiana",
+    "score": 81
    },
    "away": {
     "id": "8",
-    "name": "Arkansas"
+    "name": "Arkansas",
+    "score": 76
    },
    "note": "Bad Boy Mowers Series"
   },
@@ -601,262 +671,296 @@
    "id": "401919018",
    "start": "2026-11-18T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "5",
-    "name": "UAB"
+    "name": "UAB",
+    "score": 94
    },
    "away": {
     "id": "2229",
-    "name": "Florida International"
+    "name": "Florida International",
+    "score": 82
    }
   },
   {
    "id": "401926781",
    "start": "2026-11-18T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2348",
-    "name": "Louisiana Tech"
+    "name": "Louisiana Tech",
+    "score": 68
    },
    "away": {
     "id": "55",
-    "name": "Jacksonville State"
+    "name": "Jacksonville State",
+    "score": 63
    }
   },
   {
    "id": "401909504",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "305",
-    "name": "DePaul"
+    "name": "DePaul",
+    "score": 83
    },
    "away": {
     "id": "2379",
-    "name": "Maryland Eastern Shore"
+    "name": "Maryland Eastern Shore",
+    "score": 39
    }
   },
   {
    "id": "401917952",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2046",
-    "name": "Austin Peay"
+    "name": "Austin Peay",
+    "score": 70
    },
    "away": {
     "id": "124721",
-    "name": "Life University"
+    "name": "Life University",
+    "score": 57
    }
   },
   {
    "id": "401918970",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2567",
-    "name": "SMU"
+    "name": "SMU",
+    "score": 76
    },
    "away": {
     "id": "198",
-    "name": "Oral Roberts"
+    "name": "Oral Roberts",
+    "score": 72
    }
   },
   {
    "id": "401919783",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "339",
-    "name": "Evansville"
+    "name": "Evansville",
+    "score": 79
    },
    "away": {
     "id": "2330",
-    "name": "Le Moyne"
+    "name": "Le Moyne",
+    "score": 65
    }
   },
   {
    "id": "401921006",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "140",
-    "name": "Kansas City"
+    "name": "Kansas City",
+    "score": 68
    },
    "away": {
     "id": "580",
-    "name": "Newman University"
+    "name": "Newman University",
+    "score": 64
    }
   },
   {
    "id": "401921027",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "290",
-    "name": "Georgia Southern"
+    "name": "Georgia Southern",
+    "score": 78
    },
    "away": {
     "id": "2393",
-    "name": "Middle Tennessee"
+    "name": "Middle Tennessee",
+    "score": 85
    }
   },
   {
    "id": "401921097",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "242",
-    "name": "Rice"
+    "name": "Rice",
+    "score": 81
    },
    "away": {
     "id": "357",
-    "name": "Texas A&M-Corpus Christi"
+    "name": "Texas A&M-Corpus Christi",
+    "score": 74
    }
   },
   {
    "id": "401921106",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2287",
-    "name": "Illinois State"
+    "name": "Illinois State",
+    "score": 76
    },
    "away": {
     "id": "91",
-    "name": "Bellarmine"
+    "name": "Bellarmine",
+    "score": 59
    }
   },
   {
    "id": "401921826",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "238",
-    "name": "Vanderbilt"
+    "name": "Vanderbilt",
+    "score": 96
    },
    "away": {
     "id": "2197",
-    "name": "Eastern Illinois"
+    "name": "Eastern Illinois",
+    "score": 50
    }
   },
   {
    "id": "401925012",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2437",
-    "name": "Omaha"
+    "name": "Omaha",
+    "score": 74
    },
    "away": {
     "id": "2320",
-    "name": "Lamar"
+    "name": "Lamar",
+    "score": 104
    }
   },
   {
    "id": "401926143",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "155",
-    "name": "North Dakota"
+    "name": "North Dakota",
+    "score": 83
    },
    "away": {
     "id": "2565",
-    "name": "SIU Edwardsville"
+    "name": "SIU Edwardsville",
+    "score": 78
    }
   },
   {
    "id": "401927388",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2460",
-    "name": "Northern Iowa"
+    "name": "Northern Iowa",
+    "score": 81
    },
    "away": {
     "id": "2815",
-    "name": "Lindenwood"
+    "name": "Lindenwood",
+    "score": 74
    }
   },
   {
    "id": "401927867",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2464",
-    "name": "Northern Arizona"
+    "name": "Northern Arizona",
+    "score": 72
    },
    "away": {
     "id": "111229",
-    "name": "Embry-Riddle (AZ)"
+    "name": "Embry-Riddle (AZ)",
+    "score": 59
    }
   },
   {
    "id": "401929358",
    "start": "2026-11-18T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2572",
-    "name": "Southern Miss"
+    "name": "Southern Miss",
+    "score": 72
    },
    "away": {
     "id": "250",
-    "name": "UT Arlington"
+    "name": "UT Arlington",
+    "score": 83
    }
   },
   {
    "id": "401920720",
    "start": "2026-11-18T01:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "254",
-    "name": "Utah"
+    "name": "Utah",
+    "score": 67
    },
    "away": {
     "id": "331",
-    "name": "Eastern Washington"
+    "name": "Eastern Washington",
+    "score": 71
    }
   },
   {
    "id": "401924922",
    "start": "2026-11-18T01:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2751",
@@ -871,22 +975,24 @@
    "id": "401925064",
    "start": "2026-11-18T01:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "145",
-    "name": "Mississippi"
+    "name": "Mississippi",
+    "score": 76
    },
    "away": {
     "id": "2447",
-    "name": "Nicholls"
+    "name": "Nicholls",
+    "score": 41
    }
   },
   {
    "id": "401906851",
    "start": "2026-11-18T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2633",
@@ -901,7 +1007,7 @@
    "id": "401911521",
    "start": "2026-11-18T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "302",
@@ -916,7 +1022,7 @@
    "id": "401920426",
    "start": "2026-11-18T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "258",
@@ -931,7 +1037,7 @@
    "id": "401909787",
    "start": "2026-11-18T02:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2305",
@@ -947,7 +1053,7 @@
    "id": "401917533",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2856",
@@ -962,7 +1068,7 @@
    "id": "401917534",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "279",
@@ -977,7 +1083,7 @@
    "id": "401921729",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "24",
@@ -992,7 +1098,7 @@
    "id": "401934595",
    "start": "2026-11-18T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "264",

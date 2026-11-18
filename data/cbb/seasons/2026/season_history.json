@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-16T08:10:06-05:00",
+ "generated_at": "2026-11-17T22:45:38-05:00",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -1187,7 +1187,7 @@
     },
     {
      "rank": 6,
-     "team": "Duke",
+     "team": "Illinois",
      "lineage": [
       {
        "team": "Michigan State",
@@ -1198,11 +1198,17 @@
       {
        "team": "Duke",
        "held_from": "week2",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "150"
+      },
+      {
+       "team": "Illinois",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "356"
       }
      ],
-     "team_id": "150"
+     "team_id": "356"
     },
     {
      "rank": 7,
@@ -1277,16 +1283,22 @@
     },
     {
      "rank": 12,
-     "team": "Arkansas",
+     "team": "Indiana",
      "lineage": [
       {
        "team": "Arkansas",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "8"
+      },
+      {
+       "team": "Indiana",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "84"
       }
      ],
-     "team_id": "8"
+     "team_id": "84"
     },
     {
      "rank": 13,
@@ -1386,7 +1398,7 @@
     },
     {
      "rank": 19,
-     "team": "Illinois",
+     "team": "Duke",
      "lineage": [
       {
        "team": "Texas Tech",
@@ -1397,11 +1409,17 @@
       {
        "team": "Illinois",
        "held_from": "week2",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "356"
+      },
+      {
+       "team": "Duke",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "150"
       }
      ],
-     "team_id": "356"
+     "team_id": "150"
     },
     {
      "rank": 20,
@@ -1621,6 +1639,40 @@
    "winner_home_away": "home",
    "winner_id": "235",
    "loser_id": "97"
+  },
+  {
+   "kind": "swap",
+   "week": "week3",
+   "winner": "Illinois",
+   "loser": "Duke",
+   "winner_old_rank": 19,
+   "loser_old_rank": 6,
+   "winner_new_rank": 6,
+   "loser_new_rank": 19,
+   "at": "2026-11-18T00:00Z",
+   "game_id": "401909566",
+   "winner_score": 99,
+   "loser_score": 78,
+   "winner_home_away": "away",
+   "winner_id": "356",
+   "loser_id": "150"
+  },
+  {
+   "kind": "dethrone",
+   "week": "week3",
+   "winner": "Indiana",
+   "loser": "Arkansas",
+   "winner_old_rank": null,
+   "loser_old_rank": 12,
+   "winner_new_rank": 12,
+   "loser_new_rank": null,
+   "at": "2026-11-18T00:30Z",
+   "game_id": "401916289",
+   "winner_score": 81,
+   "loser_score": 76,
+   "winner_home_away": "neutral",
+   "winner_id": "84",
+   "loser_id": "8"
   }
  ],
  "team_histories": {
@@ -1643,6 +1695,25 @@
     "loser_id": "12"
    }
   ],
+  "Arkansas": [
+   {
+    "kind": "dethrone",
+    "week": "week3",
+    "winner": "Indiana",
+    "loser": "Arkansas",
+    "winner_old_rank": null,
+    "loser_old_rank": 12,
+    "winner_new_rank": 12,
+    "loser_new_rank": null,
+    "at": "2026-11-18T00:30Z",
+    "game_id": "401916289",
+    "winner_score": 81,
+    "loser_score": 76,
+    "winner_home_away": "neutral",
+    "winner_id": "84",
+    "loser_id": "8"
+   }
+  ],
   "Duke": [
    {
     "kind": "swap",
@@ -1659,6 +1730,23 @@
     "loser_score": 73,
     "winner_home_away": "neutral",
     "winner_id": "127",
+    "loser_id": "150"
+   },
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Illinois",
+    "loser": "Duke",
+    "winner_old_rank": 19,
+    "loser_old_rank": 6,
+    "winner_new_rank": 6,
+    "loser_new_rank": 19,
+    "at": "2026-11-18T00:00Z",
+    "game_id": "401909566",
+    "winner_score": 99,
+    "loser_score": 78,
+    "winner_home_away": "away",
+    "winner_id": "356",
     "loser_id": "150"
    }
   ],
@@ -1698,6 +1786,42 @@
     "winner_home_away": "home",
     "winner_id": "2641",
     "loser_id": "356"
+   },
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Illinois",
+    "loser": "Duke",
+    "winner_old_rank": 19,
+    "loser_old_rank": 6,
+    "winner_new_rank": 6,
+    "loser_new_rank": 19,
+    "at": "2026-11-18T00:00Z",
+    "game_id": "401909566",
+    "winner_score": 99,
+    "loser_score": 78,
+    "winner_home_away": "away",
+    "winner_id": "356",
+    "loser_id": "150"
+   }
+  ],
+  "Indiana": [
+   {
+    "kind": "dethrone",
+    "week": "week3",
+    "winner": "Indiana",
+    "loser": "Arkansas",
+    "winner_old_rank": null,
+    "loser_old_rank": 12,
+    "winner_new_rank": 12,
+    "loser_new_rank": null,
+    "at": "2026-11-18T00:30Z",
+    "game_id": "401916289",
+    "winner_score": 81,
+    "loser_score": 76,
+    "winner_home_away": "neutral",
+    "winner_id": "84",
+    "loser_id": "8"
    }
   ],
   "Iowa State": [
@@ -1898,6 +2022,7 @@
   "Gonzaga": "2250",
   "Houston": "248",
   "Illinois": "356",
+  "Indiana": "84",
   "Iowa State": "66",
   "Kansas": "2305",
   "Kentucky": "96",

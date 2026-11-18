@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-17T17:17:33-05:00",
+ "generated_at": "2026-11-17T22:45:38-05:00",
  "today": "2026-11-17",
  "current_week": "week3",
  "weeks": {
@@ -23,20 +23,20 @@
   "2641",
   "41",
   "26",
-  "150",
+  "356",
   "251",
   "2633",
   "258",
   "248",
   "235",
-  "8",
+  "84",
   "2599",
   "2390",
   "99",
   "130",
   "2305",
   "238",
-  "356",
+  "150",
   "333",
   "30",
   "12",
@@ -194,7 +194,7 @@
      "id": "401906851",
      "start": "2026-11-18T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "away",
      "opponent": "Tennessee",
      "opponent_id": "2633"
@@ -412,10 +412,12 @@
      "id": "401909566",
      "start": "2026-11-18T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Illinois",
-     "opponent_id": "356"
+     "opponent_id": "356",
+     "score": 78,
+     "opponent_score": 99
     },
     {
      "id": "401909567",
@@ -612,7 +614,7 @@
      "id": "401909787",
      "start": "2026-11-18T02:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Nevada-Las Vegas",
      "opponent_id": "2439",
@@ -821,10 +823,12 @@
      "id": "401921826",
      "start": "2026-11-18T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Eastern Illinois",
-     "opponent_id": "2197"
+     "opponent_id": "2197",
+     "score": 96,
+     "opponent_score": 50
     },
     {
      "id": "401921757",
@@ -935,10 +939,12 @@
      "id": "401921722",
      "start": "2026-11-18T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Rider",
-     "opponent_id": "2520"
+     "opponent_id": "2520",
+     "score": 95,
+     "opponent_score": 48
     },
     {
      "id": "401921723",
@@ -1045,8 +1051,8 @@
      "time_valid": true,
      "status": "scheduled",
      "home_away": "neutral",
-     "opponent": "TBD",
-     "opponent_id": "cbbd-1543",
+     "opponent": "Florida",
+     "opponent_id": "57",
      "note": "Players Era 8"
     },
     {
@@ -1383,7 +1389,7 @@
      "id": "401920426",
      "start": "2026-11-18T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Old Dominion",
      "opponent_id": "295"
@@ -1698,7 +1704,7 @@
      "id": "401906851",
      "start": "2026-11-18T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Michigan State",
      "opponent_id": "127"
@@ -2025,10 +2031,12 @@
      "id": "401906761",
      "start": "2026-11-18T00:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Kennesaw State",
-     "opponent_id": "338"
+     "opponent_id": "338",
+     "score": 109,
+     "opponent_score": 91
     },
     {
      "id": "401906762",
@@ -2123,10 +2131,12 @@
      "id": "401909566",
      "start": "2026-11-18T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "away",
      "opponent": "Duke",
-     "opponent_id": "150"
+     "opponent_id": "150",
+     "score": 99,
+     "opponent_score": 78
     },
     {
      "id": "401913529",
@@ -2351,10 +2361,22 @@
      "id": "401906773",
      "start": "2026-11-17T21:51Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Notre Dame",
      "opponent_id": "87",
+     "score": 86,
+     "opponent_score": 78,
+     "note": "Players Era 8"
+    },
+    {
+     "id": "401920514",
+     "start": "2026-11-18T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Houston",
+     "opponent_id": "248",
      "note": "Players Era 8"
     },
     {
@@ -2544,10 +2566,12 @@
      "id": "401916289",
      "start": "2026-11-18T00:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Indiana",
      "opponent_id": "84",
+     "score": 76,
+     "opponent_score": 81,
      "note": "Bad Boy Mowers Series"
     },
     {
@@ -2604,6 +2628,132 @@
      "home_away": "home",
      "opponent": "UT Arlington",
      "opponent_id": "250"
+    }
+   ]
+  },
+  "84": {
+   "name": "Indiana",
+   "games": [
+    {
+     "id": "401916286",
+     "start": "2026-11-03T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Eastern Illinois",
+     "opponent_id": "2197",
+     "score": 91,
+     "opponent_score": 57
+    },
+    {
+     "id": "401916287",
+     "start": "2026-11-05T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Bellarmine",
+     "opponent_id": "91",
+     "score": 92,
+     "opponent_score": 69
+    },
+    {
+     "id": "401909718",
+     "start": "2026-11-09T23:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Syracuse",
+     "opponent_id": "183",
+     "score": 83,
+     "opponent_score": 80,
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401916288",
+     "start": "2026-11-12T23:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Tennessee Tech",
+     "opponent_id": "2635",
+     "score": 90,
+     "opponent_score": 66
+    },
+    {
+     "id": "401916289",
+     "start": "2026-11-18T00:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Arkansas",
+     "opponent_id": "8",
+     "score": 81,
+     "opponent_score": 76,
+     "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401916290",
+     "start": "2026-11-21T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Kentucky",
+     "opponent_id": "96"
+    },
+    {
+     "id": "401916291",
+     "start": "2026-11-25T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Jacksonville",
+     "opponent_id": "294"
+    },
+    {
+     "id": "401911030",
+     "start": "2026-11-27T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Bowling Green",
+     "opponent_id": "189"
+    },
+    {
+     "id": "401921873",
+     "start": "2026-12-02T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Rutgers",
+     "opponent_id": "164"
+    },
+    {
+     "id": "401916292",
+     "start": "2026-12-03T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Western Illinois",
+     "opponent_id": "2710"
+    },
+    {
+     "id": "401921882",
+     "start": "2026-12-08T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Iowa",
+     "opponent_id": "2294"
+    },
+    {
+     "id": "401916293",
+     "start": "2026-12-12T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Central Florida",
+     "opponent_id": "2116",
+     "note": "Bad Boy Mowers Series"
     }
    ]
   },
