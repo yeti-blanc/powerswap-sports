@@ -14,11 +14,11 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Vanderbilt": {
-      "opponent": "Florida",
-      "team_id": "238",
-      "opponent_id": "57",
-      "home_away": "away",
+    "Minnesota": {
+      "opponent": "Northwestern",
+      "team_id": "135",
+      "opponent_id": "77",
+      "home_away": "home",
       "kickoff_utc": "2026-11-21T17:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -91,11 +91,11 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Minnesota": {
-      "opponent": "Northwestern",
-      "team_id": "135",
-      "opponent_id": "77",
-      "home_away": "home",
+    "Vanderbilt": {
+      "opponent": "Florida",
+      "team_id": "238",
+      "opponent_id": "57",
+      "home_away": "away",
       "kickoff_utc": "2026-11-21T17:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
