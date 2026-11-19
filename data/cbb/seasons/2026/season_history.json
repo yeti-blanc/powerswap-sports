@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-18T07:30:48-05:00",
+ "generated_at": "2026-11-18T21:08:56-05:00",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -1104,16 +1104,22 @@
    "rankings": [
     {
      "rank": 1,
-     "team": "Florida",
+     "team": "Houston",
      "lineage": [
       {
        "team": "Florida",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "57"
+      },
+      {
+       "team": "Houston",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "248"
       }
      ],
-     "team_id": "57"
+     "team_id": "248"
     },
     {
      "rank": 2,
@@ -1263,16 +1269,22 @@
     },
     {
      "rank": 10,
-     "team": "Houston",
+     "team": "Florida",
      "lineage": [
       {
        "team": "Houston",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "248"
+      },
+      {
+       "team": "Florida",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "57"
       }
      ],
-     "team_id": "248"
+     "team_id": "57"
     },
     {
      "rank": 11,
@@ -1702,6 +1714,23 @@
    "winner_home_away": "home",
    "winner_id": "2633",
    "loser_id": "127"
+  },
+  {
+   "kind": "swap",
+   "week": "week3",
+   "winner": "Houston",
+   "loser": "Florida",
+   "winner_old_rank": 10,
+   "loser_old_rank": 1,
+   "winner_new_rank": 1,
+   "loser_new_rank": 10,
+   "at": "2026-11-18T21:48Z",
+   "game_id": "401920514",
+   "winner_score": 86,
+   "loser_score": 76,
+   "winner_home_away": "neutral",
+   "winner_id": "248",
+   "loser_id": "57"
   }
  ],
  "team_histories": {
@@ -1779,6 +1808,25 @@
     "loser_id": "150"
    }
   ],
+  "Florida": [
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Houston",
+    "loser": "Florida",
+    "winner_old_rank": 10,
+    "loser_old_rank": 1,
+    "winner_new_rank": 1,
+    "loser_new_rank": 10,
+    "at": "2026-11-18T21:48Z",
+    "game_id": "401920514",
+    "winner_score": 86,
+    "loser_score": 76,
+    "winner_home_away": "neutral",
+    "winner_id": "248",
+    "loser_id": "57"
+   }
+  ],
   "Gonzaga": [
    {
     "kind": "dethrone",
@@ -1796,6 +1844,25 @@
     "winner_home_away": "away",
     "winner_id": "99",
     "loser_id": "2250"
+   }
+  ],
+  "Houston": [
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Houston",
+    "loser": "Florida",
+    "winner_old_rank": 10,
+    "loser_old_rank": 1,
+    "winner_new_rank": 1,
+    "loser_new_rank": 10,
+    "at": "2026-11-18T21:48Z",
+    "game_id": "401920514",
+    "winner_score": 86,
+    "loser_score": 76,
+    "winner_home_away": "neutral",
+    "winner_id": "248",
+    "loser_id": "57"
    }
   ],
   "Illinois": [

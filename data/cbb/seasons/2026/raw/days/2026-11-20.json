@@ -782,6 +782,21 @@
    }
   },
   {
+   "id": "401935675",
+   "start": "2026-11-21T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2492",
+    "name": "Pepperdine"
+   },
+   "away": {
+    "id": "110418",
+    "name": "West Coast Baptist"
+   }
+  },
+  {
    "id": "401912710",
    "start": "2026-11-21T02:00Z",
    "time_valid": true,

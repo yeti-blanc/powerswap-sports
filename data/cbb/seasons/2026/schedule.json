@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-18T15:54:20-05:00",
+ "generated_at": "2026-11-18T21:08:56-05:00",
  "today": "2026-11-18",
  "current_week": "week3",
  "weeks": {
@@ -18,7 +18,7 @@
   }
  },
  "ranked_ids": [
-  "57",
+  "248",
   "2633",
   "2641",
   "41",
@@ -27,7 +27,7 @@
   "251",
   "127",
   "258",
-  "248",
+  "57",
   "235",
   "84",
   "2599",
@@ -630,7 +630,7 @@
      "id": "401920515",
      "start": "2026-11-19T00:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "West Virginia",
      "opponent_id": "277",
@@ -1081,13 +1081,25 @@
     },
     {
      "id": "401920514",
-     "start": "2026-11-18T21:30Z",
+     "start": "2026-11-18T21:48Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Florida",
      "opponent_id": "57",
+     "score": 86,
+     "opponent_score": 76,
      "note": "Players Era 8"
+    },
+    {
+     "id": "401920518",
+     "start": "2026-11-20T04:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "TBD",
+     "opponent_id": "cbbd-1543",
+     "note": "Players Era 8 - Championship"
     },
     {
      "id": "401925703",
@@ -1315,7 +1327,7 @@
      "id": "401921742",
      "start": "2026-11-19T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Northern Colorado",
      "opponent_id": "2458"
@@ -1549,10 +1561,12 @@
      "id": "401920682",
      "start": "2026-11-19T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Siena",
-     "opponent_id": "2561"
+     "opponent_id": "2561",
+     "score": 119,
+     "opponent_score": 72
     },
     {
      "id": "401915943",
@@ -1866,7 +1880,7 @@
      "id": "401921134",
      "start": "2026-11-19T00:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "LSU New Orleans",
      "opponent_id": "2443"
@@ -2436,13 +2450,25 @@
     },
     {
      "id": "401920514",
-     "start": "2026-11-18T21:30Z",
+     "start": "2026-11-18T21:48Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Houston",
      "opponent_id": "248",
+     "score": 76,
+     "opponent_score": 86,
      "note": "Players Era 8"
+    },
+    {
+     "id": "401920517",
+     "start": "2026-11-19T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "TBD",
+     "opponent_id": "cbbd-1543",
+     "note": "Players Era 8 - Third Place Game"
     },
     {
      "id": "401906774",
@@ -3084,7 +3110,7 @@
      "id": "401917982",
      "start": "2026-11-19T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "UL Monroe",
      "opponent_id": "2433"
