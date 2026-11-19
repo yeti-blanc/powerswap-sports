@@ -14,11 +14,11 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Minnesota": {
-      "opponent": "Northwestern",
-      "team_id": "135",
-      "opponent_id": "77",
-      "home_away": "home",
+    "Vanderbilt": {
+      "opponent": "Florida",
+      "team_id": "238",
+      "opponent_id": "57",
+      "home_away": "away",
       "kickoff_utc": "2026-11-21T17:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -91,11 +91,11 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Vanderbilt": {
-      "opponent": "Florida",
-      "team_id": "238",
-      "opponent_id": "57",
-      "home_away": "away",
+    "Minnesota": {
+      "opponent": "Northwestern",
+      "team_id": "135",
+      "opponent_id": "77",
+      "home_away": "home",
       "kickoff_utc": "2026-11-21T17:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -124,61 +124,6 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Texas": {
-      "opponent": "Arkansas",
-      "team_id": "251",
-      "opponent_id": "8",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Arkansas": {
-      "opponent": "Texas",
-      "team_id": "8",
-      "opponent_id": "251",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "UCLA": {
-      "opponent": "Michigan",
-      "team_id": "26",
-      "opponent_id": "130",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Washington": {
-      "opponent": "Indiana",
-      "team_id": "264",
-      "opponent_id": "84",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Indiana": {
-      "opponent": "Washington",
-      "team_id": "84",
-      "opponent_id": "264",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
     "Tennessee": {
       "opponent": "LSU",
       "team_id": "2633",
@@ -201,11 +146,66 @@
       "team_score": null,
       "opponent_score": null
     },
+    "UCLA": {
+      "opponent": "Michigan",
+      "team_id": "26",
+      "opponent_id": "130",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Texas": {
+      "opponent": "Arkansas",
+      "team_id": "251",
+      "opponent_id": "8",
+      "home_away": "home",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Arkansas": {
+      "opponent": "Texas",
+      "team_id": "8",
+      "opponent_id": "251",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Penn State": {
       "opponent": "Rutgers",
       "team_id": "213",
       "opponent_id": "164",
       "home_away": "home",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Washington": {
+      "opponent": "Indiana",
+      "team_id": "264",
+      "opponent_id": "84",
+      "home_away": "home",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Indiana": {
+      "opponent": "Washington",
+      "team_id": "84",
+      "opponent_id": "264",
+      "home_away": "away",
       "kickoff_utc": "2026-11-21T20:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
