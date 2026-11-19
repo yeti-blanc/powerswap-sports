@@ -8,8 +8,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "277",
+    "name": "West Virginia"
    },
    "away": {
     "id": "57",
@@ -24,8 +24,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2",
+    "name": "Auburn"
    },
    "away": {
     "id": "87",
@@ -167,21 +167,6 @@
    "away": {
     "id": "75",
     "name": "North Park"
-   }
-  },
-  {
-   "id": "401928388",
-   "start": "2026-11-20T00:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2755",
-    "name": "Grambling"
-   },
-   "away": {
-    "id": "2572",
-    "name": "Southern Miss"
    }
   },
   {
@@ -371,8 +356,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2439",
+    "name": "Nevada-Las Vegas"
    },
    "away": {
     "id": "164",
@@ -439,6 +424,21 @@
    "away": {
     "id": "2540",
     "name": "UC Santa Barbara"
+   }
+  },
+  {
+   "id": "401928388",
+   "start": "2026-11-20T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2755",
+    "name": "Grambling"
+   },
+   "away": {
+    "id": "2572",
+    "name": "Southern Miss"
    }
   },
   {
@@ -523,8 +523,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2305",
+    "name": "Kansas"
    },
    "away": {
     "id": "248",

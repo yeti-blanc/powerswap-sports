@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-18T21:08:56-05:00",
+ "generated_at": "2026-11-19T05:15:54-05:00",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -1167,16 +1167,22 @@
     },
     {
      "rank": 4,
-     "team": "Connecticut",
+     "team": "Arizona",
      "lineage": [
       {
        "team": "Connecticut",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "41"
+      },
+      {
+       "team": "Arizona",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "12"
       }
      ],
-     "team_id": "41"
+     "team_id": "12"
     },
     {
      "rank": 5,
@@ -1473,7 +1479,7 @@
     },
     {
      "rank": 22,
-     "team": "Arizona",
+     "team": "Connecticut",
      "lineage": [
       {
        "team": "UCLA",
@@ -1484,11 +1490,17 @@
       {
        "team": "Arizona",
        "held_from": "week1",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "12"
+      },
+      {
+       "team": "Connecticut",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "41"
       }
      ],
-     "team_id": "12"
+     "team_id": "41"
     },
     {
      "rank": 23,
@@ -1731,6 +1743,23 @@
    "winner_home_away": "neutral",
    "winner_id": "248",
    "loser_id": "57"
+  },
+  {
+   "kind": "swap",
+   "week": "week3",
+   "winner": "Arizona",
+   "loser": "Connecticut",
+   "winner_old_rank": 22,
+   "loser_old_rank": 4,
+   "winner_new_rank": 4,
+   "loser_new_rank": 22,
+   "at": "2026-11-19T02:00Z",
+   "game_id": "401909742",
+   "winner_score": 85,
+   "loser_score": 79,
+   "winner_home_away": "home",
+   "winner_id": "12",
+   "loser_id": "41"
   }
  ],
  "team_histories": {
@@ -1751,6 +1780,23 @@
     "winner_home_away": "neutral",
     "winner_id": "26",
     "loser_id": "12"
+   },
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Arizona",
+    "loser": "Connecticut",
+    "winner_old_rank": 22,
+    "loser_old_rank": 4,
+    "winner_new_rank": 4,
+    "loser_new_rank": 22,
+    "at": "2026-11-19T02:00Z",
+    "game_id": "401909742",
+    "winner_score": 85,
+    "loser_score": 79,
+    "winner_home_away": "home",
+    "winner_id": "12",
+    "loser_id": "41"
    }
   ],
   "Arkansas": [
@@ -1770,6 +1816,25 @@
     "winner_home_away": "neutral",
     "winner_id": "84",
     "loser_id": "8"
+   }
+  ],
+  "Connecticut": [
+   {
+    "kind": "swap",
+    "week": "week3",
+    "winner": "Arizona",
+    "loser": "Connecticut",
+    "winner_old_rank": 22,
+    "loser_old_rank": 4,
+    "winner_new_rank": 4,
+    "loser_new_rank": 22,
+    "at": "2026-11-19T02:00Z",
+    "game_id": "401909742",
+    "winner_score": 85,
+    "loser_score": 79,
+    "winner_home_away": "home",
+    "winner_id": "12",
+    "loser_id": "41"
    }
   ],
   "Duke": [

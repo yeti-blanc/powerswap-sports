@@ -1,0 +1,275 @@
+{
+ "date": "2026-12-17",
+ "games": [
+  {
+   "id": "401921179",
+   "start": "2026-12-17T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "85",
+    "name": "IU Indianapolis"
+   },
+   "away": {
+    "id": "546",
+    "name": "Judson University"
+   }
+  },
+  {
+   "id": "401922513",
+   "start": "2026-12-17T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "93",
+    "name": "Murray State"
+   },
+   "away": {
+    "id": "2287",
+    "name": "Illinois State"
+   }
+  },
+  {
+   "id": "401920813",
+   "start": "2026-12-18T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "245",
+    "name": "Texas A&M"
+   },
+   "away": {
+    "id": "107",
+    "name": "Holy Cross"
+   }
+  },
+  {
+   "id": "401920927",
+   "start": "2026-12-18T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "158",
+    "name": "Nebraska"
+   },
+   "away": {
+    "id": "116",
+    "name": "Mount St. Mary's"
+   }
+  },
+  {
+   "id": "401924782",
+   "start": "2026-12-18T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2681",
+    "name": "Wagner"
+   },
+   "away": {
+    "id": "2363",
+    "name": "Manhattan"
+   }
+  },
+  {
+   "id": "401925634",
+   "start": "2026-12-18T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2335",
+    "name": "Liberty"
+   },
+   "away": {
+    "id": "2154",
+    "name": "Coppin State"
+   }
+  },
+  {
+   "id": "401917944",
+   "start": "2026-12-18T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2110",
+    "name": "Central Arkansas"
+   },
+   "away": {
+    "id": "3134",
+    "name": "Champion Christian"
+   }
+  },
+  {
+   "id": "401919026",
+   "start": "2026-12-18T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "5",
+    "name": "UAB"
+   },
+   "away": {
+    "id": "2393",
+    "name": "Middle Tennessee"
+   }
+  },
+  {
+   "id": "401909691",
+   "start": "2026-12-18T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "150",
+    "name": "Duke"
+   },
+   "away": {
+    "id": "2755",
+    "name": "Grambling"
+   }
+  },
+  {
+   "id": "401921163",
+   "start": "2026-12-18T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "47",
+    "name": "Howard"
+   },
+   "away": {
+    "id": "2448",
+    "name": "North Carolina A&T"
+   }
+  },
+  {
+   "id": "401928809",
+   "start": "2026-12-18T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "155",
+    "name": "North Dakota"
+   },
+   "away": {
+    "id": "2739",
+    "name": "Green Bay"
+   }
+  },
+  {
+   "id": "401924957",
+   "start": "2026-12-18T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2277",
+    "name": "Houston Christian"
+   },
+   "away": {
+    "id": "2447",
+    "name": "Nicholls"
+   }
+  },
+  {
+   "id": "401928792",
+   "start": "2026-12-18T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "166",
+    "name": "New Mexico State"
+   },
+   "away": {
+    "id": null,
+    "name": "Southwest"
+   }
+  },
+  {
+   "id": "401906812",
+   "start": "2026-12-18T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "201",
+    "name": "Oklahoma"
+   },
+   "away": {
+    "id": "2296",
+    "name": "Jackson State"
+   }
+  },
+  {
+   "id": "401911528",
+   "start": "2026-12-18T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "302",
+    "name": "UC Davis"
+   },
+   "away": {
+    "id": "304",
+    "name": "Idaho State"
+   }
+  },
+  {
+   "id": "401920724",
+   "start": "2026-12-18T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "331",
+    "name": "Eastern Washington"
+   },
+   "away": {
+    "id": "2548",
+    "name": "Seattle Pacific"
+   }
+  },
+  {
+   "id": "401920730",
+   "start": "2026-12-18T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2294",
+    "name": "Iowa"
+   },
+   "away": {
+    "id": "2065",
+    "name": "Bethune-Cookman"
+   }
+  },
+  {
+   "id": "401921172",
+   "start": "2026-12-18T02:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "204",
+    "name": "Oregon State"
+   },
+   "away": {
+    "id": "325",
+    "name": "Cleveland State"
+   }
+  }
+ ]
+}

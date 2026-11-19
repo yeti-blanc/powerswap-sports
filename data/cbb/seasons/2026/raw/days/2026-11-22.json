@@ -2,21 +2,6 @@
  "date": "2026-11-22",
  "games": [
   {
-   "id": "401921088",
-   "start": "2026-11-22T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2378",
-    "name": "UMBC"
-   },
-   "away": {
-    "id": null,
-    "name": "Lancaster Bible"
-   }
-  },
-  {
    "id": "401911024",
    "start": "2026-11-22T17:00Z",
    "time_valid": true,
@@ -33,18 +18,33 @@
    "note": "Jacksonville Classic"
   },
   {
+   "id": "401921088",
+   "start": "2026-11-22T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2378",
+    "name": "UMBC"
+   },
+   "away": {
+    "id": null,
+    "name": "Lancaster Bible"
+   }
+  },
+  {
    "id": "401902281",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "158",
-    "name": "Nebraska"
-   },
-   "away": {
     "id": "2086",
     "name": "Butler"
+   },
+   "away": {
+    "id": "158",
+    "name": "Nebraska"
    },
    "note": "Bad Boy Mowers Series"
   },
@@ -318,12 +318,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "2385",
-    "name": "Mercyhurst"
-   },
-   "away": {
     "id": "399",
     "name": "UAlbany"
+   },
+   "away": {
+    "id": "2385",
+    "name": "Mercyhurst"
    },
    "note": "Queen City Classic"
   },
