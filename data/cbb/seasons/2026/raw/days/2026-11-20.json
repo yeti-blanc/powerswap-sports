@@ -85,12 +85,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "5",
-    "name": "UAB"
-   },
-   "away": {
     "id": "45",
     "name": "George Washington"
+   },
+   "away": {
+    "id": "5",
+    "name": "UAB"
    },
    "note": "Greenbrier Tip-Off"
   },

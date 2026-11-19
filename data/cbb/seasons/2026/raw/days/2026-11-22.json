@@ -18,21 +18,6 @@
    "note": "Jacksonville Classic"
   },
   {
-   "id": "401921088",
-   "start": "2026-11-22T17:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2378",
-    "name": "UMBC"
-   },
-   "away": {
-    "id": null,
-    "name": "Lancaster Bible"
-   }
-  },
-  {
    "id": "401902281",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
@@ -108,6 +93,21 @@
     "name": "Dayton"
    },
    "note": "Shriners Children's Charleston Classic"
+  },
+  {
+   "id": "401921088",
+   "start": "2026-11-22T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2378",
+    "name": "UMBC"
+   },
+   "away": {
+    "id": null,
+    "name": "Lancaster Bible"
+   }
   },
   {
    "id": "401929023",
