@@ -5,15 +5,17 @@
    "id": "401920517",
    "start": "2026-11-19T19:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "277",
-    "name": "West Virginia"
+    "name": "West Virginia",
+    "score": 72
    },
    "away": {
     "id": "57",
-    "name": "Florida"
+    "name": "Florida",
+    "score": 85
    },
    "note": "Players Era 8 - Third Place Game"
   },
@@ -21,15 +23,17 @@
    "id": "401920519",
    "start": "2026-11-19T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2",
-    "name": "Auburn"
+    "name": "Auburn",
+    "score": 73
    },
    "away": {
     "id": "87",
-    "name": "Notre Dame"
+    "name": "Notre Dame",
+    "score": 78
    },
    "note": "Players Era 8 - Fifth Place"
   },
@@ -37,15 +41,15 @@
    "id": "401918959",
    "start": "2026-11-19T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "93",
-    "name": "Murray State"
-   },
-   "away": {
     "id": "152",
     "name": "NC State"
+   },
+   "away": {
+    "id": "93",
+    "name": "Murray State"
    },
    "note": "Baha Mar Championship"
   },
@@ -53,7 +57,7 @@
    "id": "401902280",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2086",
@@ -68,7 +72,7 @@
    "id": "401911021",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "179",
@@ -83,7 +87,7 @@
    "id": "401912211",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "44",
@@ -98,7 +102,7 @@
    "id": "401916318",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "194",
@@ -113,7 +117,7 @@
    "id": "401920413",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2272",
@@ -128,7 +132,7 @@
    "id": "401920878",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "294",
@@ -143,7 +147,7 @@
    "id": "401923304",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2514",
@@ -158,7 +162,7 @@
    "id": "401926144",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2565",
@@ -173,7 +177,7 @@
    "id": "401928812",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "94",
@@ -188,7 +192,7 @@
    "id": "401928826",
    "start": "2026-11-20T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2649",
@@ -203,7 +207,7 @@
    "id": "401919005",
    "start": "2026-11-20T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2348",
@@ -218,7 +222,7 @@
    "id": "401926814",
    "start": "2026-11-20T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2181",
@@ -233,7 +237,7 @@
    "id": "401929373",
    "start": "2026-11-20T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2453",
@@ -248,7 +252,7 @@
    "id": "401906867",
    "start": "2026-11-20T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "251",
@@ -263,7 +267,7 @@
    "id": "401918950",
    "start": "2026-11-20T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "97",
@@ -278,7 +282,7 @@
    "id": "401919050",
    "start": "2026-11-20T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2628",
@@ -293,7 +297,7 @@
    "id": "401920845",
    "start": "2026-11-20T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2900",
@@ -308,7 +312,7 @@
    "id": "401921028",
    "start": "2026-11-20T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2277",
@@ -323,7 +327,7 @@
    "id": "401927375",
    "start": "2026-11-20T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2287",
@@ -338,7 +342,7 @@
    "id": "401929409",
    "start": "2026-11-20T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "155",
