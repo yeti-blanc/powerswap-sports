@@ -2,36 +2,6 @@
  "date": "2026-11-23",
  "games": [
   {
-   "id": "401928389",
-   "start": "2026-11-23T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2755",
-    "name": "Grambling"
-   },
-   "away": {
-    "id": "3120",
-    "name": "Ecclesia"
-   }
-  },
-  {
-   "id": "401932055",
-   "start": "2026-11-23T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "47",
-    "name": "Howard"
-   },
-   "away": {
-    "id": "128342",
-    "name": "Notre Dame (Md)"
-   }
-  },
-  {
    "id": "401921700",
    "start": "2026-11-23T16:00Z",
    "time_valid": true,
@@ -62,6 +32,21 @@
     "name": "St. Bonaventure"
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
+  },
+  {
+   "id": "401928389",
+   "start": "2026-11-23T16:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2755",
+    "name": "Grambling"
+   },
+   "away": {
+    "id": "3120",
+    "name": "Ecclesia"
+   }
   },
   {
    "id": "401921209",
@@ -465,6 +450,21 @@
    "away": {
     "id": "2589",
     "name": "Spalding"
+   }
+  },
+  {
+   "id": "401932055",
+   "start": "2026-11-24T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "47",
+    "name": "Howard"
+   },
+   "away": {
+    "id": "128342",
+    "name": "Notre Dame (Md)"
    }
   },
   {

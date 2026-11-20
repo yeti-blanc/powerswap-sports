@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generated_at": "2026-11-19T20:15:27-05:00",
- "today": "2026-11-19",
+ "generated_at": "2026-11-20T03:47:14-05:00",
+ "today": "2026-11-20",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -653,10 +653,12 @@
      "id": "401920518",
      "start": "2026-11-20T04:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Houston",
      "opponent_id": "248",
+     "score": 83,
+     "opponent_score": 92,
      "note": "Players Era 8 - Championship"
     },
     {
@@ -932,6 +934,15 @@
      "home_away": "home",
      "opponent": "West Georgia",
      "opponent_id": "2698"
+    },
+    {
+     "id": "401921828",
+     "start": "2026-12-18T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Southern Indiana",
+     "opponent_id": "88"
     }
    ]
   },
@@ -1118,10 +1129,12 @@
      "id": "401920518",
      "start": "2026-11-20T04:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Kansas",
      "opponent_id": "2305",
+     "score": 92,
+     "opponent_score": 83,
      "note": "Players Era 8 - Championship"
     },
     {
@@ -1234,10 +1247,12 @@
      "id": "401906867",
      "start": "2026-11-20T01:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Southern Utah",
-     "opponent_id": "253"
+     "opponent_id": "253",
+     "score": 92,
+     "opponent_score": 68
     },
     {
      "id": "401906868",
@@ -2006,10 +2021,12 @@
      "id": "401926773",
      "start": "2026-11-20T04:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Tarleton State",
-     "opponent_id": "2627"
+     "opponent_id": "2627",
+     "score": 96,
+     "opponent_score": 51
     },
     {
      "id": "401926774",
@@ -2540,6 +2557,16 @@
      "opponent": "Georgia Tech",
      "opponent_id": "59",
      "note": "Hall of Fame Series - Orlando"
+    },
+    {
+     "id": "401911353",
+     "start": "2026-12-18T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Grand Canyon",
+     "opponent_id": "2253",
+     "note": "Jacksonville Hoops Showdown"
     }
    ]
   },
@@ -2635,6 +2662,16 @@
      "home_away": "home",
      "opponent": "North Carolina Central",
      "opponent_id": "2428"
+    },
+    {
+     "id": "401909780",
+     "start": "2026-12-19T02:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Missouri State",
+     "opponent_id": "2623",
+     "note": "NABC Hall of Fame Classic"
     }
    ]
   },
@@ -2878,6 +2915,16 @@
      "opponent": "Central Florida",
      "opponent_id": "2116",
      "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401916294",
+     "start": "2026-12-18T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Missouri",
+     "opponent_id": "142",
+     "note": "Bad Boy Mowers Series"
     }
    ]
   },
@@ -3037,10 +3084,12 @@
      "id": "401918950",
      "start": "2026-11-20T01:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Stetson",
-     "opponent_id": "56"
+     "opponent_id": "56",
+     "score": 83,
+     "opponent_score": 69
     },
     {
      "id": "401915942",
@@ -3207,6 +3256,15 @@
      "opponent": "Houston",
      "opponent_id": "248",
      "note": "Houston Hoopfest"
+    },
+    {
+     "id": "401920419",
+     "start": "2026-12-19T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "High Point",
+     "opponent_id": "2272"
     }
    ]
   }

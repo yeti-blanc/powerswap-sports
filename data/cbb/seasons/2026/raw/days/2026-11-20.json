@@ -485,12 +485,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "93",
+    "name": "Murray State"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "275",
+    "name": "Wisconsin"
    },
    "note": "Baha Mar Championship - Consolation"
   },
@@ -863,12 +863,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "152",
+    "name": "NC State"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2550",
+    "name": "Seton Hall"
    },
    "note": "Baha Mar Championship - Championship"
   },
