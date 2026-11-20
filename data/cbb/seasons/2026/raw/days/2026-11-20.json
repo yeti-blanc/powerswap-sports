@@ -5,60 +5,68 @@
    "id": "401918454",
    "start": "2026-11-20T16:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2729",
-    "name": "William & Mary"
+    "name": "William & Mary",
+    "score": 85
    },
    "away": {
     "id": "2047",
-    "name": "Averett"
+    "name": "Averett",
+    "score": 39
    }
   },
   {
    "id": "401909698",
    "start": "2026-11-20T17:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "52",
-    "name": "Florida State"
+    "name": "Florida State",
+    "score": 87
    },
    "away": {
     "id": "2739",
-    "name": "Green Bay"
+    "name": "Green Bay",
+    "score": 63
    }
   },
   {
    "id": "401925841",
    "start": "2026-11-20T17:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2379",
-    "name": "Maryland Eastern Shore"
+    "name": "Maryland Eastern Shore",
+    "score": 87
    },
    "away": {
     "id": "2854",
-    "name": "Bloomfield"
+    "name": "Bloomfield",
+    "score": 77
    }
   },
   {
    "id": "401916122",
    "start": "2026-11-20T17:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2393",
-    "name": "Middle Tennessee"
+    "name": "Middle Tennessee",
+    "score": 76
    },
    "away": {
     "id": "218",
-    "name": "Temple"
+    "name": "Temple",
+    "score": 85
    },
    "note": "U.S. Virgin Islands Paradise Jam"
   },
@@ -66,15 +74,17 @@
    "id": "401921418",
    "start": "2026-11-20T17:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "135",
-    "name": "Minnesota"
+    "name": "Minnesota",
+    "score": 85
    },
    "away": {
     "id": "197",
-    "name": "Oklahoma State"
+    "name": "Oklahoma State",
+    "score": 70
    },
    "note": "Shriners Children's Charleston Classic"
   },
@@ -82,15 +92,17 @@
    "id": "401919019",
    "start": "2026-11-20T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "45",
-    "name": "George Washington"
+    "name": "George Washington",
+    "score": 76
    },
    "away": {
     "id": "5",
-    "name": "UAB"
+    "name": "UAB",
+    "score": 81
    },
    "note": "Greenbrier Tip-Off"
   },
@@ -98,15 +110,17 @@
    "id": "401916123",
    "start": "2026-11-20T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2617",
-    "name": "Stephen F. Austin"
+    "name": "Stephen F. Austin",
+    "score": 86
    },
    "away": {
     "id": "282",
-    "name": "Indiana State"
+    "name": "Indiana State",
+    "score": 76
    },
    "note": "U.S. Virgin Islands Paradise Jam"
   },
@@ -114,15 +128,17 @@
    "id": "401919826",
    "start": "2026-11-20T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "399",
-    "name": "UAlbany"
+    "id": "2710",
+    "name": "Western Illinois",
+    "score": 60
    },
    "away": {
-    "id": "2710",
-    "name": "Western Illinois"
+    "id": "399",
+    "name": "UAlbany",
+    "score": 65
    },
    "note": "Queen City Classic"
   },
@@ -130,38 +146,42 @@
    "id": "401920380",
    "start": "2026-11-20T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "259",
-    "name": "Virginia Tech"
+    "name": "Virginia Tech",
+    "score": 87
    },
    "away": {
     "id": "77",
-    "name": "Northwestern"
+    "name": "Northwestern",
+    "score": 70
    },
-   "note": "The Shriners Children's Charleston Classic"
+   "note": "Shriners Children's Charleston Classic"
   },
   {
    "id": "401922022",
    "start": "2026-11-20T21:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "304",
-    "name": "Idaho State"
+    "name": "Idaho State",
+    "score": 86
    },
    "away": {
     "id": "2571",
-    "name": "South Dakota State"
+    "name": "South Dakota State",
+    "score": 71
    }
   },
   {
    "id": "401920066",
    "start": "2026-11-20T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2335",
@@ -177,7 +197,7 @@
    "id": "401921723",
    "start": "2026-11-20T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2390",
@@ -192,7 +212,7 @@
    "id": "401916124",
    "start": "2026-11-20T22:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "79",
@@ -208,7 +228,7 @@
    "id": "401919827",
    "start": "2026-11-20T22:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2099",
@@ -224,7 +244,7 @@
    "id": "401921419",
    "start": "2026-11-20T22:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "254",
@@ -240,7 +260,7 @@
    "id": "401920298",
    "start": "2026-11-20T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2463",
@@ -255,7 +275,7 @@
    "id": "401928834",
    "start": "2026-11-20T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2006",
@@ -267,25 +287,10 @@
    }
   },
   {
-   "id": "401929353",
-   "start": "2026-11-20T23:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2916",
-    "name": "Incarnate Word"
-   },
-   "away": {
-    "id": null,
-    "name": "Central Baptist"
-   }
-  },
-  {
    "id": "401929460",
    "start": "2026-11-20T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2803",
@@ -584,6 +589,21 @@
     "name": "Richmond"
    },
    "note": "Greenbrier Tip-Off"
+  },
+  {
+   "id": "401929353",
+   "start": "2026-11-21T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2916",
+    "name": "Incarnate Word"
+   },
+   "away": {
+    "id": null,
+    "name": "Central Baptist"
+   }
   },
   {
    "id": "401909545",
