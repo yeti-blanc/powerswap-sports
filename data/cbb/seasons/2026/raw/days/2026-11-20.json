@@ -5,7 +5,7 @@
    "id": "401918454",
    "start": "2026-11-20T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2729",
@@ -20,7 +20,7 @@
    "id": "401909698",
    "start": "2026-11-20T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "52",
@@ -35,7 +35,7 @@
    "id": "401925841",
    "start": "2026-11-20T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2379",
@@ -76,7 +76,7 @@
     "id": "197",
     "name": "Oklahoma State"
    },
-   "note": "The Shriners Children's Charleston Classic"
+   "note": "Shriners Children's Charleston Classic"
   },
   {
    "id": "401919019",

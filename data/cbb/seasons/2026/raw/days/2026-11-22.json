@@ -2,6 +2,22 @@
  "date": "2026-11-22",
  "games": [
   {
+   "id": "401902281",
+   "start": "2026-11-22T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2086",
+    "name": "Butler"
+   },
+   "away": {
+    "id": "158",
+    "name": "Nebraska"
+   },
+   "note": "Bad Boy Mowers Series"
+  },
+  {
    "id": "401911024",
    "start": "2026-11-22T17:00Z",
    "time_valid": true,
@@ -16,22 +32,6 @@
     "name": "Miami (Ohio)"
    },
    "note": "Jacksonville Classic"
-  },
-  {
-   "id": "401902281",
-   "start": "2026-11-22T18:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "2086",
-    "name": "Butler"
-   },
-   "away": {
-    "id": "158",
-    "name": "Nebraska"
-   },
-   "note": "Bad Boy Mowers Series"
   },
   {
    "id": "401909527",
