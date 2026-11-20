@@ -124,6 +124,28 @@
       "team_score": null,
       "opponent_score": null
     },
+    "Washington": {
+      "opponent": "Indiana",
+      "team_id": "264",
+      "opponent_id": "84",
+      "home_away": "home",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Indiana": {
+      "opponent": "Washington",
+      "team_id": "84",
+      "opponent_id": "264",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Tennessee": {
       "opponent": "LSU",
       "team_id": "2633",
@@ -140,6 +162,17 @@
       "team_id": "99",
       "opponent_id": "2633",
       "home_away": "away",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Penn State": {
+      "opponent": "Rutgers",
+      "team_id": "213",
+      "opponent_id": "164",
+      "home_away": "home",
       "kickoff_utc": "2026-11-21T20:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
@@ -172,39 +205,6 @@
       "opponent": "Texas",
       "team_id": "8",
       "opponent_id": "251",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Penn State": {
-      "opponent": "Rutgers",
-      "team_id": "213",
-      "opponent_id": "164",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Washington": {
-      "opponent": "Indiana",
-      "team_id": "264",
-      "opponent_id": "84",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Indiana": {
-      "opponent": "Washington",
-      "team_id": "84",
-      "opponent_id": "264",
       "home_away": "away",
       "kickoff_utc": "2026-11-21T20:30:00.000Z",
       "start_time_tbd": false,
@@ -245,22 +245,22 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Notre Dame": {
-      "opponent": "SMU",
-      "team_id": "87",
-      "opponent_id": "2567",
-      "home_away": "home",
+    "Georgia": {
+      "opponent": "South Carolina",
+      "team_id": "61",
+      "opponent_id": "2579",
+      "home_away": "away",
       "kickoff_utc": "2026-11-22T00:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
       "opponent_score": null
     },
-    "Georgia": {
-      "opponent": "South Carolina",
-      "team_id": "61",
-      "opponent_id": "2579",
-      "home_away": "away",
+    "Notre Dame": {
+      "opponent": "SMU",
+      "team_id": "87",
+      "opponent_id": "2567",
+      "home_away": "home",
       "kickoff_utc": "2026-11-22T00:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
