@@ -112,21 +112,6 @@
    "note": "Florida International MTE"
   },
   {
-   "id": "401929035",
-   "start": "2026-11-24T18:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "2441",
-    "name": "New Haven"
-   },
-   "away": {
-    "id": "2815",
-    "name": "Lindenwood"
-   }
-  },
-  {
    "id": "401906806",
    "start": "2026-11-24T18:30Z",
    "time_valid": true,
@@ -269,6 +254,21 @@
     "name": "Long Beach State"
    },
    "note": "Florida International MTE"
+  },
+  {
+   "id": "401929035",
+   "start": "2026-11-24T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2441",
+    "name": "New Haven"
+   },
+   "away": {
+    "id": "2815",
+    "name": "Lindenwood"
+   }
   },
   {
    "id": "401921223",
@@ -977,12 +977,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "349",
-    "name": "Army"
-   },
-   "away": {
     "id": "2005",
     "name": "Air Force"
+   },
+   "away": {
+    "id": "349",
+    "name": "Army"
    }
   },
   {

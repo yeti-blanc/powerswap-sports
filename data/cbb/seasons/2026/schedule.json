@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generated_at": "2026-11-20T23:06:59-05:00",
- "today": "2026-11-20",
+ "generated_at": "2026-11-21T07:35:07-05:00",
+ "today": "2026-11-21",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -141,6 +141,16 @@
      "home_away": "home",
      "opponent": "Tennessee Tech",
      "opponent_id": "2635"
+    },
+    {
+     "id": "401909747",
+     "start": "2026-12-19T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Arkansas",
+     "opponent_id": "8",
+     "note": "Hall of Fame Series - Phoenix"
     }
    ]
   },
@@ -256,6 +266,16 @@
      "home_away": "home",
      "opponent": "Merrimack",
      "opponent_id": "2771"
+    },
+    {
+     "id": "401921675",
+     "start": "2026-12-19T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Gonzaga",
+     "opponent_id": "2250",
+     "note": "Acrisure Series"
     }
    ]
   },
@@ -585,6 +605,16 @@
      "home_away": "away",
      "opponent": "Creighton",
      "opponent_id": "156"
+    },
+    {
+     "id": "401921675",
+     "start": "2026-12-19T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Michigan State",
+     "opponent_id": "127",
+     "note": "Acrisure Series"
     }
    ]
   },
@@ -705,6 +735,16 @@
      "home_away": "away",
      "opponent": "Connecticut",
      "opponent_id": "41"
+    },
+    {
+     "id": "401909793",
+     "start": "2026-12-19T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Ohio State",
+     "opponent_id": "194",
+     "note": "CBS Sports Classic"
     }
    ]
   },
@@ -1422,6 +1462,16 @@
      "home_away": "home",
      "opponent": "Weber State",
      "opponent_id": "2692"
+    },
+    {
+     "id": "401921677",
+     "start": "2026-12-20T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "San Diego State",
+     "opponent_id": "21",
+     "note": "Acrisure Series"
     }
    ]
   },
@@ -1661,6 +1711,15 @@
      "opponent": "Alabama",
      "opponent_id": "333",
      "note": "C.M. Newton Classic"
+    },
+    {
+     "id": "401920466",
+     "start": "2026-12-20T01:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "DePaul",
+     "opponent_id": "305"
     }
    ]
   },
@@ -1768,6 +1827,15 @@
      "home_away": "away",
      "opponent": "Washington",
      "opponent_id": "264"
+    },
+    {
+     "id": "401924862",
+     "start": "2026-12-19T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Quinnipiac",
+     "opponent_id": "2514"
     }
    ]
   },
@@ -2101,6 +2169,15 @@
      "opponent": "Texas Tech",
      "opponent_id": "2641",
      "note": "Coast to Coast Challenge"
+    },
+    {
+     "id": "401920883",
+     "start": "2026-12-19T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Jacksonville",
+     "opponent_id": "294"
     }
    ]
   },
@@ -2801,6 +2878,16 @@
      "home_away": "home",
      "opponent": "UT Arlington",
      "opponent_id": "250"
+    },
+    {
+     "id": "401909747",
+     "start": "2026-12-19T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Arizona",
+     "opponent_id": "12",
+     "note": "Hall of Fame Series - Phoenix"
     }
    ]
   },
@@ -3057,6 +3144,16 @@
      "home_away": "home",
      "opponent": "Louisville",
      "opponent_id": "97"
+    },
+    {
+     "id": "401912714",
+     "start": "2026-12-19T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "North Carolina",
+     "opponent_id": "153",
+     "note": "CBS Sports Classic"
     }
    ]
   },
@@ -3153,6 +3250,15 @@
      "home_away": "home",
      "opponent": "Long Island University",
      "opponent_id": "112358"
+    },
+    {
+     "id": "401918954",
+     "start": "2026-12-19T18:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Eastern Michigan",
+     "opponent_id": "2199"
     }
    ]
   },

@@ -955,30 +955,34 @@
    "id": "401928795",
    "start": "2026-11-21T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "68",
-    "name": "Boise State"
+    "name": "Boise State",
+    "score": 69
    },
    "away": {
     "id": "2534",
-    "name": "Sam Houston State"
+    "name": "Sam Houston State",
+    "score": 83
    }
   },
   {
    "id": "401921691",
    "start": "2026-11-21T02:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "152",
-    "name": "NC State"
+    "name": "NC State",
+    "score": 81
    },
    "away": {
     "id": "2550",
-    "name": "Seton Hall"
+    "name": "Seton Hall",
+    "score": 87
    },
    "note": "Baha Mar Championship - Championship"
   },
@@ -986,30 +990,34 @@
    "id": "401925664",
    "start": "2026-11-21T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "278",
-    "name": "Fresno State"
+    "name": "Fresno State",
+    "score": 80
    },
    "away": {
     "id": "2011",
-    "name": "Alabama State"
+    "name": "Alabama State",
+    "score": 68
    }
   },
   {
    "id": "401911252",
    "start": "2026-11-21T04:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2608",
-    "name": "Saint Mary's"
+    "name": "Saint Mary's",
+    "score": 95
    },
    "away": {
     "id": "139",
-    "name": "Saint Louis"
+    "name": "Saint Louis",
+    "score": 78
    }
   }
  ]

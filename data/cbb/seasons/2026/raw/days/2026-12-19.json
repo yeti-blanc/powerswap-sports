@@ -1,0 +1,1353 @@
+{
+ "date": "2026-12-19",
+ "games": [
+  {
+   "id": "401921189",
+   "start": "2026-12-19T05:00Z",
+   "time_valid": false,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "219",
+    "name": "Pennsylvania"
+   },
+   "away": {
+    "id": "2405",
+    "name": "Monmouth"
+   }
+  },
+  {
+   "id": "401909540",
+   "start": "2026-12-19T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2507",
+    "name": "Providence"
+   },
+   "away": {
+    "id": "183",
+    "name": "Syracuse"
+   },
+   "note": "Hall of Fame Series - Orlando"
+  },
+  {
+   "id": "401909793",
+   "start": "2026-12-19T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "194",
+    "name": "Ohio State"
+   },
+   "away": {
+    "id": "2305",
+    "name": "Kansas"
+   },
+   "note": "CBS Sports Classic"
+  },
+  {
+   "id": "401911268",
+   "start": "2026-12-19T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "179",
+    "name": "St. Bonaventure"
+   },
+   "away": {
+    "id": "2385",
+    "name": "Mercyhurst"
+   }
+  },
+  {
+   "id": "401920571",
+   "start": "2026-12-19T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "46",
+    "name": "Georgetown"
+   },
+   "away": {
+    "id": "2550",
+    "name": "Seton Hall"
+   }
+  },
+  {
+   "id": "401911058",
+   "start": "2026-12-19T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "193",
+    "name": "Miami (Ohio)"
+   },
+   "away": {
+    "id": "2050",
+    "name": "Ball State"
+   }
+  },
+  {
+   "id": "401911059",
+   "start": "2026-12-19T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "113",
+    "name": "Massachusetts"
+   },
+   "away": {
+    "id": "284",
+    "name": "Stonehill"
+   }
+  },
+  {
+   "id": "401911825",
+   "start": "2026-12-19T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2643",
+    "name": "The Citadel"
+   },
+   "away": {
+    "id": "2635",
+    "name": "Tennessee Tech"
+   }
+  },
+  {
+   "id": "401916301",
+   "start": "2026-12-19T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "120",
+    "name": "Maryland"
+   },
+   "away": {
+    "id": "2579",
+    "name": "South Carolina"
+   }
+  },
+  {
+   "id": "401920068",
+   "start": "2026-12-19T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "111",
+    "name": "Northeastern"
+   },
+   "away": {
+    "id": "227",
+    "name": "Rhode Island"
+   }
+  },
+  {
+   "id": "401922516",
+   "start": "2026-12-19T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "282",
+    "name": "Indiana State"
+   },
+   "away": {
+    "id": "93",
+    "name": "Murray State"
+   }
+  },
+  {
+   "id": "401927344",
+   "start": "2026-12-19T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2169",
+    "name": "Delaware State"
+   },
+   "away": {
+    "id": "144",
+    "name": "Franklin Pierce"
+   }
+  },
+  {
+   "id": "401918954",
+   "start": "2026-12-19T18:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "97",
+    "name": "Louisville"
+   },
+   "away": {
+    "id": "2199",
+    "name": "Eastern Michigan"
+   }
+  },
+  {
+   "id": "401911056",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2006",
+    "name": "Akron"
+   },
+   "away": {
+    "id": "189",
+    "name": "Bowling Green"
+   }
+  },
+  {
+   "id": "401911057",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "195",
+    "name": "Ohio"
+   },
+   "away": {
+    "id": "2084",
+    "name": "Buffalo"
+   }
+  },
+  {
+   "id": "401911828",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "236",
+    "name": "Chattanooga"
+   },
+   "away": {
+    "id": "2382",
+    "name": "Mercer"
+   }
+  },
+  {
+   "id": "401917909",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2698",
+    "name": "West Georgia"
+   },
+   "away": {
+    "id": "2697",
+    "name": "West Florida"
+   }
+  },
+  {
+   "id": "401917973",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "56",
+    "name": "Stetson"
+   },
+   "away": {
+    "id": "2000",
+    "name": "Abilene Christian"
+   }
+  },
+  {
+   "id": "401918999",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "58",
+    "name": "South Florida"
+   },
+   "away": {
+    "id": "338",
+    "name": "Kennesaw State"
+   }
+  },
+  {
+   "id": "401919741",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "233",
+    "name": "South Dakota"
+   },
+   "away": {
+    "id": "2130",
+    "name": "Chicago State"
+   }
+  },
+  {
+   "id": "401920200",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2603",
+    "name": "Saint Joseph's"
+   },
+   "away": {
+    "id": "2154",
+    "name": "Coppin State"
+   }
+  },
+  {
+   "id": "401921247",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2426",
+    "name": "Navy"
+   },
+   "away": {
+    "id": "2506",
+    "name": "Presbyterian"
+   }
+  },
+  {
+   "id": "401922058",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "350",
+    "name": "UNC Wilmington"
+   },
+   "away": {
+    "id": "2515",
+    "name": "Radford"
+   }
+  },
+  {
+   "id": "401922215",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "526",
+    "name": "Florida Gulf Coast"
+   },
+   "away": {
+    "id": "2627",
+    "name": "Tarleton State"
+   }
+  },
+  {
+   "id": "401925843",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2261",
+    "name": "Hampton"
+   },
+   "away": {
+    "id": "2379",
+    "name": "Maryland Eastern Shore"
+   }
+  },
+  {
+   "id": "401925861",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "218",
+    "name": "Temple"
+   },
+   "away": {
+    "id": "2750",
+    "name": "Wright State"
+   }
+  },
+  {
+   "id": "401928820",
+   "start": "2026-12-19T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2870",
+    "name": "Purdue Fort Wayne"
+   },
+   "away": {
+    "id": "131630",
+    "name": "Kuyper"
+   }
+  },
+  {
+   "id": "401912714",
+   "start": "2026-12-19T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "96",
+    "name": "Kentucky"
+   },
+   "away": {
+    "id": "153",
+    "name": "North Carolina"
+   },
+   "note": "CBS Sports Classic"
+  },
+  {
+   "id": "401917174",
+   "start": "2026-12-19T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "213",
+    "name": "Penn State"
+   },
+   "away": {
+    "id": "322",
+    "name": "Lafayette"
+   }
+  },
+  {
+   "id": "401929203",
+   "start": "2026-12-19T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "326",
+    "name": "Texas State"
+   },
+   "away": {
+    "id": "2640",
+    "name": "Texas Southern"
+   }
+  },
+  {
+   "id": "401902286",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "59",
+    "name": "Georgia Tech"
+   },
+   "away": {
+    "id": "2086",
+    "name": "Butler"
+   },
+   "note": "Indy Classic"
+  },
+  {
+   "id": "401911954",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2572",
+    "name": "Southern Miss"
+   },
+   "away": {
+    "id": "256",
+    "name": "James Madison"
+   }
+  },
+  {
+   "id": "401917957",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2046",
+    "name": "Austin Peay"
+   },
+   "away": {
+    "id": "91",
+    "name": "Bellarmine"
+   }
+  },
+  {
+   "id": "401920207",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "344",
+    "name": "Mississippi State"
+   },
+   "away": {
+    "id": "2670",
+    "name": "VCU"
+   }
+  },
+  {
+   "id": "401920919",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2459",
+    "name": "Northern Illinois"
+   },
+   "away": {
+    "id": "2197",
+    "name": "Eastern Illinois"
+   }
+  },
+  {
+   "id": "401921015",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "140",
+    "name": "Kansas City"
+   },
+   "away": {
+    "id": "2815",
+    "name": "Lindenwood"
+   }
+  },
+  {
+   "id": "401921102",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2172",
+    "name": "Denver"
+   },
+   "away": {
+    "id": "242",
+    "name": "Rice"
+   }
+  },
+  {
+   "id": "401922052",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2344",
+    "name": "Longwood"
+   },
+   "away": {
+    "id": "2415",
+    "name": "Morgan State"
+   }
+  },
+  {
+   "id": "401926738",
+   "start": "2026-12-19T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2630",
+    "name": "UT Martin"
+   },
+   "away": {
+    "id": "3134",
+    "name": "Champion Christian"
+   }
+  },
+  {
+   "id": "401909735",
+   "start": "2026-12-19T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "154",
+    "name": "Wake Forest"
+   },
+   "away": {
+    "id": "277",
+    "name": "West Virginia"
+   },
+   "note": "Holiday Hoopfest"
+  },
+  {
+   "id": "401918975",
+   "start": "2026-12-19T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2439",
+    "name": "Nevada-Las Vegas"
+   },
+   "away": {
+    "id": "2567",
+    "name": "SMU"
+   },
+   "note": "Hall of Fame Series - Phoenix"
+  },
+  {
+   "id": "401920081",
+   "start": "2026-12-19T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2244",
+    "name": "George Mason"
+   },
+   "away": {
+    "id": "119",
+    "name": "Towson"
+   }
+  },
+  {
+   "id": "401920768",
+   "start": "2026-12-19T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2634",
+    "name": "Tennessee State"
+   },
+   "away": {
+    "id": "2010",
+    "name": "Alabama A&M"
+   }
+  },
+  {
+   "id": "401911826",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2193",
+    "name": "East Tennessee State"
+   },
+   "away": {
+    "id": "2430",
+    "name": "UNC Greensboro"
+   }
+  },
+  {
+   "id": "401911827",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "231",
+    "name": "Furman"
+   },
+   "away": {
+    "id": "2717",
+    "name": "Western Carolina"
+   }
+  },
+  {
+   "id": "401911951",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2348",
+    "name": "Louisiana Tech"
+   },
+   "away": {
+    "id": "2026",
+    "name": "Appalachian State"
+   }
+  },
+  {
+   "id": "401911955",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "309",
+    "name": "Louisiana"
+   },
+   "away": {
+    "id": "276",
+    "name": "Marshall"
+   }
+  },
+  {
+   "id": "401920803",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2",
+    "name": "Auburn"
+   },
+   "away": {
+    "id": "275",
+    "name": "Wisconsin"
+   },
+   "note": "Bad Boy Mowers Series"
+  },
+  {
+   "id": "401922237",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2453",
+    "name": "North Alabama"
+   },
+   "away": {
+    "id": "2511",
+    "name": "Queens University"
+   }
+  },
+  {
+   "id": "401923320",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2182",
+    "name": "Drexel"
+   },
+   "away": {
+    "id": "399",
+    "name": "UAlbany"
+   }
+  },
+  {
+   "id": "401924748",
+   "start": "2026-12-19T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "43",
+    "name": "Yale"
+   },
+   "away": {
+    "id": null,
+    "name": "St. Joseph's Brooklyn"
+   }
+  },
+  {
+   "id": "401911952",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2653",
+    "name": "Troy"
+   },
+   "away": {
+    "id": "324",
+    "name": "Coastal Carolina"
+   }
+  },
+  {
+   "id": "401920353",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "278",
+    "name": "Fresno State"
+   },
+   "away": {
+    "id": "16",
+    "name": "Sacramento State"
+   }
+  },
+  {
+   "id": "401920407",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2116",
+    "name": "Central Florida"
+   },
+   "away": {
+    "id": "259",
+    "name": "Virginia Tech"
+   }
+  },
+  {
+   "id": "401920883",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "30",
+    "name": "USC"
+   },
+   "away": {
+    "id": "294",
+    "name": "Jacksonville"
+   }
+  },
+  {
+   "id": "401920969",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2427",
+    "name": "UNC Asheville"
+   },
+   "away": {
+    "id": "2413",
+    "name": "Morehead State"
+   }
+  },
+  {
+   "id": "401924862",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "26",
+    "name": "UCLA"
+   },
+   "away": {
+    "id": "2514",
+    "name": "Quinnipiac"
+   }
+  },
+  {
+   "id": "401924958",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2277",
+    "name": "Houston Christian"
+   },
+   "away": {
+    "id": "2443",
+    "name": "LSU New Orleans"
+   }
+  },
+  {
+   "id": "401925017",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "357",
+    "name": "Texas A&M-Corpus Christi"
+   },
+   "away": {
+    "id": "2320",
+    "name": "Lamar"
+   }
+  },
+  {
+   "id": "401925035",
+   "start": "2026-12-19T21:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2466",
+    "name": "Northwestern State"
+   },
+   "away": {
+    "id": "2377",
+    "name": "McNeese"
+   }
+  },
+  {
+   "id": "401911829",
+   "start": "2026-12-19T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2535",
+    "name": "Samford"
+   },
+   "away": {
+    "id": "2747",
+    "name": "Wofford"
+   }
+  },
+  {
+   "id": "401919053",
+   "start": "2026-12-19T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2628",
+    "name": "TCU"
+   },
+   "away": {
+    "id": "107",
+    "name": "Holy Cross"
+   }
+  },
+  {
+   "id": "401920714",
+   "start": "2026-12-19T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "288",
+    "name": "Lipscomb"
+   },
+   "away": {
+    "id": "2546",
+    "name": "Southeast Missouri State"
+   }
+  },
+  {
+   "id": "401921675",
+   "start": "2026-12-19T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "127",
+    "name": "Michigan State"
+   },
+   "away": {
+    "id": "2250",
+    "name": "Gonzaga"
+   },
+   "note": "Acrisure Series"
+  },
+  {
+   "id": "401924995",
+   "start": "2026-12-19T22:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2916",
+    "name": "Incarnate Word"
+   },
+   "away": {
+    "id": "2447",
+    "name": "Nicholls"
+   }
+  },
+  {
+   "id": "401909768",
+   "start": "2026-12-19T22:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2509",
+    "name": "Purdue"
+   },
+   "away": {
+    "id": "38",
+    "name": "Colorado"
+   },
+   "note": "Indy Classic"
+  },
+  {
+   "id": "401925092",
+   "start": "2026-12-19T22:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "292",
+    "name": "UT Rio Grande Valley"
+   },
+   "away": {
+    "id": "2617",
+    "name": "Stephen F. Austin"
+   }
+  },
+  {
+   "id": "401911193",
+   "start": "2026-12-19T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2335",
+    "name": "Liberty"
+   },
+   "away": {
+    "id": "2168",
+    "name": "Dayton"
+   }
+  },
+  {
+   "id": "401911215",
+   "start": "2026-12-19T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "45",
+    "name": "George Washington"
+   },
+   "away": {
+    "id": "2539",
+    "name": "San Francisco"
+   },
+   "note": "Texas Legends Classic"
+  },
+  {
+   "id": "401911956",
+   "start": "2026-12-19T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "6",
+    "name": "South Alabama"
+   },
+   "away": {
+    "id": "295",
+    "name": "Old Dominion"
+   }
+  },
+  {
+   "id": "401920822",
+   "start": "2026-12-19T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2837",
+    "name": "East Texas A&M"
+   },
+   "away": {
+    "id": "2545",
+    "name": "SE Louisiana"
+   }
+  },
+  {
+   "id": "401922228",
+   "start": "2026-12-19T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "250",
+    "name": "UT Arlington"
+   },
+   "away": {
+    "id": "2454",
+    "name": "North Florida"
+   }
+  },
+  {
+   "id": "401909747",
+   "start": "2026-12-19T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "12",
+    "name": "Arizona"
+   },
+   "away": {
+    "id": "8",
+    "name": "Arkansas"
+   },
+   "note": "Hall of Fame Series - Phoenix"
+  },
+  {
+   "id": "401920573",
+   "start": "2026-12-19T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "269",
+    "name": "Marquette"
+   },
+   "away": {
+    "id": "2752",
+    "name": "Xavier"
+   }
+  },
+  {
+   "id": "401918964",
+   "start": "2026-12-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "145",
+    "name": "Mississippi"
+   },
+   "away": {
+    "id": "152",
+    "name": "NC State"
+   }
+  },
+  {
+   "id": "401921146",
+   "start": "2026-12-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2210",
+    "name": "Elon"
+   },
+   "away": {
+    "id": "2410",
+    "name": "Montreat"
+   }
+  },
+  {
+   "id": "401921761",
+   "start": "2026-12-20T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "254",
+    "name": "Utah"
+   },
+   "away": {
+    "id": "2534",
+    "name": "Sam Houston State"
+   }
+  },
+  {
+   "id": "401917579",
+   "start": "2026-12-20T00:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "265",
+    "name": "Washington State"
+   },
+   "away": {
+    "id": "2547",
+    "name": "Seattle U"
+   }
+  },
+  {
+   "id": "401911953",
+   "start": "2026-12-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2032",
+    "name": "Arkansas State"
+   },
+   "away": {
+    "id": "290",
+    "name": "Georgia Southern"
+   }
+  },
+  {
+   "id": "401917580",
+   "start": "2026-12-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2501",
+    "name": "Portland"
+   },
+   "away": {
+    "id": "2751",
+    "name": "Wyoming"
+   }
+  },
+  {
+   "id": "401917945",
+   "start": "2026-12-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "198",
+    "name": "Oral Roberts"
+   },
+   "away": {
+    "id": "2110",
+    "name": "Central Arkansas"
+   }
+  },
+  {
+   "id": "401920572",
+   "start": "2026-12-20T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "156",
+    "name": "Creighton"
+   },
+   "away": {
+    "id": "222",
+    "name": "Villanova"
+   }
+  },
+  {
+   "id": "401920466",
+   "start": "2026-12-20T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2599",
+    "name": "St. John's"
+   },
+   "away": {
+    "id": "305",
+    "name": "DePaul"
+   }
+  },
+  {
+   "id": "401925870",
+   "start": "2026-12-20T01:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "202",
+    "name": "Tulsa"
+   },
+   "away": {
+    "id": "328",
+    "name": "Utah State"
+   },
+   "note": "Texas Legends Classic"
+  },
+  {
+   "id": "401917581",
+   "start": "2026-12-20T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2351",
+    "name": "Loyola Marymount"
+   },
+   "away": {
+    "id": "2934",
+    "name": "Cal State Bakersfield"
+   }
+  },
+  {
+   "id": "401918081",
+   "start": "2026-12-20T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2132",
+    "name": "Cincinnati"
+   },
+   "away": {
+    "id": "228",
+    "name": "Clemson"
+   }
+  },
+  {
+   "id": "401909756",
+   "start": "2026-12-20T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "264",
+    "name": "Washington"
+   },
+   "away": {
+    "id": "239",
+    "name": "Baylor"
+   }
+  },
+  {
+   "id": "401920302",
+   "start": "2026-12-20T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2463",
+    "name": "Cal State Northridge"
+   },
+   "away": {
+    "id": "3167",
+    "name": "La Sierra"
+   }
+  },
+  {
+   "id": "401921677",
+   "start": "2026-12-20T03:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "21",
+    "name": "San Diego State"
+   },
+   "away": {
+    "id": "252",
+    "name": "BYU"
+   },
+   "note": "Acrisure Series"
+  }
+ ]
+}

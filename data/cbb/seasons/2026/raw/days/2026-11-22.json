@@ -582,12 +582,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "3084",
+    "name": "Utah Valley"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2630",
+    "name": "UT Martin"
    },
    "note": "U.S. Virgin Islands Paradise Jam"
   },
