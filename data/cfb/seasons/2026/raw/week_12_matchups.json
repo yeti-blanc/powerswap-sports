@@ -14,10 +14,65 @@
       "team_score": 17,
       "opponent_score": 48
     },
+    "Cincinnati": {
+      "opponent": "Colorado",
+      "team_id": "2132",
+      "opponent_id": "38",
+      "home_away": "home",
+      "kickoff_utc": "2026-11-21T17:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Colorado": {
+      "opponent": "Cincinnati",
+      "team_id": "38",
+      "opponent_id": "2132",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-21T17:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Vanderbilt": {
       "opponent": "Florida",
       "team_id": "238",
       "opponent_id": "57",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-21T17:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Minnesota": {
+      "opponent": "Northwestern",
+      "team_id": "135",
+      "opponent_id": "77",
+      "home_away": "home",
+      "kickoff_utc": "2026-11-21T17:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Georgia Tech": {
+      "opponent": "Wake Forest",
+      "team_id": "59",
+      "opponent_id": "154",
+      "home_away": "home",
+      "kickoff_utc": "2026-11-21T17:00:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Wake Forest": {
+      "opponent": "Georgia Tech",
+      "team_id": "154",
+      "opponent_id": "59",
       "home_away": "away",
       "kickoff_utc": "2026-11-21T17:00:00.000Z",
       "start_time_tbd": false,
@@ -47,61 +102,6 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Cincinnati": {
-      "opponent": "Colorado",
-      "team_id": "2132",
-      "opponent_id": "38",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-21T17:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Colorado": {
-      "opponent": "Cincinnati",
-      "team_id": "38",
-      "opponent_id": "2132",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-21T17:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Georgia Tech": {
-      "opponent": "Wake Forest",
-      "team_id": "59",
-      "opponent_id": "154",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-21T17:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Wake Forest": {
-      "opponent": "Georgia Tech",
-      "team_id": "154",
-      "opponent_id": "59",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-21T17:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Minnesota": {
-      "opponent": "Northwestern",
-      "team_id": "135",
-      "opponent_id": "77",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-21T17:00:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
     "Alabama": {
       "opponent": "Chattanooga",
       "team_id": "333",
@@ -119,6 +119,17 @@
       "opponent_id": "356",
       "home_away": "away",
       "kickoff_utc": "2026-11-21T19:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "UCLA": {
+      "opponent": "Michigan",
+      "team_id": "26",
+      "opponent_id": "130",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-21T20:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
@@ -173,17 +184,6 @@
       "team_id": "213",
       "opponent_id": "164",
       "home_away": "home",
-      "kickoff_utc": "2026-11-21T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "UCLA": {
-      "opponent": "Michigan",
-      "team_id": "26",
-      "opponent_id": "130",
-      "home_away": "away",
       "kickoff_utc": "2026-11-21T20:30:00.000Z",
       "start_time_tbd": false,
       "completed": false,
