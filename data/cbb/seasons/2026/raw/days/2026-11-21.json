@@ -5,67 +5,75 @@
    "id": "401922284",
    "start": "2026-11-21T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2430",
-    "name": "UNC Greensboro"
+    "name": "UNC Greensboro",
+    "score": 85
    },
    "away": {
     "id": "2908",
-    "name": "South Carolina Upstate"
+    "name": "South Carolina Upstate",
+    "score": 66
    }
   },
   {
    "id": "401924884",
    "start": "2026-11-21T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2083",
-    "name": "Bucknell"
+    "name": "Bucknell",
+    "score": 87
    },
    "away": {
     "id": "2561",
-    "name": "Siena"
+    "name": "Siena",
+    "score": 93
    }
   },
   {
    "id": "401923402",
    "start": "2026-11-21T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "104",
-    "name": "Boston University"
+    "name": "Boston University",
+    "score": 71
    },
    "away": {
     "id": "171",
-    "name": "Columbia"
+    "name": "Columbia",
+    "score": 80
    }
   },
   {
    "id": "401925756",
    "start": "2026-11-21T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "127",
-    "name": "Michigan State"
+    "name": "Michigan State",
+    "score": 91
    },
    "away": {
     "id": "2174",
-    "name": "Detroit Mercy"
+    "name": "Detroit Mercy",
+    "score": 70
    }
   },
   {
    "id": "401920948",
    "start": "2026-11-21T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2199",
@@ -80,7 +88,7 @@
    "id": "401921169",
    "start": "2026-11-21T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "325",
@@ -95,7 +103,7 @@
    "id": "401921811",
    "start": "2026-11-21T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "99",
@@ -110,7 +118,7 @@
    "id": "401923312",
    "start": "2026-11-21T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2441",
@@ -125,7 +133,7 @@
    "id": "401919828",
    "start": "2026-11-21T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2385",
@@ -141,7 +149,7 @@
    "id": "401909719",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "183",
@@ -156,7 +164,7 @@
    "id": "401909730",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "154",
@@ -171,7 +179,7 @@
    "id": "401911022",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "189",
@@ -186,7 +194,7 @@
    "id": "401911199",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2501",
@@ -202,7 +210,7 @@
    "id": "401919031",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2724",
@@ -217,7 +225,7 @@
    "id": "401920773",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2142",
@@ -232,7 +240,7 @@
    "id": "401921222",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2520",
@@ -247,7 +255,7 @@
    "id": "401922222",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2454",
@@ -262,7 +270,7 @@
    "id": "401924722",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2415",
@@ -277,7 +285,7 @@
    "id": "401924882",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2612",
@@ -292,7 +300,7 @@
    "id": "401928819",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2870",
@@ -307,7 +315,7 @@
    "id": "401929452",
    "start": "2026-11-21T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "256",
