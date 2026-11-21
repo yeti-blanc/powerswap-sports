@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-21T14:46:42-05:00",
+ "generated_at": "2026-11-21T18:59:47-05:00",
  "today": "2026-11-21",
  "current_week": "week3",
  "weeks": {
@@ -3327,10 +3327,12 @@
      "id": "401921811",
      "start": "2026-11-21T18:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Queens University",
-     "opponent_id": "2511"
+     "opponent_id": "2511",
+     "score": 106,
+     "opponent_score": 75
     },
     {
      "id": "401921669",
