@@ -10,9 +10,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-20T23:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 17,
+      "opponent_score": 48
     },
     "Vanderbilt": {
       "opponent": "Florida",
