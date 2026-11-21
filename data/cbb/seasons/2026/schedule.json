@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-20T18:15:31-05:00",
+ "generated_at": "2026-11-20T23:06:59-05:00",
  "today": "2026-11-20",
  "current_week": "week3",
  "weeks": {
@@ -884,10 +884,12 @@
      "id": "401921757",
      "start": "2026-11-21T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Central Florida",
-     "opponent_id": "2116"
+     "opponent_id": "2116",
+     "score": 82,
+     "opponent_score": 74
     },
     {
      "id": "401916319",
@@ -1009,10 +1011,12 @@
      "id": "401921723",
      "start": "2026-11-20T22:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Manhattan",
-     "opponent_id": "2363"
+     "opponent_id": "2363",
+     "score": 106,
+     "opponent_score": 54
     },
     {
      "id": "401915941",
@@ -1495,10 +1499,12 @@
      "id": "401920427",
      "start": "2026-11-21T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Loyola Maryland",
-     "opponent_id": "2352"
+     "opponent_id": "2352",
+     "score": 103,
+     "opponent_score": 61
     },
     {
      "id": "401920428",
@@ -1816,10 +1822,12 @@
      "id": "401906852",
      "start": "2026-11-21T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Coastal Carolina",
-     "opponent_id": "324"
+     "opponent_id": "324",
+     "score": 78,
+     "opponent_score": 51
     },
     {
      "id": "401906853",
@@ -2267,10 +2275,12 @@
      "id": "401913529",
      "start": "2026-11-21T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Eastern Illinois",
-     "opponent_id": "2197"
+     "opponent_id": "2197",
+     "score": 114,
+     "opponent_score": 52
     },
     {
      "id": "401913530",
@@ -2739,10 +2749,12 @@
      "id": "401925740",
      "start": "2026-11-21T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Mississippi Valley State",
-     "opponent_id": "2400"
+     "opponent_id": "2400",
+     "score": 92,
+     "opponent_score": 48
     },
     {
      "id": "401925757",
@@ -2856,10 +2868,12 @@
      "id": "401916290",
      "start": "2026-11-21T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Kentucky",
-     "opponent_id": "96"
+     "opponent_id": "96",
+     "score": 90,
+     "opponent_score": 76
     },
     {
      "id": "401916291",
@@ -2991,10 +3005,12 @@
      "id": "401916290",
      "start": "2026-11-21T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Indiana",
-     "opponent_id": "84"
+     "opponent_id": "84",
+     "score": 76,
+     "opponent_score": 90
     },
     {
      "id": "401919033",
