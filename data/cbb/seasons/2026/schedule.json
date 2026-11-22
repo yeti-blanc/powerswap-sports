@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generated_at": "2026-11-21T18:59:47-05:00",
- "today": "2026-11-21",
+ "generated_at": "2026-11-22T00:54:16-05:00",
+ "today": "2026-11-22",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -33,7 +33,7 @@
   "2599",
   "2390",
   "99",
-  "130",
+  "222",
   "2305",
   "238",
   "150",
@@ -333,10 +333,12 @@
      "id": "401921776",
      "start": "2026-11-22T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "away",
      "opponent": "Villanova",
-     "opponent_id": "222"
+     "opponent_id": "222",
+     "score": 73,
+     "opponent_score": 79
     },
     {
      "id": "401909495",
@@ -449,7 +451,7 @@
      "id": "401909567",
      "start": "2026-11-22T04:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Washington State",
      "opponent_id": "265",
@@ -510,6 +512,125 @@
      "home_away": "home",
      "opponent": "Grambling",
      "opponent_id": "2755"
+    }
+   ]
+  },
+  "222": {
+   "name": "Villanova",
+   "games": [
+    {
+     "id": "401920982",
+     "start": "2026-11-01T14:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Notre Dame",
+     "opponent_id": "87",
+     "score": 72,
+     "opponent_score": 74,
+     "note": "Eternal City Tip-Off"
+    },
+    {
+     "id": "401921285",
+     "start": "2026-11-07T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Holy Cross",
+     "opponent_id": "107",
+     "score": 95,
+     "opponent_score": 66
+    },
+    {
+     "id": "401921774",
+     "start": "2026-11-11T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "La Salle",
+     "opponent_id": "2325",
+     "score": 80,
+     "opponent_score": 59,
+     "note": "Big 5 Classic - Campus Game"
+    },
+    {
+     "id": "401921775",
+     "start": "2026-11-15T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Rider",
+     "opponent_id": "2520",
+     "score": 99,
+     "opponent_score": 62
+    },
+    {
+     "id": "401909708",
+     "start": "2026-11-18T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Pittsburgh",
+     "opponent_id": "221",
+     "score": 61,
+     "opponent_score": 81
+    },
+    {
+     "id": "401921776",
+     "start": "2026-11-22T00:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Michigan",
+     "opponent_id": "130",
+     "score": 79,
+     "opponent_score": 73
+    },
+    {
+     "id": "401921777",
+     "start": "2026-11-25T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Coppin State",
+     "opponent_id": "2154"
+    },
+    {
+     "id": "401909789",
+     "start": "2026-11-27T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Kansas",
+     "opponent_id": "2305"
+    },
+    {
+     "id": "401921778",
+     "start": "2026-12-01T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Temple",
+     "opponent_id": "218",
+     "note": "Big 5 Classic - Campus Game"
+    },
+    {
+     "id": "401920897",
+     "start": "2026-12-12T17:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Wisconsin",
+     "opponent_id": "275"
+    },
+    {
+     "id": "401920572",
+     "start": "2026-12-20T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Creighton",
+     "opponent_id": "156"
     }
    ]
   },
@@ -1238,6 +1359,16 @@
      "opponent": "LSU",
      "opponent_id": "99",
      "note": "Houston Hoopfest"
+    },
+    {
+     "id": "401909703",
+     "start": "2026-12-20T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Florida State",
+     "opponent_id": "52",
+     "note": "Jacksonville Hoops Showdown"
     }
    ]
   },
@@ -1605,6 +1736,15 @@
      "home_away": "home",
      "opponent": "Western Carolina",
      "opponent_id": "2717"
+    },
+    {
+     "id": "401920433",
+     "start": "2026-12-20T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Connecticut",
+     "opponent_id": "41"
     }
    ]
   },
@@ -1946,6 +2086,15 @@
      "home_away": "home",
      "opponent": "Morehead State",
      "opponent_id": "2413"
+    },
+    {
+     "id": "401906858",
+     "start": "2026-12-20T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Marist",
+     "opponent_id": "2368"
     }
    ]
   },
@@ -2406,6 +2555,15 @@
      "home_away": "home",
      "opponent": "Penn State",
      "opponent_id": "213"
+    },
+    {
+     "id": "401913533",
+     "start": "2026-12-21T00:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Missouri",
+     "opponent_id": "142"
     }
    ]
   },
@@ -2522,6 +2680,15 @@
      "home_away": "home",
      "opponent": "Delaware State",
      "opponent_id": "2169"
+    },
+    {
+     "id": "401920433",
+     "start": "2026-12-20T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Virginia",
+     "opponent_id": "258"
     }
    ]
   },

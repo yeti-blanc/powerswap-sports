@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-19T05:15:54-05:00",
+ "generated_at": "2026-11-22T00:54:16-05:00",
  "current_week": "week3",
  "weeks": {
   "week1": {
@@ -1377,16 +1377,22 @@
     },
     {
      "rank": 16,
-     "team": "Michigan",
+     "team": "Villanova",
      "lineage": [
       {
        "team": "Michigan",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week3",
        "team_id": "130"
+      },
+      {
+       "team": "Villanova",
+       "held_from": "week3",
+       "held_until": null,
+       "team_id": "222"
       }
      ],
-     "team_id": "130"
+     "team_id": "222"
     },
     {
      "rank": 17,
@@ -1760,6 +1766,23 @@
    "winner_home_away": "home",
    "winner_id": "12",
    "loser_id": "41"
+  },
+  {
+   "kind": "dethrone",
+   "week": "week3",
+   "winner": "Villanova",
+   "loser": "Michigan",
+   "winner_old_rank": null,
+   "loser_old_rank": 16,
+   "winner_new_rank": 16,
+   "loser_new_rank": null,
+   "at": "2026-11-22T00:00Z",
+   "game_id": "401921776",
+   "winner_score": 79,
+   "loser_score": 73,
+   "winner_home_away": "home",
+   "winner_id": "222",
+   "loser_id": "130"
   }
  ],
  "team_histories": {
@@ -2095,6 +2118,25 @@
     "loser_id": "97"
    }
   ],
+  "Michigan": [
+   {
+    "kind": "dethrone",
+    "week": "week3",
+    "winner": "Villanova",
+    "loser": "Michigan",
+    "winner_old_rank": null,
+    "loser_old_rank": 16,
+    "winner_new_rank": 16,
+    "loser_new_rank": null,
+    "at": "2026-11-22T00:00Z",
+    "game_id": "401921776",
+    "winner_score": 79,
+    "loser_score": 73,
+    "winner_home_away": "home",
+    "winner_id": "222",
+    "loser_id": "130"
+   }
+  ],
   "Michigan State": [
    {
     "kind": "swap",
@@ -2206,6 +2248,25 @@
     "winner_id": "238",
     "loser_id": "235"
    }
+  ],
+  "Villanova": [
+   {
+    "kind": "dethrone",
+    "week": "week3",
+    "winner": "Villanova",
+    "loser": "Michigan",
+    "winner_old_rank": null,
+    "loser_old_rank": 16,
+    "winner_new_rank": 16,
+    "loser_new_rank": null,
+    "at": "2026-11-22T00:00Z",
+    "game_id": "401921776",
+    "winner_score": 79,
+    "loser_score": 73,
+    "winner_home_away": "home",
+    "winner_id": "222",
+    "loser_id": "130"
+   }
   ]
  },
  "team_ids": {
@@ -2236,6 +2297,7 @@
   "UCLA": "26",
   "USC": "30",
   "Vanderbilt": "238",
+  "Villanova": "222",
   "Virginia": "258"
  }
 }

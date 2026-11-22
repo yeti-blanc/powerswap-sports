@@ -622,15 +622,17 @@
    "id": "401925065",
    "start": "2026-11-21T22:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2447",
-    "name": "Nicholls"
+    "name": "Nicholls",
+    "score": 69
    },
    "away": {
     "id": "2572",
-    "name": "Southern Miss"
+    "name": "Southern Miss",
+    "score": 80
    },
    "note": "Pensacola Invitational"
   },
@@ -638,30 +640,34 @@
    "id": "401925709",
    "start": "2026-11-21T22:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2747",
-    "name": "Wofford"
+    "name": "Wofford",
+    "score": 91
    },
    "away": {
     "id": "2737",
-    "name": "Winthrop"
+    "name": "Winthrop",
+    "score": 86
    }
   },
   {
    "id": "401920570",
    "start": "2026-11-21T22:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "151",
-    "name": "East Carolina"
+    "name": "East Carolina",
+    "score": 69
    },
    "away": {
     "id": "79",
-    "name": "Southern Illinois"
+    "name": "Southern Illinois",
+    "score": 85
    },
    "note": "U.S. Virgin Islands Paradise Jam"
   },
@@ -669,105 +675,119 @@
    "id": "401909517",
    "start": "2026-11-21T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "46",
-    "name": "Georgetown"
+    "name": "Georgetown",
+    "score": 84
    },
    "away": {
     "id": "2154",
-    "name": "Coppin State"
+    "name": "Coppin State",
+    "score": 60
    }
   },
   {
    "id": "401911023",
    "start": "2026-11-21T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "113",
-    "name": "Massachusetts"
+    "name": "Massachusetts",
+    "score": 76
    },
    "away": {
     "id": "311",
-    "name": "Maine"
+    "name": "Maine",
+    "score": 44
    }
   },
   {
    "id": "401925897",
    "start": "2026-11-21T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2450",
-    "name": "Norfolk State"
+    "name": "Norfolk State",
+    "score": 80
    },
    "away": {
     "id": "350",
-    "name": "UNC Wilmington"
+    "name": "UNC Wilmington",
+    "score": 89
    }
   },
   {
    "id": "401911310",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "261",
-    "name": "Vermont"
+    "name": "Vermont",
+    "score": 84
    },
    "away": {
     "id": "225",
-    "name": "Brown"
+    "name": "Brown",
+    "score": 71
    }
   },
   {
    "id": "401911378",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2382",
-    "name": "Mercer"
+    "name": "Mercer",
+    "score": 69
    },
    "away": {
     "id": "2127",
-    "name": "Charleston Southern"
+    "name": "Charleston Southern",
+    "score": 64
    }
   },
   {
    "id": "401911394",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2678",
-    "name": "VMI"
+    "name": "VMI",
+    "score": 71
    },
    "away": {
     "id": "2241",
-    "name": "Gardner-Webb"
+    "name": "Gardner-Webb",
+    "score": 68
    }
   },
   {
    "id": "401917539",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2351",
-    "name": "Loyola Marymount"
+    "id": "2856",
+    "name": "California Baptist",
+    "score": 73
    },
    "away": {
-    "id": "2856",
-    "name": "California Baptist"
+    "id": "2351",
+    "name": "Loyola Marymount",
+    "score": 80
    },
    "note": "Acrisure Series"
   },
@@ -775,120 +795,136 @@
    "id": "401920125",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "13",
-    "name": "Cal Poly"
+    "name": "Cal Poly",
+    "score": 89
    },
    "away": {
     "id": "2464",
-    "name": "Northern Arizona"
+    "name": "Northern Arizona",
+    "score": 88
    }
   },
   {
    "id": "401920964",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2210",
-    "name": "Elon"
+    "name": "Elon",
+    "score": 84
    },
    "away": {
     "id": "2413",
-    "name": "Morehead State"
+    "name": "Morehead State",
+    "score": 61
    }
   },
   {
    "id": "401920975",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "236",
-    "name": "Chattanooga"
+    "name": "Chattanooga",
+    "score": 65
    },
    "away": {
     "id": "2515",
-    "name": "Radford"
+    "name": "Radford",
+    "score": 73
    }
   },
   {
    "id": "401921776",
    "start": "2026-11-22T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "222",
-    "name": "Villanova"
+    "name": "Villanova",
+    "score": 79
    },
    "away": {
     "id": "130",
-    "name": "Michigan"
+    "name": "Michigan",
+    "score": 73
    }
   },
   {
    "id": "401926217",
    "start": "2026-11-22T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2635",
-    "name": "Tennessee Tech"
+    "name": "Tennessee Tech",
+    "score": 97
    },
    "away": {
     "id": "2506",
-    "name": "Presbyterian"
+    "name": "Presbyterian",
+    "score": 69
    }
   },
   {
    "id": "401917966",
    "start": "2026-11-22T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2000",
-    "name": "Abilene Christian"
+    "name": "Abilene Christian",
+    "score": 87
    },
    "away": {
     "id": "2903",
-    "name": "Southwestern Adventist"
+    "name": "Southwestern Adventist",
+    "score": 68
    }
   },
   {
    "id": "401925099",
    "start": "2026-11-22T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "198",
-    "name": "Oral Roberts"
+    "name": "Oral Roberts",
+    "score": 78
    },
    "away": {
     "id": "357",
-    "name": "Texas A&M-Corpus Christi"
+    "name": "Texas A&M-Corpus Christi",
+    "score": 74
    }
   },
   {
    "id": "401928998",
    "start": "2026-11-22T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2674",
-    "name": "Valparaiso"
+    "id": "2653",
+    "name": "Troy",
+    "score": 72
    },
    "away": {
-    "id": "2653",
-    "name": "Troy"
+    "id": "2674",
+    "name": "Valparaiso",
+    "score": 77
    },
    "note": "Pensacola Invitational"
   },
@@ -896,37 +932,41 @@
    "id": "401925049",
    "start": "2026-11-22T01:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2640",
-    "name": "Texas Southern"
+    "name": "Texas Southern",
+    "score": 70
    },
    "away": {
     "id": "2443",
-    "name": "LSU New Orleans"
+    "name": "LSU New Orleans",
+    "score": 75
    }
   },
   {
    "id": "401917537",
    "start": "2026-11-22T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "279",
-    "name": "Pacific"
+    "name": "Pacific",
+    "score": 63
    },
    "away": {
     "id": "71",
-    "name": "Bradley"
+    "name": "Bradley",
+    "score": 62
    }
   },
   {
    "id": "401909567",
    "start": "2026-11-22T04:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "150",

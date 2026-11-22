@@ -55,12 +55,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "151",
+    "name": "East Carolina"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "282",
+    "name": "Indiana State"
    },
    "note": "U.S. Virgin Islands Paradise Jam - Seventh Place Game"
   },
@@ -166,12 +166,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "79",
+    "name": "Southern Illinois"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2393",
+    "name": "Middle Tennessee"
    },
    "note": "U.S. Virgin Islands Paradise Jam - Fifth Place Game"
   },

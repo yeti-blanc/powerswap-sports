@@ -2,21 +2,6 @@
  "date": "2026-11-25",
  "games": [
   {
-   "id": "401924897",
-   "start": "2026-11-25T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "167",
-    "name": "New Mexico"
-   },
-   "away": {
-    "id": "2400",
-    "name": "Mississippi Valley State"
-   }
-  },
-  {
    "id": "401927399",
    "start": "2026-11-25T15:00Z",
    "time_valid": true,
@@ -894,6 +879,22 @@
    "note": "Battle 4 Atlantis - Championship Bracket"
   },
   {
+   "id": "401911522",
+   "start": "2026-11-26T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "302",
+    "name": "UC Davis"
+   },
+   "away": {
+    "id": "2437",
+    "name": "Omaha"
+   },
+   "note": "Resorts World Classic"
+  },
+  {
    "id": "401920138",
    "start": "2026-11-26T01:00Z",
    "time_valid": true,
@@ -907,22 +908,6 @@
     "id": "2934",
     "name": "Cal State Bakersfield"
    }
-  },
-  {
-   "id": "401911522",
-   "start": "2026-11-26T01:30Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "302",
-    "name": "UC Davis"
-   },
-   "away": {
-    "id": "2437",
-    "name": "Omaha"
-   },
-   "note": "Resorts World Classic"
   },
   {
    "id": "401920550",
@@ -953,6 +938,21 @@
    "away": {
     "id": "331",
     "name": "Eastern Washington"
+   }
+  },
+  {
+   "id": "401924897",
+   "start": "2026-11-26T02:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "167",
+    "name": "New Mexico"
+   },
+   "away": {
+    "id": "2400",
+    "name": "Mississippi Valley State"
    }
   },
   {
