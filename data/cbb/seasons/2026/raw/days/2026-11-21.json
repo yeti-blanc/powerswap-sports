@@ -966,15 +966,17 @@
    "id": "401909567",
    "start": "2026-11-22T04:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "150",
-    "name": "Duke"
+    "name": "Duke",
+    "score": 78
    },
    "away": {
     "id": "265",
-    "name": "Washington State"
+    "name": "Washington State",
+    "score": 74
    },
    "note": "Acrisure Series"
   }
