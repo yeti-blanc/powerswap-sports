@@ -5,15 +5,17 @@
    "id": "401902281",
    "start": "2026-11-22T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2086",
-    "name": "Butler"
+    "name": "Butler",
+    "score": 74
    },
    "away": {
     "id": "158",
-    "name": "Nebraska"
+    "name": "Nebraska",
+    "score": 76
    },
    "note": "Bad Boy Mowers Series"
   },
@@ -21,15 +23,17 @@
    "id": "401911024",
    "start": "2026-11-22T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "82",
-    "name": "UIC"
+    "name": "UIC",
+    "score": 60
    },
    "away": {
     "id": "193",
-    "name": "Miami (Ohio)"
+    "name": "Miami (Ohio)",
+    "score": 71
    },
    "note": "Jacksonville Classic"
   },
@@ -37,60 +41,68 @@
    "id": "401909527",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "269",
-    "name": "Marquette"
+    "name": "Marquette",
+    "score": 106
    },
    "away": {
     "id": "2130",
-    "name": "Chicago State"
+    "name": "Chicago State",
+    "score": 62
    }
   },
   {
    "id": "401912212",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "44",
-    "name": "American University"
+    "name": "American University",
+    "score": 86
    },
    "away": {
     "id": "119",
-    "name": "Towson"
+    "name": "Towson",
+    "score": 75
    }
   },
   {
    "id": "401919809",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "112358",
-    "name": "Long Island University"
+    "name": "Long Island University",
+    "score": 71
    },
    "away": {
     "id": "2217",
-    "name": "Fairfield"
+    "name": "Fairfield",
+    "score": 74
    }
   },
   {
    "id": "401920736",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "77",
-    "name": "Northwestern"
+    "name": "Northwestern",
+    "score": 79
    },
    "away": {
     "id": "2168",
-    "name": "Dayton"
+    "name": "Dayton",
+    "score": 55
    },
    "note": "Shriners Children's Charleston Classic"
   },
@@ -98,30 +110,34 @@
    "id": "401921088",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2378",
-    "name": "UMBC"
+    "name": "UMBC",
+    "score": 89
    },
    "away": {
     "id": null,
-    "name": "Lancaster Bible"
+    "name": "Lancaster Bible",
+    "score": 55
    }
   },
   {
    "id": "401929023",
    "start": "2026-11-22T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2099",
-    "name": "Canisius"
+    "name": "Canisius",
+    "score": 46
    },
    "away": {
     "id": "2710",
-    "name": "Western Illinois"
+    "name": "Western Illinois",
+    "score": 66
    },
    "note": "Queen City Classic"
   },
@@ -129,15 +145,15 @@
    "id": "401911200",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "2230",
-    "name": "Fordham"
-   },
-   "away": {
     "id": "301",
     "name": "San Diego"
+   },
+   "away": {
+    "id": "2230",
+    "name": "Fordham"
    },
    "note": "Acrisure Series"
   },
@@ -145,7 +161,7 @@
    "id": "401918455",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2754",
@@ -160,7 +176,7 @@
    "id": "401918988",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "235",
@@ -175,7 +191,7 @@
    "id": "401921706",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2184",
@@ -191,7 +207,7 @@
    "id": "401921748",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2132",
@@ -206,7 +222,7 @@
    "id": "401925942",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "3101",
@@ -221,7 +237,7 @@
    "id": "401928802",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "98",
@@ -237,7 +253,7 @@
    "id": "401928790",
    "start": "2026-11-22T19:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "166",
@@ -253,7 +269,7 @@
    "id": "401906868",
    "start": "2026-11-22T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "251",
@@ -268,7 +284,7 @@
    "id": "401922252",
    "start": "2026-11-22T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "6",
@@ -283,7 +299,7 @@
    "id": "401925066",
    "start": "2026-11-22T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2447",
@@ -309,7 +325,7 @@
     "id": "259",
     "name": "Virginia Tech"
    },
-   "note": "The Shriners Children's Charleston Classic"
+   "note": "Shriners Children's Charleston Classic"
   },
   {
    "id": "401923323",

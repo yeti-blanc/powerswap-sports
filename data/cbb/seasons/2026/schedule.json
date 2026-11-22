@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-22T08:50:07-05:00",
+ "generated_at": "2026-11-22T15:31:45-05:00",
  "today": "2026-11-22",
  "current_week": "week3",
  "weeks": {
@@ -924,7 +924,7 @@
      "id": "401918988",
      "start": "2026-11-22T19:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Evansville",
      "opponent_id": "339"
@@ -1437,7 +1437,7 @@
      "id": "401906868",
      "start": "2026-11-22T20:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Southern Indiana",
      "opponent_id": "88"
