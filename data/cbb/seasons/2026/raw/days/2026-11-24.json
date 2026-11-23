@@ -2,21 +2,6 @@
  "date": "2026-11-24",
  "games": [
   {
-   "id": "401921030",
-   "start": "2026-11-24T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "290",
-    "name": "Georgia Southern"
-   },
-   "away": {
-    "id": "91",
-    "name": "Bellarmine"
-   }
-  },
-  {
    "id": "401927398",
    "start": "2026-11-24T15:00Z",
    "time_valid": true,
@@ -772,6 +757,21 @@
    "away": {
     "id": "2169",
     "name": "Delaware State"
+   }
+  },
+  {
+   "id": "401921030",
+   "start": "2026-11-25T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "290",
+    "name": "Georgia Southern"
+   },
+   "away": {
+    "id": "91",
+    "name": "Bellarmine"
    }
   },
   {

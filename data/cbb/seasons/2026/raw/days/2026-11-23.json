@@ -5,15 +5,17 @@
    "id": "401921700",
    "start": "2026-11-23T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2166",
-    "name": "Davidson"
+    "name": "Davidson",
+    "score": 79
    },
    "away": {
     "id": "2460",
-    "name": "Northern Iowa"
+    "name": "Northern Iowa",
+    "score": 48
    },
    "note": "Fort Myers Tip-Off - Palms Division"
   },
@@ -21,15 +23,17 @@
    "id": "401927397",
    "start": "2026-11-23T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2026",
-    "name": "Appalachian State"
+    "name": "Appalachian State",
+    "score": 65
    },
    "away": {
     "id": "179",
-    "name": "St. Bonaventure"
+    "name": "St. Bonaventure",
+    "score": 71
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
   },
@@ -37,15 +41,17 @@
    "id": "401921209",
    "start": "2026-11-23T17:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "151",
-    "name": "East Carolina"
+    "name": "East Carolina",
+    "score": 76
    },
    "away": {
     "id": "282",
-    "name": "Indiana State"
+    "name": "Indiana State",
+    "score": 77
    },
    "note": "U.S. Virgin Islands Paradise Jam - Seventh Place Game"
   },
@@ -53,15 +59,17 @@
    "id": "401924266",
    "start": "2026-11-23T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2229",
-    "name": "Florida International"
+    "name": "Florida International",
+    "score": 79
    },
    "away": {
     "id": "299",
-    "name": "Long Beach State"
+    "name": "Long Beach State",
+    "score": 75
    },
    "note": "Florida International MTE"
   },
@@ -69,30 +77,34 @@
    "id": "401926069",
    "start": "2026-11-23T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2197",
-    "name": "Eastern Illinois"
+    "name": "Eastern Illinois",
+    "score": 83
    },
    "away": {
     "id": null,
-    "name": "IU South Bend"
+    "name": "IU South Bend",
+    "score": 66
    }
   },
   {
    "id": "401921701",
    "start": "2026-11-23T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "526",
-    "name": "Florida Gulf Coast"
+    "name": "Florida Gulf Coast",
+    "score": 58
    },
    "away": {
     "id": "2429",
-    "name": "Charlotte"
+    "name": "Charlotte",
+    "score": 71
    },
    "note": "Fort Myers Tip-Off - Palms Division"
   },
@@ -100,15 +112,17 @@
    "id": "401928830",
    "start": "2026-11-23T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2750",
-    "name": "Wright State"
+    "name": "Wright State",
+    "score": 66
    },
    "away": {
     "id": "2006",
-    "name": "Akron"
+    "name": "Akron",
+    "score": 64
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
   },
@@ -116,7 +130,7 @@
    "id": "401921658",
    "start": "2026-11-23T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "204",
@@ -132,7 +146,7 @@
    "id": "401918076",
    "start": "2026-11-23T19:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "228",
@@ -145,10 +159,25 @@
    "note": "Southwest Maui Invitational"
   },
   {
-   "id": "401921207",
+   "id": "401928389",
    "start": "2026-11-23T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
+   "neutral": false,
+   "home": {
+    "id": "2755",
+    "name": "Grambling"
+   },
+   "away": {
+    "id": "3120",
+    "name": "Ecclesia"
+   }
+  },
+  {
+   "id": "401921207",
+   "start": "2026-11-23T20:20Z",
+   "time_valid": true,
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "79",
@@ -161,25 +190,10 @@
    "note": "U.S. Virgin Islands Paradise Jam - Fifth Place Game"
   },
   {
-   "id": "401928389",
-   "start": "2026-11-23T20:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2755",
-    "name": "Grambling"
-   },
-   "away": {
-    "id": "3120",
-    "name": "Ecclesia"
-   }
-  },
-  {
    "id": "401921177",
    "start": "2026-11-23T20:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "85",
@@ -192,17 +206,17 @@
   },
   {
    "id": "401929445",
-   "start": "2026-11-23T20:30Z",
+   "start": "2026-11-23T20:45Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "253",
-    "name": "Southern Utah"
-   },
-   "away": {
     "id": "2032",
     "name": "Arkansas State"
+   },
+   "away": {
+    "id": "253",
+    "name": "Southern Utah"
    },
    "note": "Florida International MTE"
   },
