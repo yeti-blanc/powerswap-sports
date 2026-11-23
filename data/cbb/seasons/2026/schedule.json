@@ -1,8 +1,8 @@
 {
  "season": 2026,
- "generated_at": "2026-11-22T20:07:55-05:00",
- "today": "2026-11-22",
- "current_week": "week3",
+ "generated_at": "2026-11-23T03:58:37-05:00",
+ "today": "2026-11-23",
+ "current_week": "week4",
  "weeks": {
   "week1": {
    "start": "2026-11-01",
@@ -15,6 +15,10 @@
   "week3": {
    "start": "2026-11-16",
    "end": "2026-11-22"
+  },
+  "week4": {
+   "start": "2026-11-23",
+   "end": "2026-11-29"
   }
  },
  "ranked_ids": [
@@ -151,6 +155,15 @@
      "opponent": "Arkansas",
      "opponent_id": "8",
      "note": "Hall of Fame Series - Phoenix"
+    },
+    {
+     "id": "401909748",
+     "start": "2026-12-22T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Northern Illinois",
+     "opponent_id": "2459"
     }
    ]
   },
@@ -385,6 +398,15 @@
      "home_away": "home",
      "opponent": "Northwestern",
      "opponent_id": "77"
+    },
+    {
+     "id": "401925735",
+     "start": "2026-12-21T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Detroit Mercy",
+     "opponent_id": "2174"
     }
    ]
   },
@@ -514,6 +536,15 @@
      "home_away": "home",
      "opponent": "Grambling",
      "opponent_id": "2755"
+    },
+    {
+     "id": "401909692",
+     "start": "2026-12-22T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Texas Tech",
+     "opponent_id": "2641"
     }
    ]
   },
@@ -1112,6 +1143,15 @@
      "home_away": "home",
      "opponent": "Southern Indiana",
      "opponent_id": "88"
+    },
+    {
+     "id": "401921829",
+     "start": "2026-12-21T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Milwaukee",
+     "opponent_id": "270"
     }
    ]
   },
@@ -1232,6 +1272,15 @@
      "home_away": "home",
      "opponent": "Alcorn State",
      "opponent_id": "2016"
+    },
+    {
+     "id": "401921726",
+     "start": "2026-12-21T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "South Carolina Upstate",
+     "opponent_id": "2908"
     }
    ]
   },
@@ -1493,6 +1542,15 @@
      "home_away": "home",
      "opponent": "Memphis",
      "opponent_id": "235"
+    },
+    {
+     "id": "401906874",
+     "start": "2026-12-22T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Prairie View A&M",
+     "opponent_id": "2504"
     }
    ]
   },
@@ -1934,10 +1992,12 @@
      "id": "401920905",
      "start": "2026-11-23T00:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Delaware",
-     "opponent_id": "48"
+     "opponent_id": "48",
+     "score": 85,
+     "opponent_score": 48
     },
     {
      "id": "401917547",
@@ -2199,6 +2259,15 @@
      "home_away": "home",
      "opponent": "Incarnate Word",
      "opponent_id": "2916"
+    },
+    {
+     "id": "401909692",
+     "start": "2026-12-22T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Duke",
+     "opponent_id": "150"
     }
    ]
   },
@@ -2265,10 +2334,12 @@
      "id": "401926774",
      "start": "2026-11-23T01:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Louisiana",
-     "opponent_id": "309"
+     "opponent_id": "309",
+     "score": 82,
+     "opponent_score": 56
     },
     {
      "id": "401921670",
@@ -2444,6 +2515,16 @@
      "home_away": "away",
      "opponent": "South Florida",
      "opponent_id": "58"
+    },
+    {
+     "id": "401906767",
+     "start": "2026-12-22T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Iowa",
+     "opponent_id": "2294",
+     "note": "Bad Boy Mowers Series"
     }
    ]
   },
@@ -2829,6 +2910,15 @@
      "opponent": "Grand Canyon",
      "opponent_id": "2253",
      "note": "Jacksonville Hoops Showdown"
+    },
+    {
+     "id": "401906777",
+     "start": "2026-12-22T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Florida A&M",
+     "opponent_id": "50"
     }
    ]
   },
@@ -2934,6 +3024,15 @@
      "opponent": "Missouri State",
      "opponent_id": "2623",
      "note": "NABC Hall of Fame Classic"
+    },
+    {
+     "id": "401909781",
+     "start": "2026-12-21T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Northern Arizona",
+     "opponent_id": "2464"
     }
    ]
   },
