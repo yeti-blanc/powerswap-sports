@@ -145,15 +145,17 @@
    "id": "401911200",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "301",
-    "name": "San Diego"
+    "name": "San Diego",
+    "score": 80
    },
    "away": {
     "id": "2230",
-    "name": "Fordham"
+    "name": "Fordham",
+    "score": 58
    },
    "note": "Acrisure Series"
   },
@@ -161,45 +163,51 @@
    "id": "401918455",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2754",
-    "name": "Youngstown State"
+    "name": "Youngstown State",
+    "score": 63
    },
    "away": {
     "id": "2729",
-    "name": "William & Mary"
+    "name": "William & Mary",
+    "score": 75
    }
   },
   {
    "id": "401918988",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "235",
-    "name": "Memphis"
+    "name": "Memphis",
+    "score": 82
    },
    "away": {
     "id": "339",
-    "name": "Evansville"
+    "name": "Evansville",
+    "score": 62
    }
   },
   {
    "id": "401921706",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2184",
-    "name": "Duquesne"
+    "name": "Duquesne",
+    "score": 61
    },
    "away": {
     "id": "2751",
-    "name": "Wyoming"
+    "name": "Wyoming",
+    "score": 79
    },
    "note": "Sunshine Slam"
   },
@@ -207,45 +215,51 @@
    "id": "401921748",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2132",
-    "name": "Cincinnati"
+    "name": "Cincinnati",
+    "score": 78
    },
    "away": {
     "id": "2349",
-    "name": "UMass Lowell"
+    "name": "UMass Lowell",
+    "score": 68
    }
   },
   {
    "id": "401925942",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "3101",
-    "name": "Utah Tech"
+    "name": "Utah Tech",
+    "score": 73
    },
    "away": {
     "id": "233",
-    "name": "South Dakota"
+    "name": "South Dakota",
+    "score": 74
    }
   },
   {
    "id": "401928802",
    "start": "2026-11-22T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "98",
-    "name": "Western Kentucky"
+    "name": "Western Kentucky",
+    "score": 86
    },
    "away": {
     "id": "45",
-    "name": "George Washington"
+    "name": "George Washington",
+    "score": 78
    },
    "note": "Greenbrier Tip-Off"
   },
@@ -253,15 +267,17 @@
    "id": "401928790",
    "start": "2026-11-22T19:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "166",
-    "name": "New Mexico State"
+    "name": "New Mexico State",
+    "score": 79
    },
    "away": {
     "id": "2523",
-    "name": "Robert Morris"
+    "name": "Robert Morris",
+    "score": 84
    },
    "note": "Jacksonville Classic"
   },
@@ -269,45 +285,51 @@
    "id": "401906868",
    "start": "2026-11-22T20:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "251",
-    "name": "Texas"
+    "name": "Texas",
+    "score": 97
    },
    "away": {
     "id": "88",
-    "name": "Southern Indiana"
+    "name": "Southern Indiana",
+    "score": 61
    }
   },
   {
    "id": "401922252",
    "start": "2026-11-22T20:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "6",
-    "name": "South Alabama"
+    "name": "South Alabama",
+    "score": 79
    },
    "away": {
     "id": "2697",
-    "name": "West Florida"
+    "name": "West Florida",
+    "score": 66
    }
   },
   {
    "id": "401925066",
    "start": "2026-11-22T20:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2447",
-    "name": "Nicholls"
+    "name": "Nicholls",
+    "score": 77
    },
    "away": {
     "id": "2653",
-    "name": "Troy"
+    "name": "Troy",
+    "score": 78
    },
    "note": "Pensacola Invitational"
   },
@@ -315,15 +337,17 @@
    "id": "401920381",
    "start": "2026-11-22T20:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "197",
-    "name": "Oklahoma State"
+    "name": "Oklahoma State",
+    "score": 106
    },
    "away": {
     "id": "259",
-    "name": "Virginia Tech"
+    "name": "Virginia Tech",
+    "score": 80
    },
    "note": "Shriners Children's Charleston Classic"
   },
@@ -331,15 +355,17 @@
    "id": "401923323",
    "start": "2026-11-22T20:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "399",
-    "name": "UAlbany"
+    "name": "UAlbany",
+    "score": 75
    },
    "away": {
     "id": "2385",
-    "name": "Mercyhurst"
+    "name": "Mercyhurst",
+    "score": 78
    },
    "note": "Queen City Classic"
   },
@@ -347,45 +373,51 @@
    "id": "401929202",
    "start": "2026-11-22T20:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "326",
-    "name": "Texas State"
+    "name": "Texas State",
+    "score": 95
    },
    "away": {
     "id": "2377",
-    "name": "McNeese"
+    "name": "McNeese",
+    "score": 69
    }
   },
   {
    "id": "401929387",
    "start": "2026-11-22T21:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2198",
-    "name": "Eastern Kentucky"
+    "name": "Eastern Kentucky",
+    "score": 114
    },
    "away": {
     "id": "484",
-    "name": "Alice Lloyd College"
+    "name": "Alice Lloyd College",
+    "score": 85
    }
   },
   {
    "id": "401917540",
    "start": "2026-11-22T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2351",
-    "name": "Loyola Marymount"
+    "id": "300",
+    "name": "UC Irvine",
+    "score": 68
    },
    "away": {
-    "id": "300",
-    "name": "UC Irvine"
+    "id": "2351",
+    "name": "Loyola Marymount",
+    "score": 72
    },
    "note": "Acrisure Series"
   },
@@ -393,30 +425,34 @@
    "id": "401921176",
    "start": "2026-11-22T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2379",
-    "name": "Maryland Eastern Shore"
+    "name": "Maryland Eastern Shore",
+    "score": 61
    },
    "away": {
     "id": "85",
-    "name": "IU Indianapolis"
+    "name": "IU Indianapolis",
+    "score": 81
    }
   },
   {
    "id": "401926795",
    "start": "2026-11-22T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2335",
-    "name": "Liberty"
+    "name": "Liberty",
+    "score": 88
    },
    "away": {
     "id": "257",
-    "name": "Richmond"
+    "name": "Richmond",
+    "score": 92
    },
    "note": "Greenbrier Tip-Off"
   },
@@ -424,75 +460,85 @@
    "id": "401909556",
    "start": "2026-11-22T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "103",
-    "name": "Boston College"
+    "name": "Boston College",
+    "score": 79
    },
    "away": {
     "id": "2885",
-    "name": "NJIT"
+    "name": "NJIT",
+    "score": 59
    }
   },
   {
    "id": "401920159",
    "start": "2026-11-22T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2502",
-    "name": "Portland State"
+    "name": "Portland State",
+    "score": 75
    },
    "away": {
     "id": "2239",
-    "name": "Cal State Fullerton"
+    "name": "Cal State Fullerton",
+    "score": 92
    }
   },
   {
    "id": "401920708",
    "start": "2026-11-22T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "288",
-    "name": "Lipscomb"
+    "name": "Lipscomb",
+    "score": 92
    },
    "away": {
     "id": "2397",
-    "name": "Milligan"
+    "name": "Milligan",
+    "score": 67
    }
   },
   {
    "id": "401922293",
    "start": "2026-11-22T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2535",
-    "name": "Samford"
+    "name": "Samford",
+    "score": 80
    },
    "away": {
     "id": "2427",
-    "name": "UNC Asheville"
+    "name": "UNC Asheville",
+    "score": 77
    }
   },
   {
    "id": "401925013",
    "start": "2026-11-22T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2320",
-    "name": "Lamar"
+    "name": "Lamar",
+    "score": 81
    },
    "away": {
     "id": "242",
-    "name": "Rice"
+    "name": "Rice",
+    "score": 85
    },
    "note": "Jacksonville Classic"
   },
@@ -500,15 +546,17 @@
    "id": "401921205",
    "start": "2026-11-22T22:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2617",
-    "name": "Stephen F. Austin"
+    "name": "Stephen F. Austin",
+    "score": 72
    },
    "away": {
     "id": "218",
-    "name": "Temple"
+    "name": "Temple",
+    "score": 70
    },
    "note": "U.S. Virgin Islands Paradise Jam"
   },
@@ -516,23 +564,25 @@
    "id": "401921420",
    "start": "2026-11-22T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "135",
-    "name": "Minnesota"
+    "name": "Minnesota",
+    "score": 77
    },
    "away": {
     "id": "254",
-    "name": "Utah"
+    "name": "Utah",
+    "score": 62
    },
-   "note": "The Shriners Children's Charleston Classic"
+   "note": "Shriners Children's Charleston Classic"
   },
   {
    "id": "401928999",
    "start": "2026-11-22T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2674",
@@ -548,23 +598,38 @@
    "id": "401917541",
    "start": "2026-11-23T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "2501",
-    "name": "Portland"
-   },
-   "away": {
     "id": "2856",
     "name": "California Baptist"
+   },
+   "away": {
+    "id": "2501",
+    "name": "Portland"
    },
    "note": "Acrisure Series"
   },
   {
-   "id": "401919020",
+   "id": "401920905",
    "start": "2026-11-23T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
+   "neutral": false,
+   "home": {
+    "id": "26",
+    "name": "UCLA"
+   },
+   "away": {
+    "id": "48",
+    "name": "Delaware"
+   }
+  },
+  {
+   "id": "401919020",
+   "start": "2026-11-23T00:40Z",
+   "time_valid": true,
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "5",
@@ -577,41 +642,10 @@
    "note": "Greenbrier Tip-Off"
   },
   {
-   "id": "401920905",
-   "start": "2026-11-23T00:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "26",
-    "name": "UCLA"
-   },
-   "away": {
-    "id": "48",
-    "name": "Delaware"
-   }
-  },
-  {
-   "id": "401921206",
-   "start": "2026-11-23T01:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "3084",
-    "name": "Utah Valley"
-   },
-   "away": {
-    "id": "2630",
-    "name": "UT Martin"
-   },
-   "note": "U.S. Virgin Islands Paradise Jam"
-  },
-  {
    "id": "401926774",
    "start": "2026-11-23T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "30",
@@ -626,7 +660,7 @@
    "id": "401929595",
    "start": "2026-11-23T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2608",
@@ -638,18 +672,34 @@
    }
   },
   {
+   "id": "401921206",
+   "start": "2026-11-23T01:10Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "3084",
+    "name": "Utah Valley"
+   },
+   "away": {
+    "id": "2630",
+    "name": "UT Martin"
+   },
+   "note": "U.S. Virgin Islands Paradise Jam"
+  },
+  {
    "id": "401917542",
    "start": "2026-11-23T02:30Z",
    "time_valid": true,
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "28",
-    "name": "UC San Diego"
-   },
-   "away": {
     "id": "2547",
     "name": "Seattle U"
+   },
+   "away": {
+    "id": "28",
+    "name": "UC San Diego"
    },
    "note": "Acrisure Series"
   },
@@ -660,12 +710,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "2350",
-    "name": "Loyola Chicago"
-   },
-   "away": {
     "id": "23",
     "name": "San José State"
+   },
+   "away": {
+    "id": "2350",
+    "name": "Loyola Chicago"
    },
    "note": "Acrisure Series"
   }

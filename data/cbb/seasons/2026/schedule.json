@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-22T15:31:45-05:00",
+ "generated_at": "2026-11-22T20:07:55-05:00",
  "today": "2026-11-22",
  "current_week": "week3",
  "weeks": {
@@ -924,10 +924,12 @@
      "id": "401918988",
      "start": "2026-11-22T19:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Evansville",
-     "opponent_id": "339"
+     "opponent_id": "339",
+     "score": 82,
+     "opponent_score": 62
     },
     {
      "id": "401917182",
@@ -1437,10 +1439,12 @@
      "id": "401906868",
      "start": "2026-11-22T20:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Southern Indiana",
-     "opponent_id": "88"
+     "opponent_id": "88",
+     "score": 97,
+     "opponent_score": 61
     },
     {
      "id": "401906869",
@@ -1930,7 +1934,7 @@
      "id": "401920905",
      "start": "2026-11-23T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Delaware",
      "opponent_id": "48"
@@ -2261,7 +2265,7 @@
      "id": "401926774",
      "start": "2026-11-23T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Louisiana",
      "opponent_id": "309"
