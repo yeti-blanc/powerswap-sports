@@ -146,28 +146,6 @@
       "team_score": null,
       "opponent_score": null
     },
-    "BYU": {
-      "opponent": "Cincinnati",
-      "team_id": "252",
-      "opponent_id": "2132",
-      "home_away": "home",
-      "kickoff_utc": "2026-11-28T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
-    "Cincinnati": {
-      "opponent": "BYU",
-      "team_id": "2132",
-      "opponent_id": "252",
-      "home_away": "away",
-      "kickoff_utc": "2026-11-28T20:30:00.000Z",
-      "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
-    },
     "Georgia": {
       "opponent": "Georgia Tech",
       "team_id": "61",
@@ -212,6 +190,28 @@
       "team_score": null,
       "opponent_score": null
     },
+    "BYU": {
+      "opponent": "Cincinnati",
+      "team_id": "252",
+      "opponent_id": "2132",
+      "home_away": "home",
+      "kickoff_utc": "2026-11-28T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
+    "Cincinnati": {
+      "opponent": "BYU",
+      "team_id": "2132",
+      "opponent_id": "252",
+      "home_away": "away",
+      "kickoff_utc": "2026-11-28T20:30:00.000Z",
+      "start_time_tbd": false,
+      "completed": false,
+      "team_score": null,
+      "opponent_score": null
+    },
     "Rutgers": {
       "opponent": "Michigan State",
       "team_id": "164",
@@ -234,22 +234,22 @@
       "team_score": null,
       "opponent_score": null
     },
-    "Tennessee": {
-      "opponent": "Vanderbilt",
-      "team_id": "2633",
-      "opponent_id": "238",
-      "home_away": "away",
+    "Indiana": {
+      "opponent": "Purdue",
+      "team_id": "84",
+      "opponent_id": "2509",
+      "home_away": "home",
       "kickoff_utc": "2026-11-29T00:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
       "team_score": null,
       "opponent_score": null
     },
-    "Indiana": {
-      "opponent": "Purdue",
-      "team_id": "84",
-      "opponent_id": "2509",
-      "home_away": "home",
+    "Tennessee": {
+      "opponent": "Vanderbilt",
+      "team_id": "2633",
+      "opponent_id": "238",
+      "home_away": "away",
       "kickoff_utc": "2026-11-29T00:00:00.000Z",
       "start_time_tbd": false,
       "completed": false,
