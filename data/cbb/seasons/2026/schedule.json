@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-24T00:05:47-05:00",
+ "generated_at": "2026-11-24T10:48:49-05:00",
  "today": "2026-11-24",
  "current_week": "week4",
  "weeks": {
@@ -112,10 +112,22 @@
      "id": "401909743",
      "start": "2026-11-24T04:55Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Colorado State",
      "opponent_id": "36",
+     "score": 96,
+     "opponent_score": 83,
+     "note": "Southwest Maui Invitational"
+    },
+    {
+     "id": "401921710",
+     "start": "2026-11-24T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Providence",
+     "opponent_id": "2507",
      "note": "Southwest Maui Invitational"
     },
     {

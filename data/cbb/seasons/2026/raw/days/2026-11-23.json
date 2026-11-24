@@ -755,30 +755,34 @@
    "id": "401920721",
    "start": "2026-11-24T03:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2439",
-    "name": "Nevada-Las Vegas"
+    "name": "Nevada-Las Vegas",
+    "score": 82
    },
    "away": {
     "id": "331",
-    "name": "Eastern Washington"
+    "name": "Eastern Washington",
+    "score": 61
    }
   },
   {
    "id": "401909743",
    "start": "2026-11-24T04:55Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "12",
-    "name": "Arizona"
+    "name": "Arizona",
+    "score": 96
    },
    "away": {
     "id": "36",
-    "name": "Colorado State"
+    "name": "Colorado State",
+    "score": 83
    },
    "note": "Southwest Maui Invitational"
   },
@@ -786,15 +790,17 @@
    "id": "401921664",
    "start": "2026-11-24T04:59Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "28",
-    "name": "UC San Diego"
+    "name": "UC San Diego",
+    "score": 79
    },
    "away": {
     "id": "23",
-    "name": "San José State"
+    "name": "San José State",
+    "score": 88
    },
    "note": "Acrisure Series - Third Place Game"
   }
