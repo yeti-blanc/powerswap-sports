@@ -151,12 +151,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "252",
+    "name": "BYU"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "145",
+    "name": "Mississippi"
    },
    "note": "Southwest Maui Invitational"
   },
@@ -1054,12 +1054,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "264",
+    "name": "Washington"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "228",
+    "name": "Clemson"
    },
    "note": "Southwest Maui Invitational"
   },

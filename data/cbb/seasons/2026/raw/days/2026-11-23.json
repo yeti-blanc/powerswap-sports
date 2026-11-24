@@ -130,15 +130,17 @@
    "id": "401921658",
    "start": "2026-11-23T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "204",
-    "name": "Oregon State"
+    "name": "Oregon State",
+    "score": 69
    },
    "away": {
     "id": "202",
-    "name": "Tulsa"
+    "name": "Tulsa",
+    "score": 66
    },
    "note": "Acrisure Series"
   },
@@ -146,15 +148,17 @@
    "id": "401918076",
    "start": "2026-11-23T19:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "228",
-    "name": "Clemson"
+    "name": "Clemson",
+    "score": 62
    },
    "away": {
     "id": "145",
-    "name": "Mississippi"
+    "name": "Mississippi",
+    "score": 82
    },
    "note": "Southwest Maui Invitational"
   },
@@ -162,30 +166,34 @@
    "id": "401928389",
    "start": "2026-11-23T20:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2755",
-    "name": "Grambling"
+    "name": "Grambling",
+    "score": 126
    },
    "away": {
     "id": "3120",
-    "name": "Ecclesia"
+    "name": "Ecclesia",
+    "score": 45
    }
   },
   {
    "id": "401921207",
    "start": "2026-11-23T20:20Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "79",
-    "name": "Southern Illinois"
+    "name": "Southern Illinois",
+    "score": 76
    },
    "away": {
     "id": "2393",
-    "name": "Middle Tennessee"
+    "name": "Middle Tennessee",
+    "score": 77
    },
    "note": "U.S. Virgin Islands Paradise Jam - Fifth Place Game"
   },
@@ -193,30 +201,34 @@
    "id": "401921177",
    "start": "2026-11-23T20:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "85",
-    "name": "IU Indianapolis"
+    "name": "IU Indianapolis",
+    "score": 82
    },
    "away": {
     "id": "2729",
-    "name": "William & Mary"
+    "name": "William & Mary",
+    "score": 87
    }
   },
   {
    "id": "401929445",
    "start": "2026-11-23T20:45Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2032",
-    "name": "Arkansas State"
+    "name": "Arkansas State",
+    "score": 104
    },
    "away": {
     "id": "253",
-    "name": "Southern Utah"
+    "name": "Southern Utah",
+    "score": 102
    },
    "note": "Florida International MTE"
   },
@@ -224,31 +236,35 @@
    "id": "401919006",
    "start": "2026-11-23T21:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2247",
-    "name": "Georgia State"
+    "name": "Georgia State",
+    "score": 73
    },
    "away": {
     "id": "2655",
-    "name": "Tulane"
+    "name": "Tulane",
+    "score": 63
    },
    "note": "Fort Myers Tip-Off - Palms Division"
   },
   {
    "id": "401929286",
-   "start": "2026-11-23T21:00Z",
+   "start": "2026-11-23T21:15Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2057",
-    "name": "Belmont"
+    "name": "Belmont",
+    "score": 68
    },
    "away": {
     "id": "43",
-    "name": "Yale"
+    "name": "Yale",
+    "score": 60
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
   },
@@ -256,15 +272,17 @@
    "id": "401911457",
    "start": "2026-11-23T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2539",
-    "name": "San Francisco"
+    "id": "2440",
+    "name": "Nevada",
+    "score": 71
    },
    "away": {
-    "id": "2440",
-    "name": "Nevada"
+    "id": "2539",
+    "name": "San Francisco",
+    "score": 62
    },
    "note": "Acrisure Series"
   },
@@ -272,31 +290,35 @@
    "id": "401921708",
    "start": "2026-11-23T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "252",
-    "name": "BYU"
+    "name": "BYU",
+    "score": 83
    },
    "away": {
     "id": "264",
-    "name": "Washington"
+    "name": "Washington",
+    "score": 77
    },
    "note": "Southwest Maui Invitational"
   },
   {
    "id": "401921210",
-   "start": "2026-11-23T22:30Z",
+   "start": "2026-11-23T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2630",
-    "name": "UT Martin"
+    "name": "UT Martin",
+    "score": 90
    },
    "away": {
     "id": "218",
-    "name": "Temple"
+    "name": "Temple",
+    "score": 81
    },
    "note": "U.S. Virgin Islands Paradise Jam - Third Place Game"
   },
@@ -304,45 +326,51 @@
    "id": "401911025",
    "start": "2026-11-23T23:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2084",
-    "name": "Buffalo"
+    "name": "Buffalo",
+    "score": 93
    },
    "away": {
     "id": "178",
-    "name": "RIT"
+    "name": "RIT",
+    "score": 47
    }
   },
   {
    "id": "401920752",
    "start": "2026-11-23T23:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2754",
-    "name": "Youngstown State"
+    "name": "Youngstown State",
+    "score": 69
    },
    "away": {
     "id": "2379",
-    "name": "Maryland Eastern Shore"
+    "name": "Maryland Eastern Shore",
+    "score": 65
    }
   },
   {
    "id": "401917543",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2541",
-    "name": "Santa Clara"
+    "id": "2287",
+    "name": "Illinois State",
+    "score": 99
    },
    "away": {
-    "id": "2287",
-    "name": "Illinois State"
+    "id": "2541",
+    "name": "Santa Clara",
+    "score": 102
    },
    "note": "Acrisure Series"
   },
@@ -350,225 +378,255 @@
    "id": "401917919",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2454",
-    "name": "North Florida"
+    "name": "North Florida",
+    "score": 66
    },
    "away": {
     "id": "2110",
-    "name": "Central Arkansas"
+    "name": "Central Arkansas",
+    "score": 80
    }
   },
   {
    "id": "401919761",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "314",
-    "name": "Iona"
+    "name": "Iona",
+    "score": 46
    },
    "away": {
     "id": "161",
-    "name": "Fairleigh Dickinson"
+    "name": "Fairleigh Dickinson",
+    "score": 49
    }
   },
   {
    "id": "401919785",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2330",
-    "name": "Le Moyne"
+    "name": "Le Moyne",
+    "score": 68
    },
    "away": {
     "id": "2365",
-    "name": "Mansfield"
+    "name": "Mansfield",
+    "score": 58
    }
   },
   {
    "id": "401921029",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "94",
-    "name": "Northern Kentucky"
+    "name": "Northern Kentucky",
+    "score": 79
    },
    "away": {
     "id": "290",
-    "name": "Georgia Southern"
+    "name": "Georgia Southern",
+    "score": 84
    }
   },
   {
    "id": "401921157",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2569",
-    "name": "South Carolina State"
+    "name": "South Carolina State",
+    "score": 60
    },
    "away": {
     "id": "2448",
-    "name": "North Carolina A&T"
+    "name": "North Carolina A&T",
+    "score": 62
    }
   },
   {
    "id": "401925813",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2325",
-    "name": "La Salle"
+    "name": "La Salle",
+    "score": 90
    },
    "away": {
     "id": null,
-    "name": "Penn State Brandywine"
+    "name": "Penn State Brandywine",
+    "score": 42
    }
   },
   {
    "id": "401926106",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2193",
-    "name": "East Tennessee State"
+    "name": "East Tennessee State",
+    "score": 108
    },
    "away": {
     "id": "2310",
-    "name": "Kentucky State"
+    "name": "Kentucky State",
+    "score": 56
    }
   },
   {
    "id": "401928838",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2050",
-    "name": "Ball State"
+    "name": "Ball State",
+    "score": 94
    },
    "away": {
     "id": "2589",
-    "name": "Spalding"
+    "name": "Spalding",
+    "score": 36
    }
   },
   {
    "id": "401932055",
    "start": "2026-11-24T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "47",
-    "name": "Howard"
+    "name": "Howard",
+    "score": 101
    },
    "away": {
     "id": "128342",
-    "name": "Notre Dame (Md)"
+    "name": "Notre Dame (Md)",
+    "score": 73
    }
   },
   {
    "id": "401919032",
    "start": "2026-11-24T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2724",
-    "name": "Wichita State"
+    "name": "Wichita State",
+    "score": 91
    },
    "away": {
     "id": "357",
-    "name": "Texas A&M-Corpus Christi"
+    "name": "Texas A&M-Corpus Christi",
+    "score": 73
    }
   },
   {
    "id": "401927353",
    "start": "2026-11-24T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2428",
-    "name": "North Carolina Central"
+    "name": "North Carolina Central",
+    "score": 105
    },
    "away": {
     "id": "108942",
-    "name": "Carolina University"
+    "name": "Carolina University",
+    "score": 46
    }
   },
   {
    "id": "401909788",
    "start": "2026-11-24T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2305",
-    "name": "Kansas"
+    "name": "Kansas",
+    "score": 84
    },
    "away": {
     "id": "2172",
-    "name": "Denver"
+    "name": "Denver",
+    "score": 67
    }
   },
   {
    "id": "401913102",
    "start": "2026-11-24T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "153",
-    "name": "North Carolina"
+    "name": "North Carolina",
+    "score": 85
    },
    "away": {
     "id": "2405",
-    "name": "Monmouth"
+    "name": "Monmouth",
+    "score": 45
    }
   },
   {
    "id": "401913530",
    "start": "2026-11-24T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "356",
-    "name": "Illinois"
+    "name": "Illinois",
+    "score": 133
    },
    "away": {
     "id": "2737",
-    "name": "Winthrop"
+    "name": "Winthrop",
+    "score": 83
    }
   },
   {
    "id": "401921208",
    "start": "2026-11-24T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "3084",
-    "name": "Utah Valley"
+    "name": "Utah Valley",
+    "score": 72
    },
    "away": {
     "id": "2617",
-    "name": "Stephen F. Austin"
+    "name": "Stephen F. Austin",
+    "score": 77
    },
    "note": "U.S. Virgin Islands Paradise Jam - Championship"
   },
@@ -576,30 +634,34 @@
    "id": "401929392",
    "start": "2026-11-24T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2449",
-    "name": "North Dakota State"
+    "name": "North Dakota State",
+    "score": 84
    },
    "away": {
     "id": "2744",
-    "name": "Wisconsin-Stout"
+    "name": "Wisconsin-Stout",
+    "score": 49
    }
   },
   {
    "id": "401909536",
    "start": "2026-11-24T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2507",
-    "name": "Providence"
+    "name": "Providence",
+    "score": 72
    },
    "away": {
     "id": "2670",
-    "name": "VCU"
+    "name": "VCU",
+    "score": 66
    },
    "note": "Southwest Maui Invitational"
   },
@@ -607,45 +669,51 @@
    "id": "401922032",
    "start": "2026-11-24T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "149",
-    "name": "Montana"
+    "name": "Montana",
+    "score": 82
    },
    "away": {
     "id": "2104",
-    "name": "Carroll (MT)"
+    "name": "Carroll (MT)",
+    "score": 54
    }
   },
   {
    "id": "401922263",
    "start": "2026-11-24T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "70",
-    "name": "Idaho"
+    "name": "Idaho",
+    "score": 88
    },
    "away": {
     "id": null,
-    "name": "Dickinson State"
+    "name": "Dickinson State",
+    "score": 47
    }
   },
   {
    "id": "401921663",
    "start": "2026-11-24T02:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2547",
-    "name": "Seattle U"
+    "name": "Seattle U",
+    "score": 76
    },
    "away": {
     "id": "2350",
-    "name": "Loyola Chicago"
+    "name": "Loyola Chicago",
+    "score": 63
    },
    "note": "Acrisure Series - Championship Game"
   },
@@ -653,37 +721,41 @@
    "id": "401926183",
    "start": "2026-11-24T02:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2492",
-    "name": "Pepperdine"
+    "name": "Pepperdine",
+    "score": 89
    },
    "away": {
     "id": "2430",
-    "name": "UNC Greensboro"
+    "name": "UNC Greensboro",
+    "score": 62
    }
   },
   {
    "id": "401918057",
    "start": "2026-11-24T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "25",
-    "name": "California"
+    "name": "California",
+    "score": 96
    },
    "away": {
     "id": "2011",
-    "name": "Alabama State"
+    "name": "Alabama State",
+    "score": 54
    }
   },
   {
    "id": "401920721",
    "start": "2026-11-24T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2439",
@@ -696,9 +768,9 @@
   },
   {
    "id": "401909743",
-   "start": "2026-11-24T04:30Z",
+   "start": "2026-11-24T04:55Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "12",

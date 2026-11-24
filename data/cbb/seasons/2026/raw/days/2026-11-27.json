@@ -629,6 +629,22 @@
    "note": "Gratitude Thanksgiving Classic"
   },
   {
+   "id": "401929284",
+   "start": "2026-11-28T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "61",
+    "name": "Georgia"
+   },
+   "away": {
+    "id": "2116",
+    "name": "Central Florida"
+   },
+   "note": "ESPN Events Invitational - Magic Bracket"
+  },
+  {
    "id": "401925703",
    "start": "2026-11-28T00:30Z",
    "time_valid": true,

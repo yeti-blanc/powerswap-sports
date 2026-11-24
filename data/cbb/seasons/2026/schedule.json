@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generated_at": "2026-11-23T03:58:37-05:00",
- "today": "2026-11-23",
+ "generated_at": "2026-11-24T00:05:47-05:00",
+ "today": "2026-11-24",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -110,9 +110,9 @@
     },
     {
      "id": "401909743",
-     "start": "2026-11-24T04:30Z",
+     "start": "2026-11-24T04:55Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Colorado State",
      "opponent_id": "36",
@@ -291,6 +291,15 @@
      "opponent": "Gonzaga",
      "opponent_id": "2250",
      "note": "Acrisure Series"
+    },
+    {
+     "id": "401925759",
+     "start": "2026-12-22T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Oakland",
+     "opponent_id": "2473"
     }
    ]
   },
@@ -664,6 +673,15 @@
      "home_away": "away",
      "opponent": "Creighton",
      "opponent_id": "156"
+    },
+    {
+     "id": "401920575",
+     "start": "2026-12-22T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Providence",
+     "opponent_id": "2507"
     }
    ]
   },
@@ -851,10 +869,12 @@
      "id": "401909788",
      "start": "2026-11-24T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Denver",
-     "opponent_id": "2172"
+     "opponent_id": "2172",
+     "score": 84,
+     "opponent_score": 67
     },
     {
      "id": "401909789",
@@ -901,6 +921,15 @@
      "opponent": "Ohio State",
      "opponent_id": "194",
      "note": "CBS Sports Classic"
+    },
+    {
+     "id": "401909794",
+     "start": "2026-12-22T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Indiana State",
+     "opponent_id": "282"
     }
    ]
   },
@@ -1017,6 +1046,15 @@
      "home_away": "away",
      "opponent": "Texas",
      "opponent_id": "251"
+    },
+    {
+     "id": "401918990",
+     "start": "2026-12-23T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Little Rock",
+     "opponent_id": "2031"
     }
    ]
   },
@@ -1617,10 +1655,22 @@
      "id": "401921708",
      "start": "2026-11-23T22:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Washington",
      "opponent_id": "264",
+     "score": 83,
+     "opponent_score": 77,
+     "note": "Southwest Maui Invitational"
+    },
+    {
+     "id": "401921709",
+     "start": "2026-11-24T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Mississippi",
+     "opponent_id": "145",
      "note": "Southwest Maui Invitational"
     },
     {
@@ -1669,6 +1719,15 @@
      "opponent": "San Diego State",
      "opponent_id": "21",
      "note": "Acrisure Series"
+    },
+    {
+     "id": "401921745",
+     "start": "2026-12-23T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "La Salle",
+     "opponent_id": "2325"
     }
    ]
   },
@@ -2044,6 +2103,15 @@
      "home_away": "home",
      "opponent": "Quinnipiac",
      "opponent_id": "2514"
+    },
+    {
+     "id": "401926139",
+     "start": "2026-12-22T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "UC Riverside",
+     "opponent_id": "27"
     }
    ]
   },
@@ -2406,6 +2474,15 @@
      "home_away": "home",
      "opponent": "Jacksonville",
      "opponent_id": "294"
+    },
+    {
+     "id": "401926775",
+     "start": "2026-12-23T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Western Michigan",
+     "opponent_id": "2711"
     }
    ]
   },
@@ -2601,10 +2678,12 @@
      "id": "401913530",
      "start": "2026-11-24T01:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Winthrop",
-     "opponent_id": "2737"
+     "opponent_id": "2737",
+     "score": 133,
+     "opponent_score": 83
     },
     {
      "id": "401913531",
@@ -3162,6 +3241,15 @@
      "opponent": "Arizona",
      "opponent_id": "12",
      "note": "Hall of Fame Series - Phoenix"
+    },
+    {
+     "id": "401911063",
+     "start": "2026-12-23T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Central Michigan",
+     "opponent_id": "2117"
     }
    ]
   },
@@ -3300,6 +3388,15 @@
      "opponent": "Missouri",
      "opponent_id": "142",
      "note": "Bad Boy Mowers Series"
+    },
+    {
+     "id": "401916295",
+     "start": "2026-12-23T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Fairleigh Dickinson",
+     "opponent_id": "161"
     }
    ]
   },
@@ -3428,6 +3525,15 @@
      "opponent": "North Carolina",
      "opponent_id": "153",
      "note": "CBS Sports Classic"
+    },
+    {
+     "id": "401921807",
+     "start": "2026-12-22T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Sacred Heart",
+     "opponent_id": "2529"
     }
    ]
   },
@@ -3663,6 +3769,15 @@
      "home_away": "home",
      "opponent": "High Point",
      "opponent_id": "2272"
+    },
+    {
+     "id": "401921813",
+     "start": "2026-12-22T23:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Louisiana",
+     "opponent_id": "309"
     }
    ]
   }
