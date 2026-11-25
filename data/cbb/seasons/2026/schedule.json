@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-24T10:48:49-05:00",
+ "generated_at": "2026-11-24T19:15:26-05:00",
  "today": "2026-11-24",
  "current_week": "week4",
  "weeks": {
@@ -35,7 +35,7 @@
   "235",
   "84",
   "2599",
-  "2390",
+  "2628",
   "99",
   "222",
   "2305",
@@ -46,7 +46,7 @@
   "41",
   "96",
   "97",
-  "252"
+  "145"
  ],
  "teams": {
   "12": {
@@ -124,7 +124,7 @@
      "id": "401921710",
      "start": "2026-11-24T22:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Providence",
      "opponent_id": "2507",
@@ -376,9 +376,9 @@
     },
     {
      "id": "401909495",
-     "start": "2026-11-24T22:30Z",
+     "start": "2026-11-24T22:55Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Creighton",
      "opponent_id": "156",
@@ -428,6 +428,144 @@
      "home_away": "home",
      "opponent": "Detroit Mercy",
      "opponent_id": "2174"
+    }
+   ]
+  },
+  "145": {
+   "name": "Mississippi",
+   "games": [
+    {
+     "id": "401925683",
+     "start": "2026-11-03T01:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Alcorn State",
+     "opponent_id": "2016",
+     "score": 99,
+     "opponent_score": 58
+    },
+    {
+     "id": "401917914",
+     "start": "2026-11-07T01:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Central Arkansas",
+     "opponent_id": "2110",
+     "score": 92,
+     "opponent_score": 60
+    },
+    {
+     "id": "401920817",
+     "start": "2026-11-11T01:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "SE Louisiana",
+     "opponent_id": "2545",
+     "score": 91,
+     "opponent_score": 51
+    },
+    {
+     "id": "401925064",
+     "start": "2026-11-18T01:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Nicholls",
+     "opponent_id": "2447",
+     "score": 76,
+     "opponent_score": 41
+    },
+    {
+     "id": "401918076",
+     "start": "2026-11-23T19:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Clemson",
+     "opponent_id": "228",
+     "score": 82,
+     "opponent_score": 62,
+     "note": "Southwest Maui Invitational"
+    },
+    {
+     "id": "401921709",
+     "start": "2026-11-24T19:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "BYU",
+     "opponent_id": "252",
+     "score": 73,
+     "opponent_score": 63,
+     "note": "Southwest Maui Invitational"
+    },
+    {
+     "id": "401921715",
+     "start": "2026-11-25T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "TBD",
+     "opponent_id": "cbbd-1543",
+     "note": "Southwest Maui Invitational - Championship"
+    },
+    {
+     "id": "401920383",
+     "start": "2026-12-02T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Virginia Tech",
+     "opponent_id": "259",
+     "note": "ACC/SEC Men's Challenge"
+    },
+    {
+     "id": "401918458",
+     "start": "2026-12-08T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "William & Mary",
+     "opponent_id": "2729"
+    },
+    {
+     "id": "401917986",
+     "start": "2026-12-12T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "UL Monroe",
+     "opponent_id": "2433"
+    },
+    {
+     "id": "401920754",
+     "start": "2026-12-16T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Youngstown State",
+     "opponent_id": "2754"
+    },
+    {
+     "id": "401918964",
+     "start": "2026-12-20T00:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "NC State",
+     "opponent_id": "152"
+    },
+    {
+     "id": "401929376",
+     "start": "2026-12-22T21:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Southern Miss",
+     "opponent_id": "2572"
     }
    ]
   },
@@ -644,7 +782,7 @@
      "id": "401921777",
      "start": "2026-11-25T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Coppin State",
      "opponent_id": "2154"
@@ -1143,7 +1281,7 @@
      "id": "401916319",
      "start": "2026-11-25T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "away",
      "opponent": "Ohio State",
      "opponent_id": "194"
@@ -1279,10 +1417,12 @@
      "id": "401915941",
      "start": "2026-11-24T20:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "TCU",
      "opponent_id": "2628",
+     "score": 71,
+     "opponent_score": 84,
      "note": "Players Era 16"
     },
     {
@@ -1679,11 +1819,23 @@
      "id": "401921709",
      "start": "2026-11-24T19:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Mississippi",
      "opponent_id": "145",
+     "score": 63,
+     "opponent_score": 73,
      "note": "Southwest Maui Invitational"
+    },
+    {
+     "id": "401921716",
+     "start": "2026-11-25T22:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "TBD",
+     "opponent_id": "cbbd-1543",
+     "note": "Southwest Maui Invitational - Third Place Game"
     },
     {
      "id": "401920738",
@@ -2127,6 +2279,123 @@
     }
    ]
   },
+  "2628": {
+   "name": "TCU",
+   "games": [
+    {
+     "id": "401919047",
+     "start": "2026-11-03T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Lindenwood",
+     "opponent_id": "2815",
+     "score": 98,
+     "opponent_score": 59
+    },
+    {
+     "id": "401919048",
+     "start": "2026-11-07T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Southern",
+     "opponent_id": "2582",
+     "score": 106,
+     "opponent_score": 54
+    },
+    {
+     "id": "401917979",
+     "start": "2026-11-11T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "UL Monroe",
+     "opponent_id": "2433",
+     "score": 100,
+     "opponent_score": 92
+    },
+    {
+     "id": "401919049",
+     "start": "2026-11-14T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Milwaukee",
+     "opponent_id": "270",
+     "score": 76,
+     "opponent_score": 64
+    },
+    {
+     "id": "401919050",
+     "start": "2026-11-20T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Texas A&M",
+     "opponent_id": "245",
+     "score": 92,
+     "opponent_score": 97
+    },
+    {
+     "id": "401915941",
+     "start": "2026-11-24T20:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Miami",
+     "opponent_id": "2390",
+     "score": 84,
+     "opponent_score": 71,
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401919051",
+     "start": "2026-12-05T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Notre Dame",
+     "opponent_id": "87"
+    },
+    {
+     "id": "401919052",
+     "start": "2026-12-09T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Alabama State",
+     "opponent_id": "2011"
+    },
+    {
+     "id": "401918079",
+     "start": "2026-12-12T21:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Clemson",
+     "opponent_id": "228"
+    },
+    {
+     "id": "401919053",
+     "start": "2026-12-19T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Holy Cross",
+     "opponent_id": "107"
+    },
+    {
+     "id": "401919054",
+     "start": "2026-12-23T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Houston Christian",
+     "opponent_id": "2277"
+    }
+   ]
+  },
   "2633": {
    "name": "Tennessee",
    "games": [
@@ -2189,10 +2458,12 @@
      "id": "401906853",
      "start": "2026-11-24T20:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Maryland",
      "opponent_id": "120",
+     "score": 72,
+     "opponent_score": 64,
      "note": "Players Era 16"
     },
     {
@@ -2958,7 +3229,7 @@
      "id": "401906774",
      "start": "2026-11-25T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Milwaukee",
      "opponent_id": "270"
@@ -3064,7 +3335,7 @@
      "id": "401909775",
      "start": "2026-11-24T22:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "San Diego State",
      "opponent_id": "21",
@@ -3340,7 +3611,7 @@
      "id": "401916291",
      "start": "2026-11-25T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Jacksonville",
      "opponent_id": "294"

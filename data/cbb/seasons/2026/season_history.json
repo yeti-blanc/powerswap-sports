@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-23T03:58:37-05:00",
+ "generated_at": "2026-11-24T19:15:26-05:00",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -1811,16 +1811,22 @@
     },
     {
      "rank": 14,
-     "team": "Miami",
+     "team": "TCU",
      "lineage": [
       {
        "team": "Miami",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "2390"
+      },
+      {
+       "team": "TCU",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "2628"
       }
      ],
-     "team_id": "2390"
+     "team_id": "2628"
     },
     {
      "rank": 15,
@@ -2014,16 +2020,22 @@
     },
     {
      "rank": 25,
-     "team": "BYU",
+     "team": "Mississippi",
      "lineage": [
       {
        "team": "BYU",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "252"
+      },
+      {
+       "team": "Mississippi",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "145"
       }
      ],
-     "team_id": "252"
+     "team_id": "145"
     }
    ]
   }
@@ -2249,6 +2261,40 @@
    "winner_home_away": "home",
    "winner_id": "222",
    "loser_id": "130"
+  },
+  {
+   "kind": "dethrone",
+   "week": "week4",
+   "winner": "Mississippi",
+   "loser": "BYU",
+   "winner_old_rank": null,
+   "loser_old_rank": 25,
+   "winner_new_rank": 25,
+   "loser_new_rank": null,
+   "at": "2026-11-24T19:30Z",
+   "game_id": "401921709",
+   "winner_score": 73,
+   "loser_score": 63,
+   "winner_home_away": "neutral",
+   "winner_id": "145",
+   "loser_id": "252"
+  },
+  {
+   "kind": "dethrone",
+   "week": "week4",
+   "winner": "TCU",
+   "loser": "Miami",
+   "winner_old_rank": null,
+   "loser_old_rank": 14,
+   "winner_new_rank": 14,
+   "loser_new_rank": null,
+   "at": "2026-11-24T20:00Z",
+   "game_id": "401915941",
+   "winner_score": 84,
+   "loser_score": 71,
+   "winner_home_away": "neutral",
+   "winner_id": "2628",
+   "loser_id": "2390"
   }
  ],
  "team_histories": {
@@ -2305,6 +2351,25 @@
     "winner_home_away": "neutral",
     "winner_id": "84",
     "loser_id": "8"
+   }
+  ],
+  "BYU": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Mississippi",
+    "loser": "BYU",
+    "winner_old_rank": null,
+    "loser_old_rank": 25,
+    "winner_new_rank": 25,
+    "loser_new_rank": null,
+    "at": "2026-11-24T19:30Z",
+    "game_id": "401921709",
+    "winner_score": 73,
+    "loser_score": 63,
+    "winner_home_away": "neutral",
+    "winner_id": "145",
+    "loser_id": "252"
    }
   ],
   "Connecticut": [
@@ -2584,6 +2649,25 @@
     "loser_id": "97"
    }
   ],
+  "Miami": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "TCU",
+    "loser": "Miami",
+    "winner_old_rank": null,
+    "loser_old_rank": 14,
+    "winner_new_rank": 14,
+    "loser_new_rank": null,
+    "at": "2026-11-24T20:00Z",
+    "game_id": "401915941",
+    "winner_score": 84,
+    "loser_score": 71,
+    "winner_home_away": "neutral",
+    "winner_id": "2628",
+    "loser_id": "2390"
+   }
+  ],
   "Michigan": [
    {
     "kind": "dethrone",
@@ -2637,6 +2721,44 @@
     "winner_home_away": "home",
     "winner_id": "2633",
     "loser_id": "127"
+   }
+  ],
+  "Mississippi": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Mississippi",
+    "loser": "BYU",
+    "winner_old_rank": null,
+    "loser_old_rank": 25,
+    "winner_new_rank": 25,
+    "loser_new_rank": null,
+    "at": "2026-11-24T19:30Z",
+    "game_id": "401921709",
+    "winner_score": 73,
+    "loser_score": 63,
+    "winner_home_away": "neutral",
+    "winner_id": "145",
+    "loser_id": "252"
+   }
+  ],
+  "TCU": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "TCU",
+    "loser": "Miami",
+    "winner_old_rank": null,
+    "loser_old_rank": 14,
+    "winner_new_rank": 14,
+    "loser_new_rank": null,
+    "at": "2026-11-24T20:00Z",
+    "game_id": "401915941",
+    "winner_score": 84,
+    "loser_score": 71,
+    "winner_home_away": "neutral",
+    "winner_id": "2628",
+    "loser_id": "2390"
    }
   ],
   "Tennessee": [
@@ -2756,7 +2878,9 @@
   "Miami": "2390",
   "Michigan": "130",
   "Michigan State": "127",
+  "Mississippi": "145",
   "St. John's": "2599",
+  "TCU": "2628",
   "Tennessee": "2633",
   "Texas": "251",
   "Texas Tech": "2641",

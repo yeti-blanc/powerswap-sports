@@ -5,15 +5,17 @@
    "id": "401927398",
    "start": "2026-11-24T15:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "179",
-    "name": "St. Bonaventure"
+    "name": "St. Bonaventure",
+    "score": 72
    },
    "away": {
     "id": "2750",
-    "name": "Wright State"
+    "name": "Wright State",
+    "score": 70
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
   },
@@ -21,15 +23,17 @@
    "id": "401928791",
    "start": "2026-11-24T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "166",
-    "name": "New Mexico State"
+    "name": "New Mexico State",
+    "score": 68
    },
    "away": {
     "id": "195",
-    "name": "Ohio"
+    "name": "Ohio",
+    "score": 69
    },
    "note": "Jacksonville Classic"
   },
@@ -37,15 +41,17 @@
    "id": "401920819",
    "start": "2026-11-24T17:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2458",
-    "name": "Northern Colorado"
+    "name": "Northern Colorado",
+    "score": 60
    },
    "away": {
     "id": "2545",
-    "name": "SE Louisiana"
+    "name": "SE Louisiana",
+    "score": 70
    },
    "note": "Cancun Challenge - Mayan Division"
   },
@@ -53,15 +59,17 @@
    "id": "401928835",
    "start": "2026-11-24T17:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2006",
-    "name": "Akron"
+    "name": "Akron",
+    "score": 87
    },
    "away": {
     "id": "2057",
-    "name": "Belmont"
+    "name": "Belmont",
+    "score": 64
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
   },
@@ -69,30 +77,34 @@
    "id": "401919850",
    "start": "2026-11-24T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "284",
-    "name": "Stonehill"
+    "name": "Stonehill",
+    "score": 112
    },
    "away": {
     "id": "130189",
-    "name": "Vermont State - Randolph"
+    "name": "Vermont State - Randolph",
+    "score": 64
    }
   },
   {
    "id": "401928358",
    "start": "2026-11-24T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2229",
-    "name": "Florida International"
+    "name": "Florida International",
+    "score": 81
    },
    "away": {
     "id": "253",
-    "name": "Southern Utah"
+    "name": "Southern Utah",
+    "score": 66
    },
    "note": "Florida International MTE"
   },
@@ -100,15 +112,17 @@
    "id": "401906806",
    "start": "2026-11-24T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "221",
-    "name": "Pittsburgh"
+    "name": "Pittsburgh",
+    "score": 79
    },
    "away": {
     "id": "201",
-    "name": "Oklahoma"
+    "name": "Oklahoma",
+    "score": 68
    },
    "note": "Fort Myers Tip-Off - Beach Division"
   },
@@ -116,15 +130,17 @@
    "id": "401928859",
    "start": "2026-11-24T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "82",
-    "name": "UIC"
+    "id": "242",
+    "name": "Rice",
+    "score": 68
    },
    "away": {
-    "id": "242",
-    "name": "Rice"
+    "id": "82",
+    "name": "UIC",
+    "score": 67
    },
    "note": "Jacksonville Classic"
   },
@@ -132,15 +148,17 @@
    "id": "401917676",
    "start": "2026-11-24T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2539",
-    "name": "San Francisco"
+    "id": "204",
+    "name": "Oregon State",
+    "score": 87
    },
    "away": {
-    "id": "204",
-    "name": "Oregon State"
+    "id": "2539",
+    "name": "San Francisco",
+    "score": 73
    },
    "note": "Acrisure Series"
   },
@@ -148,15 +166,17 @@
    "id": "401921709",
    "start": "2026-11-24T19:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "252",
-    "name": "BYU"
+    "name": "BYU",
+    "score": 63
    },
    "away": {
     "id": "145",
-    "name": "Mississippi"
+    "name": "Mississippi",
+    "score": 73
    },
    "note": "Southwest Maui Invitational"
   },
@@ -164,15 +184,17 @@
    "id": "401906853",
    "start": "2026-11-24T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "120",
-    "name": "Maryland"
+    "name": "Maryland",
+    "score": 64
    },
    "away": {
     "id": "2633",
-    "name": "Tennessee"
+    "name": "Tennessee",
+    "score": 72
    },
    "note": "Players Era 16"
   },
@@ -180,15 +202,17 @@
    "id": "401915941",
    "start": "2026-11-24T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2628",
-    "name": "TCU"
+    "name": "TCU",
+    "score": 84
    },
    "away": {
     "id": "2390",
-    "name": "Miami"
+    "name": "Miami",
+    "score": 71
    },
    "note": "Players Era 16"
   },
@@ -196,15 +220,17 @@
    "id": "401920546",
    "start": "2026-11-24T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2174",
-    "name": "Detroit Mercy"
+    "name": "Detroit Mercy",
+    "score": 67
    },
    "away": {
     "id": "155",
-    "name": "North Dakota"
+    "name": "North Dakota",
+    "score": 77
    },
    "note": "Cancun Challenge - Mayan Division"
   },
@@ -212,31 +238,35 @@
    "id": "401929285",
    "start": "2026-11-24T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "43",
-    "name": "Yale"
+    "name": "Yale",
+    "score": 57
    },
    "away": {
     "id": "2026",
-    "name": "Appalachian State"
+    "name": "Appalachian State",
+    "score": 50
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
   },
   {
    "id": "401924267",
-   "start": "2026-11-24T20:30Z",
+   "start": "2026-11-24T20:45Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2032",
-    "name": "Arkansas State"
+    "id": "299",
+    "name": "Long Beach State",
+    "score": 81
    },
    "away": {
-    "id": "299",
-    "name": "Long Beach State"
+    "id": "2032",
+    "name": "Arkansas State",
+    "score": 106
    },
    "note": "Florida International MTE"
   },
@@ -244,45 +274,51 @@
    "id": "401929035",
    "start": "2026-11-24T21:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2441",
-    "name": "New Haven"
+    "id": "2815",
+    "name": "Lindenwood",
+    "score": 60
    },
    "away": {
-    "id": "2815",
-    "name": "Lindenwood"
+    "id": "2441",
+    "name": "New Haven",
+    "score": 63
    }
   },
   {
    "id": "401921223",
    "start": "2026-11-24T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2426",
-    "name": "Navy"
+    "name": "Navy",
+    "score": 97
    },
    "away": {
     "id": "131640",
-    "name": "Penn State Berks"
+    "name": "Penn State Berks",
+    "score": 46
    }
   },
   {
    "id": "401921666",
    "start": "2026-11-24T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2287",
-    "name": "Illinois State"
+    "id": "202",
+    "name": "Tulsa",
+    "score": 67
    },
    "away": {
-    "id": "202",
-    "name": "Tulsa"
+    "id": "2287",
+    "name": "Illinois State",
+    "score": 79
    },
    "note": "Acrisure Series"
   },
@@ -290,7 +326,7 @@
    "id": "401921710",
    "start": "2026-11-24T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "12",
@@ -306,38 +342,24 @@
    "id": "401926061",
    "start": "2026-11-24T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2681",
-    "name": "Wagner"
+    "name": "Wagner",
+    "score": 96
    },
    "away": {
     "id": "cbbd-422",
-    "name": "Bloomsburg"
+    "name": "Bloomsburg",
+    "score": 44
    }
-  },
-  {
-   "id": "401909495",
-   "start": "2026-11-24T22:30Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "130",
-    "name": "Michigan"
-   },
-   "away": {
-    "id": "156",
-    "name": "Creighton"
-   },
-   "note": "Players Era 16"
   },
   {
    "id": "401909775",
    "start": "2026-11-24T22:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "66",
@@ -353,15 +375,15 @@
    "id": "401921707",
    "start": "2026-11-24T22:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "2309",
-    "name": "Kent State"
-   },
-   "away": {
     "id": "2751",
     "name": "Wyoming"
+   },
+   "away": {
+    "id": "2309",
+    "name": "Kent State"
    },
    "note": "Sunshine Slam"
   },
@@ -369,7 +391,7 @@
    "id": "401924859",
    "start": "2026-11-24T22:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2514",
@@ -381,10 +403,26 @@
    }
   },
   {
+   "id": "401909495",
+   "start": "2026-11-24T22:55Z",
+   "time_valid": true,
+   "status": "in_progress",
+   "neutral": true,
+   "home": {
+    "id": "130",
+    "name": "Michigan"
+   },
+   "away": {
+    "id": "156",
+    "name": "Creighton"
+   },
+   "note": "Players Era 16"
+  },
+  {
    "id": "401909505",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2509",
@@ -400,7 +438,7 @@
    "id": "401920949",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "338",
@@ -416,7 +454,7 @@
    "id": "401922231",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2747",
@@ -431,7 +469,7 @@
    "id": "401923262",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2226",
@@ -446,7 +484,7 @@
    "id": "401923395",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2678",
@@ -461,7 +499,7 @@
    "id": "401924877",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "164",
@@ -476,7 +514,7 @@
    "id": "401921142",
    "start": "2026-11-24T23:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "231",
@@ -491,7 +529,7 @@
    "id": "401925014",
    "start": "2026-11-24T23:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2320",
@@ -507,7 +545,7 @@
    "id": "401906774",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "57",
@@ -522,7 +560,7 @@
    "id": "401911027",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "189",
@@ -537,7 +575,7 @@
    "id": "401911279",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2329",
@@ -552,7 +590,7 @@
    "id": "401911379",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "256",
@@ -567,15 +605,15 @@
    "id": "401911458",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "2541",
-    "name": "Santa Clara"
-   },
-   "away": {
     "id": "2440",
     "name": "Nevada"
+   },
+   "away": {
+    "id": "2541",
+    "name": "Santa Clara"
    },
    "note": "Acrisure Series"
   },
@@ -583,7 +621,7 @@
    "id": "401916291",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "84",
@@ -598,7 +636,7 @@
    "id": "401916319",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "194",
@@ -613,7 +651,7 @@
    "id": "401918996",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "58",
@@ -628,7 +666,7 @@
    "id": "401919829",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2385",
@@ -643,7 +681,7 @@
    "id": "401920309",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "59",
@@ -658,7 +696,7 @@
    "id": "401920358",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "108",
@@ -673,7 +711,7 @@
    "id": "401920695",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2561",
@@ -688,7 +726,7 @@
    "id": "401920727",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2294",
@@ -703,7 +741,7 @@
    "id": "401920742",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "324",
@@ -718,7 +756,7 @@
    "id": "401920889",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2550",
@@ -733,7 +771,7 @@
    "id": "401920923",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2415",
@@ -748,7 +786,7 @@
    "id": "401920976",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "236",
@@ -763,22 +801,22 @@
    "id": "401921030",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "290",
-    "name": "Georgia Southern"
-   },
-   "away": {
     "id": "91",
     "name": "Bellarmine"
+   },
+   "away": {
+    "id": "290",
+    "name": "Georgia Southern"
    }
   },
   {
    "id": "401921266",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2352",
@@ -793,7 +831,7 @@
    "id": "401921777",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "222",
@@ -808,7 +846,7 @@
    "id": "401923271",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2368",
@@ -823,7 +861,7 @@
    "id": "401925950",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2692",
@@ -838,7 +876,7 @@
    "id": "401926827",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "295",
@@ -853,7 +891,7 @@
    "id": "401928348",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2506",
@@ -901,12 +939,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "2184",
-    "name": "Duquesne"
-   },
-   "away": {
     "id": "2272",
     "name": "High Point"
+   },
+   "away": {
+    "id": "2184",
+    "name": "Duquesne"
    },
    "note": "Sunshine Slam"
   },
@@ -1145,12 +1183,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "2638",
-    "name": "UTEP"
-   },
-   "away": {
     "id": "232",
     "name": "Charleston"
+   },
+   "away": {
+    "id": "2638",
+    "name": "UTEP"
    },
    "note": "Cancun Challenge - Riviera Division"
   },
@@ -1251,12 +1289,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "139",
-    "name": "Saint Louis"
-   },
-   "away": {
     "id": "2253",
     "name": "Grand Canyon"
+   },
+   "away": {
+    "id": "139",
+    "name": "Saint Louis"
    },
    "note": "Acrisure Series"
   },
@@ -1315,12 +1353,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "38",
-    "name": "Colorado"
-   },
-   "away": {
     "id": "24",
     "name": "Stanford"
+   },
+   "away": {
+    "id": "38",
+    "name": "Colorado"
    },
    "note": "Acrisure Series"
   },

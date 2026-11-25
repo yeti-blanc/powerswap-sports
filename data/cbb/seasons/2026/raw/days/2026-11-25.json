@@ -121,8 +121,8 @@
     "name": "TBD"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2458",
+    "name": "Northern Colorado"
    },
    "note": "Cancun Challenge - Mayan Division - Consolation"
   },
@@ -382,8 +382,8 @@
     "name": "TBD"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "145",
+    "name": "Mississippi"
    },
    "note": "Southwest Maui Invitational - Championship"
   },
@@ -413,8 +413,8 @@
     "name": "TBD"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2545",
+    "name": "SE Louisiana"
    },
    "note": "Cancun Challenge - Mayan Division - Championship"
   },
@@ -488,12 +488,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "163",
-    "name": "Princeton"
-   },
-   "away": {
     "id": "2335",
     "name": "Liberty"
+   },
+   "away": {
+    "id": "163",
+    "name": "Princeton"
    },
    "note": "Live Oak Bank Holiday Classic"
   },
@@ -630,8 +630,8 @@
     "name": "TBD"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "252",
+    "name": "BYU"
    },
    "note": "Southwest Maui Invitational - Third Place Game"
   },
