@@ -2,37 +2,6 @@
  "date": "2026-11-28",
  "games": [
   {
-   "id": "401920728",
-   "start": "2026-11-28T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2294",
-    "name": "Iowa"
-   },
-   "away": {
-    "id": "2504",
-    "name": "Prairie View A&M"
-   }
-  },
-  {
-   "id": "401920849",
-   "start": "2026-11-28T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "2900",
-    "name": "St. Thomas"
-   },
-   "away": {
-    "id": "163",
-    "name": "Princeton"
-   },
-   "note": "Seahawk Classic"
-  },
-  {
    "id": "401918961",
    "start": "2026-11-28T17:00Z",
    "time_valid": true,
@@ -46,6 +15,22 @@
     "id": "2210",
     "name": "Elon"
    }
+  },
+  {
+   "id": "401920849",
+   "start": "2026-11-28T17:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "2900",
+    "name": "St. Thomas"
+   },
+   "away": {
+    "id": "163",
+    "name": "Princeton"
+   },
+   "note": "Seahawk Classic"
   },
   {
    "id": "401920890",
@@ -78,18 +63,18 @@
    }
   },
   {
-   "id": "401912232",
+   "id": "401920310",
    "start": "2026-11-28T18:00Z",
    "time_valid": true,
    "status": "scheduled",
    "neutral": false,
    "home": {
-    "id": "349",
-    "name": "Army"
+    "id": "59",
+    "name": "Georgia Tech"
    },
    "away": {
-    "id": "2520",
-    "name": "Rider"
+    "id": "2016",
+    "name": "Alcorn State"
    }
   },
   {
@@ -304,6 +289,21 @@
    "away": {
     "id": "2643",
     "name": "The Citadel"
+   }
+  },
+  {
+   "id": "401920728",
+   "start": "2026-11-28T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2294",
+    "name": "Iowa"
+   },
+   "away": {
+    "id": "2504",
+    "name": "Prairie View A&M"
    }
   },
   {
@@ -854,21 +854,6 @@
    }
   },
   {
-   "id": "401920197",
-   "start": "2026-11-28T22:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2405",
-    "name": "Monmouth"
-   },
-   "away": {
-    "id": "2603",
-    "name": "Saint Joseph's"
-   }
-  },
-  {
    "id": "401926778",
    "start": "2026-11-28T22:00Z",
    "time_valid": true,
@@ -993,6 +978,21 @@
    "note": "ETSU MTE"
   },
   {
+   "id": "401912232",
+   "start": "2026-11-29T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "349",
+    "name": "Army"
+   },
+   "away": {
+    "id": "2520",
+    "name": "Rider"
+   }
+  },
+  {
    "id": "401917550",
    "start": "2026-11-29T00:00Z",
    "time_valid": true,
@@ -1008,18 +1008,18 @@
    }
   },
   {
-   "id": "401920310",
+   "id": "401920197",
    "start": "2026-11-29T00:00Z",
    "time_valid": true,
    "status": "scheduled",
    "neutral": false,
    "home": {
-    "id": "59",
-    "name": "Georgia Tech"
+    "id": "2405",
+    "name": "Monmouth"
    },
    "away": {
-    "id": "2016",
-    "name": "Alcorn State"
+    "id": "2603",
+    "name": "Saint Joseph's"
    }
   },
   {

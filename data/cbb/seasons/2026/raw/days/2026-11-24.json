@@ -326,15 +326,17 @@
    "id": "401921710",
    "start": "2026-11-24T22:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "12",
-    "name": "Arizona"
+    "name": "Arizona",
+    "score": 84
    },
    "away": {
     "id": "2507",
-    "name": "Providence"
+    "name": "Providence",
+    "score": 66
    },
    "note": "Southwest Maui Invitational"
   },
@@ -359,15 +361,17 @@
    "id": "401909775",
    "start": "2026-11-24T22:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "66",
-    "name": "Iowa State"
+    "name": "Iowa State",
+    "score": 81
    },
    "away": {
     "id": "21",
-    "name": "San Diego State"
+    "name": "San Diego State",
+    "score": 68
    },
    "note": "Players Era 16"
   },
@@ -375,15 +379,17 @@
    "id": "401921707",
    "start": "2026-11-24T22:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2751",
-    "name": "Wyoming"
+    "name": "Wyoming",
+    "score": 75
    },
    "away": {
     "id": "2309",
-    "name": "Kent State"
+    "name": "Kent State",
+    "score": 78
    },
    "note": "Sunshine Slam"
   },
@@ -391,30 +397,34 @@
    "id": "401924859",
    "start": "2026-11-24T22:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2514",
-    "name": "Quinnipiac"
+    "name": "Quinnipiac",
+    "score": 85
    },
    "away": {
     "id": "108842",
-    "name": "Emerson"
+    "name": "Emerson",
+    "score": 57
    }
   },
   {
    "id": "401909495",
    "start": "2026-11-24T22:55Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "130",
-    "name": "Michigan"
+    "name": "Michigan",
+    "score": 73
    },
    "away": {
     "id": "156",
-    "name": "Creighton"
+    "name": "Creighton",
+    "score": 99
    },
    "note": "Players Era 16"
   },
@@ -422,15 +432,17 @@
    "id": "401909505",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2509",
-    "name": "Purdue"
+    "name": "Purdue",
+    "score": 56
    },
    "away": {
     "id": "305",
-    "name": "DePaul"
+    "name": "DePaul",
+    "score": 65
    },
    "note": "Fort Myers Tip-Off - Beach Division"
   },
@@ -438,15 +450,17 @@
    "id": "401920949",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "338",
-    "name": "Kennesaw State"
+    "name": "Kennesaw State",
+    "score": 56
    },
    "away": {
     "id": "2199",
-    "name": "Eastern Michigan"
+    "name": "Eastern Michigan",
+    "score": 60
    },
    "note": "Cancun Challenge - Riviera Division"
   },
@@ -454,90 +468,102 @@
    "id": "401922231",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2747",
-    "name": "Wofford"
+    "name": "Wofford",
+    "score": 86
    },
    "away": {
     "id": "2511",
-    "name": "Queens University"
+    "name": "Queens University",
+    "score": 77
    }
   },
   {
    "id": "401923262",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2226",
-    "name": "Florida Atlantic"
+    "name": "Florida Atlantic",
+    "score": 95
    },
    "away": {
     "id": "2382",
-    "name": "Mercer"
+    "name": "Mercer",
+    "score": 84
    }
   },
   {
    "id": "401923395",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2678",
-    "name": "VMI"
+    "name": "VMI",
+    "score": 87
    },
    "away": {
     "id": "88",
-    "name": "Southern Indiana"
+    "name": "Southern Indiana",
+    "score": 83
    }
   },
   {
    "id": "401924877",
    "start": "2026-11-24T23:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "164",
-    "name": "Rutgers"
+    "name": "Rutgers",
+    "score": 106
    },
    "away": {
     "id": "2529",
-    "name": "Sacred Heart"
+    "name": "Sacred Heart",
+    "score": 73
    }
   },
   {
    "id": "401921142",
    "start": "2026-11-24T23:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "231",
-    "name": "Furman"
+    "name": "Furman",
+    "score": 82
    },
    "away": {
     "id": "2210",
-    "name": "Elon"
+    "name": "Elon",
+    "score": 60
    }
   },
   {
    "id": "401925014",
    "start": "2026-11-24T23:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2320",
-    "name": "Lamar"
+    "name": "Lamar",
+    "score": 87
    },
    "away": {
     "id": "2523",
-    "name": "Robert Morris"
+    "name": "Robert Morris",
+    "score": 62
    },
    "note": "Jacksonville Classic"
   },
@@ -545,75 +571,85 @@
    "id": "401906774",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "57",
-    "name": "Florida"
+    "name": "Florida",
+    "score": 76
    },
    "away": {
     "id": "270",
-    "name": "Milwaukee"
+    "name": "Milwaukee",
+    "score": 67
    }
   },
   {
    "id": "401911027",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "189",
-    "name": "Bowling Green"
+    "name": "Bowling Green",
+    "score": 91
    },
    "away": {
     "id": "2241",
-    "name": "Gardner-Webb"
+    "name": "Gardner-Webb",
+    "score": 65
    }
   },
   {
    "id": "401911279",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2329",
-    "name": "Lehigh"
+    "name": "Lehigh",
+    "score": 83
    },
    "away": {
     "id": "2066",
-    "name": "Binghamton"
+    "name": "Binghamton",
+    "score": 90
    }
   },
   {
    "id": "401911379",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "256",
-    "name": "James Madison"
+    "name": "James Madison",
+    "score": 82
    },
    "away": {
     "id": "2127",
-    "name": "Charleston Southern"
+    "name": "Charleston Southern",
+    "score": 58
    }
   },
   {
    "id": "401911458",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2440",
-    "name": "Nevada"
+    "name": "Nevada",
+    "score": 85
    },
    "away": {
     "id": "2541",
-    "name": "Santa Clara"
+    "name": "Santa Clara",
+    "score": 66
    },
    "note": "Acrisure Series"
   },
@@ -621,467 +657,493 @@
    "id": "401916291",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "84",
-    "name": "Indiana"
+    "name": "Indiana",
+    "score": 82
    },
    "away": {
     "id": "294",
-    "name": "Jacksonville"
+    "name": "Jacksonville",
+    "score": 64
    }
   },
   {
    "id": "401916319",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "194",
-    "name": "Ohio State"
+    "name": "Ohio State",
+    "score": 66
    },
    "away": {
     "id": "238",
-    "name": "Vanderbilt"
+    "name": "Vanderbilt",
+    "score": 72
    }
   },
   {
    "id": "401918996",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "58",
-    "name": "South Florida"
+    "name": "South Florida",
+    "score": 100
    },
    "away": {
     "id": "56",
-    "name": "Stetson"
+    "name": "Stetson",
+    "score": 67
    }
   },
   {
    "id": "401919829",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2385",
-    "name": "Mercyhurst"
+    "name": "Mercyhurst",
+    "score": 95
    },
    "away": {
     "id": null,
-    "name": "SUNY Fredonia"
+    "name": "SUNY Fredonia",
+    "score": 56
    }
   },
   {
    "id": "401920309",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "59",
-    "name": "Georgia Tech"
+    "name": "Georgia Tech",
+    "score": 81
    },
    "away": {
     "id": "2535",
-    "name": "Samford"
+    "name": "Samford",
+    "score": 92
    }
   },
   {
    "id": "401920358",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "108",
-    "name": "Harvard"
+    "name": "Harvard",
+    "score": 72
    },
    "away": {
     "id": "104",
-    "name": "Boston University"
+    "name": "Boston University",
+    "score": 81
    }
   },
   {
    "id": "401920695",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2561",
-    "name": "Siena"
+    "name": "Siena",
+    "score": 98
    },
    "away": {
     "id": "261",
-    "name": "Vermont"
+    "name": "Vermont",
+    "score": 88
    }
   },
   {
    "id": "401920727",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2294",
-    "name": "Iowa"
+    "name": "Iowa",
+    "score": 87
    },
    "away": {
     "id": "2378",
-    "name": "UMBC"
+    "name": "UMBC",
+    "score": 48
    }
   },
   {
    "id": "401920742",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "324",
-    "name": "Coastal Carolina"
+    "name": "Coastal Carolina",
+    "score": 66
    },
    "away": {
     "id": "2097",
-    "name": "Campbell"
+    "name": "Campbell",
+    "score": 70
    }
   },
   {
    "id": "401920889",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2550",
-    "name": "Seton Hall"
+    "name": "Seton Hall",
+    "score": 73
    },
    "away": {
     "id": "160",
-    "name": "New Hampshire"
+    "name": "New Hampshire",
+    "score": 27
    }
   },
   {
    "id": "401920923",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2415",
-    "name": "Morgan State"
+    "name": "Morgan State",
+    "score": 74
    },
    "away": {
     "id": "116",
-    "name": "Mount St. Mary's"
+    "name": "Mount St. Mary's",
+    "score": 75
    }
   },
   {
    "id": "401920976",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "236",
-    "name": "Chattanooga"
+    "name": "Chattanooga",
+    "score": 79
    },
    "away": {
     "id": "2169",
-    "name": "Delaware State"
+    "name": "Delaware State",
+    "score": 66
    }
   },
   {
    "id": "401921030",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "91",
-    "name": "Bellarmine"
+    "name": "Bellarmine",
+    "score": 82
    },
    "away": {
     "id": "290",
-    "name": "Georgia Southern"
+    "name": "Georgia Southern",
+    "score": 67
    }
   },
   {
    "id": "401921266",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2352",
-    "name": "Loyola Maryland"
+    "name": "Loyola Maryland",
+    "score": 71
    },
    "away": {
     "id": "2520",
-    "name": "Rider"
+    "name": "Rider",
+    "score": 54
    }
   },
   {
    "id": "401921777",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "222",
-    "name": "Villanova"
+    "name": "Villanova",
+    "score": 70
    },
    "away": {
     "id": "2154",
-    "name": "Coppin State"
+    "name": "Coppin State",
+    "score": 52
    }
   },
   {
    "id": "401923271",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2368",
-    "name": "Marist"
+    "name": "Marist",
+    "score": 58
    },
    "away": {
     "id": "2803",
-    "name": "Bryant"
+    "name": "Bryant",
+    "score": 57
    }
   },
   {
    "id": "401925950",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2692",
-    "name": "Weber State"
+    "name": "Weber State",
+    "score": 89
    },
    "away": {
     "id": "2627",
-    "name": "Tarleton State"
+    "name": "Tarleton State",
+    "score": 87
    }
   },
   {
    "id": "401926827",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "295",
-    "name": "Old Dominion"
+    "name": "Old Dominion",
+    "score": 71
    },
    "away": {
     "id": "2261",
-    "name": "Hampton"
+    "name": "Hampton",
+    "score": 59
    }
   },
   {
    "id": "401928348",
    "start": "2026-11-25T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2506",
-    "name": "Presbyterian"
+    "name": "Presbyterian",
+    "score": 123
    },
    "away": {
     "id": null,
-    "name": "Carolina Christian"
+    "name": "Carolina Christian",
+    "score": 46
    }
   },
   {
    "id": "401917904",
    "start": "2026-11-25T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2635",
-    "name": "Tennessee Tech"
+    "name": "Tennessee Tech",
+    "score": 124
    },
    "away": {
     "id": "2698",
-    "name": "West Georgia"
+    "name": "West Georgia",
+    "score": 85
    }
   },
   {
    "id": "401917983",
    "start": "2026-11-25T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2433",
-    "name": "UL Monroe"
+    "name": "UL Monroe",
+    "score": 58
    },
    "away": {
     "id": "2277",
-    "name": "Houston Christian"
+    "name": "Houston Christian",
+    "score": 84
    }
-  },
-  {
-   "id": "401920414",
-   "start": "2026-11-25T00:30Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "2272",
-    "name": "High Point"
-   },
-   "away": {
-    "id": "2184",
-    "name": "Duquesne"
-   },
-   "note": "Sunshine Slam"
   },
   {
    "id": "401925687",
    "start": "2026-11-25T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2348",
-    "name": "Louisiana Tech"
+    "name": "Louisiana Tech",
+    "score": 83
    },
    "away": {
     "id": "2016",
-    "name": "Alcorn State"
+    "name": "Alcorn State",
+    "score": 41
    }
   },
   {
    "id": "401926154",
    "start": "2026-11-25T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2546",
-    "name": "Southeast Missouri State"
+    "name": "Southeast Missouri State",
+    "score": 75
    },
    "away": {
     "id": "2870",
-    "name": "Purdue Fort Wayne"
+    "name": "Purdue Fort Wayne",
+    "score": 80
    }
   },
   {
    "id": "401929351",
    "start": "2026-11-25T00:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2837",
-    "name": "East Texas A&M"
+    "name": "East Texas A&M",
+    "score": 79
    },
    "away": {
     "id": "3166",
-    "name": "Arlington Baptist"
+    "name": "Arlington Baptist",
+    "score": 51
    }
   },
   {
    "id": "401911026",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "87",
-    "name": "Notre Dame"
+    "name": "Notre Dame",
+    "score": 88
    },
    "away": {
     "id": "2117",
-    "name": "Central Michigan"
+    "name": "Central Michigan",
+    "score": 70
    }
   },
   {
    "id": "401911338",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2005",
-    "name": "Air Force"
+    "name": "Air Force",
+    "score": 88
    },
    "away": {
     "id": "349",
-    "name": "Army"
+    "name": "Army",
+    "score": 79
    }
-  },
-  {
-   "id": "401915942",
-   "start": "2026-11-25T01:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "97",
-    "name": "Louisville"
-   },
-   "away": {
-    "id": "2641",
-    "name": "Texas Tech"
-   },
-   "note": "Players Era 16"
   },
   {
    "id": "401920709",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2",
-    "name": "Auburn"
+    "name": "Auburn",
+    "score": 101
    },
    "away": {
     "id": "288",
-    "name": "Lipscomb"
+    "name": "Lipscomb",
+    "score": 66
    }
   },
   {
    "id": "401921008",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "140",
-    "name": "Kansas City"
+    "name": "Kansas City",
+    "score": 72
    },
    "away": {
     "id": "2739",
-    "name": "Green Bay"
+    "name": "Green Bay",
+    "score": 77
    }
   },
   {
    "id": "401921184",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "219",
-    "name": "Pennsylvania"
+    "name": "Pennsylvania",
+    "score": 89
    },
    "away": {
     "id": "2182",
-    "name": "Drexel"
+    "name": "Drexel",
+    "score": 74
    },
    "note": "Big 5 Classic - Campus Game"
   },
@@ -1089,244 +1151,294 @@
    "id": "401921711",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "264",
-    "name": "Washington"
+    "name": "Washington",
+    "score": 64
    },
    "away": {
     "id": "228",
-    "name": "Clemson"
+    "name": "Clemson",
+    "score": 63
    },
    "note": "Southwest Maui Invitational"
-  },
-  {
-   "id": "401924723",
-   "start": "2026-11-25T01:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "172",
-    "name": "Cornell"
-   },
-   "away": {
-    "id": "2083",
-    "name": "Bucknell"
-   }
   },
   {
    "id": "401925642",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2453",
-    "name": "North Alabama"
+    "name": "North Alabama",
+    "score": 77
    },
    "away": {
     "id": "2010",
-    "name": "Alabama A&M"
+    "name": "Alabama A&M",
+    "score": 74
    }
   },
   {
    "id": "401929359",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "250",
-    "name": "UT Arlington"
+    "name": "UT Arlington",
+    "score": 80
    },
    "away": {
     "id": "198",
-    "name": "Oral Roberts"
+    "name": "Oral Roberts",
+    "score": 84
    }
   },
   {
    "id": "401929380",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2031",
-    "name": "Little Rock"
+    "name": "Little Rock",
+    "score": 82
    },
    "away": {
     "id": "2027",
-    "name": "Arkansas Baptist"
+    "name": "Arkansas Baptist",
+    "score": 47
    }
   },
   {
    "id": "401929421",
    "start": "2026-11-25T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "6",
-    "name": "South Alabama"
+    "name": "South Alabama",
+    "score": 74
    },
    "away": {
     "id": "50",
-    "name": "Florida A&M"
+    "name": "Florida A&M",
+    "score": 49
    }
   },
   {
-   "id": "401911535",
+   "id": "401924723",
    "start": "2026-11-25T01:30Z",
    "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
+   "status": "final",
+   "neutral": false,
    "home": {
-    "id": "232",
-    "name": "Charleston"
+    "id": "172",
+    "name": "Cornell",
+    "score": 92
    },
    "away": {
-    "id": "2638",
-    "name": "UTEP"
-   },
-   "note": "Cancun Challenge - Riviera Division"
+    "id": "2083",
+    "name": "Bucknell",
+    "score": 71
+   }
   },
   {
    "id": "401929456",
    "start": "2026-11-25T01:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "309",
-    "name": "Louisiana"
+    "name": "Louisiana",
+    "score": 91
    },
    "away": {
     "id": "2347",
-    "name": "Louisiana Christian"
+    "name": "Louisiana Christian",
+    "score": 24
    }
+  },
+  {
+   "id": "401915942",
+   "start": "2026-11-25T01:37Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "97",
+    "name": "Louisville",
+    "score": 72
+   },
+   "away": {
+    "id": "2641",
+    "name": "Texas Tech",
+    "score": 64
+   },
+   "note": "Players Era 16"
+  },
+  {
+   "id": "401920414",
+   "start": "2026-11-25T01:45Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "2272",
+    "name": "High Point",
+    "score": 75
+   },
+   "away": {
+    "id": "2184",
+    "name": "Duquesne",
+    "score": 70
+   },
+   "note": "Sunshine Slam"
   },
   {
    "id": "401909699",
    "start": "2026-11-25T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "52",
-    "name": "Florida State"
+    "name": "Florida State",
+    "score": 97
    },
    "away": {
     "id": "2427",
-    "name": "UNC Asheville"
+    "name": "UNC Asheville",
+    "score": 61
    }
+  },
+  {
+   "id": "401911535",
+   "start": "2026-11-25T02:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "232",
+    "name": "Charleston",
+    "score": 69
+   },
+   "away": {
+    "id": "2638",
+    "name": "UTEP",
+    "score": 80
+   },
+   "note": "Cancun Challenge - Riviera Division"
   },
   {
    "id": "401921817",
    "start": "2026-11-25T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "142",
-    "name": "Missouri"
+    "name": "Missouri",
+    "score": 78
    },
    "away": {
     "id": "339",
-    "name": "Evansville"
+    "name": "Evansville",
+    "score": 67
    }
   },
   {
    "id": "401922023",
    "start": "2026-11-25T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "68",
-    "name": "Boise State"
+    "name": "Boise State",
+    "score": 88
    },
    "away": {
     "id": "304",
-    "name": "Idaho State"
+    "name": "Idaho State",
+    "score": 71
    }
   },
   {
    "id": "401926184",
    "start": "2026-11-25T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2540",
-    "name": "UC Santa Barbara"
+    "name": "UC Santa Barbara",
+    "score": 85
    },
    "away": {
     "id": "2430",
-    "name": "UNC Greensboro"
+    "name": "UNC Greensboro",
+    "score": 65
    }
   },
   {
    "id": "401928796",
    "start": "2026-11-25T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "265",
-    "name": "Washington State"
+    "name": "Washington State",
+    "score": 80
    },
    "away": {
     "id": "2534",
-    "name": "Sam Houston State"
+    "name": "Sam Houston State",
+    "score": 73
    }
   },
   {
    "id": "401911253",
-   "start": "2026-11-25T02:30Z",
+   "start": "2026-11-25T02:55Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2253",
-    "name": "Grand Canyon"
+    "name": "Grand Canyon",
+    "score": 91
    },
    "away": {
     "id": "139",
-    "name": "Saint Louis"
+    "name": "Saint Louis",
+    "score": 88
    },
    "note": "Acrisure Series"
   },
   {
    "id": "401906762",
-   "start": "2026-11-25T03:00Z",
+   "start": "2026-11-25T03:05Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "333",
-    "name": "Alabama"
+    "name": "Alabama",
+    "score": 63
    },
    "away": {
     "id": "239",
-    "name": "Baylor"
-   },
-   "note": "Players Era 16"
-  },
-  {
-   "id": "401915943",
-   "start": "2026-11-25T03:30Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "2599",
-    "name": "St. John's"
-   },
-   "away": {
-    "id": "2483",
-    "name": "Oregon"
+    "name": "Baylor",
+    "score": 68
    },
    "note": "Players Era 16"
   },
@@ -1334,49 +1446,73 @@
    "id": "401921712",
    "start": "2026-11-25T03:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "36",
-    "name": "Colorado State"
+    "name": "Colorado State",
+    "score": 81
    },
    "away": {
     "id": "2670",
-    "name": "VCU"
+    "name": "VCU",
+    "score": 84
    },
    "note": "Southwest Maui Invitational"
   },
   {
-   "id": "401909763",
-   "start": "2026-11-25T04:59Z",
+   "id": "401915943",
+   "start": "2026-11-25T04:18Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "24",
-    "name": "Stanford"
+    "id": "2599",
+    "name": "St. John's",
+    "score": 90
    },
    "away": {
-    "id": "38",
-    "name": "Colorado"
+    "id": "2483",
+    "name": "Oregon",
+    "score": 79
    },
-   "note": "Acrisure Series"
+   "note": "Players Era 16"
   },
   {
    "id": "401909800",
-   "start": "2026-11-25T05:30Z",
+   "start": "2026-11-25T05:49Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2306",
-    "name": "Kansas State"
+    "name": "Kansas State",
+    "score": 61
    },
    "away": {
     "id": "2250",
-    "name": "Gonzaga"
+    "name": "Gonzaga",
+    "score": 101
    },
    "note": "Players Era 16"
+  },
+  {
+   "id": "401909763",
+   "start": "2026-11-25T06:00Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "24",
+    "name": "Stanford",
+    "score": 65
+   },
+   "away": {
+    "id": "38",
+    "name": "Colorado",
+    "score": 70
+   },
+   "note": "Acrisure Series"
   }
  ]
 }

@@ -1,0 +1,155 @@
+{
+ "date": "2026-12-23",
+ "games": [
+  {
+   "id": "401920874",
+   "start": "2026-12-23T18:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2681",
+    "name": "Wagner"
+   },
+   "away": {
+    "id": "2885",
+    "name": "NJIT"
+   }
+  },
+  {
+   "id": "401928827",
+   "start": "2026-12-23T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2523",
+    "name": "Robert Morris"
+   },
+   "away": {
+    "id": "195",
+    "name": "Ohio"
+   }
+  },
+  {
+   "id": "401920578",
+   "start": "2026-12-23T20:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "41",
+    "name": "Connecticut"
+   },
+   "away": {
+    "id": "46",
+    "name": "Georgetown"
+   }
+  },
+  {
+   "id": "401929173",
+   "start": "2026-12-23T20:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "68",
+    "name": "Boise State"
+   },
+   "away": {
+    "id": "167",
+    "name": "New Mexico"
+   }
+  },
+  {
+   "id": "401917589",
+   "start": "2026-12-23T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": true,
+   "home": {
+    "id": "204",
+    "name": "Oregon State"
+   },
+   "away": {
+    "id": "2541",
+    "name": "Santa Clara"
+   }
+  },
+  {
+   "id": "401920576",
+   "start": "2026-12-23T23:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2086",
+    "name": "Butler"
+   },
+   "away": {
+    "id": "269",
+    "name": "Marquette"
+   }
+  },
+  {
+   "id": "401911194",
+   "start": "2026-12-24T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2168",
+    "name": "Dayton"
+   },
+   "away": {
+    "id": "2545",
+    "name": "SE Louisiana"
+   }
+  },
+  {
+   "id": "401920863",
+   "start": "2026-12-24T00:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "276",
+    "name": "Marshall"
+   },
+   "away": {
+    "id": "2706",
+    "name": "WVU Tech"
+   }
+  },
+  {
+   "id": "401920577",
+   "start": "2026-12-24T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2550",
+    "name": "Seton Hall"
+   },
+   "away": {
+    "id": "2599",
+    "name": "St. John's"
+   }
+  },
+  {
+   "id": "401921738",
+   "start": "2026-12-24T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "9",
+    "name": "Arizona State"
+   },
+   "away": {
+    "id": "70",
+    "name": "Idaho"
+   }
+  }
+ ]
+}

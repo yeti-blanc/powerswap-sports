@@ -55,12 +55,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "120",
+    "name": "Maryland"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "21",
+    "name": "San Diego State"
    },
    "note": "Players Era 16"
   },
@@ -119,12 +119,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "66",
+    "name": "Iowa State"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2633",
+    "name": "Tennessee"
    },
    "note": "Players Era 16"
   },
@@ -135,12 +135,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "130",
+    "name": "Michigan"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2390",
+    "name": "Miami"
    },
    "note": "Players Era 16"
   },
@@ -198,12 +198,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "156",
+    "name": "Creighton"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2628",
+    "name": "TCU"
    },
    "note": "Players Era 16"
   },
@@ -262,12 +262,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "97",
+    "name": "Louisville"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2599",
+    "name": "St. John's"
    },
    "note": "Players Era 16"
   },
@@ -278,12 +278,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "333",
+    "name": "Alabama"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2306",
+    "name": "Kansas State"
    },
    "note": "Players Era 16"
   },
@@ -310,12 +310,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2483",
+    "name": "Oregon"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2641",
+    "name": "Texas Tech"
    },
    "note": "Players Era 16"
   },
@@ -326,12 +326,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "239",
+    "name": "Baylor"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2250",
+    "name": "Gonzaga"
    },
    "note": "Players Era 16"
   }

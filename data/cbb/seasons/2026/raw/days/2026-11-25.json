@@ -117,8 +117,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2174",
+    "name": "Detroit Mercy"
    },
    "away": {
     "id": "2458",
@@ -378,8 +378,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "12",
+    "name": "Arizona"
    },
    "away": {
     "id": "145",
@@ -409,8 +409,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "155",
+    "name": "North Dakota"
    },
    "away": {
     "id": "2545",
@@ -626,8 +626,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2507",
+    "name": "Providence"
    },
    "away": {
     "id": "252",
@@ -687,12 +687,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "232",
+    "name": "Charleston"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "338",
+    "name": "Kennesaw State"
    },
    "note": "Cancun Challenge - Riviera Division - Consolation"
   },
@@ -916,12 +916,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2638",
+    "name": "UTEP"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2199",
+    "name": "Eastern Michigan"
    },
    "note": "Cancun Challenge - Riviera Division - Championship"
   },
@@ -977,12 +977,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "38",
+    "name": "Colorado"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2253",
+    "name": "Grand Canyon"
    },
    "note": "Acrisure Series - Championship Game"
   },
@@ -993,12 +993,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2670",
+    "name": "VCU"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "264",
+    "name": "Washington"
    },
    "note": "Southwest Maui Invitational - Fifth Place Game"
   },
@@ -1025,12 +1025,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "139",
+    "name": "Saint Louis"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "24",
+    "name": "Stanford"
    },
    "note": "Acrisure Series - Third Place Game"
   },
@@ -1056,12 +1056,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "36",
+    "name": "Colorado State"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "228",
+    "name": "Clemson"
    },
    "note": "Southwest Maui Invitational - Seventh Place Game"
   }

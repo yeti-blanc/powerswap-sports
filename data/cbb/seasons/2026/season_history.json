@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-24T19:15:26-05:00",
+ "generated_at": "2026-11-25T03:56:22-05:00",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -1614,7 +1614,7 @@
     },
     {
      "rank": 3,
-     "team": "Texas Tech",
+     "team": "Louisville",
      "lineage": [
       {
        "team": "Illinois",
@@ -1625,11 +1625,17 @@
       {
        "team": "Texas Tech",
        "held_from": "week2",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "2641"
+      },
+      {
+       "team": "Louisville",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "97"
       }
      ],
-     "team_id": "2641"
+     "team_id": "97"
     },
     {
      "rank": 4,
@@ -1931,16 +1937,22 @@
     },
     {
      "rank": 20,
-     "team": "Alabama",
+     "team": "Baylor",
      "lineage": [
       {
        "team": "Alabama",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "333"
+      },
+      {
+       "team": "Baylor",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "239"
       }
      ],
-     "team_id": "333"
+     "team_id": "239"
     },
     {
      "rank": 21,
@@ -1995,7 +2007,7 @@
     },
     {
      "rank": 24,
-     "team": "Louisville",
+     "team": "Texas Tech",
      "lineage": [
       {
        "team": "Vanderbilt",
@@ -2012,11 +2024,17 @@
       {
        "team": "Louisville",
        "held_from": "week2",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "97"
+      },
+      {
+       "team": "Texas Tech",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "2641"
       }
      ],
-     "team_id": "97"
+     "team_id": "2641"
     },
     {
      "rank": 25,
@@ -2295,9 +2313,62 @@
    "winner_home_away": "neutral",
    "winner_id": "2628",
    "loser_id": "2390"
+  },
+  {
+   "kind": "swap",
+   "week": "week4",
+   "winner": "Louisville",
+   "loser": "Texas Tech",
+   "winner_old_rank": 24,
+   "loser_old_rank": 3,
+   "winner_new_rank": 3,
+   "loser_new_rank": 24,
+   "at": "2026-11-25T01:37Z",
+   "game_id": "401915942",
+   "winner_score": 72,
+   "loser_score": 64,
+   "winner_home_away": "neutral",
+   "winner_id": "97",
+   "loser_id": "2641"
+  },
+  {
+   "kind": "dethrone",
+   "week": "week4",
+   "winner": "Baylor",
+   "loser": "Alabama",
+   "winner_old_rank": null,
+   "loser_old_rank": 20,
+   "winner_new_rank": 20,
+   "loser_new_rank": null,
+   "at": "2026-11-25T03:05Z",
+   "game_id": "401906762",
+   "winner_score": 68,
+   "loser_score": 63,
+   "winner_home_away": "neutral",
+   "winner_id": "239",
+   "loser_id": "333"
   }
  ],
  "team_histories": {
+  "Alabama": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Baylor",
+    "loser": "Alabama",
+    "winner_old_rank": null,
+    "loser_old_rank": 20,
+    "winner_new_rank": 20,
+    "loser_new_rank": null,
+    "at": "2026-11-25T03:05Z",
+    "game_id": "401906762",
+    "winner_score": 68,
+    "loser_score": 63,
+    "winner_home_away": "neutral",
+    "winner_id": "239",
+    "loser_id": "333"
+   }
+  ],
   "Arizona": [
    {
     "kind": "swap",
@@ -2370,6 +2441,25 @@
     "winner_home_away": "neutral",
     "winner_id": "145",
     "loser_id": "252"
+   }
+  ],
+  "Baylor": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Baylor",
+    "loser": "Alabama",
+    "winner_old_rank": null,
+    "loser_old_rank": 20,
+    "winner_new_rank": 20,
+    "loser_new_rank": null,
+    "at": "2026-11-25T03:05Z",
+    "game_id": "401906762",
+    "winner_score": 68,
+    "loser_score": 63,
+    "winner_home_away": "neutral",
+    "winner_id": "239",
+    "loser_id": "333"
    }
   ],
   "Connecticut": [
@@ -2594,6 +2684,23 @@
     "winner_home_away": "home",
     "winner_id": "235",
     "loser_id": "97"
+   },
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Louisville",
+    "loser": "Texas Tech",
+    "winner_old_rank": 24,
+    "loser_old_rank": 3,
+    "winner_new_rank": 3,
+    "loser_new_rank": 24,
+    "at": "2026-11-25T01:37Z",
+    "game_id": "401915942",
+    "winner_score": 72,
+    "loser_score": 64,
+    "winner_home_away": "neutral",
+    "winner_id": "97",
+    "loser_id": "2641"
    }
   ],
   "Memphis": [
@@ -2797,6 +2904,23 @@
     "winner_home_away": "home",
     "winner_id": "2641",
     "loser_id": "356"
+   },
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Louisville",
+    "loser": "Texas Tech",
+    "winner_old_rank": 24,
+    "loser_old_rank": 3,
+    "winner_new_rank": 3,
+    "loser_new_rank": 24,
+    "at": "2026-11-25T01:37Z",
+    "game_id": "401915942",
+    "winner_score": 72,
+    "loser_score": 64,
+    "winner_home_away": "neutral",
+    "winner_id": "97",
+    "loser_id": "2641"
    }
   ],
   "UCLA": [
@@ -2862,6 +2986,7 @@
   "Arizona": "12",
   "Arkansas": "8",
   "BYU": "252",
+  "Baylor": "239",
   "Connecticut": "41",
   "Duke": "150",
   "Florida": "57",
