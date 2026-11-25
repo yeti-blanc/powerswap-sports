@@ -5,15 +5,17 @@
    "id": "401927399",
    "start": "2026-11-25T15:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2057",
-    "name": "Belmont"
+    "name": "Belmont",
+    "score": 68
    },
    "away": {
     "id": "179",
-    "name": "St. Bonaventure"
+    "name": "St. Bonaventure",
+    "score": 71
    },
    "note": "ESPN Events Invitational - Adventure Bracket"
   },
@@ -21,30 +23,34 @@
    "id": "401911201",
    "start": "2026-11-25T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2230",
-    "name": "Fordham"
+    "name": "Fordham",
+    "score": 104
    },
    "away": {
     "id": "2384",
-    "name": "Mercy"
+    "name": "Mercy",
+    "score": 56
    }
   },
   {
    "id": "401921702",
    "start": "2026-11-25T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2429",
-    "name": "Charlotte"
+    "name": "Charlotte",
+    "score": 85
    },
    "away": {
     "id": "2460",
-    "name": "Northern Iowa"
+    "name": "Northern Iowa",
+    "score": 72
    },
    "note": "Fort Myers Tip-Off - Palms Division"
   },
@@ -52,15 +58,17 @@
    "id": "401928845",
    "start": "2026-11-25T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "195",
-    "name": "Ohio"
+    "name": "Ohio",
+    "score": 74
    },
    "away": {
     "id": "242",
-    "name": "Rice"
+    "name": "Rice",
+    "score": 82
    },
    "note": "Jacksonville Classic"
   },
@@ -68,37 +76,41 @@
    "id": "401919762",
    "start": "2026-11-25T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "161",
-    "name": "Fairleigh Dickinson"
+    "name": "Fairleigh Dickinson",
+    "score": 123
    },
    "away": {
     "id": "130189",
-    "name": "Vermont State - Randolph"
+    "name": "Vermont State - Randolph",
+    "score": 48
    }
   },
   {
    "id": "401920196",
    "start": "2026-11-25T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2603",
-    "name": "Saint Joseph's"
+    "name": "Saint Joseph's",
+    "score": 104
    },
    "away": {
     "id": null,
-    "name": "Penn State Abington"
+    "name": "Penn State Abington",
+    "score": 48
    }
   },
   {
    "id": "401920428",
    "start": "2026-11-25T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "269",
@@ -114,7 +126,7 @@
    "id": "401920547",
    "start": "2026-11-25T17:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2174",
@@ -128,9 +140,9 @@
   },
   {
    "id": "401928831",
-   "start": "2026-11-25T17:30Z",
+   "start": "2026-11-25T17:31Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2750",
@@ -146,7 +158,7 @@
    "id": "401911029",
    "start": "2026-11-25T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "193",
@@ -161,7 +173,7 @@
    "id": "401920067",
    "start": "2026-11-25T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "227",
@@ -176,7 +188,7 @@
    "id": "401924268",
    "start": "2026-11-25T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "299",
@@ -192,7 +204,7 @@
    "id": "401926835",
    "start": "2026-11-25T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2619",
@@ -207,7 +219,7 @@
    "id": "401919007",
    "start": "2026-11-25T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2166",
@@ -271,12 +283,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "99",
-    "name": "LSU"
-   },
-   "away": {
     "id": "9",
     "name": "Arizona State"
+   },
+   "away": {
+    "id": "99",
+    "name": "LSU"
    },
    "note": "Acrisure Series"
   },

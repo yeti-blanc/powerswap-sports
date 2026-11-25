@@ -262,12 +262,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "97",
-    "name": "Louisville"
-   },
-   "away": {
     "id": "2599",
     "name": "St. John's"
+   },
+   "away": {
+    "id": "97",
+    "name": "Louisville"
    },
    "note": "Players Era 16"
   },
@@ -278,12 +278,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "333",
-    "name": "Alabama"
-   },
-   "away": {
     "id": "2306",
     "name": "Kansas State"
+   },
+   "away": {
+    "id": "333",
+    "name": "Alabama"
    },
    "note": "Players Era 16"
   },
@@ -326,12 +326,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "239",
-    "name": "Baylor"
-   },
-   "away": {
     "id": "2250",
     "name": "Gonzaga"
+   },
+   "away": {
+    "id": "239",
+    "name": "Baylor"
    },
    "note": "Players Era 16"
   }
