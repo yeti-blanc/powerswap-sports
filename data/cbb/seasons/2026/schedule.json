@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-26T05:48:55-05:00",
+ "generated_at": "2026-11-26T14:55:50-05:00",
  "today": "2026-11-26",
  "current_week": "week4",
  "weeks": {
@@ -1876,7 +1876,7 @@
      "id": "401906869",
      "start": "2026-11-26T19:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Georgetown",
      "opponent_id": "46",

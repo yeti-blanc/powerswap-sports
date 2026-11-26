@@ -5,15 +5,17 @@
    "id": "401929281",
    "start": "2026-11-26T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2132",
-    "name": "Cincinnati"
+    "name": "Cincinnati",
+    "score": 83
    },
    "away": {
     "id": "61",
-    "name": "Georgia"
+    "name": "Georgia",
+    "score": 81
    },
    "note": "ESPN Events Invitational - Magic Bracket"
   },
@@ -21,15 +23,17 @@
    "id": "401906807",
    "start": "2026-11-26T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2509",
-    "name": "Purdue"
+    "name": "Purdue",
+    "score": 63
    },
    "away": {
     "id": "201",
-    "name": "Oklahoma"
+    "name": "Oklahoma",
+    "score": 70
    },
    "note": "Fort Myers Tip-Off - Beach Division"
   },
@@ -37,30 +41,32 @@
    "id": "401912231",
    "start": "2026-11-26T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2636",
-    "name": "UT San Antonio"
+    "name": "UT San Antonio",
+    "score": 61
    },
    "away": {
     "id": "349",
-    "name": "Army"
+    "name": "Army",
+    "score": 79
    }
   },
   {
    "id": "401920528",
    "start": "2026-11-26T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "120",
-    "name": "Maryland"
-   },
-   "away": {
     "id": "21",
     "name": "San Diego State"
+   },
+   "away": {
+    "id": "120",
+    "name": "Maryland"
    },
    "note": "Players Era 16"
   },
@@ -68,7 +74,7 @@
    "id": "401929282",
    "start": "2026-11-26T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2116",
@@ -84,15 +90,15 @@
    "id": "401921674",
    "start": "2026-11-26T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "9",
-    "name": "Arizona State"
-   },
-   "away": {
     "id": "2579",
     "name": "South Carolina"
+   },
+   "away": {
+    "id": "9",
+    "name": "Arizona State"
    },
    "note": "Acrisure Series"
   },
@@ -100,7 +106,7 @@
    "id": "401906869",
    "start": "2026-11-26T19:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "251",
