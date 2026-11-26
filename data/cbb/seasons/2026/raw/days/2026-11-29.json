@@ -2,21 +2,6 @@
  "date": "2026-11-29",
  "games": [
   {
-   "id": "401929368",
-   "start": "2026-11-29T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2640",
-    "name": "Texas Southern"
-   },
-   "away": {
-    "id": "2627",
-    "name": "Tarleton State"
-   }
-  },
-  {
    "id": "401920776",
    "start": "2026-11-29T17:00Z",
    "time_valid": true,
@@ -641,6 +626,21 @@
    "away": {
     "id": "2755",
     "name": "Grambling"
+   }
+  },
+  {
+   "id": "401929368",
+   "start": "2026-11-29T21:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2640",
+    "name": "Texas Southern"
+   },
+   "away": {
+    "id": "2627",
+    "name": "Tarleton State"
    }
   },
   {

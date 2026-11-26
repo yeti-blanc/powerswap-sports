@@ -789,15 +789,17 @@
    "id": "401909568",
    "start": "2026-11-26T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "41",
-    "name": "Connecticut"
+    "name": "Connecticut",
+    "score": 63
    },
    "away": {
     "id": "150",
-    "name": "Duke"
+    "name": "Duke",
+    "score": 77
    }
   },
   {
@@ -821,15 +823,17 @@
    "id": "401917182",
    "start": "2026-11-26T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "213",
-    "name": "Penn State"
+    "name": "Penn State",
+    "score": 70
    },
    "away": {
     "id": "235",
-    "name": "Memphis"
+    "name": "Memphis",
+    "score": 83
    },
    "note": "Battle 4 Atlantis - Championship Bracket"
   },
@@ -837,15 +841,17 @@
    "id": "401918960",
    "start": "2026-11-26T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "152",
-    "name": "NC State"
+    "name": "NC State",
+    "score": 80
    },
    "away": {
     "id": "2450",
-    "name": "Norfolk State"
+    "name": "Norfolk State",
+    "score": 49
    }
   },
   {
@@ -869,45 +875,51 @@
    "id": "401920847",
    "start": "2026-11-26T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "350",
-    "name": "UNC Wilmington"
+    "name": "UNC Wilmington",
+    "score": 86
    },
    "away": {
     "id": "2900",
-    "name": "St. Thomas"
+    "name": "St. Thomas",
+    "score": 77
    }
   },
   {
    "id": "401920916",
    "start": "2026-11-26T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2565",
-    "name": "SIU Edwardsville"
+    "name": "SIU Edwardsville",
+    "score": 65
    },
    "away": {
     "id": "2459",
-    "name": "Northern Illinois"
+    "name": "Northern Illinois",
+    "score": 68
    }
   },
   {
    "id": "401921108",
    "start": "2026-11-26T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "94",
-    "name": "Northern Kentucky"
+    "name": "Northern Kentucky",
+    "score": 52
    },
    "away": {
     "id": "91",
-    "name": "Bellarmine"
+    "name": "Bellarmine",
+    "score": 66
    }
   },
   {
@@ -948,15 +960,17 @@
    "id": "401918971",
    "start": "2026-11-26T00:50Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "328",
-    "name": "Utah State"
+    "name": "Utah State",
+    "score": 93
    },
    "away": {
     "id": "2567",
-    "name": "SMU"
+    "name": "SMU",
+    "score": 59
    },
    "note": "Acrisure Series"
   },
@@ -964,15 +978,17 @@
    "id": "401911522",
    "start": "2026-11-26T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "302",
-    "name": "UC Davis"
+    "name": "UC Davis",
+    "score": 80
    },
    "away": {
     "id": "2437",
-    "name": "Omaha"
+    "name": "Omaha",
+    "score": 78
    },
    "note": "Resorts World Classic"
   },
@@ -980,30 +996,34 @@
    "id": "401920138",
    "start": "2026-11-26T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2492",
-    "name": "Pepperdine"
+    "name": "Pepperdine",
+    "score": 70
    },
    "away": {
     "id": "2934",
-    "name": "Cal State Bakersfield"
+    "name": "Cal State Bakersfield",
+    "score": 68
    }
   },
   {
    "id": "401920550",
    "start": "2026-11-26T01:45Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2638",
-    "name": "UTEP"
+    "name": "UTEP",
+    "score": 72
    },
    "away": {
     "id": "2199",
-    "name": "Eastern Michigan"
+    "name": "Eastern Michigan",
+    "score": 54
    },
    "note": "Cancun Challenge - Riviera Division - Championship"
   },
@@ -1011,157 +1031,177 @@
    "id": "401917545",
    "start": "2026-11-26T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2351",
-    "name": "Loyola Marymount"
+    "name": "Loyola Marymount",
+    "score": 81
    },
    "away": {
     "id": "331",
-    "name": "Eastern Washington"
+    "name": "Eastern Washington",
+    "score": 72
    }
   },
   {
    "id": "401924897",
    "start": "2026-11-26T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "167",
-    "name": "New Mexico"
+    "name": "New Mexico",
+    "score": 100
    },
    "away": {
     "id": "2400",
-    "name": "Mississippi Valley State"
+    "name": "Mississippi Valley State",
+    "score": 77
    }
   },
   {
    "id": "401925880",
    "start": "2026-11-26T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "147",
-    "name": "Montana State"
+    "name": "Montana State",
+    "score": 110
    },
    "away": {
     "id": "3218",
-    "name": "Northwest Indian"
+    "name": "Northwest Indian",
+    "score": 43
    }
   },
   {
    "id": "401929287",
-   "start": "2026-11-26T02:05Z",
+   "start": "2026-11-26T02:29Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "344",
-    "name": "Mississippi State"
+    "name": "Mississippi State",
+    "score": 71
    },
    "away": {
     "id": "154",
-    "name": "Wake Forest"
+    "name": "Wake Forest",
+    "score": 78
    },
    "note": "Battle 4 Atlantis - Championship Bracket"
-  },
-  {
-   "id": "401921671",
-   "start": "2026-11-26T02:30Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "38",
-    "name": "Colorado"
-   },
-   "away": {
-    "id": "2253",
-    "name": "Grand Canyon"
-   },
-   "note": "Acrisure Series - Championship Game"
   },
   {
    "id": "401921713",
    "start": "2026-11-26T03:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2670",
-    "name": "VCU"
+    "name": "VCU",
+    "score": 80
    },
    "away": {
     "id": "264",
-    "name": "Washington"
+    "name": "Washington",
+    "score": 78
    },
    "note": "Southwest Maui Invitational - Fifth Place Game"
   },
   {
-   "id": "401917544",
+   "id": "401921671",
    "start": "2026-11-26T03:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "38",
+    "name": "Colorado",
+    "score": 73
+   },
+   "away": {
+    "id": "2253",
+    "name": "Grand Canyon",
+    "score": 79
+   },
+   "note": "Acrisure Series - Championship Game"
+  },
+  {
+   "id": "401917544",
+   "start": "2026-11-26T03:55Z",
+   "time_valid": true,
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "55",
-    "name": "Jacksonville State"
+    "name": "Jacksonville State",
+    "score": 83
    },
    "away": {
     "id": "279",
-    "name": "Pacific"
+    "name": "Pacific",
+    "score": 76
    },
    "note": "Resorts World Classic"
-  },
-  {
-   "id": "401921672",
-   "start": "2026-11-26T04:59Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": true,
-   "home": {
-    "id": "139",
-    "name": "Saint Louis"
-   },
-   "away": {
-    "id": "24",
-    "name": "Stanford"
-   },
-   "note": "Acrisure Series - Third Place Game"
   },
   {
    "id": "401929005",
    "start": "2026-11-26T04:59Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "62",
-    "name": "Hawaii"
+    "name": "Hawaii",
+    "score": 83
    },
    "away": {
     "id": "2916",
-    "name": "Incarnate Word"
+    "name": "Incarnate Word",
+    "score": 81
    }
   },
   {
    "id": "401921714",
    "start": "2026-11-26T05:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "36",
-    "name": "Colorado State"
+    "name": "Colorado State",
+    "score": 77
    },
    "away": {
     "id": "228",
-    "name": "Clemson"
+    "name": "Clemson",
+    "score": 75
    },
    "note": "Southwest Maui Invitational - Seventh Place Game"
+  },
+  {
+   "id": "401921672",
+   "start": "2026-11-26T06:08Z",
+   "time_valid": true,
+   "status": "final",
+   "neutral": true,
+   "home": {
+    "id": "139",
+    "name": "Saint Louis",
+    "score": 66
+   },
+   "away": {
+    "id": "24",
+    "name": "Stanford",
+    "score": 64
+   },
+   "note": "Acrisure Series - Third Place Game"
   }
  ]
 }

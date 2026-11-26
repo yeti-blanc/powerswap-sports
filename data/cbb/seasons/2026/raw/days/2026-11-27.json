@@ -103,12 +103,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "235",
+    "name": "Memphis"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "154",
+    "name": "Wake Forest"
    },
    "note": "Battle 4 Atlantis - Championship Bracket"
   },
@@ -666,12 +666,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "344",
+    "name": "Mississippi State"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "213",
+    "name": "Penn State"
    },
    "note": "Battle 4 Atlantis - Championship Bracket"
   },

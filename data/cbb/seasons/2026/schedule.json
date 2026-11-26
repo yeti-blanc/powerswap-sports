@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generated_at": "2026-11-25T21:01:47-05:00",
- "today": "2026-11-25",
+ "generated_at": "2026-11-26T05:48:55-05:00",
+ "today": "2026-11-26",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -672,10 +672,12 @@
      "id": "401909568",
      "start": "2026-11-26T00:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Connecticut",
-     "opponent_id": "41"
+     "opponent_id": "41",
+     "score": 77,
+     "opponent_score": 63
     },
     {
      "id": "401906775",
@@ -1187,10 +1189,22 @@
      "id": "401917182",
      "start": "2026-11-26T00:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Penn State",
      "opponent_id": "213",
+     "score": 83,
+     "opponent_score": 70,
+     "note": "Battle 4 Atlantis - Championship Bracket"
+    },
+    {
+     "id": "401929288",
+     "start": "2026-11-27T18:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Wake Forest",
+     "opponent_id": "154",
      "note": "Battle 4 Atlantis - Championship Bracket"
     },
     {
@@ -3323,10 +3337,12 @@
      "id": "401909568",
      "start": "2026-11-26T00:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Duke",
-     "opponent_id": "150"
+     "opponent_id": "150",
+     "score": 63,
+     "opponent_score": 77
     },
     {
      "id": "401920687",
