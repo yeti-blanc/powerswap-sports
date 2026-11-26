@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-25T13:56:59-05:00",
+ "generated_at": "2026-11-25T21:01:47-05:00",
  "today": "2026-11-25",
  "current_week": "week4",
  "weeks": {
@@ -136,10 +136,12 @@
      "id": "401921715",
      "start": "2026-11-25T19:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Mississippi",
      "opponent_id": "145",
+     "score": 84,
+     "opponent_score": 73,
      "note": "Southwest Maui Invitational - Championship"
     },
     {
@@ -530,10 +532,12 @@
      "id": "401921715",
      "start": "2026-11-25T19:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Arizona",
      "opponent_id": "12",
+     "score": 73,
+     "opponent_score": 84,
      "note": "Southwest Maui Invitational - Championship"
     },
     {
@@ -668,7 +672,7 @@
      "id": "401909568",
      "start": "2026-11-26T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Connecticut",
      "opponent_id": "41"
@@ -1181,9 +1185,9 @@
     },
     {
      "id": "401917182",
-     "start": "2026-11-25T22:00Z",
+     "start": "2026-11-26T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Penn State",
      "opponent_id": "213",
@@ -2000,10 +2004,12 @@
      "id": "401921716",
      "start": "2026-11-25T22:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Providence",
      "opponent_id": "2507",
+     "score": 85,
+     "opponent_score": 82,
      "note": "Southwest Maui Invitational - Third Place Game"
     },
     {
@@ -2149,10 +2155,12 @@
      "id": "401920428",
      "start": "2026-11-25T17:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Marquette",
      "opponent_id": "269",
+     "score": 60,
+     "opponent_score": 54,
      "note": "Battle 4 Atlantis - Signature Series"
     },
     {
@@ -2916,12 +2924,14 @@
     },
     {
      "id": "401921670",
-     "start": "2026-11-25T21:30Z",
+     "start": "2026-11-25T22:17Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "South Carolina",
      "opponent_id": "2579",
+     "score": 71,
+     "opponent_score": 69,
      "note": "Acrisure Series"
     },
     {
@@ -3313,7 +3323,7 @@
      "id": "401909568",
      "start": "2026-11-26T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Duke",
      "opponent_id": "150"
@@ -4270,10 +4280,12 @@
      "id": "401921669",
      "start": "2026-11-25T19:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Arizona State",
      "opponent_id": "9",
+     "score": 94,
+     "opponent_score": 92,
      "note": "Acrisure Series"
     },
     {
