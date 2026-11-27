@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generated_at": "2026-11-26T21:35:38-05:00",
- "today": "2026-11-26",
+ "generated_at": "2026-11-27T06:25:20-05:00",
+ "today": "2026-11-27",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -41,7 +41,7 @@
   "2305",
   "238",
   "150",
-  "239",
+  "2250",
   "328",
   "41",
   "96",
@@ -413,6 +413,16 @@
      "score": 70,
      "opponent_score": 97,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920541",
+     "start": "2026-11-27T22:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Kansas State",
+     "opponent_id": "2306",
+     "note": "Players Era 16 - Seventh Place Game"
     },
     {
      "id": "401925734",
@@ -824,6 +834,16 @@
      "note": "Players Era 16"
     },
     {
+     "id": "401920544",
+     "start": "2026-11-28T04:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Gonzaga",
+     "opponent_id": "2250",
+     "note": "Players Era 16 - Bracket Final"
+    },
+    {
      "id": "401909496",
      "start": "2026-12-02T01:00Z",
      "time_valid": true,
@@ -1072,13 +1092,25 @@
     },
     {
      "id": "401920540",
-     "start": "2026-11-27T04:30Z",
+     "start": "2026-11-27T04:53Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Baylor",
      "opponent_id": "239",
+     "score": 72,
+     "opponent_score": 64,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920544",
+     "start": "2026-11-28T04:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Creighton",
+     "opponent_id": "156",
+     "note": "Players Era 16 - Bracket Final"
     },
     {
      "id": "401929187",
@@ -1616,13 +1648,25 @@
     },
     {
      "id": "401920540",
-     "start": "2026-11-27T04:30Z",
+     "start": "2026-11-27T04:53Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Gonzaga",
      "opponent_id": "2250",
+     "score": 64,
+     "opponent_score": 72,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920542",
+     "start": "2026-11-27T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "TCU",
+     "opponent_id": "2628",
+     "note": "Players Era 16 - Third Place Game"
     },
     {
      "id": "401909754",
@@ -1755,6 +1799,16 @@
      "score": 97,
      "opponent_score": 70,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920543",
+     "start": "2026-11-28T01:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Alabama",
+     "opponent_id": "333",
+     "note": "Players Era 16 - Fifth Place Game"
     },
     {
      "id": "401906763",
@@ -2456,11 +2510,23 @@
      "id": "401920530",
      "start": "2026-11-27T02:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Louisville",
      "opponent_id": "97",
+     "score": 90,
+     "opponent_score": 93,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920533",
+     "start": "2026-11-27T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Iowa State",
+     "opponent_id": "66",
+     "note": "Players Era 16 - Third Place Game"
     },
     {
      "id": "401920683",
@@ -2901,6 +2967,16 @@
      "note": "Players Era 16"
     },
     {
+     "id": "401920542",
+     "start": "2026-11-27T20:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Baylor",
+     "opponent_id": "239",
+     "note": "Players Era 16 - Third Place Game"
+    },
+    {
      "id": "401919051",
      "start": "2026-12-05T19:00Z",
      "time_valid": true,
@@ -3030,6 +3106,16 @@
      "note": "Players Era 16"
     },
     {
+     "id": "401920534",
+     "start": "2026-11-28T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Louisville",
+     "opponent_id": "97",
+     "note": "Players Era 16 - Bracket Final"
+    },
+    {
      "id": "401906854",
      "start": "2026-12-02T00:00Z",
      "time_valid": true,
@@ -3150,13 +3236,25 @@
     },
     {
      "id": "401920531",
-     "start": "2026-11-27T04:30Z",
+     "start": "2026-11-27T04:57Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Oregon",
      "opponent_id": "2483",
+     "score": 62,
+     "opponent_score": 59,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920535",
+     "start": "2026-11-28T04:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "San Diego State",
+     "opponent_id": "21",
+     "note": "Players Era 16 - Fifth Place Game"
     },
     {
      "id": "401921135",
@@ -3562,11 +3660,23 @@
      "id": "401920539",
      "start": "2026-11-27T02:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Kansas State",
      "opponent_id": "2306",
+     "score": 104,
+     "opponent_score": 91,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920543",
+     "start": "2026-11-28T01:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Miami",
+     "opponent_id": "2390",
+     "note": "Players Era 16 - Fifth Place Game"
     },
     {
      "id": "401906763",
@@ -4098,6 +4208,16 @@
      "score": 64,
      "opponent_score": 75,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920533",
+     "start": "2026-11-27T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "St. John's",
+     "opponent_id": "2599",
+     "note": "Players Era 16 - Third Place Game"
     },
     {
      "id": "401925689",
@@ -4645,11 +4765,23 @@
      "id": "401920530",
      "start": "2026-11-27T02:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "St. John's",
      "opponent_id": "2599",
+     "score": 93,
+     "opponent_score": 90,
      "note": "Players Era 16"
+    },
+    {
+     "id": "401920534",
+     "start": "2026-11-28T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Tennessee",
+     "opponent_id": "2633",
+     "note": "Players Era 16 - Bracket Final"
     },
     {
      "id": "401906870",
@@ -4785,10 +4917,12 @@
      "id": "401918972",
      "start": "2026-11-27T00:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "SMU",
      "opponent_id": "2567",
+     "score": 95,
+     "opponent_score": 86,
      "note": "Acrisure Series"
     },
     {

@@ -255,15 +255,17 @@
    "id": "401918972",
    "start": "2026-11-27T00:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2567",
-    "name": "SMU"
+    "name": "SMU",
+    "score": 86
    },
    "away": {
     "id": "99",
-    "name": "LSU"
+    "name": "LSU",
+    "score": 95
    },
    "note": "Acrisure Series"
   },
@@ -271,15 +273,17 @@
    "id": "401911523",
    "start": "2026-11-27T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "55",
-    "name": "Jacksonville State"
+    "name": "Jacksonville State",
+    "score": 63
    },
    "away": {
     "id": "302",
-    "name": "UC Davis"
+    "name": "UC Davis",
+    "score": 68
    },
    "note": "Resorts World Classic"
   },
@@ -287,15 +291,17 @@
    "id": "401920530",
    "start": "2026-11-27T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2599",
-    "name": "St. John's"
+    "name": "St. John's",
+    "score": 90
    },
    "away": {
     "id": "97",
-    "name": "Louisville"
+    "name": "Louisville",
+    "score": 93
    },
    "note": "Players Era 16"
   },
@@ -303,15 +309,17 @@
    "id": "401920539",
    "start": "2026-11-27T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2306",
-    "name": "Kansas State"
+    "name": "Kansas State",
+    "score": 91
    },
    "away": {
     "id": "333",
-    "name": "Alabama"
+    "name": "Alabama",
+    "score": 104
    },
    "note": "Players Era 16"
   },
@@ -319,47 +327,53 @@
    "id": "401917546",
    "start": "2026-11-27T03:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2437",
-    "name": "Omaha"
+    "name": "Omaha",
+    "score": 62
    },
    "away": {
     "id": "279",
-    "name": "Pacific"
+    "name": "Pacific",
+    "score": 71
    },
    "note": "Resorts World Classic"
   },
   {
-   "id": "401920531",
-   "start": "2026-11-27T04:30Z",
+   "id": "401920540",
+   "start": "2026-11-27T04:53Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2483",
-    "name": "Oregon"
+    "id": "2250",
+    "name": "Gonzaga",
+    "score": 72
    },
    "away": {
-    "id": "2641",
-    "name": "Texas Tech"
+    "id": "239",
+    "name": "Baylor",
+    "score": 64
    },
    "note": "Players Era 16"
   },
   {
-   "id": "401920540",
-   "start": "2026-11-27T04:30Z",
+   "id": "401920531",
+   "start": "2026-11-27T04:57Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2250",
-    "name": "Gonzaga"
+    "id": "2483",
+    "name": "Oregon",
+    "score": 59
    },
    "away": {
-    "id": "239",
-    "name": "Baylor"
+    "id": "2641",
+    "name": "Texas Tech",
+    "score": 62
    },
    "note": "Players Era 16"
   }

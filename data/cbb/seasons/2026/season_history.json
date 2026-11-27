@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-26T21:35:38-05:00",
+ "generated_at": "2026-11-27T06:25:20-05:00",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -1949,7 +1949,7 @@
     },
     {
      "rank": 20,
-     "team": "Baylor",
+     "team": "Gonzaga",
      "lineage": [
       {
        "team": "Alabama",
@@ -1960,11 +1960,17 @@
       {
        "team": "Baylor",
        "held_from": "week4",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "239"
+      },
+      {
+       "team": "Gonzaga",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "2250"
       }
      ],
-     "team_id": "239"
+     "team_id": "2250"
     },
     {
      "rank": 21,
@@ -2416,6 +2422,23 @@
    "winner_home_away": "neutral",
    "winner_id": "156",
    "loser_id": "2628"
+  },
+  {
+   "kind": "dethrone",
+   "week": "week4",
+   "winner": "Gonzaga",
+   "loser": "Baylor",
+   "winner_old_rank": null,
+   "loser_old_rank": 20,
+   "winner_new_rank": 20,
+   "loser_new_rank": null,
+   "at": "2026-11-27T04:53Z",
+   "game_id": "401920540",
+   "winner_score": 72,
+   "loser_score": 64,
+   "winner_home_away": "neutral",
+   "winner_id": "2250",
+   "loser_id": "239"
   }
  ],
  "team_histories": {
@@ -2529,6 +2552,23 @@
     "winner_home_away": "neutral",
     "winner_id": "239",
     "loser_id": "333"
+   },
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Gonzaga",
+    "loser": "Baylor",
+    "winner_old_rank": null,
+    "loser_old_rank": 20,
+    "winner_new_rank": 20,
+    "loser_new_rank": null,
+    "at": "2026-11-27T04:53Z",
+    "game_id": "401920540",
+    "winner_score": 72,
+    "loser_score": 64,
+    "winner_home_away": "neutral",
+    "winner_id": "2250",
+    "loser_id": "239"
    }
   ],
   "Connecticut": [
@@ -2641,6 +2681,23 @@
     "winner_home_away": "away",
     "winner_id": "99",
     "loser_id": "2250"
+   },
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Gonzaga",
+    "loser": "Baylor",
+    "winner_old_rank": null,
+    "loser_old_rank": 20,
+    "winner_new_rank": 20,
+    "loser_new_rank": null,
+    "at": "2026-11-27T04:53Z",
+    "game_id": "401920540",
+    "winner_score": 72,
+    "loser_score": 64,
+    "winner_home_away": "neutral",
+    "winner_id": "2250",
+    "loser_id": "239"
    }
   ],
   "Houston": [
