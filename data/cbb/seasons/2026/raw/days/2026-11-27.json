@@ -197,12 +197,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "26",
+    "name": "UCLA"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "46",
+    "name": "Georgetown"
    },
    "note": "Rady Children's Invitational - Consolation"
   },
@@ -290,8 +290,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "120",
+    "name": "Maryland"
    },
    "away": {
     "id": "cbbd-1543",
@@ -462,12 +462,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "2608",
+    "name": "Saint Mary's"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "251",
+    "name": "Texas"
    },
    "note": "Rady Children's Invitational - Championship"
   },
@@ -853,8 +853,8 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "21",
+    "name": "San Diego State"
    },
    "away": {
     "id": "cbbd-1543",

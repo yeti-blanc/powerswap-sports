@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-26T14:55:50-05:00",
+ "generated_at": "2026-11-26T21:35:38-05:00",
  "today": "2026-11-26",
  "current_week": "week4",
  "weeks": {
@@ -26,7 +26,7 @@
   "2633",
   "97",
   "12",
-  "26",
+  "2608",
   "356",
   "251",
   "127",
@@ -35,14 +35,14 @@
   "235",
   "84",
   "2599",
-  "2628",
+  "156",
   "99",
   "222",
   "2305",
   "238",
   "150",
   "239",
-  "30",
+  "328",
   "41",
   "96",
   "2641",
@@ -267,10 +267,12 @@
      "id": "401925757",
      "start": "2026-11-26T21:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Arkansas",
-     "opponent_id": "8"
+     "opponent_id": "8",
+     "score": 70,
+     "opponent_score": 67
     },
     {
      "id": "401921877",
@@ -404,10 +406,12 @@
      "id": "401920537",
      "start": "2026-11-26T20:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Miami",
      "opponent_id": "2390",
+     "score": 70,
+     "opponent_score": 97,
      "note": "Players Era 16"
     },
     {
@@ -734,6 +738,144 @@
      "home_away": "neutral",
      "opponent": "Texas Tech",
      "opponent_id": "2641"
+    }
+   ]
+  },
+  "156": {
+   "name": "Creighton",
+   "games": [
+    {
+     "id": "401909490",
+     "start": "2026-11-03T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Kansas City",
+     "opponent_id": "140",
+     "score": 76,
+     "opponent_score": 61
+    },
+    {
+     "id": "401909491",
+     "start": "2026-11-06T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Le Moyne",
+     "opponent_id": "2330",
+     "score": 83,
+     "opponent_score": 55
+    },
+    {
+     "id": "401909492",
+     "start": "2026-11-11T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "away",
+     "opponent": "Kansas State",
+     "opponent_id": "2306",
+     "score": 82,
+     "opponent_score": 89
+    },
+    {
+     "id": "401909493",
+     "start": "2026-11-15T20:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Iowa",
+     "opponent_id": "2294",
+     "score": 70,
+     "opponent_score": 69
+    },
+    {
+     "id": "401909494",
+     "start": "2026-11-19T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Bethune-Cookman",
+     "opponent_id": "2065",
+     "score": 88,
+     "opponent_score": 65
+    },
+    {
+     "id": "401909495",
+     "start": "2026-11-24T22:55Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Michigan",
+     "opponent_id": "130",
+     "score": 99,
+     "opponent_score": 73,
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401920538",
+     "start": "2026-11-26T23:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "TCU",
+     "opponent_id": "2628",
+     "score": 95,
+     "opponent_score": 87,
+     "note": "Players Era 16"
+    },
+    {
+     "id": "401909496",
+     "start": "2026-12-02T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Oral Roberts",
+     "opponent_id": "198"
+    },
+    {
+     "id": "401909497",
+     "start": "2026-12-05T18:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Nebraska",
+     "opponent_id": "158"
+    },
+    {
+     "id": "401909498",
+     "start": "2026-12-13T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Gonzaga",
+     "opponent_id": "2250"
+    },
+    {
+     "id": "401909499",
+     "start": "2026-12-16T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Mount St. Mary's",
+     "opponent_id": "116"
+    },
+    {
+     "id": "401920572",
+     "start": "2026-12-20T01:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Villanova",
+     "opponent_id": "222"
+    },
+    {
+     "id": "401920574",
+     "start": "2026-12-23T01:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Xavier",
+     "opponent_id": "2752"
     }
    ]
   },
@@ -1606,10 +1748,12 @@
      "id": "401920537",
      "start": "2026-11-26T20:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Michigan",
      "opponent_id": "130",
+     "score": 97,
+     "opponent_score": 70,
      "note": "Players Era 16"
     },
     {
@@ -1876,11 +2020,23 @@
      "id": "401906869",
      "start": "2026-11-26T19:30Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Georgetown",
      "opponent_id": "46",
+     "score": 92,
+     "opponent_score": 83,
      "note": "Rady Children's Invitational"
+    },
+    {
+     "id": "401921718",
+     "start": "2026-11-27T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Saint Mary's",
+     "opponent_id": "2608",
+     "note": "Rady Children's Invitational - Championship"
     },
     {
      "id": "401906870",
@@ -2300,7 +2456,7 @@
      "id": "401920530",
      "start": "2026-11-27T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Louisville",
      "opponent_id": "97",
@@ -2438,11 +2594,23 @@
      "id": "401917547",
      "start": "2026-11-26T22:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Saint Mary's",
      "opponent_id": "2608",
+     "score": 70,
+     "opponent_score": 85,
      "note": "Rady Children's Invitational"
+    },
+    {
+     "id": "401921717",
+     "start": "2026-11-27T19:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Georgetown",
+     "opponent_id": "46",
+     "note": "Rady Children's Invitational - Consolation"
     },
     {
      "id": "401921875",
@@ -2488,6 +2656,165 @@
      "home_away": "home",
      "opponent": "UC Riverside",
      "opponent_id": "27"
+    }
+   ]
+  },
+  "2608": {
+   "name": "Saint Mary's",
+   "games": [
+    {
+     "id": "401917507",
+     "start": "2026-11-03T03:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Illinois State",
+     "opponent_id": "2287",
+     "score": 90,
+     "opponent_score": 85
+    },
+    {
+     "id": "401917512",
+     "start": "2026-11-05T03:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "North Dakota State",
+     "opponent_id": "2449",
+     "score": 105,
+     "opponent_score": 64
+    },
+    {
+     "id": "401911453",
+     "start": "2026-11-08T21:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "Nevada",
+     "opponent_id": "2440",
+     "score": 95,
+     "opponent_score": 96,
+     "note": "Lake Tahoe Classic"
+    },
+    {
+     "id": "401917525",
+     "start": "2026-11-14T03:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "UIC",
+     "opponent_id": "82",
+     "score": 84,
+     "opponent_score": 61
+    },
+    {
+     "id": "401917532",
+     "start": "2026-11-17T03:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Portland State",
+     "opponent_id": "2502",
+     "score": 94,
+     "opponent_score": 78
+    },
+    {
+     "id": "401911252",
+     "start": "2026-11-21T04:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Saint Louis",
+     "opponent_id": "139",
+     "score": 95,
+     "opponent_score": 78
+    },
+    {
+     "id": "401929595",
+     "start": "2026-11-23T01:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Menlo",
+     "opponent_id": "2381",
+     "score": 94,
+     "opponent_score": 78
+    },
+    {
+     "id": "401917547",
+     "start": "2026-11-26T22:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "UCLA",
+     "opponent_id": "26",
+     "score": 85,
+     "opponent_score": 70,
+     "note": "Rady Children's Invitational"
+    },
+    {
+     "id": "401921718",
+     "start": "2026-11-27T22:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Texas",
+     "opponent_id": "251",
+     "note": "Rady Children's Invitational - Championship"
+    },
+    {
+     "id": "401917554",
+     "start": "2026-12-02T02:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Hofstra",
+     "opponent_id": "2275"
+    },
+    {
+     "id": "401917558",
+     "start": "2026-12-05T20:15Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "Oklahoma State",
+     "opponent_id": "197"
+    },
+    {
+     "id": "401917564",
+     "start": "2026-12-10T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "New Mexico State",
+     "opponent_id": "166"
+    },
+    {
+     "id": "401917568",
+     "start": "2026-12-12T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "New Mexico",
+     "opponent_id": "167"
+    },
+    {
+     "id": "401917577",
+     "start": "2026-12-19T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Iona",
+     "opponent_id": "314"
+    },
+    {
+     "id": "401917585",
+     "start": "2026-12-23T02:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Harvard",
+     "opponent_id": "108"
     }
    ]
   },
@@ -2565,10 +2892,12 @@
      "id": "401920538",
      "start": "2026-11-26T23:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Creighton",
      "opponent_id": "156",
+     "score": 87,
+     "opponent_score": 95,
      "note": "Players Era 16"
     },
     {
@@ -2692,10 +3021,12 @@
      "id": "401920529",
      "start": "2026-11-26T20:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Iowa State",
      "opponent_id": "66",
+     "score": 75,
+     "opponent_score": 64,
      "note": "Players Era 16"
     },
     {
@@ -2952,10 +3283,12 @@
      "id": "401921673",
      "start": "2026-11-26T21:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Utah State",
      "opponent_id": "328",
+     "score": 74,
+     "opponent_score": 78,
      "note": "Acrisure Series"
     },
     {
@@ -3012,6 +3345,146 @@
      "home_away": "home",
      "opponent": "Western Michigan",
      "opponent_id": "2711"
+    }
+   ]
+  },
+  "328": {
+   "name": "Utah State",
+   "games": [
+    {
+     "id": "401922020",
+     "start": "2026-11-03T02:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Idaho State",
+     "opponent_id": "304",
+     "score": 94,
+     "opponent_score": 58
+    },
+    {
+     "id": "401929293",
+     "start": "2026-11-07T21:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Omaha",
+     "opponent_id": "2437",
+     "score": 90,
+     "opponent_score": 56
+    },
+    {
+     "id": "401925940",
+     "start": "2026-11-11T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Utah Tech",
+     "opponent_id": "3101",
+     "score": 118,
+     "opponent_score": 86
+    },
+    {
+     "id": "401920372",
+     "start": "2026-11-14T03:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "UC San Diego",
+     "opponent_id": "28",
+     "score": 120,
+     "opponent_score": 82
+    },
+    {
+     "id": "401925949",
+     "start": "2026-11-19T02:00Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "home",
+     "opponent": "Weber State",
+     "opponent_id": "2692",
+     "score": 101,
+     "opponent_score": 71
+    },
+    {
+     "id": "401918971",
+     "start": "2026-11-26T00:50Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "SMU",
+     "opponent_id": "2567",
+     "score": 93,
+     "opponent_score": 59,
+     "note": "Acrisure Series"
+    },
+    {
+     "id": "401921673",
+     "start": "2026-11-26T21:30Z",
+     "time_valid": true,
+     "status": "final",
+     "home_away": "neutral",
+     "opponent": "USC",
+     "opponent_id": "30",
+     "score": 78,
+     "opponent_score": 74,
+     "note": "Acrisure Series"
+    },
+    {
+     "id": "401924898",
+     "start": "2026-11-29T19:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "New Mexico",
+     "opponent_id": "167"
+    },
+    {
+     "id": "401922033",
+     "start": "2026-12-05T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Montana",
+     "opponent_id": "149"
+    },
+    {
+     "id": "401921743",
+     "start": "2026-12-10T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "away",
+     "opponent": "BYU",
+     "opponent_id": "252"
+    },
+    {
+     "id": "401925714",
+     "start": "2026-12-13T03:00Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "home",
+     "opponent": "Winthrop",
+     "opponent_id": "2737"
+    },
+    {
+     "id": "401925870",
+     "start": "2026-12-20T01:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "Tulsa",
+     "opponent_id": "202",
+     "note": "Texas Legends Classic"
+    },
+    {
+     "id": "401911216",
+     "start": "2026-12-21T23:30Z",
+     "time_valid": true,
+     "status": "scheduled",
+     "home_away": "neutral",
+     "opponent": "George Washington",
+     "opponent_id": "45",
+     "note": "Texas Legends Classic"
     }
    ]
   },
@@ -3089,7 +3562,7 @@
      "id": "401920539",
      "start": "2026-11-27T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Kansas State",
      "opponent_id": "2306",
@@ -3618,10 +4091,12 @@
      "id": "401920529",
      "start": "2026-11-26T20:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Tennessee",
      "opponent_id": "2633",
+     "score": 64,
+     "opponent_score": 75,
      "note": "Players Era 16"
     },
     {
@@ -3756,10 +4231,12 @@
      "id": "401925757",
      "start": "2026-11-26T21:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Michigan State",
-     "opponent_id": "127"
+     "opponent_id": "127",
+     "score": 67,
+     "opponent_score": 70
     },
     {
      "id": "401912712",
@@ -4168,7 +4645,7 @@
      "id": "401920530",
      "start": "2026-11-27T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "St. John's",
      "opponent_id": "2599",
@@ -4308,7 +4785,7 @@
      "id": "401918972",
      "start": "2026-11-27T00:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "SMU",
      "opponent_id": "2567",

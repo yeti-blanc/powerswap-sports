@@ -58,15 +58,17 @@
    "id": "401920528",
    "start": "2026-11-26T18:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "21",
-    "name": "San Diego State"
+    "name": "San Diego State",
+    "score": 75
    },
    "away": {
     "id": "120",
-    "name": "Maryland"
+    "name": "Maryland",
+    "score": 71
    },
    "note": "Players Era 16"
   },
@@ -74,15 +76,17 @@
    "id": "401929282",
    "start": "2026-11-26T18:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2116",
-    "name": "Central Florida"
+    "name": "Central Florida",
+    "score": 73
    },
    "away": {
     "id": "103",
-    "name": "Boston College"
+    "name": "Boston College",
+    "score": 75
    },
    "note": "ESPN Events Invitational - Magic Bracket"
   },
@@ -90,15 +94,17 @@
    "id": "401921674",
    "start": "2026-11-26T19:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2579",
-    "name": "South Carolina"
+    "name": "South Carolina",
+    "score": 80
    },
    "away": {
     "id": "9",
-    "name": "Arizona State"
+    "name": "Arizona State",
+    "score": 73
    },
    "note": "Acrisure Series"
   },
@@ -106,15 +112,17 @@
    "id": "401906869",
    "start": "2026-11-26T19:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "251",
-    "name": "Texas"
+    "name": "Texas",
+    "score": 92
    },
    "away": {
     "id": "46",
-    "name": "Georgetown"
+    "name": "Georgetown",
+    "score": 83
    },
    "note": "Rady Children's Invitational"
   },
@@ -122,15 +130,17 @@
    "id": "401920529",
    "start": "2026-11-26T20:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "66",
-    "name": "Iowa State"
+    "name": "Iowa State",
+    "score": 64
    },
    "away": {
     "id": "2633",
-    "name": "Tennessee"
+    "name": "Tennessee",
+    "score": 75
    },
    "note": "Players Era 16"
   },
@@ -138,15 +148,17 @@
    "id": "401920537",
    "start": "2026-11-26T20:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "130",
-    "name": "Michigan"
+    "name": "Michigan",
+    "score": 70
    },
    "away": {
     "id": "2390",
-    "name": "Miami"
+    "name": "Miami",
+    "score": 97
    },
    "note": "Players Era 16"
   },
@@ -154,15 +166,17 @@
    "id": "401921673",
    "start": "2026-11-26T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "30",
-    "name": "USC"
+    "id": "328",
+    "name": "Utah State",
+    "score": 78
    },
    "away": {
-    "id": "328",
-    "name": "Utah State"
+    "id": "30",
+    "name": "USC",
+    "score": 74
    },
    "note": "Acrisure Series"
   },
@@ -170,30 +184,34 @@
    "id": "401925757",
    "start": "2026-11-26T21:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "127",
-    "name": "Michigan State"
+    "name": "Michigan State",
+    "score": 70
    },
    "away": {
     "id": "8",
-    "name": "Arkansas"
+    "name": "Arkansas",
+    "score": 67
    }
   },
   {
    "id": "401917547",
    "start": "2026-11-26T22:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "26",
-    "name": "UCLA"
+    "id": "2608",
+    "name": "Saint Mary's",
+    "score": 85
    },
    "away": {
-    "id": "2608",
-    "name": "Saint Mary's"
+    "id": "26",
+    "name": "UCLA",
+    "score": 70
    },
    "note": "Rady Children's Invitational"
   },
@@ -201,15 +219,17 @@
    "id": "401920538",
    "start": "2026-11-26T23:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "156",
-    "name": "Creighton"
+    "name": "Creighton",
+    "score": 95
    },
    "away": {
     "id": "2628",
-    "name": "TCU"
+    "name": "TCU",
+    "score": 87
    },
    "note": "Players Era 16"
   },
@@ -217,15 +237,17 @@
    "id": "401909506",
    "start": "2026-11-27T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "221",
-    "name": "Pittsburgh"
+    "name": "Pittsburgh",
+    "score": 71
    },
    "away": {
     "id": "305",
-    "name": "DePaul"
+    "name": "DePaul",
+    "score": 64
    },
    "note": "Fort Myers Tip-Off - Beach Division"
   },
@@ -233,15 +255,15 @@
    "id": "401918972",
    "start": "2026-11-27T00:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "99",
-    "name": "LSU"
-   },
-   "away": {
     "id": "2567",
     "name": "SMU"
+   },
+   "away": {
+    "id": "99",
+    "name": "LSU"
    },
    "note": "Acrisure Series"
   },
@@ -249,15 +271,15 @@
    "id": "401911523",
    "start": "2026-11-27T01:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "302",
-    "name": "UC Davis"
-   },
-   "away": {
     "id": "55",
     "name": "Jacksonville State"
+   },
+   "away": {
+    "id": "302",
+    "name": "UC Davis"
    },
    "note": "Resorts World Classic"
   },
@@ -265,7 +287,7 @@
    "id": "401920530",
    "start": "2026-11-27T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2599",
@@ -281,7 +303,7 @@
    "id": "401920539",
    "start": "2026-11-27T02:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2306",
