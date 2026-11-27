@@ -5,15 +5,17 @@
    "id": "401920429",
    "start": "2026-11-27T16:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2752",
-    "name": "Xavier"
+    "name": "Xavier",
+    "score": 71
    },
    "away": {
     "id": "258",
-    "name": "Virginia"
+    "name": "Virginia",
+    "score": 83
    },
    "note": "Battle 4 Atlantis - Signature Series"
   },
@@ -21,15 +23,17 @@
    "id": "401920848",
    "start": "2026-11-27T17:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2900",
-    "name": "St. Thomas"
+    "id": "2335",
+    "name": "Liberty",
+    "score": 76
    },
    "away": {
-    "id": "2335",
-    "name": "Liberty"
+    "id": "2900",
+    "name": "St. Thomas",
+    "score": 67
    },
    "note": "Live Oak Bank Holiday Classic"
   },
@@ -37,15 +41,15 @@
    "id": "401920533",
    "start": "2026-11-27T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "66",
-    "name": "Iowa State"
-   },
-   "away": {
     "id": "2599",
     "name": "St. John's"
+   },
+   "away": {
+    "id": "66",
+    "name": "Iowa State"
    },
    "note": "Players Era 16 - Third Place Game"
   },
@@ -53,30 +57,34 @@
    "id": "401920753",
    "start": "2026-11-27T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2754",
-    "name": "Youngstown State"
+    "name": "Youngstown State",
+    "score": 96
    },
    "away": {
     "id": null,
-    "name": "Bryant & Stratton (OH)"
+    "name": "Bryant & Stratton (OH)",
+    "score": 66
    }
   },
   {
    "id": "401921416",
    "start": "2026-11-27T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2349",
-    "name": "UMass Lowell"
+    "id": "2261",
+    "name": "Hampton",
+    "score": 55
    },
    "away": {
-    "id": "2261",
-    "name": "Hampton"
+    "id": "2349",
+    "name": "UMass Lowell",
+    "score": 72
    },
    "note": "Capital Thanksgiving Classic"
   },
@@ -84,15 +92,17 @@
    "id": "401924810",
    "start": "2026-11-27T18:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2771",
-    "name": "Merrimack"
+    "id": "261",
+    "name": "Vermont",
+    "score": 57
    },
    "away": {
-    "id": "261",
-    "name": "Vermont"
+    "id": "2771",
+    "name": "Merrimack",
+    "score": 75
    },
    "note": "The Island Invitational"
   },
@@ -100,15 +110,15 @@
    "id": "401929288",
    "start": "2026-11-27T18:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "235",
-    "name": "Memphis"
-   },
-   "away": {
     "id": "154",
     "name": "Wake Forest"
+   },
+   "away": {
+    "id": "235",
+    "name": "Memphis"
    },
    "note": "Battle 4 Atlantis - Championship Bracket"
   },
@@ -116,7 +126,7 @@
    "id": "401919786",
    "start": "2026-11-27T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "2330",
@@ -132,7 +142,7 @@
    "id": "401921224",
    "start": "2026-11-27T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2217",
@@ -148,7 +158,7 @@
    "id": "401921827",
    "start": "2026-11-27T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "238",
@@ -163,15 +173,15 @@
    "id": "401929181",
    "start": "2026-11-27T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
-    "id": "278",
-    "name": "Fresno State"
-   },
-   "away": {
     "id": "6",
     "name": "South Alabama"
+   },
+   "away": {
+    "id": "278",
+    "name": "Fresno State"
    },
    "note": "Second Line Showcase"
   },
@@ -179,7 +189,7 @@
    "id": "401929407",
    "start": "2026-11-27T19:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "233",
@@ -194,7 +204,7 @@
    "id": "401921717",
    "start": "2026-11-27T19:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "26",
@@ -210,7 +220,7 @@
    "id": "401902282",
    "start": "2026-11-27T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2086",
@@ -225,7 +235,7 @@
    "id": "401919021",
    "start": "2026-11-27T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "5",
@@ -240,7 +250,7 @@
    "id": "401920542",
    "start": "2026-11-27T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": true,
    "home": {
     "id": "239",
@@ -256,7 +266,7 @@
    "id": "401924738",
    "start": "2026-11-27T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "350",
@@ -272,7 +282,7 @@
    "id": "401928468",
    "start": "2026-11-27T20:00Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "in_progress",
    "neutral": false,
    "home": {
     "id": "2348",
@@ -290,12 +300,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "120",
-    "name": "Maryland"
-   },
-   "away": {
     "id": "2483",
     "name": "Oregon"
+   },
+   "away": {
+    "id": "120",
+    "name": "Maryland"
    },
    "note": "Players Era 16 - Seventh Place Game"
   },
@@ -853,12 +863,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "21",
-    "name": "San Diego State"
-   },
-   "away": {
     "id": "2641",
     "name": "Texas Tech"
+   },
+   "away": {
+    "id": "21",
+    "name": "San Diego State"
    },
    "note": "Players Era 16 - Fifth Place Game"
   }

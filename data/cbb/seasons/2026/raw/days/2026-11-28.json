@@ -307,6 +307,21 @@
    }
   },
   {
+   "id": "401920859",
+   "start": "2026-11-28T19:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "276",
+    "name": "Marshall"
+   },
+   "away": {
+    "id": "2837",
+    "name": "East Texas A&M"
+   }
+  },
+  {
    "id": "401920977",
    "start": "2026-11-28T19:00Z",
    "time_valid": true,
@@ -685,21 +700,6 @@
    "away": {
     "id": "23",
     "name": "San José State"
-   }
-  },
-  {
-   "id": "401920859",
-   "start": "2026-11-28T21:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "276",
-    "name": "Marshall"
-   },
-   "away": {
-    "id": "2837",
-    "name": "East Texas A&M"
    }
   },
   {
