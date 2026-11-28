@@ -2,21 +2,6 @@
  "date": "2026-12-01",
  "games": [
   {
-   "id": "401925081",
-   "start": "2026-12-01T05:00Z",
-   "time_valid": false,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "2466",
-    "name": "Northwestern State"
-   },
-   "away": {
-    "id": "3120",
-    "name": "Ecclesia"
-   }
-  },
-  {
    "id": "401917906",
    "start": "2026-12-01T16:00Z",
    "time_valid": true,
@@ -75,7 +60,7 @@
     "id": "103",
     "name": "Boston College"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401911819",
@@ -154,6 +139,21 @@
    "note": "Big 5 Classic - Campus Game"
   },
   {
+   "id": "401925081",
+   "start": "2026-12-01T23:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "2466",
+    "name": "Northwestern State"
+   },
+   "away": {
+    "id": "3120",
+    "name": "Ecclesia"
+   }
+  },
+  {
    "id": "401929440",
    "start": "2026-12-01T23:30Z",
    "time_valid": true,
@@ -182,7 +182,7 @@
     "id": "52",
     "name": "Florida State"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401909537",
@@ -213,7 +213,7 @@
     "id": "221",
     "name": "Pittsburgh"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401911203",
@@ -319,7 +319,7 @@
     "id": "2",
     "name": "Auburn"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401918457",
@@ -350,7 +350,7 @@
     "id": "2579",
     "name": "South Carolina"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401919830",
@@ -425,21 +425,6 @@
    "away": {
     "id": "2294",
     "name": "Iowa"
-   }
-  },
-  {
-   "id": "401925734",
-   "start": "2026-12-02T00:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "130",
-    "name": "Michigan"
-   },
-   "away": {
-    "id": "2400",
-    "name": "Mississippi Valley State"
    }
   },
   {
@@ -561,7 +546,7 @@
     "id": "8",
     "name": "Arkansas"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401920762",
@@ -729,6 +714,21 @@
    }
   },
   {
+   "id": "401925734",
+   "start": "2026-12-02T01:00Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "130",
+    "name": "Michigan"
+   },
+   "away": {
+    "id": "2400",
+    "name": "Mississippi Valley State"
+   }
+  },
+  {
    "id": "401927358",
    "start": "2026-12-02T01:00Z",
    "time_valid": true,
@@ -787,7 +787,7 @@
     "id": "183",
     "name": "Syracuse"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401906870",
@@ -803,7 +803,7 @@
     "id": "251",
     "name": "Texas"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401909731",
@@ -819,7 +819,7 @@
     "id": "154",
     "name": "Wake Forest"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401909744",
@@ -895,7 +895,7 @@
     "id": "145",
     "name": "Mississippi"
    },
-   "note": "ACC/SEC Men's Challenge"
+   "note": "SEC/ACC Men's Challenge"
   },
   {
    "id": "401921876",

@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-27T21:39:28-05:00",
+ "generated_at": "2026-11-28T05:53:24-05:00",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -1589,7 +1589,7 @@
     },
     {
      "rank": 2,
-     "team": "Tennessee",
+     "team": "Louisville",
      "lineage": [
       {
        "team": "Duke",
@@ -1606,15 +1606,21 @@
       {
        "team": "Tennessee",
        "held_from": "week3",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "2633"
+      },
+      {
+       "team": "Louisville",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "97"
       }
      ],
-     "team_id": "2633"
+     "team_id": "97"
     },
     {
      "rank": 3,
-     "team": "Louisville",
+     "team": "Tennessee",
      "lineage": [
       {
        "team": "Illinois",
@@ -1631,11 +1637,17 @@
       {
        "team": "Louisville",
        "held_from": "week4",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "97"
+      },
+      {
+       "team": "Tennessee",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "2633"
       }
      ],
-     "team_id": "97"
+     "team_id": "2633"
     },
     {
      "rank": 4,
@@ -2042,16 +2054,22 @@
     },
     {
      "rank": 23,
-     "team": "Kentucky",
+     "team": "Wichita State",
      "lineage": [
       {
        "team": "Kentucky",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "96"
+      },
+      {
+       "team": "Wichita State",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "2724"
       }
      ],
-     "team_id": "96"
+     "team_id": "2724"
     },
     {
      "rank": 24,
@@ -2497,6 +2515,40 @@
    "winner_home_away": "neutral",
    "winner_id": "251",
    "loser_id": "2608"
+  },
+  {
+   "kind": "dethrone",
+   "week": "week4",
+   "winner": "Wichita State",
+   "loser": "Kentucky",
+   "winner_old_rank": null,
+   "loser_old_rank": 23,
+   "winner_new_rank": 23,
+   "loser_new_rank": null,
+   "at": "2026-11-28T02:00Z",
+   "game_id": "401919033",
+   "winner_score": 73,
+   "loser_score": 71,
+   "winner_home_away": "away",
+   "winner_id": "2724",
+   "loser_id": "96"
+  },
+  {
+   "kind": "swap",
+   "week": "week4",
+   "winner": "Louisville",
+   "loser": "Tennessee",
+   "winner_old_rank": 3,
+   "loser_old_rank": 2,
+   "winner_new_rank": 2,
+   "loser_new_rank": 3,
+   "at": "2026-11-28T02:00Z",
+   "game_id": "401920534",
+   "winner_score": 84,
+   "loser_score": 64,
+   "winner_home_away": "neutral",
+   "winner_id": "97",
+   "loser_id": "2633"
   }
  ],
  "team_histories": {
@@ -2870,6 +2922,25 @@
     "loser_id": "222"
    }
   ],
+  "Kentucky": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Wichita State",
+    "loser": "Kentucky",
+    "winner_old_rank": null,
+    "loser_old_rank": 23,
+    "winner_new_rank": 23,
+    "loser_new_rank": null,
+    "at": "2026-11-28T02:00Z",
+    "game_id": "401919033",
+    "winner_score": 73,
+    "loser_score": 71,
+    "winner_home_away": "away",
+    "winner_id": "2724",
+    "loser_id": "96"
+   }
+  ],
   "LSU": [
    {
     "kind": "dethrone",
@@ -2923,6 +2994,23 @@
     "winner_home_away": "neutral",
     "winner_id": "97",
     "loser_id": "2641"
+   },
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Louisville",
+    "loser": "Tennessee",
+    "winner_old_rank": 3,
+    "loser_old_rank": 2,
+    "winner_new_rank": 2,
+    "loser_new_rank": 3,
+    "at": "2026-11-28T02:00Z",
+    "game_id": "401920534",
+    "winner_score": 84,
+    "loser_score": 64,
+    "winner_home_away": "neutral",
+    "winner_id": "97",
+    "loser_id": "2633"
    }
   ],
   "Memphis": [
@@ -3160,6 +3248,23 @@
     "winner_home_away": "home",
     "winner_id": "2633",
     "loser_id": "127"
+   },
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Louisville",
+    "loser": "Tennessee",
+    "winner_old_rank": 3,
+    "loser_old_rank": 2,
+    "winner_new_rank": 2,
+    "loser_new_rank": 3,
+    "at": "2026-11-28T02:00Z",
+    "game_id": "401920534",
+    "winner_score": 84,
+    "loser_score": 64,
+    "winner_home_away": "neutral",
+    "winner_id": "97",
+    "loser_id": "2633"
    }
   ],
   "Texas": [
@@ -3345,6 +3450,25 @@
     "winner_id": "2305",
     "loser_id": "222"
    }
+  ],
+  "Wichita State": [
+   {
+    "kind": "dethrone",
+    "week": "week4",
+    "winner": "Wichita State",
+    "loser": "Kentucky",
+    "winner_old_rank": null,
+    "loser_old_rank": 23,
+    "winner_new_rank": 23,
+    "loser_new_rank": null,
+    "at": "2026-11-28T02:00Z",
+    "game_id": "401919033",
+    "winner_score": 73,
+    "loser_score": 71,
+    "winner_home_away": "away",
+    "winner_id": "2724",
+    "loser_id": "96"
+   }
   ]
  },
  "team_ids": {
@@ -3382,6 +3506,7 @@
   "Utah State": "328",
   "Vanderbilt": "238",
   "Villanova": "222",
-  "Virginia": "258"
+  "Virginia": "258",
+  "Wichita State": "2724"
  }
 }

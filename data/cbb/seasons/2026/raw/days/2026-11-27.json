@@ -746,15 +746,17 @@
    "id": "401929289",
    "start": "2026-11-28T00:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "344",
-    "name": "Mississippi State"
+    "name": "Mississippi State",
+    "score": 63
    },
    "away": {
     "id": "213",
-    "name": "Penn State"
+    "name": "Penn State",
+    "score": 68
    },
    "note": "Battle 4 Atlantis - Championship Bracket"
   },
@@ -762,15 +764,17 @@
    "id": "401911524",
    "start": "2026-11-28T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "302",
-    "name": "UC Davis"
+    "name": "UC Davis",
+    "score": 61
    },
    "away": {
     "id": "279",
-    "name": "Pacific"
+    "name": "Pacific",
+    "score": 78
    },
    "note": "Resorts World Classic"
   },
@@ -778,45 +782,51 @@
    "id": "401920737",
    "start": "2026-11-28T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "77",
-    "name": "Northwestern"
+    "name": "Northwestern",
+    "score": 65
    },
    "away": {
     "id": "111",
-    "name": "Northeastern"
+    "name": "Northeastern",
+    "score": 61
    }
   },
   {
    "id": "401922264",
    "start": "2026-11-28T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "265",
-    "name": "Washington State"
+    "name": "Washington State",
+    "score": 69
    },
    "away": {
     "id": "70",
-    "name": "Idaho"
+    "name": "Idaho",
+    "score": 61
    }
   },
   {
    "id": "401925829",
    "start": "2026-11-28T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "249",
-    "name": "North Texas"
+    "name": "North Texas",
+    "score": 75
    },
    "away": {
     "id": "2449",
-    "name": "North Dakota State"
+    "name": "North Dakota State",
+    "score": 73
    },
    "note": "Snake River Invitational"
   },
@@ -824,45 +834,51 @@
    "id": "401928624",
    "start": "2026-11-28T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "198",
-    "name": "Oral Roberts"
+    "name": "Oral Roberts",
+    "score": 72
    },
    "away": {
     "id": "2623",
-    "name": "Missouri State"
+    "name": "Missouri State",
+    "score": 66
    }
   },
   {
    "id": "401929381",
    "start": "2026-11-28T01:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "2031",
-    "name": "Little Rock"
+    "name": "Little Rock",
+    "score": 88
    },
    "away": {
     "id": "6371",
-    "name": "Lane College"
+    "name": "Lane College",
+    "score": 58
    }
   },
   {
    "id": "401920543",
    "start": "2026-11-28T01:30Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "333",
-    "name": "Alabama"
+    "name": "Alabama",
+    "score": 81
    },
    "away": {
     "id": "2390",
-    "name": "Miami"
+    "name": "Miami",
+    "score": 87
    },
    "note": "Players Era 16 - Fifth Place Game"
   },
@@ -870,30 +886,34 @@
    "id": "401919033",
    "start": "2026-11-28T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": false,
    "home": {
     "id": "96",
-    "name": "Kentucky"
+    "name": "Kentucky",
+    "score": 71
    },
    "away": {
     "id": "2724",
-    "name": "Wichita State"
+    "name": "Wichita State",
+    "score": 73
    }
   },
   {
    "id": "401920534",
    "start": "2026-11-28T02:00Z",
    "time_valid": true,
-   "status": "in_progress",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "97",
-    "name": "Louisville"
+    "name": "Louisville",
+    "score": 84
    },
    "away": {
     "id": "2633",
-    "name": "Tennessee"
+    "name": "Tennessee",
+    "score": 64
    },
    "note": "Players Era 16 - Bracket Final"
   },
@@ -901,31 +921,35 @@
    "id": "401926783",
    "start": "2026-11-28T03:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
-    "id": "2437",
-    "name": "Omaha"
+    "id": "55",
+    "name": "Jacksonville State",
+    "score": 69
    },
    "away": {
-    "id": "55",
-    "name": "Jacksonville State"
+    "id": "2437",
+    "name": "Omaha",
+    "score": 78
    },
    "note": "Resorts World Classic"
   },
   {
    "id": "401920544",
-   "start": "2026-11-28T04:00Z",
+   "start": "2026-11-28T04:15Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2250",
-    "name": "Gonzaga"
+    "name": "Gonzaga",
+    "score": 89
    },
    "away": {
     "id": "156",
-    "name": "Creighton"
+    "name": "Creighton",
+    "score": 97
    },
    "note": "Players Era 16 - Bracket Final"
   },
@@ -933,15 +957,17 @@
    "id": "401920535",
    "start": "2026-11-28T04:30Z",
    "time_valid": true,
-   "status": "scheduled",
+   "status": "final",
    "neutral": true,
    "home": {
     "id": "2641",
-    "name": "Texas Tech"
+    "name": "Texas Tech",
+    "score": 78
    },
    "away": {
     "id": "21",
-    "name": "San Diego State"
+    "name": "San Diego State",
+    "score": 75
    },
    "note": "Players Era 16 - Fifth Place Game"
   }

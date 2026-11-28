@@ -1149,12 +1149,12 @@
    "status": "scheduled",
    "neutral": true,
    "home": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "97",
+    "name": "Louisville"
    },
    "away": {
-    "id": "cbbd-1543",
-    "name": "TBD"
+    "id": "156",
+    "name": "Creighton"
    },
    "note": "Players Era 16 - Championship"
   }
