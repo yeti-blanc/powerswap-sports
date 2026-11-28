@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generated_at": "2026-11-27T15:07:24-05:00",
+ "generated_at": "2026-11-27T21:39:28-05:00",
  "today": "2026-11-27",
  "current_week": "week4",
  "weeks": {
@@ -26,9 +26,9 @@
   "2633",
   "97",
   "12",
-  "2608",
-  "356",
   "251",
+  "356",
+  "2608",
   "127",
   "258",
   "57",
@@ -37,8 +37,8 @@
   "2599",
   "156",
   "99",
-  "222",
   "2305",
+  "222",
   "238",
   "150",
   "2250",
@@ -416,12 +416,14 @@
     },
     {
      "id": "401920541",
-     "start": "2026-11-27T22:30Z",
+     "start": "2026-11-27T22:41Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Kansas State",
      "opponent_id": "2306",
+     "score": 98,
+     "opponent_score": 69,
      "note": "Players Era 16 - Seventh Place Game"
     },
     {
@@ -985,10 +987,12 @@
      "id": "401909789",
      "start": "2026-11-27T22:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "away",
      "opponent": "Kansas",
-     "opponent_id": "2305"
+     "opponent_id": "2305",
+     "score": 50,
+     "opponent_score": 65
     },
     {
      "id": "401921778",
@@ -1248,10 +1252,12 @@
      "id": "401909789",
      "start": "2026-11-27T22:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Villanova",
-     "opponent_id": "222"
+     "opponent_id": "222",
+     "score": 65,
+     "opponent_score": 50
     },
     {
      "id": "401909790",
@@ -1375,10 +1381,12 @@
      "id": "401929288",
      "start": "2026-11-27T18:30Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Wake Forest",
      "opponent_id": "154",
+     "score": 88,
+     "opponent_score": 85,
      "note": "Battle 4 Atlantis - Championship Bracket"
     },
     {
@@ -1522,10 +1530,12 @@
      "id": "401921827",
      "start": "2026-11-27T19:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "home",
      "opponent": "Southern",
-     "opponent_id": "2582"
+     "opponent_id": "2582",
+     "score": 111,
+     "opponent_score": 56
     },
     {
      "id": "401921647",
@@ -1662,10 +1672,12 @@
      "id": "401920542",
      "start": "2026-11-27T20:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "TCU",
      "opponent_id": "2628",
+     "score": 69,
+     "opponent_score": 88,
      "note": "Players Era 16 - Third Place Game"
     },
     {
@@ -1804,7 +1816,7 @@
      "id": "401920543",
      "start": "2026-11-28T01:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Alabama",
      "opponent_id": "333",
@@ -1936,10 +1948,12 @@
      "id": "401925703",
      "start": "2026-11-28T00:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Oakland",
-     "opponent_id": "2473"
+     "opponent_id": "2473",
+     "score": 77,
+     "opponent_score": 46
     },
     {
      "id": "401922232",
@@ -2086,10 +2100,12 @@
      "id": "401921718",
      "start": "2026-11-27T22:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Saint Mary's",
      "opponent_id": "2608",
+     "score": 76,
+     "opponent_score": 73,
      "note": "Rady Children's Invitational - Championship"
     },
     {
@@ -2524,10 +2540,12 @@
      "id": "401920533",
      "start": "2026-11-27T18:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Iowa State",
      "opponent_id": "66",
+     "score": 80,
+     "opponent_score": 75,
      "note": "Players Era 16 - Third Place Game"
     },
     {
@@ -2674,10 +2692,12 @@
      "id": "401921717",
      "start": "2026-11-27T19:30Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Georgetown",
      "opponent_id": "46",
+     "score": 75,
+     "opponent_score": 63,
      "note": "Rady Children's Invitational - Consolation"
     },
     {
@@ -2824,10 +2844,12 @@
      "id": "401921718",
      "start": "2026-11-27T22:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Texas",
      "opponent_id": "251",
+     "score": 73,
+     "opponent_score": 76,
      "note": "Rady Children's Invitational - Championship"
     },
     {
@@ -2972,10 +2994,12 @@
      "id": "401920542",
      "start": "2026-11-27T20:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "Baylor",
      "opponent_id": "239",
+     "score": 88,
+     "opponent_score": 69,
      "note": "Players Era 16 - Third Place Game"
     },
     {
@@ -3111,7 +3135,7 @@
      "id": "401920534",
      "start": "2026-11-28T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Louisville",
      "opponent_id": "97",
@@ -3674,7 +3698,7 @@
      "id": "401920543",
      "start": "2026-11-28T01:30Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Miami",
      "opponent_id": "2390",
@@ -3815,10 +3839,12 @@
      "id": "401913531",
      "start": "2026-11-27T23:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Western Kentucky",
-     "opponent_id": "98"
+     "opponent_id": "98",
+     "score": 116,
+     "opponent_score": 76
     },
     {
      "id": "401913532",
@@ -4215,10 +4241,12 @@
      "id": "401920533",
      "start": "2026-11-27T18:00Z",
      "time_valid": true,
-     "status": "in_progress",
+     "status": "final",
      "home_away": "neutral",
      "opponent": "St. John's",
      "opponent_id": "2599",
+     "score": 75,
+     "opponent_score": 80,
      "note": "Players Era 16 - Third Place Game"
     },
     {
@@ -4504,10 +4532,12 @@
      "id": "401911030",
      "start": "2026-11-27T23:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "final",
      "home_away": "home",
      "opponent": "Bowling Green",
-     "opponent_id": "189"
+     "opponent_id": "189",
+     "score": 93,
+     "opponent_score": 57
     },
     {
      "id": "401921873",
@@ -4641,7 +4671,7 @@
      "id": "401919033",
      "start": "2026-11-28T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "home",
      "opponent": "Wichita State",
      "opponent_id": "2724"
@@ -4779,7 +4809,7 @@
      "id": "401920534",
      "start": "2026-11-28T02:00Z",
      "time_valid": true,
-     "status": "scheduled",
+     "status": "in_progress",
      "home_away": "neutral",
      "opponent": "Tennessee",
      "opponent_id": "2633",

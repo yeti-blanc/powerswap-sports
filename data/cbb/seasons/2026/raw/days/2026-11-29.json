@@ -292,21 +292,6 @@
    }
   },
   {
-   "id": "401926869",
-   "start": "2026-11-29T19:00Z",
-   "time_valid": true,
-   "status": "scheduled",
-   "neutral": false,
-   "home": {
-    "id": "204",
-    "name": "Oregon State"
-   },
-   "away": {
-    "id": "270",
-    "name": "Milwaukee"
-   }
-  },
-  {
    "id": "401928808",
    "start": "2026-11-29T19:00Z",
    "time_valid": true,
@@ -367,6 +352,21 @@
     "name": "Vermont"
    },
    "note": "The Island Invitational"
+  },
+  {
+   "id": "401926869",
+   "start": "2026-11-29T19:30Z",
+   "time_valid": true,
+   "status": "scheduled",
+   "neutral": false,
+   "home": {
+    "id": "204",
+    "name": "Oregon State"
+   },
+   "away": {
+    "id": "270",
+    "name": "Milwaukee"
+   }
   },
   {
    "id": "401919043",

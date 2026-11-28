@@ -2,7 +2,7 @@
  "sport": "cbb",
  "season": 2026,
  "standings_model": "per_game",
- "generated_at": "2026-11-27T06:25:20-05:00",
+ "generated_at": "2026-11-27T21:39:28-05:00",
  "current_week": "week4",
  "weeks": {
   "week1": {
@@ -1658,7 +1658,7 @@
     },
     {
      "rank": 5,
-     "team": "Saint Mary's",
+     "team": "Texas",
      "lineage": [
       {
        "team": "Arizona",
@@ -1675,11 +1675,17 @@
       {
        "team": "Saint Mary's",
        "held_from": "week4",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "2608"
+      },
+      {
+       "team": "Texas",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "251"
       }
      ],
-     "team_id": "2608"
+     "team_id": "251"
     },
     {
      "rank": 6,
@@ -1708,16 +1714,22 @@
     },
     {
      "rank": 7,
-     "team": "Texas",
+     "team": "Saint Mary's",
      "lineage": [
       {
        "team": "Texas",
        "held_from": "preseason",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "251"
+      },
+      {
+       "team": "Saint Mary's",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "2608"
       }
      ],
-     "team_id": "251"
+     "team_id": "2608"
     },
     {
      "rank": 8,
@@ -1867,7 +1879,7 @@
     },
     {
      "rank": 16,
-     "team": "Villanova",
+     "team": "Kansas",
      "lineage": [
       {
        "team": "Michigan",
@@ -1878,24 +1890,36 @@
       {
        "team": "Villanova",
        "held_from": "week3",
-       "held_until": null,
+       "held_until": "week4",
        "team_id": "222"
-      }
-     ],
-     "team_id": "222"
-    },
-    {
-     "rank": 17,
-     "team": "Kansas",
-     "lineage": [
+      },
       {
        "team": "Kansas",
-       "held_from": "preseason",
+       "held_from": "week4",
        "held_until": null,
        "team_id": "2305"
       }
      ],
      "team_id": "2305"
+    },
+    {
+     "rank": 17,
+     "team": "Villanova",
+     "lineage": [
+      {
+       "team": "Kansas",
+       "held_from": "preseason",
+       "held_until": "week4",
+       "team_id": "2305"
+      },
+      {
+       "team": "Villanova",
+       "held_from": "week4",
+       "held_until": null,
+       "team_id": "222"
+      }
+     ],
+     "team_id": "222"
     },
     {
      "rank": 18,
@@ -2439,6 +2463,40 @@
    "winner_home_away": "neutral",
    "winner_id": "2250",
    "loser_id": "239"
+  },
+  {
+   "kind": "swap",
+   "week": "week4",
+   "winner": "Kansas",
+   "loser": "Villanova",
+   "winner_old_rank": 17,
+   "loser_old_rank": 16,
+   "winner_new_rank": 16,
+   "loser_new_rank": 17,
+   "at": "2026-11-27T22:00Z",
+   "game_id": "401909789",
+   "winner_score": 65,
+   "loser_score": 50,
+   "winner_home_away": "home",
+   "winner_id": "2305",
+   "loser_id": "222"
+  },
+  {
+   "kind": "swap",
+   "week": "week4",
+   "winner": "Texas",
+   "loser": "Saint Mary's",
+   "winner_old_rank": 7,
+   "loser_old_rank": 5,
+   "winner_new_rank": 5,
+   "loser_new_rank": 7,
+   "at": "2026-11-27T22:00Z",
+   "game_id": "401921718",
+   "winner_score": 76,
+   "loser_score": 73,
+   "winner_home_away": "neutral",
+   "winner_id": "251",
+   "loser_id": "2608"
   }
  ],
  "team_histories": {
@@ -2793,6 +2851,25 @@
     "loser_id": "66"
    }
   ],
+  "Kansas": [
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Kansas",
+    "loser": "Villanova",
+    "winner_old_rank": 17,
+    "loser_old_rank": 16,
+    "winner_new_rank": 16,
+    "loser_new_rank": 17,
+    "at": "2026-11-27T22:00Z",
+    "game_id": "401909789",
+    "winner_score": 65,
+    "loser_score": 50,
+    "winner_home_away": "home",
+    "winner_id": "2305",
+    "loser_id": "222"
+   }
+  ],
   "LSU": [
    {
     "kind": "dethrone",
@@ -3011,6 +3088,23 @@
     "winner_home_away": "neutral",
     "winner_id": "2608",
     "loser_id": "26"
+   },
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Texas",
+    "loser": "Saint Mary's",
+    "winner_old_rank": 7,
+    "loser_old_rank": 5,
+    "winner_new_rank": 5,
+    "loser_new_rank": 7,
+    "at": "2026-11-27T22:00Z",
+    "game_id": "401921718",
+    "winner_score": 76,
+    "loser_score": 73,
+    "winner_home_away": "neutral",
+    "winner_id": "251",
+    "loser_id": "2608"
    }
   ],
   "TCU": [
@@ -3066,6 +3160,25 @@
     "winner_home_away": "home",
     "winner_id": "2633",
     "loser_id": "127"
+   }
+  ],
+  "Texas": [
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Texas",
+    "loser": "Saint Mary's",
+    "winner_old_rank": 7,
+    "loser_old_rank": 5,
+    "winner_new_rank": 5,
+    "loser_new_rank": 7,
+    "at": "2026-11-27T22:00Z",
+    "game_id": "401921718",
+    "winner_score": 76,
+    "loser_score": 73,
+    "winner_home_away": "neutral",
+    "winner_id": "251",
+    "loser_id": "2608"
    }
   ],
   "Texas Tech": [
@@ -3214,6 +3327,23 @@
     "winner_home_away": "home",
     "winner_id": "222",
     "loser_id": "130"
+   },
+   {
+    "kind": "swap",
+    "week": "week4",
+    "winner": "Kansas",
+    "loser": "Villanova",
+    "winner_old_rank": 17,
+    "loser_old_rank": 16,
+    "winner_new_rank": 16,
+    "loser_new_rank": 17,
+    "at": "2026-11-27T22:00Z",
+    "game_id": "401909789",
+    "winner_score": 65,
+    "loser_score": 50,
+    "winner_home_away": "home",
+    "winner_id": "2305",
+    "loser_id": "222"
    }
   ]
  },
