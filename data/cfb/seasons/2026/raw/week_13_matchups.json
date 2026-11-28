@@ -32,9 +32,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-27T20:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 26,
+      "opponent_score": 10
     },
     "Texas": {
       "opponent": "Texas A&M",
@@ -43,9 +43,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-28T00:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 16,
+      "opponent_score": 6
     },
     "Minnesota": {
       "opponent": "Wisconsin",
@@ -54,9 +54,9 @@
       "home_away": "away",
       "kickoff_utc": "2026-11-28T00:30:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 5,
+      "opponent_score": 28
     },
     "Utah": {
       "opponent": "West Virginia",
@@ -65,9 +65,9 @@
       "home_away": "home",
       "kickoff_utc": "2026-11-28T02:00:00.000Z",
       "start_time_tbd": false,
-      "completed": false,
-      "team_score": null,
-      "opponent_score": null
+      "completed": true,
+      "team_score": 52,
+      "opponent_score": 28
     },
     "Notre Dame": {
       "opponent": "Syracuse",
